@@ -5,8 +5,19 @@
 from enum import Enum
 
 __all__ = [
+    'FileSystemBackupPolicyStatus',
     'FileSystemProtectionReplicationOverwriteProtection',
 ]
+
+
+class FileSystemBackupPolicyStatus(str, Enum):
+    """
+    Set the backup policy status for the file system.
+      +   *ENABLED* - Turns automatic backups on for the file system. 
+      +   *DISABLED* - Turns automatic backups off for the file system.
+    """
+    DISABLED = "DISABLED"
+    ENABLED = "ENABLED"
 
 
 class FileSystemProtectionReplicationOverwriteProtection(str, Enum):

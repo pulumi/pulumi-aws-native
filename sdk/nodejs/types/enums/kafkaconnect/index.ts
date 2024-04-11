@@ -21,3 +21,13 @@ export const ConnectorKafkaClusterEncryptionInTransitType = {
  * The type of encryption in transit to the Kafka cluster.
  */
 export type ConnectorKafkaClusterEncryptionInTransitType = (typeof ConnectorKafkaClusterEncryptionInTransitType)[keyof typeof ConnectorKafkaClusterEncryptionInTransitType];
+
+export const CustomPluginContentType = {
+    Jar: "JAR",
+    Zip: "ZIP",
+} as const;
+
+/**
+ * The type of the plugin file.
+ */
+export type CustomPluginContentType = (typeof CustomPluginContentType)[keyof typeof CustomPluginContentType];

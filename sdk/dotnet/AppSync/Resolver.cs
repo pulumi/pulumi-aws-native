@@ -99,6 +99,9 @@ namespace Pulumi.AwsNative.AppSync
         [Output("maxBatchSize")]
         public Output<int?> MaxBatchSize { get; private set; } = null!;
 
+        /// <summary>
+        /// Enables or disables enhanced resolver metrics for specified resolvers. Note that ``MetricsConfig`` won't be used unless the ``resolverLevelMetricsBehavior`` value is set to ``PER_RESOLVER_METRICS``. If the ``resolverLevelMetricsBehavior`` is set to ``FULL_REQUEST_RESOLVER_METRICS`` instead, ``MetricsConfig`` will be ignored. However, you can still set its value.
+        /// </summary>
         [Output("metricsConfig")]
         public Output<Pulumi.AwsNative.AppSync.ResolverMetricsConfig?> MetricsConfig { get; private set; } = null!;
 
@@ -255,6 +258,9 @@ namespace Pulumi.AwsNative.AppSync
         [Input("maxBatchSize")]
         public Input<int>? MaxBatchSize { get; set; }
 
+        /// <summary>
+        /// Enables or disables enhanced resolver metrics for specified resolvers. Note that ``MetricsConfig`` won't be used unless the ``resolverLevelMetricsBehavior`` value is set to ``PER_RESOLVER_METRICS``. If the ``resolverLevelMetricsBehavior`` is set to ``FULL_REQUEST_RESOLVER_METRICS`` instead, ``MetricsConfig`` will be ignored. However, you can still set its value.
+        /// </summary>
         [Input("metricsConfig")]
         public Input<Pulumi.AwsNative.AppSync.ResolverMetricsConfig>? MetricsConfig { get; set; }
 

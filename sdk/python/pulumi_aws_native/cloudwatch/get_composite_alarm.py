@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetCompositeAlarmResult',
@@ -18,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetCompositeAlarmResult:
-    def __init__(__self__, actions_enabled=None, actions_suppressor=None, actions_suppressor_extension_period=None, actions_suppressor_wait_period=None, alarm_actions=None, alarm_description=None, alarm_rule=None, arn=None, insufficient_data_actions=None, ok_actions=None):
+    def __init__(__self__, actions_enabled=None, actions_suppressor=None, actions_suppressor_extension_period=None, actions_suppressor_wait_period=None, alarm_actions=None, alarm_description=None, alarm_rule=None, arn=None, insufficient_data_actions=None, ok_actions=None, tags=None):
         if actions_enabled and not isinstance(actions_enabled, bool):
             raise TypeError("Expected argument 'actions_enabled' to be a bool")
         pulumi.set(__self__, "actions_enabled", actions_enabled)
@@ -49,6 +50,9 @@ class GetCompositeAlarmResult:
         if ok_actions and not isinstance(ok_actions, list):
             raise TypeError("Expected argument 'ok_actions' to be a list")
         pulumi.set(__self__, "ok_actions", ok_actions)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="actionsEnabled")
@@ -130,6 +134,14 @@ class GetCompositeAlarmResult:
         """
         return pulumi.get(self, "ok_actions")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        A list of key-value pairs to associate with the composite alarm. You can associate as many as 50 tags with an alarm.
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetCompositeAlarmResult(GetCompositeAlarmResult):
     # pylint: disable=using-constant-test
@@ -146,7 +158,8 @@ class AwaitableGetCompositeAlarmResult(GetCompositeAlarmResult):
             alarm_rule=self.alarm_rule,
             arn=self.arn,
             insufficient_data_actions=self.insufficient_data_actions,
-            ok_actions=self.ok_actions)
+            ok_actions=self.ok_actions,
+            tags=self.tags)
 
 
 def get_composite_alarm(alarm_name: Optional[str] = None,
@@ -172,7 +185,8 @@ def get_composite_alarm(alarm_name: Optional[str] = None,
         alarm_rule=pulumi.get(__ret__, 'alarm_rule'),
         arn=pulumi.get(__ret__, 'arn'),
         insufficient_data_actions=pulumi.get(__ret__, 'insufficient_data_actions'),
-        ok_actions=pulumi.get(__ret__, 'ok_actions'))
+        ok_actions=pulumi.get(__ret__, 'ok_actions'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_composite_alarm)

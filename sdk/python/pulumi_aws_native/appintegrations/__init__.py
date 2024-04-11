@@ -5,8 +5,10 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .application import *
 from .data_integration import *
 from .event_integration import *
+from .get_application import *
 from .get_data_integration import *
 from .get_event_integration import *
 from ._inputs import *

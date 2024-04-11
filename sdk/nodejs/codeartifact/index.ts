@@ -15,10 +15,20 @@ export const getDomain: typeof import("./getDomain").getDomain = null as any;
 export const getDomainOutput: typeof import("./getDomain").getDomainOutput = null as any;
 utilities.lazyLoad(exports, ["getDomain","getDomainOutput"], () => require("./getDomain"));
 
+export { GetPackageGroupArgs, GetPackageGroupResult, GetPackageGroupOutputArgs } from "./getPackageGroup";
+export const getPackageGroup: typeof import("./getPackageGroup").getPackageGroup = null as any;
+export const getPackageGroupOutput: typeof import("./getPackageGroup").getPackageGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getPackageGroup","getPackageGroupOutput"], () => require("./getPackageGroup"));
+
 export { GetRepositoryArgs, GetRepositoryResult, GetRepositoryOutputArgs } from "./getRepository";
 export const getRepository: typeof import("./getRepository").getRepository = null as any;
 export const getRepositoryOutput: typeof import("./getRepository").getRepositoryOutput = null as any;
 utilities.lazyLoad(exports, ["getRepository","getRepositoryOutput"], () => require("./getRepository"));
+
+export { PackageGroupArgs } from "./packageGroup";
+export type PackageGroup = import("./packageGroup").PackageGroup;
+export const PackageGroup: typeof import("./packageGroup").PackageGroup = null as any;
+utilities.lazyLoad(exports, ["PackageGroup"], () => require("./packageGroup"));
 
 export { RepositoryArgs } from "./repository";
 export type Repository = import("./repository").Repository;
@@ -26,12 +36,17 @@ export const Repository: typeof import("./repository").Repository = null as any;
 utilities.lazyLoad(exports, ["Repository"], () => require("./repository"));
 
 
+// Export enums:
+export * from "../types/enums/codeartifact";
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
             case "aws-native:codeartifact:Domain":
                 return new Domain(name, <any>undefined, { urn })
+            case "aws-native:codeartifact:PackageGroup":
+                return new PackageGroup(name, <any>undefined, { urn })
             case "aws-native:codeartifact:Repository":
                 return new Repository(name, <any>undefined, { urn })
             default:

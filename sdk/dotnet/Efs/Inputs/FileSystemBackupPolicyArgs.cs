@@ -21,7 +21,7 @@ namespace Pulumi.AwsNative.Efs.Inputs
         ///   +   *DISABLED* - Turns automatic backups off for the file system.
         /// </summary>
         [Input("status", required: true)]
-        public Input<string> Status { get; set; } = null!;
+        public Input<Pulumi.AwsNative.Efs.FileSystemBackupPolicyStatus> Status { get; set; } = null!;
 
         public FileSystemBackupPolicyArgs()
         {

@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { ApplicationArgs } from "./application";
+export type Application = import("./application").Application;
+export const Application: typeof import("./application").Application = null as any;
+utilities.lazyLoad(exports, ["Application"], () => require("./application"));
+
 export { DataIntegrationArgs } from "./dataIntegration";
 export type DataIntegration = import("./dataIntegration").DataIntegration;
 export const DataIntegration: typeof import("./dataIntegration").DataIntegration = null as any;
@@ -14,6 +19,11 @@ export { EventIntegrationArgs } from "./eventIntegration";
 export type EventIntegration = import("./eventIntegration").EventIntegration;
 export const EventIntegration: typeof import("./eventIntegration").EventIntegration = null as any;
 utilities.lazyLoad(exports, ["EventIntegration"], () => require("./eventIntegration"));
+
+export { GetApplicationArgs, GetApplicationResult, GetApplicationOutputArgs } from "./getApplication";
+export const getApplication: typeof import("./getApplication").getApplication = null as any;
+export const getApplicationOutput: typeof import("./getApplication").getApplicationOutput = null as any;
+utilities.lazyLoad(exports, ["getApplication","getApplicationOutput"], () => require("./getApplication"));
 
 export { GetDataIntegrationArgs, GetDataIntegrationResult, GetDataIntegrationOutputArgs } from "./getDataIntegration";
 export const getDataIntegration: typeof import("./getDataIntegration").getDataIntegration = null as any;
@@ -30,6 +40,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:appintegrations:Application":
+                return new Application(name, <any>undefined, { urn })
             case "aws-native:appintegrations:DataIntegration":
                 return new DataIntegration(name, <any>undefined, { urn })
             case "aws-native:appintegrations:EventIntegration":

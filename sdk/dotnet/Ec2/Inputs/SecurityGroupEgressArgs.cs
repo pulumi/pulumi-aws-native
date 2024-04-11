@@ -33,9 +33,6 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         [Input("ipProtocol", required: true)]
         public Input<string> IpProtocol { get; set; } = null!;
 
-        [Input("sourceSecurityGroupId")]
-        public Input<string>? SourceSecurityGroupId { get; set; }
-
         [Input("toPort")]
         public Input<int>? ToPort { get; set; }
 

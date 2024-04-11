@@ -30,6 +30,8 @@ type LookupAppImageConfigArgs struct {
 type LookupAppImageConfigResult struct {
 	// The Amazon Resource Name (ARN) of the AppImageConfig.
 	AppImageConfigArn *string `pulumi:"appImageConfigArn"`
+	// The CodeEditorAppImageConfig.
+	CodeEditorAppImageConfig *AppImageConfigCodeEditorAppImageConfig `pulumi:"codeEditorAppImageConfig"`
 	// The JupyterLabAppImageConfig.
 	JupyterLabAppImageConfig *AppImageConfigJupyterLabAppImageConfig `pulumi:"jupyterLabAppImageConfig"`
 	// The KernelGatewayImageConfig.
@@ -75,6 +77,13 @@ func (o LookupAppImageConfigResultOutput) ToLookupAppImageConfigResultOutputWith
 // The Amazon Resource Name (ARN) of the AppImageConfig.
 func (o LookupAppImageConfigResultOutput) AppImageConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAppImageConfigResult) *string { return v.AppImageConfigArn }).(pulumi.StringPtrOutput)
+}
+
+// The CodeEditorAppImageConfig.
+func (o LookupAppImageConfigResultOutput) CodeEditorAppImageConfig() AppImageConfigCodeEditorAppImageConfigPtrOutput {
+	return o.ApplyT(func(v LookupAppImageConfigResult) *AppImageConfigCodeEditorAppImageConfig {
+		return v.CodeEditorAppImageConfig
+	}).(AppImageConfigCodeEditorAppImageConfigPtrOutput)
 }
 
 // The JupyterLabAppImageConfig.

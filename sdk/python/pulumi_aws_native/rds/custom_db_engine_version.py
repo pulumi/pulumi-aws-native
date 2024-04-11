@@ -17,54 +17,55 @@ __all__ = ['CustomDbEngineVersionArgs', 'CustomDbEngineVersion']
 @pulumi.input_type
 class CustomDbEngineVersionArgs:
     def __init__(__self__, *,
-                 database_installation_files_s3_bucket_name: pulumi.Input[str],
                  engine: pulumi.Input[str],
                  engine_version: pulumi.Input[str],
+                 database_installation_files_s3_bucket_name: Optional[pulumi.Input[str]] = None,
                  database_installation_files_s3_prefix: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 image_id: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  manifest: Optional[pulumi.Input[str]] = None,
+                 source_custom_db_engine_version_identifier: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input['CustomDbEngineVersionStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 use_aws_provided_latest_image: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a CustomDbEngineVersion resource.
-        :param pulumi.Input[str] database_installation_files_s3_bucket_name: The name of an Amazon S3 bucket that contains database installation files for your CEV. For example, a valid bucket name is `my-custom-installation-files`.
         :param pulumi.Input[str] engine: The database engine to use for your custom engine version (CEV). The only supported value is `custom-oracle-ee`.
         :param pulumi.Input[str] engine_version: The name of your CEV. The name format is 19.customized_string . For example, a valid name is 19.my_cev1. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of Engine and EngineVersion is unique per customer per Region.
+        :param pulumi.Input[str] database_installation_files_s3_bucket_name: The name of an Amazon S3 bucket that contains database installation files for your CEV. For example, a valid bucket name is `my-custom-installation-files`.
         :param pulumi.Input[str] database_installation_files_s3_prefix: The Amazon S3 directory that contains the database installation files for your CEV. For example, a valid bucket name is `123456789012/cev1`. If this setting isn't specified, no prefix is assumed.
         :param pulumi.Input[str] description: An optional description of your CEV.
+        :param pulumi.Input[str] image_id: The identifier of Amazon Machine Image (AMI) used for CEV.
         :param pulumi.Input[str] kms_key_id: The AWS KMS key identifier for an encrypted CEV. A symmetric KMS key is required for RDS Custom, but optional for Amazon RDS.
         :param pulumi.Input[str] manifest: The CEV manifest, which is a JSON document that describes the installation .zip files stored in Amazon S3. Specify the name/value pairs in a file or a quoted string. RDS Custom applies the patches in the order in which they are listed.
+        :param pulumi.Input[str] source_custom_db_engine_version_identifier: The identifier of the source custom engine version.
         :param pulumi.Input['CustomDbEngineVersionStatus'] status: The availability status to be assigned to the CEV.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[bool] use_aws_provided_latest_image: A value that indicates whether AWS provided latest image is applied automatically to the Custom Engine Version. By default, AWS provided latest image is applied automatically. This value is only applied on create.
         """
-        pulumi.set(__self__, "database_installation_files_s3_bucket_name", database_installation_files_s3_bucket_name)
         pulumi.set(__self__, "engine", engine)
         pulumi.set(__self__, "engine_version", engine_version)
+        if database_installation_files_s3_bucket_name is not None:
+            pulumi.set(__self__, "database_installation_files_s3_bucket_name", database_installation_files_s3_bucket_name)
         if database_installation_files_s3_prefix is not None:
             pulumi.set(__self__, "database_installation_files_s3_prefix", database_installation_files_s3_prefix)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if image_id is not None:
+            pulumi.set(__self__, "image_id", image_id)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if manifest is not None:
             pulumi.set(__self__, "manifest", manifest)
+        if source_custom_db_engine_version_identifier is not None:
+            pulumi.set(__self__, "source_custom_db_engine_version_identifier", source_custom_db_engine_version_identifier)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="databaseInstallationFilesS3BucketName")
-    def database_installation_files_s3_bucket_name(self) -> pulumi.Input[str]:
-        """
-        The name of an Amazon S3 bucket that contains database installation files for your CEV. For example, a valid bucket name is `my-custom-installation-files`.
-        """
-        return pulumi.get(self, "database_installation_files_s3_bucket_name")
-
-    @database_installation_files_s3_bucket_name.setter
-    def database_installation_files_s3_bucket_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "database_installation_files_s3_bucket_name", value)
+        if use_aws_provided_latest_image is not None:
+            pulumi.set(__self__, "use_aws_provided_latest_image", use_aws_provided_latest_image)
 
     @property
     @pulumi.getter
@@ -91,6 +92,18 @@ class CustomDbEngineVersionArgs:
         pulumi.set(self, "engine_version", value)
 
     @property
+    @pulumi.getter(name="databaseInstallationFilesS3BucketName")
+    def database_installation_files_s3_bucket_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of an Amazon S3 bucket that contains database installation files for your CEV. For example, a valid bucket name is `my-custom-installation-files`.
+        """
+        return pulumi.get(self, "database_installation_files_s3_bucket_name")
+
+    @database_installation_files_s3_bucket_name.setter
+    def database_installation_files_s3_bucket_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "database_installation_files_s3_bucket_name", value)
+
+    @property
     @pulumi.getter(name="databaseInstallationFilesS3Prefix")
     def database_installation_files_s3_prefix(self) -> Optional[pulumi.Input[str]]:
         """
@@ -113,6 +126,18 @@ class CustomDbEngineVersionArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="imageId")
+    def image_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier of Amazon Machine Image (AMI) used for CEV.
+        """
+        return pulumi.get(self, "image_id")
+
+    @image_id.setter
+    def image_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "image_id", value)
 
     @property
     @pulumi.getter(name="kmsKeyId")
@@ -139,6 +164,18 @@ class CustomDbEngineVersionArgs:
         pulumi.set(self, "manifest", value)
 
     @property
+    @pulumi.getter(name="sourceCustomDbEngineVersionIdentifier")
+    def source_custom_db_engine_version_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier of the source custom engine version.
+        """
+        return pulumi.get(self, "source_custom_db_engine_version_identifier")
+
+    @source_custom_db_engine_version_identifier.setter
+    def source_custom_db_engine_version_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_custom_db_engine_version_identifier", value)
+
+    @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input['CustomDbEngineVersionStatus']]:
         """
@@ -162,6 +199,18 @@ class CustomDbEngineVersionArgs:
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="useAwsProvidedLatestImage")
+    def use_aws_provided_latest_image(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A value that indicates whether AWS provided latest image is applied automatically to the Custom Engine Version. By default, AWS provided latest image is applied automatically. This value is only applied on create.
+        """
+        return pulumi.get(self, "use_aws_provided_latest_image")
+
+    @use_aws_provided_latest_image.setter
+    def use_aws_provided_latest_image(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_aws_provided_latest_image", value)
+
 
 class CustomDbEngineVersion(pulumi.CustomResource):
     @overload
@@ -173,10 +222,13 @@ class CustomDbEngineVersion(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
+                 image_id: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  manifest: Optional[pulumi.Input[str]] = None,
+                 source_custom_db_engine_version_identifier: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input['CustomDbEngineVersionStatus']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 use_aws_provided_latest_image: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
         The AWS::RDS::CustomDBEngineVersion resource creates an Amazon RDS custom DB engine version.
@@ -188,10 +240,13 @@ class CustomDbEngineVersion(pulumi.CustomResource):
         :param pulumi.Input[str] description: An optional description of your CEV.
         :param pulumi.Input[str] engine: The database engine to use for your custom engine version (CEV). The only supported value is `custom-oracle-ee`.
         :param pulumi.Input[str] engine_version: The name of your CEV. The name format is 19.customized_string . For example, a valid name is 19.my_cev1. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of Engine and EngineVersion is unique per customer per Region.
+        :param pulumi.Input[str] image_id: The identifier of Amazon Machine Image (AMI) used for CEV.
         :param pulumi.Input[str] kms_key_id: The AWS KMS key identifier for an encrypted CEV. A symmetric KMS key is required for RDS Custom, but optional for Amazon RDS.
         :param pulumi.Input[str] manifest: The CEV manifest, which is a JSON document that describes the installation .zip files stored in Amazon S3. Specify the name/value pairs in a file or a quoted string. RDS Custom applies the patches in the order in which they are listed.
+        :param pulumi.Input[str] source_custom_db_engine_version_identifier: The identifier of the source custom engine version.
         :param pulumi.Input['CustomDbEngineVersionStatus'] status: The availability status to be assigned to the CEV.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[bool] use_aws_provided_latest_image: A value that indicates whether AWS provided latest image is applied automatically to the Custom Engine Version. By default, AWS provided latest image is applied automatically. This value is only applied on create.
         """
         ...
     @overload
@@ -222,10 +277,13 @@ class CustomDbEngineVersion(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
+                 image_id: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  manifest: Optional[pulumi.Input[str]] = None,
+                 source_custom_db_engine_version_identifier: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input['CustomDbEngineVersionStatus']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 use_aws_provided_latest_image: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -235,8 +293,6 @@ class CustomDbEngineVersion(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CustomDbEngineVersionArgs.__new__(CustomDbEngineVersionArgs)
 
-            if database_installation_files_s3_bucket_name is None and not opts.urn:
-                raise TypeError("Missing required property 'database_installation_files_s3_bucket_name'")
             __props__.__dict__["database_installation_files_s3_bucket_name"] = database_installation_files_s3_bucket_name
             __props__.__dict__["database_installation_files_s3_prefix"] = database_installation_files_s3_prefix
             __props__.__dict__["description"] = description
@@ -246,12 +302,15 @@ class CustomDbEngineVersion(pulumi.CustomResource):
             if engine_version is None and not opts.urn:
                 raise TypeError("Missing required property 'engine_version'")
             __props__.__dict__["engine_version"] = engine_version
+            __props__.__dict__["image_id"] = image_id
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["manifest"] = manifest
+            __props__.__dict__["source_custom_db_engine_version_identifier"] = source_custom_db_engine_version_identifier
             __props__.__dict__["status"] = status
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["use_aws_provided_latest_image"] = use_aws_provided_latest_image
             __props__.__dict__["db_engine_version_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["databaseInstallationFilesS3BucketName", "databaseInstallationFilesS3Prefix", "engine", "engineVersion", "kmsKeyId", "manifest"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["databaseInstallationFilesS3BucketName", "databaseInstallationFilesS3Prefix", "engine", "engineVersion", "imageId", "kmsKeyId", "manifest", "sourceCustomDbEngineVersionIdentifier", "useAwsProvidedLatestImage"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(CustomDbEngineVersion, __self__).__init__(
             'aws-native:rds:CustomDbEngineVersion',
@@ -281,15 +340,18 @@ class CustomDbEngineVersion(pulumi.CustomResource):
         __props__.__dict__["description"] = None
         __props__.__dict__["engine"] = None
         __props__.__dict__["engine_version"] = None
+        __props__.__dict__["image_id"] = None
         __props__.__dict__["kms_key_id"] = None
         __props__.__dict__["manifest"] = None
+        __props__.__dict__["source_custom_db_engine_version_identifier"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["use_aws_provided_latest_image"] = None
         return CustomDbEngineVersion(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="databaseInstallationFilesS3BucketName")
-    def database_installation_files_s3_bucket_name(self) -> pulumi.Output[str]:
+    def database_installation_files_s3_bucket_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of an Amazon S3 bucket that contains database installation files for your CEV. For example, a valid bucket name is `my-custom-installation-files`.
         """
@@ -336,6 +398,14 @@ class CustomDbEngineVersion(pulumi.CustomResource):
         return pulumi.get(self, "engine_version")
 
     @property
+    @pulumi.getter(name="imageId")
+    def image_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The identifier of Amazon Machine Image (AMI) used for CEV.
+        """
+        return pulumi.get(self, "image_id")
+
+    @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[Optional[str]]:
         """
@@ -352,6 +422,14 @@ class CustomDbEngineVersion(pulumi.CustomResource):
         return pulumi.get(self, "manifest")
 
     @property
+    @pulumi.getter(name="sourceCustomDbEngineVersionIdentifier")
+    def source_custom_db_engine_version_identifier(self) -> pulumi.Output[Optional[str]]:
+        """
+        The identifier of the source custom engine version.
+        """
+        return pulumi.get(self, "source_custom_db_engine_version_identifier")
+
+    @property
     @pulumi.getter
     def status(self) -> pulumi.Output[Optional['CustomDbEngineVersionStatus']]:
         """
@@ -366,4 +444,12 @@ class CustomDbEngineVersion(pulumi.CustomResource):
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="useAwsProvidedLatestImage")
+    def use_aws_provided_latest_image(self) -> pulumi.Output[Optional[bool]]:
+        """
+        A value that indicates whether AWS provided latest image is applied automatically to the Custom Engine Version. By default, AWS provided latest image is applied automatically. This value is only applied on create.
+        """
+        return pulumi.get(self, "use_aws_provided_latest_image")
 

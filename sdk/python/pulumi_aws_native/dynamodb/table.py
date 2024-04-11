@@ -30,6 +30,7 @@ class TableArgs:
                  local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['TableLocalSecondaryIndexArgs']]]] = None,
                  point_in_time_recovery_specification: Optional[pulumi.Input['TablePointInTimeRecoverySpecificationArgs']] = None,
                  provisioned_throughput: Optional[pulumi.Input['TableProvisionedThroughputArgs']] = None,
+                 resource_policy: Optional[pulumi.Input['TableResourcePolicyArgs']] = None,
                  sse_specification: Optional[pulumi.Input['TableSseSpecificationArgs']] = None,
                  stream_specification: Optional[pulumi.Input['TableStreamSpecificationArgs']] = None,
                  table_class: Optional[pulumi.Input[str]] = None,
@@ -63,6 +64,8 @@ class TableArgs:
         :param pulumi.Input['TablePointInTimeRecoverySpecificationArgs'] point_in_time_recovery_specification: The settings used to enable point in time recovery.
         :param pulumi.Input['TableProvisionedThroughputArgs'] provisioned_throughput: Throughput for the specified table, which consists of values for ``ReadCapacityUnits`` and ``WriteCapacityUnits``. For more information about the contents of a provisioned throughput structure, see [Amazon DynamoDB Table ProvisionedThroughput](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ProvisionedThroughput.html). 
                 If you set ``BillingMode`` as ``PROVISIONED``, you must specify this property. If you set ``BillingMode`` as ``PAY_PER_REQUEST``, you cannot specify this property.
+        :param pulumi.Input['TableResourcePolicyArgs'] resource_policy: A resource-based policy document that contains permissions to add to the specified table. In a CFNshort template, you can provide the policy in JSON or YAML format because CFNshort converts YAML to JSON before submitting it to DDB. For more information about resource-based policies, see [Using resource-based policies for](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html).
+                When you attach a resource-based policy while creating a table, the policy creation is *strongly consistent*. For information about the considerations that you should keep in mind while attaching a resource-based policy, see [Resource-based policy considerations](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-considerations.html).
         :param pulumi.Input['TableSseSpecificationArgs'] sse_specification: Specifies the settings to enable server-side encryption.
         :param pulumi.Input['TableStreamSpecificationArgs'] stream_specification: The settings for the DDB table stream, which capture changes to items stored in the table.
         :param pulumi.Input[str] table_class: The table class of the new table. Valid values are ``STANDARD`` and ``STANDARD_INFREQUENT_ACCESS``.
@@ -94,6 +97,8 @@ class TableArgs:
             pulumi.set(__self__, "point_in_time_recovery_specification", point_in_time_recovery_specification)
         if provisioned_throughput is not None:
             pulumi.set(__self__, "provisioned_throughput", provisioned_throughput)
+        if resource_policy is not None:
+            pulumi.set(__self__, "resource_policy", resource_policy)
         if sse_specification is not None:
             pulumi.set(__self__, "sse_specification", sse_specification)
         if stream_specification is not None:
@@ -254,6 +259,19 @@ class TableArgs:
         pulumi.set(self, "provisioned_throughput", value)
 
     @property
+    @pulumi.getter(name="resourcePolicy")
+    def resource_policy(self) -> Optional[pulumi.Input['TableResourcePolicyArgs']]:
+        """
+        A resource-based policy document that contains permissions to add to the specified table. In a CFNshort template, you can provide the policy in JSON or YAML format because CFNshort converts YAML to JSON before submitting it to DDB. For more information about resource-based policies, see [Using resource-based policies for](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html).
+         When you attach a resource-based policy while creating a table, the policy creation is *strongly consistent*. For information about the considerations that you should keep in mind while attaching a resource-based policy, see [Resource-based policy considerations](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-considerations.html).
+        """
+        return pulumi.get(self, "resource_policy")
+
+    @resource_policy.setter
+    def resource_policy(self, value: Optional[pulumi.Input['TableResourcePolicyArgs']]):
+        pulumi.set(self, "resource_policy", value)
+
+    @property
     @pulumi.getter(name="sseSpecification")
     def sse_specification(self) -> Optional[pulumi.Input['TableSseSpecificationArgs']]:
         """
@@ -345,6 +363,7 @@ class Table(pulumi.CustomResource):
                  local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableLocalSecondaryIndexArgs']]]]] = None,
                  point_in_time_recovery_specification: Optional[pulumi.Input[pulumi.InputType['TablePointInTimeRecoverySpecificationArgs']]] = None,
                  provisioned_throughput: Optional[pulumi.Input[pulumi.InputType['TableProvisionedThroughputArgs']]] = None,
+                 resource_policy: Optional[pulumi.Input[pulumi.InputType['TableResourcePolicyArgs']]] = None,
                  sse_specification: Optional[pulumi.Input[pulumi.InputType['TableSseSpecificationArgs']]] = None,
                  stream_specification: Optional[pulumi.Input[pulumi.InputType['TableStreamSpecificationArgs']]] = None,
                  table_class: Optional[pulumi.Input[str]] = None,
@@ -355,7 +374,7 @@ class Table(pulumi.CustomResource):
         """
         The ``AWS::DynamoDB::Table`` resource creates a DDB table. For more information, see [CreateTable](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_CreateTable.html) in the *API Reference*.
          You should be aware of the following behaviors when working with DDB tables:
-          +  CFNlong typically creates DDB tables in parallel. However, if your template includes multiple DDB tables with indexes, you must declare dependencies so that the tables are created sequentially. DDBlong limits the number of tables with secondary indexes that are in the creating state. If you create multiple tables with indexes at the same time, DDB returns an error and the stack operation fails. For an example, see [DynamoDB Table with a DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#aws-resource-dynamodb-table--examples--DynamoDB_Table_with_a_DependsOn_Attribute).
+          +   CFNlong typically creates DDB tables in parallel. However, if your template includes multiple DDB tables with indexes, you must declare dependencies so that the tables are created sequentially. DDBlong limits the number of tables with secondary indexes that are in the creating state. If you create multiple tables with indexes at the same time, DDB returns an error and the stack operation fails. For an example, see [DynamoDB Table with a DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#aws-resource-dynamodb-table--examples--DynamoDB_Table_with_a_DependsOn_Attribute).
 
            Our guidance is to use the latest schema documented here for your CFNlong templates. This schema supports the provisioning of all table settings below. When using this schema in your CFNlong templates, please ensure that your Identity and Access Management (IAM) policies are updated with appropriate permissions to allow for the authorization of these setting changes.
 
@@ -612,6 +631,8 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['TablePointInTimeRecoverySpecificationArgs']] point_in_time_recovery_specification: The settings used to enable point in time recovery.
         :param pulumi.Input[pulumi.InputType['TableProvisionedThroughputArgs']] provisioned_throughput: Throughput for the specified table, which consists of values for ``ReadCapacityUnits`` and ``WriteCapacityUnits``. For more information about the contents of a provisioned throughput structure, see [Amazon DynamoDB Table ProvisionedThroughput](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ProvisionedThroughput.html). 
                 If you set ``BillingMode`` as ``PROVISIONED``, you must specify this property. If you set ``BillingMode`` as ``PAY_PER_REQUEST``, you cannot specify this property.
+        :param pulumi.Input[pulumi.InputType['TableResourcePolicyArgs']] resource_policy: A resource-based policy document that contains permissions to add to the specified table. In a CFNshort template, you can provide the policy in JSON or YAML format because CFNshort converts YAML to JSON before submitting it to DDB. For more information about resource-based policies, see [Using resource-based policies for](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html).
+                When you attach a resource-based policy while creating a table, the policy creation is *strongly consistent*. For information about the considerations that you should keep in mind while attaching a resource-based policy, see [Resource-based policy considerations](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-considerations.html).
         :param pulumi.Input[pulumi.InputType['TableSseSpecificationArgs']] sse_specification: Specifies the settings to enable server-side encryption.
         :param pulumi.Input[pulumi.InputType['TableStreamSpecificationArgs']] stream_specification: The settings for the DDB table stream, which capture changes to items stored in the table.
         :param pulumi.Input[str] table_class: The table class of the new table. Valid values are ``STANDARD`` and ``STANDARD_INFREQUENT_ACCESS``.
@@ -631,7 +652,7 @@ class Table(pulumi.CustomResource):
         """
         The ``AWS::DynamoDB::Table`` resource creates a DDB table. For more information, see [CreateTable](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_CreateTable.html) in the *API Reference*.
          You should be aware of the following behaviors when working with DDB tables:
-          +  CFNlong typically creates DDB tables in parallel. However, if your template includes multiple DDB tables with indexes, you must declare dependencies so that the tables are created sequentially. DDBlong limits the number of tables with secondary indexes that are in the creating state. If you create multiple tables with indexes at the same time, DDB returns an error and the stack operation fails. For an example, see [DynamoDB Table with a DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#aws-resource-dynamodb-table--examples--DynamoDB_Table_with_a_DependsOn_Attribute).
+          +   CFNlong typically creates DDB tables in parallel. However, if your template includes multiple DDB tables with indexes, you must declare dependencies so that the tables are created sequentially. DDBlong limits the number of tables with secondary indexes that are in the creating state. If you create multiple tables with indexes at the same time, DDB returns an error and the stack operation fails. For an example, see [DynamoDB Table with a DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#aws-resource-dynamodb-table--examples--DynamoDB_Table_with_a_DependsOn_Attribute).
 
            Our guidance is to use the latest schema documented here for your CFNlong templates. This schema supports the provisioning of all table settings below. When using this schema in your CFNlong templates, please ensure that your Identity and Access Management (IAM) policies are updated with appropriate permissions to allow for the authorization of these setting changes.
 
@@ -887,6 +908,7 @@ class Table(pulumi.CustomResource):
                  local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableLocalSecondaryIndexArgs']]]]] = None,
                  point_in_time_recovery_specification: Optional[pulumi.Input[pulumi.InputType['TablePointInTimeRecoverySpecificationArgs']]] = None,
                  provisioned_throughput: Optional[pulumi.Input[pulumi.InputType['TableProvisionedThroughputArgs']]] = None,
+                 resource_policy: Optional[pulumi.Input[pulumi.InputType['TableResourcePolicyArgs']]] = None,
                  sse_specification: Optional[pulumi.Input[pulumi.InputType['TableSseSpecificationArgs']]] = None,
                  stream_specification: Optional[pulumi.Input[pulumi.InputType['TableStreamSpecificationArgs']]] = None,
                  table_class: Optional[pulumi.Input[str]] = None,
@@ -915,6 +937,7 @@ class Table(pulumi.CustomResource):
             __props__.__dict__["local_secondary_indexes"] = local_secondary_indexes
             __props__.__dict__["point_in_time_recovery_specification"] = point_in_time_recovery_specification
             __props__.__dict__["provisioned_throughput"] = provisioned_throughput
+            __props__.__dict__["resource_policy"] = resource_policy
             __props__.__dict__["sse_specification"] = sse_specification
             __props__.__dict__["stream_specification"] = stream_specification
             __props__.__dict__["table_class"] = table_class
@@ -959,6 +982,7 @@ class Table(pulumi.CustomResource):
         __props__.__dict__["local_secondary_indexes"] = None
         __props__.__dict__["point_in_time_recovery_specification"] = None
         __props__.__dict__["provisioned_throughput"] = None
+        __props__.__dict__["resource_policy"] = None
         __props__.__dict__["sse_specification"] = None
         __props__.__dict__["stream_arn"] = None
         __props__.__dict__["stream_specification"] = None
@@ -1074,6 +1098,15 @@ class Table(pulumi.CustomResource):
          If you set ``BillingMode`` as ``PROVISIONED``, you must specify this property. If you set ``BillingMode`` as ``PAY_PER_REQUEST``, you cannot specify this property.
         """
         return pulumi.get(self, "provisioned_throughput")
+
+    @property
+    @pulumi.getter(name="resourcePolicy")
+    def resource_policy(self) -> pulumi.Output[Optional['outputs.TableResourcePolicy']]:
+        """
+        A resource-based policy document that contains permissions to add to the specified table. In a CFNshort template, you can provide the policy in JSON or YAML format because CFNshort converts YAML to JSON before submitting it to DDB. For more information about resource-based policies, see [Using resource-based policies for](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html).
+         When you attach a resource-based policy while creating a table, the policy creation is *strongly consistent*. For information about the considerations that you should keep in mind while attaching a resource-based policy, see [Resource-based policy considerations](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-considerations.html).
+        """
+        return pulumi.get(self, "resource_policy")
 
     @property
     @pulumi.getter(name="sseSpecification")

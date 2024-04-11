@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:globalaccelerator:Accelerator":
 		r = &Accelerator{}
+	case "aws-native:globalaccelerator:CrossAccountAttachment":
+		r = &CrossAccountAttachment{}
 	case "aws-native:globalaccelerator:EndpointGroup":
 		r = &EndpointGroup{}
 	case "aws-native:globalaccelerator:Listener":

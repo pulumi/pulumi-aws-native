@@ -58,13 +58,33 @@ namespace Pulumi.AwsNative.Connect
     public sealed class GetSecurityProfileResult
     {
         /// <summary>
+        /// The identifier of the hierarchy group that a security profile uses to restrict access to resources in Amazon Connect.
+        /// </summary>
+        public readonly string? AllowedAccessControlHierarchyGroupId;
+        /// <summary>
         /// The list of tags that a security profile uses to restrict access to resources in Amazon Connect.
         /// </summary>
         public readonly ImmutableArray<Outputs.SecurityProfileTag> AllowedAccessControlTags;
         /// <summary>
+        /// A list of third-party applications that the security profile will give access to.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SecurityProfileApplication> Applications;
+        /// <summary>
         /// The description of the security profile.
         /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The list of resources that a security profile applies hierarchy restrictions to in Amazon Connect.
+        /// </summary>
+        public readonly ImmutableArray<string> HierarchyRestrictedResources;
+        /// <summary>
+        /// The AWS Region where this resource was last modified.
+        /// </summary>
+        public readonly string? LastModifiedRegion;
+        /// <summary>
+        /// The timestamp when this resource was last modified.
+        /// </summary>
+        public readonly double? LastModifiedTime;
         /// <summary>
         /// Permissions assigned to the security profile.
         /// </summary>
@@ -84,9 +104,19 @@ namespace Pulumi.AwsNative.Connect
 
         [OutputConstructor]
         private GetSecurityProfileResult(
+            string? allowedAccessControlHierarchyGroupId,
+
             ImmutableArray<Outputs.SecurityProfileTag> allowedAccessControlTags,
 
+            ImmutableArray<Outputs.SecurityProfileApplication> applications,
+
             string? description,
+
+            ImmutableArray<string> hierarchyRestrictedResources,
+
+            string? lastModifiedRegion,
+
+            double? lastModifiedTime,
 
             ImmutableArray<string> permissions,
 
@@ -96,8 +126,13 @@ namespace Pulumi.AwsNative.Connect
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
+            AllowedAccessControlHierarchyGroupId = allowedAccessControlHierarchyGroupId;
             AllowedAccessControlTags = allowedAccessControlTags;
+            Applications = applications;
             Description = description;
+            HierarchyRestrictedResources = hierarchyRestrictedResources;
+            LastModifiedRegion = lastModifiedRegion;
+            LastModifiedTime = lastModifiedTime;
             Permissions = permissions;
             SecurityProfileArn = securityProfileArn;
             TagRestrictedResources = tagRestrictedResources;

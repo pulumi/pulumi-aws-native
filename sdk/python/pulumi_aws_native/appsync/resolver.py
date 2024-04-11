@@ -47,6 +47,7 @@ class ResolverArgs:
                  +   *UNIT*: A UNIT resolver type. A UNIT resolver is the default resolver type. You can use a UNIT resolver to run a GraphQL query against a single data source.
                  +   *PIPELINE*: A PIPELINE resolver type. You can use a PIPELINE resolver to invoke a series of ``Function`` objects in a serial manner. You can use a pipeline resolver to run a GraphQL query against multiple data sources.
         :param pulumi.Input[int] max_batch_size: The maximum number of resolver request inputs that will be sent to a single LAMlong function in a ``BatchInvoke`` operation.
+        :param pulumi.Input['ResolverMetricsConfig'] metrics_config: Enables or disables enhanced resolver metrics for specified resolvers. Note that ``MetricsConfig`` won't be used unless the ``resolverLevelMetricsBehavior`` value is set to ``PER_RESOLVER_METRICS``. If the ``resolverLevelMetricsBehavior`` is set to ``FULL_REQUEST_RESOLVER_METRICS`` instead, ``MetricsConfig`` will be ignored. However, you can still set its value.
         :param pulumi.Input['ResolverPipelineConfigArgs'] pipeline_config: Functions linked with the pipeline resolver.
         :param pulumi.Input[str] request_mapping_template: The request mapping template.
                 Request mapping templates are optional when using a Lambda data source. For all other data sources, a request mapping template is required.
@@ -201,6 +202,9 @@ class ResolverArgs:
     @property
     @pulumi.getter(name="metricsConfig")
     def metrics_config(self) -> Optional[pulumi.Input['ResolverMetricsConfig']]:
+        """
+        Enables or disables enhanced resolver metrics for specified resolvers. Note that ``MetricsConfig`` won't be used unless the ``resolverLevelMetricsBehavior`` value is set to ``PER_RESOLVER_METRICS``. If the ``resolverLevelMetricsBehavior`` is set to ``FULL_REQUEST_RESOLVER_METRICS`` instead, ``MetricsConfig`` will be ignored. However, you can still set its value.
+        """
         return pulumi.get(self, "metrics_config")
 
     @metrics_config.setter
@@ -357,6 +361,7 @@ class Resolver(pulumi.CustomResource):
                  +   *UNIT*: A UNIT resolver type. A UNIT resolver is the default resolver type. You can use a UNIT resolver to run a GraphQL query against a single data source.
                  +   *PIPELINE*: A PIPELINE resolver type. You can use a PIPELINE resolver to invoke a series of ``Function`` objects in a serial manner. You can use a pipeline resolver to run a GraphQL query against multiple data sources.
         :param pulumi.Input[int] max_batch_size: The maximum number of resolver request inputs that will be sent to a single LAMlong function in a ``BatchInvoke`` operation.
+        :param pulumi.Input['ResolverMetricsConfig'] metrics_config: Enables or disables enhanced resolver metrics for specified resolvers. Note that ``MetricsConfig`` won't be used unless the ``resolverLevelMetricsBehavior`` value is set to ``PER_RESOLVER_METRICS``. If the ``resolverLevelMetricsBehavior`` is set to ``FULL_REQUEST_RESOLVER_METRICS`` instead, ``MetricsConfig`` will be ignored. However, you can still set its value.
         :param pulumi.Input[pulumi.InputType['ResolverPipelineConfigArgs']] pipeline_config: Functions linked with the pipeline resolver.
         :param pulumi.Input[str] request_mapping_template: The request mapping template.
                 Request mapping templates are optional when using a Lambda data source. For all other data sources, a request mapping template is required.
@@ -580,6 +585,9 @@ class Resolver(pulumi.CustomResource):
     @property
     @pulumi.getter(name="metricsConfig")
     def metrics_config(self) -> pulumi.Output[Optional['ResolverMetricsConfig']]:
+        """
+        Enables or disables enhanced resolver metrics for specified resolvers. Note that ``MetricsConfig`` won't be used unless the ``resolverLevelMetricsBehavior`` value is set to ``PER_RESOLVER_METRICS``. If the ``resolverLevelMetricsBehavior`` is set to ``FULL_REQUEST_RESOLVER_METRICS`` instead, ``MetricsConfig`` will be ignored. However, you can still set its value.
+        """
         return pulumi.get(self, "metrics_config")
 
     @property

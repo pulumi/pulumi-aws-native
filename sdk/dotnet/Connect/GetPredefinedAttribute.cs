@@ -70,13 +70,28 @@ namespace Pulumi.AwsNative.Connect
     public sealed class GetPredefinedAttributeResult
     {
         /// <summary>
+        /// Last modified region.
+        /// </summary>
+        public readonly string? LastModifiedRegion;
+        /// <summary>
+        /// Last modified time.
+        /// </summary>
+        public readonly double? LastModifiedTime;
+        /// <summary>
         /// The values of a predefined attribute.
         /// </summary>
         public readonly Outputs.ValuesProperties? Values;
 
         [OutputConstructor]
-        private GetPredefinedAttributeResult(Outputs.ValuesProperties? values)
+        private GetPredefinedAttributeResult(
+            string? lastModifiedRegion,
+
+            double? lastModifiedTime,
+
+            Outputs.ValuesProperties? values)
         {
+            LastModifiedRegion = lastModifiedRegion;
+            LastModifiedTime = lastModifiedTime;
             Values = values;
         }
     }

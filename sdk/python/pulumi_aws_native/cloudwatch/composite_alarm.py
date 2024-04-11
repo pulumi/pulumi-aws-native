@@ -8,6 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 
 __all__ = ['CompositeAlarmArgs', 'CompositeAlarm']
 
@@ -23,7 +25,8 @@ class CompositeAlarmArgs:
                  alarm_description: Optional[pulumi.Input[str]] = None,
                  alarm_name: Optional[pulumi.Input[str]] = None,
                  insufficient_data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 ok_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 ok_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a CompositeAlarm resource.
         :param pulumi.Input[str] alarm_rule: Expression which aggregates the state of other Alarms (Metric or Composite Alarms)
@@ -36,6 +39,7 @@ class CompositeAlarmArgs:
         :param pulumi.Input[str] alarm_name: The name of the Composite Alarm
         :param pulumi.Input[Sequence[pulumi.Input[str]]] insufficient_data_actions: The actions to execute when this alarm transitions to the INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ok_actions: The actions to execute when this alarm transitions to the OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of key-value pairs to associate with the composite alarm. You can associate as many as 50 tags with an alarm.
         """
         pulumi.set(__self__, "alarm_rule", alarm_rule)
         if actions_enabled is not None:
@@ -56,6 +60,8 @@ class CompositeAlarmArgs:
             pulumi.set(__self__, "insufficient_data_actions", insufficient_data_actions)
         if ok_actions is not None:
             pulumi.set(__self__, "ok_actions", ok_actions)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="alarmRule")
@@ -177,6 +183,18 @@ class CompositeAlarmArgs:
     def ok_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "ok_actions", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        A list of key-value pairs to associate with the composite alarm. You can associate as many as 50 tags with an alarm.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 class CompositeAlarm(pulumi.CustomResource):
     @overload
@@ -193,6 +211,7 @@ class CompositeAlarm(pulumi.CustomResource):
                  alarm_rule: Optional[pulumi.Input[str]] = None,
                  insufficient_data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  ok_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
         The AWS::CloudWatch::CompositeAlarm type specifies an alarm which aggregates the states of other Alarms (Metric or Composite Alarms) as defined by the AlarmRule expression
@@ -209,6 +228,7 @@ class CompositeAlarm(pulumi.CustomResource):
         :param pulumi.Input[str] alarm_rule: Expression which aggregates the state of other Alarms (Metric or Composite Alarms)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] insufficient_data_actions: The actions to execute when this alarm transitions to the INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ok_actions: The actions to execute when this alarm transitions to the OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of key-value pairs to associate with the composite alarm. You can associate as many as 50 tags with an alarm.
         """
         ...
     @overload
@@ -244,6 +264,7 @@ class CompositeAlarm(pulumi.CustomResource):
                  alarm_rule: Optional[pulumi.Input[str]] = None,
                  insufficient_data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  ok_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -265,6 +286,7 @@ class CompositeAlarm(pulumi.CustomResource):
             __props__.__dict__["alarm_rule"] = alarm_rule
             __props__.__dict__["insufficient_data_actions"] = insufficient_data_actions
             __props__.__dict__["ok_actions"] = ok_actions
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["alarmName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -301,6 +323,7 @@ class CompositeAlarm(pulumi.CustomResource):
         __props__.__dict__["arn"] = None
         __props__.__dict__["insufficient_data_actions"] = None
         __props__.__dict__["ok_actions"] = None
+        __props__.__dict__["tags"] = None
         return CompositeAlarm(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -390,4 +413,12 @@ class CompositeAlarm(pulumi.CustomResource):
         The actions to execute when this alarm transitions to the OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         """
         return pulumi.get(self, "ok_actions")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        A list of key-value pairs to associate with the composite alarm. You can associate as many as 50 tags with an alarm.
+        """
+        return pulumi.get(self, "tags")
 

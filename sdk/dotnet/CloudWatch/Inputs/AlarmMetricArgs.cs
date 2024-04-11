@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.CloudWatch.Inputs
 {
 
     /// <summary>
-    /// The Metric property type represents a specific metric.
+    /// The ``Metric`` property type represents a specific metric. ``Metric`` is a property of the [MetricStat](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metricstat.html) property type.
     /// </summary>
     public sealed class AlarmMetricArgs : global::Pulumi.ResourceArgs
     {
@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.CloudWatch.Inputs
         private InputList<Inputs.AlarmDimensionArgs>? _dimensions;
 
         /// <summary>
-        /// The dimensions for the metric.
+        /// The metric dimensions that you want to be used for the metric that the alarm will watch.
         /// </summary>
         public InputList<Inputs.AlarmDimensionArgs> Dimensions
         {
@@ -28,13 +28,13 @@ namespace Pulumi.AwsNative.CloudWatch.Inputs
         }
 
         /// <summary>
-        /// The name of the metric.
+        /// The name of the metric that you want the alarm to watch. This is a required field.
         /// </summary>
         [Input("metricName")]
         public Input<string>? MetricName { get; set; }
 
         /// <summary>
-        /// The namespace of the metric.
+        /// The namespace of the metric that the alarm will watch.
         /// </summary>
         [Input("namespace")]
         public Input<string>? Namespace { get; set; }

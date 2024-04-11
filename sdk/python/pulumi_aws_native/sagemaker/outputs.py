@@ -12,6 +12,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AppImageConfigCodeEditorAppImageConfig',
     'AppImageConfigContainerConfig',
     'AppImageConfigCustomImageContainerEnvironmentVariable',
     'AppImageConfigFileSystemConfig',
@@ -251,6 +252,46 @@ __all__ = [
     'UserProfileSharingSettings',
     'UserProfileUserSettings',
 ]
+
+@pulumi.output_type
+class AppImageConfigCodeEditorAppImageConfig(dict):
+    """
+    The configuration for the kernels in a SageMaker image running as a CodeEditor app.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerConfig":
+            suggest = "container_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppImageConfigCodeEditorAppImageConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppImageConfigCodeEditorAppImageConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppImageConfigCodeEditorAppImageConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 container_config: Optional['outputs.AppImageConfigContainerConfig'] = None):
+        """
+        The configuration for the kernels in a SageMaker image running as a CodeEditor app.
+        :param 'AppImageConfigContainerConfig' container_config: The container configuration for a SageMaker image.
+        """
+        if container_config is not None:
+            pulumi.set(__self__, "container_config", container_config)
+
+    @property
+    @pulumi.getter(name="containerConfig")
+    def container_config(self) -> Optional['outputs.AppImageConfigContainerConfig']:
+        """
+        The container configuration for a SageMaker image.
+        """
+        return pulumi.get(self, "container_config")
+
 
 @pulumi.output_type
 class AppImageConfigContainerConfig(dict):
@@ -1717,7 +1758,9 @@ class DomainCodeEditorAppSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "defaultResourceSpec":
+        if key == "customImages":
+            suggest = "custom_images"
+        elif key == "defaultResourceSpec":
             suggest = "default_resource_spec"
         elif key == "lifecycleConfigArns":
             suggest = "lifecycle_config_arns"
@@ -1734,17 +1777,29 @@ class DomainCodeEditorAppSettings(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 custom_images: Optional[Sequence['outputs.DomainCustomImage']] = None,
                  default_resource_spec: Optional['outputs.DomainResourceSpec'] = None,
                  lifecycle_config_arns: Optional[Sequence[str]] = None):
         """
         The CodeEditor app settings.
+        :param Sequence['DomainCustomImage'] custom_images: A list of custom images for use for CodeEditor apps.
         :param 'DomainResourceSpec' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the CodeEditor app.
         :param Sequence[str] lifecycle_config_arns: A list of LifecycleConfigArns available for use with CodeEditor apps.
         """
+        if custom_images is not None:
+            pulumi.set(__self__, "custom_images", custom_images)
         if default_resource_spec is not None:
             pulumi.set(__self__, "default_resource_spec", default_resource_spec)
         if lifecycle_config_arns is not None:
             pulumi.set(__self__, "lifecycle_config_arns", lifecycle_config_arns)
+
+    @property
+    @pulumi.getter(name="customImages")
+    def custom_images(self) -> Optional[Sequence['outputs.DomainCustomImage']]:
+        """
+        A list of custom images for use for CodeEditor apps.
+        """
+        return pulumi.get(self, "custom_images")
 
     @property
     @pulumi.getter(name="defaultResourceSpec")
@@ -12970,7 +13025,9 @@ class UserProfileCodeEditorAppSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "defaultResourceSpec":
+        if key == "customImages":
+            suggest = "custom_images"
+        elif key == "defaultResourceSpec":
             suggest = "default_resource_spec"
         elif key == "lifecycleConfigArns":
             suggest = "lifecycle_config_arns"
@@ -12987,17 +13044,29 @@ class UserProfileCodeEditorAppSettings(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 custom_images: Optional[Sequence['outputs.UserProfileCustomImage']] = None,
                  default_resource_spec: Optional['outputs.UserProfileResourceSpec'] = None,
                  lifecycle_config_arns: Optional[Sequence[str]] = None):
         """
         The CodeEditor app settings.
+        :param Sequence['UserProfileCustomImage'] custom_images: A list of custom images for use for CodeEditor apps.
         :param 'UserProfileResourceSpec' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the CodeEditor app.
         :param Sequence[str] lifecycle_config_arns: A list of LifecycleConfigArns available for use with CodeEditor apps.
         """
+        if custom_images is not None:
+            pulumi.set(__self__, "custom_images", custom_images)
         if default_resource_spec is not None:
             pulumi.set(__self__, "default_resource_spec", default_resource_spec)
         if lifecycle_config_arns is not None:
             pulumi.set(__self__, "lifecycle_config_arns", lifecycle_config_arns)
+
+    @property
+    @pulumi.getter(name="customImages")
+    def custom_images(self) -> Optional[Sequence['outputs.UserProfileCustomImage']]:
+        """
+        A list of custom images for use for CodeEditor apps.
+        """
+        return pulumi.get(self, "custom_images")
 
     @property
     @pulumi.getter(name="defaultResourceSpec")

@@ -738,7 +738,7 @@ class GameServerGroupAutoScalingPolicyArgs:
                  target_tracking_configuration: pulumi.Input['GameServerGroupTargetTrackingConfigurationArgs'],
                  estimated_instance_warmup: Optional[pulumi.Input[float]] = None):
         """
-        Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting
+        Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
         """
         pulumi.set(__self__, "target_tracking_configuration", target_tracking_configuration)
         if estimated_instance_warmup is not None:
@@ -801,7 +801,7 @@ class GameServerGroupLaunchTemplateArgs:
                  launch_template_name: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
-        The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group.
+        The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
         """
         if launch_template_id is not None:
             pulumi.set(__self__, "launch_template_id", launch_template_id)

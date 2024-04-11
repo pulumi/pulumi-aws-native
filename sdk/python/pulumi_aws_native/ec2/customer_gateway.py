@@ -19,19 +19,23 @@ class CustomerGatewayArgs:
                  bgp_asn: pulumi.Input[int],
                  ip_address: pulumi.Input[str],
                  type: pulumi.Input[str],
+                 certificate_arn: Optional[pulumi.Input[str]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a CustomerGateway resource.
         :param pulumi.Input[int] bgp_asn: For devices that support BGP, the customer gateway's BGP ASN.
-        :param pulumi.Input[str] ip_address: The internet-routable IP address for the customer gateway's outside interface. The address must be static.
-        :param pulumi.Input[str] type: The type of VPN connection that this customer gateway supports.
-        :param pulumi.Input[str] device_name: A name for the customer gateway device.
+                Default: 65000
+        :param pulumi.Input[str] ip_address: IPv4 address for the customer gateway device's outside interface. The address must be static.
+        :param pulumi.Input[str] type: The type of VPN connection that this customer gateway supports (``ipsec.1``).
+        :param pulumi.Input[str] device_name: The name of customer gateway device.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: One or more tags for the customer gateway.
         """
         pulumi.set(__self__, "bgp_asn", bgp_asn)
         pulumi.set(__self__, "ip_address", ip_address)
         pulumi.set(__self__, "type", type)
+        if certificate_arn is not None:
+            pulumi.set(__self__, "certificate_arn", certificate_arn)
         if device_name is not None:
             pulumi.set(__self__, "device_name", device_name)
         if tags is not None:
@@ -42,6 +46,7 @@ class CustomerGatewayArgs:
     def bgp_asn(self) -> pulumi.Input[int]:
         """
         For devices that support BGP, the customer gateway's BGP ASN.
+         Default: 65000
         """
         return pulumi.get(self, "bgp_asn")
 
@@ -53,7 +58,7 @@ class CustomerGatewayArgs:
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> pulumi.Input[str]:
         """
-        The internet-routable IP address for the customer gateway's outside interface. The address must be static.
+        IPv4 address for the customer gateway device's outside interface. The address must be static.
         """
         return pulumi.get(self, "ip_address")
 
@@ -65,7 +70,7 @@ class CustomerGatewayArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The type of VPN connection that this customer gateway supports.
+        The type of VPN connection that this customer gateway supports (``ipsec.1``).
         """
         return pulumi.get(self, "type")
 
@@ -74,10 +79,19 @@ class CustomerGatewayArgs:
         pulumi.set(self, "type", value)
 
     @property
+    @pulumi.getter(name="certificateArn")
+    def certificate_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "certificate_arn")
+
+    @certificate_arn.setter
+    def certificate_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_arn", value)
+
+    @property
     @pulumi.getter(name="deviceName")
     def device_name(self) -> Optional[pulumi.Input[str]]:
         """
-        A name for the customer gateway device.
+        The name of customer gateway device.
         """
         return pulumi.get(self, "device_name")
 
@@ -104,21 +118,23 @@ class CustomerGateway(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bgp_asn: Optional[pulumi.Input[int]] = None,
+                 certificate_arn: Optional[pulumi.Input[str]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::EC2::CustomerGateway
+        Specifies a customer gateway.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] bgp_asn: For devices that support BGP, the customer gateway's BGP ASN.
-        :param pulumi.Input[str] device_name: A name for the customer gateway device.
-        :param pulumi.Input[str] ip_address: The internet-routable IP address for the customer gateway's outside interface. The address must be static.
+                Default: 65000
+        :param pulumi.Input[str] device_name: The name of customer gateway device.
+        :param pulumi.Input[str] ip_address: IPv4 address for the customer gateway device's outside interface. The address must be static.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: One or more tags for the customer gateway.
-        :param pulumi.Input[str] type: The type of VPN connection that this customer gateway supports.
+        :param pulumi.Input[str] type: The type of VPN connection that this customer gateway supports (``ipsec.1``).
         """
         ...
     @overload
@@ -127,7 +143,7 @@ class CustomerGateway(pulumi.CustomResource):
                  args: CustomerGatewayArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::EC2::CustomerGateway
+        Specifies a customer gateway.
 
         :param str resource_name: The name of the resource.
         :param CustomerGatewayArgs args: The arguments to use to populate this resource's properties.
@@ -145,6 +161,7 @@ class CustomerGateway(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bgp_asn: Optional[pulumi.Input[int]] = None,
+                 certificate_arn: Optional[pulumi.Input[str]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
@@ -161,6 +178,7 @@ class CustomerGateway(pulumi.CustomResource):
             if bgp_asn is None and not opts.urn:
                 raise TypeError("Missing required property 'bgp_asn'")
             __props__.__dict__["bgp_asn"] = bgp_asn
+            __props__.__dict__["certificate_arn"] = certificate_arn
             __props__.__dict__["device_name"] = device_name
             if ip_address is None and not opts.urn:
                 raise TypeError("Missing required property 'ip_address'")
@@ -170,7 +188,7 @@ class CustomerGateway(pulumi.CustomResource):
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
             __props__.__dict__["customer_gateway_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["bgpAsn", "deviceName", "ipAddress", "type"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["bgpAsn", "certificateArn", "deviceName", "ipAddress", "type"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(CustomerGateway, __self__).__init__(
             'aws-native:ec2:CustomerGateway',
@@ -195,6 +213,7 @@ class CustomerGateway(pulumi.CustomResource):
         __props__ = CustomerGatewayArgs.__new__(CustomerGatewayArgs)
 
         __props__.__dict__["bgp_asn"] = None
+        __props__.__dict__["certificate_arn"] = None
         __props__.__dict__["customer_gateway_id"] = None
         __props__.__dict__["device_name"] = None
         __props__.__dict__["ip_address"] = None
@@ -207,22 +226,25 @@ class CustomerGateway(pulumi.CustomResource):
     def bgp_asn(self) -> pulumi.Output[int]:
         """
         For devices that support BGP, the customer gateway's BGP ASN.
+         Default: 65000
         """
         return pulumi.get(self, "bgp_asn")
 
     @property
+    @pulumi.getter(name="certificateArn")
+    def certificate_arn(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "certificate_arn")
+
+    @property
     @pulumi.getter(name="customerGatewayId")
     def customer_gateway_id(self) -> pulumi.Output[str]:
-        """
-        CustomerGateway ID generated after customer gateway is created. Each customer gateway has a unique ID.
-        """
         return pulumi.get(self, "customer_gateway_id")
 
     @property
     @pulumi.getter(name="deviceName")
     def device_name(self) -> pulumi.Output[Optional[str]]:
         """
-        A name for the customer gateway device.
+        The name of customer gateway device.
         """
         return pulumi.get(self, "device_name")
 
@@ -230,7 +252,7 @@ class CustomerGateway(pulumi.CustomResource):
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> pulumi.Output[str]:
         """
-        The internet-routable IP address for the customer gateway's outside interface. The address must be static.
+        IPv4 address for the customer gateway device's outside interface. The address must be static.
         """
         return pulumi.get(self, "ip_address")
 
@@ -246,7 +268,7 @@ class CustomerGateway(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of VPN connection that this customer gateway supports.
+        The type of VPN connection that this customer gateway supports (``ipsec.1``).
         """
         return pulumi.get(self, "type")
 

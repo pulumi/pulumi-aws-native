@@ -48,7 +48,6 @@
     "taggable" : false
   },
   "required" : [ "VpcId" ],
-  "replacementStrategy" : "delete_then_create",
   "createOnlyProperties" : [ "/properties/Ipv6Pool", "/properties/VpcId", "/properties/AmazonProvidedIpv6CidrBlock", "/properties/Ipv6CidrBlock", "/properties/CidrBlock", "/properties/Ipv4IpamPoolId", "/properties/Ipv4NetmaskLength", "/properties/Ipv6IpamPoolId", "/properties/Ipv6NetmaskLength" ],
   "primaryIdentifier" : [ "/properties/Id", "/properties/VpcId" ],
   "readOnlyProperties" : [ "/properties/Id" ],

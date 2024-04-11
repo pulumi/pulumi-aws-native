@@ -51,20 +51,27 @@ namespace Pulumi.AwsNative.DocDbElastic
     [OutputType]
     public sealed class GetClusterResult
     {
+        public readonly int? BackupRetentionPeriod;
         public readonly string? ClusterArn;
         public readonly string? ClusterEndpoint;
+        public readonly string? PreferredBackupWindow;
         public readonly string? PreferredMaintenanceWindow;
         public readonly int? ShardCapacity;
         public readonly int? ShardCount;
+        public readonly int? ShardInstanceCount;
         public readonly ImmutableArray<string> SubnetIds;
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly ImmutableArray<string> VpcSecurityGroupIds;
 
         [OutputConstructor]
         private GetClusterResult(
+            int? backupRetentionPeriod,
+
             string? clusterArn,
 
             string? clusterEndpoint,
+
+            string? preferredBackupWindow,
 
             string? preferredMaintenanceWindow,
 
@@ -72,17 +79,22 @@ namespace Pulumi.AwsNative.DocDbElastic
 
             int? shardCount,
 
+            int? shardInstanceCount,
+
             ImmutableArray<string> subnetIds,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             ImmutableArray<string> vpcSecurityGroupIds)
         {
+            BackupRetentionPeriod = backupRetentionPeriod;
             ClusterArn = clusterArn;
             ClusterEndpoint = clusterEndpoint;
+            PreferredBackupWindow = preferredBackupWindow;
             PreferredMaintenanceWindow = preferredMaintenanceWindow;
             ShardCapacity = shardCapacity;
             ShardCount = shardCount;
+            ShardInstanceCount = shardInstanceCount;
             SubnetIds = subnetIds;
             Tags = tags;
             VpcSecurityGroupIds = vpcSecurityGroupIds;

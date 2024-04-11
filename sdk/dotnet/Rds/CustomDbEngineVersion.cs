@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.Rds
         /// The name of an Amazon S3 bucket that contains database installation files for your CEV. For example, a valid bucket name is `my-custom-installation-files`.
         /// </summary>
         [Output("databaseInstallationFilesS3BucketName")]
-        public Output<string> DatabaseInstallationFilesS3BucketName { get; private set; } = null!;
+        public Output<string?> DatabaseInstallationFilesS3BucketName { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon S3 directory that contains the database installation files for your CEV. For example, a valid bucket name is `123456789012/cev1`. If this setting isn't specified, no prefix is assumed.
@@ -52,6 +52,12 @@ namespace Pulumi.AwsNative.Rds
         public Output<string> EngineVersion { get; private set; } = null!;
 
         /// <summary>
+        /// The identifier of Amazon Machine Image (AMI) used for CEV.
+        /// </summary>
+        [Output("imageId")]
+        public Output<string?> ImageId { get; private set; } = null!;
+
+        /// <summary>
         /// The AWS KMS key identifier for an encrypted CEV. A symmetric KMS key is required for RDS Custom, but optional for Amazon RDS.
         /// </summary>
         [Output("kmsKeyId")]
@@ -64,6 +70,12 @@ namespace Pulumi.AwsNative.Rds
         public Output<string?> Manifest { get; private set; } = null!;
 
         /// <summary>
+        /// The identifier of the source custom engine version.
+        /// </summary>
+        [Output("sourceCustomDbEngineVersionIdentifier")]
+        public Output<string?> SourceCustomDbEngineVersionIdentifier { get; private set; } = null!;
+
+        /// <summary>
         /// The availability status to be assigned to the CEV.
         /// </summary>
         [Output("status")]
@@ -74,6 +86,12 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// A value that indicates whether AWS provided latest image is applied automatically to the Custom Engine Version. By default, AWS provided latest image is applied automatically. This value is only applied on create.
+        /// </summary>
+        [Output("useAwsProvidedLatestImage")]
+        public Output<bool?> UseAwsProvidedLatestImage { get; private set; } = null!;
 
 
         /// <summary>
@@ -104,8 +122,11 @@ namespace Pulumi.AwsNative.Rds
                     "databaseInstallationFilesS3Prefix",
                     "engine",
                     "engineVersion",
+                    "imageId",
                     "kmsKeyId",
                     "manifest",
+                    "sourceCustomDbEngineVersionIdentifier",
+                    "useAwsProvidedLatestImage",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -132,8 +153,8 @@ namespace Pulumi.AwsNative.Rds
         /// <summary>
         /// The name of an Amazon S3 bucket that contains database installation files for your CEV. For example, a valid bucket name is `my-custom-installation-files`.
         /// </summary>
-        [Input("databaseInstallationFilesS3BucketName", required: true)]
-        public Input<string> DatabaseInstallationFilesS3BucketName { get; set; } = null!;
+        [Input("databaseInstallationFilesS3BucketName")]
+        public Input<string>? DatabaseInstallationFilesS3BucketName { get; set; }
 
         /// <summary>
         /// The Amazon S3 directory that contains the database installation files for your CEV. For example, a valid bucket name is `123456789012/cev1`. If this setting isn't specified, no prefix is assumed.
@@ -160,6 +181,12 @@ namespace Pulumi.AwsNative.Rds
         public Input<string> EngineVersion { get; set; } = null!;
 
         /// <summary>
+        /// The identifier of Amazon Machine Image (AMI) used for CEV.
+        /// </summary>
+        [Input("imageId")]
+        public Input<string>? ImageId { get; set; }
+
+        /// <summary>
         /// The AWS KMS key identifier for an encrypted CEV. A symmetric KMS key is required for RDS Custom, but optional for Amazon RDS.
         /// </summary>
         [Input("kmsKeyId")]
@@ -170,6 +197,12 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         [Input("manifest")]
         public Input<string>? Manifest { get; set; }
+
+        /// <summary>
+        /// The identifier of the source custom engine version.
+        /// </summary>
+        [Input("sourceCustomDbEngineVersionIdentifier")]
+        public Input<string>? SourceCustomDbEngineVersionIdentifier { get; set; }
 
         /// <summary>
         /// The availability status to be assigned to the CEV.
@@ -188,6 +221,12 @@ namespace Pulumi.AwsNative.Rds
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// A value that indicates whether AWS provided latest image is applied automatically to the Custom Engine Version. By default, AWS provided latest image is applied automatically. This value is only applied on create.
+        /// </summary>
+        [Input("useAwsProvidedLatestImage")]
+        public Input<bool>? UseAwsProvidedLatestImage { get; set; }
 
         public CustomDbEngineVersionArgs()
         {

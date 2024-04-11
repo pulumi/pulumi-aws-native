@@ -27,6 +27,8 @@ __all__ = [
     'ConfiguredTableAnalysisRulePolicyV12PropertiesArgs',
     'ConfiguredTableAnalysisRulePolicyArgs',
     'ConfiguredTableAnalysisRuleArgs',
+    'ConfiguredTableDifferentialPrivacyColumnArgs',
+    'ConfiguredTableDifferentialPrivacyArgs',
     'ConfiguredTableGlueTableReferenceArgs',
     'ConfiguredTableTableReferenceArgs',
     'MembershipPaymentConfigurationArgs',
@@ -34,6 +36,7 @@ __all__ = [
     'MembershipProtectedQueryResultConfigurationArgs',
     'MembershipProtectedQueryS3OutputConfigurationArgs',
     'MembershipQueryComputePaymentConfigArgs',
+    'ParametersPropertiesArgs',
 ]
 
 @pulumi.input_type
@@ -375,10 +378,13 @@ class ConfiguredTableAnalysisRuleAggregationArgs:
 class ConfiguredTableAnalysisRuleCustomArgs:
     def __init__(__self__, *,
                  allowed_analyses: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 allowed_analysis_providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 allowed_analysis_providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 differential_privacy: Optional[pulumi.Input['ConfiguredTableDifferentialPrivacyArgs']] = None):
         pulumi.set(__self__, "allowed_analyses", allowed_analyses)
         if allowed_analysis_providers is not None:
             pulumi.set(__self__, "allowed_analysis_providers", allowed_analysis_providers)
+        if differential_privacy is not None:
+            pulumi.set(__self__, "differential_privacy", differential_privacy)
 
     @property
     @pulumi.getter(name="allowedAnalyses")
@@ -397,6 +403,15 @@ class ConfiguredTableAnalysisRuleCustomArgs:
     @allowed_analysis_providers.setter
     def allowed_analysis_providers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "allowed_analysis_providers", value)
+
+    @property
+    @pulumi.getter(name="differentialPrivacy")
+    def differential_privacy(self) -> Optional[pulumi.Input['ConfiguredTableDifferentialPrivacyArgs']]:
+        return pulumi.get(self, "differential_privacy")
+
+    @differential_privacy.setter
+    def differential_privacy(self, value: Optional[pulumi.Input['ConfiguredTableDifferentialPrivacyArgs']]):
+        pulumi.set(self, "differential_privacy", value)
 
 
 @pulumi.input_type
@@ -527,6 +542,38 @@ class ConfiguredTableAnalysisRuleArgs:
     @type.setter
     def type(self, value: pulumi.Input['ConfiguredTableAnalysisRuleType']):
         pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class ConfiguredTableDifferentialPrivacyColumnArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str]):
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class ConfiguredTableDifferentialPrivacyArgs:
+    def __init__(__self__, *,
+                 columns: pulumi.Input[Sequence[pulumi.Input['ConfiguredTableDifferentialPrivacyColumnArgs']]]):
+        pulumi.set(__self__, "columns", columns)
+
+    @property
+    @pulumi.getter
+    def columns(self) -> pulumi.Input[Sequence[pulumi.Input['ConfiguredTableDifferentialPrivacyColumnArgs']]]:
+        return pulumi.get(self, "columns")
+
+    @columns.setter
+    def columns(self, value: pulumi.Input[Sequence[pulumi.Input['ConfiguredTableDifferentialPrivacyColumnArgs']]]):
+        pulumi.set(self, "columns", value)
 
 
 @pulumi.input_type
@@ -685,5 +732,32 @@ class MembershipQueryComputePaymentConfigArgs:
     @is_responsible.setter
     def is_responsible(self, value: pulumi.Input[bool]):
         pulumi.set(self, "is_responsible", value)
+
+
+@pulumi.input_type
+class ParametersPropertiesArgs:
+    def __init__(__self__, *,
+                 epsilon: pulumi.Input[int],
+                 users_noise_per_query: pulumi.Input[int]):
+        pulumi.set(__self__, "epsilon", epsilon)
+        pulumi.set(__self__, "users_noise_per_query", users_noise_per_query)
+
+    @property
+    @pulumi.getter
+    def epsilon(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "epsilon")
+
+    @epsilon.setter
+    def epsilon(self, value: pulumi.Input[int]):
+        pulumi.set(self, "epsilon", value)
+
+    @property
+    @pulumi.getter(name="usersNoisePerQuery")
+    def users_noise_per_query(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "users_noise_per_query")
+
+    @users_noise_per_query.setter
+    def users_noise_per_query(self, value: pulumi.Input[int]):
+        pulumi.set(self, "users_noise_per_query", value)
 
 

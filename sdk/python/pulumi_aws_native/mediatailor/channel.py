@@ -21,6 +21,7 @@ class ChannelArgs:
     def __init__(__self__, *,
                  outputs: pulumi.Input[Sequence[pulumi.Input['ChannelRequestOutputItemArgs']]],
                  playback_mode: pulumi.Input['ChannelPlaybackMode'],
+                 audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  channel_name: Optional[pulumi.Input[str]] = None,
                  filler_slate: Optional[pulumi.Input['ChannelSlateSourceArgs']] = None,
                  log_configuration: Optional[pulumi.Input['ChannelLogConfigurationForChannelArgs']] = None,
@@ -30,10 +31,13 @@ class ChannelArgs:
         """
         The set of arguments for constructing a Channel resource.
         :param pulumi.Input[Sequence[pulumi.Input['ChannelRequestOutputItemArgs']]] outputs: <p>The channel's output properties.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] audiences: <p>The list of audiences defined in channel.</p>
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to assign to the channel.
         """
         pulumi.set(__self__, "outputs", outputs)
         pulumi.set(__self__, "playback_mode", playback_mode)
+        if audiences is not None:
+            pulumi.set(__self__, "audiences", audiences)
         if channel_name is not None:
             pulumi.set(__self__, "channel_name", channel_name)
         if filler_slate is not None:
@@ -67,6 +71,18 @@ class ChannelArgs:
     @playback_mode.setter
     def playback_mode(self, value: pulumi.Input['ChannelPlaybackMode']):
         pulumi.set(self, "playback_mode", value)
+
+    @property
+    @pulumi.getter
+    def audiences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        <p>The list of audiences defined in channel.</p>
+        """
+        return pulumi.get(self, "audiences")
+
+    @audiences.setter
+    def audiences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "audiences", value)
 
     @property
     @pulumi.getter(name="channelName")
@@ -131,6 +147,7 @@ class Channel(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  channel_name: Optional[pulumi.Input[str]] = None,
                  filler_slate: Optional[pulumi.Input[pulumi.InputType['ChannelSlateSourceArgs']]] = None,
                  log_configuration: Optional[pulumi.Input[pulumi.InputType['ChannelLogConfigurationForChannelArgs']]] = None,
@@ -145,6 +162,7 @@ class Channel(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] audiences: <p>The list of audiences defined in channel.</p>
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelRequestOutputItemArgs']]]] outputs: <p>The channel's output properties.</p>
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags to assign to the channel.
         """
@@ -172,6 +190,7 @@ class Channel(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  channel_name: Optional[pulumi.Input[str]] = None,
                  filler_slate: Optional[pulumi.Input[pulumi.InputType['ChannelSlateSourceArgs']]] = None,
                  log_configuration: Optional[pulumi.Input[pulumi.InputType['ChannelLogConfigurationForChannelArgs']]] = None,
@@ -189,6 +208,7 @@ class Channel(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ChannelArgs.__new__(ChannelArgs)
 
+            __props__.__dict__["audiences"] = audiences
             __props__.__dict__["channel_name"] = channel_name
             __props__.__dict__["filler_slate"] = filler_slate
             __props__.__dict__["log_configuration"] = log_configuration
@@ -227,6 +247,7 @@ class Channel(pulumi.CustomResource):
         __props__ = ChannelArgs.__new__(ChannelArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["audiences"] = None
         __props__.__dict__["channel_name"] = None
         __props__.__dict__["filler_slate"] = None
         __props__.__dict__["log_configuration"] = None
@@ -244,6 +265,14 @@ class Channel(pulumi.CustomResource):
         <p>The ARN of the channel.</p>
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
+    def audiences(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        <p>The list of audiences defined in channel.</p>
+        """
+        return pulumi.get(self, "audiences")
 
     @property
     @pulumi.getter(name="channelName")

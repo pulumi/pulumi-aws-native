@@ -98,6 +98,9 @@ export class Resolver extends pulumi.CustomResource {
      * The maximum number of resolver request inputs that will be sent to a single LAMlong function in a ``BatchInvoke`` operation.
      */
     public readonly maxBatchSize!: pulumi.Output<number | undefined>;
+    /**
+     * Enables or disables enhanced resolver metrics for specified resolvers. Note that ``MetricsConfig`` won't be used unless the ``resolverLevelMetricsBehavior`` value is set to ``PER_RESOLVER_METRICS``. If the ``resolverLevelMetricsBehavior`` is set to ``FULL_REQUEST_RESOLVER_METRICS`` instead, ``MetricsConfig`` will be ignored. However, you can still set its value.
+     */
     public readonly metricsConfig!: pulumi.Output<enums.appsync.ResolverMetricsConfig | undefined>;
     /**
      * Functions linked with the pipeline resolver.
@@ -237,6 +240,9 @@ export interface ResolverArgs {
      * The maximum number of resolver request inputs that will be sent to a single LAMlong function in a ``BatchInvoke`` operation.
      */
     maxBatchSize?: pulumi.Input<number>;
+    /**
+     * Enables or disables enhanced resolver metrics for specified resolvers. Note that ``MetricsConfig`` won't be used unless the ``resolverLevelMetricsBehavior`` value is set to ``PER_RESOLVER_METRICS``. If the ``resolverLevelMetricsBehavior`` is set to ``FULL_REQUEST_RESOLVER_METRICS`` instead, ``MetricsConfig`` will be ignored. However, you can still set its value.
+     */
     metricsConfig?: pulumi.Input<enums.appsync.ResolverMetricsConfig>;
     /**
      * Functions linked with the pipeline resolver.

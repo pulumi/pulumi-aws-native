@@ -21,6 +21,12 @@ namespace Pulumi.AwsNative.MediaTailor
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;The list of audiences defined in channel.&lt;/p&gt;
+        /// </summary>
+        [Output("audiences")]
+        public Output<ImmutableArray<string>> Audiences { get; private set; } = null!;
+
         [Output("channelName")]
         public Output<string> ChannelName { get; private set; } = null!;
 
@@ -101,6 +107,18 @@ namespace Pulumi.AwsNative.MediaTailor
 
     public sealed class ChannelArgs : global::Pulumi.ResourceArgs
     {
+        [Input("audiences")]
+        private InputList<string>? _audiences;
+
+        /// <summary>
+        /// &lt;p&gt;The list of audiences defined in channel.&lt;/p&gt;
+        /// </summary>
+        public InputList<string> Audiences
+        {
+            get => _audiences ?? (_audiences = new InputList<string>());
+            set => _audiences = value;
+        }
+
         [Input("channelName")]
         public Input<string>? ChannelName { get; set; }
 

@@ -21,9 +21,9 @@ class IdMappingWorkflowArgs:
     def __init__(__self__, *,
                  id_mapping_techniques: pulumi.Input['IdMappingWorkflowIdMappingTechniquesArgs'],
                  input_source_config: pulumi.Input[Sequence[pulumi.Input['IdMappingWorkflowInputSourceArgs']]],
-                 output_source_config: pulumi.Input[Sequence[pulumi.Input['IdMappingWorkflowOutputSourceArgs']]],
                  role_arn: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
+                 output_source_config: Optional[pulumi.Input[Sequence[pulumi.Input['IdMappingWorkflowOutputSourceArgs']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  workflow_name: Optional[pulumi.Input[str]] = None):
         """
@@ -33,10 +33,11 @@ class IdMappingWorkflowArgs:
         """
         pulumi.set(__self__, "id_mapping_techniques", id_mapping_techniques)
         pulumi.set(__self__, "input_source_config", input_source_config)
-        pulumi.set(__self__, "output_source_config", output_source_config)
         pulumi.set(__self__, "role_arn", role_arn)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if output_source_config is not None:
+            pulumi.set(__self__, "output_source_config", output_source_config)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if workflow_name is not None:
@@ -61,15 +62,6 @@ class IdMappingWorkflowArgs:
         pulumi.set(self, "input_source_config", value)
 
     @property
-    @pulumi.getter(name="outputSourceConfig")
-    def output_source_config(self) -> pulumi.Input[Sequence[pulumi.Input['IdMappingWorkflowOutputSourceArgs']]]:
-        return pulumi.get(self, "output_source_config")
-
-    @output_source_config.setter
-    def output_source_config(self, value: pulumi.Input[Sequence[pulumi.Input['IdMappingWorkflowOutputSourceArgs']]]):
-        pulumi.set(self, "output_source_config", value)
-
-    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         return pulumi.get(self, "role_arn")
@@ -89,6 +81,15 @@ class IdMappingWorkflowArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="outputSourceConfig")
+    def output_source_config(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IdMappingWorkflowOutputSourceArgs']]]]:
+        return pulumi.get(self, "output_source_config")
+
+    @output_source_config.setter
+    def output_source_config(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IdMappingWorkflowOutputSourceArgs']]]]):
+        pulumi.set(self, "output_source_config", value)
 
     @property
     @pulumi.getter
@@ -180,8 +181,6 @@ class IdMappingWorkflow(pulumi.CustomResource):
             if input_source_config is None and not opts.urn:
                 raise TypeError("Missing required property 'input_source_config'")
             __props__.__dict__["input_source_config"] = input_source_config
-            if output_source_config is None and not opts.urn:
-                raise TypeError("Missing required property 'output_source_config'")
             __props__.__dict__["output_source_config"] = output_source_config
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
@@ -252,7 +251,7 @@ class IdMappingWorkflow(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="outputSourceConfig")
-    def output_source_config(self) -> pulumi.Output[Sequence['outputs.IdMappingWorkflowOutputSource']]:
+    def output_source_config(self) -> pulumi.Output[Optional[Sequence['outputs.IdMappingWorkflowOutputSource']]]:
         return pulumi.get(self, "output_source_config")
 
     @property

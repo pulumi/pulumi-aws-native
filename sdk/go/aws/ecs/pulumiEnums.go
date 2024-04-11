@@ -2360,7 +2360,7 @@ func (in *taskDefinitionEfsVolumeConfigurationTransitEncryptionPtr) ToTaskDefini
 //
 //	If you don't set a value for this parameter, then TCP is used. However, Amazon ECS doesn't add protocol-specific telemetry for TCP.
 //	 ``appProtocol`` is immutable in a Service Connect service. Updating this field requires a service deletion and redeployment.
-//	Tasks that run in a namespace can use short names to connect to services in the namespace. Tasks can connect to services across all of the clusters in the namespace. Tasks connect through a managed proxy container that collects logs and metrics for increased visibility. Only the tasks that Amazon ECS se
+//	Tasks that run in a namespace can use short names to connect to services in the namespace. Tasks can connect to services across all of the clusters in the namespace. Tasks connect through a managed proxy container that collects logs and metrics for increased visibility. Only the tasks that Amazon ECS services create are supported with Service Connect. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
 type TaskDefinitionPortMappingAppProtocol string
 
 const (

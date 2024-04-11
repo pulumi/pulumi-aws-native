@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -49,7 +52,11 @@ export class SyncConfiguration extends pulumi.CustomResource {
     /**
      * The name of the external provider where your third-party code repository is configured.
      */
-    public /*out*/ readonly providerType!: pulumi.Output<string>;
+    public /*out*/ readonly providerType!: pulumi.Output<enums.codestarconnections.SyncConfigurationProviderType>;
+    /**
+     * Whether to enable or disable publishing of deployment status to source providers.
+     */
+    public readonly publishDeploymentStatus!: pulumi.Output<enums.codestarconnections.SyncConfigurationPublishDeploymentStatus | undefined>;
     /**
      * A UUID that uniquely identifies the RepositoryLink that the SyncConfig is associated with.
      */
@@ -70,6 +77,10 @@ export class SyncConfiguration extends pulumi.CustomResource {
      * The type of resource synchronization service that is to be configured, for example, CFN_STACK_SYNC.
      */
     public readonly syncType!: pulumi.Output<string>;
+    /**
+     * When to trigger Git sync to begin the stack update.
+     */
+    public readonly triggerResourceUpdateOn!: pulumi.Output<enums.codestarconnections.SyncConfigurationTriggerResourceUpdateOn | undefined>;
 
     /**
      * Create a SyncConfiguration resource with the given unique name, arguments, and options.
@@ -102,10 +113,12 @@ export class SyncConfiguration extends pulumi.CustomResource {
             }
             resourceInputs["branch"] = args ? args.branch : undefined;
             resourceInputs["configFile"] = args ? args.configFile : undefined;
+            resourceInputs["publishDeploymentStatus"] = args ? args.publishDeploymentStatus : undefined;
             resourceInputs["repositoryLinkId"] = args ? args.repositoryLinkId : undefined;
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["syncType"] = args ? args.syncType : undefined;
+            resourceInputs["triggerResourceUpdateOn"] = args ? args.triggerResourceUpdateOn : undefined;
             resourceInputs["ownerId"] = undefined /*out*/;
             resourceInputs["providerType"] = undefined /*out*/;
             resourceInputs["repositoryName"] = undefined /*out*/;
@@ -114,11 +127,13 @@ export class SyncConfiguration extends pulumi.CustomResource {
             resourceInputs["configFile"] = undefined /*out*/;
             resourceInputs["ownerId"] = undefined /*out*/;
             resourceInputs["providerType"] = undefined /*out*/;
+            resourceInputs["publishDeploymentStatus"] = undefined /*out*/;
             resourceInputs["repositoryLinkId"] = undefined /*out*/;
             resourceInputs["repositoryName"] = undefined /*out*/;
             resourceInputs["resourceName"] = undefined /*out*/;
             resourceInputs["roleArn"] = undefined /*out*/;
             resourceInputs["syncType"] = undefined /*out*/;
+            resourceInputs["triggerResourceUpdateOn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["resourceName", "syncType"] };
@@ -140,6 +155,10 @@ export interface SyncConfigurationArgs {
      */
     configFile: pulumi.Input<string>;
     /**
+     * Whether to enable or disable publishing of deployment status to source providers.
+     */
+    publishDeploymentStatus?: pulumi.Input<enums.codestarconnections.SyncConfigurationPublishDeploymentStatus>;
+    /**
      * A UUID that uniquely identifies the RepositoryLink that the SyncConfig is associated with.
      */
     repositoryLinkId: pulumi.Input<string>;
@@ -155,4 +174,8 @@ export interface SyncConfigurationArgs {
      * The type of resource synchronization service that is to be configured, for example, CFN_STACK_SYNC.
      */
     syncType: pulumi.Input<string>;
+    /**
+     * When to trigger Git sync to begin the stack update.
+     */
+    triggerResourceUpdateOn?: pulumi.Input<enums.codestarconnections.SyncConfigurationTriggerResourceUpdateOn>;
 }

@@ -42,6 +42,14 @@ export class PredefinedAttribute extends pulumi.CustomResource {
      */
     public readonly instanceArn!: pulumi.Output<string>;
     /**
+     * Last modified region.
+     */
+    public /*out*/ readonly lastModifiedRegion!: pulumi.Output<string>;
+    /**
+     * Last modified time.
+     */
+    public /*out*/ readonly lastModifiedTime!: pulumi.Output<number>;
+    /**
      * The name of the predefined attribute.
      */
     public readonly name!: pulumi.Output<string>;
@@ -70,8 +78,12 @@ export class PredefinedAttribute extends pulumi.CustomResource {
             resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["values"] = args ? args.values : undefined;
+            resourceInputs["lastModifiedRegion"] = undefined /*out*/;
+            resourceInputs["lastModifiedTime"] = undefined /*out*/;
         } else {
             resourceInputs["instanceArn"] = undefined /*out*/;
+            resourceInputs["lastModifiedRegion"] = undefined /*out*/;
+            resourceInputs["lastModifiedTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["values"] = undefined /*out*/;
         }

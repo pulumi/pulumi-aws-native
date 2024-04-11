@@ -10,6 +10,11 @@ export const getRuleGroupsNamespace: typeof import("./getRuleGroupsNamespace").g
 export const getRuleGroupsNamespaceOutput: typeof import("./getRuleGroupsNamespace").getRuleGroupsNamespaceOutput = null as any;
 utilities.lazyLoad(exports, ["getRuleGroupsNamespace","getRuleGroupsNamespaceOutput"], () => require("./getRuleGroupsNamespace"));
 
+export { GetScraperArgs, GetScraperResult, GetScraperOutputArgs } from "./getScraper";
+export const getScraper: typeof import("./getScraper").getScraper = null as any;
+export const getScraperOutput: typeof import("./getScraper").getScraperOutput = null as any;
+utilities.lazyLoad(exports, ["getScraper","getScraperOutput"], () => require("./getScraper"));
+
 export { GetWorkspaceArgs, GetWorkspaceResult, GetWorkspaceOutputArgs } from "./getWorkspace";
 export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null as any;
 export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;
@@ -19,6 +24,11 @@ export { RuleGroupsNamespaceArgs } from "./ruleGroupsNamespace";
 export type RuleGroupsNamespace = import("./ruleGroupsNamespace").RuleGroupsNamespace;
 export const RuleGroupsNamespace: typeof import("./ruleGroupsNamespace").RuleGroupsNamespace = null as any;
 utilities.lazyLoad(exports, ["RuleGroupsNamespace"], () => require("./ruleGroupsNamespace"));
+
+export { ScraperArgs } from "./scraper";
+export type Scraper = import("./scraper").Scraper;
+export const Scraper: typeof import("./scraper").Scraper = null as any;
+utilities.lazyLoad(exports, ["Scraper"], () => require("./scraper"));
 
 export { WorkspaceArgs } from "./workspace";
 export type Workspace = import("./workspace").Workspace;
@@ -32,6 +42,8 @@ const _module = {
         switch (type) {
             case "aws-native:aps:RuleGroupsNamespace":
                 return new RuleGroupsNamespace(name, <any>undefined, { urn })
+            case "aws-native:aps:Scraper":
+                return new Scraper(name, <any>undefined, { urn })
             case "aws-native:aps:Workspace":
                 return new Workspace(name, <any>undefined, { urn })
             default:

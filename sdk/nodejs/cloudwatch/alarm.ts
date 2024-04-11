@@ -8,7 +8,9 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::CloudWatch::Alarm
+ * The ``AWS::CloudWatch::Alarm`` type specifies an alarm and associates it with the specified metric or metric math expression.
+ *  When this operation creates an alarm, the alarm state is immediately set to ``INSUFFICIENT_DATA``. The alarm is then evaluated and its state is set appropriately. Any actions associated with the new state are then executed.
+ *  When you update an existing alarm, its state is left unchanged, but the update completely overwrites the previous configuration of the alarm.
  */
 export class Alarm extends pulumi.CustomResource {
     /**
@@ -42,7 +44,7 @@ export class Alarm extends pulumi.CustomResource {
      */
     public readonly actionsEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * The list of actions to execute when this alarm transitions into an ALARM state from any other state.
+     * The list of actions to execute when this alarm transitions into an ALARM state from any other state. Specify each action as an Amazon Resource Name (ARN). For more information about creating alarms and the actions that you can specify, see [PutMetricAlarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutMetricAlarm.html) in the *API Reference*.
      */
     public readonly alarmActions!: pulumi.Output<string[] | undefined>;
     /**
@@ -50,79 +52,90 @@ export class Alarm extends pulumi.CustomResource {
      */
     public readonly alarmDescription!: pulumi.Output<string | undefined>;
     /**
-     * The name of the alarm.
+     * The name of the alarm. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the alarm name. 
+     *   If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
      */
     public readonly alarmName!: pulumi.Output<string | undefined>;
-    /**
-     * Amazon Resource Name is a unique name for each resource.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The arithmetic operation to use when comparing the specified statistic and threshold.
+     * The arithmetic operation to use when comparing the specified statistic and threshold. The specified statistic value is used as the first operand.
      */
     public readonly comparisonOperator!: pulumi.Output<string>;
     /**
-     * The number of datapoints that must be breaching to trigger the alarm.
+     * The number of datapoints that must be breaching to trigger the alarm. This is used only if you are setting an "M out of N" alarm. In that case, this value is the M, and the value that you set for ``EvaluationPeriods`` is the N value. For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.
+     *  If you omit this parameter, CW uses the same value here that you set for ``EvaluationPeriods``, and the alarm goes to alarm state if that many consecutive periods are breaching.
      */
     public readonly datapointsToAlarm!: pulumi.Output<number | undefined>;
     /**
-     * The dimensions for the metric associated with the alarm. For an alarm based on a math expression, you can't specify Dimensions. Instead, you use Metrics.
+     * The dimensions for the metric associated with the alarm. For an alarm based on a math expression, you can't specify ``Dimensions``. Instead, you use ``Metrics``.
      */
     public readonly dimensions!: pulumi.Output<outputs.cloudwatch.AlarmDimension[] | undefined>;
     /**
-     * Used only for alarms based on percentiles.
+     * Used only for alarms based on percentiles. If ``ignore``, the alarm state does not change during periods with too few data points to be statistically significant. If ``evaluate`` or this parameter is not used, the alarm is always evaluated and possibly changes state no matter how many data points are available.
      */
     public readonly evaluateLowSampleCountPercentile!: pulumi.Output<string | undefined>;
     /**
-     * The number of periods over which data is compared to the specified threshold.
+     * The number of periods over which data is compared to the specified threshold. If you are setting an alarm that requires that a number of consecutive data points be breaching to trigger the alarm, this value specifies that number. If you are setting an "M out of N" alarm, this value is the N, and ``DatapointsToAlarm`` is the M.
+     *  For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.
      */
     public readonly evaluationPeriods!: pulumi.Output<number>;
     /**
      * The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
+     *  For an alarm based on a metric, you must specify either ``Statistic`` or ``ExtendedStatistic`` but not both.
+     *  For an alarm based on a math expression, you can't specify ``ExtendedStatistic``. Instead, you use ``Metrics``.
      */
     public readonly extendedStatistic!: pulumi.Output<string | undefined>;
     /**
-     * The actions to execute when this alarm transitions to the INSUFFICIENT_DATA state from any other state.
+     * The actions to execute when this alarm transitions to the ``INSUFFICIENT_DATA`` state from any other state. Each action is specified as an Amazon Resource Name (ARN).
      */
     public readonly insufficientDataActions!: pulumi.Output<string[] | undefined>;
     /**
-     * The name of the metric associated with the alarm.
+     * The name of the metric associated with the alarm. This is required for an alarm based on a metric. For an alarm based on a math expression, you use ``Metrics`` instead and you can't specify ``MetricName``.
      */
     public readonly metricName!: pulumi.Output<string | undefined>;
     /**
-     * An array that enables you to create an alarm based on the result of a metric math expression.
+     * An array that enables you to create an alarm based on the result of a metric math expression. Each item in the array either retrieves a metric or performs a math expression.
+     *  If you specify the ``Metrics`` parameter, you cannot specify ``MetricName``, ``Dimensions``, ``Period``, ``Namespace``, ``Statistic``, ``ExtendedStatistic``, or ``Unit``.
      */
     public readonly metrics!: pulumi.Output<outputs.cloudwatch.AlarmMetricDataQuery[] | undefined>;
     /**
-     * The namespace of the metric associated with the alarm.
+     * The namespace of the metric associated with the alarm. This is required for an alarm based on a metric. For an alarm based on a math expression, you can't specify ``Namespace`` and you use ``Metrics`` instead.
+     *  For a list of namespaces for metrics from AWS services, see [Services That Publish Metrics.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html)
      */
     public readonly namespace!: pulumi.Output<string | undefined>;
     /**
-     * The actions to execute when this alarm transitions to the OK state from any other state.
+     * The actions to execute when this alarm transitions to the ``OK`` state from any other state. Each action is specified as an Amazon Resource Name (ARN).
      */
     public readonly okActions!: pulumi.Output<string[] | undefined>;
     /**
-     * The period in seconds, over which the statistic is applied.
+     * The period, in seconds, over which the statistic is applied. This is required for an alarm based on a metric. Valid values are 10, 30, 60, and any multiple of 60.
+     *  For an alarm based on a math expression, you can't specify ``Period``, and instead you use the ``Metrics`` parameter.
+     *  *Minimum:* 10
      */
     public readonly period!: pulumi.Output<number | undefined>;
     /**
-     * The statistic for the metric associated with the alarm, other than percentile.
+     * The statistic for the metric associated with the alarm, other than percentile. For percentile statistics, use ``ExtendedStatistic``.
+     *  For an alarm based on a metric, you must specify either ``Statistic`` or ``ExtendedStatistic`` but not both.
+     *  For an alarm based on a math expression, you can't specify ``Statistic``. Instead, you use ``Metrics``.
      */
     public readonly statistic!: pulumi.Output<string | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
-     * In an alarm based on an anomaly detection model, this is the ID of the ANOMALY_DETECTION_BAND function used as the threshold for the alarm.
+     * The value to compare with the specified statistic.
      */
     public readonly threshold!: pulumi.Output<number | undefined>;
     /**
-     * In an alarm based on an anomaly detection model, this is the ID of the ANOMALY_DETECTION_BAND function used as the threshold for the alarm.
+     * In an alarm based on an anomaly detection model, this is the ID of the ``ANOMALY_DETECTION_BAND`` function used as the threshold for the alarm.
      */
     public readonly thresholdMetricId!: pulumi.Output<string | undefined>;
     /**
-     * Sets how this alarm is to handle missing data points. Valid values are breaching, notBreaching, ignore, and missing.
+     * Sets how this alarm is to handle missing data points. Valid values are ``breaching``, ``notBreaching``, ``ignore``, and ``missing``. For more information, see [Configuring How Alarms Treat Missing Data](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarms-and-missing-data) in the *Amazon User Guide*.
+     *  If you omit this parameter, the default behavior of ``missing`` is used.
      */
     public readonly treatMissingData!: pulumi.Output<string | undefined>;
     /**
-     * The unit of the metric associated with the alarm.
+     * The unit of the metric associated with the alarm. Specify this only if you are creating an alarm based on a single metric. Do not specify this if you are specifying a ``Metrics`` array.
+     *   You can specify the following values: Seconds, Microseconds, Milliseconds, Bytes, Kilobytes, Megabytes, Gigabytes, Terabytes, Bits, Kilobits, Megabits, Gigabits, Terabits, Percent, Count, Bytes/Second, Kilobytes/Second, Megabytes/Second, Gigabytes/Second, Terabytes/Second, Bits/Second, Kilobits/Second, Megabits/Second, Gigabits/Second, Terabits/Second, Count/Second, or None.
      */
     public readonly unit!: pulumi.Output<string | undefined>;
 
@@ -160,6 +173,7 @@ export class Alarm extends pulumi.CustomResource {
             resourceInputs["okActions"] = args ? args.okActions : undefined;
             resourceInputs["period"] = args ? args.period : undefined;
             resourceInputs["statistic"] = args ? args.statistic : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["threshold"] = args ? args.threshold : undefined;
             resourceInputs["thresholdMetricId"] = args ? args.thresholdMetricId : undefined;
             resourceInputs["treatMissingData"] = args ? args.treatMissingData : undefined;
@@ -184,6 +198,7 @@ export class Alarm extends pulumi.CustomResource {
             resourceInputs["okActions"] = undefined /*out*/;
             resourceInputs["period"] = undefined /*out*/;
             resourceInputs["statistic"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["threshold"] = undefined /*out*/;
             resourceInputs["thresholdMetricId"] = undefined /*out*/;
             resourceInputs["treatMissingData"] = undefined /*out*/;
@@ -205,7 +220,7 @@ export interface AlarmArgs {
      */
     actionsEnabled?: pulumi.Input<boolean>;
     /**
-     * The list of actions to execute when this alarm transitions into an ALARM state from any other state.
+     * The list of actions to execute when this alarm transitions into an ALARM state from any other state. Specify each action as an Amazon Resource Name (ARN). For more information about creating alarms and the actions that you can specify, see [PutMetricAlarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutMetricAlarm.html) in the *API Reference*.
      */
     alarmActions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -213,75 +228,89 @@ export interface AlarmArgs {
      */
     alarmDescription?: pulumi.Input<string>;
     /**
-     * The name of the alarm.
+     * The name of the alarm. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the alarm name. 
+     *   If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
      */
     alarmName?: pulumi.Input<string>;
     /**
-     * The arithmetic operation to use when comparing the specified statistic and threshold.
+     * The arithmetic operation to use when comparing the specified statistic and threshold. The specified statistic value is used as the first operand.
      */
     comparisonOperator: pulumi.Input<string>;
     /**
-     * The number of datapoints that must be breaching to trigger the alarm.
+     * The number of datapoints that must be breaching to trigger the alarm. This is used only if you are setting an "M out of N" alarm. In that case, this value is the M, and the value that you set for ``EvaluationPeriods`` is the N value. For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.
+     *  If you omit this parameter, CW uses the same value here that you set for ``EvaluationPeriods``, and the alarm goes to alarm state if that many consecutive periods are breaching.
      */
     datapointsToAlarm?: pulumi.Input<number>;
     /**
-     * The dimensions for the metric associated with the alarm. For an alarm based on a math expression, you can't specify Dimensions. Instead, you use Metrics.
+     * The dimensions for the metric associated with the alarm. For an alarm based on a math expression, you can't specify ``Dimensions``. Instead, you use ``Metrics``.
      */
     dimensions?: pulumi.Input<pulumi.Input<inputs.cloudwatch.AlarmDimensionArgs>[]>;
     /**
-     * Used only for alarms based on percentiles.
+     * Used only for alarms based on percentiles. If ``ignore``, the alarm state does not change during periods with too few data points to be statistically significant. If ``evaluate`` or this parameter is not used, the alarm is always evaluated and possibly changes state no matter how many data points are available.
      */
     evaluateLowSampleCountPercentile?: pulumi.Input<string>;
     /**
-     * The number of periods over which data is compared to the specified threshold.
+     * The number of periods over which data is compared to the specified threshold. If you are setting an alarm that requires that a number of consecutive data points be breaching to trigger the alarm, this value specifies that number. If you are setting an "M out of N" alarm, this value is the N, and ``DatapointsToAlarm`` is the M.
+     *  For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.
      */
     evaluationPeriods: pulumi.Input<number>;
     /**
      * The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
+     *  For an alarm based on a metric, you must specify either ``Statistic`` or ``ExtendedStatistic`` but not both.
+     *  For an alarm based on a math expression, you can't specify ``ExtendedStatistic``. Instead, you use ``Metrics``.
      */
     extendedStatistic?: pulumi.Input<string>;
     /**
-     * The actions to execute when this alarm transitions to the INSUFFICIENT_DATA state from any other state.
+     * The actions to execute when this alarm transitions to the ``INSUFFICIENT_DATA`` state from any other state. Each action is specified as an Amazon Resource Name (ARN).
      */
     insufficientDataActions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The name of the metric associated with the alarm.
+     * The name of the metric associated with the alarm. This is required for an alarm based on a metric. For an alarm based on a math expression, you use ``Metrics`` instead and you can't specify ``MetricName``.
      */
     metricName?: pulumi.Input<string>;
     /**
-     * An array that enables you to create an alarm based on the result of a metric math expression.
+     * An array that enables you to create an alarm based on the result of a metric math expression. Each item in the array either retrieves a metric or performs a math expression.
+     *  If you specify the ``Metrics`` parameter, you cannot specify ``MetricName``, ``Dimensions``, ``Period``, ``Namespace``, ``Statistic``, ``ExtendedStatistic``, or ``Unit``.
      */
     metrics?: pulumi.Input<pulumi.Input<inputs.cloudwatch.AlarmMetricDataQueryArgs>[]>;
     /**
-     * The namespace of the metric associated with the alarm.
+     * The namespace of the metric associated with the alarm. This is required for an alarm based on a metric. For an alarm based on a math expression, you can't specify ``Namespace`` and you use ``Metrics`` instead.
+     *  For a list of namespaces for metrics from AWS services, see [Services That Publish Metrics.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html)
      */
     namespace?: pulumi.Input<string>;
     /**
-     * The actions to execute when this alarm transitions to the OK state from any other state.
+     * The actions to execute when this alarm transitions to the ``OK`` state from any other state. Each action is specified as an Amazon Resource Name (ARN).
      */
     okActions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The period in seconds, over which the statistic is applied.
+     * The period, in seconds, over which the statistic is applied. This is required for an alarm based on a metric. Valid values are 10, 30, 60, and any multiple of 60.
+     *  For an alarm based on a math expression, you can't specify ``Period``, and instead you use the ``Metrics`` parameter.
+     *  *Minimum:* 10
      */
     period?: pulumi.Input<number>;
     /**
-     * The statistic for the metric associated with the alarm, other than percentile.
+     * The statistic for the metric associated with the alarm, other than percentile. For percentile statistics, use ``ExtendedStatistic``.
+     *  For an alarm based on a metric, you must specify either ``Statistic`` or ``ExtendedStatistic`` but not both.
+     *  For an alarm based on a math expression, you can't specify ``Statistic``. Instead, you use ``Metrics``.
      */
     statistic?: pulumi.Input<string>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
-     * In an alarm based on an anomaly detection model, this is the ID of the ANOMALY_DETECTION_BAND function used as the threshold for the alarm.
+     * The value to compare with the specified statistic.
      */
     threshold?: pulumi.Input<number>;
     /**
-     * In an alarm based on an anomaly detection model, this is the ID of the ANOMALY_DETECTION_BAND function used as the threshold for the alarm.
+     * In an alarm based on an anomaly detection model, this is the ID of the ``ANOMALY_DETECTION_BAND`` function used as the threshold for the alarm.
      */
     thresholdMetricId?: pulumi.Input<string>;
     /**
-     * Sets how this alarm is to handle missing data points. Valid values are breaching, notBreaching, ignore, and missing.
+     * Sets how this alarm is to handle missing data points. Valid values are ``breaching``, ``notBreaching``, ``ignore``, and ``missing``. For more information, see [Configuring How Alarms Treat Missing Data](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarms-and-missing-data) in the *Amazon User Guide*.
+     *  If you omit this parameter, the default behavior of ``missing`` is used.
      */
     treatMissingData?: pulumi.Input<string>;
     /**
-     * The unit of the metric associated with the alarm.
+     * The unit of the metric associated with the alarm. Specify this only if you are creating an alarm based on a single metric. Do not specify this if you are specifying a ``Metrics`` array.
+     *   You can specify the following values: Seconds, Microseconds, Milliseconds, Bytes, Kilobytes, Megabytes, Gigabytes, Terabytes, Bits, Kilobits, Megabits, Gigabits, Terabits, Percent, Count, Bytes/Second, Kilobytes/Second, Megabytes/Second, Gigabytes/Second, Terabytes/Second, Bits/Second, Kilobits/Second, Megabits/Second, Gigabits/Second, Terabits/Second, Count/Second, or None.
      */
     unit?: pulumi.Input<string>;
 }

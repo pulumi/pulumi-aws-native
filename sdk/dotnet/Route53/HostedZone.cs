@@ -72,7 +72,7 @@ namespace Pulumi.AwsNative.Route53
 
         /// <summary>
         /// *Private hosted zones:* A complex type that contains information about the VPCs that are associated with the specified hosted zone.
-        ///  For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
+        ///   For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
         /// </summary>
         [Output("vpcs")]
         public Output<ImmutableArray<Outputs.HostedZoneVpc>> Vpcs { get; private set; } = null!;
@@ -171,7 +171,7 @@ namespace Pulumi.AwsNative.Route53
 
         /// <summary>
         /// *Private hosted zones:* A complex type that contains information about the VPCs that are associated with the specified hosted zone.
-        ///  For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
+        ///   For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
         /// </summary>
         public InputList<Inputs.HostedZoneVpcArgs> Vpcs
         {

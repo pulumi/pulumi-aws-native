@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'GetSyncConfigurationResult',
@@ -18,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetSyncConfigurationResult:
-    def __init__(__self__, branch=None, config_file=None, owner_id=None, provider_type=None, repository_link_id=None, repository_name=None, role_arn=None):
+    def __init__(__self__, branch=None, config_file=None, owner_id=None, provider_type=None, publish_deployment_status=None, repository_link_id=None, repository_name=None, role_arn=None, trigger_resource_update_on=None):
         if branch and not isinstance(branch, str):
             raise TypeError("Expected argument 'branch' to be a str")
         pulumi.set(__self__, "branch", branch)
@@ -31,6 +32,9 @@ class GetSyncConfigurationResult:
         if provider_type and not isinstance(provider_type, str):
             raise TypeError("Expected argument 'provider_type' to be a str")
         pulumi.set(__self__, "provider_type", provider_type)
+        if publish_deployment_status and not isinstance(publish_deployment_status, str):
+            raise TypeError("Expected argument 'publish_deployment_status' to be a str")
+        pulumi.set(__self__, "publish_deployment_status", publish_deployment_status)
         if repository_link_id and not isinstance(repository_link_id, str):
             raise TypeError("Expected argument 'repository_link_id' to be a str")
         pulumi.set(__self__, "repository_link_id", repository_link_id)
@@ -40,6 +44,9 @@ class GetSyncConfigurationResult:
         if role_arn and not isinstance(role_arn, str):
             raise TypeError("Expected argument 'role_arn' to be a str")
         pulumi.set(__self__, "role_arn", role_arn)
+        if trigger_resource_update_on and not isinstance(trigger_resource_update_on, str):
+            raise TypeError("Expected argument 'trigger_resource_update_on' to be a str")
+        pulumi.set(__self__, "trigger_resource_update_on", trigger_resource_update_on)
 
     @property
     @pulumi.getter
@@ -67,11 +74,19 @@ class GetSyncConfigurationResult:
 
     @property
     @pulumi.getter(name="providerType")
-    def provider_type(self) -> Optional[str]:
+    def provider_type(self) -> Optional['SyncConfigurationProviderType']:
         """
         The name of the external provider where your third-party code repository is configured.
         """
         return pulumi.get(self, "provider_type")
+
+    @property
+    @pulumi.getter(name="publishDeploymentStatus")
+    def publish_deployment_status(self) -> Optional['SyncConfigurationPublishDeploymentStatus']:
+        """
+        Whether to enable or disable publishing of deployment status to source providers.
+        """
+        return pulumi.get(self, "publish_deployment_status")
 
     @property
     @pulumi.getter(name="repositoryLinkId")
@@ -97,6 +112,14 @@ class GetSyncConfigurationResult:
         """
         return pulumi.get(self, "role_arn")
 
+    @property
+    @pulumi.getter(name="triggerResourceUpdateOn")
+    def trigger_resource_update_on(self) -> Optional['SyncConfigurationTriggerResourceUpdateOn']:
+        """
+        When to trigger Git sync to begin the stack update.
+        """
+        return pulumi.get(self, "trigger_resource_update_on")
+
 
 class AwaitableGetSyncConfigurationResult(GetSyncConfigurationResult):
     # pylint: disable=using-constant-test
@@ -108,9 +131,11 @@ class AwaitableGetSyncConfigurationResult(GetSyncConfigurationResult):
             config_file=self.config_file,
             owner_id=self.owner_id,
             provider_type=self.provider_type,
+            publish_deployment_status=self.publish_deployment_status,
             repository_link_id=self.repository_link_id,
             repository_name=self.repository_name,
-            role_arn=self.role_arn)
+            role_arn=self.role_arn,
+            trigger_resource_update_on=self.trigger_resource_update_on)
 
 
 def get_sync_configuration(resource_name: Optional[str] = None,
@@ -134,9 +159,11 @@ def get_sync_configuration(resource_name: Optional[str] = None,
         config_file=pulumi.get(__ret__, 'config_file'),
         owner_id=pulumi.get(__ret__, 'owner_id'),
         provider_type=pulumi.get(__ret__, 'provider_type'),
+        publish_deployment_status=pulumi.get(__ret__, 'publish_deployment_status'),
         repository_link_id=pulumi.get(__ret__, 'repository_link_id'),
         repository_name=pulumi.get(__ret__, 'repository_name'),
-        role_arn=pulumi.get(__ret__, 'role_arn'))
+        role_arn=pulumi.get(__ret__, 'role_arn'),
+        trigger_resource_update_on=pulumi.get(__ret__, 'trigger_resource_update_on'))
 
 
 @_utilities.lift_output_func(get_sync_configuration)

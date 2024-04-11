@@ -28,9 +28,21 @@ export interface GetIntegrationArgs {
 export interface GetIntegrationResult {
     readonly createTime?: string;
     /**
+     * The data filter for the integration.
+     */
+    readonly dataFilter?: string;
+    /**
+     * The description of the integration.
+     */
+    readonly description?: string;
+    /**
      * The ARN of the integration.
      */
     readonly integrationArn?: string;
+    /**
+     * The name of the integration.
+     */
+    readonly integrationName?: string;
     /**
      * An array of key-value pairs to apply to this resource.
      */

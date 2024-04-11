@@ -3,6 +3,7 @@ AWS::ACMPCA::CertificateAuthority
 AWS::ACMPCA::CertificateAuthorityActivation
 AWS::ACMPCA::Permission
 AWS::APS::RuleGroupsNamespace
+AWS::APS::Scraper
 AWS::APS::Workspace
 AWS::ARCZonalShift::ZonalAutoshiftConfiguration
 AWS::AccessAnalyzer::Analyzer
@@ -49,6 +50,7 @@ AWS::AppConfig::HostedConfigurationVersion
 AWS::AppFlow::Connector
 AWS::AppFlow::ConnectorProfile
 AWS::AppFlow::Flow
+AWS::AppIntegrations::Application
 AWS::AppIntegrations::DataIntegration
 AWS::AppIntegrations::EventIntegration
 AWS::AppRunner::AutoScalingConfiguration
@@ -100,6 +102,10 @@ AWS::Batch::ComputeEnvironment
 AWS::Batch::JobDefinition
 AWS::Batch::JobQueue
 AWS::Batch::SchedulingPolicy
+AWS::Bedrock::Agent
+AWS::Bedrock::AgentAlias
+AWS::Bedrock::DataSource
+AWS::Bedrock::KnowledgeBase
 AWS::Budgets::BudgetsAction
 AWS::CE::AnomalyMonitor
 AWS::CE::AnomalySubscription
@@ -114,6 +120,8 @@ AWS::CleanRooms::Collaboration
 AWS::CleanRooms::ConfiguredTable
 AWS::CleanRooms::ConfiguredTableAssociation
 AWS::CleanRooms::Membership
+AWS::CleanRooms::PrivacyBudgetTemplate
+AWS::CleanRoomsML::TrainingDataset
 AWS::CloudFormation::HookDefaultVersion
 AWS::CloudFormation::HookTypeConfig
 AWS::CloudFormation::HookVersion
@@ -147,8 +155,10 @@ AWS::CloudWatch::Alarm
 AWS::CloudWatch::CompositeAlarm
 AWS::CloudWatch::MetricStream
 AWS::CodeArtifact::Domain
+AWS::CodeArtifact::PackageGroup
 AWS::CodeArtifact::Repository
 AWS::CodeBuild::Fleet
+AWS::CodeConnections::Connection
 AWS::CodeDeploy::Application
 AWS::CodeDeploy::DeploymentConfig
 AWS::CodeGuruProfiler::ProfilingGroup
@@ -244,6 +254,14 @@ AWS::DataZone::EnvironmentBlueprintConfiguration
 AWS::DataZone::EnvironmentProfile
 AWS::DataZone::Project
 AWS::DataZone::SubscriptionTarget
+AWS::Deadline::Farm
+AWS::Deadline::Fleet
+AWS::Deadline::LicenseEndpoint
+AWS::Deadline::MeteredProduct
+AWS::Deadline::Queue
+AWS::Deadline::QueueEnvironment
+AWS::Deadline::QueueFleetAssociation
+AWS::Deadline::StorageProfile
 AWS::Detective::Graph
 AWS::Detective::MemberInvitation
 AWS::Detective::OrganizationAdmin
@@ -383,7 +401,9 @@ AWS::ElasticLoadBalancingV2::TargetGroup
 AWS::ElasticLoadBalancingV2::TrustStore
 AWS::ElasticLoadBalancingV2::TrustStoreRevocation
 AWS::EntityResolution::IdMappingWorkflow
+AWS::EntityResolution::IdNamespace
 AWS::EntityResolution::MatchingWorkflow
+AWS::EntityResolution::PolicyStatement
 AWS::EntityResolution::SchemaMapping
 AWS::EventSchemas::Discoverer
 AWS::EventSchemas::Registry
@@ -428,6 +448,7 @@ AWS::GameLift::MatchmakingConfiguration
 AWS::GameLift::MatchmakingRuleSet
 AWS::GameLift::Script
 AWS::GlobalAccelerator::Accelerator
+AWS::GlobalAccelerator::CrossAccountAttachment
 AWS::GlobalAccelerator::EndpointGroup
 AWS::GlobalAccelerator::Listener
 AWS::Glue::Registry
@@ -462,9 +483,12 @@ AWS::IAM::User
 AWS::IAM::UserPolicy
 AWS::IAM::VirtualMFADevice
 AWS::IVS::Channel
+AWS::IVS::EncoderConfiguration
 AWS::IVS::PlaybackKeyPair
+AWS::IVS::PlaybackRestrictionPolicy
 AWS::IVS::RecordingConfiguration
 AWS::IVS::Stage
+AWS::IVS::StorageConfiguration
 AWS::IVS::StreamKey
 AWS::IVSChat::LoggingConfiguration
 AWS::IVSChat::Room
@@ -545,6 +569,8 @@ AWS::KMS::Alias
 AWS::KMS::Key
 AWS::KMS::ReplicaKey
 AWS::KafkaConnect::Connector
+AWS::KafkaConnect::CustomPlugin
+AWS::KafkaConnect::WorkerConfiguration
 AWS::Kendra::DataSource
 AWS::Kendra::Faq
 AWS::Kendra::Index
@@ -867,8 +893,14 @@ AWS::Scheduler::Schedule
 AWS::Scheduler::ScheduleGroup
 AWS::SecretsManager::Secret
 AWS::SecurityHub::AutomationRule
+AWS::SecurityHub::DelegatedAdmin
 AWS::SecurityHub::Hub
+AWS::SecurityHub::Insight
+AWS::SecurityHub::ProductSubscription
 AWS::SecurityHub::Standard
+AWS::SecurityLake::AwsLogSource
+AWS::SecurityLake::DataLake
+AWS::SecurityLake::Subscriber
 AWS::ServiceCatalog::CloudFormationProvisionedProduct
 AWS::ServiceCatalog::ServiceAction
 AWS::ServiceCatalog::ServiceActionAssociation

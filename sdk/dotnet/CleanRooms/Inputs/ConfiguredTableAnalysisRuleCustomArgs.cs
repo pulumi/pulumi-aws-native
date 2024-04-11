@@ -28,6 +28,9 @@ namespace Pulumi.AwsNative.CleanRooms.Inputs
             set => _allowedAnalysisProviders = value;
         }
 
+        [Input("differentialPrivacy")]
+        public Input<Inputs.ConfiguredTableDifferentialPrivacyArgs>? DifferentialPrivacy { get; set; }
+
         public ConfiguredTableAnalysisRuleCustomArgs()
         {
         }

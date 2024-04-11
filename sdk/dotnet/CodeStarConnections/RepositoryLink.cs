@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.CodeStarConnections
         /// The name of the external provider where your third-party code repository is configured.
         /// </summary>
         [Output("providerType")]
-        public Output<string> ProviderType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.CodeStarConnections.RepositoryLinkProviderType> ProviderType { get; private set; } = null!;
 
         /// <summary>
         /// A unique Amazon Resource Name (ARN) to designate the repository link.

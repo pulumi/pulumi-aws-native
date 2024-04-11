@@ -21,10 +21,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetChannelResult:
-    def __init__(__self__, arn=None, filler_slate=None, log_configuration=None, playback_mode=None, tags=None, time_shift_configuration=None):
+    def __init__(__self__, arn=None, audiences=None, filler_slate=None, log_configuration=None, playback_mode=None, tags=None, time_shift_configuration=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if audiences and not isinstance(audiences, list):
+            raise TypeError("Expected argument 'audiences' to be a list")
+        pulumi.set(__self__, "audiences", audiences)
         if filler_slate and not isinstance(filler_slate, dict):
             raise TypeError("Expected argument 'filler_slate' to be a dict")
         pulumi.set(__self__, "filler_slate", filler_slate)
@@ -48,6 +51,14 @@ class GetChannelResult:
         <p>The ARN of the channel.</p>
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
+    def audiences(self) -> Optional[Sequence[str]]:
+        """
+        <p>The list of audiences defined in channel.</p>
+        """
+        return pulumi.get(self, "audiences")
 
     @property
     @pulumi.getter(name="fillerSlate")
@@ -85,6 +96,7 @@ class AwaitableGetChannelResult(GetChannelResult):
             yield self
         return GetChannelResult(
             arn=self.arn,
+            audiences=self.audiences,
             filler_slate=self.filler_slate,
             log_configuration=self.log_configuration,
             playback_mode=self.playback_mode,
@@ -104,6 +116,7 @@ def get_channel(channel_name: Optional[str] = None,
 
     return AwaitableGetChannelResult(
         arn=pulumi.get(__ret__, 'arn'),
+        audiences=pulumi.get(__ret__, 'audiences'),
         filler_slate=pulumi.get(__ret__, 'filler_slate'),
         log_configuration=pulumi.get(__ret__, 'log_configuration'),
         playback_mode=pulumi.get(__ret__, 'playback_mode'),

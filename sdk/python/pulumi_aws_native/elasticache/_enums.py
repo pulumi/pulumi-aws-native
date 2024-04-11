@@ -23,7 +23,7 @@ class GlobalReplicationGroupMemberRole(str, Enum):
 
 class ServerlessCacheDataStorageUnit(str, Enum):
     """
-    The unix of cached data capacity of the Serverless Cache.
+    The unit of cached data capacity of the Serverless Cache.
     """
     GB = "GB"
 

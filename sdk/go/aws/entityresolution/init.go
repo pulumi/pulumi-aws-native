@@ -23,8 +23,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:entityresolution:IdMappingWorkflow":
 		r = &IdMappingWorkflow{}
+	case "aws-native:entityresolution:IdNamespace":
+		r = &IdNamespace{}
 	case "aws-native:entityresolution:MatchingWorkflow":
 		r = &MatchingWorkflow{}
+	case "aws-native:entityresolution:PolicyStatement":
+		r = &PolicyStatement{}
 	case "aws-native:entityresolution:SchemaMapping":
 		r = &SchemaMapping{}
 	default:

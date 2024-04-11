@@ -5519,16 +5519,26 @@ type TaskDefinitionContainerDefinition struct {
 	// The number of ``cpu`` units reserved for the container. This parameter maps to ``CpuShares`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--cpu-shares`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
 	//  This field is optional for tasks using the Fargate launch type, and the only requirement is that the total amount of CPU reserved for all containers within a task be lower than the task-level ``cpu`` value.
 	//   You can determine the number of CPU units that are available per EC2 instance type by multiplying the vCPUs listed for that instance type on the [Amazon EC2 Instances](https://docs.aws.amazon.com/ec2/instance-types/) detail page by 1,024.
-	//   Linux containers share unallocated CPU units with other containers on the cont
+	//   Linux containers share unallocated CPU units with other containers on the container instance with the same ratio as their allocated amount. For example, if you run a single-container task on a single-core instance type with 512 CPU units specified for that container, and that's the only task running on the container instance, that container could use the full 1,024 CPU unit share at any given time. However, if you launched another copy of the same task on that container instance, each task is guaranteed a minimum of 512 CPU units when needed. Moreover, each container could float to higher CPU usage if the other container was not using it. If both tasks were 100% active all of the time, they would be limited to 512 CPU units.
+	//  On Linux container instances, the Docker daemon on the container instance uses the CPU value to calculate the relative CPU share ratios for running containers. For more information, see [CPU share constraint](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#cpu-share-constraint) in the Docker documentation. The minimum valid CPU share value that the Linux kernel allows is 2. However, the CPU parameter isn't required, and you can use CPU values below 2 in your container definitions. For CPU values below 2 (including null), the behavior varies based on your Amazon ECS container agent version:
+	//   +   *Agent versions less than or equal to 1.1.0:* Null and zero CPU values are passed to Docker as 0, which Docker then converts to 1,024 CPU shares. CPU values of 1 are passed to Docker as 1, which the Linux kernel converts to two CPU shares.
+	//   +   *Agent versions greater than or equal to 1.2.0:* Null, zero, and CPU values of 1 are passed to Docker as 2.
+	//
+	//  On Windows container instances, the CPU limit is enforced as an absolute limit, or a quota. Windows containers only have access to the specified amount of CPU that's described in the task definition. A null or zero CPU value is passed to Docker as ``0``, which Windows interprets as 1% of one CPU.
 	Cpu *int `pulumi:"cpu"`
 	// A list of ARNs in SSM or Amazon S3 to a credential spec (``CredSpec``) file that configures the container for Active Directory authentication. We recommend that you use this parameter instead of the ``dockerSecurityOptions``. The maximum number of ARNs is 1.
 	//  There are two formats for each ARN.
 	//   + credentialspecdomainless:MyARN You use credentialspecdomainless:MyARN to provide a CredSpec with an additional section for a secret in . You provide the login credentials to the domain in the secret. Each task that runs on any container instance can join different domains. You can use this format without joining the container instance to a domain. + credentialspec:MyARN You use credentialspec:MyARN to provide a CredSpec for a single domain. You must join the container instance to the domain before you start any tasks that use this task definition.
 	//      In both formats, replace ``MyARN`` with the ARN in SSM or Amazon S3.
-	//      If you provide a ``credentialspecdomainless:MyARN``, the ``credspec`` must
+	//      If you provide a ``credentialspecdomainless:MyARN``, the ``credspec`` must provide a ARN in ASMlong for a secret containing the username, password, and the domain to connect to. For better security, the instance isn't joined to the domain for domainless authentication. Other applications on the instance can't use the domainless credentials. You can use this parameter to run tasks on the same instance, even it the tasks need to join different domains. For more information, see [Using gMSAs for Windows Containers](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows-gmsa.html) and [Using gMSAs for Linux Containers](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/linux-gmsa.html).
 	CredentialSpecs []string `pulumi:"credentialSpecs"`
 	// The dependencies defined for container startup and shutdown. A container can contain multiple dependencies. When a dependency is defined for container startup, for container shutdown it is reversed.
-	//  For tasks using the EC2 launch type, the container instances require at least version 1.26.0 of the container agent to turn on container dependencies. However, we recommend using the latest container agent version. For information about checking your agent version and updating to the latest version, see [Updating the Amazon ECS Container Agent](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html) in the *Amazon Elastic Container Service Developer Guide*. If you're using an Amazon ECS-optimized Linux AMI, your instance needs at least version 1.26.0-1 of the ``ecs-init`` package. If your container instances are launched from version ``20190301`` or later, then they contain the required versions of the container agent and ``ecs-init``. For more information, see [
+	//  For tasks using the EC2 launch type, the container instances require at least version 1.26.0 of the container agent to turn on container dependencies. However, we recommend using the latest container agent version. For information about checking your agent version and updating to the latest version, see [Updating the Amazon ECS Container Agent](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html) in the *Amazon Elastic Container Service Developer Guide*. If you're using an Amazon ECS-optimized Linux AMI, your instance needs at least version 1.26.0-1 of the ``ecs-init`` package. If your container instances are launched from version ``20190301`` or later, then they contain the required versions of the container agent and ``ecs-init``. For more information, see [Amazon ECS-optimized Linux AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html) in the *Amazon Elastic Container Service Developer Guide*.
+	//  For tasks using the Fargate launch type, the task or service requires the following platforms:
+	//   +  Linux platform version ``1.3.0`` or later.
+	//   +  Windows platform version ``1.0.0`` or later.
+	//
+	//  If the task definition is used in a blue/green deployment that uses [AWS::CodeDeploy::DeploymentGroup BlueGreenDeploymentConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-bluegreendeploymentconfiguration.html), the ``dependsOn`` parameter is not supported. For more information see [Issue #680](https://docs.aws.amazon.com/https://github.com/aws-cloudformation/cloudformation-coverage-roadmap/issues/680) on the on the GitHub website.
 	DependsOn []TaskDefinitionContainerDependency `pulumi:"dependsOn"`
 	// When this parameter is true, networking is off within the container. This parameter maps to ``NetworkDisabled`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/).
 	//   This parameter is not supported for Windows containers.
@@ -5544,7 +5554,10 @@ type TaskDefinitionContainerDefinition struct {
 	// A list of strings to provide custom configuration for multiple security systems. For more information about valid values, see [Docker Run Security Configuration](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration). This field isn't valid for containers in tasks using the Fargate launch type.
 	//  For Linux tasks on EC2, this parameter can be used to reference custom labels for SELinux and AppArmor multi-level security systems.
 	//  For any tasks on EC2, this parameter can be used to reference a credential spec file that configures a container for Active Directory authentication. For more information, see [Using gMSAs for Windows Containers](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows-gmsa.html) and [Using gMSAs for Linux Containers](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/linux-gmsa.html) in the *Amazon Elastic Container Service Developer Guide*.
-	//  This parameter maps to ``SecurityOpt`` in the [Create a co
+	//  This parameter maps to ``SecurityOpt`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--security-opt`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
+	//   The Amazon ECS container agent running on a container instance must register with the ``ECS_SELINUX_CAPABLE=true`` or ``ECS_APPARMOR_CAPABLE=true`` environment variables before containers placed on that instance can use these security options. For more information, see [Amazon ECS Container Agent Configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html) in the *Amazon Elastic Container Service Developer Guide*.
+	//   For more information about valid values, see [Docker Run Security Configuration](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
+	//  Valid values: "no-new-privileges" | "apparmor:PROFILE" | "label:value" | "credentialspec:CredentialSpecFilePath"
 	DockerSecurityOptions []string `pulumi:"dockerSecurityOptions"`
 	// Early versions of the Amazon ECS container agent don't properly handle ``entryPoint`` parameters. If you have problems using ``entryPoint``, update your container agent or enter your commands and arguments as ``command`` array items instead.
 	//   The entry point that's passed to the container. This parameter maps to ``Entrypoint`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--entrypoint`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration). For more information, see [https://docs.docker.com/engine/reference/builder/#entrypoint](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/builder/#entrypoint).
@@ -5554,7 +5567,7 @@ type TaskDefinitionContainerDefinition struct {
 	Environment []TaskDefinitionKeyValuePair `pulumi:"environment"`
 	// A list of files containing the environment variables to pass to a container. This parameter maps to the ``--env-file`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
 	//  You can specify up to ten environment files. The file must have a ``.env`` file extension. Each line in an environment file contains an environment variable in ``VARIABLE=VALUE`` format. Lines beginning with ``#`` are treated as comments and are ignored. For more information about the environment variable file syntax, see [Declare default environment variables in file](https://docs.aws.amazon.com/https://docs.docker.com/compose/env-file/).
-	//  If there are environment variables specified using the ``environment`` parameter in a container definition, they take precedence over the variables contained within an environment file. If multiple environment files are specified that contain the same variable, they're processed from the top down. We recommend t
+	//  If there are environment variables specified using the ``environment`` parameter in a container definition, they take precedence over the variables contained within an environment file. If multiple environment files are specified that contain the same variable, they're processed from the top down. We recommend that you use unique variable names. For more information, see [Specifying Environment Variables](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/taskdef-envfiles.html) in the *Amazon Elastic Container Service Developer Guide*.
 	EnvironmentFiles []TaskDefinitionEnvironmentFile `pulumi:"environmentFiles"`
 	// If the ``essential`` parameter of a container is marked as ``true``, and that container fails or stops for any reason, all other containers that are part of the task are stopped. If the ``essential`` parameter of a container is marked as ``false``, its failure doesn't affect the rest of the containers in a task. If this parameter is omitted, a container is assumed to be essential.
 	//  All tasks must have at least one essential container. If you have an application that's composed of multiple containers, group containers that are used for a common purpose into components, and separate the different components into multiple task definitions. For more information, see [Application Architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/application_architecture.html) in the *Amazon Elastic Container Service Developer Guide*.
@@ -5570,25 +5583,38 @@ type TaskDefinitionContainerDefinition struct {
 	//   The ``hostname`` parameter is not supported if you're using the ``awsvpc`` network mode.
 	Hostname *string `pulumi:"hostname"`
 	// The image used to start a container. This string is passed directly to the Docker daemon. By default, images in the Docker Hub registry are available. Other repositories are specified with either ``repository-url/image:tag`` or ``repository-url/image@digest``. Up to 255 letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs are allowed. This parameter maps to ``Image`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``IMAGE`` parameter of [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
-	//   +  When a new task starts, the Amazon ECS container agent pulls the latest version of the specified image and tag for the container to use. However, subsequent updates to a repository image
+	//   +  When a new task starts, the Amazon ECS container agent pulls the latest version of the specified image and tag for the container to use. However, subsequent updates to a repository image aren't propagated to already running tasks.
+	//   +  Images in Amazon ECR repositories can be specified by either using the full ``registry/repository:tag`` or ``registry/repository@digest``. For example, ``012345678910.dkr.ecr.<region-name>.amazonaws.com/<repository-name>:latest`` or ``012345678910.dkr.ecr.<region-name>.amazonaws.com/<repository-name>@sha256:94afd1f2e64d908bc90dbca0035a5b567EXAMPLE``.
+	//   +  Images in official repositories on Docker Hub use a single name (for example, ``ubuntu`` or ``mongo``).
+	//   +  Images in other repositories on Docker Hub are qualified with an organization name (for example, ``amazon/amazon-ecs-agent``).
+	//   +  Images in other online repositories are qualified further by a domain name (for example, ``quay.io/assemblyline/ubuntu``).
 	Image string `pulumi:"image"`
 	// When this parameter is ``true``, you can deploy containerized applications that require ``stdin`` or a ``tty`` to be allocated. This parameter maps to ``OpenStdin`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--interactive`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
 	Interactive *bool `pulumi:"interactive"`
 	// The ``links`` parameter allows containers to communicate with each other without the need for port mappings. This parameter is only supported if the network mode of a task definition is ``bridge``. The ``name:internalName`` construct is analogous to ``name:alias`` in Docker links. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed. For more information about linking Docker containers, go to [Legacy container links](https://docs.aws.amazon.com/https://docs.docker.com/network/links/) in the Docker documentation. This parameter maps to ``Links`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--link`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
-	//   This parameter is not supported for W
+	//   This parameter is not supported for Windows containers.
+	//    Containers that are collocated on a single container instance may be able to communicate with each other without requiring links or host port mappings. Network isolation is achieved on the container instance using security groups and VPC settings.
 	Links []string `pulumi:"links"`
 	// Linux-specific modifications that are applied to the container, such as Linux kernel capabilities. For more information see [KernelCapabilities](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_KernelCapabilities.html).
 	//   This parameter is not supported for Windows containers.
 	LinuxParameters *TaskDefinitionLinuxParameters `pulumi:"linuxParameters"`
 	// The log configuration specification for the container.
-	//  This parameter maps to ``LogConfig`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--log-driver`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/). By default, containers use the same logging driver that the Docker daemon uses. However, the container may use a different logging driver than the Docker daemon by specifying a log driver with this parameter in the container definition. To use a different logging driver for a container, the log system must be configured properly on the container instance (or on a different log server for remote logging options). For more information on the options for different supported log drivers, see [Configure logging drivers](https://docs.aws.amazon.com/htt
+	//  This parameter maps to ``LogConfig`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--log-driver`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/). By default, containers use the same logging driver that the Docker daemon uses. However, the container may use a different logging driver than the Docker daemon by specifying a log driver with this parameter in the container definition. To use a different logging driver for a container, the log system must be configured properly on the container instance (or on a different log server for remote logging options). For more information on the options for different supported log drivers, see [Configure logging drivers](https://docs.aws.amazon.com/https://docs.docker.com/engine/admin/logging/overview/) in the Docker documentation.
+	//   Amazon ECS currently supports a subset of the logging drivers available to the Docker daemon (shown in the [LogConfiguration](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_LogConfiguration.html) data type). Additional log drivers may be available in future releases of the Amazon ECS container agent.
+	//   This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version --format '{{.Server.APIVersion}}'``
+	//   The Amazon ECS container agent running on a container instance must register the logging drivers available on that instance with the ``ECS_AVAILABLE_LOGGING_DRIVERS`` environment variable before containers placed on that instance can use these log configuration options. For more information, see [Amazon ECS Container Agent Configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html) in the *Amazon Elastic Container Service Developer Guide*.
 	LogConfiguration *TaskDefinitionLogConfiguration `pulumi:"logConfiguration"`
 	// The amount (in MiB) of memory to present to the container. If your container attempts to exceed the memory specified here, the container is killed. The total amount of memory reserved for all containers within a task must be lower than the task ``memory`` value, if one is specified. This parameter maps to ``Memory`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--memory`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
 	//  If using the Fargate launch type, this parameter is optional.
-	//  If using the EC2 launch type, you must specify either a task-level memory value or a container-level memory value. If you specify both a container-level ``memory`` and ``memoryReservation`` value, ``memory`` must be greater than ``memoryReserva
+	//  If using the EC2 launch type, you must specify either a task-level memory value or a container-level memory value. If you specify both a container-level ``memory`` and ``memoryReservation`` value, ``memory`` must be greater than ``memoryReservation``. If you specify ``memoryReservation``, then that value is subtracted from the available memory resources for the container instance where the container is placed. Otherwise, the value of ``memory`` is used.
+	//  The Docker 20.10.0 or later daemon reserves a minimum of 6 MiB of memory for a container, so you should not specify fewer than 6 MiB of memory for your containers.
+	//  The Docker 19.03.13-ce or earlier daemon reserves a minimum of 4 MiB of memory for a container, so you should not specify fewer than 4 MiB of memory for your containers.
 	Memory *int `pulumi:"memory"`
 	// The soft limit (in MiB) of memory to reserve for the container. When system memory is under heavy contention, Docker attempts to keep the container memory to this soft limit. However, your container can consume more memory when it needs to, up to either the hard limit specified with the ``memory`` parameter (if applicable), or all of the available memory on the container instance, whichever comes first. This parameter maps to ``MemoryReservation`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--memory-reservation`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
-	//  If a task-level memory value is not specified, you must specify a non-zero integer for one or both of ``memory`` or ``memoryReservation`` in a container definiti
+	//  If a task-level memory value is not specified, you must specify a non-zero integer for one or both of ``memory`` or ``memoryReservation`` in a container definition. If you specify both, ``memory`` must be greater than ``memoryReservation``. If you specify ``memoryReservation``, then that value is subtracted from the available memory resources for the container instance where the container is placed. Otherwise, the value of ``memory`` is used.
+	//  For example, if your container normally uses 128 MiB of memory, but occasionally bursts to 256 MiB of memory for short periods of time, you can set a ``memoryReservation`` of 128 MiB, and a ``memory`` hard limit of 300 MiB. This configuration would allow the container to only reserve 128 MiB of memory from the remaining resources on the container instance, but also allow the container to consume more memory resources when needed.
+	//  The Docker 20.10.0 or later daemon reserves a minimum of 6 MiB of memory for a container. So, don't specify less than 6 MiB of memory for your containers.
+	//  The Docker 19.03.13-ce or earlier daemon reserves a minimum of 4 MiB of memory for a container. So, don't specify less than 4 MiB of memory for your containers.
 	MemoryReservation *int `pulumi:"memoryReservation"`
 	// The mount points for data volumes in your container.
 	//  This parameter maps to ``Volumes`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--volume`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
@@ -5599,7 +5625,8 @@ type TaskDefinitionContainerDefinition struct {
 	// The list of port mappings for the container. Port mappings allow containers to access ports on the host container instance to send or receive traffic.
 	//  For task definitions that use the ``awsvpc`` network mode, you should only specify the ``containerPort``. The ``hostPort`` can be left blank or it must be the same value as the ``containerPort``.
 	//  Port mappings on Windows use the ``NetNAT`` gateway address rather than ``localhost``. There is no loopback for port mappings on Windows, so you cannot access a container's mapped port from the host itself.
-	//  This parameter maps to ``PortBindings`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--publish`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/). If the network mode of a task definition is set to
+	//  This parameter maps to ``PortBindings`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--publish`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/). If the network mode of a task definition is set to ``none``, then you can't specify port mappings. If the network mode of a task definition is set to ``host``, then host ports must either be undefined or they must match the container port in the port mapping.
+	//   After a task reaches the ``RUNNING`` status, manual and automatic host and container port assignments are visible in the *Network Bindings* section of a container description for a selected task in the Amazon ECS console. The assignments are also visible in the ``networkBindings`` section [DescribeTasks](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeTasks.html) responses.
 	PortMappings []TaskDefinitionPortMapping `pulumi:"portMappings"`
 	// When this parameter is true, the container is given elevated privileges on the host container instance (similar to the ``root`` user). This parameter maps to ``Privileged`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--privileged`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
 	//   This parameter is not supported for Windows containers or tasks run on FARGATElong.
@@ -5621,7 +5648,8 @@ type TaskDefinitionContainerDefinition struct {
 	//   +  Linux platform version ``1.3.0`` or later.
 	//   +  Windows platform version ``1.0.0`` or later.
 	//
-	//  For tasks using the EC2 launch type, your container instances require at least version ``1.26.0`` of the container agent to use a container start timeout value. However
+	//  For tasks using the EC2 launch type, your container instances require at least version ``1.26.0`` of the container agent to use a container start timeout value. However, we recommend using the latest container agent version. For information about checking your agent version and updating to the latest version, see [Updating the Amazon ECS Container Agent](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html) in the *Amazon Elastic Container Service Developer Guide*. If you're using an Amazon ECS-optimized Linux AMI, your instance needs at least version ``1.26.0-1`` of the ``ecs-init`` package. If your container instances are launched from version ``20190301`` or later, then they contain the required versions of the container agent and ``ecs-init``. For more information, see [Amazon ECS-optimized Linux AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html) in the *Amazon Elastic Container Service Developer Guide*.
+	//  The valid values are 2-120 seconds.
 	StartTimeout *int `pulumi:"startTimeout"`
 	// Time duration (in seconds) to wait before the container is forcefully killed if it doesn't exit normally on its own.
 	//  For tasks using the Fargate launch type, the task or service requires the following platforms:
@@ -5629,7 +5657,8 @@ type TaskDefinitionContainerDefinition struct {
 	//   +  Windows platform version ``1.0.0`` or later.
 	//
 	//  The max stop timeout value is 120 seconds and if the parameter is not specified, the default value of 30 seconds is used.
-	//  For tasks that use the EC2 launch type, if the ``stopTimeout`` parameter isn't specified, the value set for the Amazon ECS container agent configuration variable ``ECS_CONTAINER_STOP_TIMEOUT`` is used. If neither the ``stopTimeout`` parameter or the ``ECS_CONTAINER_STOP_TIMEOUT`` agent configuration variable are set, then the default values of 30 seconds for Linux containers and 30 seconds on Windows containers are used. Your container instances require at least version 1.26.0 of the container agent to use a container stop timeout value. However, we recomm
+	//  For tasks that use the EC2 launch type, if the ``stopTimeout`` parameter isn't specified, the value set for the Amazon ECS container agent configuration variable ``ECS_CONTAINER_STOP_TIMEOUT`` is used. If neither the ``stopTimeout`` parameter or the ``ECS_CONTAINER_STOP_TIMEOUT`` agent configuration variable are set, then the default values of 30 seconds for Linux containers and 30 seconds on Windows containers are used. Your container instances require at least version 1.26.0 of the container agent to use a container stop timeout value. However, we recommend using the latest container agent version. For information about checking your agent version and updating to the latest version, see [Updating the Amazon ECS Container Agent](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html) in the *Amazon Elastic Container Service Developer Guide*. If you're using an Amazon ECS-optimized Linux AMI, your instance needs at least version 1.26.0-1 of the ``ecs-init`` package. If your container instances are launched from version ``20190301`` or later, then they contain the required versions of the container agent and ``ecs-init``. For more information, see [Amazon ECS-optimized Linux AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html) in the *Amazon Elastic Container Service Developer Guide*.
+	//  The valid values are 2-120 seconds.
 	StopTimeout *int `pulumi:"stopTimeout"`
 	// A list of namespaced kernel parameters to set in the container. This parameter maps to ``Sysctls`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--sysctl`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration). For example, you can configure ``net.ipv4.tcp_keepalive_time`` setting to maintain longer lived connections.
 	SystemControls []TaskDefinitionSystemControl `pulumi:"systemControls"`
@@ -5672,16 +5701,26 @@ type TaskDefinitionContainerDefinitionArgs struct {
 	// The number of ``cpu`` units reserved for the container. This parameter maps to ``CpuShares`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--cpu-shares`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
 	//  This field is optional for tasks using the Fargate launch type, and the only requirement is that the total amount of CPU reserved for all containers within a task be lower than the task-level ``cpu`` value.
 	//   You can determine the number of CPU units that are available per EC2 instance type by multiplying the vCPUs listed for that instance type on the [Amazon EC2 Instances](https://docs.aws.amazon.com/ec2/instance-types/) detail page by 1,024.
-	//   Linux containers share unallocated CPU units with other containers on the cont
+	//   Linux containers share unallocated CPU units with other containers on the container instance with the same ratio as their allocated amount. For example, if you run a single-container task on a single-core instance type with 512 CPU units specified for that container, and that's the only task running on the container instance, that container could use the full 1,024 CPU unit share at any given time. However, if you launched another copy of the same task on that container instance, each task is guaranteed a minimum of 512 CPU units when needed. Moreover, each container could float to higher CPU usage if the other container was not using it. If both tasks were 100% active all of the time, they would be limited to 512 CPU units.
+	//  On Linux container instances, the Docker daemon on the container instance uses the CPU value to calculate the relative CPU share ratios for running containers. For more information, see [CPU share constraint](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#cpu-share-constraint) in the Docker documentation. The minimum valid CPU share value that the Linux kernel allows is 2. However, the CPU parameter isn't required, and you can use CPU values below 2 in your container definitions. For CPU values below 2 (including null), the behavior varies based on your Amazon ECS container agent version:
+	//   +   *Agent versions less than or equal to 1.1.0:* Null and zero CPU values are passed to Docker as 0, which Docker then converts to 1,024 CPU shares. CPU values of 1 are passed to Docker as 1, which the Linux kernel converts to two CPU shares.
+	//   +   *Agent versions greater than or equal to 1.2.0:* Null, zero, and CPU values of 1 are passed to Docker as 2.
+	//
+	//  On Windows container instances, the CPU limit is enforced as an absolute limit, or a quota. Windows containers only have access to the specified amount of CPU that's described in the task definition. A null or zero CPU value is passed to Docker as ``0``, which Windows interprets as 1% of one CPU.
 	Cpu pulumi.IntPtrInput `pulumi:"cpu"`
 	// A list of ARNs in SSM or Amazon S3 to a credential spec (``CredSpec``) file that configures the container for Active Directory authentication. We recommend that you use this parameter instead of the ``dockerSecurityOptions``. The maximum number of ARNs is 1.
 	//  There are two formats for each ARN.
 	//   + credentialspecdomainless:MyARN You use credentialspecdomainless:MyARN to provide a CredSpec with an additional section for a secret in . You provide the login credentials to the domain in the secret. Each task that runs on any container instance can join different domains. You can use this format without joining the container instance to a domain. + credentialspec:MyARN You use credentialspec:MyARN to provide a CredSpec for a single domain. You must join the container instance to the domain before you start any tasks that use this task definition.
 	//      In both formats, replace ``MyARN`` with the ARN in SSM or Amazon S3.
-	//      If you provide a ``credentialspecdomainless:MyARN``, the ``credspec`` must
+	//      If you provide a ``credentialspecdomainless:MyARN``, the ``credspec`` must provide a ARN in ASMlong for a secret containing the username, password, and the domain to connect to. For better security, the instance isn't joined to the domain for domainless authentication. Other applications on the instance can't use the domainless credentials. You can use this parameter to run tasks on the same instance, even it the tasks need to join different domains. For more information, see [Using gMSAs for Windows Containers](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows-gmsa.html) and [Using gMSAs for Linux Containers](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/linux-gmsa.html).
 	CredentialSpecs pulumi.StringArrayInput `pulumi:"credentialSpecs"`
 	// The dependencies defined for container startup and shutdown. A container can contain multiple dependencies. When a dependency is defined for container startup, for container shutdown it is reversed.
-	//  For tasks using the EC2 launch type, the container instances require at least version 1.26.0 of the container agent to turn on container dependencies. However, we recommend using the latest container agent version. For information about checking your agent version and updating to the latest version, see [Updating the Amazon ECS Container Agent](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html) in the *Amazon Elastic Container Service Developer Guide*. If you're using an Amazon ECS-optimized Linux AMI, your instance needs at least version 1.26.0-1 of the ``ecs-init`` package. If your container instances are launched from version ``20190301`` or later, then they contain the required versions of the container agent and ``ecs-init``. For more information, see [
+	//  For tasks using the EC2 launch type, the container instances require at least version 1.26.0 of the container agent to turn on container dependencies. However, we recommend using the latest container agent version. For information about checking your agent version and updating to the latest version, see [Updating the Amazon ECS Container Agent](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html) in the *Amazon Elastic Container Service Developer Guide*. If you're using an Amazon ECS-optimized Linux AMI, your instance needs at least version 1.26.0-1 of the ``ecs-init`` package. If your container instances are launched from version ``20190301`` or later, then they contain the required versions of the container agent and ``ecs-init``. For more information, see [Amazon ECS-optimized Linux AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html) in the *Amazon Elastic Container Service Developer Guide*.
+	//  For tasks using the Fargate launch type, the task or service requires the following platforms:
+	//   +  Linux platform version ``1.3.0`` or later.
+	//   +  Windows platform version ``1.0.0`` or later.
+	//
+	//  If the task definition is used in a blue/green deployment that uses [AWS::CodeDeploy::DeploymentGroup BlueGreenDeploymentConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-bluegreendeploymentconfiguration.html), the ``dependsOn`` parameter is not supported. For more information see [Issue #680](https://docs.aws.amazon.com/https://github.com/aws-cloudformation/cloudformation-coverage-roadmap/issues/680) on the on the GitHub website.
 	DependsOn TaskDefinitionContainerDependencyArrayInput `pulumi:"dependsOn"`
 	// When this parameter is true, networking is off within the container. This parameter maps to ``NetworkDisabled`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/).
 	//   This parameter is not supported for Windows containers.
@@ -5697,7 +5736,10 @@ type TaskDefinitionContainerDefinitionArgs struct {
 	// A list of strings to provide custom configuration for multiple security systems. For more information about valid values, see [Docker Run Security Configuration](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration). This field isn't valid for containers in tasks using the Fargate launch type.
 	//  For Linux tasks on EC2, this parameter can be used to reference custom labels for SELinux and AppArmor multi-level security systems.
 	//  For any tasks on EC2, this parameter can be used to reference a credential spec file that configures a container for Active Directory authentication. For more information, see [Using gMSAs for Windows Containers](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows-gmsa.html) and [Using gMSAs for Linux Containers](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/linux-gmsa.html) in the *Amazon Elastic Container Service Developer Guide*.
-	//  This parameter maps to ``SecurityOpt`` in the [Create a co
+	//  This parameter maps to ``SecurityOpt`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--security-opt`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
+	//   The Amazon ECS container agent running on a container instance must register with the ``ECS_SELINUX_CAPABLE=true`` or ``ECS_APPARMOR_CAPABLE=true`` environment variables before containers placed on that instance can use these security options. For more information, see [Amazon ECS Container Agent Configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html) in the *Amazon Elastic Container Service Developer Guide*.
+	//   For more information about valid values, see [Docker Run Security Configuration](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
+	//  Valid values: "no-new-privileges" | "apparmor:PROFILE" | "label:value" | "credentialspec:CredentialSpecFilePath"
 	DockerSecurityOptions pulumi.StringArrayInput `pulumi:"dockerSecurityOptions"`
 	// Early versions of the Amazon ECS container agent don't properly handle ``entryPoint`` parameters. If you have problems using ``entryPoint``, update your container agent or enter your commands and arguments as ``command`` array items instead.
 	//   The entry point that's passed to the container. This parameter maps to ``Entrypoint`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--entrypoint`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration). For more information, see [https://docs.docker.com/engine/reference/builder/#entrypoint](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/builder/#entrypoint).
@@ -5707,7 +5749,7 @@ type TaskDefinitionContainerDefinitionArgs struct {
 	Environment TaskDefinitionKeyValuePairArrayInput `pulumi:"environment"`
 	// A list of files containing the environment variables to pass to a container. This parameter maps to the ``--env-file`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
 	//  You can specify up to ten environment files. The file must have a ``.env`` file extension. Each line in an environment file contains an environment variable in ``VARIABLE=VALUE`` format. Lines beginning with ``#`` are treated as comments and are ignored. For more information about the environment variable file syntax, see [Declare default environment variables in file](https://docs.aws.amazon.com/https://docs.docker.com/compose/env-file/).
-	//  If there are environment variables specified using the ``environment`` parameter in a container definition, they take precedence over the variables contained within an environment file. If multiple environment files are specified that contain the same variable, they're processed from the top down. We recommend t
+	//  If there are environment variables specified using the ``environment`` parameter in a container definition, they take precedence over the variables contained within an environment file. If multiple environment files are specified that contain the same variable, they're processed from the top down. We recommend that you use unique variable names. For more information, see [Specifying Environment Variables](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/taskdef-envfiles.html) in the *Amazon Elastic Container Service Developer Guide*.
 	EnvironmentFiles TaskDefinitionEnvironmentFileArrayInput `pulumi:"environmentFiles"`
 	// If the ``essential`` parameter of a container is marked as ``true``, and that container fails or stops for any reason, all other containers that are part of the task are stopped. If the ``essential`` parameter of a container is marked as ``false``, its failure doesn't affect the rest of the containers in a task. If this parameter is omitted, a container is assumed to be essential.
 	//  All tasks must have at least one essential container. If you have an application that's composed of multiple containers, group containers that are used for a common purpose into components, and separate the different components into multiple task definitions. For more information, see [Application Architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/application_architecture.html) in the *Amazon Elastic Container Service Developer Guide*.
@@ -5723,25 +5765,38 @@ type TaskDefinitionContainerDefinitionArgs struct {
 	//   The ``hostname`` parameter is not supported if you're using the ``awsvpc`` network mode.
 	Hostname pulumi.StringPtrInput `pulumi:"hostname"`
 	// The image used to start a container. This string is passed directly to the Docker daemon. By default, images in the Docker Hub registry are available. Other repositories are specified with either ``repository-url/image:tag`` or ``repository-url/image@digest``. Up to 255 letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs are allowed. This parameter maps to ``Image`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``IMAGE`` parameter of [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
-	//   +  When a new task starts, the Amazon ECS container agent pulls the latest version of the specified image and tag for the container to use. However, subsequent updates to a repository image
+	//   +  When a new task starts, the Amazon ECS container agent pulls the latest version of the specified image and tag for the container to use. However, subsequent updates to a repository image aren't propagated to already running tasks.
+	//   +  Images in Amazon ECR repositories can be specified by either using the full ``registry/repository:tag`` or ``registry/repository@digest``. For example, ``012345678910.dkr.ecr.<region-name>.amazonaws.com/<repository-name>:latest`` or ``012345678910.dkr.ecr.<region-name>.amazonaws.com/<repository-name>@sha256:94afd1f2e64d908bc90dbca0035a5b567EXAMPLE``.
+	//   +  Images in official repositories on Docker Hub use a single name (for example, ``ubuntu`` or ``mongo``).
+	//   +  Images in other repositories on Docker Hub are qualified with an organization name (for example, ``amazon/amazon-ecs-agent``).
+	//   +  Images in other online repositories are qualified further by a domain name (for example, ``quay.io/assemblyline/ubuntu``).
 	Image pulumi.StringInput `pulumi:"image"`
 	// When this parameter is ``true``, you can deploy containerized applications that require ``stdin`` or a ``tty`` to be allocated. This parameter maps to ``OpenStdin`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--interactive`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
 	Interactive pulumi.BoolPtrInput `pulumi:"interactive"`
 	// The ``links`` parameter allows containers to communicate with each other without the need for port mappings. This parameter is only supported if the network mode of a task definition is ``bridge``. The ``name:internalName`` construct is analogous to ``name:alias`` in Docker links. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed. For more information about linking Docker containers, go to [Legacy container links](https://docs.aws.amazon.com/https://docs.docker.com/network/links/) in the Docker documentation. This parameter maps to ``Links`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--link`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
-	//   This parameter is not supported for W
+	//   This parameter is not supported for Windows containers.
+	//    Containers that are collocated on a single container instance may be able to communicate with each other without requiring links or host port mappings. Network isolation is achieved on the container instance using security groups and VPC settings.
 	Links pulumi.StringArrayInput `pulumi:"links"`
 	// Linux-specific modifications that are applied to the container, such as Linux kernel capabilities. For more information see [KernelCapabilities](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_KernelCapabilities.html).
 	//   This parameter is not supported for Windows containers.
 	LinuxParameters TaskDefinitionLinuxParametersPtrInput `pulumi:"linuxParameters"`
 	// The log configuration specification for the container.
-	//  This parameter maps to ``LogConfig`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--log-driver`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/). By default, containers use the same logging driver that the Docker daemon uses. However, the container may use a different logging driver than the Docker daemon by specifying a log driver with this parameter in the container definition. To use a different logging driver for a container, the log system must be configured properly on the container instance (or on a different log server for remote logging options). For more information on the options for different supported log drivers, see [Configure logging drivers](https://docs.aws.amazon.com/htt
+	//  This parameter maps to ``LogConfig`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--log-driver`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/). By default, containers use the same logging driver that the Docker daemon uses. However, the container may use a different logging driver than the Docker daemon by specifying a log driver with this parameter in the container definition. To use a different logging driver for a container, the log system must be configured properly on the container instance (or on a different log server for remote logging options). For more information on the options for different supported log drivers, see [Configure logging drivers](https://docs.aws.amazon.com/https://docs.docker.com/engine/admin/logging/overview/) in the Docker documentation.
+	//   Amazon ECS currently supports a subset of the logging drivers available to the Docker daemon (shown in the [LogConfiguration](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_LogConfiguration.html) data type). Additional log drivers may be available in future releases of the Amazon ECS container agent.
+	//   This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version --format '{{.Server.APIVersion}}'``
+	//   The Amazon ECS container agent running on a container instance must register the logging drivers available on that instance with the ``ECS_AVAILABLE_LOGGING_DRIVERS`` environment variable before containers placed on that instance can use these log configuration options. For more information, see [Amazon ECS Container Agent Configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html) in the *Amazon Elastic Container Service Developer Guide*.
 	LogConfiguration TaskDefinitionLogConfigurationPtrInput `pulumi:"logConfiguration"`
 	// The amount (in MiB) of memory to present to the container. If your container attempts to exceed the memory specified here, the container is killed. The total amount of memory reserved for all containers within a task must be lower than the task ``memory`` value, if one is specified. This parameter maps to ``Memory`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--memory`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
 	//  If using the Fargate launch type, this parameter is optional.
-	//  If using the EC2 launch type, you must specify either a task-level memory value or a container-level memory value. If you specify both a container-level ``memory`` and ``memoryReservation`` value, ``memory`` must be greater than ``memoryReserva
+	//  If using the EC2 launch type, you must specify either a task-level memory value or a container-level memory value. If you specify both a container-level ``memory`` and ``memoryReservation`` value, ``memory`` must be greater than ``memoryReservation``. If you specify ``memoryReservation``, then that value is subtracted from the available memory resources for the container instance where the container is placed. Otherwise, the value of ``memory`` is used.
+	//  The Docker 20.10.0 or later daemon reserves a minimum of 6 MiB of memory for a container, so you should not specify fewer than 6 MiB of memory for your containers.
+	//  The Docker 19.03.13-ce or earlier daemon reserves a minimum of 4 MiB of memory for a container, so you should not specify fewer than 4 MiB of memory for your containers.
 	Memory pulumi.IntPtrInput `pulumi:"memory"`
 	// The soft limit (in MiB) of memory to reserve for the container. When system memory is under heavy contention, Docker attempts to keep the container memory to this soft limit. However, your container can consume more memory when it needs to, up to either the hard limit specified with the ``memory`` parameter (if applicable), or all of the available memory on the container instance, whichever comes first. This parameter maps to ``MemoryReservation`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--memory-reservation`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
-	//  If a task-level memory value is not specified, you must specify a non-zero integer for one or both of ``memory`` or ``memoryReservation`` in a container definiti
+	//  If a task-level memory value is not specified, you must specify a non-zero integer for one or both of ``memory`` or ``memoryReservation`` in a container definition. If you specify both, ``memory`` must be greater than ``memoryReservation``. If you specify ``memoryReservation``, then that value is subtracted from the available memory resources for the container instance where the container is placed. Otherwise, the value of ``memory`` is used.
+	//  For example, if your container normally uses 128 MiB of memory, but occasionally bursts to 256 MiB of memory for short periods of time, you can set a ``memoryReservation`` of 128 MiB, and a ``memory`` hard limit of 300 MiB. This configuration would allow the container to only reserve 128 MiB of memory from the remaining resources on the container instance, but also allow the container to consume more memory resources when needed.
+	//  The Docker 20.10.0 or later daemon reserves a minimum of 6 MiB of memory for a container. So, don't specify less than 6 MiB of memory for your containers.
+	//  The Docker 19.03.13-ce or earlier daemon reserves a minimum of 4 MiB of memory for a container. So, don't specify less than 4 MiB of memory for your containers.
 	MemoryReservation pulumi.IntPtrInput `pulumi:"memoryReservation"`
 	// The mount points for data volumes in your container.
 	//  This parameter maps to ``Volumes`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--volume`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
@@ -5752,7 +5807,8 @@ type TaskDefinitionContainerDefinitionArgs struct {
 	// The list of port mappings for the container. Port mappings allow containers to access ports on the host container instance to send or receive traffic.
 	//  For task definitions that use the ``awsvpc`` network mode, you should only specify the ``containerPort``. The ``hostPort`` can be left blank or it must be the same value as the ``containerPort``.
 	//  Port mappings on Windows use the ``NetNAT`` gateway address rather than ``localhost``. There is no loopback for port mappings on Windows, so you cannot access a container's mapped port from the host itself.
-	//  This parameter maps to ``PortBindings`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--publish`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/). If the network mode of a task definition is set to
+	//  This parameter maps to ``PortBindings`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--publish`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/). If the network mode of a task definition is set to ``none``, then you can't specify port mappings. If the network mode of a task definition is set to ``host``, then host ports must either be undefined or they must match the container port in the port mapping.
+	//   After a task reaches the ``RUNNING`` status, manual and automatic host and container port assignments are visible in the *Network Bindings* section of a container description for a selected task in the Amazon ECS console. The assignments are also visible in the ``networkBindings`` section [DescribeTasks](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeTasks.html) responses.
 	PortMappings TaskDefinitionPortMappingArrayInput `pulumi:"portMappings"`
 	// When this parameter is true, the container is given elevated privileges on the host container instance (similar to the ``root`` user). This parameter maps to ``Privileged`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--privileged`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
 	//   This parameter is not supported for Windows containers or tasks run on FARGATElong.
@@ -5774,7 +5830,8 @@ type TaskDefinitionContainerDefinitionArgs struct {
 	//   +  Linux platform version ``1.3.0`` or later.
 	//   +  Windows platform version ``1.0.0`` or later.
 	//
-	//  For tasks using the EC2 launch type, your container instances require at least version ``1.26.0`` of the container agent to use a container start timeout value. However
+	//  For tasks using the EC2 launch type, your container instances require at least version ``1.26.0`` of the container agent to use a container start timeout value. However, we recommend using the latest container agent version. For information about checking your agent version and updating to the latest version, see [Updating the Amazon ECS Container Agent](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html) in the *Amazon Elastic Container Service Developer Guide*. If you're using an Amazon ECS-optimized Linux AMI, your instance needs at least version ``1.26.0-1`` of the ``ecs-init`` package. If your container instances are launched from version ``20190301`` or later, then they contain the required versions of the container agent and ``ecs-init``. For more information, see [Amazon ECS-optimized Linux AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html) in the *Amazon Elastic Container Service Developer Guide*.
+	//  The valid values are 2-120 seconds.
 	StartTimeout pulumi.IntPtrInput `pulumi:"startTimeout"`
 	// Time duration (in seconds) to wait before the container is forcefully killed if it doesn't exit normally on its own.
 	//  For tasks using the Fargate launch type, the task or service requires the following platforms:
@@ -5782,7 +5839,8 @@ type TaskDefinitionContainerDefinitionArgs struct {
 	//   +  Windows platform version ``1.0.0`` or later.
 	//
 	//  The max stop timeout value is 120 seconds and if the parameter is not specified, the default value of 30 seconds is used.
-	//  For tasks that use the EC2 launch type, if the ``stopTimeout`` parameter isn't specified, the value set for the Amazon ECS container agent configuration variable ``ECS_CONTAINER_STOP_TIMEOUT`` is used. If neither the ``stopTimeout`` parameter or the ``ECS_CONTAINER_STOP_TIMEOUT`` agent configuration variable are set, then the default values of 30 seconds for Linux containers and 30 seconds on Windows containers are used. Your container instances require at least version 1.26.0 of the container agent to use a container stop timeout value. However, we recomm
+	//  For tasks that use the EC2 launch type, if the ``stopTimeout`` parameter isn't specified, the value set for the Amazon ECS container agent configuration variable ``ECS_CONTAINER_STOP_TIMEOUT`` is used. If neither the ``stopTimeout`` parameter or the ``ECS_CONTAINER_STOP_TIMEOUT`` agent configuration variable are set, then the default values of 30 seconds for Linux containers and 30 seconds on Windows containers are used. Your container instances require at least version 1.26.0 of the container agent to use a container stop timeout value. However, we recommend using the latest container agent version. For information about checking your agent version and updating to the latest version, see [Updating the Amazon ECS Container Agent](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html) in the *Amazon Elastic Container Service Developer Guide*. If you're using an Amazon ECS-optimized Linux AMI, your instance needs at least version 1.26.0-1 of the ``ecs-init`` package. If your container instances are launched from version ``20190301`` or later, then they contain the required versions of the container agent and ``ecs-init``. For more information, see [Amazon ECS-optimized Linux AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html) in the *Amazon Elastic Container Service Developer Guide*.
+	//  The valid values are 2-120 seconds.
 	StopTimeout pulumi.IntPtrInput `pulumi:"stopTimeout"`
 	// A list of namespaced kernel parameters to set in the container. This parameter maps to ``Sysctls`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--sysctl`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration). For example, you can configure ``net.ipv4.tcp_keepalive_time`` setting to maintain longer lived connections.
 	SystemControls TaskDefinitionSystemControlArrayInput `pulumi:"systemControls"`
@@ -5868,7 +5926,12 @@ func (o TaskDefinitionContainerDefinitionOutput) Command() pulumi.StringArrayOut
 //
 //	This field is optional for tasks using the Fargate launch type, and the only requirement is that the total amount of CPU reserved for all containers within a task be lower than the task-level ``cpu`` value.
 //	 You can determine the number of CPU units that are available per EC2 instance type by multiplying the vCPUs listed for that instance type on the [Amazon EC2 Instances](https://docs.aws.amazon.com/ec2/instance-types/) detail page by 1,024.
-//	 Linux containers share unallocated CPU units with other containers on the cont
+//	 Linux containers share unallocated CPU units with other containers on the container instance with the same ratio as their allocated amount. For example, if you run a single-container task on a single-core instance type with 512 CPU units specified for that container, and that's the only task running on the container instance, that container could use the full 1,024 CPU unit share at any given time. However, if you launched another copy of the same task on that container instance, each task is guaranteed a minimum of 512 CPU units when needed. Moreover, each container could float to higher CPU usage if the other container was not using it. If both tasks were 100% active all of the time, they would be limited to 512 CPU units.
+//	On Linux container instances, the Docker daemon on the container instance uses the CPU value to calculate the relative CPU share ratios for running containers. For more information, see [CPU share constraint](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#cpu-share-constraint) in the Docker documentation. The minimum valid CPU share value that the Linux kernel allows is 2. However, the CPU parameter isn't required, and you can use CPU values below 2 in your container definitions. For CPU values below 2 (including null), the behavior varies based on your Amazon ECS container agent version:
+//	 +   *Agent versions less than or equal to 1.1.0:* Null and zero CPU values are passed to Docker as 0, which Docker then converts to 1,024 CPU shares. CPU values of 1 are passed to Docker as 1, which the Linux kernel converts to two CPU shares.
+//	 +   *Agent versions greater than or equal to 1.2.0:* Null, zero, and CPU values of 1 are passed to Docker as 2.
+//
+//	On Windows container instances, the CPU limit is enforced as an absolute limit, or a quota. Windows containers only have access to the specified amount of CPU that's described in the task definition. A null or zero CPU value is passed to Docker as ``0``, which Windows interprets as 1% of one CPU.
 func (o TaskDefinitionContainerDefinitionOutput) Cpu() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionContainerDefinition) *int { return v.Cpu }).(pulumi.IntPtrOutput)
 }
@@ -5878,14 +5941,19 @@ func (o TaskDefinitionContainerDefinitionOutput) Cpu() pulumi.IntPtrOutput {
 //	There are two formats for each ARN.
 //	 + credentialspecdomainless:MyARN You use credentialspecdomainless:MyARN to provide a CredSpec with an additional section for a secret in . You provide the login credentials to the domain in the secret. Each task that runs on any container instance can join different domains. You can use this format without joining the container instance to a domain. + credentialspec:MyARN You use credentialspec:MyARN to provide a CredSpec for a single domain. You must join the container instance to the domain before you start any tasks that use this task definition.
 //	    In both formats, replace ``MyARN`` with the ARN in SSM or Amazon S3.
-//	    If you provide a ``credentialspecdomainless:MyARN``, the ``credspec`` must
+//	    If you provide a ``credentialspecdomainless:MyARN``, the ``credspec`` must provide a ARN in ASMlong for a secret containing the username, password, and the domain to connect to. For better security, the instance isn't joined to the domain for domainless authentication. Other applications on the instance can't use the domainless credentials. You can use this parameter to run tasks on the same instance, even it the tasks need to join different domains. For more information, see [Using gMSAs for Windows Containers](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows-gmsa.html) and [Using gMSAs for Linux Containers](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/linux-gmsa.html).
 func (o TaskDefinitionContainerDefinitionOutput) CredentialSpecs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TaskDefinitionContainerDefinition) []string { return v.CredentialSpecs }).(pulumi.StringArrayOutput)
 }
 
 // The dependencies defined for container startup and shutdown. A container can contain multiple dependencies. When a dependency is defined for container startup, for container shutdown it is reversed.
 //
-//	For tasks using the EC2 launch type, the container instances require at least version 1.26.0 of the container agent to turn on container dependencies. However, we recommend using the latest container agent version. For information about checking your agent version and updating to the latest version, see [Updating the Amazon ECS Container Agent](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html) in the *Amazon Elastic Container Service Developer Guide*. If you're using an Amazon ECS-optimized Linux AMI, your instance needs at least version 1.26.0-1 of the ``ecs-init`` package. If your container instances are launched from version ``20190301`` or later, then they contain the required versions of the container agent and ``ecs-init``. For more information, see [
+//	For tasks using the EC2 launch type, the container instances require at least version 1.26.0 of the container agent to turn on container dependencies. However, we recommend using the latest container agent version. For information about checking your agent version and updating to the latest version, see [Updating the Amazon ECS Container Agent](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html) in the *Amazon Elastic Container Service Developer Guide*. If you're using an Amazon ECS-optimized Linux AMI, your instance needs at least version 1.26.0-1 of the ``ecs-init`` package. If your container instances are launched from version ``20190301`` or later, then they contain the required versions of the container agent and ``ecs-init``. For more information, see [Amazon ECS-optimized Linux AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html) in the *Amazon Elastic Container Service Developer Guide*.
+//	For tasks using the Fargate launch type, the task or service requires the following platforms:
+//	 +  Linux platform version ``1.3.0`` or later.
+//	 +  Windows platform version ``1.0.0`` or later.
+//
+//	If the task definition is used in a blue/green deployment that uses [AWS::CodeDeploy::DeploymentGroup BlueGreenDeploymentConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-bluegreendeploymentconfiguration.html), the ``dependsOn`` parameter is not supported. For more information see [Issue #680](https://docs.aws.amazon.com/https://github.com/aws-cloudformation/cloudformation-coverage-roadmap/issues/680) on the on the GitHub website.
 func (o TaskDefinitionContainerDefinitionOutput) DependsOn() TaskDefinitionContainerDependencyArrayOutput {
 	return o.ApplyT(func(v TaskDefinitionContainerDefinition) []TaskDefinitionContainerDependency { return v.DependsOn }).(TaskDefinitionContainerDependencyArrayOutput)
 }
@@ -5920,7 +5988,10 @@ func (o TaskDefinitionContainerDefinitionOutput) DockerLabels() pulumi.StringMap
 //
 //	For Linux tasks on EC2, this parameter can be used to reference custom labels for SELinux and AppArmor multi-level security systems.
 //	For any tasks on EC2, this parameter can be used to reference a credential spec file that configures a container for Active Directory authentication. For more information, see [Using gMSAs for Windows Containers](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows-gmsa.html) and [Using gMSAs for Linux Containers](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/linux-gmsa.html) in the *Amazon Elastic Container Service Developer Guide*.
-//	This parameter maps to ``SecurityOpt`` in the [Create a co
+//	This parameter maps to ``SecurityOpt`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--security-opt`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
+//	 The Amazon ECS container agent running on a container instance must register with the ``ECS_SELINUX_CAPABLE=true`` or ``ECS_APPARMOR_CAPABLE=true`` environment variables before containers placed on that instance can use these security options. For more information, see [Amazon ECS Container Agent Configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html) in the *Amazon Elastic Container Service Developer Guide*.
+//	 For more information about valid values, see [Docker Run Security Configuration](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
+//	Valid values: "no-new-privileges" | "apparmor:PROFILE" | "label:value" | "credentialspec:CredentialSpecFilePath"
 func (o TaskDefinitionContainerDefinitionOutput) DockerSecurityOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TaskDefinitionContainerDefinition) []string { return v.DockerSecurityOptions }).(pulumi.StringArrayOutput)
 }
@@ -5942,7 +6013,7 @@ func (o TaskDefinitionContainerDefinitionOutput) Environment() TaskDefinitionKey
 // A list of files containing the environment variables to pass to a container. This parameter maps to the “--env-file“ option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
 //
 //	You can specify up to ten environment files. The file must have a ``.env`` file extension. Each line in an environment file contains an environment variable in ``VARIABLE=VALUE`` format. Lines beginning with ``#`` are treated as comments and are ignored. For more information about the environment variable file syntax, see [Declare default environment variables in file](https://docs.aws.amazon.com/https://docs.docker.com/compose/env-file/).
-//	If there are environment variables specified using the ``environment`` parameter in a container definition, they take precedence over the variables contained within an environment file. If multiple environment files are specified that contain the same variable, they're processed from the top down. We recommend t
+//	If there are environment variables specified using the ``environment`` parameter in a container definition, they take precedence over the variables contained within an environment file. If multiple environment files are specified that contain the same variable, they're processed from the top down. We recommend that you use unique variable names. For more information, see [Specifying Environment Variables](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/taskdef-envfiles.html) in the *Amazon Elastic Container Service Developer Guide*.
 func (o TaskDefinitionContainerDefinitionOutput) EnvironmentFiles() TaskDefinitionEnvironmentFileArrayOutput {
 	return o.ApplyT(func(v TaskDefinitionContainerDefinition) []TaskDefinitionEnvironmentFile { return v.EnvironmentFiles }).(TaskDefinitionEnvironmentFileArrayOutput)
 }
@@ -5981,7 +6052,11 @@ func (o TaskDefinitionContainerDefinitionOutput) Hostname() pulumi.StringPtrOutp
 }
 
 // The image used to start a container. This string is passed directly to the Docker daemon. By default, images in the Docker Hub registry are available. Other repositories are specified with either “repository-url/image:tag“ or “repository-url/image@digest“. Up to 255 letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs are allowed. This parameter maps to “Image“ in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the “IMAGE“ parameter of [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
-//   - When a new task starts, the Amazon ECS container agent pulls the latest version of the specified image and tag for the container to use. However, subsequent updates to a repository image
+//   - When a new task starts, the Amazon ECS container agent pulls the latest version of the specified image and tag for the container to use. However, subsequent updates to a repository image aren't propagated to already running tasks.
+//   - Images in Amazon ECR repositories can be specified by either using the full “registry/repository:tag“ or “registry/repository@digest“. For example, “012345678910.dkr.ecr.<region-name>.amazonaws.com/<repository-name>:latest“ or “012345678910.dkr.ecr.<region-name>.amazonaws.com/<repository-name>@sha256:94afd1f2e64d908bc90dbca0035a5b567EXAMPLE“.
+//   - Images in official repositories on Docker Hub use a single name (for example, “ubuntu“ or “mongo“).
+//   - Images in other repositories on Docker Hub are qualified with an organization name (for example, “amazon/amazon-ecs-agent“).
+//   - Images in other online repositories are qualified further by a domain name (for example, “quay.io/assemblyline/ubuntu“).
 func (o TaskDefinitionContainerDefinitionOutput) Image() pulumi.StringOutput {
 	return o.ApplyT(func(v TaskDefinitionContainerDefinition) string { return v.Image }).(pulumi.StringOutput)
 }
@@ -5993,7 +6068,8 @@ func (o TaskDefinitionContainerDefinitionOutput) Interactive() pulumi.BoolPtrOut
 
 // The “links“ parameter allows containers to communicate with each other without the need for port mappings. This parameter is only supported if the network mode of a task definition is “bridge“. The “name:internalName“ construct is analogous to “name:alias“ in Docker links. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed. For more information about linking Docker containers, go to [Legacy container links](https://docs.aws.amazon.com/https://docs.docker.com/network/links/) in the Docker documentation. This parameter maps to “Links“ in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the “--link“ option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
 //
-//	This parameter is not supported for W
+//	This parameter is not supported for Windows containers.
+//	 Containers that are collocated on a single container instance may be able to communicate with each other without requiring links or host port mappings. Network isolation is achieved on the container instance using security groups and VPC settings.
 func (o TaskDefinitionContainerDefinitionOutput) Links() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TaskDefinitionContainerDefinition) []string { return v.Links }).(pulumi.StringArrayOutput)
 }
@@ -6007,7 +6083,10 @@ func (o TaskDefinitionContainerDefinitionOutput) LinuxParameters() TaskDefinitio
 
 // The log configuration specification for the container.
 //
-//	This parameter maps to ``LogConfig`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--log-driver`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/). By default, containers use the same logging driver that the Docker daemon uses. However, the container may use a different logging driver than the Docker daemon by specifying a log driver with this parameter in the container definition. To use a different logging driver for a container, the log system must be configured properly on the container instance (or on a different log server for remote logging options). For more information on the options for different supported log drivers, see [Configure logging drivers](https://docs.aws.amazon.com/htt
+//	This parameter maps to ``LogConfig`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--log-driver`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/). By default, containers use the same logging driver that the Docker daemon uses. However, the container may use a different logging driver than the Docker daemon by specifying a log driver with this parameter in the container definition. To use a different logging driver for a container, the log system must be configured properly on the container instance (or on a different log server for remote logging options). For more information on the options for different supported log drivers, see [Configure logging drivers](https://docs.aws.amazon.com/https://docs.docker.com/engine/admin/logging/overview/) in the Docker documentation.
+//	 Amazon ECS currently supports a subset of the logging drivers available to the Docker daemon (shown in the [LogConfiguration](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_LogConfiguration.html) data type). Additional log drivers may be available in future releases of the Amazon ECS container agent.
+//	 This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version --format '{{.Server.APIVersion}}'``
+//	 The Amazon ECS container agent running on a container instance must register the logging drivers available on that instance with the ``ECS_AVAILABLE_LOGGING_DRIVERS`` environment variable before containers placed on that instance can use these log configuration options. For more information, see [Amazon ECS Container Agent Configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html) in the *Amazon Elastic Container Service Developer Guide*.
 func (o TaskDefinitionContainerDefinitionOutput) LogConfiguration() TaskDefinitionLogConfigurationPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionContainerDefinition) *TaskDefinitionLogConfiguration { return v.LogConfiguration }).(TaskDefinitionLogConfigurationPtrOutput)
 }
@@ -6015,14 +6094,19 @@ func (o TaskDefinitionContainerDefinitionOutput) LogConfiguration() TaskDefiniti
 // The amount (in MiB) of memory to present to the container. If your container attempts to exceed the memory specified here, the container is killed. The total amount of memory reserved for all containers within a task must be lower than the task “memory“ value, if one is specified. This parameter maps to “Memory“ in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the “--memory“ option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
 //
 //	If using the Fargate launch type, this parameter is optional.
-//	If using the EC2 launch type, you must specify either a task-level memory value or a container-level memory value. If you specify both a container-level ``memory`` and ``memoryReservation`` value, ``memory`` must be greater than ``memoryReserva
+//	If using the EC2 launch type, you must specify either a task-level memory value or a container-level memory value. If you specify both a container-level ``memory`` and ``memoryReservation`` value, ``memory`` must be greater than ``memoryReservation``. If you specify ``memoryReservation``, then that value is subtracted from the available memory resources for the container instance where the container is placed. Otherwise, the value of ``memory`` is used.
+//	The Docker 20.10.0 or later daemon reserves a minimum of 6 MiB of memory for a container, so you should not specify fewer than 6 MiB of memory for your containers.
+//	The Docker 19.03.13-ce or earlier daemon reserves a minimum of 4 MiB of memory for a container, so you should not specify fewer than 4 MiB of memory for your containers.
 func (o TaskDefinitionContainerDefinitionOutput) Memory() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionContainerDefinition) *int { return v.Memory }).(pulumi.IntPtrOutput)
 }
 
 // The soft limit (in MiB) of memory to reserve for the container. When system memory is under heavy contention, Docker attempts to keep the container memory to this soft limit. However, your container can consume more memory when it needs to, up to either the hard limit specified with the “memory“ parameter (if applicable), or all of the available memory on the container instance, whichever comes first. This parameter maps to “MemoryReservation“ in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the “--memory-reservation“ option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
 //
-//	If a task-level memory value is not specified, you must specify a non-zero integer for one or both of ``memory`` or ``memoryReservation`` in a container definiti
+//	If a task-level memory value is not specified, you must specify a non-zero integer for one or both of ``memory`` or ``memoryReservation`` in a container definition. If you specify both, ``memory`` must be greater than ``memoryReservation``. If you specify ``memoryReservation``, then that value is subtracted from the available memory resources for the container instance where the container is placed. Otherwise, the value of ``memory`` is used.
+//	For example, if your container normally uses 128 MiB of memory, but occasionally bursts to 256 MiB of memory for short periods of time, you can set a ``memoryReservation`` of 128 MiB, and a ``memory`` hard limit of 300 MiB. This configuration would allow the container to only reserve 128 MiB of memory from the remaining resources on the container instance, but also allow the container to consume more memory resources when needed.
+//	The Docker 20.10.0 or later daemon reserves a minimum of 6 MiB of memory for a container. So, don't specify less than 6 MiB of memory for your containers.
+//	The Docker 19.03.13-ce or earlier daemon reserves a minimum of 4 MiB of memory for a container. So, don't specify less than 4 MiB of memory for your containers.
 func (o TaskDefinitionContainerDefinitionOutput) MemoryReservation() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionContainerDefinition) *int { return v.MemoryReservation }).(pulumi.IntPtrOutput)
 }
@@ -6044,7 +6128,8 @@ func (o TaskDefinitionContainerDefinitionOutput) Name() pulumi.StringOutput {
 //
 //	For task definitions that use the ``awsvpc`` network mode, you should only specify the ``containerPort``. The ``hostPort`` can be left blank or it must be the same value as the ``containerPort``.
 //	Port mappings on Windows use the ``NetNAT`` gateway address rather than ``localhost``. There is no loopback for port mappings on Windows, so you cannot access a container's mapped port from the host itself.
-//	This parameter maps to ``PortBindings`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--publish`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/). If the network mode of a task definition is set to
+//	This parameter maps to ``PortBindings`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--publish`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/). If the network mode of a task definition is set to ``none``, then you can't specify port mappings. If the network mode of a task definition is set to ``host``, then host ports must either be undefined or they must match the container port in the port mapping.
+//	 After a task reaches the ``RUNNING`` status, manual and automatic host and container port assignments are visible in the *Network Bindings* section of a container description for a selected task in the Amazon ECS console. The assignments are also visible in the ``networkBindings`` section [DescribeTasks](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeTasks.html) responses.
 func (o TaskDefinitionContainerDefinitionOutput) PortMappings() TaskDefinitionPortMappingArrayOutput {
 	return o.ApplyT(func(v TaskDefinitionContainerDefinition) []TaskDefinitionPortMapping { return v.PortMappings }).(TaskDefinitionPortMappingArrayOutput)
 }
@@ -6094,7 +6179,8 @@ func (o TaskDefinitionContainerDefinitionOutput) Secrets() TaskDefinitionSecretA
 //	 +  Linux platform version ``1.3.0`` or later.
 //	 +  Windows platform version ``1.0.0`` or later.
 //
-//	For tasks using the EC2 launch type, your container instances require at least version ``1.26.0`` of the container agent to use a container start timeout value. However
+//	For tasks using the EC2 launch type, your container instances require at least version ``1.26.0`` of the container agent to use a container start timeout value. However, we recommend using the latest container agent version. For information about checking your agent version and updating to the latest version, see [Updating the Amazon ECS Container Agent](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html) in the *Amazon Elastic Container Service Developer Guide*. If you're using an Amazon ECS-optimized Linux AMI, your instance needs at least version ``1.26.0-1`` of the ``ecs-init`` package. If your container instances are launched from version ``20190301`` or later, then they contain the required versions of the container agent and ``ecs-init``. For more information, see [Amazon ECS-optimized Linux AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html) in the *Amazon Elastic Container Service Developer Guide*.
+//	The valid values are 2-120 seconds.
 func (o TaskDefinitionContainerDefinitionOutput) StartTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionContainerDefinition) *int { return v.StartTimeout }).(pulumi.IntPtrOutput)
 }
@@ -6106,7 +6192,8 @@ func (o TaskDefinitionContainerDefinitionOutput) StartTimeout() pulumi.IntPtrOut
 //	 +  Windows platform version ``1.0.0`` or later.
 //
 //	The max stop timeout value is 120 seconds and if the parameter is not specified, the default value of 30 seconds is used.
-//	For tasks that use the EC2 launch type, if the ``stopTimeout`` parameter isn't specified, the value set for the Amazon ECS container agent configuration variable ``ECS_CONTAINER_STOP_TIMEOUT`` is used. If neither the ``stopTimeout`` parameter or the ``ECS_CONTAINER_STOP_TIMEOUT`` agent configuration variable are set, then the default values of 30 seconds for Linux containers and 30 seconds on Windows containers are used. Your container instances require at least version 1.26.0 of the container agent to use a container stop timeout value. However, we recomm
+//	For tasks that use the EC2 launch type, if the ``stopTimeout`` parameter isn't specified, the value set for the Amazon ECS container agent configuration variable ``ECS_CONTAINER_STOP_TIMEOUT`` is used. If neither the ``stopTimeout`` parameter or the ``ECS_CONTAINER_STOP_TIMEOUT`` agent configuration variable are set, then the default values of 30 seconds for Linux containers and 30 seconds on Windows containers are used. Your container instances require at least version 1.26.0 of the container agent to use a container stop timeout value. However, we recommend using the latest container agent version. For information about checking your agent version and updating to the latest version, see [Updating the Amazon ECS Container Agent](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html) in the *Amazon Elastic Container Service Developer Guide*. If you're using an Amazon ECS-optimized Linux AMI, your instance needs at least version 1.26.0-1 of the ``ecs-init`` package. If your container instances are launched from version ``20190301`` or later, then they contain the required versions of the container agent and ``ecs-init``. For more information, see [Amazon ECS-optimized Linux AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html) in the *Amazon Elastic Container Service Developer Guide*.
+//	The valid values are 2-120 seconds.
 func (o TaskDefinitionContainerDefinitionOutput) StopTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionContainerDefinition) *int { return v.StopTimeout }).(pulumi.IntPtrOutput)
 }
@@ -6171,13 +6258,14 @@ func (o TaskDefinitionContainerDefinitionArrayOutput) Index(i pulumi.IntInput) T
 
 // The “ContainerDependency“ property specifies the dependencies defined for container startup and shutdown. A container can contain multiple dependencies. When a dependency is defined for container startup, for container shutdown it is reversed.
 //
-//	Your Amazon ECS container instances require at least version 1.26.0 of the container agent to enable container dependencies. However, we recommend using the latest container agent version. For information about checking your agent version and updating to the latest version, see [Updating the Amazon ECS Container Agent](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html) in the *Amazon Elastic Container Service Developer Guide*. If you are using an Amazon ECS-optimized Linux AMI, your instance needs at least version 1.26.0-1 of the ``ecs-init`` package. If your container instances are launched from version ``20190301`` or later, then they contain the required versions of the container agent and ``ecs-init``. For m
+//	Your Amazon ECS container instances require at least version 1.26.0 of the container agent to enable container dependencies. However, we recommend using the latest container agent version. For information about checking your agent version and updating to the latest version, see [Updating the Amazon ECS Container Agent](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html) in the *Amazon Elastic Container Service Developer Guide*. If you are using an Amazon ECS-optimized Linux AMI, your instance needs at least version 1.26.0-1 of the ``ecs-init`` package. If your container instances are launched from version ``20190301`` or later, then they contain the required versions of the container agent and ``ecs-init``. For more information, see [Amazon ECS-optimized Linux AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html) in the *Amazon Elastic Container Service Developer Guide*.
+//	 For tasks using the Fargate launch type, this parameter requires that the task or service uses platform version 1.3.0 or later.
 type TaskDefinitionContainerDependency struct {
 	// The dependency condition of the container. The following are the available conditions and their behavior:
 	//   +   ``START`` - This condition emulates the behavior of links and volumes today. It validates that a dependent container is started before permitting other containers to start.
 	//   +   ``COMPLETE`` - This condition validates that a dependent container runs to completion (exits) before permitting other containers to start. This can be useful for nonessential containers that run a script and then exit. This condition can't be set on an essential container.
 	//   +   ``SUCCESS`` - This condition is the same as ``COMPLETE``, but it also requires that the container exits with a ``zero`` status. This condition can't be set on an essential container.
-	//   +   ``HEALTHY`` - This condition validates that the dependent container passes its Docker health check before permitting other containers to start. This requires that the dependent container has health checks configured. This condition is confi
+	//   +   ``HEALTHY`` - This condition validates that the dependent container passes its Docker health check before permitting other containers to start. This requires that the dependent container has health checks configured. This condition is confirmed only at task startup.
 	Condition *string `pulumi:"condition"`
 	// The name of a container.
 	ContainerName *string `pulumi:"containerName"`
@@ -6196,13 +6284,14 @@ type TaskDefinitionContainerDependencyInput interface {
 
 // The “ContainerDependency“ property specifies the dependencies defined for container startup and shutdown. A container can contain multiple dependencies. When a dependency is defined for container startup, for container shutdown it is reversed.
 //
-//	Your Amazon ECS container instances require at least version 1.26.0 of the container agent to enable container dependencies. However, we recommend using the latest container agent version. For information about checking your agent version and updating to the latest version, see [Updating the Amazon ECS Container Agent](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html) in the *Amazon Elastic Container Service Developer Guide*. If you are using an Amazon ECS-optimized Linux AMI, your instance needs at least version 1.26.0-1 of the ``ecs-init`` package. If your container instances are launched from version ``20190301`` or later, then they contain the required versions of the container agent and ``ecs-init``. For m
+//	Your Amazon ECS container instances require at least version 1.26.0 of the container agent to enable container dependencies. However, we recommend using the latest container agent version. For information about checking your agent version and updating to the latest version, see [Updating the Amazon ECS Container Agent](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html) in the *Amazon Elastic Container Service Developer Guide*. If you are using an Amazon ECS-optimized Linux AMI, your instance needs at least version 1.26.0-1 of the ``ecs-init`` package. If your container instances are launched from version ``20190301`` or later, then they contain the required versions of the container agent and ``ecs-init``. For more information, see [Amazon ECS-optimized Linux AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html) in the *Amazon Elastic Container Service Developer Guide*.
+//	 For tasks using the Fargate launch type, this parameter requires that the task or service uses platform version 1.3.0 or later.
 type TaskDefinitionContainerDependencyArgs struct {
 	// The dependency condition of the container. The following are the available conditions and their behavior:
 	//   +   ``START`` - This condition emulates the behavior of links and volumes today. It validates that a dependent container is started before permitting other containers to start.
 	//   +   ``COMPLETE`` - This condition validates that a dependent container runs to completion (exits) before permitting other containers to start. This can be useful for nonessential containers that run a script and then exit. This condition can't be set on an essential container.
 	//   +   ``SUCCESS`` - This condition is the same as ``COMPLETE``, but it also requires that the container exits with a ``zero`` status. This condition can't be set on an essential container.
-	//   +   ``HEALTHY`` - This condition validates that the dependent container passes its Docker health check before permitting other containers to start. This requires that the dependent container has health checks configured. This condition is confi
+	//   +   ``HEALTHY`` - This condition validates that the dependent container passes its Docker health check before permitting other containers to start. This requires that the dependent container has health checks configured. This condition is confirmed only at task startup.
 	Condition pulumi.StringPtrInput `pulumi:"condition"`
 	// The name of a container.
 	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
@@ -6247,7 +6336,8 @@ func (i TaskDefinitionContainerDependencyArray) ToTaskDefinitionContainerDepende
 
 // The “ContainerDependency“ property specifies the dependencies defined for container startup and shutdown. A container can contain multiple dependencies. When a dependency is defined for container startup, for container shutdown it is reversed.
 //
-//	Your Amazon ECS container instances require at least version 1.26.0 of the container agent to enable container dependencies. However, we recommend using the latest container agent version. For information about checking your agent version and updating to the latest version, see [Updating the Amazon ECS Container Agent](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html) in the *Amazon Elastic Container Service Developer Guide*. If you are using an Amazon ECS-optimized Linux AMI, your instance needs at least version 1.26.0-1 of the ``ecs-init`` package. If your container instances are launched from version ``20190301`` or later, then they contain the required versions of the container agent and ``ecs-init``. For m
+//	Your Amazon ECS container instances require at least version 1.26.0 of the container agent to enable container dependencies. However, we recommend using the latest container agent version. For information about checking your agent version and updating to the latest version, see [Updating the Amazon ECS Container Agent](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html) in the *Amazon Elastic Container Service Developer Guide*. If you are using an Amazon ECS-optimized Linux AMI, your instance needs at least version 1.26.0-1 of the ``ecs-init`` package. If your container instances are launched from version ``20190301`` or later, then they contain the required versions of the container agent and ``ecs-init``. For more information, see [Amazon ECS-optimized Linux AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html) in the *Amazon Elastic Container Service Developer Guide*.
+//	 For tasks using the Fargate launch type, this parameter requires that the task or service uses platform version 1.3.0 or later.
 type TaskDefinitionContainerDependencyOutput struct{ *pulumi.OutputState }
 
 func (TaskDefinitionContainerDependencyOutput) ElementType() reflect.Type {
@@ -6266,7 +6356,7 @@ func (o TaskDefinitionContainerDependencyOutput) ToTaskDefinitionContainerDepend
 //   - “START“ - This condition emulates the behavior of links and volumes today. It validates that a dependent container is started before permitting other containers to start.
 //   - “COMPLETE“ - This condition validates that a dependent container runs to completion (exits) before permitting other containers to start. This can be useful for nonessential containers that run a script and then exit. This condition can't be set on an essential container.
 //   - “SUCCESS“ - This condition is the same as “COMPLETE“, but it also requires that the container exits with a “zero“ status. This condition can't be set on an essential container.
-//   - “HEALTHY“ - This condition validates that the dependent container passes its Docker health check before permitting other containers to start. This requires that the dependent container has health checks configured. This condition is confi
+//   - “HEALTHY“ - This condition validates that the dependent container passes its Docker health check before permitting other containers to start. This requires that the dependent container has health checks configured. This condition is confirmed only at task startup.
 func (o TaskDefinitionContainerDependencyOutput) Condition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionContainerDependency) *string { return v.Condition }).(pulumi.StringPtrOutput)
 }
@@ -6864,11 +6954,18 @@ func (o TaskDefinitionEfsVolumeConfigurationPtrOutput) TransitEncryptionPort() p
 
 // A list of files containing the environment variables to pass to a container. You can specify up to ten environment files. The file must have a “.env“ file extension. Each line in an environment file should contain an environment variable in “VARIABLE=VALUE“ format. Lines beginning with “#“ are treated as comments and are ignored.
 //
-//	If there are environment variables specified using the ``environment`` parameter in a container definition, they take precedence over the variables contained within an environment file. If multiple environment files are specified that contain the same variable, they're processed from the top down. We recommend that you use unique variable names. For more information, see [Specifying environment variables](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/taskdef-envfiles.html) in the *Amazon Elastic Container Service Developer Guide*.
+//	If there are environment variables specified using the ``environment`` parameter in a container definition, they take precedence over the variables contained within an environment file. If multiple environment files are specified that contain the same variable, they're processed from the top down. We recommend that you use unique variable names. For more information, see [Use a file to pass environment variables to a container](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/use-environment-file.html) in the *Amazon Elastic Container Service Developer Guide*.
+//	Environment variable files are objects in Amazon S3 and all Amazon S3 security considerations apply.
 //	You must use the following platforms for the Fargate launch type:
-//	 +  Linux platform version ``1.4.0`` or la
+//	 +  Linux platform version ``1.4.0`` or later.
+//	 +  Windows platform version ``1.0.0`` or later.
+//
+//	Consider the following when using the Fargate launch type:
+//	 +  The file is handled like a native Docker env-file.
+//	 +  There is no support for shell escape handling.
+//	 +  The container entry point interperts the ``VARIABLE`` values.
 type TaskDefinitionEnvironmentFile struct {
-	// The file type to use. The only supported value is ``s3``.
+	// The file type to use. Environment files are objects in Amazon S3. The only supported value is ``s3``.
 	Type *string `pulumi:"type"`
 	// The Amazon Resource Name (ARN) of the Amazon S3 object containing the environment variable file.
 	Value *string `pulumi:"value"`
@@ -6887,11 +6984,18 @@ type TaskDefinitionEnvironmentFileInput interface {
 
 // A list of files containing the environment variables to pass to a container. You can specify up to ten environment files. The file must have a “.env“ file extension. Each line in an environment file should contain an environment variable in “VARIABLE=VALUE“ format. Lines beginning with “#“ are treated as comments and are ignored.
 //
-//	If there are environment variables specified using the ``environment`` parameter in a container definition, they take precedence over the variables contained within an environment file. If multiple environment files are specified that contain the same variable, they're processed from the top down. We recommend that you use unique variable names. For more information, see [Specifying environment variables](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/taskdef-envfiles.html) in the *Amazon Elastic Container Service Developer Guide*.
+//	If there are environment variables specified using the ``environment`` parameter in a container definition, they take precedence over the variables contained within an environment file. If multiple environment files are specified that contain the same variable, they're processed from the top down. We recommend that you use unique variable names. For more information, see [Use a file to pass environment variables to a container](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/use-environment-file.html) in the *Amazon Elastic Container Service Developer Guide*.
+//	Environment variable files are objects in Amazon S3 and all Amazon S3 security considerations apply.
 //	You must use the following platforms for the Fargate launch type:
-//	 +  Linux platform version ``1.4.0`` or la
+//	 +  Linux platform version ``1.4.0`` or later.
+//	 +  Windows platform version ``1.0.0`` or later.
+//
+//	Consider the following when using the Fargate launch type:
+//	 +  The file is handled like a native Docker env-file.
+//	 +  There is no support for shell escape handling.
+//	 +  The container entry point interperts the ``VARIABLE`` values.
 type TaskDefinitionEnvironmentFileArgs struct {
-	// The file type to use. The only supported value is ``s3``.
+	// The file type to use. Environment files are objects in Amazon S3. The only supported value is ``s3``.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// The Amazon Resource Name (ARN) of the Amazon S3 object containing the environment variable file.
 	Value pulumi.StringPtrInput `pulumi:"value"`
@@ -6936,9 +7040,16 @@ func (i TaskDefinitionEnvironmentFileArray) ToTaskDefinitionEnvironmentFileArray
 
 // A list of files containing the environment variables to pass to a container. You can specify up to ten environment files. The file must have a “.env“ file extension. Each line in an environment file should contain an environment variable in “VARIABLE=VALUE“ format. Lines beginning with “#“ are treated as comments and are ignored.
 //
-//	If there are environment variables specified using the ``environment`` parameter in a container definition, they take precedence over the variables contained within an environment file. If multiple environment files are specified that contain the same variable, they're processed from the top down. We recommend that you use unique variable names. For more information, see [Specifying environment variables](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/taskdef-envfiles.html) in the *Amazon Elastic Container Service Developer Guide*.
+//	If there are environment variables specified using the ``environment`` parameter in a container definition, they take precedence over the variables contained within an environment file. If multiple environment files are specified that contain the same variable, they're processed from the top down. We recommend that you use unique variable names. For more information, see [Use a file to pass environment variables to a container](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/use-environment-file.html) in the *Amazon Elastic Container Service Developer Guide*.
+//	Environment variable files are objects in Amazon S3 and all Amazon S3 security considerations apply.
 //	You must use the following platforms for the Fargate launch type:
-//	 +  Linux platform version ``1.4.0`` or la
+//	 +  Linux platform version ``1.4.0`` or later.
+//	 +  Windows platform version ``1.0.0`` or later.
+//
+//	Consider the following when using the Fargate launch type:
+//	 +  The file is handled like a native Docker env-file.
+//	 +  There is no support for shell escape handling.
+//	 +  The container entry point interperts the ``VARIABLE`` values.
 type TaskDefinitionEnvironmentFileOutput struct{ *pulumi.OutputState }
 
 func (TaskDefinitionEnvironmentFileOutput) ElementType() reflect.Type {
@@ -6953,7 +7064,7 @@ func (o TaskDefinitionEnvironmentFileOutput) ToTaskDefinitionEnvironmentFileOutp
 	return o
 }
 
-// The file type to use. The only supported value is “s3“.
+// The file type to use. Environment files are objects in Amazon S3. The only supported value is “s3“.
 func (o TaskDefinitionEnvironmentFileOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionEnvironmentFile) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -6989,7 +7100,7 @@ func (o TaskDefinitionEnvironmentFileArrayOutput) Index(i pulumi.IntInput) TaskD
 //	+  Linux platform version ``1.4.0`` or later.
 //	+  Windows platform version ``1.0.0`` or later.
 type TaskDefinitionEphemeralStorage struct {
-	// The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is ``21`` GiB and the maximum supported value is ``200`` GiB.
+	// The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is ``20`` GiB and the maximum supported value is ``200`` GiB.
 	SizeInGiB *int `pulumi:"sizeInGiB"`
 }
 
@@ -7010,7 +7121,7 @@ type TaskDefinitionEphemeralStorageInput interface {
 //	+  Linux platform version ``1.4.0`` or later.
 //	+  Windows platform version ``1.0.0`` or later.
 type TaskDefinitionEphemeralStorageArgs struct {
-	// The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is ``21`` GiB and the maximum supported value is ``200`` GiB.
+	// The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is ``20`` GiB and the maximum supported value is ``200`` GiB.
 	SizeInGiB pulumi.IntPtrInput `pulumi:"sizeInGiB"`
 }
 
@@ -7096,7 +7207,7 @@ func (o TaskDefinitionEphemeralStorageOutput) ToTaskDefinitionEphemeralStoragePt
 	}).(TaskDefinitionEphemeralStoragePtrOutput)
 }
 
-// The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is “21“ GiB and the maximum supported value is “200“ GiB.
+// The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is “20“ GiB and the maximum supported value is “200“ GiB.
 func (o TaskDefinitionEphemeralStorageOutput) SizeInGiB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionEphemeralStorage) *int { return v.SizeInGiB }).(pulumi.IntPtrOutput)
 }
@@ -7125,7 +7236,7 @@ func (o TaskDefinitionEphemeralStoragePtrOutput) Elem() TaskDefinitionEphemeralS
 	}).(TaskDefinitionEphemeralStorageOutput)
 }
 
-// The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is “21“ GiB and the maximum supported value is “200“ GiB.
+// The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is “20“ GiB and the maximum supported value is “200“ GiB.
 func (o TaskDefinitionEphemeralStoragePtrOutput) SizeInGiB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionEphemeralStorage) *int {
 		if v == nil {
@@ -7135,13 +7246,326 @@ func (o TaskDefinitionEphemeralStoragePtrOutput) SizeInGiB() pulumi.IntPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
+type TaskDefinitionFSxAuthorizationConfig struct {
+	CredentialsParameter string `pulumi:"credentialsParameter"`
+	Domain               string `pulumi:"domain"`
+}
+
+// TaskDefinitionFSxAuthorizationConfigInput is an input type that accepts TaskDefinitionFSxAuthorizationConfigArgs and TaskDefinitionFSxAuthorizationConfigOutput values.
+// You can construct a concrete instance of `TaskDefinitionFSxAuthorizationConfigInput` via:
+//
+//	TaskDefinitionFSxAuthorizationConfigArgs{...}
+type TaskDefinitionFSxAuthorizationConfigInput interface {
+	pulumi.Input
+
+	ToTaskDefinitionFSxAuthorizationConfigOutput() TaskDefinitionFSxAuthorizationConfigOutput
+	ToTaskDefinitionFSxAuthorizationConfigOutputWithContext(context.Context) TaskDefinitionFSxAuthorizationConfigOutput
+}
+
+type TaskDefinitionFSxAuthorizationConfigArgs struct {
+	CredentialsParameter pulumi.StringInput `pulumi:"credentialsParameter"`
+	Domain               pulumi.StringInput `pulumi:"domain"`
+}
+
+func (TaskDefinitionFSxAuthorizationConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskDefinitionFSxAuthorizationConfig)(nil)).Elem()
+}
+
+func (i TaskDefinitionFSxAuthorizationConfigArgs) ToTaskDefinitionFSxAuthorizationConfigOutput() TaskDefinitionFSxAuthorizationConfigOutput {
+	return i.ToTaskDefinitionFSxAuthorizationConfigOutputWithContext(context.Background())
+}
+
+func (i TaskDefinitionFSxAuthorizationConfigArgs) ToTaskDefinitionFSxAuthorizationConfigOutputWithContext(ctx context.Context) TaskDefinitionFSxAuthorizationConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionFSxAuthorizationConfigOutput)
+}
+
+func (i TaskDefinitionFSxAuthorizationConfigArgs) ToTaskDefinitionFSxAuthorizationConfigPtrOutput() TaskDefinitionFSxAuthorizationConfigPtrOutput {
+	return i.ToTaskDefinitionFSxAuthorizationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i TaskDefinitionFSxAuthorizationConfigArgs) ToTaskDefinitionFSxAuthorizationConfigPtrOutputWithContext(ctx context.Context) TaskDefinitionFSxAuthorizationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionFSxAuthorizationConfigOutput).ToTaskDefinitionFSxAuthorizationConfigPtrOutputWithContext(ctx)
+}
+
+// TaskDefinitionFSxAuthorizationConfigPtrInput is an input type that accepts TaskDefinitionFSxAuthorizationConfigArgs, TaskDefinitionFSxAuthorizationConfigPtr and TaskDefinitionFSxAuthorizationConfigPtrOutput values.
+// You can construct a concrete instance of `TaskDefinitionFSxAuthorizationConfigPtrInput` via:
+//
+//	        TaskDefinitionFSxAuthorizationConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type TaskDefinitionFSxAuthorizationConfigPtrInput interface {
+	pulumi.Input
+
+	ToTaskDefinitionFSxAuthorizationConfigPtrOutput() TaskDefinitionFSxAuthorizationConfigPtrOutput
+	ToTaskDefinitionFSxAuthorizationConfigPtrOutputWithContext(context.Context) TaskDefinitionFSxAuthorizationConfigPtrOutput
+}
+
+type taskDefinitionFSxAuthorizationConfigPtrType TaskDefinitionFSxAuthorizationConfigArgs
+
+func TaskDefinitionFSxAuthorizationConfigPtr(v *TaskDefinitionFSxAuthorizationConfigArgs) TaskDefinitionFSxAuthorizationConfigPtrInput {
+	return (*taskDefinitionFSxAuthorizationConfigPtrType)(v)
+}
+
+func (*taskDefinitionFSxAuthorizationConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskDefinitionFSxAuthorizationConfig)(nil)).Elem()
+}
+
+func (i *taskDefinitionFSxAuthorizationConfigPtrType) ToTaskDefinitionFSxAuthorizationConfigPtrOutput() TaskDefinitionFSxAuthorizationConfigPtrOutput {
+	return i.ToTaskDefinitionFSxAuthorizationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *taskDefinitionFSxAuthorizationConfigPtrType) ToTaskDefinitionFSxAuthorizationConfigPtrOutputWithContext(ctx context.Context) TaskDefinitionFSxAuthorizationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionFSxAuthorizationConfigPtrOutput)
+}
+
+type TaskDefinitionFSxAuthorizationConfigOutput struct{ *pulumi.OutputState }
+
+func (TaskDefinitionFSxAuthorizationConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskDefinitionFSxAuthorizationConfig)(nil)).Elem()
+}
+
+func (o TaskDefinitionFSxAuthorizationConfigOutput) ToTaskDefinitionFSxAuthorizationConfigOutput() TaskDefinitionFSxAuthorizationConfigOutput {
+	return o
+}
+
+func (o TaskDefinitionFSxAuthorizationConfigOutput) ToTaskDefinitionFSxAuthorizationConfigOutputWithContext(ctx context.Context) TaskDefinitionFSxAuthorizationConfigOutput {
+	return o
+}
+
+func (o TaskDefinitionFSxAuthorizationConfigOutput) ToTaskDefinitionFSxAuthorizationConfigPtrOutput() TaskDefinitionFSxAuthorizationConfigPtrOutput {
+	return o.ToTaskDefinitionFSxAuthorizationConfigPtrOutputWithContext(context.Background())
+}
+
+func (o TaskDefinitionFSxAuthorizationConfigOutput) ToTaskDefinitionFSxAuthorizationConfigPtrOutputWithContext(ctx context.Context) TaskDefinitionFSxAuthorizationConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskDefinitionFSxAuthorizationConfig) *TaskDefinitionFSxAuthorizationConfig {
+		return &v
+	}).(TaskDefinitionFSxAuthorizationConfigPtrOutput)
+}
+
+func (o TaskDefinitionFSxAuthorizationConfigOutput) CredentialsParameter() pulumi.StringOutput {
+	return o.ApplyT(func(v TaskDefinitionFSxAuthorizationConfig) string { return v.CredentialsParameter }).(pulumi.StringOutput)
+}
+
+func (o TaskDefinitionFSxAuthorizationConfigOutput) Domain() pulumi.StringOutput {
+	return o.ApplyT(func(v TaskDefinitionFSxAuthorizationConfig) string { return v.Domain }).(pulumi.StringOutput)
+}
+
+type TaskDefinitionFSxAuthorizationConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (TaskDefinitionFSxAuthorizationConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskDefinitionFSxAuthorizationConfig)(nil)).Elem()
+}
+
+func (o TaskDefinitionFSxAuthorizationConfigPtrOutput) ToTaskDefinitionFSxAuthorizationConfigPtrOutput() TaskDefinitionFSxAuthorizationConfigPtrOutput {
+	return o
+}
+
+func (o TaskDefinitionFSxAuthorizationConfigPtrOutput) ToTaskDefinitionFSxAuthorizationConfigPtrOutputWithContext(ctx context.Context) TaskDefinitionFSxAuthorizationConfigPtrOutput {
+	return o
+}
+
+func (o TaskDefinitionFSxAuthorizationConfigPtrOutput) Elem() TaskDefinitionFSxAuthorizationConfigOutput {
+	return o.ApplyT(func(v *TaskDefinitionFSxAuthorizationConfig) TaskDefinitionFSxAuthorizationConfig {
+		if v != nil {
+			return *v
+		}
+		var ret TaskDefinitionFSxAuthorizationConfig
+		return ret
+	}).(TaskDefinitionFSxAuthorizationConfigOutput)
+}
+
+func (o TaskDefinitionFSxAuthorizationConfigPtrOutput) CredentialsParameter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskDefinitionFSxAuthorizationConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CredentialsParameter
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TaskDefinitionFSxAuthorizationConfigPtrOutput) Domain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskDefinitionFSxAuthorizationConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Domain
+	}).(pulumi.StringPtrOutput)
+}
+
+type TaskDefinitionFSxWindowsFileServerVolumeConfiguration struct {
+	AuthorizationConfig *TaskDefinitionFSxAuthorizationConfig `pulumi:"authorizationConfig"`
+	FileSystemId        string                                `pulumi:"fileSystemId"`
+	RootDirectory       string                                `pulumi:"rootDirectory"`
+}
+
+// TaskDefinitionFSxWindowsFileServerVolumeConfigurationInput is an input type that accepts TaskDefinitionFSxWindowsFileServerVolumeConfigurationArgs and TaskDefinitionFSxWindowsFileServerVolumeConfigurationOutput values.
+// You can construct a concrete instance of `TaskDefinitionFSxWindowsFileServerVolumeConfigurationInput` via:
+//
+//	TaskDefinitionFSxWindowsFileServerVolumeConfigurationArgs{...}
+type TaskDefinitionFSxWindowsFileServerVolumeConfigurationInput interface {
+	pulumi.Input
+
+	ToTaskDefinitionFSxWindowsFileServerVolumeConfigurationOutput() TaskDefinitionFSxWindowsFileServerVolumeConfigurationOutput
+	ToTaskDefinitionFSxWindowsFileServerVolumeConfigurationOutputWithContext(context.Context) TaskDefinitionFSxWindowsFileServerVolumeConfigurationOutput
+}
+
+type TaskDefinitionFSxWindowsFileServerVolumeConfigurationArgs struct {
+	AuthorizationConfig TaskDefinitionFSxAuthorizationConfigPtrInput `pulumi:"authorizationConfig"`
+	FileSystemId        pulumi.StringInput                           `pulumi:"fileSystemId"`
+	RootDirectory       pulumi.StringInput                           `pulumi:"rootDirectory"`
+}
+
+func (TaskDefinitionFSxWindowsFileServerVolumeConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskDefinitionFSxWindowsFileServerVolumeConfiguration)(nil)).Elem()
+}
+
+func (i TaskDefinitionFSxWindowsFileServerVolumeConfigurationArgs) ToTaskDefinitionFSxWindowsFileServerVolumeConfigurationOutput() TaskDefinitionFSxWindowsFileServerVolumeConfigurationOutput {
+	return i.ToTaskDefinitionFSxWindowsFileServerVolumeConfigurationOutputWithContext(context.Background())
+}
+
+func (i TaskDefinitionFSxWindowsFileServerVolumeConfigurationArgs) ToTaskDefinitionFSxWindowsFileServerVolumeConfigurationOutputWithContext(ctx context.Context) TaskDefinitionFSxWindowsFileServerVolumeConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionFSxWindowsFileServerVolumeConfigurationOutput)
+}
+
+func (i TaskDefinitionFSxWindowsFileServerVolumeConfigurationArgs) ToTaskDefinitionFSxWindowsFileServerVolumeConfigurationPtrOutput() TaskDefinitionFSxWindowsFileServerVolumeConfigurationPtrOutput {
+	return i.ToTaskDefinitionFSxWindowsFileServerVolumeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TaskDefinitionFSxWindowsFileServerVolumeConfigurationArgs) ToTaskDefinitionFSxWindowsFileServerVolumeConfigurationPtrOutputWithContext(ctx context.Context) TaskDefinitionFSxWindowsFileServerVolumeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionFSxWindowsFileServerVolumeConfigurationOutput).ToTaskDefinitionFSxWindowsFileServerVolumeConfigurationPtrOutputWithContext(ctx)
+}
+
+// TaskDefinitionFSxWindowsFileServerVolumeConfigurationPtrInput is an input type that accepts TaskDefinitionFSxWindowsFileServerVolumeConfigurationArgs, TaskDefinitionFSxWindowsFileServerVolumeConfigurationPtr and TaskDefinitionFSxWindowsFileServerVolumeConfigurationPtrOutput values.
+// You can construct a concrete instance of `TaskDefinitionFSxWindowsFileServerVolumeConfigurationPtrInput` via:
+//
+//	        TaskDefinitionFSxWindowsFileServerVolumeConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TaskDefinitionFSxWindowsFileServerVolumeConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTaskDefinitionFSxWindowsFileServerVolumeConfigurationPtrOutput() TaskDefinitionFSxWindowsFileServerVolumeConfigurationPtrOutput
+	ToTaskDefinitionFSxWindowsFileServerVolumeConfigurationPtrOutputWithContext(context.Context) TaskDefinitionFSxWindowsFileServerVolumeConfigurationPtrOutput
+}
+
+type taskDefinitionFSxWindowsFileServerVolumeConfigurationPtrType TaskDefinitionFSxWindowsFileServerVolumeConfigurationArgs
+
+func TaskDefinitionFSxWindowsFileServerVolumeConfigurationPtr(v *TaskDefinitionFSxWindowsFileServerVolumeConfigurationArgs) TaskDefinitionFSxWindowsFileServerVolumeConfigurationPtrInput {
+	return (*taskDefinitionFSxWindowsFileServerVolumeConfigurationPtrType)(v)
+}
+
+func (*taskDefinitionFSxWindowsFileServerVolumeConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskDefinitionFSxWindowsFileServerVolumeConfiguration)(nil)).Elem()
+}
+
+func (i *taskDefinitionFSxWindowsFileServerVolumeConfigurationPtrType) ToTaskDefinitionFSxWindowsFileServerVolumeConfigurationPtrOutput() TaskDefinitionFSxWindowsFileServerVolumeConfigurationPtrOutput {
+	return i.ToTaskDefinitionFSxWindowsFileServerVolumeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *taskDefinitionFSxWindowsFileServerVolumeConfigurationPtrType) ToTaskDefinitionFSxWindowsFileServerVolumeConfigurationPtrOutputWithContext(ctx context.Context) TaskDefinitionFSxWindowsFileServerVolumeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionFSxWindowsFileServerVolumeConfigurationPtrOutput)
+}
+
+type TaskDefinitionFSxWindowsFileServerVolumeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TaskDefinitionFSxWindowsFileServerVolumeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskDefinitionFSxWindowsFileServerVolumeConfiguration)(nil)).Elem()
+}
+
+func (o TaskDefinitionFSxWindowsFileServerVolumeConfigurationOutput) ToTaskDefinitionFSxWindowsFileServerVolumeConfigurationOutput() TaskDefinitionFSxWindowsFileServerVolumeConfigurationOutput {
+	return o
+}
+
+func (o TaskDefinitionFSxWindowsFileServerVolumeConfigurationOutput) ToTaskDefinitionFSxWindowsFileServerVolumeConfigurationOutputWithContext(ctx context.Context) TaskDefinitionFSxWindowsFileServerVolumeConfigurationOutput {
+	return o
+}
+
+func (o TaskDefinitionFSxWindowsFileServerVolumeConfigurationOutput) ToTaskDefinitionFSxWindowsFileServerVolumeConfigurationPtrOutput() TaskDefinitionFSxWindowsFileServerVolumeConfigurationPtrOutput {
+	return o.ToTaskDefinitionFSxWindowsFileServerVolumeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TaskDefinitionFSxWindowsFileServerVolumeConfigurationOutput) ToTaskDefinitionFSxWindowsFileServerVolumeConfigurationPtrOutputWithContext(ctx context.Context) TaskDefinitionFSxWindowsFileServerVolumeConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskDefinitionFSxWindowsFileServerVolumeConfiguration) *TaskDefinitionFSxWindowsFileServerVolumeConfiguration {
+		return &v
+	}).(TaskDefinitionFSxWindowsFileServerVolumeConfigurationPtrOutput)
+}
+
+func (o TaskDefinitionFSxWindowsFileServerVolumeConfigurationOutput) AuthorizationConfig() TaskDefinitionFSxAuthorizationConfigPtrOutput {
+	return o.ApplyT(func(v TaskDefinitionFSxWindowsFileServerVolumeConfiguration) *TaskDefinitionFSxAuthorizationConfig {
+		return v.AuthorizationConfig
+	}).(TaskDefinitionFSxAuthorizationConfigPtrOutput)
+}
+
+func (o TaskDefinitionFSxWindowsFileServerVolumeConfigurationOutput) FileSystemId() pulumi.StringOutput {
+	return o.ApplyT(func(v TaskDefinitionFSxWindowsFileServerVolumeConfiguration) string { return v.FileSystemId }).(pulumi.StringOutput)
+}
+
+func (o TaskDefinitionFSxWindowsFileServerVolumeConfigurationOutput) RootDirectory() pulumi.StringOutput {
+	return o.ApplyT(func(v TaskDefinitionFSxWindowsFileServerVolumeConfiguration) string { return v.RootDirectory }).(pulumi.StringOutput)
+}
+
+type TaskDefinitionFSxWindowsFileServerVolumeConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TaskDefinitionFSxWindowsFileServerVolumeConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskDefinitionFSxWindowsFileServerVolumeConfiguration)(nil)).Elem()
+}
+
+func (o TaskDefinitionFSxWindowsFileServerVolumeConfigurationPtrOutput) ToTaskDefinitionFSxWindowsFileServerVolumeConfigurationPtrOutput() TaskDefinitionFSxWindowsFileServerVolumeConfigurationPtrOutput {
+	return o
+}
+
+func (o TaskDefinitionFSxWindowsFileServerVolumeConfigurationPtrOutput) ToTaskDefinitionFSxWindowsFileServerVolumeConfigurationPtrOutputWithContext(ctx context.Context) TaskDefinitionFSxWindowsFileServerVolumeConfigurationPtrOutput {
+	return o
+}
+
+func (o TaskDefinitionFSxWindowsFileServerVolumeConfigurationPtrOutput) Elem() TaskDefinitionFSxWindowsFileServerVolumeConfigurationOutput {
+	return o.ApplyT(func(v *TaskDefinitionFSxWindowsFileServerVolumeConfiguration) TaskDefinitionFSxWindowsFileServerVolumeConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TaskDefinitionFSxWindowsFileServerVolumeConfiguration
+		return ret
+	}).(TaskDefinitionFSxWindowsFileServerVolumeConfigurationOutput)
+}
+
+func (o TaskDefinitionFSxWindowsFileServerVolumeConfigurationPtrOutput) AuthorizationConfig() TaskDefinitionFSxAuthorizationConfigPtrOutput {
+	return o.ApplyT(func(v *TaskDefinitionFSxWindowsFileServerVolumeConfiguration) *TaskDefinitionFSxAuthorizationConfig {
+		if v == nil {
+			return nil
+		}
+		return v.AuthorizationConfig
+	}).(TaskDefinitionFSxAuthorizationConfigPtrOutput)
+}
+
+func (o TaskDefinitionFSxWindowsFileServerVolumeConfigurationPtrOutput) FileSystemId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskDefinitionFSxWindowsFileServerVolumeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FileSystemId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TaskDefinitionFSxWindowsFileServerVolumeConfigurationPtrOutput) RootDirectory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskDefinitionFSxWindowsFileServerVolumeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RootDirectory
+	}).(pulumi.StringPtrOutput)
+}
+
 // The FireLens configuration for the container. This is used to specify and configure a log router for container logs. For more information, see [Custom log routing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html) in the *Amazon Elastic Container Service Developer Guide*.
 type TaskDefinitionFirelensConfiguration struct {
 	// The options to use when configuring the log router. This field is optional and can be used to add additional metadata, such as the task, task definition, cluster, and container instance details to the log event.
 	//   If specified, valid option keys are:
-	//   +  ``enable-ecs-log-metadata``, which can be ``true`` or ``false``
-	//   +  ``config-file-type``, which can be ``s3`` or ``file``
-	//   +  ``config-file-value``, which is either an S3 ARN or a file path
+	//   +   ``enable-ecs-log-metadata``, which can be ``true`` or ``false``
+	//   +   ``config-file-type``, which can be ``s3`` or ``file``
+	//   +   ``config-file-value``, which is either an S3 ARN or a file path
 	Options map[string]string `pulumi:"options"`
 	// The log router to use. The valid values are ``fluentd`` or ``fluentbit``.
 	Type *string `pulumi:"type"`
@@ -7162,9 +7586,9 @@ type TaskDefinitionFirelensConfigurationInput interface {
 type TaskDefinitionFirelensConfigurationArgs struct {
 	// The options to use when configuring the log router. This field is optional and can be used to add additional metadata, such as the task, task definition, cluster, and container instance details to the log event.
 	//   If specified, valid option keys are:
-	//   +  ``enable-ecs-log-metadata``, which can be ``true`` or ``false``
-	//   +  ``config-file-type``, which can be ``s3`` or ``file``
-	//   +  ``config-file-value``, which is either an S3 ARN or a file path
+	//   +   ``enable-ecs-log-metadata``, which can be ``true`` or ``false``
+	//   +   ``config-file-type``, which can be ``s3`` or ``file``
+	//   +   ``config-file-value``, which is either an S3 ARN or a file path
 	Options pulumi.StringMapInput `pulumi:"options"`
 	// The log router to use. The valid values are ``fluentd`` or ``fluentbit``.
 	Type pulumi.StringPtrInput `pulumi:"type"`
@@ -7251,9 +7675,9 @@ func (o TaskDefinitionFirelensConfigurationOutput) ToTaskDefinitionFirelensConfi
 // The options to use when configuring the log router. This field is optional and can be used to add additional metadata, such as the task, task definition, cluster, and container instance details to the log event.
 //
 //	If specified, valid option keys are:
-//	+  ``enable-ecs-log-metadata``, which can be ``true`` or ``false``
-//	+  ``config-file-type``, which can be ``s3`` or ``file``
-//	+  ``config-file-value``, which is either an S3 ARN or a file path
+//	+   ``enable-ecs-log-metadata``, which can be ``true`` or ``false``
+//	+   ``config-file-type``, which can be ``s3`` or ``file``
+//	+   ``config-file-value``, which is either an S3 ARN or a file path
 func (o TaskDefinitionFirelensConfigurationOutput) Options() pulumi.StringMapOutput {
 	return o.ApplyT(func(v TaskDefinitionFirelensConfiguration) map[string]string { return v.Options }).(pulumi.StringMapOutput)
 }
@@ -7290,9 +7714,9 @@ func (o TaskDefinitionFirelensConfigurationPtrOutput) Elem() TaskDefinitionFirel
 // The options to use when configuring the log router. This field is optional and can be used to add additional metadata, such as the task, task definition, cluster, and container instance details to the log event.
 //
 //	If specified, valid option keys are:
-//	+  ``enable-ecs-log-metadata``, which can be ``true`` or ``false``
-//	+  ``config-file-type``, which can be ``s3`` or ``file``
-//	+  ``config-file-value``, which is either an S3 ARN or a file path
+//	+   ``enable-ecs-log-metadata``, which can be ``true`` or ``false``
+//	+   ``config-file-type``, which can be ``s3`` or ``file``
+//	+   ``config-file-value``, which is either an S3 ARN or a file path
 func (o TaskDefinitionFirelensConfigurationPtrOutput) Options() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TaskDefinitionFirelensConfiguration) map[string]string {
 		if v == nil {
@@ -7314,8 +7738,12 @@ func (o TaskDefinitionFirelensConfigurationPtrOutput) Type() pulumi.StringPtrOut
 
 // The “HealthCheck“ property specifies an object representing a container health check. Health check parameters that are specified in a container definition override any Docker health checks that exist in the container image (such as those specified in a parent image or from the image's Dockerfile). This configuration maps to the “HEALTHCHECK“ parameter of [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/).
 //
-//	The Amazon ECS container agent only monitors and reports on the health checks specified in the task definition. Amazon ECS does not monitor Docker health checks that are embedded in a container image and not specified in the container definition. Health check parameters that are specified in a container definition override any Docker health checks that exist in the container image.
-//	If a task is run manually, and not as part of a service, the task will continue its lifecycle regardless of its health status. For tasks that are part of a servi
+//	 The Amazon ECS container agent only monitors and reports on the health checks specified in the task definition. Amazon ECS does not monitor Docker health checks that are embedded in a container image and not specified in the container definition. Health check parameters that are specified in a container definition override any Docker health checks that exist in the container image.
+//	 If a task is run manually, and not as part of a service, the task will continue its lifecycle regardless of its health status. For tasks that are part of a service, if the task reports as unhealthy then the task will be stopped and the service scheduler will replace it.
+//	The following are notes about container health check support:
+//	 +  Container health checks require version 1.17.0 or greater of the Amazon ECS container agent. For more information, see [Updating the Amazon ECS Container Agent](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html).
+//	 +  Container health checks are supported for Fargate tasks if you are using platform version 1.1.0 or greater. For more information, see [Platform Versions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+//	 +  Container health checks are not supported for tasks that are part of a service that is configured to use a Classic Load Balancer.
 type TaskDefinitionHealthCheck struct {
 	// A string array representing the command that the container runs to determine if it is healthy. The string array must start with ``CMD`` to run the command arguments directly, or ``CMD-SHELL`` to run the command with the container's default shell.
 	//   When you use the AWS Management Console JSON panel, the CLIlong, or the APIs, enclose the list of commands in double quotes and brackets.
@@ -7348,8 +7776,12 @@ type TaskDefinitionHealthCheckInput interface {
 
 // The “HealthCheck“ property specifies an object representing a container health check. Health check parameters that are specified in a container definition override any Docker health checks that exist in the container image (such as those specified in a parent image or from the image's Dockerfile). This configuration maps to the “HEALTHCHECK“ parameter of [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/).
 //
-//	The Amazon ECS container agent only monitors and reports on the health checks specified in the task definition. Amazon ECS does not monitor Docker health checks that are embedded in a container image and not specified in the container definition. Health check parameters that are specified in a container definition override any Docker health checks that exist in the container image.
-//	If a task is run manually, and not as part of a service, the task will continue its lifecycle regardless of its health status. For tasks that are part of a servi
+//	 The Amazon ECS container agent only monitors and reports on the health checks specified in the task definition. Amazon ECS does not monitor Docker health checks that are embedded in a container image and not specified in the container definition. Health check parameters that are specified in a container definition override any Docker health checks that exist in the container image.
+//	 If a task is run manually, and not as part of a service, the task will continue its lifecycle regardless of its health status. For tasks that are part of a service, if the task reports as unhealthy then the task will be stopped and the service scheduler will replace it.
+//	The following are notes about container health check support:
+//	 +  Container health checks require version 1.17.0 or greater of the Amazon ECS container agent. For more information, see [Updating the Amazon ECS Container Agent](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html).
+//	 +  Container health checks are supported for Fargate tasks if you are using platform version 1.1.0 or greater. For more information, see [Platform Versions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+//	 +  Container health checks are not supported for tasks that are part of a service that is configured to use a Classic Load Balancer.
 type TaskDefinitionHealthCheckArgs struct {
 	// A string array representing the command that the container runs to determine if it is healthy. The string array must start with ``CMD`` to run the command arguments directly, or ``CMD-SHELL`` to run the command with the container's default shell.
 	//   When you use the AWS Management Console JSON panel, the CLIlong, or the APIs, enclose the list of commands in double quotes and brackets.
@@ -7424,8 +7856,12 @@ func (i *taskDefinitionHealthCheckPtrType) ToTaskDefinitionHealthCheckPtrOutputW
 
 // The “HealthCheck“ property specifies an object representing a container health check. Health check parameters that are specified in a container definition override any Docker health checks that exist in the container image (such as those specified in a parent image or from the image's Dockerfile). This configuration maps to the “HEALTHCHECK“ parameter of [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/).
 //
-//	The Amazon ECS container agent only monitors and reports on the health checks specified in the task definition. Amazon ECS does not monitor Docker health checks that are embedded in a container image and not specified in the container definition. Health check parameters that are specified in a container definition override any Docker health checks that exist in the container image.
-//	If a task is run manually, and not as part of a service, the task will continue its lifecycle regardless of its health status. For tasks that are part of a servi
+//	 The Amazon ECS container agent only monitors and reports on the health checks specified in the task definition. Amazon ECS does not monitor Docker health checks that are embedded in a container image and not specified in the container definition. Health check parameters that are specified in a container definition override any Docker health checks that exist in the container image.
+//	 If a task is run manually, and not as part of a service, the task will continue its lifecycle regardless of its health status. For tasks that are part of a service, if the task reports as unhealthy then the task will be stopped and the service scheduler will replace it.
+//	The following are notes about container health check support:
+//	 +  Container health checks require version 1.17.0 or greater of the Amazon ECS container agent. For more information, see [Updating the Amazon ECS Container Agent](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html).
+//	 +  Container health checks are supported for Fargate tasks if you are using platform version 1.1.0 or greater. For more information, see [Platform Versions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+//	 +  Container health checks are not supported for tasks that are part of a service that is configured to use a Classic Load Balancer.
 type TaskDefinitionHealthCheckOutput struct{ *pulumi.OutputState }
 
 func (TaskDefinitionHealthCheckOutput) ElementType() reflect.Type {
@@ -7929,14 +8365,14 @@ func (o TaskDefinitionInferenceAcceleratorArrayOutput) Index(i pulumi.IntInput) 
 	}).(TaskDefinitionInferenceAcceleratorOutput)
 }
 
-// The “KernelCapabilities“ property specifies the Linux capabilities for the container that are added to or dropped from the default configuration that is provided by Docker. For more information on the default capabilities and the non-default available capabilities, see [Runtime privilege and Linux capabilities](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities) in the *Docker run reference*. For more detailed information on these Linux capabilities, see the [capabilities(7)](https://docs.aws.amazon.com/http://man7.org/linux/man-pages/man7/capabilities.7.html) Linux manual page.
+// The Linux capabilities to add or remove from the default Docker configuration for a container defined in the task definition. For more information about the default capabilities and the non-default available capabilities, see [Runtime privilege and Linux capabilities](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities) in the *Docker run reference*. For more detailed information about these Linux capabilities, see the [capabilities(7)](https://docs.aws.amazon.com/http://man7.org/linux/man-pages/man7/capabilities.7.html) Linux manual page.
 type TaskDefinitionKernelCapabilities struct {
 	// The Linux capabilities for the container that have been added to the default configuration provided by Docker. This parameter maps to ``CapAdd`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--cap-add`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
 	//   Tasks launched on FARGATElong only support adding the ``SYS_PTRACE`` kernel capability.
-	//   Valid values: ``"ALL" | "AUDIT_CONTROL" | "AUDIT_WRITE" | "BLOCK_SUSPEND" | "CHOWN" | "DAC_OVERRIDE" | "DAC_READ_SEARCH" | "FOWNER" | "FSETID" | "IPC_LOCK" | "IPC_OWNER" | "KILL" | "LEASE" | "LINUX_IMMUTABLE" | "MAC_ADMIN" | "MAC_OVERRIDE" | "MKNOD" | "NET_ADMIN" | "NET_BIND_SERVICE" | "NET_BROADCAST" | "NET_RAW" | "SETFCAP" | "SETGID" | "SETPCAP" | "SETUID" | "SYS_ADMIN" | "SYS_BOOT"
+	//   Valid values: ``"ALL" | "AUDIT_CONTROL" | "AUDIT_WRITE" | "BLOCK_SUSPEND" | "CHOWN" | "DAC_OVERRIDE" | "DAC_READ_SEARCH" | "FOWNER" | "FSETID" | "IPC_LOCK" | "IPC_OWNER" | "KILL" | "LEASE" | "LINUX_IMMUTABLE" | "MAC_ADMIN" | "MAC_OVERRIDE" | "MKNOD" | "NET_ADMIN" | "NET_BIND_SERVICE" | "NET_BROADCAST" | "NET_RAW" | "SETFCAP" | "SETGID" | "SETPCAP" | "SETUID" | "SYS_ADMIN" | "SYS_BOOT" | "SYS_CHROOT" | "SYS_MODULE" | "SYS_NICE" | "SYS_PACCT" | "SYS_PTRACE" | "SYS_RAWIO" | "SYS_RESOURCE" | "SYS_TIME" | "SYS_TTY_CONFIG" | "SYSLOG" | "WAKE_ALARM"``
 	Add []string `pulumi:"add"`
 	// The Linux capabilities for the container that have been removed from the default configuration provided by Docker. This parameter maps to ``CapDrop`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--cap-drop`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
-	//  Valid values: ``"ALL" | "AUDIT_CONTROL" | "AUDIT_WRITE" | "BLOCK_SUSPEND" | "CHOWN" | "DAC_OVERRIDE" | "DAC_READ_SEARCH" | "FOWNER" | "FSETID" | "IPC_LOCK" | "IPC_OWNER" | "KILL" | "LEASE" | "LINUX_IMMUTABLE" | "MAC_ADMIN" | "MAC_OVERRIDE" | "MKNOD" | "NET_ADMIN" | "NET_BIND_SERVICE" | "NET_BROADCAST" | "NET_RAW" | "SETFCAP" | "SETGID" | "SETPCAP" | "SETUID" | "SYS_ADMIN" | "SYS_BOOT" | "SYS_CHROOT" | "SYS_MODULE" | "SYS_NICE" | "SYS_PACCT" | "SYS_PTRACE" | "SYS_RAWIO"
+	//  Valid values: ``"ALL" | "AUDIT_CONTROL" | "AUDIT_WRITE" | "BLOCK_SUSPEND" | "CHOWN" | "DAC_OVERRIDE" | "DAC_READ_SEARCH" | "FOWNER" | "FSETID" | "IPC_LOCK" | "IPC_OWNER" | "KILL" | "LEASE" | "LINUX_IMMUTABLE" | "MAC_ADMIN" | "MAC_OVERRIDE" | "MKNOD" | "NET_ADMIN" | "NET_BIND_SERVICE" | "NET_BROADCAST" | "NET_RAW" | "SETFCAP" | "SETGID" | "SETPCAP" | "SETUID" | "SYS_ADMIN" | "SYS_BOOT" | "SYS_CHROOT" | "SYS_MODULE" | "SYS_NICE" | "SYS_PACCT" | "SYS_PTRACE" | "SYS_RAWIO" | "SYS_RESOURCE" | "SYS_TIME" | "SYS_TTY_CONFIG" | "SYSLOG" | "WAKE_ALARM"``
 	Drop []string `pulumi:"drop"`
 }
 
@@ -7951,14 +8387,14 @@ type TaskDefinitionKernelCapabilitiesInput interface {
 	ToTaskDefinitionKernelCapabilitiesOutputWithContext(context.Context) TaskDefinitionKernelCapabilitiesOutput
 }
 
-// The “KernelCapabilities“ property specifies the Linux capabilities for the container that are added to or dropped from the default configuration that is provided by Docker. For more information on the default capabilities and the non-default available capabilities, see [Runtime privilege and Linux capabilities](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities) in the *Docker run reference*. For more detailed information on these Linux capabilities, see the [capabilities(7)](https://docs.aws.amazon.com/http://man7.org/linux/man-pages/man7/capabilities.7.html) Linux manual page.
+// The Linux capabilities to add or remove from the default Docker configuration for a container defined in the task definition. For more information about the default capabilities and the non-default available capabilities, see [Runtime privilege and Linux capabilities](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities) in the *Docker run reference*. For more detailed information about these Linux capabilities, see the [capabilities(7)](https://docs.aws.amazon.com/http://man7.org/linux/man-pages/man7/capabilities.7.html) Linux manual page.
 type TaskDefinitionKernelCapabilitiesArgs struct {
 	// The Linux capabilities for the container that have been added to the default configuration provided by Docker. This parameter maps to ``CapAdd`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--cap-add`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
 	//   Tasks launched on FARGATElong only support adding the ``SYS_PTRACE`` kernel capability.
-	//   Valid values: ``"ALL" | "AUDIT_CONTROL" | "AUDIT_WRITE" | "BLOCK_SUSPEND" | "CHOWN" | "DAC_OVERRIDE" | "DAC_READ_SEARCH" | "FOWNER" | "FSETID" | "IPC_LOCK" | "IPC_OWNER" | "KILL" | "LEASE" | "LINUX_IMMUTABLE" | "MAC_ADMIN" | "MAC_OVERRIDE" | "MKNOD" | "NET_ADMIN" | "NET_BIND_SERVICE" | "NET_BROADCAST" | "NET_RAW" | "SETFCAP" | "SETGID" | "SETPCAP" | "SETUID" | "SYS_ADMIN" | "SYS_BOOT"
+	//   Valid values: ``"ALL" | "AUDIT_CONTROL" | "AUDIT_WRITE" | "BLOCK_SUSPEND" | "CHOWN" | "DAC_OVERRIDE" | "DAC_READ_SEARCH" | "FOWNER" | "FSETID" | "IPC_LOCK" | "IPC_OWNER" | "KILL" | "LEASE" | "LINUX_IMMUTABLE" | "MAC_ADMIN" | "MAC_OVERRIDE" | "MKNOD" | "NET_ADMIN" | "NET_BIND_SERVICE" | "NET_BROADCAST" | "NET_RAW" | "SETFCAP" | "SETGID" | "SETPCAP" | "SETUID" | "SYS_ADMIN" | "SYS_BOOT" | "SYS_CHROOT" | "SYS_MODULE" | "SYS_NICE" | "SYS_PACCT" | "SYS_PTRACE" | "SYS_RAWIO" | "SYS_RESOURCE" | "SYS_TIME" | "SYS_TTY_CONFIG" | "SYSLOG" | "WAKE_ALARM"``
 	Add pulumi.StringArrayInput `pulumi:"add"`
 	// The Linux capabilities for the container that have been removed from the default configuration provided by Docker. This parameter maps to ``CapDrop`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--cap-drop`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
-	//  Valid values: ``"ALL" | "AUDIT_CONTROL" | "AUDIT_WRITE" | "BLOCK_SUSPEND" | "CHOWN" | "DAC_OVERRIDE" | "DAC_READ_SEARCH" | "FOWNER" | "FSETID" | "IPC_LOCK" | "IPC_OWNER" | "KILL" | "LEASE" | "LINUX_IMMUTABLE" | "MAC_ADMIN" | "MAC_OVERRIDE" | "MKNOD" | "NET_ADMIN" | "NET_BIND_SERVICE" | "NET_BROADCAST" | "NET_RAW" | "SETFCAP" | "SETGID" | "SETPCAP" | "SETUID" | "SYS_ADMIN" | "SYS_BOOT" | "SYS_CHROOT" | "SYS_MODULE" | "SYS_NICE" | "SYS_PACCT" | "SYS_PTRACE" | "SYS_RAWIO"
+	//  Valid values: ``"ALL" | "AUDIT_CONTROL" | "AUDIT_WRITE" | "BLOCK_SUSPEND" | "CHOWN" | "DAC_OVERRIDE" | "DAC_READ_SEARCH" | "FOWNER" | "FSETID" | "IPC_LOCK" | "IPC_OWNER" | "KILL" | "LEASE" | "LINUX_IMMUTABLE" | "MAC_ADMIN" | "MAC_OVERRIDE" | "MKNOD" | "NET_ADMIN" | "NET_BIND_SERVICE" | "NET_BROADCAST" | "NET_RAW" | "SETFCAP" | "SETGID" | "SETPCAP" | "SETUID" | "SYS_ADMIN" | "SYS_BOOT" | "SYS_CHROOT" | "SYS_MODULE" | "SYS_NICE" | "SYS_PACCT" | "SYS_PTRACE" | "SYS_RAWIO" | "SYS_RESOURCE" | "SYS_TIME" | "SYS_TTY_CONFIG" | "SYSLOG" | "WAKE_ALARM"``
 	Drop pulumi.StringArrayInput `pulumi:"drop"`
 }
 
@@ -8015,7 +8451,7 @@ func (i *taskDefinitionKernelCapabilitiesPtrType) ToTaskDefinitionKernelCapabili
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionKernelCapabilitiesPtrOutput)
 }
 
-// The “KernelCapabilities“ property specifies the Linux capabilities for the container that are added to or dropped from the default configuration that is provided by Docker. For more information on the default capabilities and the non-default available capabilities, see [Runtime privilege and Linux capabilities](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities) in the *Docker run reference*. For more detailed information on these Linux capabilities, see the [capabilities(7)](https://docs.aws.amazon.com/http://man7.org/linux/man-pages/man7/capabilities.7.html) Linux manual page.
+// The Linux capabilities to add or remove from the default Docker configuration for a container defined in the task definition. For more information about the default capabilities and the non-default available capabilities, see [Runtime privilege and Linux capabilities](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities) in the *Docker run reference*. For more detailed information about these Linux capabilities, see the [capabilities(7)](https://docs.aws.amazon.com/http://man7.org/linux/man-pages/man7/capabilities.7.html) Linux manual page.
 type TaskDefinitionKernelCapabilitiesOutput struct{ *pulumi.OutputState }
 
 func (TaskDefinitionKernelCapabilitiesOutput) ElementType() reflect.Type {
@@ -8043,14 +8479,14 @@ func (o TaskDefinitionKernelCapabilitiesOutput) ToTaskDefinitionKernelCapabiliti
 // The Linux capabilities for the container that have been added to the default configuration provided by Docker. This parameter maps to “CapAdd“ in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the “--cap-add“ option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
 //
 //	Tasks launched on FARGATElong only support adding the ``SYS_PTRACE`` kernel capability.
-//	Valid values: ``"ALL" | "AUDIT_CONTROL" | "AUDIT_WRITE" | "BLOCK_SUSPEND" | "CHOWN" | "DAC_OVERRIDE" | "DAC_READ_SEARCH" | "FOWNER" | "FSETID" | "IPC_LOCK" | "IPC_OWNER" | "KILL" | "LEASE" | "LINUX_IMMUTABLE" | "MAC_ADMIN" | "MAC_OVERRIDE" | "MKNOD" | "NET_ADMIN" | "NET_BIND_SERVICE" | "NET_BROADCAST" | "NET_RAW" | "SETFCAP" | "SETGID" | "SETPCAP" | "SETUID" | "SYS_ADMIN" | "SYS_BOOT"
+//	Valid values: ``"ALL" | "AUDIT_CONTROL" | "AUDIT_WRITE" | "BLOCK_SUSPEND" | "CHOWN" | "DAC_OVERRIDE" | "DAC_READ_SEARCH" | "FOWNER" | "FSETID" | "IPC_LOCK" | "IPC_OWNER" | "KILL" | "LEASE" | "LINUX_IMMUTABLE" | "MAC_ADMIN" | "MAC_OVERRIDE" | "MKNOD" | "NET_ADMIN" | "NET_BIND_SERVICE" | "NET_BROADCAST" | "NET_RAW" | "SETFCAP" | "SETGID" | "SETPCAP" | "SETUID" | "SYS_ADMIN" | "SYS_BOOT" | "SYS_CHROOT" | "SYS_MODULE" | "SYS_NICE" | "SYS_PACCT" | "SYS_PTRACE" | "SYS_RAWIO" | "SYS_RESOURCE" | "SYS_TIME" | "SYS_TTY_CONFIG" | "SYSLOG" | "WAKE_ALARM"``
 func (o TaskDefinitionKernelCapabilitiesOutput) Add() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TaskDefinitionKernelCapabilities) []string { return v.Add }).(pulumi.StringArrayOutput)
 }
 
 // The Linux capabilities for the container that have been removed from the default configuration provided by Docker. This parameter maps to “CapDrop“ in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the “--cap-drop“ option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
 //
-//	Valid values: ``"ALL" | "AUDIT_CONTROL" | "AUDIT_WRITE" | "BLOCK_SUSPEND" | "CHOWN" | "DAC_OVERRIDE" | "DAC_READ_SEARCH" | "FOWNER" | "FSETID" | "IPC_LOCK" | "IPC_OWNER" | "KILL" | "LEASE" | "LINUX_IMMUTABLE" | "MAC_ADMIN" | "MAC_OVERRIDE" | "MKNOD" | "NET_ADMIN" | "NET_BIND_SERVICE" | "NET_BROADCAST" | "NET_RAW" | "SETFCAP" | "SETGID" | "SETPCAP" | "SETUID" | "SYS_ADMIN" | "SYS_BOOT" | "SYS_CHROOT" | "SYS_MODULE" | "SYS_NICE" | "SYS_PACCT" | "SYS_PTRACE" | "SYS_RAWIO"
+//	Valid values: ``"ALL" | "AUDIT_CONTROL" | "AUDIT_WRITE" | "BLOCK_SUSPEND" | "CHOWN" | "DAC_OVERRIDE" | "DAC_READ_SEARCH" | "FOWNER" | "FSETID" | "IPC_LOCK" | "IPC_OWNER" | "KILL" | "LEASE" | "LINUX_IMMUTABLE" | "MAC_ADMIN" | "MAC_OVERRIDE" | "MKNOD" | "NET_ADMIN" | "NET_BIND_SERVICE" | "NET_BROADCAST" | "NET_RAW" | "SETFCAP" | "SETGID" | "SETPCAP" | "SETUID" | "SYS_ADMIN" | "SYS_BOOT" | "SYS_CHROOT" | "SYS_MODULE" | "SYS_NICE" | "SYS_PACCT" | "SYS_PTRACE" | "SYS_RAWIO" | "SYS_RESOURCE" | "SYS_TIME" | "SYS_TTY_CONFIG" | "SYSLOG" | "WAKE_ALARM"``
 func (o TaskDefinitionKernelCapabilitiesOutput) Drop() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TaskDefinitionKernelCapabilities) []string { return v.Drop }).(pulumi.StringArrayOutput)
 }
@@ -8082,7 +8518,7 @@ func (o TaskDefinitionKernelCapabilitiesPtrOutput) Elem() TaskDefinitionKernelCa
 // The Linux capabilities for the container that have been added to the default configuration provided by Docker. This parameter maps to “CapAdd“ in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the “--cap-add“ option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
 //
 //	Tasks launched on FARGATElong only support adding the ``SYS_PTRACE`` kernel capability.
-//	Valid values: ``"ALL" | "AUDIT_CONTROL" | "AUDIT_WRITE" | "BLOCK_SUSPEND" | "CHOWN" | "DAC_OVERRIDE" | "DAC_READ_SEARCH" | "FOWNER" | "FSETID" | "IPC_LOCK" | "IPC_OWNER" | "KILL" | "LEASE" | "LINUX_IMMUTABLE" | "MAC_ADMIN" | "MAC_OVERRIDE" | "MKNOD" | "NET_ADMIN" | "NET_BIND_SERVICE" | "NET_BROADCAST" | "NET_RAW" | "SETFCAP" | "SETGID" | "SETPCAP" | "SETUID" | "SYS_ADMIN" | "SYS_BOOT"
+//	Valid values: ``"ALL" | "AUDIT_CONTROL" | "AUDIT_WRITE" | "BLOCK_SUSPEND" | "CHOWN" | "DAC_OVERRIDE" | "DAC_READ_SEARCH" | "FOWNER" | "FSETID" | "IPC_LOCK" | "IPC_OWNER" | "KILL" | "LEASE" | "LINUX_IMMUTABLE" | "MAC_ADMIN" | "MAC_OVERRIDE" | "MKNOD" | "NET_ADMIN" | "NET_BIND_SERVICE" | "NET_BROADCAST" | "NET_RAW" | "SETFCAP" | "SETGID" | "SETPCAP" | "SETUID" | "SYS_ADMIN" | "SYS_BOOT" | "SYS_CHROOT" | "SYS_MODULE" | "SYS_NICE" | "SYS_PACCT" | "SYS_PTRACE" | "SYS_RAWIO" | "SYS_RESOURCE" | "SYS_TIME" | "SYS_TTY_CONFIG" | "SYSLOG" | "WAKE_ALARM"``
 func (o TaskDefinitionKernelCapabilitiesPtrOutput) Add() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TaskDefinitionKernelCapabilities) []string {
 		if v == nil {
@@ -8094,7 +8530,7 @@ func (o TaskDefinitionKernelCapabilitiesPtrOutput) Add() pulumi.StringArrayOutpu
 
 // The Linux capabilities for the container that have been removed from the default configuration provided by Docker. This parameter maps to “CapDrop“ in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the “--cap-drop“ option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
 //
-//	Valid values: ``"ALL" | "AUDIT_CONTROL" | "AUDIT_WRITE" | "BLOCK_SUSPEND" | "CHOWN" | "DAC_OVERRIDE" | "DAC_READ_SEARCH" | "FOWNER" | "FSETID" | "IPC_LOCK" | "IPC_OWNER" | "KILL" | "LEASE" | "LINUX_IMMUTABLE" | "MAC_ADMIN" | "MAC_OVERRIDE" | "MKNOD" | "NET_ADMIN" | "NET_BIND_SERVICE" | "NET_BROADCAST" | "NET_RAW" | "SETFCAP" | "SETGID" | "SETPCAP" | "SETUID" | "SYS_ADMIN" | "SYS_BOOT" | "SYS_CHROOT" | "SYS_MODULE" | "SYS_NICE" | "SYS_PACCT" | "SYS_PTRACE" | "SYS_RAWIO"
+//	Valid values: ``"ALL" | "AUDIT_CONTROL" | "AUDIT_WRITE" | "BLOCK_SUSPEND" | "CHOWN" | "DAC_OVERRIDE" | "DAC_READ_SEARCH" | "FOWNER" | "FSETID" | "IPC_LOCK" | "IPC_OWNER" | "KILL" | "LEASE" | "LINUX_IMMUTABLE" | "MAC_ADMIN" | "MAC_OVERRIDE" | "MKNOD" | "NET_ADMIN" | "NET_BIND_SERVICE" | "NET_BROADCAST" | "NET_RAW" | "SETFCAP" | "SETGID" | "SETPCAP" | "SETUID" | "SYS_ADMIN" | "SYS_BOOT" | "SYS_CHROOT" | "SYS_MODULE" | "SYS_NICE" | "SYS_PACCT" | "SYS_PTRACE" | "SYS_RAWIO" | "SYS_RESOURCE" | "SYS_TIME" | "SYS_TTY_CONFIG" | "SYSLOG" | "WAKE_ALARM"``
 func (o TaskDefinitionKernelCapabilitiesPtrOutput) Drop() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TaskDefinitionKernelCapabilities) []string {
 		if v == nil {
@@ -8522,7 +8958,7 @@ type TaskDefinitionLogConfiguration struct {
 	//  For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``, ``logentries``,``syslog``, ``splunk``, and ``awsfirelens``.
 	//  For more information about using the ``awslogs`` log driver, see [Using the awslogs log driver](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_awslogs.html) in the *Amazon Elastic Container Service Developer Guide*.
 	//  For more information about using the ``awsfirelens`` log driver, see [Custom log routing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html) in the *Amazon Elastic Container Service Developer Guide*.
-	//   If you have a custom driver that isn't listed, you can fork the Amazon ECS container agent project that's [available on GitHub](https://docs.aws.amazon.com/https://github.com/aws/amazon-ecs
+	//   If you have a custom driver that isn't listed, you can fork the Amazon ECS container agent project that's [available on GitHub](https://docs.aws.amazon.com/https://github.com/aws/amazon-ecs-agent) and customize it to work with that driver. We encourage you to submit pull requests for changes that you would like to have included. However, we don't currently provide support for running modified copies of this software.
 	LogDriver string `pulumi:"logDriver"`
 	// The configuration options to send to the log driver. This parameter requires version 1.19 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version --format '{{.Server.APIVersion}}'``
 	Options map[string]string `pulumi:"options"`
@@ -8548,7 +8984,7 @@ type TaskDefinitionLogConfigurationArgs struct {
 	//  For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``, ``logentries``,``syslog``, ``splunk``, and ``awsfirelens``.
 	//  For more information about using the ``awslogs`` log driver, see [Using the awslogs log driver](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_awslogs.html) in the *Amazon Elastic Container Service Developer Guide*.
 	//  For more information about using the ``awsfirelens`` log driver, see [Custom log routing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html) in the *Amazon Elastic Container Service Developer Guide*.
-	//   If you have a custom driver that isn't listed, you can fork the Amazon ECS container agent project that's [available on GitHub](https://docs.aws.amazon.com/https://github.com/aws/amazon-ecs
+	//   If you have a custom driver that isn't listed, you can fork the Amazon ECS container agent project that's [available on GitHub](https://docs.aws.amazon.com/https://github.com/aws/amazon-ecs-agent) and customize it to work with that driver. We encourage you to submit pull requests for changes that you would like to have included. However, we don't currently provide support for running modified copies of this software.
 	LogDriver pulumi.StringInput `pulumi:"logDriver"`
 	// The configuration options to send to the log driver. This parameter requires version 1.19 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version --format '{{.Server.APIVersion}}'``
 	Options pulumi.StringMapInput `pulumi:"options"`
@@ -8640,7 +9076,7 @@ func (o TaskDefinitionLogConfigurationOutput) ToTaskDefinitionLogConfigurationPt
 //	For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``, ``logentries``,``syslog``, ``splunk``, and ``awsfirelens``.
 //	For more information about using the ``awslogs`` log driver, see [Using the awslogs log driver](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_awslogs.html) in the *Amazon Elastic Container Service Developer Guide*.
 //	For more information about using the ``awsfirelens`` log driver, see [Custom log routing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html) in the *Amazon Elastic Container Service Developer Guide*.
-//	 If you have a custom driver that isn't listed, you can fork the Amazon ECS container agent project that's [available on GitHub](https://docs.aws.amazon.com/https://github.com/aws/amazon-ecs
+//	 If you have a custom driver that isn't listed, you can fork the Amazon ECS container agent project that's [available on GitHub](https://docs.aws.amazon.com/https://github.com/aws/amazon-ecs-agent) and customize it to work with that driver. We encourage you to submit pull requests for changes that you would like to have included. However, we don't currently provide support for running modified copies of this software.
 func (o TaskDefinitionLogConfigurationOutput) LogDriver() pulumi.StringOutput {
 	return o.ApplyT(func(v TaskDefinitionLogConfiguration) string { return v.LogDriver }).(pulumi.StringOutput)
 }
@@ -8685,7 +9121,7 @@ func (o TaskDefinitionLogConfigurationPtrOutput) Elem() TaskDefinitionLogConfigu
 //	For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``, ``logentries``,``syslog``, ``splunk``, and ``awsfirelens``.
 //	For more information about using the ``awslogs`` log driver, see [Using the awslogs log driver](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_awslogs.html) in the *Amazon Elastic Container Service Developer Guide*.
 //	For more information about using the ``awsfirelens`` log driver, see [Custom log routing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html) in the *Amazon Elastic Container Service Developer Guide*.
-//	 If you have a custom driver that isn't listed, you can fork the Amazon ECS container agent project that's [available on GitHub](https://docs.aws.amazon.com/https://github.com/aws/amazon-ecs
+//	 If you have a custom driver that isn't listed, you can fork the Amazon ECS container agent project that's [available on GitHub](https://docs.aws.amazon.com/https://github.com/aws/amazon-ecs-agent) and customize it to work with that driver. We encourage you to submit pull requests for changes that you would like to have included. However, we don't currently provide support for running modified copies of this software.
 func (o TaskDefinitionLogConfigurationPtrOutput) LogDriver() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionLogConfiguration) *string {
 		if v == nil {
@@ -8956,7 +9392,7 @@ type TaskDefinitionPortMapping struct {
 	// The application protocol that's used for the port mapping. This parameter only applies to Service Connect. We recommend that you set this parameter to be consistent with the protocol that your application uses. If you set this parameter, Amazon ECS adds protocol-specific connection handling to the Service Connect proxy. If you set this parameter, Amazon ECS adds protocol-specific telemetry in the Amazon ECS console and CloudWatch.
 	//  If you don't set a value for this parameter, then TCP is used. However, Amazon ECS doesn't add protocol-specific telemetry for TCP.
 	//   ``appProtocol`` is immutable in a Service Connect service. Updating this field requires a service deletion and redeployment.
-	//  Tasks that run in a namespace can use short names to connect to services in the namespace. Tasks can connect to services across all of the clusters in the namespace. Tasks connect through a managed proxy container that collects logs and metrics for increased visibility. Only the tasks that Amazon ECS se
+	//  Tasks that run in a namespace can use short names to connect to services in the namespace. Tasks can connect to services across all of the clusters in the namespace. Tasks connect through a managed proxy container that collects logs and metrics for increased visibility. Only the tasks that Amazon ECS services create are supported with Service Connect. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
 	AppProtocol *TaskDefinitionPortMappingAppProtocol `pulumi:"appProtocol"`
 	// The port number on the container that's bound to the user-specified or automatically assigned host port.
 	//  If you use containers in a task with the ``awsvpc`` or ``host`` network mode, specify the exposed ports using ``containerPort``.
@@ -8971,7 +9407,17 @@ type TaskDefinitionPortMapping struct {
 	//   +  You can specify a maximum of 100 port ranges per container.
 	//   +  You do not specify a ``hostPortRange``. The value of the ``hostPortRange`` is set as follows:
 	//   +  For containers in a task with the ``awsvpc`` network mode, the ``hostPortRange`` is set to the same value as the ``containerPortRange``. This is a static mapping strategy.
-	//   +  For containers in a task with the ``bridge`` network mode, the Amazon ECS agent finds open host
+	//   +  For containers in a task with the ``bridge`` network mode, the Amazon ECS agent finds open host ports from the default ephemeral range and passes it to docker to bind them to the container ports.
+	//
+	//   +  The ``containerPortRange`` valid values are between 1 and 65535.
+	//   +  A port can only be included in one port mapping per container.
+	//   +  You cannot specify overlapping port ranges.
+	//   +  The first port in the range must be less than last port in the range.
+	//   +  Docker recommends that you turn off the docker-proxy in the Docker daemon config file when you have a large number of ports.
+	//  For more information, see [Issue #11185](https://docs.aws.amazon.com/https://github.com/moby/moby/issues/11185) on the Github website.
+	//  For information about how to turn off the docker-proxy in the Docker daemon config file, see [Docker daemon](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/bootstrap_container_instance.html#bootstrap_docker_daemon) in the *Amazon ECS Developer Guide*.
+	//
+	//  You can call [DescribeTasks](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeTasks.html) to view the ``hostPortRange`` which are the host ports that are bound to the container ports.
 	ContainerPortRange *string `pulumi:"containerPortRange"`
 	// The port number on the container instance to reserve for your container.
 	//  If you specify a ``containerPortRange``, leave this field empty and the value of the ``hostPort`` is set as follows:
@@ -8979,7 +9425,9 @@ type TaskDefinitionPortMapping struct {
 	//   +  For containers in a task with the ``bridge`` network mode, the Amazon ECS agent finds open ports on the host and automatically binds them to the container ports. This is a dynamic mapping strategy.
 	//
 	//  If you use containers in a task with the ``awsvpc`` or ``host`` network mode, the ``hostPort`` can either be left blank or set to the same value as the ``containerPort``.
-	//  If you use containers in a task with the ``bridge`` network mode, you can specify a non-reserved host port for your container port mapping, or you can omit the ``hostPort`` (or set it to ``0``) while specifying a ``containerPort`` and your container automatically
+	//  If you use containers in a task with the ``bridge`` network mode, you can specify a non-reserved host port for your container port mapping, or you can omit the ``hostPort`` (or set it to ``0``) while specifying a ``containerPort`` and your container automatically receives a port in the ephemeral port range for your container instance operating system and Docker version.
+	//  The default ephemeral port range for Docker version 1.6.0 and later is listed on the instance under ``/proc/sys/net/ipv4/ip_local_port_range``. If this kernel parameter is unavailable, the default ephemeral port range from 49153 through 65535 (Linux) or 49152 through 65535 (Windows) is used. Do not attempt to specify a host port in the ephemeral port range as these are reserved for automatic assignment. In general, ports below 32768 are outside of the ephemeral port range.
+	//  The default reserved ports are 22 for SSH, the Docker ports 2375 and 2376, and the Amazon ECS container agent ports 51678-51680. Any host port that was previously specified in a running task is also reserved while the task is running. That is, after a task stops, the host port is released. The current reserved ports are displayed in the ``remainingResources`` of [DescribeContainerInstances](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeContainerInstances.html) output. A container instance can have up to 100 reserved ports at a time. This number includes the default reserved ports. Automatically assigned ports aren't included in the 100 reserved ports quota.
 	HostPort *int `pulumi:"hostPort"`
 	// The name that's used for the port mapping. This parameter only applies to Service Connect. This parameter is the name that you use in the ``serviceConnectConfiguration`` of a service. The name can include up to 64 characters. The characters can include lowercase letters, numbers, underscores (_), and hyphens (-). The name can't start with a hyphen.
 	//  For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
@@ -9007,7 +9455,7 @@ type TaskDefinitionPortMappingArgs struct {
 	// The application protocol that's used for the port mapping. This parameter only applies to Service Connect. We recommend that you set this parameter to be consistent with the protocol that your application uses. If you set this parameter, Amazon ECS adds protocol-specific connection handling to the Service Connect proxy. If you set this parameter, Amazon ECS adds protocol-specific telemetry in the Amazon ECS console and CloudWatch.
 	//  If you don't set a value for this parameter, then TCP is used. However, Amazon ECS doesn't add protocol-specific telemetry for TCP.
 	//   ``appProtocol`` is immutable in a Service Connect service. Updating this field requires a service deletion and redeployment.
-	//  Tasks that run in a namespace can use short names to connect to services in the namespace. Tasks can connect to services across all of the clusters in the namespace. Tasks connect through a managed proxy container that collects logs and metrics for increased visibility. Only the tasks that Amazon ECS se
+	//  Tasks that run in a namespace can use short names to connect to services in the namespace. Tasks can connect to services across all of the clusters in the namespace. Tasks connect through a managed proxy container that collects logs and metrics for increased visibility. Only the tasks that Amazon ECS services create are supported with Service Connect. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
 	AppProtocol TaskDefinitionPortMappingAppProtocolPtrInput `pulumi:"appProtocol"`
 	// The port number on the container that's bound to the user-specified or automatically assigned host port.
 	//  If you use containers in a task with the ``awsvpc`` or ``host`` network mode, specify the exposed ports using ``containerPort``.
@@ -9022,7 +9470,17 @@ type TaskDefinitionPortMappingArgs struct {
 	//   +  You can specify a maximum of 100 port ranges per container.
 	//   +  You do not specify a ``hostPortRange``. The value of the ``hostPortRange`` is set as follows:
 	//   +  For containers in a task with the ``awsvpc`` network mode, the ``hostPortRange`` is set to the same value as the ``containerPortRange``. This is a static mapping strategy.
-	//   +  For containers in a task with the ``bridge`` network mode, the Amazon ECS agent finds open host
+	//   +  For containers in a task with the ``bridge`` network mode, the Amazon ECS agent finds open host ports from the default ephemeral range and passes it to docker to bind them to the container ports.
+	//
+	//   +  The ``containerPortRange`` valid values are between 1 and 65535.
+	//   +  A port can only be included in one port mapping per container.
+	//   +  You cannot specify overlapping port ranges.
+	//   +  The first port in the range must be less than last port in the range.
+	//   +  Docker recommends that you turn off the docker-proxy in the Docker daemon config file when you have a large number of ports.
+	//  For more information, see [Issue #11185](https://docs.aws.amazon.com/https://github.com/moby/moby/issues/11185) on the Github website.
+	//  For information about how to turn off the docker-proxy in the Docker daemon config file, see [Docker daemon](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/bootstrap_container_instance.html#bootstrap_docker_daemon) in the *Amazon ECS Developer Guide*.
+	//
+	//  You can call [DescribeTasks](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeTasks.html) to view the ``hostPortRange`` which are the host ports that are bound to the container ports.
 	ContainerPortRange pulumi.StringPtrInput `pulumi:"containerPortRange"`
 	// The port number on the container instance to reserve for your container.
 	//  If you specify a ``containerPortRange``, leave this field empty and the value of the ``hostPort`` is set as follows:
@@ -9030,7 +9488,9 @@ type TaskDefinitionPortMappingArgs struct {
 	//   +  For containers in a task with the ``bridge`` network mode, the Amazon ECS agent finds open ports on the host and automatically binds them to the container ports. This is a dynamic mapping strategy.
 	//
 	//  If you use containers in a task with the ``awsvpc`` or ``host`` network mode, the ``hostPort`` can either be left blank or set to the same value as the ``containerPort``.
-	//  If you use containers in a task with the ``bridge`` network mode, you can specify a non-reserved host port for your container port mapping, or you can omit the ``hostPort`` (or set it to ``0``) while specifying a ``containerPort`` and your container automatically
+	//  If you use containers in a task with the ``bridge`` network mode, you can specify a non-reserved host port for your container port mapping, or you can omit the ``hostPort`` (or set it to ``0``) while specifying a ``containerPort`` and your container automatically receives a port in the ephemeral port range for your container instance operating system and Docker version.
+	//  The default ephemeral port range for Docker version 1.6.0 and later is listed on the instance under ``/proc/sys/net/ipv4/ip_local_port_range``. If this kernel parameter is unavailable, the default ephemeral port range from 49153 through 65535 (Linux) or 49152 through 65535 (Windows) is used. Do not attempt to specify a host port in the ephemeral port range as these are reserved for automatic assignment. In general, ports below 32768 are outside of the ephemeral port range.
+	//  The default reserved ports are 22 for SSH, the Docker ports 2375 and 2376, and the Amazon ECS container agent ports 51678-51680. Any host port that was previously specified in a running task is also reserved while the task is running. That is, after a task stops, the host port is released. The current reserved ports are displayed in the ``remainingResources`` of [DescribeContainerInstances](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeContainerInstances.html) output. A container instance can have up to 100 reserved ports at a time. This number includes the default reserved ports. Automatically assigned ports aren't included in the 100 reserved ports quota.
 	HostPort pulumi.IntPtrInput `pulumi:"hostPort"`
 	// The name that's used for the port mapping. This parameter only applies to Service Connect. This parameter is the name that you use in the ``serviceConnectConfiguration`` of a service. The name can include up to 64 characters. The characters can include lowercase letters, numbers, underscores (_), and hyphens (-). The name can't start with a hyphen.
 	//  For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
@@ -9098,7 +9558,7 @@ func (o TaskDefinitionPortMappingOutput) ToTaskDefinitionPortMappingOutputWithCo
 //
 //	If you don't set a value for this parameter, then TCP is used. However, Amazon ECS doesn't add protocol-specific telemetry for TCP.
 //	 ``appProtocol`` is immutable in a Service Connect service. Updating this field requires a service deletion and redeployment.
-//	Tasks that run in a namespace can use short names to connect to services in the namespace. Tasks can connect to services across all of the clusters in the namespace. Tasks connect through a managed proxy container that collects logs and metrics for increased visibility. Only the tasks that Amazon ECS se
+//	Tasks that run in a namespace can use short names to connect to services in the namespace. Tasks can connect to services across all of the clusters in the namespace. Tasks connect through a managed proxy container that collects logs and metrics for increased visibility. Only the tasks that Amazon ECS services create are supported with Service Connect. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
 func (o TaskDefinitionPortMappingOutput) AppProtocol() TaskDefinitionPortMappingAppProtocolPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionPortMapping) *TaskDefinitionPortMappingAppProtocol { return v.AppProtocol }).(TaskDefinitionPortMappingAppProtocolPtrOutput)
 }
@@ -9121,7 +9581,17 @@ func (o TaskDefinitionPortMappingOutput) ContainerPort() pulumi.IntPtrOutput {
 //	 +  You can specify a maximum of 100 port ranges per container.
 //	 +  You do not specify a ``hostPortRange``. The value of the ``hostPortRange`` is set as follows:
 //	 +  For containers in a task with the ``awsvpc`` network mode, the ``hostPortRange`` is set to the same value as the ``containerPortRange``. This is a static mapping strategy.
-//	 +  For containers in a task with the ``bridge`` network mode, the Amazon ECS agent finds open host
+//	 +  For containers in a task with the ``bridge`` network mode, the Amazon ECS agent finds open host ports from the default ephemeral range and passes it to docker to bind them to the container ports.
+//
+//	 +  The ``containerPortRange`` valid values are between 1 and 65535.
+//	 +  A port can only be included in one port mapping per container.
+//	 +  You cannot specify overlapping port ranges.
+//	 +  The first port in the range must be less than last port in the range.
+//	 +  Docker recommends that you turn off the docker-proxy in the Docker daemon config file when you have a large number of ports.
+//	For more information, see [Issue #11185](https://docs.aws.amazon.com/https://github.com/moby/moby/issues/11185) on the Github website.
+//	For information about how to turn off the docker-proxy in the Docker daemon config file, see [Docker daemon](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/bootstrap_container_instance.html#bootstrap_docker_daemon) in the *Amazon ECS Developer Guide*.
+//
+//	You can call [DescribeTasks](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeTasks.html) to view the ``hostPortRange`` which are the host ports that are bound to the container ports.
 func (o TaskDefinitionPortMappingOutput) ContainerPortRange() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionPortMapping) *string { return v.ContainerPortRange }).(pulumi.StringPtrOutput)
 }
@@ -9133,7 +9603,9 @@ func (o TaskDefinitionPortMappingOutput) ContainerPortRange() pulumi.StringPtrOu
 //	 +  For containers in a task with the ``bridge`` network mode, the Amazon ECS agent finds open ports on the host and automatically binds them to the container ports. This is a dynamic mapping strategy.
 //
 //	If you use containers in a task with the ``awsvpc`` or ``host`` network mode, the ``hostPort`` can either be left blank or set to the same value as the ``containerPort``.
-//	If you use containers in a task with the ``bridge`` network mode, you can specify a non-reserved host port for your container port mapping, or you can omit the ``hostPort`` (or set it to ``0``) while specifying a ``containerPort`` and your container automatically
+//	If you use containers in a task with the ``bridge`` network mode, you can specify a non-reserved host port for your container port mapping, or you can omit the ``hostPort`` (or set it to ``0``) while specifying a ``containerPort`` and your container automatically receives a port in the ephemeral port range for your container instance operating system and Docker version.
+//	The default ephemeral port range for Docker version 1.6.0 and later is listed on the instance under ``/proc/sys/net/ipv4/ip_local_port_range``. If this kernel parameter is unavailable, the default ephemeral port range from 49153 through 65535 (Linux) or 49152 through 65535 (Windows) is used. Do not attempt to specify a host port in the ephemeral port range as these are reserved for automatic assignment. In general, ports below 32768 are outside of the ephemeral port range.
+//	The default reserved ports are 22 for SSH, the Docker ports 2375 and 2376, and the Amazon ECS container agent ports 51678-51680. Any host port that was previously specified in a running task is also reserved while the task is running. That is, after a task stops, the host port is released. The current reserved ports are displayed in the ``remainingResources`` of [DescribeContainerInstances](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeContainerInstances.html) output. A container instance can have up to 100 reserved ports at a time. This number includes the default reserved ports. Automatically assigned ports aren't included in the 100 reserved ports quota.
 func (o TaskDefinitionPortMappingOutput) HostPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionPortMapping) *int { return v.HostPort }).(pulumi.IntPtrOutput)
 }
@@ -9181,7 +9653,9 @@ type TaskDefinitionProxyConfiguration struct {
 	//   +   ``IgnoredGID`` - (Required) The group ID (GID) of the proxy container as defined by the ``user`` parameter in a container definition. This is used to ensure the proxy ignores its own traffic. If ``IgnoredUID`` is specified, this field can be empty.
 	//   +   ``AppPorts`` - (Required) The list of ports that the application uses. Network traffic to these ports is forwarded to the ``ProxyIngressPort`` and ``ProxyEgressPort``.
 	//   +   ``ProxyIngressPort`` - (Required) Specifies the port that incoming traffic to the ``AppPorts`` is directed to.
-	//   +   ``ProxyEgressPort`` - (Required) Specifies the port that outgoi
+	//   +   ``ProxyEgressPort`` - (Required) Specifies the port that outgoing traffic from the ``AppPorts`` is directed to.
+	//   +   ``EgressIgnoredPorts`` - (Required) The egress traffic going to the specified ports is ignored and not redirected to the ``ProxyEgressPort``. It can be an empty list.
+	//   +   ``EgressIgnoredIPs`` - (Required) The egress traffic going to the specified IP addresses is ignored and not redirected to the ``ProxyEgressPort``. It can be an empty list.
 	ProxyConfigurationProperties []TaskDefinitionKeyValuePair `pulumi:"proxyConfigurationProperties"`
 	// The proxy type. The only supported value is ``APPMESH``.
 	Type *string `pulumi:"type"`
@@ -9209,7 +9683,9 @@ type TaskDefinitionProxyConfigurationArgs struct {
 	//   +   ``IgnoredGID`` - (Required) The group ID (GID) of the proxy container as defined by the ``user`` parameter in a container definition. This is used to ensure the proxy ignores its own traffic. If ``IgnoredUID`` is specified, this field can be empty.
 	//   +   ``AppPorts`` - (Required) The list of ports that the application uses. Network traffic to these ports is forwarded to the ``ProxyIngressPort`` and ``ProxyEgressPort``.
 	//   +   ``ProxyIngressPort`` - (Required) Specifies the port that incoming traffic to the ``AppPorts`` is directed to.
-	//   +   ``ProxyEgressPort`` - (Required) Specifies the port that outgoi
+	//   +   ``ProxyEgressPort`` - (Required) Specifies the port that outgoing traffic from the ``AppPorts`` is directed to.
+	//   +   ``EgressIgnoredPorts`` - (Required) The egress traffic going to the specified ports is ignored and not redirected to the ``ProxyEgressPort``. It can be an empty list.
+	//   +   ``EgressIgnoredIPs`` - (Required) The egress traffic going to the specified IP addresses is ignored and not redirected to the ``ProxyEgressPort``. It can be an empty list.
 	ProxyConfigurationProperties TaskDefinitionKeyValuePairArrayInput `pulumi:"proxyConfigurationProperties"`
 	// The proxy type. The only supported value is ``APPMESH``.
 	Type pulumi.StringPtrInput `pulumi:"type"`
@@ -9305,7 +9781,9 @@ func (o TaskDefinitionProxyConfigurationOutput) ContainerName() pulumi.StringOut
 //   - “IgnoredGID“ - (Required) The group ID (GID) of the proxy container as defined by the “user“ parameter in a container definition. This is used to ensure the proxy ignores its own traffic. If “IgnoredUID“ is specified, this field can be empty.
 //   - “AppPorts“ - (Required) The list of ports that the application uses. Network traffic to these ports is forwarded to the “ProxyIngressPort“ and “ProxyEgressPort“.
 //   - “ProxyIngressPort“ - (Required) Specifies the port that incoming traffic to the “AppPorts“ is directed to.
-//   - “ProxyEgressPort“ - (Required) Specifies the port that outgoi
+//   - “ProxyEgressPort“ - (Required) Specifies the port that outgoing traffic from the “AppPorts“ is directed to.
+//   - “EgressIgnoredPorts“ - (Required) The egress traffic going to the specified ports is ignored and not redirected to the “ProxyEgressPort“. It can be an empty list.
+//   - “EgressIgnoredIPs“ - (Required) The egress traffic going to the specified IP addresses is ignored and not redirected to the “ProxyEgressPort“. It can be an empty list.
 func (o TaskDefinitionProxyConfigurationOutput) ProxyConfigurationProperties() TaskDefinitionKeyValuePairArrayOutput {
 	return o.ApplyT(func(v TaskDefinitionProxyConfiguration) []TaskDefinitionKeyValuePair {
 		return v.ProxyConfigurationProperties
@@ -9356,7 +9834,9 @@ func (o TaskDefinitionProxyConfigurationPtrOutput) ContainerName() pulumi.String
 //   - “IgnoredGID“ - (Required) The group ID (GID) of the proxy container as defined by the “user“ parameter in a container definition. This is used to ensure the proxy ignores its own traffic. If “IgnoredUID“ is specified, this field can be empty.
 //   - “AppPorts“ - (Required) The list of ports that the application uses. Network traffic to these ports is forwarded to the “ProxyIngressPort“ and “ProxyEgressPort“.
 //   - “ProxyIngressPort“ - (Required) Specifies the port that incoming traffic to the “AppPorts“ is directed to.
-//   - “ProxyEgressPort“ - (Required) Specifies the port that outgoi
+//   - “ProxyEgressPort“ - (Required) Specifies the port that outgoing traffic from the “AppPorts“ is directed to.
+//   - “EgressIgnoredPorts“ - (Required) The egress traffic going to the specified ports is ignored and not redirected to the “ProxyEgressPort“. It can be an empty list.
+//   - “EgressIgnoredIPs“ - (Required) The egress traffic going to the specified IP addresses is ignored and not redirected to the “ProxyEgressPort“. It can be an empty list.
 func (o TaskDefinitionProxyConfigurationPtrOutput) ProxyConfigurationProperties() TaskDefinitionKeyValuePairArrayOutput {
 	return o.ApplyT(func(v *TaskDefinitionProxyConfiguration) []TaskDefinitionKeyValuePair {
 		if v == nil {
@@ -9946,7 +10426,15 @@ func (o TaskDefinitionSecretArrayOutput) Index(i pulumi.IntInput) TaskDefinition
 // A list of namespaced kernel parameters to set in the container. This parameter maps to “Sysctls“ in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the “--sysctl“ option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration). For example, you can configure “net.ipv4.tcp_keepalive_time“ setting to maintain longer lived connections.
 //
 //	We don't recommend that you specify network-related ``systemControls`` parameters for multiple containers in a single task that also uses either the ``awsvpc`` or ``host`` network mode. Doing this has the following disadvantages:
-//	 +  For tasks that use the ``awsvpc`` network mode including Fargate, if you set ``systemControls`` for any container, it applies to all containers in the task. If you set different ``sy
+//	 +  For tasks that use the ``awsvpc`` network mode including Fargate, if you set ``systemControls`` for any container, it applies to all containers in the task. If you set different ``systemControls`` for multiple containers in a single task, the container that's started last determines which ``systemControls`` take effect.
+//	 +  For tasks that use the ``host`` network mode, the network namespace ``systemControls`` aren't supported.
+//
+//	If you're setting an IPC resource namespace to use for the containers in the task, the following conditions apply to your system controls. For more information, see [IPC mode](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#task_definition_ipcmode).
+//	 +  For tasks that use the ``host`` IPC mode, IPC namespace ``systemControls`` aren't supported.
+//	 +  For tasks that use the ``task`` IPC mode, IPC namespace ``systemControls`` values apply to all containers within a task.
+//
+//	 This parameter is not supported for Windows containers.
+//	  This parameter is only supported for tasks that are hosted on FARGATElong if the tasks are using platform version ``1.4.0`` or later (Linux). This isn't supported for Windows containers on Fargate.
 type TaskDefinitionSystemControl struct {
 	// The namespaced kernel parameter to set a ``value`` for.
 	Namespace *string `pulumi:"namespace"`
@@ -9971,7 +10459,15 @@ type TaskDefinitionSystemControlInput interface {
 // A list of namespaced kernel parameters to set in the container. This parameter maps to “Sysctls“ in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the “--sysctl“ option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration). For example, you can configure “net.ipv4.tcp_keepalive_time“ setting to maintain longer lived connections.
 //
 //	We don't recommend that you specify network-related ``systemControls`` parameters for multiple containers in a single task that also uses either the ``awsvpc`` or ``host`` network mode. Doing this has the following disadvantages:
-//	 +  For tasks that use the ``awsvpc`` network mode including Fargate, if you set ``systemControls`` for any container, it applies to all containers in the task. If you set different ``sy
+//	 +  For tasks that use the ``awsvpc`` network mode including Fargate, if you set ``systemControls`` for any container, it applies to all containers in the task. If you set different ``systemControls`` for multiple containers in a single task, the container that's started last determines which ``systemControls`` take effect.
+//	 +  For tasks that use the ``host`` network mode, the network namespace ``systemControls`` aren't supported.
+//
+//	If you're setting an IPC resource namespace to use for the containers in the task, the following conditions apply to your system controls. For more information, see [IPC mode](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#task_definition_ipcmode).
+//	 +  For tasks that use the ``host`` IPC mode, IPC namespace ``systemControls`` aren't supported.
+//	 +  For tasks that use the ``task`` IPC mode, IPC namespace ``systemControls`` values apply to all containers within a task.
+//
+//	 This parameter is not supported for Windows containers.
+//	  This parameter is only supported for tasks that are hosted on FARGATElong if the tasks are using platform version ``1.4.0`` or later (Linux). This isn't supported for Windows containers on Fargate.
 type TaskDefinitionSystemControlArgs struct {
 	// The namespaced kernel parameter to set a ``value`` for.
 	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
@@ -10022,7 +10518,15 @@ func (i TaskDefinitionSystemControlArray) ToTaskDefinitionSystemControlArrayOutp
 // A list of namespaced kernel parameters to set in the container. This parameter maps to “Sysctls“ in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the “--sysctl“ option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration). For example, you can configure “net.ipv4.tcp_keepalive_time“ setting to maintain longer lived connections.
 //
 //	We don't recommend that you specify network-related ``systemControls`` parameters for multiple containers in a single task that also uses either the ``awsvpc`` or ``host`` network mode. Doing this has the following disadvantages:
-//	 +  For tasks that use the ``awsvpc`` network mode including Fargate, if you set ``systemControls`` for any container, it applies to all containers in the task. If you set different ``sy
+//	 +  For tasks that use the ``awsvpc`` network mode including Fargate, if you set ``systemControls`` for any container, it applies to all containers in the task. If you set different ``systemControls`` for multiple containers in a single task, the container that's started last determines which ``systemControls`` take effect.
+//	 +  For tasks that use the ``host`` network mode, the network namespace ``systemControls`` aren't supported.
+//
+//	If you're setting an IPC resource namespace to use for the containers in the task, the following conditions apply to your system controls. For more information, see [IPC mode](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#task_definition_ipcmode).
+//	 +  For tasks that use the ``host`` IPC mode, IPC namespace ``systemControls`` aren't supported.
+//	 +  For tasks that use the ``task`` IPC mode, IPC namespace ``systemControls`` values apply to all containers within a task.
+//
+//	 This parameter is not supported for Windows containers.
+//	  This parameter is only supported for tasks that are hosted on FARGATElong if the tasks are using platform version ``1.4.0`` or later (Linux). This isn't supported for Windows containers on Fargate.
 type TaskDefinitionSystemControlOutput struct{ *pulumi.OutputState }
 
 func (TaskDefinitionSystemControlOutput) ElementType() reflect.Type {
@@ -10080,7 +10584,7 @@ func (o TaskDefinitionSystemControlArrayOutput) Index(i pulumi.IntInput) TaskDef
 //	 +  Maximum value length - 256 Unicode characters in UTF-8
 //	 +  If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
 //	 +  Tag keys and values are case-sensitive.
-//	 +  Do not use ``aws:``, ``AWS:``, or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix
+//	 +  Do not use ``aws:``, ``AWS:``, or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
 type TaskDefinitionTag struct {
 	// One part of a key-value pair that make up a tag. A ``key`` is a general label that acts like a category for more specific tag values.
 	Key *string `pulumi:"key"`
@@ -10347,7 +10851,8 @@ type TaskDefinitionVolume struct {
 	//   Docker volumes aren't supported by tasks run on FARGATElong.
 	DockerVolumeConfiguration *TaskDefinitionDockerVolumeConfiguration `pulumi:"dockerVolumeConfiguration"`
 	// This parameter is specified when you use an Amazon Elastic File System file system for task storage.
-	EfsVolumeConfiguration *TaskDefinitionEfsVolumeConfiguration `pulumi:"efsVolumeConfiguration"`
+	EfsVolumeConfiguration                  *TaskDefinitionEfsVolumeConfiguration                  `pulumi:"efsVolumeConfiguration"`
+	FSxWindowsFileServerVolumeConfiguration *TaskDefinitionFSxWindowsFileServerVolumeConfiguration `pulumi:"fSxWindowsFileServerVolumeConfiguration"`
 	// This parameter is specified when you use bind mount host volumes. The contents of the ``host`` parameter determine whether your bind mount host volume persists on the host container instance and where it's stored. If the ``host`` parameter is empty, then the Docker daemon assigns a host path for your data volume. However, the data isn't guaranteed to persist after the containers that are associated with it stop running.
 	//  Windows containers can mount whole directories on the same drive as ``$env:ProgramData``. Windows containers can't mount directories on a different drive, and mount point can't be across drives. For example, you can mount ``C:\my\path:C:\my\path`` and ``D:\:D:\``, but not ``D:\my\path:C:\my\path`` or ``D:\:C:\my\path``.
 	Host *TaskDefinitionHostVolumeProperties `pulumi:"host"`
@@ -10379,7 +10884,8 @@ type TaskDefinitionVolumeArgs struct {
 	//   Docker volumes aren't supported by tasks run on FARGATElong.
 	DockerVolumeConfiguration TaskDefinitionDockerVolumeConfigurationPtrInput `pulumi:"dockerVolumeConfiguration"`
 	// This parameter is specified when you use an Amazon Elastic File System file system for task storage.
-	EfsVolumeConfiguration TaskDefinitionEfsVolumeConfigurationPtrInput `pulumi:"efsVolumeConfiguration"`
+	EfsVolumeConfiguration                  TaskDefinitionEfsVolumeConfigurationPtrInput                  `pulumi:"efsVolumeConfiguration"`
+	FSxWindowsFileServerVolumeConfiguration TaskDefinitionFSxWindowsFileServerVolumeConfigurationPtrInput `pulumi:"fSxWindowsFileServerVolumeConfiguration"`
 	// This parameter is specified when you use bind mount host volumes. The contents of the ``host`` parameter determine whether your bind mount host volume persists on the host container instance and where it's stored. If the ``host`` parameter is empty, then the Docker daemon assigns a host path for your data volume. However, the data isn't guaranteed to persist after the containers that are associated with it stop running.
 	//  Windows containers can mount whole directories on the same drive as ``$env:ProgramData``. Windows containers can't mount directories on a different drive, and mount point can't be across drives. For example, you can mount ``C:\my\path:C:\my\path`` and ``D:\:D:\``, but not ``D:\my\path:C:\my\path`` or ``D:\:C:\my\path``.
 	Host TaskDefinitionHostVolumePropertiesPtrInput `pulumi:"host"`
@@ -10462,6 +10968,12 @@ func (o TaskDefinitionVolumeOutput) DockerVolumeConfiguration() TaskDefinitionDo
 // This parameter is specified when you use an Amazon Elastic File System file system for task storage.
 func (o TaskDefinitionVolumeOutput) EfsVolumeConfiguration() TaskDefinitionEfsVolumeConfigurationPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionVolume) *TaskDefinitionEfsVolumeConfiguration { return v.EfsVolumeConfiguration }).(TaskDefinitionEfsVolumeConfigurationPtrOutput)
+}
+
+func (o TaskDefinitionVolumeOutput) FSxWindowsFileServerVolumeConfiguration() TaskDefinitionFSxWindowsFileServerVolumeConfigurationPtrOutput {
+	return o.ApplyT(func(v TaskDefinitionVolume) *TaskDefinitionFSxWindowsFileServerVolumeConfiguration {
+		return v.FSxWindowsFileServerVolumeConfiguration
+	}).(TaskDefinitionFSxWindowsFileServerVolumeConfigurationPtrOutput)
 }
 
 // This parameter is specified when you use bind mount host volumes. The contents of the “host“ parameter determine whether your bind mount host volume persists on the host container instance and where it's stored. If the “host“ parameter is empty, then the Docker daemon assigns a host path for your data volume. However, the data isn't guaranteed to persist after the containers that are associated with it stop running.
@@ -11406,6 +11918,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionEnvironmentFileArrayInput)(nil)).Elem(), TaskDefinitionEnvironmentFileArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionEphemeralStorageInput)(nil)).Elem(), TaskDefinitionEphemeralStorageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionEphemeralStoragePtrInput)(nil)).Elem(), TaskDefinitionEphemeralStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionFSxAuthorizationConfigInput)(nil)).Elem(), TaskDefinitionFSxAuthorizationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionFSxAuthorizationConfigPtrInput)(nil)).Elem(), TaskDefinitionFSxAuthorizationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionFSxWindowsFileServerVolumeConfigurationInput)(nil)).Elem(), TaskDefinitionFSxWindowsFileServerVolumeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionFSxWindowsFileServerVolumeConfigurationPtrInput)(nil)).Elem(), TaskDefinitionFSxWindowsFileServerVolumeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionFirelensConfigurationInput)(nil)).Elem(), TaskDefinitionFirelensConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionFirelensConfigurationPtrInput)(nil)).Elem(), TaskDefinitionFirelensConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionHealthCheckInput)(nil)).Elem(), TaskDefinitionHealthCheckArgs{})
@@ -11540,6 +12056,10 @@ func init() {
 	pulumi.RegisterOutputType(TaskDefinitionEnvironmentFileArrayOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionEphemeralStorageOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionEphemeralStoragePtrOutput{})
+	pulumi.RegisterOutputType(TaskDefinitionFSxAuthorizationConfigOutput{})
+	pulumi.RegisterOutputType(TaskDefinitionFSxAuthorizationConfigPtrOutput{})
+	pulumi.RegisterOutputType(TaskDefinitionFSxWindowsFileServerVolumeConfigurationOutput{})
+	pulumi.RegisterOutputType(TaskDefinitionFSxWindowsFileServerVolumeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionFirelensConfigurationOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionFirelensConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionHealthCheckOutput{})

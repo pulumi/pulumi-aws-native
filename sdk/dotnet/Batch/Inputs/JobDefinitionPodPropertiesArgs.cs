@@ -26,6 +26,14 @@ namespace Pulumi.AwsNative.Batch.Inputs
         [Input("hostNetwork")]
         public Input<bool>? HostNetwork { get; set; }
 
+        [Input("imagePullSecrets")]
+        private InputList<Inputs.JobDefinitionImagePullSecretArgs>? _imagePullSecrets;
+        public InputList<Inputs.JobDefinitionImagePullSecretArgs> ImagePullSecrets
+        {
+            get => _imagePullSecrets ?? (_imagePullSecrets = new InputList<Inputs.JobDefinitionImagePullSecretArgs>());
+            set => _imagePullSecrets = value;
+        }
+
         [Input("initContainers")]
         private InputList<Inputs.JobDefinitionEksContainerArgs>? _initContainers;
         public InputList<Inputs.JobDefinitionEksContainerArgs> InitContainers

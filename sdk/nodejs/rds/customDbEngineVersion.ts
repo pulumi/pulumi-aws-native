@@ -40,7 +40,7 @@ export class CustomDbEngineVersion extends pulumi.CustomResource {
     /**
      * The name of an Amazon S3 bucket that contains database installation files for your CEV. For example, a valid bucket name is `my-custom-installation-files`.
      */
-    public readonly databaseInstallationFilesS3BucketName!: pulumi.Output<string>;
+    public readonly databaseInstallationFilesS3BucketName!: pulumi.Output<string | undefined>;
     /**
      * The Amazon S3 directory that contains the database installation files for your CEV. For example, a valid bucket name is `123456789012/cev1`. If this setting isn't specified, no prefix is assumed.
      */
@@ -62,6 +62,10 @@ export class CustomDbEngineVersion extends pulumi.CustomResource {
      */
     public readonly engineVersion!: pulumi.Output<string>;
     /**
+     * The identifier of Amazon Machine Image (AMI) used for CEV.
+     */
+    public readonly imageId!: pulumi.Output<string | undefined>;
+    /**
      * The AWS KMS key identifier for an encrypted CEV. A symmetric KMS key is required for RDS Custom, but optional for Amazon RDS.
      */
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
@@ -70,6 +74,10 @@ export class CustomDbEngineVersion extends pulumi.CustomResource {
      */
     public readonly manifest!: pulumi.Output<string | undefined>;
     /**
+     * The identifier of the source custom engine version.
+     */
+    public readonly sourceCustomDbEngineVersionIdentifier!: pulumi.Output<string | undefined>;
+    /**
      * The availability status to be assigned to the CEV.
      */
     public readonly status!: pulumi.Output<enums.rds.CustomDbEngineVersionStatus | undefined>;
@@ -77,6 +85,10 @@ export class CustomDbEngineVersion extends pulumi.CustomResource {
      * An array of key-value pairs to apply to this resource.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * A value that indicates whether AWS provided latest image is applied automatically to the Custom Engine Version. By default, AWS provided latest image is applied automatically. This value is only applied on create.
+     */
+    public readonly useAwsProvidedLatestImage!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a CustomDbEngineVersion resource with the given unique name, arguments, and options.
@@ -89,9 +101,6 @@ export class CustomDbEngineVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.databaseInstallationFilesS3BucketName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'databaseInstallationFilesS3BucketName'");
-            }
             if ((!args || args.engine === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'engine'");
             }
@@ -103,10 +112,13 @@ export class CustomDbEngineVersion extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["engine"] = args ? args.engine : undefined;
             resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
+            resourceInputs["imageId"] = args ? args.imageId : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["manifest"] = args ? args.manifest : undefined;
+            resourceInputs["sourceCustomDbEngineVersionIdentifier"] = args ? args.sourceCustomDbEngineVersionIdentifier : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["useAwsProvidedLatestImage"] = args ? args.useAwsProvidedLatestImage : undefined;
             resourceInputs["dbEngineVersionArn"] = undefined /*out*/;
         } else {
             resourceInputs["databaseInstallationFilesS3BucketName"] = undefined /*out*/;
@@ -115,13 +127,16 @@ export class CustomDbEngineVersion extends pulumi.CustomResource {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["engine"] = undefined /*out*/;
             resourceInputs["engineVersion"] = undefined /*out*/;
+            resourceInputs["imageId"] = undefined /*out*/;
             resourceInputs["kmsKeyId"] = undefined /*out*/;
             resourceInputs["manifest"] = undefined /*out*/;
+            resourceInputs["sourceCustomDbEngineVersionIdentifier"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["useAwsProvidedLatestImage"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["databaseInstallationFilesS3BucketName", "databaseInstallationFilesS3Prefix", "engine", "engineVersion", "kmsKeyId", "manifest"] };
+        const replaceOnChanges = { replaceOnChanges: ["databaseInstallationFilesS3BucketName", "databaseInstallationFilesS3Prefix", "engine", "engineVersion", "imageId", "kmsKeyId", "manifest", "sourceCustomDbEngineVersionIdentifier", "useAwsProvidedLatestImage"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(CustomDbEngineVersion.__pulumiType, name, resourceInputs, opts);
     }
@@ -134,7 +149,7 @@ export interface CustomDbEngineVersionArgs {
     /**
      * The name of an Amazon S3 bucket that contains database installation files for your CEV. For example, a valid bucket name is `my-custom-installation-files`.
      */
-    databaseInstallationFilesS3BucketName: pulumi.Input<string>;
+    databaseInstallationFilesS3BucketName?: pulumi.Input<string>;
     /**
      * The Amazon S3 directory that contains the database installation files for your CEV. For example, a valid bucket name is `123456789012/cev1`. If this setting isn't specified, no prefix is assumed.
      */
@@ -152,6 +167,10 @@ export interface CustomDbEngineVersionArgs {
      */
     engineVersion: pulumi.Input<string>;
     /**
+     * The identifier of Amazon Machine Image (AMI) used for CEV.
+     */
+    imageId?: pulumi.Input<string>;
+    /**
      * The AWS KMS key identifier for an encrypted CEV. A symmetric KMS key is required for RDS Custom, but optional for Amazon RDS.
      */
     kmsKeyId?: pulumi.Input<string>;
@@ -160,6 +179,10 @@ export interface CustomDbEngineVersionArgs {
      */
     manifest?: pulumi.Input<string>;
     /**
+     * The identifier of the source custom engine version.
+     */
+    sourceCustomDbEngineVersionIdentifier?: pulumi.Input<string>;
+    /**
      * The availability status to be assigned to the CEV.
      */
     status?: pulumi.Input<enums.rds.CustomDbEngineVersionStatus>;
@@ -167,4 +190,8 @@ export interface CustomDbEngineVersionArgs {
      * An array of key-value pairs to apply to this resource.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * A value that indicates whether AWS provided latest image is applied automatically to the Custom Engine Version. By default, AWS provided latest image is applied automatically. This value is only applied on create.
+     */
+    useAwsProvidedLatestImage?: pulumi.Input<boolean>;
 }

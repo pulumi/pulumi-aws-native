@@ -33,6 +33,8 @@ type Subnet struct {
 	CidrBlock pulumi.StringPtrOutput `pulumi:"cidrBlock"`
 	// Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. For more information, see [DNS64 and NAT64](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-nat64-dns64) in the *User Guide*.
 	EnableDns64 pulumi.BoolPtrOutput `pulumi:"enableDns64"`
+	// Indicates the device position for local network interfaces in this subnet. For example, ``1`` indicates local network interfaces in this subnet are the secondary network interface (eth1).
+	EnableLniAtDeviceIndex pulumi.IntPtrOutput `pulumi:"enableLniAtDeviceIndex"`
 	// An IPv4 IPAM pool ID for the subnet.
 	Ipv4IpamPoolId pulumi.StringPtrOutput `pulumi:"ipv4IpamPoolId"`
 	// An IPv4 netmask length for the subnet.
@@ -49,16 +51,16 @@ type Subnet struct {
 	// An IPv6 netmask length for the subnet.
 	Ipv6NetmaskLength pulumi.IntPtrOutput `pulumi:"ipv6NetmaskLength"`
 	// Indicates whether instances launched in this subnet receive a public IPv4 address. The default value is ``false``.
-	//  AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
+	//   AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
 	MapPublicIpOnLaunch     pulumi.BoolPtrOutput `pulumi:"mapPublicIpOnLaunch"`
 	NetworkAclAssociationId pulumi.StringOutput  `pulumi:"networkAclAssociationId"`
 	// The Amazon Resource Name (ARN) of the Outpost.
 	OutpostArn pulumi.StringPtrOutput `pulumi:"outpostArn"`
 	// The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries to the instances should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
 	//  Available options:
-	//   + EnableResourceNameDnsAAAARecord (true | false)
-	//  + EnableResourceNameDnsARecord (true | false)
-	//  + HostnameType (ip-name | resource-name)
+	//   +  EnableResourceNameDnsAAAARecord (true | false)
+	//   +  EnableResourceNameDnsARecord (true | false)
+	//   +  HostnameType (ip-name | resource-name)
 	PrivateDnsNameOptionsOnLaunch PrivateDnsNameOptionsOnLaunchPropertiesPtrOutput `pulumi:"privateDnsNameOptionsOnLaunch"`
 	SubnetId                      pulumi.StringOutput                              `pulumi:"subnetId"`
 	// Any tags assigned to the subnet.
@@ -137,6 +139,8 @@ type subnetArgs struct {
 	CidrBlock *string `pulumi:"cidrBlock"`
 	// Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. For more information, see [DNS64 and NAT64](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-nat64-dns64) in the *User Guide*.
 	EnableDns64 *bool `pulumi:"enableDns64"`
+	// Indicates the device position for local network interfaces in this subnet. For example, ``1`` indicates local network interfaces in this subnet are the secondary network interface (eth1).
+	EnableLniAtDeviceIndex *int `pulumi:"enableLniAtDeviceIndex"`
 	// An IPv4 IPAM pool ID for the subnet.
 	Ipv4IpamPoolId *string `pulumi:"ipv4IpamPoolId"`
 	// An IPv4 netmask length for the subnet.
@@ -153,15 +157,15 @@ type subnetArgs struct {
 	// An IPv6 netmask length for the subnet.
 	Ipv6NetmaskLength *int `pulumi:"ipv6NetmaskLength"`
 	// Indicates whether instances launched in this subnet receive a public IPv4 address. The default value is ``false``.
-	//  AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
+	//   AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
 	MapPublicIpOnLaunch *bool `pulumi:"mapPublicIpOnLaunch"`
 	// The Amazon Resource Name (ARN) of the Outpost.
 	OutpostArn *string `pulumi:"outpostArn"`
 	// The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries to the instances should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
 	//  Available options:
-	//   + EnableResourceNameDnsAAAARecord (true | false)
-	//  + EnableResourceNameDnsARecord (true | false)
-	//  + HostnameType (ip-name | resource-name)
+	//   +  EnableResourceNameDnsAAAARecord (true | false)
+	//   +  EnableResourceNameDnsARecord (true | false)
+	//   +  HostnameType (ip-name | resource-name)
 	PrivateDnsNameOptionsOnLaunch *PrivateDnsNameOptionsOnLaunchProperties `pulumi:"privateDnsNameOptionsOnLaunch"`
 	// Any tags assigned to the subnet.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -185,6 +189,8 @@ type SubnetArgs struct {
 	CidrBlock pulumi.StringPtrInput
 	// Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. For more information, see [DNS64 and NAT64](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-nat64-dns64) in the *User Guide*.
 	EnableDns64 pulumi.BoolPtrInput
+	// Indicates the device position for local network interfaces in this subnet. For example, ``1`` indicates local network interfaces in this subnet are the secondary network interface (eth1).
+	EnableLniAtDeviceIndex pulumi.IntPtrInput
 	// An IPv4 IPAM pool ID for the subnet.
 	Ipv4IpamPoolId pulumi.StringPtrInput
 	// An IPv4 netmask length for the subnet.
@@ -201,15 +207,15 @@ type SubnetArgs struct {
 	// An IPv6 netmask length for the subnet.
 	Ipv6NetmaskLength pulumi.IntPtrInput
 	// Indicates whether instances launched in this subnet receive a public IPv4 address. The default value is ``false``.
-	//  AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
+	//   AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
 	MapPublicIpOnLaunch pulumi.BoolPtrInput
 	// The Amazon Resource Name (ARN) of the Outpost.
 	OutpostArn pulumi.StringPtrInput
 	// The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries to the instances should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
 	//  Available options:
-	//   + EnableResourceNameDnsAAAARecord (true | false)
-	//  + EnableResourceNameDnsARecord (true | false)
-	//  + HostnameType (ip-name | resource-name)
+	//   +  EnableResourceNameDnsAAAARecord (true | false)
+	//   +  EnableResourceNameDnsARecord (true | false)
+	//   +  HostnameType (ip-name | resource-name)
 	PrivateDnsNameOptionsOnLaunch PrivateDnsNameOptionsOnLaunchPropertiesPtrInput
 	// Any tags assigned to the subnet.
 	Tags aws.TagArrayInput
@@ -286,6 +292,11 @@ func (o SubnetOutput) EnableDns64() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Subnet) pulumi.BoolPtrOutput { return v.EnableDns64 }).(pulumi.BoolPtrOutput)
 }
 
+// Indicates the device position for local network interfaces in this subnet. For example, “1“ indicates local network interfaces in this subnet are the secondary network interface (eth1).
+func (o SubnetOutput) EnableLniAtDeviceIndex() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Subnet) pulumi.IntPtrOutput { return v.EnableLniAtDeviceIndex }).(pulumi.IntPtrOutput)
+}
+
 // An IPv4 IPAM pool ID for the subnet.
 func (o SubnetOutput) Ipv4IpamPoolId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Subnet) pulumi.StringPtrOutput { return v.Ipv4IpamPoolId }).(pulumi.StringPtrOutput)
@@ -342,9 +353,9 @@ func (o SubnetOutput) OutpostArn() pulumi.StringPtrOutput {
 // The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries to the instances should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
 //
 //	Available options:
-//	 + EnableResourceNameDnsAAAARecord (true | false)
-//	+ EnableResourceNameDnsARecord (true | false)
-//	+ HostnameType (ip-name | resource-name)
+//	 +  EnableResourceNameDnsAAAARecord (true | false)
+//	 +  EnableResourceNameDnsARecord (true | false)
+//	 +  HostnameType (ip-name | resource-name)
 func (o SubnetOutput) PrivateDnsNameOptionsOnLaunch() PrivateDnsNameOptionsOnLaunchPropertiesPtrOutput {
 	return o.ApplyT(func(v *Subnet) PrivateDnsNameOptionsOnLaunchPropertiesPtrOutput {
 		return v.PrivateDnsNameOptionsOnLaunch

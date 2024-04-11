@@ -18,7 +18,7 @@ type CustomDbEngineVersion struct {
 	pulumi.CustomResourceState
 
 	// The name of an Amazon S3 bucket that contains database installation files for your CEV. For example, a valid bucket name is `my-custom-installation-files`.
-	DatabaseInstallationFilesS3BucketName pulumi.StringOutput `pulumi:"databaseInstallationFilesS3BucketName"`
+	DatabaseInstallationFilesS3BucketName pulumi.StringPtrOutput `pulumi:"databaseInstallationFilesS3BucketName"`
 	// The Amazon S3 directory that contains the database installation files for your CEV. For example, a valid bucket name is `123456789012/cev1`. If this setting isn't specified, no prefix is assumed.
 	DatabaseInstallationFilesS3Prefix pulumi.StringPtrOutput `pulumi:"databaseInstallationFilesS3Prefix"`
 	// The ARN of the custom engine version.
@@ -29,14 +29,20 @@ type CustomDbEngineVersion struct {
 	Engine pulumi.StringOutput `pulumi:"engine"`
 	// The name of your CEV. The name format is 19.customized_string . For example, a valid name is 19.my_cev1. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of Engine and EngineVersion is unique per customer per Region.
 	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
+	// The identifier of Amazon Machine Image (AMI) used for CEV.
+	ImageId pulumi.StringPtrOutput `pulumi:"imageId"`
 	// The AWS KMS key identifier for an encrypted CEV. A symmetric KMS key is required for RDS Custom, but optional for Amazon RDS.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
 	// The CEV manifest, which is a JSON document that describes the installation .zip files stored in Amazon S3. Specify the name/value pairs in a file or a quoted string. RDS Custom applies the patches in the order in which they are listed.
 	Manifest pulumi.StringPtrOutput `pulumi:"manifest"`
+	// The identifier of the source custom engine version.
+	SourceCustomDbEngineVersionIdentifier pulumi.StringPtrOutput `pulumi:"sourceCustomDbEngineVersionIdentifier"`
 	// The availability status to be assigned to the CEV.
 	Status CustomDbEngineVersionStatusPtrOutput `pulumi:"status"`
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// A value that indicates whether AWS provided latest image is applied automatically to the Custom Engine Version. By default, AWS provided latest image is applied automatically. This value is only applied on create.
+	UseAwsProvidedLatestImage pulumi.BoolPtrOutput `pulumi:"useAwsProvidedLatestImage"`
 }
 
 // NewCustomDbEngineVersion registers a new resource with the given unique name, arguments, and options.
@@ -46,9 +52,6 @@ func NewCustomDbEngineVersion(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DatabaseInstallationFilesS3BucketName == nil {
-		return nil, errors.New("invalid value for required argument 'DatabaseInstallationFilesS3BucketName'")
-	}
 	if args.Engine == nil {
 		return nil, errors.New("invalid value for required argument 'Engine'")
 	}
@@ -60,8 +63,11 @@ func NewCustomDbEngineVersion(ctx *pulumi.Context,
 		"databaseInstallationFilesS3Prefix",
 		"engine",
 		"engineVersion",
+		"imageId",
 		"kmsKeyId",
 		"manifest",
+		"sourceCustomDbEngineVersionIdentifier",
+		"useAwsProvidedLatestImage",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -98,7 +104,7 @@ func (CustomDbEngineVersionState) ElementType() reflect.Type {
 
 type customDbEngineVersionArgs struct {
 	// The name of an Amazon S3 bucket that contains database installation files for your CEV. For example, a valid bucket name is `my-custom-installation-files`.
-	DatabaseInstallationFilesS3BucketName string `pulumi:"databaseInstallationFilesS3BucketName"`
+	DatabaseInstallationFilesS3BucketName *string `pulumi:"databaseInstallationFilesS3BucketName"`
 	// The Amazon S3 directory that contains the database installation files for your CEV. For example, a valid bucket name is `123456789012/cev1`. If this setting isn't specified, no prefix is assumed.
 	DatabaseInstallationFilesS3Prefix *string `pulumi:"databaseInstallationFilesS3Prefix"`
 	// An optional description of your CEV.
@@ -107,20 +113,26 @@ type customDbEngineVersionArgs struct {
 	Engine string `pulumi:"engine"`
 	// The name of your CEV. The name format is 19.customized_string . For example, a valid name is 19.my_cev1. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of Engine and EngineVersion is unique per customer per Region.
 	EngineVersion string `pulumi:"engineVersion"`
+	// The identifier of Amazon Machine Image (AMI) used for CEV.
+	ImageId *string `pulumi:"imageId"`
 	// The AWS KMS key identifier for an encrypted CEV. A symmetric KMS key is required for RDS Custom, but optional for Amazon RDS.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The CEV manifest, which is a JSON document that describes the installation .zip files stored in Amazon S3. Specify the name/value pairs in a file or a quoted string. RDS Custom applies the patches in the order in which they are listed.
 	Manifest *string `pulumi:"manifest"`
+	// The identifier of the source custom engine version.
+	SourceCustomDbEngineVersionIdentifier *string `pulumi:"sourceCustomDbEngineVersionIdentifier"`
 	// The availability status to be assigned to the CEV.
 	Status *CustomDbEngineVersionStatus `pulumi:"status"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
+	// A value that indicates whether AWS provided latest image is applied automatically to the Custom Engine Version. By default, AWS provided latest image is applied automatically. This value is only applied on create.
+	UseAwsProvidedLatestImage *bool `pulumi:"useAwsProvidedLatestImage"`
 }
 
 // The set of arguments for constructing a CustomDbEngineVersion resource.
 type CustomDbEngineVersionArgs struct {
 	// The name of an Amazon S3 bucket that contains database installation files for your CEV. For example, a valid bucket name is `my-custom-installation-files`.
-	DatabaseInstallationFilesS3BucketName pulumi.StringInput
+	DatabaseInstallationFilesS3BucketName pulumi.StringPtrInput
 	// The Amazon S3 directory that contains the database installation files for your CEV. For example, a valid bucket name is `123456789012/cev1`. If this setting isn't specified, no prefix is assumed.
 	DatabaseInstallationFilesS3Prefix pulumi.StringPtrInput
 	// An optional description of your CEV.
@@ -129,14 +141,20 @@ type CustomDbEngineVersionArgs struct {
 	Engine pulumi.StringInput
 	// The name of your CEV. The name format is 19.customized_string . For example, a valid name is 19.my_cev1. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of Engine and EngineVersion is unique per customer per Region.
 	EngineVersion pulumi.StringInput
+	// The identifier of Amazon Machine Image (AMI) used for CEV.
+	ImageId pulumi.StringPtrInput
 	// The AWS KMS key identifier for an encrypted CEV. A symmetric KMS key is required for RDS Custom, but optional for Amazon RDS.
 	KmsKeyId pulumi.StringPtrInput
 	// The CEV manifest, which is a JSON document that describes the installation .zip files stored in Amazon S3. Specify the name/value pairs in a file or a quoted string. RDS Custom applies the patches in the order in which they are listed.
 	Manifest pulumi.StringPtrInput
+	// The identifier of the source custom engine version.
+	SourceCustomDbEngineVersionIdentifier pulumi.StringPtrInput
 	// The availability status to be assigned to the CEV.
 	Status CustomDbEngineVersionStatusPtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
+	// A value that indicates whether AWS provided latest image is applied automatically to the Custom Engine Version. By default, AWS provided latest image is applied automatically. This value is only applied on create.
+	UseAwsProvidedLatestImage pulumi.BoolPtrInput
 }
 
 func (CustomDbEngineVersionArgs) ElementType() reflect.Type {
@@ -177,8 +195,8 @@ func (o CustomDbEngineVersionOutput) ToCustomDbEngineVersionOutputWithContext(ct
 }
 
 // The name of an Amazon S3 bucket that contains database installation files for your CEV. For example, a valid bucket name is `my-custom-installation-files`.
-func (o CustomDbEngineVersionOutput) DatabaseInstallationFilesS3BucketName() pulumi.StringOutput {
-	return o.ApplyT(func(v *CustomDbEngineVersion) pulumi.StringOutput { return v.DatabaseInstallationFilesS3BucketName }).(pulumi.StringOutput)
+func (o CustomDbEngineVersionOutput) DatabaseInstallationFilesS3BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomDbEngineVersion) pulumi.StringPtrOutput { return v.DatabaseInstallationFilesS3BucketName }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon S3 directory that contains the database installation files for your CEV. For example, a valid bucket name is `123456789012/cev1`. If this setting isn't specified, no prefix is assumed.
@@ -206,6 +224,11 @@ func (o CustomDbEngineVersionOutput) EngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomDbEngineVersion) pulumi.StringOutput { return v.EngineVersion }).(pulumi.StringOutput)
 }
 
+// The identifier of Amazon Machine Image (AMI) used for CEV.
+func (o CustomDbEngineVersionOutput) ImageId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomDbEngineVersion) pulumi.StringPtrOutput { return v.ImageId }).(pulumi.StringPtrOutput)
+}
+
 // The AWS KMS key identifier for an encrypted CEV. A symmetric KMS key is required for RDS Custom, but optional for Amazon RDS.
 func (o CustomDbEngineVersionOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomDbEngineVersion) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
@@ -216,6 +239,11 @@ func (o CustomDbEngineVersionOutput) Manifest() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomDbEngineVersion) pulumi.StringPtrOutput { return v.Manifest }).(pulumi.StringPtrOutput)
 }
 
+// The identifier of the source custom engine version.
+func (o CustomDbEngineVersionOutput) SourceCustomDbEngineVersionIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomDbEngineVersion) pulumi.StringPtrOutput { return v.SourceCustomDbEngineVersionIdentifier }).(pulumi.StringPtrOutput)
+}
+
 // The availability status to be assigned to the CEV.
 func (o CustomDbEngineVersionOutput) Status() CustomDbEngineVersionStatusPtrOutput {
 	return o.ApplyT(func(v *CustomDbEngineVersion) CustomDbEngineVersionStatusPtrOutput { return v.Status }).(CustomDbEngineVersionStatusPtrOutput)
@@ -224,6 +252,11 @@ func (o CustomDbEngineVersionOutput) Status() CustomDbEngineVersionStatusPtrOutp
 // An array of key-value pairs to apply to this resource.
 func (o CustomDbEngineVersionOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *CustomDbEngineVersion) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
+}
+
+// A value that indicates whether AWS provided latest image is applied automatically to the Custom Engine Version. By default, AWS provided latest image is applied automatically. This value is only applied on create.
+func (o CustomDbEngineVersionOutput) UseAwsProvidedLatestImage() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CustomDbEngineVersion) pulumi.BoolPtrOutput { return v.UseAwsProvidedLatestImage }).(pulumi.BoolPtrOutput)
 }
 
 func init() {

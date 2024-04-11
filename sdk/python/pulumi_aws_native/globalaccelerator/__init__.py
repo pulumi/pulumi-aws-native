@@ -7,8 +7,10 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .accelerator import *
+from .cross_account_attachment import *
 from .endpoint_group import *
 from .get_accelerator import *
+from .get_cross_account_attachment import *
 from .get_endpoint_group import *
 from .get_listener import *
 from .listener import *

@@ -25,6 +25,8 @@ __all__ = [
     'GlobalTableReplicaGlobalSecondaryIndexSpecification',
     'GlobalTableReplicaSpecification',
     'GlobalTableReplicaSseSpecification',
+    'GlobalTableReplicaStreamSpecification',
+    'GlobalTableResourcePolicy',
     'GlobalTableSseSpecification',
     'GlobalTableStreamSpecification',
     'GlobalTableTag',
@@ -43,6 +45,7 @@ __all__ = [
     'TablePointInTimeRecoverySpecification',
     'TableProjection',
     'TableProvisionedThroughput',
+    'TableResourcePolicy',
     'TableS3BucketSource',
     'TableSseSpecification',
     'TableStreamSpecification',
@@ -509,6 +512,10 @@ class GlobalTableReplicaSpecification(dict):
             suggest = "point_in_time_recovery_specification"
         elif key == "readProvisionedThroughputSettings":
             suggest = "read_provisioned_throughput_settings"
+        elif key == "replicaStreamSpecification":
+            suggest = "replica_stream_specification"
+        elif key == "resourcePolicy":
+            suggest = "resource_policy"
         elif key == "sseSpecification":
             suggest = "sse_specification"
         elif key == "tableClass":
@@ -533,6 +540,8 @@ class GlobalTableReplicaSpecification(dict):
                  kinesis_stream_specification: Optional['outputs.GlobalTableKinesisStreamSpecification'] = None,
                  point_in_time_recovery_specification: Optional['outputs.GlobalTablePointInTimeRecoverySpecification'] = None,
                  read_provisioned_throughput_settings: Optional['outputs.GlobalTableReadProvisionedThroughputSettings'] = None,
+                 replica_stream_specification: Optional['outputs.GlobalTableReplicaStreamSpecification'] = None,
+                 resource_policy: Optional['outputs.GlobalTableResourcePolicy'] = None,
                  sse_specification: Optional['outputs.GlobalTableReplicaSseSpecification'] = None,
                  table_class: Optional[str] = None,
                  tags: Optional[Sequence['outputs.GlobalTableTag']] = None):
@@ -549,6 +558,10 @@ class GlobalTableReplicaSpecification(dict):
             pulumi.set(__self__, "point_in_time_recovery_specification", point_in_time_recovery_specification)
         if read_provisioned_throughput_settings is not None:
             pulumi.set(__self__, "read_provisioned_throughput_settings", read_provisioned_throughput_settings)
+        if replica_stream_specification is not None:
+            pulumi.set(__self__, "replica_stream_specification", replica_stream_specification)
+        if resource_policy is not None:
+            pulumi.set(__self__, "resource_policy", resource_policy)
         if sse_specification is not None:
             pulumi.set(__self__, "sse_specification", sse_specification)
         if table_class is not None:
@@ -590,6 +603,16 @@ class GlobalTableReplicaSpecification(dict):
     @pulumi.getter(name="readProvisionedThroughputSettings")
     def read_provisioned_throughput_settings(self) -> Optional['outputs.GlobalTableReadProvisionedThroughputSettings']:
         return pulumi.get(self, "read_provisioned_throughput_settings")
+
+    @property
+    @pulumi.getter(name="replicaStreamSpecification")
+    def replica_stream_specification(self) -> Optional['outputs.GlobalTableReplicaStreamSpecification']:
+        return pulumi.get(self, "replica_stream_specification")
+
+    @property
+    @pulumi.getter(name="resourcePolicy")
+    def resource_policy(self) -> Optional['outputs.GlobalTableResourcePolicy']:
+        return pulumi.get(self, "resource_policy")
 
     @property
     @pulumi.getter(name="sseSpecification")
@@ -634,6 +657,64 @@ class GlobalTableReplicaSseSpecification(dict):
     @pulumi.getter(name="kmsMasterKeyId")
     def kms_master_key_id(self) -> str:
         return pulumi.get(self, "kms_master_key_id")
+
+
+@pulumi.output_type
+class GlobalTableReplicaStreamSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourcePolicy":
+            suggest = "resource_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GlobalTableReplicaStreamSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GlobalTableReplicaStreamSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GlobalTableReplicaStreamSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_policy: 'outputs.GlobalTableResourcePolicy'):
+        pulumi.set(__self__, "resource_policy", resource_policy)
+
+    @property
+    @pulumi.getter(name="resourcePolicy")
+    def resource_policy(self) -> 'outputs.GlobalTableResourcePolicy':
+        return pulumi.get(self, "resource_policy")
+
+
+@pulumi.output_type
+class GlobalTableResourcePolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "policyDocument":
+            suggest = "policy_document"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GlobalTableResourcePolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GlobalTableResourcePolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GlobalTableResourcePolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 policy_document: Any):
+        pulumi.set(__self__, "policy_document", policy_document)
+
+    @property
+    @pulumi.getter(name="policyDocument")
+    def policy_document(self) -> Any:
+        return pulumi.get(self, "policy_document")
 
 
 @pulumi.output_type
@@ -1544,6 +1625,63 @@ class TableProvisionedThroughput(dict):
 
 
 @pulumi.output_type
+class TableResourcePolicy(dict):
+    """
+    Creates or updates a resource-based policy document that contains the permissions for DDB resources, such as a table, its indexes, and stream. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
+     In a CFNshort template, you can provide the policy in JSON or YAML format because CFNshort converts YAML to JSON before submitting it to DDB. For more information about resource-based policies, see [Using resource-based policies for](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html).
+     While defining resource-based policies in your CFNshort templates, the following considerations apply:
+      +  The maximum size supported for a resource-based policy document in JSON format is 20 KB. DDB counts whitespaces when calculating the size of a policy against this limit. 
+      +  Resource-based policies don't support [drift detection](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html#). If you update a policy outside of the CFNshort stack template, you'll need to update the CFNshort stack with the changes.
+      +  Resource-based policies don't support out-of-band changes. If you add, update, or delete a policy outside of the CFNshort template, the change won't be overwritten if there are no changes to the policy within the template.
+     For example, say that your template contains a resource-based policy, which you later update outside of the template. If you don't make any changes to the policy in the template, the updated policy in DDB won’t be synced with the policy in the template.
+     Conversely, say that your template doesn’t contain a resource-based policy, but you add a policy outside of the template. This policy won’t be removed from DDB as long as you don’t add it to the template. When you add a policy to the template and update the stack, the existing policy in DDB will be updated to match the one defined in the template.
+      
+     For a full list of all considerations, see [Resource-based policy considerations](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-considerations.html).
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "policyDocument":
+            suggest = "policy_document"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableResourcePolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableResourcePolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableResourcePolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 policy_document: Any):
+        """
+        Creates or updates a resource-based policy document that contains the permissions for DDB resources, such as a table, its indexes, and stream. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
+         In a CFNshort template, you can provide the policy in JSON or YAML format because CFNshort converts YAML to JSON before submitting it to DDB. For more information about resource-based policies, see [Using resource-based policies for](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html).
+         While defining resource-based policies in your CFNshort templates, the following considerations apply:
+          +  The maximum size supported for a resource-based policy document in JSON format is 20 KB. DDB counts whitespaces when calculating the size of a policy against this limit. 
+          +  Resource-based policies don't support [drift detection](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html#). If you update a policy outside of the CFNshort stack template, you'll need to update the CFNshort stack with the changes.
+          +  Resource-based policies don't support out-of-band changes. If you add, update, or delete a policy outside of the CFNshort template, the change won't be overwritten if there are no changes to the policy within the template.
+         For example, say that your template contains a resource-based policy, which you later update outside of the template. If you don't make any changes to the policy in the template, the updated policy in DDB won’t be synced with the policy in the template.
+         Conversely, say that your template doesn’t contain a resource-based policy, but you add a policy outside of the template. This policy won’t be removed from DDB as long as you don’t add it to the template. When you add a policy to the template and update the stack, the existing policy in DDB will be updated to match the one defined in the template.
+          
+         For a full list of all considerations, see [Resource-based policy considerations](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-considerations.html).
+        :param Any policy_document: A resource-based policy document that contains permissions to add to the specified DDB table, index, or both. In a CFNshort template, you can provide the policy in JSON or YAML format because CFNshort converts YAML to JSON before submitting it to DDB. For more information about resource-based policies, see [Using resource-based policies for](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html).
+        """
+        pulumi.set(__self__, "policy_document", policy_document)
+
+    @property
+    @pulumi.getter(name="policyDocument")
+    def policy_document(self) -> Any:
+        """
+        A resource-based policy document that contains permissions to add to the specified DDB table, index, or both. In a CFNshort template, you can provide the policy in JSON or YAML format because CFNshort converts YAML to JSON before submitting it to DDB. For more information about resource-based policies, see [Using resource-based policies for](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html).
+        """
+        return pulumi.get(self, "policy_document")
+
+
+@pulumi.output_type
 class TableS3BucketSource(dict):
     """
     The S3 bucket that is being imported from.
@@ -1689,6 +1827,8 @@ class TableStreamSpecification(dict):
         suggest = None
         if key == "streamViewType":
             suggest = "stream_view_type"
+        elif key == "resourcePolicy":
+            suggest = "resource_policy"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in TableStreamSpecification. Access the value via the '{suggest}' property getter instead.")
@@ -1702,7 +1842,8 @@ class TableStreamSpecification(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 stream_view_type: str):
+                 stream_view_type: str,
+                 resource_policy: Optional['outputs.TableResourcePolicy'] = None):
         """
         Represents the DynamoDB Streams configuration for a table in DynamoDB.
         :param str stream_view_type: When an item in the table is modified, ``StreamViewType`` determines what information is written to the stream for this table. Valid values for ``StreamViewType`` are:
@@ -1710,8 +1851,12 @@ class TableStreamSpecification(dict):
                  +   ``NEW_IMAGE`` - The entire item, as it appears after it was modified, is written to the stream.
                  +   ``OLD_IMAGE`` - The entire item, as it appeared before it was modified, is written to the stream.
                  +   ``NEW_AND_OLD_IMAGES`` - Both the new and the old item images of the item are written to the stream.
+        :param 'TableResourcePolicy' resource_policy: Creates or updates a resource-based policy document that contains the permissions for DDB resources, such as a table's streams. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
+                In a CFNshort template, you can provide the policy in JSON or YAML format because CFNshort converts YAML to JSON before submitting it to DDB. For more information about resource-based policies, see [Using resource-based policies for](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html).
         """
         pulumi.set(__self__, "stream_view_type", stream_view_type)
+        if resource_policy is not None:
+            pulumi.set(__self__, "resource_policy", resource_policy)
 
     @property
     @pulumi.getter(name="streamViewType")
@@ -1724,6 +1869,15 @@ class TableStreamSpecification(dict):
           +   ``NEW_AND_OLD_IMAGES`` - Both the new and the old item images of the item are written to the stream.
         """
         return pulumi.get(self, "stream_view_type")
+
+    @property
+    @pulumi.getter(name="resourcePolicy")
+    def resource_policy(self) -> Optional['outputs.TableResourcePolicy']:
+        """
+        Creates or updates a resource-based policy document that contains the permissions for DDB resources, such as a table's streams. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
+         In a CFNshort template, you can provide the policy in JSON or YAML format because CFNshort converts YAML to JSON before submitting it to DDB. For more information about resource-based policies, see [Using resource-based policies for](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html).
+        """
+        return pulumi.get(self, "resource_policy")
 
 
 @pulumi.output_type
@@ -1755,7 +1909,7 @@ class TableTimeToLiveSpecification(dict):
         Represents the settings used to enable or disable Time to Live (TTL) for the specified table.
         :param bool enabled: Indicates whether TTL is to be enabled (true) or disabled (false) on the table.
         :param str attribute_name: The name of the TTL attribute used to store the expiration time for items in the table.
-                  + The ``AttributeName`` property is required when enabling the TTL, or when TTL is already enabled.
+                  +  The ``AttributeName`` property is required when enabling the TTL, or when TTL is already enabled.
                  +  To update this property, you must first disable TTL and then enable TTL with the new attribute name.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -1775,7 +1929,7 @@ class TableTimeToLiveSpecification(dict):
     def attribute_name(self) -> Optional[str]:
         """
         The name of the TTL attribute used to store the expiration time for items in the table.
-           + The ``AttributeName`` property is required when enabling the TTL, or when TTL is already enabled.
+           +  The ``AttributeName`` property is required when enabling the TTL, or when TTL is already enabled.
           +  To update this property, you must first disable TTL and then enable TTL with the new attribute name.
         """
         return pulumi.get(self, "attribute_name")

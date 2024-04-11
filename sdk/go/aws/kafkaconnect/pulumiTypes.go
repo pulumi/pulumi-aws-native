@@ -2168,6 +2168,221 @@ func (o ConnectorWorkerLogDeliveryPtrOutput) S3() ConnectorS3LogDeliveryPtrOutpu
 	}).(ConnectorS3LogDeliveryPtrOutput)
 }
 
+// Details about the custom plugin file.
+type CustomPluginFileDescription struct {
+	// The hex-encoded MD5 checksum of the custom plugin file. You can use it to validate the file.
+	FileMd5 *string `pulumi:"fileMd5"`
+	// The size in bytes of the custom plugin file. You can use it to validate the file.
+	FileSize *int `pulumi:"fileSize"`
+}
+
+// Details about the custom plugin file.
+type CustomPluginFileDescriptionOutput struct{ *pulumi.OutputState }
+
+func (CustomPluginFileDescriptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomPluginFileDescription)(nil)).Elem()
+}
+
+func (o CustomPluginFileDescriptionOutput) ToCustomPluginFileDescriptionOutput() CustomPluginFileDescriptionOutput {
+	return o
+}
+
+func (o CustomPluginFileDescriptionOutput) ToCustomPluginFileDescriptionOutputWithContext(ctx context.Context) CustomPluginFileDescriptionOutput {
+	return o
+}
+
+// The hex-encoded MD5 checksum of the custom plugin file. You can use it to validate the file.
+func (o CustomPluginFileDescriptionOutput) FileMd5() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomPluginFileDescription) *string { return v.FileMd5 }).(pulumi.StringPtrOutput)
+}
+
+// The size in bytes of the custom plugin file. You can use it to validate the file.
+func (o CustomPluginFileDescriptionOutput) FileSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CustomPluginFileDescription) *int { return v.FileSize }).(pulumi.IntPtrOutput)
+}
+
+type CustomPluginFileDescriptionPtrOutput struct{ *pulumi.OutputState }
+
+func (CustomPluginFileDescriptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomPluginFileDescription)(nil)).Elem()
+}
+
+func (o CustomPluginFileDescriptionPtrOutput) ToCustomPluginFileDescriptionPtrOutput() CustomPluginFileDescriptionPtrOutput {
+	return o
+}
+
+func (o CustomPluginFileDescriptionPtrOutput) ToCustomPluginFileDescriptionPtrOutputWithContext(ctx context.Context) CustomPluginFileDescriptionPtrOutput {
+	return o
+}
+
+func (o CustomPluginFileDescriptionPtrOutput) Elem() CustomPluginFileDescriptionOutput {
+	return o.ApplyT(func(v *CustomPluginFileDescription) CustomPluginFileDescription {
+		if v != nil {
+			return *v
+		}
+		var ret CustomPluginFileDescription
+		return ret
+	}).(CustomPluginFileDescriptionOutput)
+}
+
+// The hex-encoded MD5 checksum of the custom plugin file. You can use it to validate the file.
+func (o CustomPluginFileDescriptionPtrOutput) FileMd5() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomPluginFileDescription) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FileMd5
+	}).(pulumi.StringPtrOutput)
+}
+
+// The size in bytes of the custom plugin file. You can use it to validate the file.
+func (o CustomPluginFileDescriptionPtrOutput) FileSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CustomPluginFileDescription) *int {
+		if v == nil {
+			return nil
+		}
+		return v.FileSize
+	}).(pulumi.IntPtrOutput)
+}
+
+// Information about the location of a custom plugin.
+type CustomPluginLocation struct {
+	S3Location CustomPluginS3Location `pulumi:"s3Location"`
+}
+
+// CustomPluginLocationInput is an input type that accepts CustomPluginLocationArgs and CustomPluginLocationOutput values.
+// You can construct a concrete instance of `CustomPluginLocationInput` via:
+//
+//	CustomPluginLocationArgs{...}
+type CustomPluginLocationInput interface {
+	pulumi.Input
+
+	ToCustomPluginLocationOutput() CustomPluginLocationOutput
+	ToCustomPluginLocationOutputWithContext(context.Context) CustomPluginLocationOutput
+}
+
+// Information about the location of a custom plugin.
+type CustomPluginLocationArgs struct {
+	S3Location CustomPluginS3LocationInput `pulumi:"s3Location"`
+}
+
+func (CustomPluginLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomPluginLocation)(nil)).Elem()
+}
+
+func (i CustomPluginLocationArgs) ToCustomPluginLocationOutput() CustomPluginLocationOutput {
+	return i.ToCustomPluginLocationOutputWithContext(context.Background())
+}
+
+func (i CustomPluginLocationArgs) ToCustomPluginLocationOutputWithContext(ctx context.Context) CustomPluginLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomPluginLocationOutput)
+}
+
+// Information about the location of a custom plugin.
+type CustomPluginLocationOutput struct{ *pulumi.OutputState }
+
+func (CustomPluginLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomPluginLocation)(nil)).Elem()
+}
+
+func (o CustomPluginLocationOutput) ToCustomPluginLocationOutput() CustomPluginLocationOutput {
+	return o
+}
+
+func (o CustomPluginLocationOutput) ToCustomPluginLocationOutputWithContext(ctx context.Context) CustomPluginLocationOutput {
+	return o
+}
+
+func (o CustomPluginLocationOutput) S3Location() CustomPluginS3LocationOutput {
+	return o.ApplyT(func(v CustomPluginLocation) CustomPluginS3Location { return v.S3Location }).(CustomPluginS3LocationOutput)
+}
+
+// The S3 bucket Amazon Resource Name (ARN), file key, and object version of the plugin file stored in Amazon S3.
+type CustomPluginS3Location struct {
+	// The Amazon Resource Name (ARN) of an S3 bucket.
+	BucketArn string `pulumi:"bucketArn"`
+	// The file key for an object in an S3 bucket.
+	FileKey string `pulumi:"fileKey"`
+	// The version of an object in an S3 bucket.
+	ObjectVersion *string `pulumi:"objectVersion"`
+}
+
+// CustomPluginS3LocationInput is an input type that accepts CustomPluginS3LocationArgs and CustomPluginS3LocationOutput values.
+// You can construct a concrete instance of `CustomPluginS3LocationInput` via:
+//
+//	CustomPluginS3LocationArgs{...}
+type CustomPluginS3LocationInput interface {
+	pulumi.Input
+
+	ToCustomPluginS3LocationOutput() CustomPluginS3LocationOutput
+	ToCustomPluginS3LocationOutputWithContext(context.Context) CustomPluginS3LocationOutput
+}
+
+// The S3 bucket Amazon Resource Name (ARN), file key, and object version of the plugin file stored in Amazon S3.
+type CustomPluginS3LocationArgs struct {
+	// The Amazon Resource Name (ARN) of an S3 bucket.
+	BucketArn pulumi.StringInput `pulumi:"bucketArn"`
+	// The file key for an object in an S3 bucket.
+	FileKey pulumi.StringInput `pulumi:"fileKey"`
+	// The version of an object in an S3 bucket.
+	ObjectVersion pulumi.StringPtrInput `pulumi:"objectVersion"`
+}
+
+func (CustomPluginS3LocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomPluginS3Location)(nil)).Elem()
+}
+
+func (i CustomPluginS3LocationArgs) ToCustomPluginS3LocationOutput() CustomPluginS3LocationOutput {
+	return i.ToCustomPluginS3LocationOutputWithContext(context.Background())
+}
+
+func (i CustomPluginS3LocationArgs) ToCustomPluginS3LocationOutputWithContext(ctx context.Context) CustomPluginS3LocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomPluginS3LocationOutput)
+}
+
+// The S3 bucket Amazon Resource Name (ARN), file key, and object version of the plugin file stored in Amazon S3.
+type CustomPluginS3LocationOutput struct{ *pulumi.OutputState }
+
+func (CustomPluginS3LocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomPluginS3Location)(nil)).Elem()
+}
+
+func (o CustomPluginS3LocationOutput) ToCustomPluginS3LocationOutput() CustomPluginS3LocationOutput {
+	return o
+}
+
+func (o CustomPluginS3LocationOutput) ToCustomPluginS3LocationOutputWithContext(ctx context.Context) CustomPluginS3LocationOutput {
+	return o
+}
+
+// The Amazon Resource Name (ARN) of an S3 bucket.
+func (o CustomPluginS3LocationOutput) BucketArn() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomPluginS3Location) string { return v.BucketArn }).(pulumi.StringOutput)
+}
+
+// The file key for an object in an S3 bucket.
+func (o CustomPluginS3LocationOutput) FileKey() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomPluginS3Location) string { return v.FileKey }).(pulumi.StringOutput)
+}
+
+// The version of an object in an S3 bucket.
+func (o CustomPluginS3LocationOutput) ObjectVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomPluginS3Location) *string { return v.ObjectVersion }).(pulumi.StringPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type CustomPluginTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+type WorkerConfigurationTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorApacheKafkaClusterInput)(nil)).Elem(), ConnectorApacheKafkaClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorAutoScalingInput)(nil)).Elem(), ConnectorAutoScalingArgs{})
@@ -2198,6 +2413,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorWorkerConfigurationPtrInput)(nil)).Elem(), ConnectorWorkerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorWorkerLogDeliveryInput)(nil)).Elem(), ConnectorWorkerLogDeliveryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorWorkerLogDeliveryPtrInput)(nil)).Elem(), ConnectorWorkerLogDeliveryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomPluginLocationInput)(nil)).Elem(), CustomPluginLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomPluginS3LocationInput)(nil)).Elem(), CustomPluginS3LocationArgs{})
 	pulumi.RegisterOutputType(ConnectorApacheKafkaClusterOutput{})
 	pulumi.RegisterOutputType(ConnectorAutoScalingOutput{})
 	pulumi.RegisterOutputType(ConnectorAutoScalingPtrOutput{})
@@ -2228,4 +2445,8 @@ func init() {
 	pulumi.RegisterOutputType(ConnectorWorkerConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorWorkerLogDeliveryOutput{})
 	pulumi.RegisterOutputType(ConnectorWorkerLogDeliveryPtrOutput{})
+	pulumi.RegisterOutputType(CustomPluginFileDescriptionOutput{})
+	pulumi.RegisterOutputType(CustomPluginFileDescriptionPtrOutput{})
+	pulumi.RegisterOutputType(CustomPluginLocationOutput{})
+	pulumi.RegisterOutputType(CustomPluginS3LocationOutput{})
 }

@@ -28,11 +28,14 @@ type LookupClusterArgs struct {
 }
 
 type LookupClusterResult struct {
+	BackupRetentionPeriod      *int      `pulumi:"backupRetentionPeriod"`
 	ClusterArn                 *string   `pulumi:"clusterArn"`
 	ClusterEndpoint            *string   `pulumi:"clusterEndpoint"`
+	PreferredBackupWindow      *string   `pulumi:"preferredBackupWindow"`
 	PreferredMaintenanceWindow *string   `pulumi:"preferredMaintenanceWindow"`
 	ShardCapacity              *int      `pulumi:"shardCapacity"`
 	ShardCount                 *int      `pulumi:"shardCount"`
+	ShardInstanceCount         *int      `pulumi:"shardInstanceCount"`
 	SubnetIds                  []string  `pulumi:"subnetIds"`
 	Tags                       []aws.Tag `pulumi:"tags"`
 	VpcSecurityGroupIds        []string  `pulumi:"vpcSecurityGroupIds"`
@@ -73,12 +76,20 @@ func (o LookupClusterResultOutput) ToLookupClusterResultOutputWithContext(ctx co
 	return o
 }
 
+func (o LookupClusterResultOutput) BackupRetentionPeriod() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *int { return v.BackupRetentionPeriod }).(pulumi.IntPtrOutput)
+}
+
 func (o LookupClusterResultOutput) ClusterArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *string { return v.ClusterArn }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupClusterResultOutput) ClusterEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *string { return v.ClusterEndpoint }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupClusterResultOutput) PreferredBackupWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *string { return v.PreferredBackupWindow }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupClusterResultOutput) PreferredMaintenanceWindow() pulumi.StringPtrOutput {
@@ -91,6 +102,10 @@ func (o LookupClusterResultOutput) ShardCapacity() pulumi.IntPtrOutput {
 
 func (o LookupClusterResultOutput) ShardCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *int { return v.ShardCount }).(pulumi.IntPtrOutput)
+}
+
+func (o LookupClusterResultOutput) ShardInstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *int { return v.ShardInstanceCount }).(pulumi.IntPtrOutput)
 }
 
 func (o LookupClusterResultOutput) SubnetIds() pulumi.StringArrayOutput {

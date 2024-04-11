@@ -12,41 +12,57 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::IAM::ManagedPolicy
+// Creates a new managed policy for your AWS-account.
+//
+//	This operation creates a policy version with a version identifier of ``v1`` and sets v1 as the policy's default version. For more information about policy versions, see [Versioning for managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html) in the *IAM User Guide*.
+//	As a best practice, you can validate your IAM policies. To learn more, see [Validating IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_policy-validator.html) in the *IAM User Guide*.
+//	For more information about managed policies in general, see [Managed policies and inline policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html) in the *IAM User Guide*.
 type ManagedPolicy struct {
 	pulumi.CustomResourceState
 
-	// The number of entities (users, groups, and roles) that the policy is attached to.
-	AttachmentCount pulumi.IntOutput `pulumi:"attachmentCount"`
-	// The date and time, in ISO 8601 date-time format, when the policy was created.
-	CreateDate pulumi.StringOutput `pulumi:"createDate"`
-	// The identifier for the version of the policy that is set as the default version.
+	AttachmentCount  pulumi.IntOutput    `pulumi:"attachmentCount"`
+	CreateDate       pulumi.StringOutput `pulumi:"createDate"`
 	DefaultVersionId pulumi.StringOutput `pulumi:"defaultVersionId"`
 	// A friendly description of the policy.
+	//  Typically used to store information about the permissions defined in the policy. For example, "Grants access to production DynamoDB tables."
+	//  The policy description is immutable. After a value is assigned, it cannot be changed.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name (friendly name, not ARN) of the group to attach the policy to.
-	Groups pulumi.StringArrayOutput `pulumi:"groups"`
-	// Specifies whether the policy can be attached to an IAM user, group, or role.
-	IsAttachable pulumi.BoolOutput `pulumi:"isAttachable"`
+	//  This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+	Groups       pulumi.StringArrayOutput `pulumi:"groups"`
+	IsAttachable pulumi.BoolOutput        `pulumi:"isAttachable"`
 	// The friendly name of the policy.
+	//   If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
+	//   If you specify a name, you must specify the ``CAPABILITY_NAMED_IAM`` value to acknowledge your template's capabilities. For more information, see [Acknowledging Resources in Templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#using-iam-capabilities).
+	//   Naming an IAM resource can cause an unrecoverable error if you reuse the same template in multiple Regions. To prevent this, we recommend using ``Fn::Join`` and ``AWS::Region`` to create a Region-specific name, as in the following example: ``{"Fn::Join": ["", [{"Ref": "AWS::Region"}, {"Ref": "MyResourceName"}]]}``.
 	ManagedPolicyName pulumi.StringPtrOutput `pulumi:"managedPolicyName"`
 	// The path for the policy.
-	Path pulumi.StringPtrOutput `pulumi:"path"`
-	// The number of entities (users and roles) for which the policy is used to set the permissions boundary.
-	PermissionsBoundaryUsageCount pulumi.IntOutput `pulumi:"permissionsBoundaryUsageCount"`
-	// Amazon Resource Name (ARN) of the managed policy
-	PolicyArn pulumi.StringOutput `pulumi:"policyArn"`
+	//  For more information about paths, see [IAM identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide*.
+	//  This parameter is optional. If it is not included, it defaults to a slash (/).
+	//  This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (``\u0021``) through the DEL character (``\u007F``), including most punctuation characters, digits, and upper and lowercased letters.
+	//   You cannot use an asterisk (*) in the path name.
+	Path                          pulumi.StringPtrOutput `pulumi:"path"`
+	PermissionsBoundaryUsageCount pulumi.IntOutput       `pulumi:"permissionsBoundaryUsageCount"`
+	PolicyArn                     pulumi.StringOutput    `pulumi:"policyArn"`
 	// The JSON policy document that you want to use as the content for the new policy.
+	//  You must provide policies in JSON format in IAM. However, for CFN templates formatted in YAML, you can provide the policy in JSON or YAML format. CFN always converts a YAML policy to JSON format before submitting it to IAM.
+	//  The maximum length of the policy document that you can pass in this operation, including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see [IAM and character quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length).
+	//  To learn more about JSON policy grammar, see [Grammar of the IAM JSON policy language](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_grammar.html) in the *IAM User Guide*.
+	//  The [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) used to validate this parameter is a string of characters consisting of the following:
+	//   +  Any printable ASCII character ranging from the space character (``\u0020``) through the end of the ASCII character range
+	//   +  The printable characters in the Basic Latin and Latin-1 Supplement character set (through ``\u00FF``)
+	//   +  The special characters tab (``\u0009``), line feed (``\u000A``), and carriage return (``\u000D``)
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::ManagedPolicy` for more information about the expected schema for this property.
-	PolicyDocument pulumi.AnyOutput `pulumi:"policyDocument"`
-	// The stable and unique string identifying the policy.
-	PolicyId pulumi.StringOutput `pulumi:"policyId"`
+	PolicyDocument pulumi.AnyOutput    `pulumi:"policyDocument"`
+	PolicyId       pulumi.StringOutput `pulumi:"policyId"`
 	// The name (friendly name, not ARN) of the role to attach the policy to.
-	Roles pulumi.StringArrayOutput `pulumi:"roles"`
-	// The date and time, in ISO 8601 date-time format, when the policy was last updated.
-	UpdateDate pulumi.StringOutput `pulumi:"updateDate"`
+	//  This parameter allows (per its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+	//   If an external policy (such as ``AWS::IAM::Policy`` or ``AWS::IAM::ManagedPolicy``) has a ``Ref`` to a role and if a resource (such as ``AWS::ECS::Service``) also has a ``Ref`` to the same role, add a ``DependsOn`` attribute to the resource to make the resource depend on the external policy. This dependency ensures that the role's policy is available throughout the resource's lifecycle. For example, when you delete a stack with an ``AWS::ECS::Service`` resource, the ``DependsOn`` attribute ensures that CFN deletes the ``AWS::ECS::Service`` resource before deleting its role's policy.
+	Roles      pulumi.StringArrayOutput `pulumi:"roles"`
+	UpdateDate pulumi.StringOutput      `pulumi:"updateDate"`
 	// The name (friendly name, not ARN) of the IAM user to attach the policy to.
+	//  This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 	Users pulumi.StringArrayOutput `pulumi:"users"`
 }
 
@@ -100,40 +116,80 @@ func (ManagedPolicyState) ElementType() reflect.Type {
 
 type managedPolicyArgs struct {
 	// A friendly description of the policy.
+	//  Typically used to store information about the permissions defined in the policy. For example, "Grants access to production DynamoDB tables."
+	//  The policy description is immutable. After a value is assigned, it cannot be changed.
 	Description *string `pulumi:"description"`
 	// The name (friendly name, not ARN) of the group to attach the policy to.
+	//  This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 	Groups []string `pulumi:"groups"`
 	// The friendly name of the policy.
+	//   If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
+	//   If you specify a name, you must specify the ``CAPABILITY_NAMED_IAM`` value to acknowledge your template's capabilities. For more information, see [Acknowledging Resources in Templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#using-iam-capabilities).
+	//   Naming an IAM resource can cause an unrecoverable error if you reuse the same template in multiple Regions. To prevent this, we recommend using ``Fn::Join`` and ``AWS::Region`` to create a Region-specific name, as in the following example: ``{"Fn::Join": ["", [{"Ref": "AWS::Region"}, {"Ref": "MyResourceName"}]]}``.
 	ManagedPolicyName *string `pulumi:"managedPolicyName"`
 	// The path for the policy.
+	//  For more information about paths, see [IAM identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide*.
+	//  This parameter is optional. If it is not included, it defaults to a slash (/).
+	//  This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (``\u0021``) through the DEL character (``\u007F``), including most punctuation characters, digits, and upper and lowercased letters.
+	//   You cannot use an asterisk (*) in the path name.
 	Path *string `pulumi:"path"`
 	// The JSON policy document that you want to use as the content for the new policy.
+	//  You must provide policies in JSON format in IAM. However, for CFN templates formatted in YAML, you can provide the policy in JSON or YAML format. CFN always converts a YAML policy to JSON format before submitting it to IAM.
+	//  The maximum length of the policy document that you can pass in this operation, including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see [IAM and character quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length).
+	//  To learn more about JSON policy grammar, see [Grammar of the IAM JSON policy language](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_grammar.html) in the *IAM User Guide*.
+	//  The [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) used to validate this parameter is a string of characters consisting of the following:
+	//   +  Any printable ASCII character ranging from the space character (``\u0020``) through the end of the ASCII character range
+	//   +  The printable characters in the Basic Latin and Latin-1 Supplement character set (through ``\u00FF``)
+	//   +  The special characters tab (``\u0009``), line feed (``\u000A``), and carriage return (``\u000D``)
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::ManagedPolicy` for more information about the expected schema for this property.
 	PolicyDocument interface{} `pulumi:"policyDocument"`
 	// The name (friendly name, not ARN) of the role to attach the policy to.
+	//  This parameter allows (per its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+	//   If an external policy (such as ``AWS::IAM::Policy`` or ``AWS::IAM::ManagedPolicy``) has a ``Ref`` to a role and if a resource (such as ``AWS::ECS::Service``) also has a ``Ref`` to the same role, add a ``DependsOn`` attribute to the resource to make the resource depend on the external policy. This dependency ensures that the role's policy is available throughout the resource's lifecycle. For example, when you delete a stack with an ``AWS::ECS::Service`` resource, the ``DependsOn`` attribute ensures that CFN deletes the ``AWS::ECS::Service`` resource before deleting its role's policy.
 	Roles []string `pulumi:"roles"`
 	// The name (friendly name, not ARN) of the IAM user to attach the policy to.
+	//  This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 	Users []string `pulumi:"users"`
 }
 
 // The set of arguments for constructing a ManagedPolicy resource.
 type ManagedPolicyArgs struct {
 	// A friendly description of the policy.
+	//  Typically used to store information about the permissions defined in the policy. For example, "Grants access to production DynamoDB tables."
+	//  The policy description is immutable. After a value is assigned, it cannot be changed.
 	Description pulumi.StringPtrInput
 	// The name (friendly name, not ARN) of the group to attach the policy to.
+	//  This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 	Groups pulumi.StringArrayInput
 	// The friendly name of the policy.
+	//   If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
+	//   If you specify a name, you must specify the ``CAPABILITY_NAMED_IAM`` value to acknowledge your template's capabilities. For more information, see [Acknowledging Resources in Templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#using-iam-capabilities).
+	//   Naming an IAM resource can cause an unrecoverable error if you reuse the same template in multiple Regions. To prevent this, we recommend using ``Fn::Join`` and ``AWS::Region`` to create a Region-specific name, as in the following example: ``{"Fn::Join": ["", [{"Ref": "AWS::Region"}, {"Ref": "MyResourceName"}]]}``.
 	ManagedPolicyName pulumi.StringPtrInput
 	// The path for the policy.
+	//  For more information about paths, see [IAM identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide*.
+	//  This parameter is optional. If it is not included, it defaults to a slash (/).
+	//  This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (``\u0021``) through the DEL character (``\u007F``), including most punctuation characters, digits, and upper and lowercased letters.
+	//   You cannot use an asterisk (*) in the path name.
 	Path pulumi.StringPtrInput
 	// The JSON policy document that you want to use as the content for the new policy.
+	//  You must provide policies in JSON format in IAM. However, for CFN templates formatted in YAML, you can provide the policy in JSON or YAML format. CFN always converts a YAML policy to JSON format before submitting it to IAM.
+	//  The maximum length of the policy document that you can pass in this operation, including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see [IAM and character quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length).
+	//  To learn more about JSON policy grammar, see [Grammar of the IAM JSON policy language](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_grammar.html) in the *IAM User Guide*.
+	//  The [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) used to validate this parameter is a string of characters consisting of the following:
+	//   +  Any printable ASCII character ranging from the space character (``\u0020``) through the end of the ASCII character range
+	//   +  The printable characters in the Basic Latin and Latin-1 Supplement character set (through ``\u00FF``)
+	//   +  The special characters tab (``\u0009``), line feed (``\u000A``), and carriage return (``\u000D``)
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::ManagedPolicy` for more information about the expected schema for this property.
 	PolicyDocument pulumi.Input
 	// The name (friendly name, not ARN) of the role to attach the policy to.
+	//  This parameter allows (per its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+	//   If an external policy (such as ``AWS::IAM::Policy`` or ``AWS::IAM::ManagedPolicy``) has a ``Ref`` to a role and if a resource (such as ``AWS::ECS::Service``) also has a ``Ref`` to the same role, add a ``DependsOn`` attribute to the resource to make the resource depend on the external policy. This dependency ensures that the role's policy is available throughout the resource's lifecycle. For example, when you delete a stack with an ``AWS::ECS::Service`` resource, the ``DependsOn`` attribute ensures that CFN deletes the ``AWS::ECS::Service`` resource before deleting its role's policy.
 	Roles pulumi.StringArrayInput
 	// The name (friendly name, not ARN) of the IAM user to attach the policy to.
+	//  This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 	Users pulumi.StringArrayInput
 }
 
@@ -174,79 +230,98 @@ func (o ManagedPolicyOutput) ToManagedPolicyOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The number of entities (users, groups, and roles) that the policy is attached to.
 func (o ManagedPolicyOutput) AttachmentCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *ManagedPolicy) pulumi.IntOutput { return v.AttachmentCount }).(pulumi.IntOutput)
 }
 
-// The date and time, in ISO 8601 date-time format, when the policy was created.
 func (o ManagedPolicyOutput) CreateDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedPolicy) pulumi.StringOutput { return v.CreateDate }).(pulumi.StringOutput)
 }
 
-// The identifier for the version of the policy that is set as the default version.
 func (o ManagedPolicyOutput) DefaultVersionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedPolicy) pulumi.StringOutput { return v.DefaultVersionId }).(pulumi.StringOutput)
 }
 
 // A friendly description of the policy.
+//
+//	Typically used to store information about the permissions defined in the policy. For example, "Grants access to production DynamoDB tables."
+//	The policy description is immutable. After a value is assigned, it cannot be changed.
 func (o ManagedPolicyOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedPolicy) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // The name (friendly name, not ARN) of the group to attach the policy to.
+//
+//	This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 func (o ManagedPolicyOutput) Groups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ManagedPolicy) pulumi.StringArrayOutput { return v.Groups }).(pulumi.StringArrayOutput)
 }
 
-// Specifies whether the policy can be attached to an IAM user, group, or role.
 func (o ManagedPolicyOutput) IsAttachable() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ManagedPolicy) pulumi.BoolOutput { return v.IsAttachable }).(pulumi.BoolOutput)
 }
 
 // The friendly name of the policy.
+//
+//	If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
+//	If you specify a name, you must specify the ``CAPABILITY_NAMED_IAM`` value to acknowledge your template's capabilities. For more information, see [Acknowledging Resources in Templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#using-iam-capabilities).
+//	Naming an IAM resource can cause an unrecoverable error if you reuse the same template in multiple Regions. To prevent this, we recommend using ``Fn::Join`` and ``AWS::Region`` to create a Region-specific name, as in the following example: ``{"Fn::Join": ["", [{"Ref": "AWS::Region"}, {"Ref": "MyResourceName"}]]}``.
 func (o ManagedPolicyOutput) ManagedPolicyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedPolicy) pulumi.StringPtrOutput { return v.ManagedPolicyName }).(pulumi.StringPtrOutput)
 }
 
 // The path for the policy.
+//
+//	For more information about paths, see [IAM identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide*.
+//	This parameter is optional. If it is not included, it defaults to a slash (/).
+//	This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (``\u0021``) through the DEL character (``\u007F``), including most punctuation characters, digits, and upper and lowercased letters.
+//	 You cannot use an asterisk (*) in the path name.
 func (o ManagedPolicyOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedPolicy) pulumi.StringPtrOutput { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-// The number of entities (users and roles) for which the policy is used to set the permissions boundary.
 func (o ManagedPolicyOutput) PermissionsBoundaryUsageCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *ManagedPolicy) pulumi.IntOutput { return v.PermissionsBoundaryUsageCount }).(pulumi.IntOutput)
 }
 
-// Amazon Resource Name (ARN) of the managed policy
 func (o ManagedPolicyOutput) PolicyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedPolicy) pulumi.StringOutput { return v.PolicyArn }).(pulumi.StringOutput)
 }
 
 // The JSON policy document that you want to use as the content for the new policy.
 //
+//	You must provide policies in JSON format in IAM. However, for CFN templates formatted in YAML, you can provide the policy in JSON or YAML format. CFN always converts a YAML policy to JSON format before submitting it to IAM.
+//	The maximum length of the policy document that you can pass in this operation, including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see [IAM and character quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length).
+//	To learn more about JSON policy grammar, see [Grammar of the IAM JSON policy language](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_grammar.html) in the *IAM User Guide*.
+//	The [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) used to validate this parameter is a string of characters consisting of the following:
+//	 +  Any printable ASCII character ranging from the space character (``\u0020``) through the end of the ASCII character range
+//	 +  The printable characters in the Basic Latin and Latin-1 Supplement character set (through ``\u00FF``)
+//	 +  The special characters tab (``\u0009``), line feed (``\u000A``), and carriage return (``\u000D``)
+//
 // Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::ManagedPolicy` for more information about the expected schema for this property.
 func (o ManagedPolicyOutput) PolicyDocument() pulumi.AnyOutput {
 	return o.ApplyT(func(v *ManagedPolicy) pulumi.AnyOutput { return v.PolicyDocument }).(pulumi.AnyOutput)
 }
 
-// The stable and unique string identifying the policy.
 func (o ManagedPolicyOutput) PolicyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedPolicy) pulumi.StringOutput { return v.PolicyId }).(pulumi.StringOutput)
 }
 
 // The name (friendly name, not ARN) of the role to attach the policy to.
+//
+//	This parameter allows (per its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+//	 If an external policy (such as ``AWS::IAM::Policy`` or ``AWS::IAM::ManagedPolicy``) has a ``Ref`` to a role and if a resource (such as ``AWS::ECS::Service``) also has a ``Ref`` to the same role, add a ``DependsOn`` attribute to the resource to make the resource depend on the external policy. This dependency ensures that the role's policy is available throughout the resource's lifecycle. For example, when you delete a stack with an ``AWS::ECS::Service`` resource, the ``DependsOn`` attribute ensures that CFN deletes the ``AWS::ECS::Service`` resource before deleting its role's policy.
 func (o ManagedPolicyOutput) Roles() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ManagedPolicy) pulumi.StringArrayOutput { return v.Roles }).(pulumi.StringArrayOutput)
 }
 
-// The date and time, in ISO 8601 date-time format, when the policy was last updated.
 func (o ManagedPolicyOutput) UpdateDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedPolicy) pulumi.StringOutput { return v.UpdateDate }).(pulumi.StringOutput)
 }
 
 // The name (friendly name, not ARN) of the IAM user to attach the policy to.
+//
+//	This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 func (o ManagedPolicyOutput) Users() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ManagedPolicy) pulumi.StringArrayOutput { return v.Users }).(pulumi.StringArrayOutput)
 }

@@ -29,7 +29,9 @@ type LookupChannelArgs struct {
 
 type LookupChannelResult struct {
 	// <p>The ARN of the channel.</p>
-	Arn              *string                            `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
+	// <p>The list of audiences defined in channel.</p>
+	Audiences        []string                           `pulumi:"audiences"`
 	FillerSlate      *ChannelSlateSource                `pulumi:"fillerSlate"`
 	LogConfiguration *ChannelLogConfigurationForChannel `pulumi:"logConfiguration"`
 	PlaybackMode     *ChannelPlaybackMode               `pulumi:"playbackMode"`
@@ -76,6 +78,11 @@ func (o LookupChannelResultOutput) ToLookupChannelResultOutputWithContext(ctx co
 // <p>The ARN of the channel.</p>
 func (o LookupChannelResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupChannelResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+// <p>The list of audiences defined in channel.</p>
+func (o LookupChannelResultOutput) Audiences() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupChannelResult) []string { return v.Audiences }).(pulumi.StringArrayOutput)
 }
 
 func (o LookupChannelResultOutput) FillerSlate() ChannelSlateSourcePtrOutput {

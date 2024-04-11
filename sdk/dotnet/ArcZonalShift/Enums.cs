@@ -45,7 +45,6 @@ namespace Pulumi.AwsNative.ArcZonalShift
         }
 
         public static ZonalAutoshiftConfigurationZonalAutoshiftStatus Enabled { get; } = new ZonalAutoshiftConfigurationZonalAutoshiftStatus("ENABLED");
-        public static ZonalAutoshiftConfigurationZonalAutoshiftStatus Disabled { get; } = new ZonalAutoshiftConfigurationZonalAutoshiftStatus("DISABLED");
 
         public static bool operator ==(ZonalAutoshiftConfigurationZonalAutoshiftStatus left, ZonalAutoshiftConfigurationZonalAutoshiftStatus right) => left.Equals(right);
         public static bool operator !=(ZonalAutoshiftConfigurationZonalAutoshiftStatus left, ZonalAutoshiftConfigurationZonalAutoshiftStatus right) => !left.Equals(right);

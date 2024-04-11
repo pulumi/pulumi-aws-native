@@ -18,8 +18,14 @@ namespace Pulumi.AwsNative.ElastiCache.Inputs
         /// <summary>
         /// The maximum ECPU per second of the Serverless Cache.
         /// </summary>
-        [Input("maximum", required: true)]
-        public Input<int> Maximum { get; set; } = null!;
+        [Input("maximum")]
+        public Input<int>? Maximum { get; set; }
+
+        /// <summary>
+        /// The minimum ECPU per second of the Serverless Cache.
+        /// </summary>
+        [Input("minimum")]
+        public Input<int>? Minimum { get; set; }
 
         public ServerlessCacheEcpuPerSecondArgs()
         {

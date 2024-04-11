@@ -27,17 +27,16 @@ type LookupDomainArgs struct {
 }
 
 type LookupDomainResult struct {
-	Arn                           *string                    `pulumi:"arn"`
-	AutoSubDomainCreationPatterns []string                   `pulumi:"autoSubDomainCreationPatterns"`
-	AutoSubDomainIamRole          *string                    `pulumi:"autoSubDomainIamRole"`
-	Certificate                   *DomainCertificate         `pulumi:"certificate"`
-	CertificateRecord             *string                    `pulumi:"certificateRecord"`
-	CertificateSettings           *DomainCertificateSettings `pulumi:"certificateSettings"`
-	DomainStatus                  *string                    `pulumi:"domainStatus"`
-	EnableAutoSubDomain           *bool                      `pulumi:"enableAutoSubDomain"`
-	StatusReason                  *string                    `pulumi:"statusReason"`
-	SubDomainSettings             []DomainSubDomainSetting   `pulumi:"subDomainSettings"`
-	UpdateStatus                  *string                    `pulumi:"updateStatus"`
+	Arn                           *string                  `pulumi:"arn"`
+	AutoSubDomainCreationPatterns []string                 `pulumi:"autoSubDomainCreationPatterns"`
+	AutoSubDomainIamRole          *string                  `pulumi:"autoSubDomainIamRole"`
+	Certificate                   *DomainCertificate       `pulumi:"certificate"`
+	CertificateRecord             *string                  `pulumi:"certificateRecord"`
+	DomainStatus                  *string                  `pulumi:"domainStatus"`
+	EnableAutoSubDomain           *bool                    `pulumi:"enableAutoSubDomain"`
+	StatusReason                  *string                  `pulumi:"statusReason"`
+	SubDomainSettings             []DomainSubDomainSetting `pulumi:"subDomainSettings"`
+	UpdateStatus                  *string                  `pulumi:"updateStatus"`
 }
 
 func LookupDomainOutput(ctx *pulumi.Context, args LookupDomainOutputArgs, opts ...pulumi.InvokeOption) LookupDomainResultOutput {
@@ -93,10 +92,6 @@ func (o LookupDomainResultOutput) Certificate() DomainCertificatePtrOutput {
 
 func (o LookupDomainResultOutput) CertificateRecord() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *string { return v.CertificateRecord }).(pulumi.StringPtrOutput)
-}
-
-func (o LookupDomainResultOutput) CertificateSettings() DomainCertificateSettingsPtrOutput {
-	return o.ApplyT(func(v LookupDomainResult) *DomainCertificateSettings { return v.CertificateSettings }).(DomainCertificateSettingsPtrOutput)
 }
 
 func (o LookupDomainResultOutput) DomainStatus() pulumi.StringPtrOutput {

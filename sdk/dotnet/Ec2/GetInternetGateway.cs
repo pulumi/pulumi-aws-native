@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.Ec2
     public static class GetInternetGateway
     {
         /// <summary>
-        /// Resource Type definition for AWS::EC2::InternetGateway
+        /// Allocates an internet gateway for use with a VPC. After creating the Internet gateway, you then attach it to a VPC.
         /// </summary>
         public static Task<GetInternetGatewayResult> InvokeAsync(GetInternetGatewayArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInternetGatewayResult>("aws-native:ec2:getInternetGateway", args ?? new GetInternetGatewayArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::EC2::InternetGateway
+        /// Allocates an internet gateway for use with a VPC. After creating the Internet gateway, you then attach it to a VPC.
         /// </summary>
         public static Output<GetInternetGatewayResult> Invoke(GetInternetGatewayInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInternetGatewayResult>("aws-native:ec2:getInternetGateway", args ?? new GetInternetGatewayInvokeArgs(), options.WithDefaults());
@@ -27,9 +27,6 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetInternetGatewayArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ID of internet gateway.
-        /// </summary>
         [Input("internetGatewayId", required: true)]
         public string InternetGatewayId { get; set; } = null!;
 
@@ -41,9 +38,6 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetInternetGatewayInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ID of internet gateway.
-        /// </summary>
         [Input("internetGatewayId", required: true)]
         public Input<string> InternetGatewayId { get; set; } = null!;
 
@@ -57,9 +51,6 @@ namespace Pulumi.AwsNative.Ec2
     [OutputType]
     public sealed class GetInternetGatewayResult
     {
-        /// <summary>
-        /// ID of internet gateway.
-        /// </summary>
         public readonly string? InternetGatewayId;
         /// <summary>
         /// Any tags to assign to the internet gateway.

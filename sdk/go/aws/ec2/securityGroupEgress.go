@@ -15,29 +15,29 @@ import (
 // Adds the specified outbound (egress) rule to a security group.
 //
 //	An outbound rule permits instances to send traffic to the specified IPv4 or IPv6 address range, the IP addresses that are specified by a prefix list, or the instances that are associated with a destination security group. For more information, see [Security group rules](https://docs.aws.amazon.com/vpc/latest/userguide/security-group-rules.html).
-//	You must specify exactly one of the following destinations: an IPv4 or IPv6 address range, a prefix list, or a security group. Otherwise, the stack launches successfully but the rule is not added to the security group.
+//	You must specify exactly one of the following destinations: an IPv4 address range, an IPv6 address range, a prefix list, or a security group.
 //	You must specify a protocol for each rule (for example, TCP). If the protocol is TCP or UDP, you must also specify a port or port range. If the protocol is ICMP or ICMPv6, you must also specify the ICMP/ICMPv6 type and code. To specify all types or all codes, use -1.
-//	Rule changes are propagated to instances associated with the security group as quickly as possible
+//	Rule changes are propagated to instances associated with the security group as quickly as possible. However, a small delay might occur.
 type SecurityGroupEgress struct {
 	pulumi.CustomResourceState
 
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The IPv4 address range, in CIDR format.
-	//  You must specify a destination security group (``DestinationPrefixListId`` or ``DestinationSecurityGroupId``) or a CIDR range (``CidrIp`` or ``CidrIpv6``).
+	//  You must specify exactly one of the following: ``CidrIp``, ``CidrIpv6``, ``DestinationPrefixListId``, or ``DestinationSecurityGroupId``.
 	//  For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *User Guide*.
 	CidrIp pulumi.StringPtrOutput `pulumi:"cidrIp"`
 	// The IPv6 address range, in CIDR format.
-	//  You must specify a destination security group (``DestinationPrefixListId`` or ``DestinationSecurityGroupId``) or a CIDR range (``CidrIp`` or ``CidrIpv6``).
+	//  You must specify exactly one of the following: ``CidrIp``, ``CidrIpv6``, ``DestinationPrefixListId``, or ``DestinationSecurityGroupId``.
 	//  For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *User Guide*.
 	CidrIpv6 pulumi.StringPtrOutput `pulumi:"cidrIpv6"`
 	// The description of an egress (outbound) security group rule.
 	//  Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The prefix list IDs for an AWS service. This is the AWS service that you want to access through a VPC endpoint from instances associated with the security group.
-	//  You must specify a destination security group (``DestinationPrefixListId`` or ``DestinationSecurityGroupId``) or a CIDR range (``CidrIp`` or ``CidrIpv6``).
+	// The prefix list IDs for an AWS service. This is the AWS service to access through a VPC endpoint from instances associated with the security group.
+	//  You must specify exactly one of the following: ``CidrIp``, ``CidrIpv6``, ``DestinationPrefixListId``, or ``DestinationSecurityGroupId``.
 	DestinationPrefixListId pulumi.StringPtrOutput `pulumi:"destinationPrefixListId"`
 	// The ID of the security group.
-	//  You must specify a destination security group (``DestinationPrefixListId`` or ``DestinationSecurityGroupId``) or a CIDR range (``CidrIp`` or ``CidrIpv6``).
+	//  You must specify exactly one of the following: ``CidrIp``, ``CidrIpv6``, ``DestinationPrefixListId``, or ``DestinationSecurityGroupId``.
 	DestinationSecurityGroupId pulumi.StringPtrOutput `pulumi:"destinationSecurityGroupId"`
 	// If the protocol is TCP or UDP, this is the start of the port range. If the protocol is ICMP or ICMPv6, this is the ICMP type or -1 (all ICMP types).
 	FromPort pulumi.IntPtrOutput `pulumi:"fromPort"`
@@ -108,21 +108,21 @@ func (SecurityGroupEgressState) ElementType() reflect.Type {
 
 type securityGroupEgressArgs struct {
 	// The IPv4 address range, in CIDR format.
-	//  You must specify a destination security group (``DestinationPrefixListId`` or ``DestinationSecurityGroupId``) or a CIDR range (``CidrIp`` or ``CidrIpv6``).
+	//  You must specify exactly one of the following: ``CidrIp``, ``CidrIpv6``, ``DestinationPrefixListId``, or ``DestinationSecurityGroupId``.
 	//  For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *User Guide*.
 	CidrIp *string `pulumi:"cidrIp"`
 	// The IPv6 address range, in CIDR format.
-	//  You must specify a destination security group (``DestinationPrefixListId`` or ``DestinationSecurityGroupId``) or a CIDR range (``CidrIp`` or ``CidrIpv6``).
+	//  You must specify exactly one of the following: ``CidrIp``, ``CidrIpv6``, ``DestinationPrefixListId``, or ``DestinationSecurityGroupId``.
 	//  For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *User Guide*.
 	CidrIpv6 *string `pulumi:"cidrIpv6"`
 	// The description of an egress (outbound) security group rule.
 	//  Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
 	Description *string `pulumi:"description"`
-	// The prefix list IDs for an AWS service. This is the AWS service that you want to access through a VPC endpoint from instances associated with the security group.
-	//  You must specify a destination security group (``DestinationPrefixListId`` or ``DestinationSecurityGroupId``) or a CIDR range (``CidrIp`` or ``CidrIpv6``).
+	// The prefix list IDs for an AWS service. This is the AWS service to access through a VPC endpoint from instances associated with the security group.
+	//  You must specify exactly one of the following: ``CidrIp``, ``CidrIpv6``, ``DestinationPrefixListId``, or ``DestinationSecurityGroupId``.
 	DestinationPrefixListId *string `pulumi:"destinationPrefixListId"`
 	// The ID of the security group.
-	//  You must specify a destination security group (``DestinationPrefixListId`` or ``DestinationSecurityGroupId``) or a CIDR range (``CidrIp`` or ``CidrIpv6``).
+	//  You must specify exactly one of the following: ``CidrIp``, ``CidrIpv6``, ``DestinationPrefixListId``, or ``DestinationSecurityGroupId``.
 	DestinationSecurityGroupId *string `pulumi:"destinationSecurityGroupId"`
 	// If the protocol is TCP or UDP, this is the start of the port range. If the protocol is ICMP or ICMPv6, this is the ICMP type or -1 (all ICMP types).
 	FromPort *int `pulumi:"fromPort"`
@@ -138,21 +138,21 @@ type securityGroupEgressArgs struct {
 // The set of arguments for constructing a SecurityGroupEgress resource.
 type SecurityGroupEgressArgs struct {
 	// The IPv4 address range, in CIDR format.
-	//  You must specify a destination security group (``DestinationPrefixListId`` or ``DestinationSecurityGroupId``) or a CIDR range (``CidrIp`` or ``CidrIpv6``).
+	//  You must specify exactly one of the following: ``CidrIp``, ``CidrIpv6``, ``DestinationPrefixListId``, or ``DestinationSecurityGroupId``.
 	//  For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *User Guide*.
 	CidrIp pulumi.StringPtrInput
 	// The IPv6 address range, in CIDR format.
-	//  You must specify a destination security group (``DestinationPrefixListId`` or ``DestinationSecurityGroupId``) or a CIDR range (``CidrIp`` or ``CidrIpv6``).
+	//  You must specify exactly one of the following: ``CidrIp``, ``CidrIpv6``, ``DestinationPrefixListId``, or ``DestinationSecurityGroupId``.
 	//  For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *User Guide*.
 	CidrIpv6 pulumi.StringPtrInput
 	// The description of an egress (outbound) security group rule.
 	//  Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
 	Description pulumi.StringPtrInput
-	// The prefix list IDs for an AWS service. This is the AWS service that you want to access through a VPC endpoint from instances associated with the security group.
-	//  You must specify a destination security group (``DestinationPrefixListId`` or ``DestinationSecurityGroupId``) or a CIDR range (``CidrIp`` or ``CidrIpv6``).
+	// The prefix list IDs for an AWS service. This is the AWS service to access through a VPC endpoint from instances associated with the security group.
+	//  You must specify exactly one of the following: ``CidrIp``, ``CidrIpv6``, ``DestinationPrefixListId``, or ``DestinationSecurityGroupId``.
 	DestinationPrefixListId pulumi.StringPtrInput
 	// The ID of the security group.
-	//  You must specify a destination security group (``DestinationPrefixListId`` or ``DestinationSecurityGroupId``) or a CIDR range (``CidrIp`` or ``CidrIpv6``).
+	//  You must specify exactly one of the following: ``CidrIp``, ``CidrIpv6``, ``DestinationPrefixListId``, or ``DestinationSecurityGroupId``.
 	DestinationSecurityGroupId pulumi.StringPtrInput
 	// If the protocol is TCP or UDP, this is the start of the port range. If the protocol is ICMP or ICMPv6, this is the ICMP type or -1 (all ICMP types).
 	FromPort pulumi.IntPtrInput
@@ -208,7 +208,7 @@ func (o SecurityGroupEgressOutput) AwsId() pulumi.StringOutput {
 
 // The IPv4 address range, in CIDR format.
 //
-//	You must specify a destination security group (``DestinationPrefixListId`` or ``DestinationSecurityGroupId``) or a CIDR range (``CidrIp`` or ``CidrIpv6``).
+//	You must specify exactly one of the following: ``CidrIp``, ``CidrIpv6``, ``DestinationPrefixListId``, or ``DestinationSecurityGroupId``.
 //	For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *User Guide*.
 func (o SecurityGroupEgressOutput) CidrIp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurityGroupEgress) pulumi.StringPtrOutput { return v.CidrIp }).(pulumi.StringPtrOutput)
@@ -216,7 +216,7 @@ func (o SecurityGroupEgressOutput) CidrIp() pulumi.StringPtrOutput {
 
 // The IPv6 address range, in CIDR format.
 //
-//	You must specify a destination security group (``DestinationPrefixListId`` or ``DestinationSecurityGroupId``) or a CIDR range (``CidrIp`` or ``CidrIpv6``).
+//	You must specify exactly one of the following: ``CidrIp``, ``CidrIpv6``, ``DestinationPrefixListId``, or ``DestinationSecurityGroupId``.
 //	For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *User Guide*.
 func (o SecurityGroupEgressOutput) CidrIpv6() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurityGroupEgress) pulumi.StringPtrOutput { return v.CidrIpv6 }).(pulumi.StringPtrOutput)
@@ -229,16 +229,16 @@ func (o SecurityGroupEgressOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurityGroupEgress) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The prefix list IDs for an AWS service. This is the AWS service that you want to access through a VPC endpoint from instances associated with the security group.
+// The prefix list IDs for an AWS service. This is the AWS service to access through a VPC endpoint from instances associated with the security group.
 //
-//	You must specify a destination security group (``DestinationPrefixListId`` or ``DestinationSecurityGroupId``) or a CIDR range (``CidrIp`` or ``CidrIpv6``).
+//	You must specify exactly one of the following: ``CidrIp``, ``CidrIpv6``, ``DestinationPrefixListId``, or ``DestinationSecurityGroupId``.
 func (o SecurityGroupEgressOutput) DestinationPrefixListId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurityGroupEgress) pulumi.StringPtrOutput { return v.DestinationPrefixListId }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the security group.
 //
-//	You must specify a destination security group (``DestinationPrefixListId`` or ``DestinationSecurityGroupId``) or a CIDR range (``CidrIp`` or ``CidrIpv6``).
+//	You must specify exactly one of the following: ``CidrIp``, ``CidrIpv6``, ``DestinationPrefixListId``, or ``DestinationSecurityGroupId``.
 func (o SecurityGroupEgressOutput) DestinationSecurityGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurityGroupEgress) pulumi.StringPtrOutput { return v.DestinationSecurityGroupId }).(pulumi.StringPtrOutput)
 }

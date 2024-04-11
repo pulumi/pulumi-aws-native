@@ -31,6 +31,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ConfiguredTableAssociation{}
 	case "aws-native:cleanrooms:Membership":
 		r = &Membership{}
+	case "aws-native:cleanrooms:PrivacyBudgetTemplate":
+		r = &PrivacyBudgetTemplate{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

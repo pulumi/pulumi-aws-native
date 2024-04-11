@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative.SageMaker
         public Output<string> AppImageConfigName { get; private set; } = null!;
 
         /// <summary>
+        /// The CodeEditorAppImageConfig.
+        /// </summary>
+        [Output("codeEditorAppImageConfig")]
+        public Output<Outputs.AppImageConfigCodeEditorAppImageConfig?> CodeEditorAppImageConfig { get; private set; } = null!;
+
+        /// <summary>
         /// The JupyterLabAppImageConfig.
         /// </summary>
         [Output("jupyterLabAppImageConfig")]
@@ -100,6 +106,12 @@ namespace Pulumi.AwsNative.SageMaker
         /// </summary>
         [Input("appImageConfigName")]
         public Input<string>? AppImageConfigName { get; set; }
+
+        /// <summary>
+        /// The CodeEditorAppImageConfig.
+        /// </summary>
+        [Input("codeEditorAppImageConfig")]
+        public Input<Inputs.AppImageConfigCodeEditorAppImageConfigArgs>? CodeEditorAppImageConfig { get; set; }
 
         /// <summary>
         /// The JupyterLabAppImageConfig.

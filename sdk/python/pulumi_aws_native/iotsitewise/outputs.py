@@ -38,6 +38,7 @@ __all__ = [
     'GatewayGreengrass',
     'GatewayGreengrassV2',
     'GatewayPlatform',
+    'GatewaySiemensIe',
 ]
 
 @pulumi.output_type
@@ -1329,6 +1330,8 @@ class GatewayPlatform(dict):
         suggest = None
         if key == "greengrassV2":
             suggest = "greengrass_v2"
+        elif key == "siemensIe":
+            suggest = "siemens_ie"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in GatewayPlatform. Access the value via the '{suggest}' property getter instead.")
@@ -1343,16 +1346,20 @@ class GatewayPlatform(dict):
 
     def __init__(__self__, *,
                  greengrass: Optional['outputs.GatewayGreengrass'] = None,
-                 greengrass_v2: Optional['outputs.GatewayGreengrassV2'] = None):
+                 greengrass_v2: Optional['outputs.GatewayGreengrassV2'] = None,
+                 siemens_ie: Optional['outputs.GatewaySiemensIe'] = None):
         """
         Contains a gateway's platform information.
         :param 'GatewayGreengrass' greengrass: A gateway that runs on AWS IoT Greengrass V1.
         :param 'GatewayGreengrassV2' greengrass_v2: A gateway that runs on AWS IoT Greengrass V2.
+        :param 'GatewaySiemensIe' siemens_ie: A gateway that runs on Siemens Industrial Edge.
         """
         if greengrass is not None:
             pulumi.set(__self__, "greengrass", greengrass)
         if greengrass_v2 is not None:
             pulumi.set(__self__, "greengrass_v2", greengrass_v2)
+        if siemens_ie is not None:
+            pulumi.set(__self__, "siemens_ie", siemens_ie)
 
     @property
     @pulumi.getter
@@ -1369,5 +1376,52 @@ class GatewayPlatform(dict):
         A gateway that runs on AWS IoT Greengrass V2.
         """
         return pulumi.get(self, "greengrass_v2")
+
+    @property
+    @pulumi.getter(name="siemensIe")
+    def siemens_ie(self) -> Optional['outputs.GatewaySiemensIe']:
+        """
+        A gateway that runs on Siemens Industrial Edge.
+        """
+        return pulumi.get(self, "siemens_ie")
+
+
+@pulumi.output_type
+class GatewaySiemensIe(dict):
+    """
+    Contains the IotCoreThingName of AWS IoT Thing that the gateway runs on.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "iotCoreThingName":
+            suggest = "iot_core_thing_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewaySiemensIe. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewaySiemensIe.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewaySiemensIe.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 iot_core_thing_name: str):
+        """
+        Contains the IotCoreThingName of AWS IoT Thing that the gateway runs on.
+        :param str iot_core_thing_name: The name of the IoT Core Thing.
+        """
+        pulumi.set(__self__, "iot_core_thing_name", iot_core_thing_name)
+
+    @property
+    @pulumi.getter(name="iotCoreThingName")
+    def iot_core_thing_name(self) -> str:
+        """
+        The name of the IoT Core Thing.
+        """
+        return pulumi.get(self, "iot_core_thing_name")
 
 

@@ -1352,6 +1352,8 @@ type GlobalTableReplicaSpecification struct {
 	PointInTimeRecoverySpecification  *GlobalTablePointInTimeRecoverySpecification          `pulumi:"pointInTimeRecoverySpecification"`
 	ReadProvisionedThroughputSettings *GlobalTableReadProvisionedThroughputSettings         `pulumi:"readProvisionedThroughputSettings"`
 	Region                            string                                                `pulumi:"region"`
+	ReplicaStreamSpecification        *GlobalTableReplicaStreamSpecification                `pulumi:"replicaStreamSpecification"`
+	ResourcePolicy                    *GlobalTableResourcePolicy                            `pulumi:"resourcePolicy"`
 	SseSpecification                  *GlobalTableReplicaSseSpecification                   `pulumi:"sseSpecification"`
 	TableClass                        *string                                               `pulumi:"tableClass"`
 	Tags                              []GlobalTableTag                                      `pulumi:"tags"`
@@ -1376,6 +1378,8 @@ type GlobalTableReplicaSpecificationArgs struct {
 	PointInTimeRecoverySpecification  GlobalTablePointInTimeRecoverySpecificationPtrInput           `pulumi:"pointInTimeRecoverySpecification"`
 	ReadProvisionedThroughputSettings GlobalTableReadProvisionedThroughputSettingsPtrInput          `pulumi:"readProvisionedThroughputSettings"`
 	Region                            pulumi.StringInput                                            `pulumi:"region"`
+	ReplicaStreamSpecification        GlobalTableReplicaStreamSpecificationPtrInput                 `pulumi:"replicaStreamSpecification"`
+	ResourcePolicy                    GlobalTableResourcePolicyPtrInput                             `pulumi:"resourcePolicy"`
 	SseSpecification                  GlobalTableReplicaSseSpecificationPtrInput                    `pulumi:"sseSpecification"`
 	TableClass                        pulumi.StringPtrInput                                         `pulumi:"tableClass"`
 	Tags                              GlobalTableTagArrayInput                                      `pulumi:"tags"`
@@ -1468,6 +1472,16 @@ func (o GlobalTableReplicaSpecificationOutput) ReadProvisionedThroughputSettings
 
 func (o GlobalTableReplicaSpecificationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GlobalTableReplicaSpecification) string { return v.Region }).(pulumi.StringOutput)
+}
+
+func (o GlobalTableReplicaSpecificationOutput) ReplicaStreamSpecification() GlobalTableReplicaStreamSpecificationPtrOutput {
+	return o.ApplyT(func(v GlobalTableReplicaSpecification) *GlobalTableReplicaStreamSpecification {
+		return v.ReplicaStreamSpecification
+	}).(GlobalTableReplicaStreamSpecificationPtrOutput)
+}
+
+func (o GlobalTableReplicaSpecificationOutput) ResourcePolicy() GlobalTableResourcePolicyPtrOutput {
+	return o.ApplyT(func(v GlobalTableReplicaSpecification) *GlobalTableResourcePolicy { return v.ResourcePolicy }).(GlobalTableResourcePolicyPtrOutput)
 }
 
 func (o GlobalTableReplicaSpecificationOutput) SseSpecification() GlobalTableReplicaSseSpecificationPtrOutput {
@@ -1633,6 +1647,272 @@ func (o GlobalTableReplicaSseSpecificationPtrOutput) KmsMasterKeyId() pulumi.Str
 		}
 		return &v.KmsMasterKeyId
 	}).(pulumi.StringPtrOutput)
+}
+
+type GlobalTableReplicaStreamSpecification struct {
+	ResourcePolicy GlobalTableResourcePolicy `pulumi:"resourcePolicy"`
+}
+
+// GlobalTableReplicaStreamSpecificationInput is an input type that accepts GlobalTableReplicaStreamSpecificationArgs and GlobalTableReplicaStreamSpecificationOutput values.
+// You can construct a concrete instance of `GlobalTableReplicaStreamSpecificationInput` via:
+//
+//	GlobalTableReplicaStreamSpecificationArgs{...}
+type GlobalTableReplicaStreamSpecificationInput interface {
+	pulumi.Input
+
+	ToGlobalTableReplicaStreamSpecificationOutput() GlobalTableReplicaStreamSpecificationOutput
+	ToGlobalTableReplicaStreamSpecificationOutputWithContext(context.Context) GlobalTableReplicaStreamSpecificationOutput
+}
+
+type GlobalTableReplicaStreamSpecificationArgs struct {
+	ResourcePolicy GlobalTableResourcePolicyInput `pulumi:"resourcePolicy"`
+}
+
+func (GlobalTableReplicaStreamSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalTableReplicaStreamSpecification)(nil)).Elem()
+}
+
+func (i GlobalTableReplicaStreamSpecificationArgs) ToGlobalTableReplicaStreamSpecificationOutput() GlobalTableReplicaStreamSpecificationOutput {
+	return i.ToGlobalTableReplicaStreamSpecificationOutputWithContext(context.Background())
+}
+
+func (i GlobalTableReplicaStreamSpecificationArgs) ToGlobalTableReplicaStreamSpecificationOutputWithContext(ctx context.Context) GlobalTableReplicaStreamSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableReplicaStreamSpecificationOutput)
+}
+
+func (i GlobalTableReplicaStreamSpecificationArgs) ToGlobalTableReplicaStreamSpecificationPtrOutput() GlobalTableReplicaStreamSpecificationPtrOutput {
+	return i.ToGlobalTableReplicaStreamSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i GlobalTableReplicaStreamSpecificationArgs) ToGlobalTableReplicaStreamSpecificationPtrOutputWithContext(ctx context.Context) GlobalTableReplicaStreamSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableReplicaStreamSpecificationOutput).ToGlobalTableReplicaStreamSpecificationPtrOutputWithContext(ctx)
+}
+
+// GlobalTableReplicaStreamSpecificationPtrInput is an input type that accepts GlobalTableReplicaStreamSpecificationArgs, GlobalTableReplicaStreamSpecificationPtr and GlobalTableReplicaStreamSpecificationPtrOutput values.
+// You can construct a concrete instance of `GlobalTableReplicaStreamSpecificationPtrInput` via:
+//
+//	        GlobalTableReplicaStreamSpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GlobalTableReplicaStreamSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToGlobalTableReplicaStreamSpecificationPtrOutput() GlobalTableReplicaStreamSpecificationPtrOutput
+	ToGlobalTableReplicaStreamSpecificationPtrOutputWithContext(context.Context) GlobalTableReplicaStreamSpecificationPtrOutput
+}
+
+type globalTableReplicaStreamSpecificationPtrType GlobalTableReplicaStreamSpecificationArgs
+
+func GlobalTableReplicaStreamSpecificationPtr(v *GlobalTableReplicaStreamSpecificationArgs) GlobalTableReplicaStreamSpecificationPtrInput {
+	return (*globalTableReplicaStreamSpecificationPtrType)(v)
+}
+
+func (*globalTableReplicaStreamSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GlobalTableReplicaStreamSpecification)(nil)).Elem()
+}
+
+func (i *globalTableReplicaStreamSpecificationPtrType) ToGlobalTableReplicaStreamSpecificationPtrOutput() GlobalTableReplicaStreamSpecificationPtrOutput {
+	return i.ToGlobalTableReplicaStreamSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *globalTableReplicaStreamSpecificationPtrType) ToGlobalTableReplicaStreamSpecificationPtrOutputWithContext(ctx context.Context) GlobalTableReplicaStreamSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableReplicaStreamSpecificationPtrOutput)
+}
+
+type GlobalTableReplicaStreamSpecificationOutput struct{ *pulumi.OutputState }
+
+func (GlobalTableReplicaStreamSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalTableReplicaStreamSpecification)(nil)).Elem()
+}
+
+func (o GlobalTableReplicaStreamSpecificationOutput) ToGlobalTableReplicaStreamSpecificationOutput() GlobalTableReplicaStreamSpecificationOutput {
+	return o
+}
+
+func (o GlobalTableReplicaStreamSpecificationOutput) ToGlobalTableReplicaStreamSpecificationOutputWithContext(ctx context.Context) GlobalTableReplicaStreamSpecificationOutput {
+	return o
+}
+
+func (o GlobalTableReplicaStreamSpecificationOutput) ToGlobalTableReplicaStreamSpecificationPtrOutput() GlobalTableReplicaStreamSpecificationPtrOutput {
+	return o.ToGlobalTableReplicaStreamSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o GlobalTableReplicaStreamSpecificationOutput) ToGlobalTableReplicaStreamSpecificationPtrOutputWithContext(ctx context.Context) GlobalTableReplicaStreamSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GlobalTableReplicaStreamSpecification) *GlobalTableReplicaStreamSpecification {
+		return &v
+	}).(GlobalTableReplicaStreamSpecificationPtrOutput)
+}
+
+func (o GlobalTableReplicaStreamSpecificationOutput) ResourcePolicy() GlobalTableResourcePolicyOutput {
+	return o.ApplyT(func(v GlobalTableReplicaStreamSpecification) GlobalTableResourcePolicy { return v.ResourcePolicy }).(GlobalTableResourcePolicyOutput)
+}
+
+type GlobalTableReplicaStreamSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (GlobalTableReplicaStreamSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GlobalTableReplicaStreamSpecification)(nil)).Elem()
+}
+
+func (o GlobalTableReplicaStreamSpecificationPtrOutput) ToGlobalTableReplicaStreamSpecificationPtrOutput() GlobalTableReplicaStreamSpecificationPtrOutput {
+	return o
+}
+
+func (o GlobalTableReplicaStreamSpecificationPtrOutput) ToGlobalTableReplicaStreamSpecificationPtrOutputWithContext(ctx context.Context) GlobalTableReplicaStreamSpecificationPtrOutput {
+	return o
+}
+
+func (o GlobalTableReplicaStreamSpecificationPtrOutput) Elem() GlobalTableReplicaStreamSpecificationOutput {
+	return o.ApplyT(func(v *GlobalTableReplicaStreamSpecification) GlobalTableReplicaStreamSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret GlobalTableReplicaStreamSpecification
+		return ret
+	}).(GlobalTableReplicaStreamSpecificationOutput)
+}
+
+func (o GlobalTableReplicaStreamSpecificationPtrOutput) ResourcePolicy() GlobalTableResourcePolicyPtrOutput {
+	return o.ApplyT(func(v *GlobalTableReplicaStreamSpecification) *GlobalTableResourcePolicy {
+		if v == nil {
+			return nil
+		}
+		return &v.ResourcePolicy
+	}).(GlobalTableResourcePolicyPtrOutput)
+}
+
+type GlobalTableResourcePolicy struct {
+	PolicyDocument interface{} `pulumi:"policyDocument"`
+}
+
+// GlobalTableResourcePolicyInput is an input type that accepts GlobalTableResourcePolicyArgs and GlobalTableResourcePolicyOutput values.
+// You can construct a concrete instance of `GlobalTableResourcePolicyInput` via:
+//
+//	GlobalTableResourcePolicyArgs{...}
+type GlobalTableResourcePolicyInput interface {
+	pulumi.Input
+
+	ToGlobalTableResourcePolicyOutput() GlobalTableResourcePolicyOutput
+	ToGlobalTableResourcePolicyOutputWithContext(context.Context) GlobalTableResourcePolicyOutput
+}
+
+type GlobalTableResourcePolicyArgs struct {
+	PolicyDocument pulumi.Input `pulumi:"policyDocument"`
+}
+
+func (GlobalTableResourcePolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalTableResourcePolicy)(nil)).Elem()
+}
+
+func (i GlobalTableResourcePolicyArgs) ToGlobalTableResourcePolicyOutput() GlobalTableResourcePolicyOutput {
+	return i.ToGlobalTableResourcePolicyOutputWithContext(context.Background())
+}
+
+func (i GlobalTableResourcePolicyArgs) ToGlobalTableResourcePolicyOutputWithContext(ctx context.Context) GlobalTableResourcePolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableResourcePolicyOutput)
+}
+
+func (i GlobalTableResourcePolicyArgs) ToGlobalTableResourcePolicyPtrOutput() GlobalTableResourcePolicyPtrOutput {
+	return i.ToGlobalTableResourcePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i GlobalTableResourcePolicyArgs) ToGlobalTableResourcePolicyPtrOutputWithContext(ctx context.Context) GlobalTableResourcePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableResourcePolicyOutput).ToGlobalTableResourcePolicyPtrOutputWithContext(ctx)
+}
+
+// GlobalTableResourcePolicyPtrInput is an input type that accepts GlobalTableResourcePolicyArgs, GlobalTableResourcePolicyPtr and GlobalTableResourcePolicyPtrOutput values.
+// You can construct a concrete instance of `GlobalTableResourcePolicyPtrInput` via:
+//
+//	        GlobalTableResourcePolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type GlobalTableResourcePolicyPtrInput interface {
+	pulumi.Input
+
+	ToGlobalTableResourcePolicyPtrOutput() GlobalTableResourcePolicyPtrOutput
+	ToGlobalTableResourcePolicyPtrOutputWithContext(context.Context) GlobalTableResourcePolicyPtrOutput
+}
+
+type globalTableResourcePolicyPtrType GlobalTableResourcePolicyArgs
+
+func GlobalTableResourcePolicyPtr(v *GlobalTableResourcePolicyArgs) GlobalTableResourcePolicyPtrInput {
+	return (*globalTableResourcePolicyPtrType)(v)
+}
+
+func (*globalTableResourcePolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GlobalTableResourcePolicy)(nil)).Elem()
+}
+
+func (i *globalTableResourcePolicyPtrType) ToGlobalTableResourcePolicyPtrOutput() GlobalTableResourcePolicyPtrOutput {
+	return i.ToGlobalTableResourcePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *globalTableResourcePolicyPtrType) ToGlobalTableResourcePolicyPtrOutputWithContext(ctx context.Context) GlobalTableResourcePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableResourcePolicyPtrOutput)
+}
+
+type GlobalTableResourcePolicyOutput struct{ *pulumi.OutputState }
+
+func (GlobalTableResourcePolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalTableResourcePolicy)(nil)).Elem()
+}
+
+func (o GlobalTableResourcePolicyOutput) ToGlobalTableResourcePolicyOutput() GlobalTableResourcePolicyOutput {
+	return o
+}
+
+func (o GlobalTableResourcePolicyOutput) ToGlobalTableResourcePolicyOutputWithContext(ctx context.Context) GlobalTableResourcePolicyOutput {
+	return o
+}
+
+func (o GlobalTableResourcePolicyOutput) ToGlobalTableResourcePolicyPtrOutput() GlobalTableResourcePolicyPtrOutput {
+	return o.ToGlobalTableResourcePolicyPtrOutputWithContext(context.Background())
+}
+
+func (o GlobalTableResourcePolicyOutput) ToGlobalTableResourcePolicyPtrOutputWithContext(ctx context.Context) GlobalTableResourcePolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GlobalTableResourcePolicy) *GlobalTableResourcePolicy {
+		return &v
+	}).(GlobalTableResourcePolicyPtrOutput)
+}
+
+func (o GlobalTableResourcePolicyOutput) PolicyDocument() pulumi.AnyOutput {
+	return o.ApplyT(func(v GlobalTableResourcePolicy) interface{} { return v.PolicyDocument }).(pulumi.AnyOutput)
+}
+
+type GlobalTableResourcePolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (GlobalTableResourcePolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GlobalTableResourcePolicy)(nil)).Elem()
+}
+
+func (o GlobalTableResourcePolicyPtrOutput) ToGlobalTableResourcePolicyPtrOutput() GlobalTableResourcePolicyPtrOutput {
+	return o
+}
+
+func (o GlobalTableResourcePolicyPtrOutput) ToGlobalTableResourcePolicyPtrOutputWithContext(ctx context.Context) GlobalTableResourcePolicyPtrOutput {
+	return o
+}
+
+func (o GlobalTableResourcePolicyPtrOutput) Elem() GlobalTableResourcePolicyOutput {
+	return o.ApplyT(func(v *GlobalTableResourcePolicy) GlobalTableResourcePolicy {
+		if v != nil {
+			return *v
+		}
+		var ret GlobalTableResourcePolicy
+		return ret
+	}).(GlobalTableResourcePolicyOutput)
+}
+
+func (o GlobalTableResourcePolicyPtrOutput) PolicyDocument() pulumi.AnyOutput {
+	return o.ApplyT(func(v *GlobalTableResourcePolicy) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.PolicyDocument
+	}).(pulumi.AnyOutput)
 }
 
 type GlobalTableSseSpecification struct {
@@ -4224,6 +4504,176 @@ func (o TableProvisionedThroughputPtrOutput) WriteCapacityUnits() pulumi.IntPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
+// Creates or updates a resource-based policy document that contains the permissions for DDB resources, such as a table, its indexes, and stream. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
+//
+//	In a CFNshort template, you can provide the policy in JSON or YAML format because CFNshort converts YAML to JSON before submitting it to DDB. For more information about resource-based policies, see [Using resource-based policies for](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html).
+//	While defining resource-based policies in your CFNshort templates, the following considerations apply:
+//	 +  The maximum size supported for a resource-based policy document in JSON format is 20 KB. DDB counts whitespaces when calculating the size of a policy against this limit.
+//	 +  Resource-based policies don't support [drift detection](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html#). If you update a policy outside of the CFNshort stack template, you'll need to update the CFNshort stack with the changes.
+//	 +  Resource-based policies don't support out-of-band changes. If you add, update, or delete a policy outside of the CFNshort template, the change won't be overwritten if there are no changes to the policy within the template.
+//	     For example, say that your template contains a resource-based policy, which you later update outside of the template. If you don't make any changes to the policy in the template, the updated policy in DDB won’t be synced with the policy in the template.
+//	     Conversely, say that your template doesn’t contain a resource-based policy, but you add a policy outside of the template. This policy won’t be removed from DDB as long as you don’t add it to the template. When you add a policy to the template and update the stack, the existing policy in DDB will be updated to match the one defined in the template.
+//
+//	For a full list of all considerations, see [Resource-based policy considerations](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-considerations.html).
+type TableResourcePolicy struct {
+	// A resource-based policy document that contains permissions to add to the specified DDB table, index, or both. In a CFNshort template, you can provide the policy in JSON or YAML format because CFNshort converts YAML to JSON before submitting it to DDB. For more information about resource-based policies, see [Using resource-based policies for](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html).
+	PolicyDocument interface{} `pulumi:"policyDocument"`
+}
+
+// TableResourcePolicyInput is an input type that accepts TableResourcePolicyArgs and TableResourcePolicyOutput values.
+// You can construct a concrete instance of `TableResourcePolicyInput` via:
+//
+//	TableResourcePolicyArgs{...}
+type TableResourcePolicyInput interface {
+	pulumi.Input
+
+	ToTableResourcePolicyOutput() TableResourcePolicyOutput
+	ToTableResourcePolicyOutputWithContext(context.Context) TableResourcePolicyOutput
+}
+
+// Creates or updates a resource-based policy document that contains the permissions for DDB resources, such as a table, its indexes, and stream. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
+//
+//	In a CFNshort template, you can provide the policy in JSON or YAML format because CFNshort converts YAML to JSON before submitting it to DDB. For more information about resource-based policies, see [Using resource-based policies for](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html).
+//	While defining resource-based policies in your CFNshort templates, the following considerations apply:
+//	 +  The maximum size supported for a resource-based policy document in JSON format is 20 KB. DDB counts whitespaces when calculating the size of a policy against this limit.
+//	 +  Resource-based policies don't support [drift detection](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html#). If you update a policy outside of the CFNshort stack template, you'll need to update the CFNshort stack with the changes.
+//	 +  Resource-based policies don't support out-of-band changes. If you add, update, or delete a policy outside of the CFNshort template, the change won't be overwritten if there are no changes to the policy within the template.
+//	     For example, say that your template contains a resource-based policy, which you later update outside of the template. If you don't make any changes to the policy in the template, the updated policy in DDB won’t be synced with the policy in the template.
+//	     Conversely, say that your template doesn’t contain a resource-based policy, but you add a policy outside of the template. This policy won’t be removed from DDB as long as you don’t add it to the template. When you add a policy to the template and update the stack, the existing policy in DDB will be updated to match the one defined in the template.
+//
+//	For a full list of all considerations, see [Resource-based policy considerations](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-considerations.html).
+type TableResourcePolicyArgs struct {
+	// A resource-based policy document that contains permissions to add to the specified DDB table, index, or both. In a CFNshort template, you can provide the policy in JSON or YAML format because CFNshort converts YAML to JSON before submitting it to DDB. For more information about resource-based policies, see [Using resource-based policies for](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html).
+	PolicyDocument pulumi.Input `pulumi:"policyDocument"`
+}
+
+func (TableResourcePolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableResourcePolicy)(nil)).Elem()
+}
+
+func (i TableResourcePolicyArgs) ToTableResourcePolicyOutput() TableResourcePolicyOutput {
+	return i.ToTableResourcePolicyOutputWithContext(context.Background())
+}
+
+func (i TableResourcePolicyArgs) ToTableResourcePolicyOutputWithContext(ctx context.Context) TableResourcePolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableResourcePolicyOutput)
+}
+
+func (i TableResourcePolicyArgs) ToTableResourcePolicyPtrOutput() TableResourcePolicyPtrOutput {
+	return i.ToTableResourcePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i TableResourcePolicyArgs) ToTableResourcePolicyPtrOutputWithContext(ctx context.Context) TableResourcePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableResourcePolicyOutput).ToTableResourcePolicyPtrOutputWithContext(ctx)
+}
+
+// TableResourcePolicyPtrInput is an input type that accepts TableResourcePolicyArgs, TableResourcePolicyPtr and TableResourcePolicyPtrOutput values.
+// You can construct a concrete instance of `TableResourcePolicyPtrInput` via:
+//
+//	        TableResourcePolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableResourcePolicyPtrInput interface {
+	pulumi.Input
+
+	ToTableResourcePolicyPtrOutput() TableResourcePolicyPtrOutput
+	ToTableResourcePolicyPtrOutputWithContext(context.Context) TableResourcePolicyPtrOutput
+}
+
+type tableResourcePolicyPtrType TableResourcePolicyArgs
+
+func TableResourcePolicyPtr(v *TableResourcePolicyArgs) TableResourcePolicyPtrInput {
+	return (*tableResourcePolicyPtrType)(v)
+}
+
+func (*tableResourcePolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableResourcePolicy)(nil)).Elem()
+}
+
+func (i *tableResourcePolicyPtrType) ToTableResourcePolicyPtrOutput() TableResourcePolicyPtrOutput {
+	return i.ToTableResourcePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *tableResourcePolicyPtrType) ToTableResourcePolicyPtrOutputWithContext(ctx context.Context) TableResourcePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableResourcePolicyPtrOutput)
+}
+
+// Creates or updates a resource-based policy document that contains the permissions for DDB resources, such as a table, its indexes, and stream. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
+//
+//	In a CFNshort template, you can provide the policy in JSON or YAML format because CFNshort converts YAML to JSON before submitting it to DDB. For more information about resource-based policies, see [Using resource-based policies for](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html).
+//	While defining resource-based policies in your CFNshort templates, the following considerations apply:
+//	 +  The maximum size supported for a resource-based policy document in JSON format is 20 KB. DDB counts whitespaces when calculating the size of a policy against this limit.
+//	 +  Resource-based policies don't support [drift detection](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html#). If you update a policy outside of the CFNshort stack template, you'll need to update the CFNshort stack with the changes.
+//	 +  Resource-based policies don't support out-of-band changes. If you add, update, or delete a policy outside of the CFNshort template, the change won't be overwritten if there are no changes to the policy within the template.
+//	     For example, say that your template contains a resource-based policy, which you later update outside of the template. If you don't make any changes to the policy in the template, the updated policy in DDB won’t be synced with the policy in the template.
+//	     Conversely, say that your template doesn’t contain a resource-based policy, but you add a policy outside of the template. This policy won’t be removed from DDB as long as you don’t add it to the template. When you add a policy to the template and update the stack, the existing policy in DDB will be updated to match the one defined in the template.
+//
+//	For a full list of all considerations, see [Resource-based policy considerations](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-considerations.html).
+type TableResourcePolicyOutput struct{ *pulumi.OutputState }
+
+func (TableResourcePolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableResourcePolicy)(nil)).Elem()
+}
+
+func (o TableResourcePolicyOutput) ToTableResourcePolicyOutput() TableResourcePolicyOutput {
+	return o
+}
+
+func (o TableResourcePolicyOutput) ToTableResourcePolicyOutputWithContext(ctx context.Context) TableResourcePolicyOutput {
+	return o
+}
+
+func (o TableResourcePolicyOutput) ToTableResourcePolicyPtrOutput() TableResourcePolicyPtrOutput {
+	return o.ToTableResourcePolicyPtrOutputWithContext(context.Background())
+}
+
+func (o TableResourcePolicyOutput) ToTableResourcePolicyPtrOutputWithContext(ctx context.Context) TableResourcePolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableResourcePolicy) *TableResourcePolicy {
+		return &v
+	}).(TableResourcePolicyPtrOutput)
+}
+
+// A resource-based policy document that contains permissions to add to the specified DDB table, index, or both. In a CFNshort template, you can provide the policy in JSON or YAML format because CFNshort converts YAML to JSON before submitting it to DDB. For more information about resource-based policies, see [Using resource-based policies for](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html).
+func (o TableResourcePolicyOutput) PolicyDocument() pulumi.AnyOutput {
+	return o.ApplyT(func(v TableResourcePolicy) interface{} { return v.PolicyDocument }).(pulumi.AnyOutput)
+}
+
+type TableResourcePolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (TableResourcePolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableResourcePolicy)(nil)).Elem()
+}
+
+func (o TableResourcePolicyPtrOutput) ToTableResourcePolicyPtrOutput() TableResourcePolicyPtrOutput {
+	return o
+}
+
+func (o TableResourcePolicyPtrOutput) ToTableResourcePolicyPtrOutputWithContext(ctx context.Context) TableResourcePolicyPtrOutput {
+	return o
+}
+
+func (o TableResourcePolicyPtrOutput) Elem() TableResourcePolicyOutput {
+	return o.ApplyT(func(v *TableResourcePolicy) TableResourcePolicy {
+		if v != nil {
+			return *v
+		}
+		var ret TableResourcePolicy
+		return ret
+	}).(TableResourcePolicyOutput)
+}
+
+// A resource-based policy document that contains permissions to add to the specified DDB table, index, or both. In a CFNshort template, you can provide the policy in JSON or YAML format because CFNshort converts YAML to JSON before submitting it to DDB. For more information about resource-based policies, see [Using resource-based policies for](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html).
+func (o TableResourcePolicyPtrOutput) PolicyDocument() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TableResourcePolicy) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.PolicyDocument
+	}).(pulumi.AnyOutput)
+}
+
 // The S3 bucket that is being imported from.
 type TableS3BucketSource struct {
 	// The S3 bucket that is being imported from.
@@ -4586,6 +5036,9 @@ func (o TableSseSpecificationPtrOutput) SseType() pulumi.StringPtrOutput {
 
 // Represents the DynamoDB Streams configuration for a table in DynamoDB.
 type TableStreamSpecification struct {
+	// Creates or updates a resource-based policy document that contains the permissions for DDB resources, such as a table's streams. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
+	//  In a CFNshort template, you can provide the policy in JSON or YAML format because CFNshort converts YAML to JSON before submitting it to DDB. For more information about resource-based policies, see [Using resource-based policies for](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html).
+	ResourcePolicy *TableResourcePolicy `pulumi:"resourcePolicy"`
 	// When an item in the table is modified, ``StreamViewType`` determines what information is written to the stream for this table. Valid values for ``StreamViewType`` are:
 	//   +   ``KEYS_ONLY`` - Only the key attributes of the modified item are written to the stream.
 	//   +   ``NEW_IMAGE`` - The entire item, as it appears after it was modified, is written to the stream.
@@ -4607,6 +5060,9 @@ type TableStreamSpecificationInput interface {
 
 // Represents the DynamoDB Streams configuration for a table in DynamoDB.
 type TableStreamSpecificationArgs struct {
+	// Creates or updates a resource-based policy document that contains the permissions for DDB resources, such as a table's streams. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
+	//  In a CFNshort template, you can provide the policy in JSON or YAML format because CFNshort converts YAML to JSON before submitting it to DDB. For more information about resource-based policies, see [Using resource-based policies for](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html).
+	ResourcePolicy TableResourcePolicyPtrInput `pulumi:"resourcePolicy"`
 	// When an item in the table is modified, ``StreamViewType`` determines what information is written to the stream for this table. Valid values for ``StreamViewType`` are:
 	//   +   ``KEYS_ONLY`` - Only the key attributes of the modified item are written to the stream.
 	//   +   ``NEW_IMAGE`` - The entire item, as it appears after it was modified, is written to the stream.
@@ -4693,6 +5149,13 @@ func (o TableStreamSpecificationOutput) ToTableStreamSpecificationPtrOutputWithC
 	}).(TableStreamSpecificationPtrOutput)
 }
 
+// Creates or updates a resource-based policy document that contains the permissions for DDB resources, such as a table's streams. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
+//
+//	In a CFNshort template, you can provide the policy in JSON or YAML format because CFNshort converts YAML to JSON before submitting it to DDB. For more information about resource-based policies, see [Using resource-based policies for](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html).
+func (o TableStreamSpecificationOutput) ResourcePolicy() TableResourcePolicyPtrOutput {
+	return o.ApplyT(func(v TableStreamSpecification) *TableResourcePolicy { return v.ResourcePolicy }).(TableResourcePolicyPtrOutput)
+}
+
 // When an item in the table is modified, “StreamViewType“ determines what information is written to the stream for this table. Valid values for “StreamViewType“ are:
 //   - “KEYS_ONLY“ - Only the key attributes of the modified item are written to the stream.
 //   - “NEW_IMAGE“ - The entire item, as it appears after it was modified, is written to the stream.
@@ -4726,6 +5189,18 @@ func (o TableStreamSpecificationPtrOutput) Elem() TableStreamSpecificationOutput
 	}).(TableStreamSpecificationOutput)
 }
 
+// Creates or updates a resource-based policy document that contains the permissions for DDB resources, such as a table's streams. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
+//
+//	In a CFNshort template, you can provide the policy in JSON or YAML format because CFNshort converts YAML to JSON before submitting it to DDB. For more information about resource-based policies, see [Using resource-based policies for](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html).
+func (o TableStreamSpecificationPtrOutput) ResourcePolicy() TableResourcePolicyPtrOutput {
+	return o.ApplyT(func(v *TableStreamSpecification) *TableResourcePolicy {
+		if v == nil {
+			return nil
+		}
+		return v.ResourcePolicy
+	}).(TableResourcePolicyPtrOutput)
+}
+
 // When an item in the table is modified, “StreamViewType“ determines what information is written to the stream for this table. Valid values for “StreamViewType“ are:
 //   - “KEYS_ONLY“ - Only the key attributes of the modified item are written to the stream.
 //   - “NEW_IMAGE“ - The entire item, as it appears after it was modified, is written to the stream.
@@ -4754,7 +5229,7 @@ type TableTag struct {
 // Represents the settings used to enable or disable Time to Live (TTL) for the specified table.
 type TableTimeToLiveSpecification struct {
 	// The name of the TTL attribute used to store the expiration time for items in the table.
-	//    + The ``AttributeName`` property is required when enabling the TTL, or when TTL is already enabled.
+	//    +  The ``AttributeName`` property is required when enabling the TTL, or when TTL is already enabled.
 	//   +  To update this property, you must first disable TTL and then enable TTL with the new attribute name.
 	AttributeName *string `pulumi:"attributeName"`
 	// Indicates whether TTL is to be enabled (true) or disabled (false) on the table.
@@ -4775,7 +5250,7 @@ type TableTimeToLiveSpecificationInput interface {
 // Represents the settings used to enable or disable Time to Live (TTL) for the specified table.
 type TableTimeToLiveSpecificationArgs struct {
 	// The name of the TTL attribute used to store the expiration time for items in the table.
-	//    + The ``AttributeName`` property is required when enabling the TTL, or when TTL is already enabled.
+	//    +  The ``AttributeName`` property is required when enabling the TTL, or when TTL is already enabled.
 	//   +  To update this property, you must first disable TTL and then enable TTL with the new attribute name.
 	AttributeName pulumi.StringPtrInput `pulumi:"attributeName"`
 	// Indicates whether TTL is to be enabled (true) or disabled (false) on the table.
@@ -4944,6 +5419,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableReplicaSpecificationArrayInput)(nil)).Elem(), GlobalTableReplicaSpecificationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableReplicaSseSpecificationInput)(nil)).Elem(), GlobalTableReplicaSseSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableReplicaSseSpecificationPtrInput)(nil)).Elem(), GlobalTableReplicaSseSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableReplicaStreamSpecificationInput)(nil)).Elem(), GlobalTableReplicaStreamSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableReplicaStreamSpecificationPtrInput)(nil)).Elem(), GlobalTableReplicaStreamSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableResourcePolicyInput)(nil)).Elem(), GlobalTableResourcePolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableResourcePolicyPtrInput)(nil)).Elem(), GlobalTableResourcePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableSseSpecificationInput)(nil)).Elem(), GlobalTableSseSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableSseSpecificationPtrInput)(nil)).Elem(), GlobalTableSseSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableStreamSpecificationInput)(nil)).Elem(), GlobalTableStreamSpecificationArgs{})
@@ -4979,6 +5458,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableProjectionInput)(nil)).Elem(), TableProjectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableProvisionedThroughputInput)(nil)).Elem(), TableProvisionedThroughputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableProvisionedThroughputPtrInput)(nil)).Elem(), TableProvisionedThroughputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableResourcePolicyInput)(nil)).Elem(), TableResourcePolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableResourcePolicyPtrInput)(nil)).Elem(), TableResourcePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableS3BucketSourceInput)(nil)).Elem(), TableS3BucketSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableS3BucketSourcePtrInput)(nil)).Elem(), TableS3BucketSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableSseSpecificationInput)(nil)).Elem(), TableSseSpecificationArgs{})
@@ -5012,6 +5493,10 @@ func init() {
 	pulumi.RegisterOutputType(GlobalTableReplicaSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(GlobalTableReplicaSseSpecificationOutput{})
 	pulumi.RegisterOutputType(GlobalTableReplicaSseSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(GlobalTableReplicaStreamSpecificationOutput{})
+	pulumi.RegisterOutputType(GlobalTableReplicaStreamSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(GlobalTableResourcePolicyOutput{})
+	pulumi.RegisterOutputType(GlobalTableResourcePolicyPtrOutput{})
 	pulumi.RegisterOutputType(GlobalTableSseSpecificationOutput{})
 	pulumi.RegisterOutputType(GlobalTableSseSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(GlobalTableStreamSpecificationOutput{})
@@ -5047,6 +5532,8 @@ func init() {
 	pulumi.RegisterOutputType(TableProjectionOutput{})
 	pulumi.RegisterOutputType(TableProvisionedThroughputOutput{})
 	pulumi.RegisterOutputType(TableProvisionedThroughputPtrOutput{})
+	pulumi.RegisterOutputType(TableResourcePolicyOutput{})
+	pulumi.RegisterOutputType(TableResourcePolicyPtrOutput{})
 	pulumi.RegisterOutputType(TableS3BucketSourceOutput{})
 	pulumi.RegisterOutputType(TableS3BucketSourcePtrOutput{})
 	pulumi.RegisterOutputType(TableSseSpecificationOutput{})

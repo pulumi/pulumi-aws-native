@@ -176,8 +176,7 @@ func (in *zonalAutoshiftConfigurationControlConditionTypePtr) ToZonalAutoshiftCo
 type ZonalAutoshiftConfigurationZonalAutoshiftStatus string
 
 const (
-	ZonalAutoshiftConfigurationZonalAutoshiftStatusEnabled  = ZonalAutoshiftConfigurationZonalAutoshiftStatus("ENABLED")
-	ZonalAutoshiftConfigurationZonalAutoshiftStatusDisabled = ZonalAutoshiftConfigurationZonalAutoshiftStatus("DISABLED")
+	ZonalAutoshiftConfigurationZonalAutoshiftStatusEnabled = ZonalAutoshiftConfigurationZonalAutoshiftStatus("ENABLED")
 )
 
 func (ZonalAutoshiftConfigurationZonalAutoshiftStatus) ElementType() reflect.Type {
@@ -303,7 +302,6 @@ func (o ZonalAutoshiftConfigurationZonalAutoshiftStatusPtrOutput) ToStringPtrOut
 // A concrete instance of `ZonalAutoshiftConfigurationZonalAutoshiftStatusInput` can be one of the following:
 //
 //	ZonalAutoshiftConfigurationZonalAutoshiftStatusEnabled
-//	ZonalAutoshiftConfigurationZonalAutoshiftStatusDisabled
 type ZonalAutoshiftConfigurationZonalAutoshiftStatusInput interface {
 	pulumi.Input
 

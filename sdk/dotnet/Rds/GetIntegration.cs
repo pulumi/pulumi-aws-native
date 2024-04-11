@@ -59,9 +59,21 @@ namespace Pulumi.AwsNative.Rds
     {
         public readonly string? CreateTime;
         /// <summary>
+        /// The data filter for the integration.
+        /// </summary>
+        public readonly string? DataFilter;
+        /// <summary>
+        /// The description of the integration.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
         /// The ARN of the integration.
         /// </summary>
         public readonly string? IntegrationArn;
+        /// <summary>
+        /// The name of the integration.
+        /// </summary>
+        public readonly string? IntegrationName;
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
@@ -71,12 +83,21 @@ namespace Pulumi.AwsNative.Rds
         private GetIntegrationResult(
             string? createTime,
 
+            string? dataFilter,
+
+            string? description,
+
             string? integrationArn,
+
+            string? integrationName,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             CreateTime = createTime;
+            DataFilter = dataFilter;
+            Description = description;
             IntegrationArn = integrationArn;
+            IntegrationName = integrationName;
             Tags = tags;
         }
     }

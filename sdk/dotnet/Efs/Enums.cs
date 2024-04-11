@@ -8,6 +8,39 @@ using Pulumi;
 namespace Pulumi.AwsNative.Efs
 {
     /// <summary>
+    /// Set the backup policy status for the file system.
+    ///   +   *ENABLED* - Turns automatic backups on for the file system. 
+    ///   +   *DISABLED* - Turns automatic backups off for the file system.
+    /// </summary>
+    [EnumType]
+    public readonly struct FileSystemBackupPolicyStatus : IEquatable<FileSystemBackupPolicyStatus>
+    {
+        private readonly string _value;
+
+        private FileSystemBackupPolicyStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FileSystemBackupPolicyStatus Disabled { get; } = new FileSystemBackupPolicyStatus("DISABLED");
+        public static FileSystemBackupPolicyStatus Enabled { get; } = new FileSystemBackupPolicyStatus("ENABLED");
+
+        public static bool operator ==(FileSystemBackupPolicyStatus left, FileSystemBackupPolicyStatus right) => left.Equals(right);
+        public static bool operator !=(FileSystemBackupPolicyStatus left, FileSystemBackupPolicyStatus right) => !left.Equals(right);
+
+        public static explicit operator string(FileSystemBackupPolicyStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FileSystemBackupPolicyStatus other && Equals(other);
+        public bool Equals(FileSystemBackupPolicyStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The status of the file system's replication overwrite protection.
     ///   +   ``ENABLED`` – The file system cannot be used as the destination file system in a replication configuration. The file system is writeable. Replication overwrite protection is ``ENABLED`` by default. 
     ///   +   ``DISABLED`` – The file system can be used as the destination file system in a replication configuration. The file system is read-only and can only be modified by EFS replication.

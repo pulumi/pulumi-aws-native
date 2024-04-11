@@ -41,6 +41,10 @@ export class Channel extends pulumi.CustomResource {
      * <p>The ARN of the channel.</p>
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * <p>The list of audiences defined in channel.</p>
+     */
+    public readonly audiences!: pulumi.Output<string[] | undefined>;
     public readonly channelName!: pulumi.Output<string>;
     public readonly fillerSlate!: pulumi.Output<outputs.mediatailor.ChannelSlateSource | undefined>;
     public readonly logConfiguration!: pulumi.Output<outputs.mediatailor.ChannelLogConfigurationForChannel | undefined>;
@@ -73,6 +77,7 @@ export class Channel extends pulumi.CustomResource {
             if ((!args || args.playbackMode === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'playbackMode'");
             }
+            resourceInputs["audiences"] = args ? args.audiences : undefined;
             resourceInputs["channelName"] = args ? args.channelName : undefined;
             resourceInputs["fillerSlate"] = args ? args.fillerSlate : undefined;
             resourceInputs["logConfiguration"] = args ? args.logConfiguration : undefined;
@@ -84,6 +89,7 @@ export class Channel extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["audiences"] = undefined /*out*/;
             resourceInputs["channelName"] = undefined /*out*/;
             resourceInputs["fillerSlate"] = undefined /*out*/;
             resourceInputs["logConfiguration"] = undefined /*out*/;
@@ -104,6 +110,10 @@ export class Channel extends pulumi.CustomResource {
  * The set of arguments for constructing a Channel resource.
  */
 export interface ChannelArgs {
+    /**
+     * <p>The list of audiences defined in channel.</p>
+     */
+    audiences?: pulumi.Input<pulumi.Input<string>[]>;
     channelName?: pulumi.Input<string>;
     fillerSlate?: pulumi.Input<inputs.mediatailor.ChannelSlateSourceArgs>;
     logConfiguration?: pulumi.Input<inputs.mediatailor.ChannelLogConfigurationForChannelArgs>;

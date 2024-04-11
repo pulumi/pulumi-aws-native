@@ -27,6 +27,12 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
         [Input("greengrassV2")]
         public Input<Inputs.GatewayGreengrassV2Args>? GreengrassV2 { get; set; }
 
+        /// <summary>
+        /// A gateway that runs on Siemens Industrial Edge.
+        /// </summary>
+        [Input("siemensIe")]
+        public Input<Inputs.GatewaySiemensIeArgs>? SiemensIe { get; set; }
+
         public GatewayPlatformArgs()
         {
         }

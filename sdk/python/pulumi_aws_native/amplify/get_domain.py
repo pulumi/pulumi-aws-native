@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDomainResult:
-    def __init__(__self__, arn=None, auto_sub_domain_creation_patterns=None, auto_sub_domain_iam_role=None, certificate=None, certificate_record=None, certificate_settings=None, domain_status=None, enable_auto_sub_domain=None, status_reason=None, sub_domain_settings=None, update_status=None):
+    def __init__(__self__, arn=None, auto_sub_domain_creation_patterns=None, auto_sub_domain_iam_role=None, certificate=None, certificate_record=None, domain_status=None, enable_auto_sub_domain=None, status_reason=None, sub_domain_settings=None, update_status=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -36,9 +36,6 @@ class GetDomainResult:
         if certificate_record and not isinstance(certificate_record, str):
             raise TypeError("Expected argument 'certificate_record' to be a str")
         pulumi.set(__self__, "certificate_record", certificate_record)
-        if certificate_settings and not isinstance(certificate_settings, dict):
-            raise TypeError("Expected argument 'certificate_settings' to be a dict")
-        pulumi.set(__self__, "certificate_settings", certificate_settings)
         if domain_status and not isinstance(domain_status, str):
             raise TypeError("Expected argument 'domain_status' to be a str")
         pulumi.set(__self__, "domain_status", domain_status)
@@ -81,11 +78,6 @@ class GetDomainResult:
         return pulumi.get(self, "certificate_record")
 
     @property
-    @pulumi.getter(name="certificateSettings")
-    def certificate_settings(self) -> Optional['outputs.DomainCertificateSettings']:
-        return pulumi.get(self, "certificate_settings")
-
-    @property
     @pulumi.getter(name="domainStatus")
     def domain_status(self) -> Optional[str]:
         return pulumi.get(self, "domain_status")
@@ -122,7 +114,6 @@ class AwaitableGetDomainResult(GetDomainResult):
             auto_sub_domain_iam_role=self.auto_sub_domain_iam_role,
             certificate=self.certificate,
             certificate_record=self.certificate_record,
-            certificate_settings=self.certificate_settings,
             domain_status=self.domain_status,
             enable_auto_sub_domain=self.enable_auto_sub_domain,
             status_reason=self.status_reason,
@@ -146,7 +137,6 @@ def get_domain(arn: Optional[str] = None,
         auto_sub_domain_iam_role=pulumi.get(__ret__, 'auto_sub_domain_iam_role'),
         certificate=pulumi.get(__ret__, 'certificate'),
         certificate_record=pulumi.get(__ret__, 'certificate_record'),
-        certificate_settings=pulumi.get(__ret__, 'certificate_settings'),
         domain_status=pulumi.get(__ret__, 'domain_status'),
         enable_auto_sub_domain=pulumi.get(__ret__, 'enable_auto_sub_domain'),
         status_reason=pulumi.get(__ret__, 'status_reason'),

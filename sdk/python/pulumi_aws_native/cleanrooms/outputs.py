@@ -29,6 +29,8 @@ __all__ = [
     'ConfiguredTableAnalysisRulePolicyV10Properties',
     'ConfiguredTableAnalysisRulePolicyV11Properties',
     'ConfiguredTableAnalysisRulePolicyV12Properties',
+    'ConfiguredTableDifferentialPrivacy',
+    'ConfiguredTableDifferentialPrivacyColumn',
     'ConfiguredTableGlueTableReference',
     'ConfiguredTableTableReference',
     'MembershipPaymentConfiguration',
@@ -36,6 +38,7 @@ __all__ = [
     'MembershipProtectedQueryResultConfiguration',
     'MembershipProtectedQueryS3OutputConfiguration',
     'MembershipQueryComputePaymentConfig',
+    'ParametersProperties',
 ]
 
 @pulumi.output_type
@@ -486,6 +489,8 @@ class ConfiguredTableAnalysisRuleCustom(dict):
             suggest = "allowed_analyses"
         elif key == "allowedAnalysisProviders":
             suggest = "allowed_analysis_providers"
+        elif key == "differentialPrivacy":
+            suggest = "differential_privacy"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ConfiguredTableAnalysisRuleCustom. Access the value via the '{suggest}' property getter instead.")
@@ -500,10 +505,13 @@ class ConfiguredTableAnalysisRuleCustom(dict):
 
     def __init__(__self__, *,
                  allowed_analyses: Sequence[str],
-                 allowed_analysis_providers: Optional[Sequence[str]] = None):
+                 allowed_analysis_providers: Optional[Sequence[str]] = None,
+                 differential_privacy: Optional['outputs.ConfiguredTableDifferentialPrivacy'] = None):
         pulumi.set(__self__, "allowed_analyses", allowed_analyses)
         if allowed_analysis_providers is not None:
             pulumi.set(__self__, "allowed_analysis_providers", allowed_analysis_providers)
+        if differential_privacy is not None:
+            pulumi.set(__self__, "differential_privacy", differential_privacy)
 
     @property
     @pulumi.getter(name="allowedAnalyses")
@@ -514,6 +522,11 @@ class ConfiguredTableAnalysisRuleCustom(dict):
     @pulumi.getter(name="allowedAnalysisProviders")
     def allowed_analysis_providers(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "allowed_analysis_providers")
+
+    @property
+    @pulumi.getter(name="differentialPrivacy")
+    def differential_privacy(self) -> Optional['outputs.ConfiguredTableDifferentialPrivacy']:
+        return pulumi.get(self, "differential_privacy")
 
 
 @pulumi.output_type
@@ -610,6 +623,30 @@ class ConfiguredTableAnalysisRulePolicyV12Properties(dict):
     @pulumi.getter
     def custom(self) -> 'outputs.ConfiguredTableAnalysisRuleCustom':
         return pulumi.get(self, "custom")
+
+
+@pulumi.output_type
+class ConfiguredTableDifferentialPrivacy(dict):
+    def __init__(__self__, *,
+                 columns: Sequence['outputs.ConfiguredTableDifferentialPrivacyColumn']):
+        pulumi.set(__self__, "columns", columns)
+
+    @property
+    @pulumi.getter
+    def columns(self) -> Sequence['outputs.ConfiguredTableDifferentialPrivacyColumn']:
+        return pulumi.get(self, "columns")
+
+
+@pulumi.output_type
+class ConfiguredTableDifferentialPrivacyColumn(dict):
+    def __init__(__self__, *,
+                 name: str):
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type
@@ -815,5 +852,41 @@ class MembershipQueryComputePaymentConfig(dict):
     @pulumi.getter(name="isResponsible")
     def is_responsible(self) -> bool:
         return pulumi.get(self, "is_responsible")
+
+
+@pulumi.output_type
+class ParametersProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "usersNoisePerQuery":
+            suggest = "users_noise_per_query"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ParametersProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ParametersProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ParametersProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 epsilon: int,
+                 users_noise_per_query: int):
+        pulumi.set(__self__, "epsilon", epsilon)
+        pulumi.set(__self__, "users_noise_per_query", users_noise_per_query)
+
+    @property
+    @pulumi.getter
+    def epsilon(self) -> int:
+        return pulumi.get(self, "epsilon")
+
+    @property
+    @pulumi.getter(name="usersNoisePerQuery")
+    def users_noise_per_query(self) -> int:
+        return pulumi.get(self, "users_noise_per_query")
 
 

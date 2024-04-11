@@ -835,8 +835,11 @@ func (o CreditSpecificationPropertiesPtrOutput) CpuCredits() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications).
 type CustomerGatewayTag struct {
-	Key   string `pulumi:"key"`
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
 	Value string `pulumi:"value"`
 }
 
@@ -6764,8 +6767,11 @@ func (o InstanceVolumeArrayOutput) Index(i pulumi.IntInput) InstanceVolumeOutput
 	}).(InstanceVolumeOutput)
 }
 
+// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications).
 type InternetGatewayTag struct {
-	Key   string `pulumi:"key"`
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
 	Value string `pulumi:"value"`
 }
 
@@ -8913,7 +8919,9 @@ type LaunchTemplateData struct {
 	//   +   ``AllowedInstanceTypes`` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
 	//   +   ``ExcludedInstanceTypes`` - The instance types to exclude from the list, even if they match your specified attributes.
 	//
-	//   If you specify ``InstanceReq
+	//   If you specify ``InstanceRequirements``, you can't specify ``InstanceType``.
+	//  Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the [launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html), or with the [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API or [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) AWS CloudFormation resource, you can't specify ``InstanceRequirements``.
+	//   For more information, see [Attribute-based instance type selection for EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html), [Attribute-based instance type selection for Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html), and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide*.
 	InstanceRequirements *LaunchTemplateInstanceRequirements `pulumi:"instanceRequirements"`
 	// The instance type. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon Elastic Compute Cloud User Guide*.
 	//  If you specify ``InstanceType``, you can't specify ``InstanceRequirements``.
@@ -9018,7 +9026,9 @@ type LaunchTemplateDataArgs struct {
 	//   +   ``AllowedInstanceTypes`` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
 	//   +   ``ExcludedInstanceTypes`` - The instance types to exclude from the list, even if they match your specified attributes.
 	//
-	//   If you specify ``InstanceReq
+	//   If you specify ``InstanceRequirements``, you can't specify ``InstanceType``.
+	//  Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the [launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html), or with the [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API or [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) AWS CloudFormation resource, you can't specify ``InstanceRequirements``.
+	//   For more information, see [Attribute-based instance type selection for EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html), [Attribute-based instance type selection for Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html), and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide*.
 	InstanceRequirements LaunchTemplateInstanceRequirementsPtrInput `pulumi:"instanceRequirements"`
 	// The instance type. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon Elastic Compute Cloud User Guide*.
 	//  If you specify ``InstanceType``, you can't specify ``InstanceRequirements``.
@@ -9192,7 +9202,9 @@ func (o LaunchTemplateDataOutput) InstanceMarketOptions() LaunchTemplateInstance
 //	 +   ``AllowedInstanceTypes`` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
 //	 +   ``ExcludedInstanceTypes`` - The instance types to exclude from the list, even if they match your specified attributes.
 //
-//	 If you specify ``InstanceReq
+//	 If you specify ``InstanceRequirements``, you can't specify ``InstanceType``.
+//	Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the [launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html), or with the [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API or [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) AWS CloudFormation resource, you can't specify ``InstanceRequirements``.
+//	 For more information, see [Attribute-based instance type selection for EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html), [Attribute-based instance type selection for Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html), and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide*.
 func (o LaunchTemplateDataOutput) InstanceRequirements() LaunchTemplateInstanceRequirementsPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateData) *LaunchTemplateInstanceRequirements { return v.InstanceRequirements }).(LaunchTemplateInstanceRequirementsPtrOutput)
 }
@@ -9316,7 +9328,7 @@ type LaunchTemplateEbs struct {
 	//   +   ``st1`` and ``sc1``: 125 - 16,384 GiB
 	//   +   ``standard``: 1 - 1024 GiB
 	VolumeSize *int `pulumi:"volumeSize"`
-	// The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html) in the *Amazon Elastic Compute Cloud User Guide*.
+	// The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide*.
 	VolumeType *string `pulumi:"volumeType"`
 }
 
@@ -9362,7 +9374,7 @@ type LaunchTemplateEbsArgs struct {
 	//   +   ``st1`` and ``sc1``: 125 - 16,384 GiB
 	//   +   ``standard``: 1 - 1024 GiB
 	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
-	// The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html) in the *Amazon Elastic Compute Cloud User Guide*.
+	// The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide*.
 	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
 }
 
@@ -9496,7 +9508,7 @@ func (o LaunchTemplateEbsOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateEbs) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
 
-// The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html) in the *Amazon Elastic Compute Cloud User Guide*.
+// The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide*.
 func (o LaunchTemplateEbsOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateEbs) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
@@ -9610,7 +9622,7 @@ func (o LaunchTemplateEbsPtrOutput) VolumeSize() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html) in the *Amazon Elastic Compute Cloud User Guide*.
+// The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide*.
 func (o LaunchTemplateEbsPtrOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateEbs) *string {
 		if v == nil {
@@ -9620,8 +9632,9 @@ func (o LaunchTemplateEbsPtrOutput) VolumeType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies a specification for an Elastic GPU for an Amazon EC2 launch template.
+// Amazon Elastic Graphics reached end of life on January 8, 2024. For workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad, G4dn, or G5 instances.
 //
+//	Specifies a specification for an Elastic GPU for an Amazon EC2 launch template.
 //	``ElasticGpuSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type LaunchTemplateElasticGpuSpecification struct {
 	// The type of Elastic Graphics accelerator. For more information about the values to specify for ``Type``, see [Elastic Graphics Basics](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html#elastic-graphics-basics), specifically the Elastic Graphics accelerator column, in the *Amazon Elastic Compute Cloud User Guide for Windows Instances*.
@@ -9639,8 +9652,9 @@ type LaunchTemplateElasticGpuSpecificationInput interface {
 	ToLaunchTemplateElasticGpuSpecificationOutputWithContext(context.Context) LaunchTemplateElasticGpuSpecificationOutput
 }
 
-// Specifies a specification for an Elastic GPU for an Amazon EC2 launch template.
+// Amazon Elastic Graphics reached end of life on January 8, 2024. For workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad, G4dn, or G5 instances.
 //
+//	Specifies a specification for an Elastic GPU for an Amazon EC2 launch template.
 //	``ElasticGpuSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type LaunchTemplateElasticGpuSpecificationArgs struct {
 	// The type of Elastic Graphics accelerator. For more information about the values to specify for ``Type``, see [Elastic Graphics Basics](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html#elastic-graphics-basics), specifically the Elastic Graphics accelerator column, in the *Amazon Elastic Compute Cloud User Guide for Windows Instances*.
@@ -9684,8 +9698,9 @@ func (i LaunchTemplateElasticGpuSpecificationArray) ToLaunchTemplateElasticGpuSp
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateElasticGpuSpecificationArrayOutput)
 }
 
-// Specifies a specification for an Elastic GPU for an Amazon EC2 launch template.
+// Amazon Elastic Graphics reached end of life on January 8, 2024. For workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad, G4dn, or G5 instances.
 //
+//	Specifies a specification for an Elastic GPU for an Amazon EC2 launch template.
 //	``ElasticGpuSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type LaunchTemplateElasticGpuSpecificationOutput struct{ *pulumi.OutputState }
 
@@ -10446,7 +10461,7 @@ func (o LaunchTemplateHibernationOptionsPtrOutput) Configured() pulumi.BoolPtrOu
 
 // Specifies an IAM instance profile, which is a container for an IAM role for your instance. You can use an IAM role to distribute your AWS credentials to your instances.
 //
-//	If you are creating the launch template for use with an Amazon EC2 Auto Scaling group, you can specify either the name or the ARN of the instance profile, but not both.
+//	If you are creating the launch template for use with an ASlong group, you can specify either the name or the ARN of the instance profile, but not both.
 //	 ``IamInstanceProfile`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type LaunchTemplateIamInstanceProfile struct {
 	// The Amazon Resource Name (ARN) of the instance profile.
@@ -10468,7 +10483,7 @@ type LaunchTemplateIamInstanceProfileInput interface {
 
 // Specifies an IAM instance profile, which is a container for an IAM role for your instance. You can use an IAM role to distribute your AWS credentials to your instances.
 //
-//	If you are creating the launch template for use with an Amazon EC2 Auto Scaling group, you can specify either the name or the ARN of the instance profile, but not both.
+//	If you are creating the launch template for use with an ASlong group, you can specify either the name or the ARN of the instance profile, but not both.
 //	 ``IamInstanceProfile`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type LaunchTemplateIamInstanceProfileArgs struct {
 	// The Amazon Resource Name (ARN) of the instance profile.
@@ -10532,7 +10547,7 @@ func (i *launchTemplateIamInstanceProfilePtrType) ToLaunchTemplateIamInstancePro
 
 // Specifies an IAM instance profile, which is a container for an IAM role for your instance. You can use an IAM role to distribute your AWS credentials to your instances.
 //
-//	If you are creating the launch template for use with an Amazon EC2 Auto Scaling group, you can specify either the name or the ARN of the instance profile, but not both.
+//	If you are creating the launch template for use with an ASlong group, you can specify either the name or the ARN of the instance profile, but not both.
 //	 ``IamInstanceProfile`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type LaunchTemplateIamInstanceProfileOutput struct{ *pulumi.OutputState }
 
@@ -10785,7 +10800,9 @@ func (o LaunchTemplateInstanceMarketOptionsPtrOutput) SpotOptions() LaunchTempla
 //	 +   ``AllowedInstanceTypes`` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
 //	 +   ``ExcludedInstanceTypes`` - The instance types to exclude from the list, even if they match your specified attributes.
 //
-//	 If you specify ``InstanceReq
+//	 If you specify ``InstanceRequirements``, you can't specify ``InstanceType``.
+//	Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the [launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html), or with the [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API or [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) AWS CloudFormation resource, you can't specify ``InstanceRequirements``.
+//	 For more information, see [Attribute-based instance type selection for EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html), [Attribute-based instance type selection for Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html), and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide*.
 type LaunchTemplateInstanceRequirements struct {
 	// The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) on an instance.
 	//  To exclude accelerator-enabled instance types, set ``Max`` to ``0``.
@@ -10883,8 +10900,8 @@ type LaunchTemplateInstanceRequirements struct {
 	LocalStorageTypes []string `pulumi:"localStorageTypes"`
 	// [Price protection] The price protection threshold for Spot Instances, as a percentage of an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
 	//  The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
-	//  To indicate no price protection threshold, specify a high value, such as ``999999``.
-	//  If you set ``DesiredCapacityType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is based on the per vCPU or per memory price instead of the per instanc
+	//  If you set ``DesiredCapacityType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is based on the per vCPU or per memory price instead of the per instance price.
+	//   Only one of ``SpotMaxPricePercentageOverLowestPrice`` or ``MaxSpotPriceAsPercentageOfOptimalOnDemandPrice`` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as ``999999``.
 	MaxSpotPriceAsPercentageOfOptimalOnDemandPrice *int `pulumi:"maxSpotPriceAsPercentageOfOptimalOnDemandPrice"`
 	// The minimum and maximum amount of memory per vCPU, in GiB.
 	//  Default: No minimum or maximum limits
@@ -10901,7 +10918,8 @@ type LaunchTemplateInstanceRequirements struct {
 	//  The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
 	//  To turn off price protection, specify a high value, such as ``999999``.
 	//  This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html).
-	//   If you set ``TargetCapacityUnitType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is applied based on the per-
+	//   If you set ``TargetCapacityUnitType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
+	//   Default: ``20``
 	OnDemandMaxPricePercentageOverLowestPrice *int `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
 	// Indicates whether instance types must support hibernation for On-Demand Instances.
 	//  This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html).
@@ -10909,8 +10927,10 @@ type LaunchTemplateInstanceRequirements struct {
 	RequireHibernateSupport *bool `pulumi:"requireHibernateSupport"`
 	// [Price protection] The price protection threshold for Spot Instances, as a percentage higher than an identified Spot price. The identified Spot price is the Spot price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified Spot price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose Spot price exceeds your specified threshold.
 	//  The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
-	//  To indicate no price protection threshold, specify a high value, such as ``999999``.
-	//  If you set ``TargetCapacityUnitType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is applied based on the per-vCPU or per-memory price i
+	//  If you set ``TargetCapacityUnitType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
+	//  This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html).
+	//   Only one of ``SpotMaxPricePercentageOverLowestPrice`` or ``MaxSpotPriceAsPercentageOfOptimalOnDemandPrice`` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as ``999999``.
+	//   Default: ``100``
 	SpotMaxPricePercentageOverLowestPrice *int `pulumi:"spotMaxPricePercentageOverLowestPrice"`
 	// The minimum and maximum amount of total local storage, in GB.
 	//  Default: No minimum or maximum limits
@@ -10938,7 +10958,9 @@ type LaunchTemplateInstanceRequirementsInput interface {
 //	 +   ``AllowedInstanceTypes`` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
 //	 +   ``ExcludedInstanceTypes`` - The instance types to exclude from the list, even if they match your specified attributes.
 //
-//	 If you specify ``InstanceReq
+//	 If you specify ``InstanceRequirements``, you can't specify ``InstanceType``.
+//	Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the [launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html), or with the [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API or [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) AWS CloudFormation resource, you can't specify ``InstanceRequirements``.
+//	 For more information, see [Attribute-based instance type selection for EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html), [Attribute-based instance type selection for Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html), and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide*.
 type LaunchTemplateInstanceRequirementsArgs struct {
 	// The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) on an instance.
 	//  To exclude accelerator-enabled instance types, set ``Max`` to ``0``.
@@ -11036,8 +11058,8 @@ type LaunchTemplateInstanceRequirementsArgs struct {
 	LocalStorageTypes pulumi.StringArrayInput `pulumi:"localStorageTypes"`
 	// [Price protection] The price protection threshold for Spot Instances, as a percentage of an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
 	//  The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
-	//  To indicate no price protection threshold, specify a high value, such as ``999999``.
-	//  If you set ``DesiredCapacityType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is based on the per vCPU or per memory price instead of the per instanc
+	//  If you set ``DesiredCapacityType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is based on the per vCPU or per memory price instead of the per instance price.
+	//   Only one of ``SpotMaxPricePercentageOverLowestPrice`` or ``MaxSpotPriceAsPercentageOfOptimalOnDemandPrice`` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as ``999999``.
 	MaxSpotPriceAsPercentageOfOptimalOnDemandPrice pulumi.IntPtrInput `pulumi:"maxSpotPriceAsPercentageOfOptimalOnDemandPrice"`
 	// The minimum and maximum amount of memory per vCPU, in GiB.
 	//  Default: No minimum or maximum limits
@@ -11054,7 +11076,8 @@ type LaunchTemplateInstanceRequirementsArgs struct {
 	//  The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
 	//  To turn off price protection, specify a high value, such as ``999999``.
 	//  This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html).
-	//   If you set ``TargetCapacityUnitType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is applied based on the per-
+	//   If you set ``TargetCapacityUnitType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
+	//   Default: ``20``
 	OnDemandMaxPricePercentageOverLowestPrice pulumi.IntPtrInput `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
 	// Indicates whether instance types must support hibernation for On-Demand Instances.
 	//  This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html).
@@ -11062,8 +11085,10 @@ type LaunchTemplateInstanceRequirementsArgs struct {
 	RequireHibernateSupport pulumi.BoolPtrInput `pulumi:"requireHibernateSupport"`
 	// [Price protection] The price protection threshold for Spot Instances, as a percentage higher than an identified Spot price. The identified Spot price is the Spot price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified Spot price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose Spot price exceeds your specified threshold.
 	//  The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
-	//  To indicate no price protection threshold, specify a high value, such as ``999999``.
-	//  If you set ``TargetCapacityUnitType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is applied based on the per-vCPU or per-memory price i
+	//  If you set ``TargetCapacityUnitType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
+	//  This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html).
+	//   Only one of ``SpotMaxPricePercentageOverLowestPrice`` or ``MaxSpotPriceAsPercentageOfOptimalOnDemandPrice`` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as ``999999``.
+	//   Default: ``100``
 	SpotMaxPricePercentageOverLowestPrice pulumi.IntPtrInput `pulumi:"spotMaxPricePercentageOverLowestPrice"`
 	// The minimum and maximum amount of total local storage, in GB.
 	//  Default: No minimum or maximum limits
@@ -11133,7 +11158,9 @@ func (i *launchTemplateInstanceRequirementsPtrType) ToLaunchTemplateInstanceRequ
 //	 +   ``AllowedInstanceTypes`` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
 //	 +   ``ExcludedInstanceTypes`` - The instance types to exclude from the list, even if they match your specified attributes.
 //
-//	 If you specify ``InstanceReq
+//	 If you specify ``InstanceRequirements``, you can't specify ``InstanceType``.
+//	Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the [launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html), or with the [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API or [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) AWS CloudFormation resource, you can't specify ``InstanceRequirements``.
+//	 For more information, see [Attribute-based instance type selection for EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html), [Attribute-based instance type selection for Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html), and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide*.
 type LaunchTemplateInstanceRequirementsOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateInstanceRequirementsOutput) ElementType() reflect.Type {
@@ -11341,8 +11368,8 @@ func (o LaunchTemplateInstanceRequirementsOutput) LocalStorageTypes() pulumi.Str
 // [Price protection] The price protection threshold for Spot Instances, as a percentage of an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
 //
 //	The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
-//	To indicate no price protection threshold, specify a high value, such as ``999999``.
-//	If you set ``DesiredCapacityType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is based on the per vCPU or per memory price instead of the per instanc
+//	If you set ``DesiredCapacityType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is based on the per vCPU or per memory price instead of the per instance price.
+//	 Only one of ``SpotMaxPricePercentageOverLowestPrice`` or ``MaxSpotPriceAsPercentageOfOptimalOnDemandPrice`` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as ``999999``.
 func (o LaunchTemplateInstanceRequirementsOutput) MaxSpotPriceAsPercentageOfOptimalOnDemandPrice() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *int {
 		return v.MaxSpotPriceAsPercentageOfOptimalOnDemandPrice
@@ -11384,7 +11411,8 @@ func (o LaunchTemplateInstanceRequirementsOutput) NetworkInterfaceCount() Launch
 //	The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
 //	To turn off price protection, specify a high value, such as ``999999``.
 //	This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html).
-//	 If you set ``TargetCapacityUnitType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is applied based on the per-
+//	 If you set ``TargetCapacityUnitType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
+//	 Default: ``20``
 func (o LaunchTemplateInstanceRequirementsOutput) OnDemandMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *int { return v.OnDemandMaxPricePercentageOverLowestPrice }).(pulumi.IntPtrOutput)
 }
@@ -11400,8 +11428,10 @@ func (o LaunchTemplateInstanceRequirementsOutput) RequireHibernateSupport() pulu
 // [Price protection] The price protection threshold for Spot Instances, as a percentage higher than an identified Spot price. The identified Spot price is the Spot price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified Spot price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose Spot price exceeds your specified threshold.
 //
 //	The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
-//	To indicate no price protection threshold, specify a high value, such as ``999999``.
-//	If you set ``TargetCapacityUnitType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is applied based on the per-vCPU or per-memory price i
+//	If you set ``TargetCapacityUnitType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
+//	This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html).
+//	 Only one of ``SpotMaxPricePercentageOverLowestPrice`` or ``MaxSpotPriceAsPercentageOfOptimalOnDemandPrice`` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as ``999999``.
+//	 Default: ``100``
 func (o LaunchTemplateInstanceRequirementsOutput) SpotMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *int { return v.SpotMaxPricePercentageOverLowestPrice }).(pulumi.IntPtrOutput)
 }
@@ -11693,8 +11723,8 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) LocalStorageTypes() pulumi.
 // [Price protection] The price protection threshold for Spot Instances, as a percentage of an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
 //
 //	The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
-//	To indicate no price protection threshold, specify a high value, such as ``999999``.
-//	If you set ``DesiredCapacityType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is based on the per vCPU or per memory price instead of the per instanc
+//	If you set ``DesiredCapacityType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is based on the per vCPU or per memory price instead of the per instance price.
+//	 Only one of ``SpotMaxPricePercentageOverLowestPrice`` or ``MaxSpotPriceAsPercentageOfOptimalOnDemandPrice`` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as ``999999``.
 func (o LaunchTemplateInstanceRequirementsPtrOutput) MaxSpotPriceAsPercentageOfOptimalOnDemandPrice() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *int {
 		if v == nil {
@@ -11755,7 +11785,8 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) NetworkInterfaceCount() Lau
 //	The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
 //	To turn off price protection, specify a high value, such as ``999999``.
 //	This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html).
-//	 If you set ``TargetCapacityUnitType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is applied based on the per-
+//	 If you set ``TargetCapacityUnitType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
+//	 Default: ``20``
 func (o LaunchTemplateInstanceRequirementsPtrOutput) OnDemandMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *int {
 		if v == nil {
@@ -11781,8 +11812,10 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) RequireHibernateSupport() p
 // [Price protection] The price protection threshold for Spot Instances, as a percentage higher than an identified Spot price. The identified Spot price is the Spot price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified Spot price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose Spot price exceeds your specified threshold.
 //
 //	The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
-//	To indicate no price protection threshold, specify a high value, such as ``999999``.
-//	If you set ``TargetCapacityUnitType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is applied based on the per-vCPU or per-memory price i
+//	If you set ``TargetCapacityUnitType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
+//	This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html).
+//	 Only one of ``SpotMaxPricePercentageOverLowestPrice`` or ``MaxSpotPriceAsPercentageOfOptimalOnDemandPrice`` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as ``999999``.
+//	 Default: ``100``
 func (o LaunchTemplateInstanceRequirementsPtrOutput) SpotMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *int {
 		if v == nil {
@@ -12241,8 +12274,7 @@ func (o LaunchTemplateLicenseSpecificationArrayOutput) Index(i pulumi.IntInput) 
 // The maintenance options of your instance.
 type LaunchTemplateMaintenanceOptions struct {
 	// Disables the automatic recovery behavior of your instance or sets it to default.
-	AutoRecovery    *string `pulumi:"autoRecovery"`
-	RebootMigration *string `pulumi:"rebootMigration"`
+	AutoRecovery *string `pulumi:"autoRecovery"`
 }
 
 // LaunchTemplateMaintenanceOptionsInput is an input type that accepts LaunchTemplateMaintenanceOptionsArgs and LaunchTemplateMaintenanceOptionsOutput values.
@@ -12259,8 +12291,7 @@ type LaunchTemplateMaintenanceOptionsInput interface {
 // The maintenance options of your instance.
 type LaunchTemplateMaintenanceOptionsArgs struct {
 	// Disables the automatic recovery behavior of your instance or sets it to default.
-	AutoRecovery    pulumi.StringPtrInput `pulumi:"autoRecovery"`
-	RebootMigration pulumi.StringPtrInput `pulumi:"rebootMigration"`
+	AutoRecovery pulumi.StringPtrInput `pulumi:"autoRecovery"`
 }
 
 func (LaunchTemplateMaintenanceOptionsArgs) ElementType() reflect.Type {
@@ -12346,10 +12377,6 @@ func (o LaunchTemplateMaintenanceOptionsOutput) AutoRecovery() pulumi.StringPtrO
 	return o.ApplyT(func(v LaunchTemplateMaintenanceOptions) *string { return v.AutoRecovery }).(pulumi.StringPtrOutput)
 }
 
-func (o LaunchTemplateMaintenanceOptionsOutput) RebootMigration() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateMaintenanceOptions) *string { return v.RebootMigration }).(pulumi.StringPtrOutput)
-}
-
 type LaunchTemplateMaintenanceOptionsPtrOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateMaintenanceOptionsPtrOutput) ElementType() reflect.Type {
@@ -12381,15 +12408,6 @@ func (o LaunchTemplateMaintenanceOptionsPtrOutput) AutoRecovery() pulumi.StringP
 			return nil
 		}
 		return v.AutoRecovery
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o LaunchTemplateMaintenanceOptionsPtrOutput) RebootMigration() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LaunchTemplateMaintenanceOptions) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RebootMigration
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -14368,7 +14386,7 @@ type LaunchTemplateSpotOptions struct {
 	//   If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter.
 	MaxPrice *string `pulumi:"maxPrice"`
 	// The Spot Instance request type.
-	//  If you are using Spot Instances with an Auto Scaling group, use ``one-time`` requests, as the Amazon EC2 Auto Scaling service handles requesting new Spot Instances whenever the group is below its desired capacity.
+	//  If you are using Spot Instances with an Auto Scaling group, use ``one-time`` requests, as the ASlong service handles requesting new Spot Instances whenever the group is below its desired capacity.
 	SpotInstanceType *string `pulumi:"spotInstanceType"`
 	// The end date of the request, in UTC format (*YYYY-MM-DD*T*HH:MM:SS*Z). Supported only for persistent requests.
 	//   +  For a persistent request, the request remains active until the ``ValidUntil`` date and time is reached. Otherwise, the request remains active until you cancel it.
@@ -14401,7 +14419,7 @@ type LaunchTemplateSpotOptionsArgs struct {
 	//   If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter.
 	MaxPrice pulumi.StringPtrInput `pulumi:"maxPrice"`
 	// The Spot Instance request type.
-	//  If you are using Spot Instances with an Auto Scaling group, use ``one-time`` requests, as the Amazon EC2 Auto Scaling service handles requesting new Spot Instances whenever the group is below its desired capacity.
+	//  If you are using Spot Instances with an Auto Scaling group, use ``one-time`` requests, as the ASlong service handles requesting new Spot Instances whenever the group is below its desired capacity.
 	SpotInstanceType pulumi.StringPtrInput `pulumi:"spotInstanceType"`
 	// The end date of the request, in UTC format (*YYYY-MM-DD*T*HH:MM:SS*Z). Supported only for persistent requests.
 	//   +  For a persistent request, the request remains active until the ``ValidUntil`` date and time is reached. Otherwise, the request remains active until you cancel it.
@@ -14510,7 +14528,7 @@ func (o LaunchTemplateSpotOptionsOutput) MaxPrice() pulumi.StringPtrOutput {
 
 // The Spot Instance request type.
 //
-//	If you are using Spot Instances with an Auto Scaling group, use ``one-time`` requests, as the Amazon EC2 Auto Scaling service handles requesting new Spot Instances whenever the group is below its desired capacity.
+//	If you are using Spot Instances with an Auto Scaling group, use ``one-time`` requests, as the ASlong service handles requesting new Spot Instances whenever the group is below its desired capacity.
 func (o LaunchTemplateSpotOptionsOutput) SpotInstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateSpotOptions) *string { return v.SpotInstanceType }).(pulumi.StringPtrOutput)
 }
@@ -14584,7 +14602,7 @@ func (o LaunchTemplateSpotOptionsPtrOutput) MaxPrice() pulumi.StringPtrOutput {
 
 // The Spot Instance request type.
 //
-//	If you are using Spot Instances with an Auto Scaling group, use ``one-time`` requests, as the Amazon EC2 Auto Scaling service handles requesting new Spot Instances whenever the group is below its desired capacity.
+//	If you are using Spot Instances with an Auto Scaling group, use ``one-time`` requests, as the ASlong service handles requesting new Spot Instances whenever the group is below its desired capacity.
 func (o LaunchTemplateSpotOptionsPtrOutput) SpotInstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateSpotOptions) *string {
 		if v == nil {
@@ -19050,9 +19068,9 @@ type PrefixListTag struct {
 // The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries to the instances should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
 //
 //	Available options:
-//	 + EnableResourceNameDnsAAAARecord (true | false)
-//	+ EnableResourceNameDnsARecord (true | false)
-//	+ HostnameType (ip-name | resource-name)
+//	 +  EnableResourceNameDnsAAAARecord (true | false)
+//	 +  EnableResourceNameDnsARecord (true | false)
+//	 +  HostnameType (ip-name | resource-name)
 type PrivateDnsNameOptionsOnLaunchProperties struct {
 	EnableResourceNameDnsARecord    *bool   `pulumi:"enableResourceNameDnsARecord"`
 	EnableResourceNameDnsAaaaRecord *bool   `pulumi:"enableResourceNameDnsAaaaRecord"`
@@ -19073,9 +19091,9 @@ type PrivateDnsNameOptionsOnLaunchPropertiesInput interface {
 // The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries to the instances should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
 //
 //	Available options:
-//	 + EnableResourceNameDnsAAAARecord (true | false)
-//	+ EnableResourceNameDnsARecord (true | false)
-//	+ HostnameType (ip-name | resource-name)
+//	 +  EnableResourceNameDnsAAAARecord (true | false)
+//	 +  EnableResourceNameDnsARecord (true | false)
+//	 +  HostnameType (ip-name | resource-name)
 type PrivateDnsNameOptionsOnLaunchPropertiesArgs struct {
 	EnableResourceNameDnsARecord    pulumi.BoolPtrInput   `pulumi:"enableResourceNameDnsARecord"`
 	EnableResourceNameDnsAaaaRecord pulumi.BoolPtrInput   `pulumi:"enableResourceNameDnsAaaaRecord"`
@@ -19138,9 +19156,9 @@ func (i *privateDnsNameOptionsOnLaunchPropertiesPtrType) ToPrivateDnsNameOptions
 // The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries to the instances should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
 //
 //	Available options:
-//	 + EnableResourceNameDnsAAAARecord (true | false)
-//	+ EnableResourceNameDnsARecord (true | false)
-//	+ HostnameType (ip-name | resource-name)
+//	 +  EnableResourceNameDnsAAAARecord (true | false)
+//	 +  EnableResourceNameDnsARecord (true | false)
+//	 +  HostnameType (ip-name | resource-name)
 type PrivateDnsNameOptionsOnLaunchPropertiesOutput struct{ *pulumi.OutputState }
 
 func (PrivateDnsNameOptionsOnLaunchPropertiesOutput) ElementType() reflect.Type {
@@ -19244,7 +19262,6 @@ type SecurityGroupEgressType struct {
 	DestinationSecurityGroupId *string `pulumi:"destinationSecurityGroupId"`
 	FromPort                   *int    `pulumi:"fromPort"`
 	IpProtocol                 string  `pulumi:"ipProtocol"`
-	SourceSecurityGroupId      *string `pulumi:"sourceSecurityGroupId"`
 	ToPort                     *int    `pulumi:"toPort"`
 }
 
@@ -19267,7 +19284,6 @@ type SecurityGroupEgressTypeArgs struct {
 	DestinationSecurityGroupId pulumi.StringPtrInput `pulumi:"destinationSecurityGroupId"`
 	FromPort                   pulumi.IntPtrInput    `pulumi:"fromPort"`
 	IpProtocol                 pulumi.StringInput    `pulumi:"ipProtocol"`
-	SourceSecurityGroupId      pulumi.StringPtrInput `pulumi:"sourceSecurityGroupId"`
 	ToPort                     pulumi.IntPtrInput    `pulumi:"toPort"`
 }
 
@@ -19348,10 +19364,6 @@ func (o SecurityGroupEgressTypeOutput) FromPort() pulumi.IntPtrOutput {
 
 func (o SecurityGroupEgressTypeOutput) IpProtocol() pulumi.StringOutput {
 	return o.ApplyT(func(v SecurityGroupEgressType) string { return v.IpProtocol }).(pulumi.StringOutput)
-}
-
-func (o SecurityGroupEgressTypeOutput) SourceSecurityGroupId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SecurityGroupEgressType) *string { return v.SourceSecurityGroupId }).(pulumi.StringPtrOutput)
 }
 
 func (o SecurityGroupEgressTypeOutput) ToPort() pulumi.IntPtrOutput {

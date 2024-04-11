@@ -28,7 +28,6 @@ export interface GetDomainResult {
     readonly autoSubDomainIamRole?: string;
     readonly certificate?: outputs.amplify.DomainCertificate;
     readonly certificateRecord?: string;
-    readonly certificateSettings?: outputs.amplify.DomainCertificateSettings;
     readonly domainStatus?: string;
     readonly enableAutoSubDomain?: boolean;
     readonly statusReason?: string;

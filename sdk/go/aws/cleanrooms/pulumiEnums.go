@@ -1779,19 +1779,30 @@ func (in *configuredTableJoinRequiredOptionPtr) ToConfiguredTableJoinRequiredOpt
 type ConfiguredTableScalarFunctions string
 
 const (
-	ConfiguredTableScalarFunctionsTrunc    = ConfiguredTableScalarFunctions("TRUNC")
-	ConfiguredTableScalarFunctionsAbs      = ConfiguredTableScalarFunctions("ABS")
-	ConfiguredTableScalarFunctionsCeiling  = ConfiguredTableScalarFunctions("CEILING")
-	ConfiguredTableScalarFunctionsFloor    = ConfiguredTableScalarFunctions("FLOOR")
-	ConfiguredTableScalarFunctionsLn       = ConfiguredTableScalarFunctions("LN")
-	ConfiguredTableScalarFunctionsLog      = ConfiguredTableScalarFunctions("LOG")
-	ConfiguredTableScalarFunctionsRound    = ConfiguredTableScalarFunctions("ROUND")
-	ConfiguredTableScalarFunctionsSqrt     = ConfiguredTableScalarFunctions("SQRT")
-	ConfiguredTableScalarFunctionsCast     = ConfiguredTableScalarFunctions("CAST")
-	ConfiguredTableScalarFunctionsLower    = ConfiguredTableScalarFunctions("LOWER")
-	ConfiguredTableScalarFunctionsRtrim    = ConfiguredTableScalarFunctions("RTRIM")
-	ConfiguredTableScalarFunctionsUpper    = ConfiguredTableScalarFunctions("UPPER")
-	ConfiguredTableScalarFunctionsCoalesce = ConfiguredTableScalarFunctions("COALESCE")
+	ConfiguredTableScalarFunctionsTrunc       = ConfiguredTableScalarFunctions("TRUNC")
+	ConfiguredTableScalarFunctionsAbs         = ConfiguredTableScalarFunctions("ABS")
+	ConfiguredTableScalarFunctionsCeiling     = ConfiguredTableScalarFunctions("CEILING")
+	ConfiguredTableScalarFunctionsFloor       = ConfiguredTableScalarFunctions("FLOOR")
+	ConfiguredTableScalarFunctionsLn          = ConfiguredTableScalarFunctions("LN")
+	ConfiguredTableScalarFunctionsLog         = ConfiguredTableScalarFunctions("LOG")
+	ConfiguredTableScalarFunctionsRound       = ConfiguredTableScalarFunctions("ROUND")
+	ConfiguredTableScalarFunctionsSqrt        = ConfiguredTableScalarFunctions("SQRT")
+	ConfiguredTableScalarFunctionsCast        = ConfiguredTableScalarFunctions("CAST")
+	ConfiguredTableScalarFunctionsLower       = ConfiguredTableScalarFunctions("LOWER")
+	ConfiguredTableScalarFunctionsRtrim       = ConfiguredTableScalarFunctions("RTRIM")
+	ConfiguredTableScalarFunctionsUpper       = ConfiguredTableScalarFunctions("UPPER")
+	ConfiguredTableScalarFunctionsCoalesce    = ConfiguredTableScalarFunctions("COALESCE")
+	ConfiguredTableScalarFunctionsConvert     = ConfiguredTableScalarFunctions("CONVERT")
+	ConfiguredTableScalarFunctionsCurrentDate = ConfiguredTableScalarFunctions("CURRENT_DATE")
+	ConfiguredTableScalarFunctionsDateadd     = ConfiguredTableScalarFunctions("DATEADD")
+	ConfiguredTableScalarFunctionsExtract     = ConfiguredTableScalarFunctions("EXTRACT")
+	ConfiguredTableScalarFunctionsGetdate     = ConfiguredTableScalarFunctions("GETDATE")
+	ConfiguredTableScalarFunctionsSubstring   = ConfiguredTableScalarFunctions("SUBSTRING")
+	ConfiguredTableScalarFunctionsToChar      = ConfiguredTableScalarFunctions("TO_CHAR")
+	ConfiguredTableScalarFunctionsToDate      = ConfiguredTableScalarFunctions("TO_DATE")
+	ConfiguredTableScalarFunctionsToNumber    = ConfiguredTableScalarFunctions("TO_NUMBER")
+	ConfiguredTableScalarFunctionsToTimestamp = ConfiguredTableScalarFunctions("TO_TIMESTAMP")
+	ConfiguredTableScalarFunctionsTrim        = ConfiguredTableScalarFunctions("TRIM")
 )
 
 func (ConfiguredTableScalarFunctions) ElementType() reflect.Type {
@@ -1929,6 +1940,17 @@ func (o ConfiguredTableScalarFunctionsPtrOutput) ToStringPtrOutputWithContext(ct
 //	ConfiguredTableScalarFunctionsRtrim
 //	ConfiguredTableScalarFunctionsUpper
 //	ConfiguredTableScalarFunctionsCoalesce
+//	ConfiguredTableScalarFunctionsConvert
+//	ConfiguredTableScalarFunctionsCurrentDate
+//	ConfiguredTableScalarFunctionsDateadd
+//	ConfiguredTableScalarFunctionsExtract
+//	ConfiguredTableScalarFunctionsGetdate
+//	ConfiguredTableScalarFunctionsSubstring
+//	ConfiguredTableScalarFunctionsToChar
+//	ConfiguredTableScalarFunctionsToDate
+//	ConfiguredTableScalarFunctionsToNumber
+//	ConfiguredTableScalarFunctionsToTimestamp
+//	ConfiguredTableScalarFunctionsTrim
 type ConfiguredTableScalarFunctionsInput interface {
 	pulumi.Input
 
@@ -2338,6 +2360,334 @@ func (in *membershipResultFormatPtr) ToMembershipResultFormatPtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(MembershipResultFormatPtrOutput)
 }
 
+type PrivacyBudgetTemplateAutoRefresh string
+
+const (
+	PrivacyBudgetTemplateAutoRefreshCalendarMonth = PrivacyBudgetTemplateAutoRefresh("CALENDAR_MONTH")
+	PrivacyBudgetTemplateAutoRefreshNone          = PrivacyBudgetTemplateAutoRefresh("NONE")
+)
+
+func (PrivacyBudgetTemplateAutoRefresh) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivacyBudgetTemplateAutoRefresh)(nil)).Elem()
+}
+
+func (e PrivacyBudgetTemplateAutoRefresh) ToPrivacyBudgetTemplateAutoRefreshOutput() PrivacyBudgetTemplateAutoRefreshOutput {
+	return pulumi.ToOutput(e).(PrivacyBudgetTemplateAutoRefreshOutput)
+}
+
+func (e PrivacyBudgetTemplateAutoRefresh) ToPrivacyBudgetTemplateAutoRefreshOutputWithContext(ctx context.Context) PrivacyBudgetTemplateAutoRefreshOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PrivacyBudgetTemplateAutoRefreshOutput)
+}
+
+func (e PrivacyBudgetTemplateAutoRefresh) ToPrivacyBudgetTemplateAutoRefreshPtrOutput() PrivacyBudgetTemplateAutoRefreshPtrOutput {
+	return e.ToPrivacyBudgetTemplateAutoRefreshPtrOutputWithContext(context.Background())
+}
+
+func (e PrivacyBudgetTemplateAutoRefresh) ToPrivacyBudgetTemplateAutoRefreshPtrOutputWithContext(ctx context.Context) PrivacyBudgetTemplateAutoRefreshPtrOutput {
+	return PrivacyBudgetTemplateAutoRefresh(e).ToPrivacyBudgetTemplateAutoRefreshOutputWithContext(ctx).ToPrivacyBudgetTemplateAutoRefreshPtrOutputWithContext(ctx)
+}
+
+func (e PrivacyBudgetTemplateAutoRefresh) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PrivacyBudgetTemplateAutoRefresh) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PrivacyBudgetTemplateAutoRefresh) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PrivacyBudgetTemplateAutoRefresh) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PrivacyBudgetTemplateAutoRefreshOutput struct{ *pulumi.OutputState }
+
+func (PrivacyBudgetTemplateAutoRefreshOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivacyBudgetTemplateAutoRefresh)(nil)).Elem()
+}
+
+func (o PrivacyBudgetTemplateAutoRefreshOutput) ToPrivacyBudgetTemplateAutoRefreshOutput() PrivacyBudgetTemplateAutoRefreshOutput {
+	return o
+}
+
+func (o PrivacyBudgetTemplateAutoRefreshOutput) ToPrivacyBudgetTemplateAutoRefreshOutputWithContext(ctx context.Context) PrivacyBudgetTemplateAutoRefreshOutput {
+	return o
+}
+
+func (o PrivacyBudgetTemplateAutoRefreshOutput) ToPrivacyBudgetTemplateAutoRefreshPtrOutput() PrivacyBudgetTemplateAutoRefreshPtrOutput {
+	return o.ToPrivacyBudgetTemplateAutoRefreshPtrOutputWithContext(context.Background())
+}
+
+func (o PrivacyBudgetTemplateAutoRefreshOutput) ToPrivacyBudgetTemplateAutoRefreshPtrOutputWithContext(ctx context.Context) PrivacyBudgetTemplateAutoRefreshPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivacyBudgetTemplateAutoRefresh) *PrivacyBudgetTemplateAutoRefresh {
+		return &v
+	}).(PrivacyBudgetTemplateAutoRefreshPtrOutput)
+}
+
+func (o PrivacyBudgetTemplateAutoRefreshOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PrivacyBudgetTemplateAutoRefreshOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PrivacyBudgetTemplateAutoRefresh) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PrivacyBudgetTemplateAutoRefreshOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PrivacyBudgetTemplateAutoRefreshOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PrivacyBudgetTemplateAutoRefresh) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PrivacyBudgetTemplateAutoRefreshPtrOutput struct{ *pulumi.OutputState }
+
+func (PrivacyBudgetTemplateAutoRefreshPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivacyBudgetTemplateAutoRefresh)(nil)).Elem()
+}
+
+func (o PrivacyBudgetTemplateAutoRefreshPtrOutput) ToPrivacyBudgetTemplateAutoRefreshPtrOutput() PrivacyBudgetTemplateAutoRefreshPtrOutput {
+	return o
+}
+
+func (o PrivacyBudgetTemplateAutoRefreshPtrOutput) ToPrivacyBudgetTemplateAutoRefreshPtrOutputWithContext(ctx context.Context) PrivacyBudgetTemplateAutoRefreshPtrOutput {
+	return o
+}
+
+func (o PrivacyBudgetTemplateAutoRefreshPtrOutput) Elem() PrivacyBudgetTemplateAutoRefreshOutput {
+	return o.ApplyT(func(v *PrivacyBudgetTemplateAutoRefresh) PrivacyBudgetTemplateAutoRefresh {
+		if v != nil {
+			return *v
+		}
+		var ret PrivacyBudgetTemplateAutoRefresh
+		return ret
+	}).(PrivacyBudgetTemplateAutoRefreshOutput)
+}
+
+func (o PrivacyBudgetTemplateAutoRefreshPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PrivacyBudgetTemplateAutoRefreshPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PrivacyBudgetTemplateAutoRefresh) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PrivacyBudgetTemplateAutoRefreshInput is an input type that accepts values of the PrivacyBudgetTemplateAutoRefresh enum
+// A concrete instance of `PrivacyBudgetTemplateAutoRefreshInput` can be one of the following:
+//
+//	PrivacyBudgetTemplateAutoRefreshCalendarMonth
+//	PrivacyBudgetTemplateAutoRefreshNone
+type PrivacyBudgetTemplateAutoRefreshInput interface {
+	pulumi.Input
+
+	ToPrivacyBudgetTemplateAutoRefreshOutput() PrivacyBudgetTemplateAutoRefreshOutput
+	ToPrivacyBudgetTemplateAutoRefreshOutputWithContext(context.Context) PrivacyBudgetTemplateAutoRefreshOutput
+}
+
+var privacyBudgetTemplateAutoRefreshPtrType = reflect.TypeOf((**PrivacyBudgetTemplateAutoRefresh)(nil)).Elem()
+
+type PrivacyBudgetTemplateAutoRefreshPtrInput interface {
+	pulumi.Input
+
+	ToPrivacyBudgetTemplateAutoRefreshPtrOutput() PrivacyBudgetTemplateAutoRefreshPtrOutput
+	ToPrivacyBudgetTemplateAutoRefreshPtrOutputWithContext(context.Context) PrivacyBudgetTemplateAutoRefreshPtrOutput
+}
+
+type privacyBudgetTemplateAutoRefreshPtr string
+
+func PrivacyBudgetTemplateAutoRefreshPtr(v string) PrivacyBudgetTemplateAutoRefreshPtrInput {
+	return (*privacyBudgetTemplateAutoRefreshPtr)(&v)
+}
+
+func (*privacyBudgetTemplateAutoRefreshPtr) ElementType() reflect.Type {
+	return privacyBudgetTemplateAutoRefreshPtrType
+}
+
+func (in *privacyBudgetTemplateAutoRefreshPtr) ToPrivacyBudgetTemplateAutoRefreshPtrOutput() PrivacyBudgetTemplateAutoRefreshPtrOutput {
+	return pulumi.ToOutput(in).(PrivacyBudgetTemplateAutoRefreshPtrOutput)
+}
+
+func (in *privacyBudgetTemplateAutoRefreshPtr) ToPrivacyBudgetTemplateAutoRefreshPtrOutputWithContext(ctx context.Context) PrivacyBudgetTemplateAutoRefreshPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PrivacyBudgetTemplateAutoRefreshPtrOutput)
+}
+
+type PrivacyBudgetTemplatePrivacyBudgetType string
+
+const (
+	PrivacyBudgetTemplatePrivacyBudgetTypeDifferentialPrivacy = PrivacyBudgetTemplatePrivacyBudgetType("DIFFERENTIAL_PRIVACY")
+)
+
+func (PrivacyBudgetTemplatePrivacyBudgetType) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivacyBudgetTemplatePrivacyBudgetType)(nil)).Elem()
+}
+
+func (e PrivacyBudgetTemplatePrivacyBudgetType) ToPrivacyBudgetTemplatePrivacyBudgetTypeOutput() PrivacyBudgetTemplatePrivacyBudgetTypeOutput {
+	return pulumi.ToOutput(e).(PrivacyBudgetTemplatePrivacyBudgetTypeOutput)
+}
+
+func (e PrivacyBudgetTemplatePrivacyBudgetType) ToPrivacyBudgetTemplatePrivacyBudgetTypeOutputWithContext(ctx context.Context) PrivacyBudgetTemplatePrivacyBudgetTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PrivacyBudgetTemplatePrivacyBudgetTypeOutput)
+}
+
+func (e PrivacyBudgetTemplatePrivacyBudgetType) ToPrivacyBudgetTemplatePrivacyBudgetTypePtrOutput() PrivacyBudgetTemplatePrivacyBudgetTypePtrOutput {
+	return e.ToPrivacyBudgetTemplatePrivacyBudgetTypePtrOutputWithContext(context.Background())
+}
+
+func (e PrivacyBudgetTemplatePrivacyBudgetType) ToPrivacyBudgetTemplatePrivacyBudgetTypePtrOutputWithContext(ctx context.Context) PrivacyBudgetTemplatePrivacyBudgetTypePtrOutput {
+	return PrivacyBudgetTemplatePrivacyBudgetType(e).ToPrivacyBudgetTemplatePrivacyBudgetTypeOutputWithContext(ctx).ToPrivacyBudgetTemplatePrivacyBudgetTypePtrOutputWithContext(ctx)
+}
+
+func (e PrivacyBudgetTemplatePrivacyBudgetType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PrivacyBudgetTemplatePrivacyBudgetType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PrivacyBudgetTemplatePrivacyBudgetType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PrivacyBudgetTemplatePrivacyBudgetType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PrivacyBudgetTemplatePrivacyBudgetTypeOutput struct{ *pulumi.OutputState }
+
+func (PrivacyBudgetTemplatePrivacyBudgetTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivacyBudgetTemplatePrivacyBudgetType)(nil)).Elem()
+}
+
+func (o PrivacyBudgetTemplatePrivacyBudgetTypeOutput) ToPrivacyBudgetTemplatePrivacyBudgetTypeOutput() PrivacyBudgetTemplatePrivacyBudgetTypeOutput {
+	return o
+}
+
+func (o PrivacyBudgetTemplatePrivacyBudgetTypeOutput) ToPrivacyBudgetTemplatePrivacyBudgetTypeOutputWithContext(ctx context.Context) PrivacyBudgetTemplatePrivacyBudgetTypeOutput {
+	return o
+}
+
+func (o PrivacyBudgetTemplatePrivacyBudgetTypeOutput) ToPrivacyBudgetTemplatePrivacyBudgetTypePtrOutput() PrivacyBudgetTemplatePrivacyBudgetTypePtrOutput {
+	return o.ToPrivacyBudgetTemplatePrivacyBudgetTypePtrOutputWithContext(context.Background())
+}
+
+func (o PrivacyBudgetTemplatePrivacyBudgetTypeOutput) ToPrivacyBudgetTemplatePrivacyBudgetTypePtrOutputWithContext(ctx context.Context) PrivacyBudgetTemplatePrivacyBudgetTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivacyBudgetTemplatePrivacyBudgetType) *PrivacyBudgetTemplatePrivacyBudgetType {
+		return &v
+	}).(PrivacyBudgetTemplatePrivacyBudgetTypePtrOutput)
+}
+
+func (o PrivacyBudgetTemplatePrivacyBudgetTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PrivacyBudgetTemplatePrivacyBudgetTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PrivacyBudgetTemplatePrivacyBudgetType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PrivacyBudgetTemplatePrivacyBudgetTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PrivacyBudgetTemplatePrivacyBudgetTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PrivacyBudgetTemplatePrivacyBudgetType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PrivacyBudgetTemplatePrivacyBudgetTypePtrOutput struct{ *pulumi.OutputState }
+
+func (PrivacyBudgetTemplatePrivacyBudgetTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivacyBudgetTemplatePrivacyBudgetType)(nil)).Elem()
+}
+
+func (o PrivacyBudgetTemplatePrivacyBudgetTypePtrOutput) ToPrivacyBudgetTemplatePrivacyBudgetTypePtrOutput() PrivacyBudgetTemplatePrivacyBudgetTypePtrOutput {
+	return o
+}
+
+func (o PrivacyBudgetTemplatePrivacyBudgetTypePtrOutput) ToPrivacyBudgetTemplatePrivacyBudgetTypePtrOutputWithContext(ctx context.Context) PrivacyBudgetTemplatePrivacyBudgetTypePtrOutput {
+	return o
+}
+
+func (o PrivacyBudgetTemplatePrivacyBudgetTypePtrOutput) Elem() PrivacyBudgetTemplatePrivacyBudgetTypeOutput {
+	return o.ApplyT(func(v *PrivacyBudgetTemplatePrivacyBudgetType) PrivacyBudgetTemplatePrivacyBudgetType {
+		if v != nil {
+			return *v
+		}
+		var ret PrivacyBudgetTemplatePrivacyBudgetType
+		return ret
+	}).(PrivacyBudgetTemplatePrivacyBudgetTypeOutput)
+}
+
+func (o PrivacyBudgetTemplatePrivacyBudgetTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PrivacyBudgetTemplatePrivacyBudgetTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PrivacyBudgetTemplatePrivacyBudgetType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PrivacyBudgetTemplatePrivacyBudgetTypeInput is an input type that accepts values of the PrivacyBudgetTemplatePrivacyBudgetType enum
+// A concrete instance of `PrivacyBudgetTemplatePrivacyBudgetTypeInput` can be one of the following:
+//
+//	PrivacyBudgetTemplatePrivacyBudgetTypeDifferentialPrivacy
+type PrivacyBudgetTemplatePrivacyBudgetTypeInput interface {
+	pulumi.Input
+
+	ToPrivacyBudgetTemplatePrivacyBudgetTypeOutput() PrivacyBudgetTemplatePrivacyBudgetTypeOutput
+	ToPrivacyBudgetTemplatePrivacyBudgetTypeOutputWithContext(context.Context) PrivacyBudgetTemplatePrivacyBudgetTypeOutput
+}
+
+var privacyBudgetTemplatePrivacyBudgetTypePtrType = reflect.TypeOf((**PrivacyBudgetTemplatePrivacyBudgetType)(nil)).Elem()
+
+type PrivacyBudgetTemplatePrivacyBudgetTypePtrInput interface {
+	pulumi.Input
+
+	ToPrivacyBudgetTemplatePrivacyBudgetTypePtrOutput() PrivacyBudgetTemplatePrivacyBudgetTypePtrOutput
+	ToPrivacyBudgetTemplatePrivacyBudgetTypePtrOutputWithContext(context.Context) PrivacyBudgetTemplatePrivacyBudgetTypePtrOutput
+}
+
+type privacyBudgetTemplatePrivacyBudgetTypePtr string
+
+func PrivacyBudgetTemplatePrivacyBudgetTypePtr(v string) PrivacyBudgetTemplatePrivacyBudgetTypePtrInput {
+	return (*privacyBudgetTemplatePrivacyBudgetTypePtr)(&v)
+}
+
+func (*privacyBudgetTemplatePrivacyBudgetTypePtr) ElementType() reflect.Type {
+	return privacyBudgetTemplatePrivacyBudgetTypePtrType
+}
+
+func (in *privacyBudgetTemplatePrivacyBudgetTypePtr) ToPrivacyBudgetTemplatePrivacyBudgetTypePtrOutput() PrivacyBudgetTemplatePrivacyBudgetTypePtrOutput {
+	return pulumi.ToOutput(in).(PrivacyBudgetTemplatePrivacyBudgetTypePtrOutput)
+}
+
+func (in *privacyBudgetTemplatePrivacyBudgetTypePtr) ToPrivacyBudgetTemplatePrivacyBudgetTypePtrOutputWithContext(ctx context.Context) PrivacyBudgetTemplatePrivacyBudgetTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PrivacyBudgetTemplatePrivacyBudgetTypePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateAnalysisParameterTypeInput)(nil)).Elem(), AnalysisTemplateAnalysisParameterType("SMALLINT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateAnalysisParameterTypePtrInput)(nil)).Elem(), AnalysisTemplateAnalysisParameterType("SMALLINT"))
@@ -2368,6 +2718,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MembershipQueryLogStatusPtrInput)(nil)).Elem(), MembershipQueryLogStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MembershipResultFormatInput)(nil)).Elem(), MembershipResultFormat("CSV"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MembershipResultFormatPtrInput)(nil)).Elem(), MembershipResultFormat("CSV"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivacyBudgetTemplateAutoRefreshInput)(nil)).Elem(), PrivacyBudgetTemplateAutoRefresh("CALENDAR_MONTH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivacyBudgetTemplateAutoRefreshPtrInput)(nil)).Elem(), PrivacyBudgetTemplateAutoRefresh("CALENDAR_MONTH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivacyBudgetTemplatePrivacyBudgetTypeInput)(nil)).Elem(), PrivacyBudgetTemplatePrivacyBudgetType("DIFFERENTIAL_PRIVACY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivacyBudgetTemplatePrivacyBudgetTypePtrInput)(nil)).Elem(), PrivacyBudgetTemplatePrivacyBudgetType("DIFFERENTIAL_PRIVACY"))
 	pulumi.RegisterOutputType(AnalysisTemplateAnalysisParameterTypeOutput{})
 	pulumi.RegisterOutputType(AnalysisTemplateAnalysisParameterTypePtrOutput{})
 	pulumi.RegisterOutputType(AnalysisTemplateFormatOutput{})
@@ -2397,4 +2751,8 @@ func init() {
 	pulumi.RegisterOutputType(MembershipQueryLogStatusPtrOutput{})
 	pulumi.RegisterOutputType(MembershipResultFormatOutput{})
 	pulumi.RegisterOutputType(MembershipResultFormatPtrOutput{})
+	pulumi.RegisterOutputType(PrivacyBudgetTemplateAutoRefreshOutput{})
+	pulumi.RegisterOutputType(PrivacyBudgetTemplateAutoRefreshPtrOutput{})
+	pulumi.RegisterOutputType(PrivacyBudgetTemplatePrivacyBudgetTypeOutput{})
+	pulumi.RegisterOutputType(PrivacyBudgetTemplatePrivacyBudgetTypePtrOutput{})
 }

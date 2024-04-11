@@ -17,7 +17,7 @@ export const ServerlessCacheDataStorageUnit = {
 } as const;
 
 /**
- * The unix of cached data capacity of the Serverless Cache.
+ * The unit of cached data capacity of the Serverless Cache.
  */
 export type ServerlessCacheDataStorageUnit = (typeof ServerlessCacheDataStorageUnit)[keyof typeof ServerlessCacheDataStorageUnit];
 

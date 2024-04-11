@@ -211,10 +211,10 @@ class FileSystemBackupPolicy(dict):
     The backup policy turns automatic backups for the file system on or off.
     """
     def __init__(__self__, *,
-                 status: str):
+                 status: 'FileSystemBackupPolicyStatus'):
         """
         The backup policy turns automatic backups for the file system on or off.
-        :param str status: Set the backup policy status for the file system.
+        :param 'FileSystemBackupPolicyStatus' status: Set the backup policy status for the file system.
                  +   *ENABLED* - Turns automatic backups on for the file system. 
                  +   *DISABLED* - Turns automatic backups off for the file system.
         """
@@ -222,7 +222,7 @@ class FileSystemBackupPolicy(dict):
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> 'FileSystemBackupPolicyStatus':
         """
         Set the backup policy status for the file system.
           +   *ENABLED* - Turns automatic backups on for the file system. 

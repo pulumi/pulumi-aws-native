@@ -37,13 +37,17 @@ type LookupSyncConfigurationResult struct {
 	// the ID of the entity that owns the repository.
 	OwnerId *string `pulumi:"ownerId"`
 	// The name of the external provider where your third-party code repository is configured.
-	ProviderType *string `pulumi:"providerType"`
+	ProviderType *SyncConfigurationProviderType `pulumi:"providerType"`
+	// Whether to enable or disable publishing of deployment status to source providers.
+	PublishDeploymentStatus *SyncConfigurationPublishDeploymentStatus `pulumi:"publishDeploymentStatus"`
 	// A UUID that uniquely identifies the RepositoryLink that the SyncConfig is associated with.
 	RepositoryLinkId *string `pulumi:"repositoryLinkId"`
 	// The name of the repository that is being synced to.
 	RepositoryName *string `pulumi:"repositoryName"`
 	// The IAM Role that allows AWS to update CloudFormation stacks based on content in the specified repository.
 	RoleArn *string `pulumi:"roleArn"`
+	// When to trigger Git sync to begin the stack update.
+	TriggerResourceUpdateOn *SyncConfigurationTriggerResourceUpdateOn `pulumi:"triggerResourceUpdateOn"`
 }
 
 func LookupSyncConfigurationOutput(ctx *pulumi.Context, args LookupSyncConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupSyncConfigurationResultOutput {
@@ -100,8 +104,15 @@ func (o LookupSyncConfigurationResultOutput) OwnerId() pulumi.StringPtrOutput {
 }
 
 // The name of the external provider where your third-party code repository is configured.
-func (o LookupSyncConfigurationResultOutput) ProviderType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupSyncConfigurationResult) *string { return v.ProviderType }).(pulumi.StringPtrOutput)
+func (o LookupSyncConfigurationResultOutput) ProviderType() SyncConfigurationProviderTypePtrOutput {
+	return o.ApplyT(func(v LookupSyncConfigurationResult) *SyncConfigurationProviderType { return v.ProviderType }).(SyncConfigurationProviderTypePtrOutput)
+}
+
+// Whether to enable or disable publishing of deployment status to source providers.
+func (o LookupSyncConfigurationResultOutput) PublishDeploymentStatus() SyncConfigurationPublishDeploymentStatusPtrOutput {
+	return o.ApplyT(func(v LookupSyncConfigurationResult) *SyncConfigurationPublishDeploymentStatus {
+		return v.PublishDeploymentStatus
+	}).(SyncConfigurationPublishDeploymentStatusPtrOutput)
 }
 
 // A UUID that uniquely identifies the RepositoryLink that the SyncConfig is associated with.
@@ -117,6 +128,13 @@ func (o LookupSyncConfigurationResultOutput) RepositoryName() pulumi.StringPtrOu
 // The IAM Role that allows AWS to update CloudFormation stacks based on content in the specified repository.
 func (o LookupSyncConfigurationResultOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSyncConfigurationResult) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
+}
+
+// When to trigger Git sync to begin the stack update.
+func (o LookupSyncConfigurationResultOutput) TriggerResourceUpdateOn() SyncConfigurationTriggerResourceUpdateOnPtrOutput {
+	return o.ApplyT(func(v LookupSyncConfigurationResult) *SyncConfigurationTriggerResourceUpdateOn {
+		return v.TriggerResourceUpdateOn
+	}).(SyncConfigurationTriggerResourceUpdateOnPtrOutput)
 }
 
 func init() {

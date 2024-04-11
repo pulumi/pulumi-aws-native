@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -48,6 +49,8 @@ type LookupCompositeAlarmResult struct {
 	InsufficientDataActions []string `pulumi:"insufficientDataActions"`
 	// The actions to execute when this alarm transitions to the OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
 	OkActions []string `pulumi:"okActions"`
+	// A list of key-value pairs to associate with the composite alarm. You can associate as many as 50 tags with an alarm.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupCompositeAlarmOutput(ctx *pulumi.Context, args LookupCompositeAlarmOutputArgs, opts ...pulumi.InvokeOption) LookupCompositeAlarmResultOutput {
@@ -134,6 +137,11 @@ func (o LookupCompositeAlarmResultOutput) InsufficientDataActions() pulumi.Strin
 // The actions to execute when this alarm transitions to the OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
 func (o LookupCompositeAlarmResultOutput) OkActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupCompositeAlarmResult) []string { return v.OkActions }).(pulumi.StringArrayOutput)
+}
+
+// A list of key-value pairs to associate with the composite alarm. You can associate as many as 50 tags with an alarm.
+func (o LookupCompositeAlarmResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupCompositeAlarmResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -38,6 +39,8 @@ type CompositeAlarm struct {
 	InsufficientDataActions pulumi.StringArrayOutput `pulumi:"insufficientDataActions"`
 	// The actions to execute when this alarm transitions to the OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
 	OkActions pulumi.StringArrayOutput `pulumi:"okActions"`
+	// A list of key-value pairs to associate with the composite alarm. You can associate as many as 50 tags with an alarm.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewCompositeAlarm registers a new resource with the given unique name, arguments, and options.
@@ -107,6 +110,8 @@ type compositeAlarmArgs struct {
 	InsufficientDataActions []string `pulumi:"insufficientDataActions"`
 	// The actions to execute when this alarm transitions to the OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
 	OkActions []string `pulumi:"okActions"`
+	// A list of key-value pairs to associate with the composite alarm. You can associate as many as 50 tags with an alarm.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a CompositeAlarm resource.
@@ -131,6 +136,8 @@ type CompositeAlarmArgs struct {
 	InsufficientDataActions pulumi.StringArrayInput
 	// The actions to execute when this alarm transitions to the OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
 	OkActions pulumi.StringArrayInput
+	// A list of key-value pairs to associate with the composite alarm. You can associate as many as 50 tags with an alarm.
+	Tags aws.TagArrayInput
 }
 
 func (CompositeAlarmArgs) ElementType() reflect.Type {
@@ -223,6 +230,11 @@ func (o CompositeAlarmOutput) InsufficientDataActions() pulumi.StringArrayOutput
 // The actions to execute when this alarm transitions to the OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
 func (o CompositeAlarmOutput) OkActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CompositeAlarm) pulumi.StringArrayOutput { return v.OkActions }).(pulumi.StringArrayOutput)
+}
+
+// A list of key-value pairs to associate with the composite alarm. You can associate as many as 50 tags with an alarm.
+func (o CompositeAlarmOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *CompositeAlarm) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

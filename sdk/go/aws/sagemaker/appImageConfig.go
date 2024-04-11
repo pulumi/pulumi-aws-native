@@ -20,6 +20,8 @@ type AppImageConfig struct {
 	AppImageConfigArn pulumi.StringOutput `pulumi:"appImageConfigArn"`
 	// The Name of the AppImageConfig.
 	AppImageConfigName pulumi.StringOutput `pulumi:"appImageConfigName"`
+	// The CodeEditorAppImageConfig.
+	CodeEditorAppImageConfig AppImageConfigCodeEditorAppImageConfigPtrOutput `pulumi:"codeEditorAppImageConfig"`
 	// The JupyterLabAppImageConfig.
 	JupyterLabAppImageConfig AppImageConfigJupyterLabAppImageConfigPtrOutput `pulumi:"jupyterLabAppImageConfig"`
 	// The KernelGatewayImageConfig.
@@ -75,6 +77,8 @@ func (AppImageConfigState) ElementType() reflect.Type {
 type appImageConfigArgs struct {
 	// The Name of the AppImageConfig.
 	AppImageConfigName *string `pulumi:"appImageConfigName"`
+	// The CodeEditorAppImageConfig.
+	CodeEditorAppImageConfig *AppImageConfigCodeEditorAppImageConfig `pulumi:"codeEditorAppImageConfig"`
 	// The JupyterLabAppImageConfig.
 	JupyterLabAppImageConfig *AppImageConfigJupyterLabAppImageConfig `pulumi:"jupyterLabAppImageConfig"`
 	// The KernelGatewayImageConfig.
@@ -87,6 +91,8 @@ type appImageConfigArgs struct {
 type AppImageConfigArgs struct {
 	// The Name of the AppImageConfig.
 	AppImageConfigName pulumi.StringPtrInput
+	// The CodeEditorAppImageConfig.
+	CodeEditorAppImageConfig AppImageConfigCodeEditorAppImageConfigPtrInput
 	// The JupyterLabAppImageConfig.
 	JupyterLabAppImageConfig AppImageConfigJupyterLabAppImageConfigPtrInput
 	// The KernelGatewayImageConfig.
@@ -140,6 +146,13 @@ func (o AppImageConfigOutput) AppImageConfigArn() pulumi.StringOutput {
 // The Name of the AppImageConfig.
 func (o AppImageConfigOutput) AppImageConfigName() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppImageConfig) pulumi.StringOutput { return v.AppImageConfigName }).(pulumi.StringOutput)
+}
+
+// The CodeEditorAppImageConfig.
+func (o AppImageConfigOutput) CodeEditorAppImageConfig() AppImageConfigCodeEditorAppImageConfigPtrOutput {
+	return o.ApplyT(func(v *AppImageConfig) AppImageConfigCodeEditorAppImageConfigPtrOutput {
+		return v.CodeEditorAppImageConfig
+	}).(AppImageConfigCodeEditorAppImageConfigPtrOutput)
 }
 
 // The JupyterLabAppImageConfig.

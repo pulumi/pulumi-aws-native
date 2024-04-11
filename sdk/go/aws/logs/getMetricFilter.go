@@ -11,7 +11,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Specifies a metric filter that describes how CloudWatch Logs extracts information from logs and transforms it into Amazon CloudWatch metrics.
+// The “AWS::Logs::MetricFilter“ resource specifies a metric filter that describes how CWL extracts information from logs and transforms it into Amazon CloudWatch metrics. If you have multiple metric filters that are associated with a log group, all the filters are applied to the log streams in that group.
+//
+//	The maximum number of metric filters that can be associated with a log group is 100.
 func LookupMetricFilter(ctx *pulumi.Context, args *LookupMetricFilterArgs, opts ...pulumi.InvokeOption) (*LookupMetricFilterResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupMetricFilterResult
@@ -23,16 +25,16 @@ func LookupMetricFilter(ctx *pulumi.Context, args *LookupMetricFilterArgs, opts 
 }
 
 type LookupMetricFilterArgs struct {
-	// A name for the metric filter.
+	// The name of the metric filter.
 	FilterName string `pulumi:"filterName"`
-	// Existing log group that you want to associate with this filter.
+	// The name of an existing log group that you want to associate with this metric filter.
 	LogGroupName string `pulumi:"logGroupName"`
 }
 
 type LookupMetricFilterResult struct {
-	// Pattern that Logs follows to interpret each entry in a log.
+	// A filter pattern for extracting metric data out of ingested log events. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
 	FilterPattern *string `pulumi:"filterPattern"`
-	// A collection of information that defines how metric data gets emitted.
+	// The metric transformations.
 	MetricTransformations []MetricFilterMetricTransformation `pulumi:"metricTransformations"`
 }
 
@@ -50,9 +52,9 @@ func LookupMetricFilterOutput(ctx *pulumi.Context, args LookupMetricFilterOutput
 }
 
 type LookupMetricFilterOutputArgs struct {
-	// A name for the metric filter.
+	// The name of the metric filter.
 	FilterName pulumi.StringInput `pulumi:"filterName"`
-	// Existing log group that you want to associate with this filter.
+	// The name of an existing log group that you want to associate with this metric filter.
 	LogGroupName pulumi.StringInput `pulumi:"logGroupName"`
 }
 
@@ -74,12 +76,12 @@ func (o LookupMetricFilterResultOutput) ToLookupMetricFilterResultOutputWithCont
 	return o
 }
 
-// Pattern that Logs follows to interpret each entry in a log.
+// A filter pattern for extracting metric data out of ingested log events. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
 func (o LookupMetricFilterResultOutput) FilterPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupMetricFilterResult) *string { return v.FilterPattern }).(pulumi.StringPtrOutput)
 }
 
-// A collection of information that defines how metric data gets emitted.
+// The metric transformations.
 func (o LookupMetricFilterResultOutput) MetricTransformations() MetricFilterMetricTransformationArrayOutput {
 	return o.ApplyT(func(v LookupMetricFilterResult) []MetricFilterMetricTransformation { return v.MetricTransformations }).(MetricFilterMetricTransformationArrayOutput)
 }

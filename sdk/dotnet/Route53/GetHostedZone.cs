@@ -106,7 +106,7 @@ namespace Pulumi.AwsNative.Route53
         public readonly Outputs.HostedZoneQueryLoggingConfig? QueryLoggingConfig;
         /// <summary>
         /// *Private hosted zones:* A complex type that contains information about the VPCs that are associated with the specified hosted zone.
-        ///  For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
+        ///   For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
         /// </summary>
         public readonly ImmutableArray<Outputs.HostedZoneVpc> Vpcs;
 

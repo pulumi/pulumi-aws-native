@@ -19,13 +19,22 @@ __all__ = [
 
 @pulumi.output_type
 class GetIntegrationResult:
-    def __init__(__self__, create_time=None, integration_arn=None, tags=None):
+    def __init__(__self__, create_time=None, data_filter=None, description=None, integration_arn=None, integration_name=None, tags=None):
         if create_time and not isinstance(create_time, str):
             raise TypeError("Expected argument 'create_time' to be a str")
         pulumi.set(__self__, "create_time", create_time)
+        if data_filter and not isinstance(data_filter, str):
+            raise TypeError("Expected argument 'data_filter' to be a str")
+        pulumi.set(__self__, "data_filter", data_filter)
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        pulumi.set(__self__, "description", description)
         if integration_arn and not isinstance(integration_arn, str):
             raise TypeError("Expected argument 'integration_arn' to be a str")
         pulumi.set(__self__, "integration_arn", integration_arn)
+        if integration_name and not isinstance(integration_name, str):
+            raise TypeError("Expected argument 'integration_name' to be a str")
+        pulumi.set(__self__, "integration_name", integration_name)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -36,12 +45,36 @@ class GetIntegrationResult:
         return pulumi.get(self, "create_time")
 
     @property
+    @pulumi.getter(name="dataFilter")
+    def data_filter(self) -> Optional[str]:
+        """
+        The data filter for the integration.
+        """
+        return pulumi.get(self, "data_filter")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of the integration.
+        """
+        return pulumi.get(self, "description")
+
+    @property
     @pulumi.getter(name="integrationArn")
     def integration_arn(self) -> Optional[str]:
         """
         The ARN of the integration.
         """
         return pulumi.get(self, "integration_arn")
+
+    @property
+    @pulumi.getter(name="integrationName")
+    def integration_name(self) -> Optional[str]:
+        """
+        The name of the integration.
+        """
+        return pulumi.get(self, "integration_name")
 
     @property
     @pulumi.getter
@@ -59,7 +92,10 @@ class AwaitableGetIntegrationResult(GetIntegrationResult):
             yield self
         return GetIntegrationResult(
             create_time=self.create_time,
+            data_filter=self.data_filter,
+            description=self.description,
             integration_arn=self.integration_arn,
+            integration_name=self.integration_name,
             tags=self.tags)
 
 
@@ -78,7 +114,10 @@ def get_integration(integration_arn: Optional[str] = None,
 
     return AwaitableGetIntegrationResult(
         create_time=pulumi.get(__ret__, 'create_time'),
+        data_filter=pulumi.get(__ret__, 'data_filter'),
+        description=pulumi.get(__ret__, 'description'),
         integration_arn=pulumi.get(__ret__, 'integration_arn'),
+        integration_name=pulumi.get(__ret__, 'integration_name'),
         tags=pulumi.get(__ret__, 'tags'))
 
 

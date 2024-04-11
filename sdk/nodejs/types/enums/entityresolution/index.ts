@@ -8,6 +8,26 @@ export const IdMappingWorkflowIdMappingTechniquesIdMappingType = {
 
 export type IdMappingWorkflowIdMappingTechniquesIdMappingType = (typeof IdMappingWorkflowIdMappingTechniquesIdMappingType)[keyof typeof IdMappingWorkflowIdMappingTechniquesIdMappingType];
 
+export const IdMappingWorkflowInputSourceType = {
+    Source: "SOURCE",
+    Target: "TARGET",
+} as const;
+
+export type IdMappingWorkflowInputSourceType = (typeof IdMappingWorkflowInputSourceType)[keyof typeof IdMappingWorkflowInputSourceType];
+
+export const IdNamespaceIdMappingWorkflowPropertiesIdMappingType = {
+    Provider: "PROVIDER",
+} as const;
+
+export type IdNamespaceIdMappingWorkflowPropertiesIdMappingType = (typeof IdNamespaceIdMappingWorkflowPropertiesIdMappingType)[keyof typeof IdNamespaceIdMappingWorkflowPropertiesIdMappingType];
+
+export const IdNamespaceType = {
+    Source: "SOURCE",
+    Target: "TARGET",
+} as const;
+
+export type IdNamespaceType = (typeof IdNamespaceType)[keyof typeof IdNamespaceType];
+
 export const MatchingWorkflowResolutionTechniquesResolutionType = {
     RuleMatching: "RULE_MATCHING",
     MlMatching: "ML_MATCHING",
@@ -22,6 +42,13 @@ export const MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel = {
 } as const;
 
 export type MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel = (typeof MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel)[keyof typeof MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel];
+
+export const PolicyStatementStatementEffect = {
+    Allow: "Allow",
+    Deny: "Deny",
+} as const;
+
+export type PolicyStatementStatementEffect = (typeof PolicyStatementStatementEffect)[keyof typeof PolicyStatementStatementEffect];
 
 export const SchemaMappingSchemaAttributeType = {
     Name: "NAME",

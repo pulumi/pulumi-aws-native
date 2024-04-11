@@ -55,6 +55,10 @@ namespace Pulumi.AwsNative.MediaTailor
         /// &lt;p&gt;The ARN of the channel.&lt;/p&gt;
         /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// &lt;p&gt;The list of audiences defined in channel.&lt;/p&gt;
+        /// </summary>
+        public readonly ImmutableArray<string> Audiences;
         public readonly Outputs.ChannelSlateSource? FillerSlate;
         public readonly Outputs.ChannelLogConfigurationForChannel? LogConfiguration;
         public readonly Pulumi.AwsNative.MediaTailor.ChannelPlaybackMode? PlaybackMode;
@@ -68,6 +72,8 @@ namespace Pulumi.AwsNative.MediaTailor
         private GetChannelResult(
             string? arn,
 
+            ImmutableArray<string> audiences,
+
             Outputs.ChannelSlateSource? fillerSlate,
 
             Outputs.ChannelLogConfigurationForChannel? logConfiguration,
@@ -79,6 +85,7 @@ namespace Pulumi.AwsNative.MediaTailor
             Outputs.ChannelTimeShiftConfiguration? timeShiftConfiguration)
         {
             Arn = arn;
+            Audiences = audiences;
             FillerSlate = fillerSlate;
             LogConfiguration = logConfiguration;
             PlaybackMode = playbackMode;

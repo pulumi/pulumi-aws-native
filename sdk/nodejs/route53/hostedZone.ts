@@ -82,7 +82,7 @@ export class HostedZone extends pulumi.CustomResource {
     public readonly queryLoggingConfig!: pulumi.Output<outputs.route53.HostedZoneQueryLoggingConfig | undefined>;
     /**
      * *Private hosted zones:* A complex type that contains information about the VPCs that are associated with the specified hosted zone.
-     *  For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
+     *   For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
      */
     public readonly vpcs!: pulumi.Output<outputs.route53.HostedZoneVpc[] | undefined>;
 
@@ -152,7 +152,7 @@ export interface HostedZoneArgs {
     queryLoggingConfig?: pulumi.Input<inputs.route53.HostedZoneQueryLoggingConfigArgs>;
     /**
      * *Private hosted zones:* A complex type that contains information about the VPCs that are associated with the specified hosted zone.
-     *  For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
+     *   For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
      */
     vpcs?: pulumi.Input<pulumi.Input<inputs.route53.HostedZoneVpcArgs>[]>;
 }

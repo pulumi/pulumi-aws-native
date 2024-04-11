@@ -51,6 +51,12 @@ namespace Pulumi.AwsNative.Ec2
         public Output<bool?> EnableDns64 { get; private set; } = null!;
 
         /// <summary>
+        /// Indicates the device position for local network interfaces in this subnet. For example, ``1`` indicates local network interfaces in this subnet are the secondary network interface (eth1).
+        /// </summary>
+        [Output("enableLniAtDeviceIndex")]
+        public Output<int?> EnableLniAtDeviceIndex { get; private set; } = null!;
+
+        /// <summary>
         /// An IPv4 IPAM pool ID for the subnet.
         /// </summary>
         [Output("ipv4IpamPoolId")]
@@ -95,7 +101,7 @@ namespace Pulumi.AwsNative.Ec2
 
         /// <summary>
         /// Indicates whether instances launched in this subnet receive a public IPv4 address. The default value is ``false``.
-        ///  AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
+        ///   AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
         /// </summary>
         [Output("mapPublicIpOnLaunch")]
         public Output<bool?> MapPublicIpOnLaunch { get; private set; } = null!;
@@ -112,9 +118,9 @@ namespace Pulumi.AwsNative.Ec2
         /// <summary>
         /// The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries to the instances should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
         ///  Available options:
-        ///   + EnableResourceNameDnsAAAARecord (true | false)
-        ///  + EnableResourceNameDnsARecord (true | false)
-        ///  + HostnameType (ip-name | resource-name)
+        ///   +  EnableResourceNameDnsAAAARecord (true | false)
+        ///   +  EnableResourceNameDnsARecord (true | false)
+        ///   +  HostnameType (ip-name | resource-name)
         /// </summary>
         [Output("privateDnsNameOptionsOnLaunch")]
         public Output<Outputs.PrivateDnsNameOptionsOnLaunchProperties?> PrivateDnsNameOptionsOnLaunch { get; private set; } = null!;
@@ -227,6 +233,12 @@ namespace Pulumi.AwsNative.Ec2
         public Input<bool>? EnableDns64 { get; set; }
 
         /// <summary>
+        /// Indicates the device position for local network interfaces in this subnet. For example, ``1`` indicates local network interfaces in this subnet are the secondary network interface (eth1).
+        /// </summary>
+        [Input("enableLniAtDeviceIndex")]
+        public Input<int>? EnableLniAtDeviceIndex { get; set; }
+
+        /// <summary>
         /// An IPv4 IPAM pool ID for the subnet.
         /// </summary>
         [Input("ipv4IpamPoolId")]
@@ -277,7 +289,7 @@ namespace Pulumi.AwsNative.Ec2
 
         /// <summary>
         /// Indicates whether instances launched in this subnet receive a public IPv4 address. The default value is ``false``.
-        ///  AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
+        ///   AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
         /// </summary>
         [Input("mapPublicIpOnLaunch")]
         public Input<bool>? MapPublicIpOnLaunch { get; set; }
@@ -291,9 +303,9 @@ namespace Pulumi.AwsNative.Ec2
         /// <summary>
         /// The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries to the instances should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
         ///  Available options:
-        ///   + EnableResourceNameDnsAAAARecord (true | false)
-        ///  + EnableResourceNameDnsARecord (true | false)
-        ///  + HostnameType (ip-name | resource-name)
+        ///   +  EnableResourceNameDnsAAAARecord (true | false)
+        ///   +  EnableResourceNameDnsARecord (true | false)
+        ///   +  HostnameType (ip-name | resource-name)
         /// </summary>
         [Input("privateDnsNameOptionsOnLaunch")]
         public Input<Inputs.PrivateDnsNameOptionsOnLaunchPropertiesArgs>? PrivateDnsNameOptionsOnLaunch { get; set; }

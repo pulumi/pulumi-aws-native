@@ -21,10 +21,10 @@ namespace Pulumi.AwsNative.Efs.Outputs
         ///   +   *ENABLED* - Turns automatic backups on for the file system. 
         ///   +   *DISABLED* - Turns automatic backups off for the file system.
         /// </summary>
-        public readonly string Status;
+        public readonly Pulumi.AwsNative.Efs.FileSystemBackupPolicyStatus Status;
 
         [OutputConstructor]
-        private FileSystemBackupPolicy(string status)
+        private FileSystemBackupPolicy(Pulumi.AwsNative.Efs.FileSystemBackupPolicyStatus status)
         {
             Status = status;
         }

@@ -17,12 +17,22 @@ import (
 type SecurityProfile struct {
 	pulumi.CustomResourceState
 
+	// The identifier of the hierarchy group that a security profile uses to restrict access to resources in Amazon Connect.
+	AllowedAccessControlHierarchyGroupId pulumi.StringPtrOutput `pulumi:"allowedAccessControlHierarchyGroupId"`
 	// The list of tags that a security profile uses to restrict access to resources in Amazon Connect.
 	AllowedAccessControlTags SecurityProfileTagArrayOutput `pulumi:"allowedAccessControlTags"`
+	// A list of third-party applications that the security profile will give access to.
+	Applications SecurityProfileApplicationArrayOutput `pulumi:"applications"`
 	// The description of the security profile.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The list of resources that a security profile applies hierarchy restrictions to in Amazon Connect.
+	HierarchyRestrictedResources pulumi.StringArrayOutput `pulumi:"hierarchyRestrictedResources"`
 	// The identifier of the Amazon Connect instance.
 	InstanceArn pulumi.StringOutput `pulumi:"instanceArn"`
+	// The AWS Region where this resource was last modified.
+	LastModifiedRegion pulumi.StringOutput `pulumi:"lastModifiedRegion"`
+	// The timestamp when this resource was last modified.
+	LastModifiedTime pulumi.Float64Output `pulumi:"lastModifiedTime"`
 	// Permissions assigned to the security profile.
 	Permissions pulumi.StringArrayOutput `pulumi:"permissions"`
 	// The Amazon Resource Name (ARN) for the security profile.
@@ -83,10 +93,16 @@ func (SecurityProfileState) ElementType() reflect.Type {
 }
 
 type securityProfileArgs struct {
+	// The identifier of the hierarchy group that a security profile uses to restrict access to resources in Amazon Connect.
+	AllowedAccessControlHierarchyGroupId *string `pulumi:"allowedAccessControlHierarchyGroupId"`
 	// The list of tags that a security profile uses to restrict access to resources in Amazon Connect.
 	AllowedAccessControlTags []SecurityProfileTag `pulumi:"allowedAccessControlTags"`
+	// A list of third-party applications that the security profile will give access to.
+	Applications []SecurityProfileApplication `pulumi:"applications"`
 	// The description of the security profile.
 	Description *string `pulumi:"description"`
+	// The list of resources that a security profile applies hierarchy restrictions to in Amazon Connect.
+	HierarchyRestrictedResources []string `pulumi:"hierarchyRestrictedResources"`
 	// The identifier of the Amazon Connect instance.
 	InstanceArn string `pulumi:"instanceArn"`
 	// Permissions assigned to the security profile.
@@ -101,10 +117,16 @@ type securityProfileArgs struct {
 
 // The set of arguments for constructing a SecurityProfile resource.
 type SecurityProfileArgs struct {
+	// The identifier of the hierarchy group that a security profile uses to restrict access to resources in Amazon Connect.
+	AllowedAccessControlHierarchyGroupId pulumi.StringPtrInput
 	// The list of tags that a security profile uses to restrict access to resources in Amazon Connect.
 	AllowedAccessControlTags SecurityProfileTagArrayInput
+	// A list of third-party applications that the security profile will give access to.
+	Applications SecurityProfileApplicationArrayInput
 	// The description of the security profile.
 	Description pulumi.StringPtrInput
+	// The list of resources that a security profile applies hierarchy restrictions to in Amazon Connect.
+	HierarchyRestrictedResources pulumi.StringArrayInput
 	// The identifier of the Amazon Connect instance.
 	InstanceArn pulumi.StringInput
 	// Permissions assigned to the security profile.
@@ -154,9 +176,19 @@ func (o SecurityProfileOutput) ToSecurityProfileOutputWithContext(ctx context.Co
 	return o
 }
 
+// The identifier of the hierarchy group that a security profile uses to restrict access to resources in Amazon Connect.
+func (o SecurityProfileOutput) AllowedAccessControlHierarchyGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityProfile) pulumi.StringPtrOutput { return v.AllowedAccessControlHierarchyGroupId }).(pulumi.StringPtrOutput)
+}
+
 // The list of tags that a security profile uses to restrict access to resources in Amazon Connect.
 func (o SecurityProfileOutput) AllowedAccessControlTags() SecurityProfileTagArrayOutput {
 	return o.ApplyT(func(v *SecurityProfile) SecurityProfileTagArrayOutput { return v.AllowedAccessControlTags }).(SecurityProfileTagArrayOutput)
+}
+
+// A list of third-party applications that the security profile will give access to.
+func (o SecurityProfileOutput) Applications() SecurityProfileApplicationArrayOutput {
+	return o.ApplyT(func(v *SecurityProfile) SecurityProfileApplicationArrayOutput { return v.Applications }).(SecurityProfileApplicationArrayOutput)
 }
 
 // The description of the security profile.
@@ -164,9 +196,24 @@ func (o SecurityProfileOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurityProfile) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The list of resources that a security profile applies hierarchy restrictions to in Amazon Connect.
+func (o SecurityProfileOutput) HierarchyRestrictedResources() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SecurityProfile) pulumi.StringArrayOutput { return v.HierarchyRestrictedResources }).(pulumi.StringArrayOutput)
+}
+
 // The identifier of the Amazon Connect instance.
 func (o SecurityProfileOutput) InstanceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurityProfile) pulumi.StringOutput { return v.InstanceArn }).(pulumi.StringOutput)
+}
+
+// The AWS Region where this resource was last modified.
+func (o SecurityProfileOutput) LastModifiedRegion() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurityProfile) pulumi.StringOutput { return v.LastModifiedRegion }).(pulumi.StringOutput)
+}
+
+// The timestamp when this resource was last modified.
+func (o SecurityProfileOutput) LastModifiedTime() pulumi.Float64Output {
+	return o.ApplyT(func(v *SecurityProfile) pulumi.Float64Output { return v.LastModifiedTime }).(pulumi.Float64Output)
 }
 
 // Permissions assigned to the security profile.

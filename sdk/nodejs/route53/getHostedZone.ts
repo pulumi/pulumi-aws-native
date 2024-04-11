@@ -63,7 +63,7 @@ export interface GetHostedZoneResult {
     readonly queryLoggingConfig?: outputs.route53.HostedZoneQueryLoggingConfig;
     /**
      * *Private hosted zones:* A complex type that contains information about the VPCs that are associated with the specified hosted zone.
-     *  For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
+     *   For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
      */
     readonly vpcs?: outputs.route53.HostedZoneVpc[];
 }

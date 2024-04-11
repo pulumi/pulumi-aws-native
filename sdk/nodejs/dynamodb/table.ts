@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * The ``AWS::DynamoDB::Table`` resource creates a DDB table. For more information, see [CreateTable](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_CreateTable.html) in the *API Reference*.
  *  You should be aware of the following behaviors when working with DDB tables:
- *   +  CFNlong typically creates DDB tables in parallel. However, if your template includes multiple DDB tables with indexes, you must declare dependencies so that the tables are created sequentially. DDBlong limits the number of tables with secondary indexes that are in the creating state. If you create multiple tables with indexes at the same time, DDB returns an error and the stack operation fails. For an example, see [DynamoDB Table with a DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#aws-resource-dynamodb-table--examples--DynamoDB_Table_with_a_DependsOn_Attribute).
+ *   +   CFNlong typically creates DDB tables in parallel. However, if your template includes multiple DDB tables with indexes, you must declare dependencies so that the tables are created sequentially. DDBlong limits the number of tables with secondary indexes that are in the creating state. If you create multiple tables with indexes at the same time, DDB returns an error and the stack operation fails. For an example, see [DynamoDB Table with a DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#aws-resource-dynamodb-table--examples--DynamoDB_Table_with_a_DependsOn_Attribute).
  *
  *    Our guidance is to use the latest schema documented here for your CFNlong templates. This schema supports the provisioning of all table settings below. When using this schema in your CFNlong templates, please ensure that your Identity and Access Management (IAM) policies are updated with appropriate permissions to allow for the authorization of these setting changes.
  *
@@ -329,6 +329,11 @@ export class Table extends pulumi.CustomResource {
      */
     public readonly provisionedThroughput!: pulumi.Output<outputs.dynamodb.TableProvisionedThroughput | undefined>;
     /**
+     * A resource-based policy document that contains permissions to add to the specified table. In a CFNshort template, you can provide the policy in JSON or YAML format because CFNshort converts YAML to JSON before submitting it to DDB. For more information about resource-based policies, see [Using resource-based policies for](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html).
+     *  When you attach a resource-based policy while creating a table, the policy creation is *strongly consistent*. For information about the considerations that you should keep in mind while attaching a resource-based policy, see [Resource-based policy considerations](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-considerations.html).
+     */
+    public readonly resourcePolicy!: pulumi.Output<outputs.dynamodb.TableResourcePolicy | undefined>;
+    /**
      * Specifies the settings to enable server-side encryption.
      */
     public readonly sseSpecification!: pulumi.Output<outputs.dynamodb.TableSseSpecification | undefined>;
@@ -382,6 +387,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["localSecondaryIndexes"] = args ? args.localSecondaryIndexes : undefined;
             resourceInputs["pointInTimeRecoverySpecification"] = args ? args.pointInTimeRecoverySpecification : undefined;
             resourceInputs["provisionedThroughput"] = args ? args.provisionedThroughput : undefined;
+            resourceInputs["resourcePolicy"] = args ? args.resourcePolicy : undefined;
             resourceInputs["sseSpecification"] = args ? args.sseSpecification : undefined;
             resourceInputs["streamSpecification"] = args ? args.streamSpecification : undefined;
             resourceInputs["tableClass"] = args ? args.tableClass : undefined;
@@ -403,6 +409,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["localSecondaryIndexes"] = undefined /*out*/;
             resourceInputs["pointInTimeRecoverySpecification"] = undefined /*out*/;
             resourceInputs["provisionedThroughput"] = undefined /*out*/;
+            resourceInputs["resourcePolicy"] = undefined /*out*/;
             resourceInputs["sseSpecification"] = undefined /*out*/;
             resourceInputs["streamArn"] = undefined /*out*/;
             resourceInputs["streamSpecification"] = undefined /*out*/;
@@ -480,6 +487,11 @@ export interface TableArgs {
      *  If you set ``BillingMode`` as ``PROVISIONED``, you must specify this property. If you set ``BillingMode`` as ``PAY_PER_REQUEST``, you cannot specify this property.
      */
     provisionedThroughput?: pulumi.Input<inputs.dynamodb.TableProvisionedThroughputArgs>;
+    /**
+     * A resource-based policy document that contains permissions to add to the specified table. In a CFNshort template, you can provide the policy in JSON or YAML format because CFNshort converts YAML to JSON before submitting it to DDB. For more information about resource-based policies, see [Using resource-based policies for](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html).
+     *  When you attach a resource-based policy while creating a table, the policy creation is *strongly consistent*. For information about the considerations that you should keep in mind while attaching a resource-based policy, see [Resource-based policy considerations](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-considerations.html).
+     */
+    resourcePolicy?: pulumi.Input<inputs.dynamodb.TableResourcePolicyArgs>;
     /**
      * Specifies the settings to enable server-side encryption.
      */

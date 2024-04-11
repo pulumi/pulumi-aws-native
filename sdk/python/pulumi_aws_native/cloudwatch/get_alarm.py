@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetAlarmResult',
@@ -19,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetAlarmResult:
-    def __init__(__self__, actions_enabled=None, alarm_actions=None, alarm_description=None, arn=None, comparison_operator=None, datapoints_to_alarm=None, dimensions=None, evaluate_low_sample_count_percentile=None, evaluation_periods=None, extended_statistic=None, insufficient_data_actions=None, metric_name=None, metrics=None, namespace=None, ok_actions=None, period=None, statistic=None, threshold=None, threshold_metric_id=None, treat_missing_data=None, unit=None):
+    def __init__(__self__, actions_enabled=None, alarm_actions=None, alarm_description=None, arn=None, comparison_operator=None, datapoints_to_alarm=None, dimensions=None, evaluate_low_sample_count_percentile=None, evaluation_periods=None, extended_statistic=None, insufficient_data_actions=None, metric_name=None, metrics=None, namespace=None, ok_actions=None, period=None, statistic=None, tags=None, threshold=None, threshold_metric_id=None, treat_missing_data=None, unit=None):
         if actions_enabled and not isinstance(actions_enabled, bool):
             raise TypeError("Expected argument 'actions_enabled' to be a bool")
         pulumi.set(__self__, "actions_enabled", actions_enabled)
@@ -71,6 +72,9 @@ class GetAlarmResult:
         if statistic and not isinstance(statistic, str):
             raise TypeError("Expected argument 'statistic' to be a str")
         pulumi.set(__self__, "statistic", statistic)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
         if threshold and not isinstance(threshold, float):
             raise TypeError("Expected argument 'threshold' to be a float")
         pulumi.set(__self__, "threshold", threshold)
@@ -96,7 +100,7 @@ class GetAlarmResult:
     @pulumi.getter(name="alarmActions")
     def alarm_actions(self) -> Optional[Sequence[str]]:
         """
-        The list of actions to execute when this alarm transitions into an ALARM state from any other state.
+        The list of actions to execute when this alarm transitions into an ALARM state from any other state. Specify each action as an Amazon Resource Name (ARN). For more information about creating alarms and the actions that you can specify, see [PutMetricAlarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutMetricAlarm.html) in the *API Reference*.
         """
         return pulumi.get(self, "alarm_actions")
 
@@ -111,16 +115,13 @@ class GetAlarmResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
-        """
-        Amazon Resource Name is a unique name for each resource.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="comparisonOperator")
     def comparison_operator(self) -> Optional[str]:
         """
-        The arithmetic operation to use when comparing the specified statistic and threshold.
+        The arithmetic operation to use when comparing the specified statistic and threshold. The specified statistic value is used as the first operand.
         """
         return pulumi.get(self, "comparison_operator")
 
@@ -128,7 +129,8 @@ class GetAlarmResult:
     @pulumi.getter(name="datapointsToAlarm")
     def datapoints_to_alarm(self) -> Optional[int]:
         """
-        The number of datapoints that must be breaching to trigger the alarm.
+        The number of datapoints that must be breaching to trigger the alarm. This is used only if you are setting an "M out of N" alarm. In that case, this value is the M, and the value that you set for ``EvaluationPeriods`` is the N value. For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.
+         If you omit this parameter, CW uses the same value here that you set for ``EvaluationPeriods``, and the alarm goes to alarm state if that many consecutive periods are breaching.
         """
         return pulumi.get(self, "datapoints_to_alarm")
 
@@ -136,7 +138,7 @@ class GetAlarmResult:
     @pulumi.getter
     def dimensions(self) -> Optional[Sequence['outputs.AlarmDimension']]:
         """
-        The dimensions for the metric associated with the alarm. For an alarm based on a math expression, you can't specify Dimensions. Instead, you use Metrics.
+        The dimensions for the metric associated with the alarm. For an alarm based on a math expression, you can't specify ``Dimensions``. Instead, you use ``Metrics``.
         """
         return pulumi.get(self, "dimensions")
 
@@ -144,7 +146,7 @@ class GetAlarmResult:
     @pulumi.getter(name="evaluateLowSampleCountPercentile")
     def evaluate_low_sample_count_percentile(self) -> Optional[str]:
         """
-        Used only for alarms based on percentiles.
+        Used only for alarms based on percentiles. If ``ignore``, the alarm state does not change during periods with too few data points to be statistically significant. If ``evaluate`` or this parameter is not used, the alarm is always evaluated and possibly changes state no matter how many data points are available.
         """
         return pulumi.get(self, "evaluate_low_sample_count_percentile")
 
@@ -152,7 +154,8 @@ class GetAlarmResult:
     @pulumi.getter(name="evaluationPeriods")
     def evaluation_periods(self) -> Optional[int]:
         """
-        The number of periods over which data is compared to the specified threshold.
+        The number of periods over which data is compared to the specified threshold. If you are setting an alarm that requires that a number of consecutive data points be breaching to trigger the alarm, this value specifies that number. If you are setting an "M out of N" alarm, this value is the N, and ``DatapointsToAlarm`` is the M.
+         For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.
         """
         return pulumi.get(self, "evaluation_periods")
 
@@ -161,6 +164,8 @@ class GetAlarmResult:
     def extended_statistic(self) -> Optional[str]:
         """
         The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
+         For an alarm based on a metric, you must specify either ``Statistic`` or ``ExtendedStatistic`` but not both.
+         For an alarm based on a math expression, you can't specify ``ExtendedStatistic``. Instead, you use ``Metrics``.
         """
         return pulumi.get(self, "extended_statistic")
 
@@ -168,7 +173,7 @@ class GetAlarmResult:
     @pulumi.getter(name="insufficientDataActions")
     def insufficient_data_actions(self) -> Optional[Sequence[str]]:
         """
-        The actions to execute when this alarm transitions to the INSUFFICIENT_DATA state from any other state.
+        The actions to execute when this alarm transitions to the ``INSUFFICIENT_DATA`` state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         """
         return pulumi.get(self, "insufficient_data_actions")
 
@@ -176,7 +181,7 @@ class GetAlarmResult:
     @pulumi.getter(name="metricName")
     def metric_name(self) -> Optional[str]:
         """
-        The name of the metric associated with the alarm.
+        The name of the metric associated with the alarm. This is required for an alarm based on a metric. For an alarm based on a math expression, you use ``Metrics`` instead and you can't specify ``MetricName``.
         """
         return pulumi.get(self, "metric_name")
 
@@ -184,7 +189,8 @@ class GetAlarmResult:
     @pulumi.getter
     def metrics(self) -> Optional[Sequence['outputs.AlarmMetricDataQuery']]:
         """
-        An array that enables you to create an alarm based on the result of a metric math expression.
+        An array that enables you to create an alarm based on the result of a metric math expression. Each item in the array either retrieves a metric or performs a math expression.
+         If you specify the ``Metrics`` parameter, you cannot specify ``MetricName``, ``Dimensions``, ``Period``, ``Namespace``, ``Statistic``, ``ExtendedStatistic``, or ``Unit``.
         """
         return pulumi.get(self, "metrics")
 
@@ -192,7 +198,8 @@ class GetAlarmResult:
     @pulumi.getter
     def namespace(self) -> Optional[str]:
         """
-        The namespace of the metric associated with the alarm.
+        The namespace of the metric associated with the alarm. This is required for an alarm based on a metric. For an alarm based on a math expression, you can't specify ``Namespace`` and you use ``Metrics`` instead.
+         For a list of namespaces for metrics from AWS services, see [Services That Publish Metrics.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html)
         """
         return pulumi.get(self, "namespace")
 
@@ -200,7 +207,7 @@ class GetAlarmResult:
     @pulumi.getter(name="okActions")
     def ok_actions(self) -> Optional[Sequence[str]]:
         """
-        The actions to execute when this alarm transitions to the OK state from any other state.
+        The actions to execute when this alarm transitions to the ``OK`` state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         """
         return pulumi.get(self, "ok_actions")
 
@@ -208,7 +215,9 @@ class GetAlarmResult:
     @pulumi.getter
     def period(self) -> Optional[int]:
         """
-        The period in seconds, over which the statistic is applied.
+        The period, in seconds, over which the statistic is applied. This is required for an alarm based on a metric. Valid values are 10, 30, 60, and any multiple of 60.
+         For an alarm based on a math expression, you can't specify ``Period``, and instead you use the ``Metrics`` parameter.
+         *Minimum:* 10
         """
         return pulumi.get(self, "period")
 
@@ -216,15 +225,22 @@ class GetAlarmResult:
     @pulumi.getter
     def statistic(self) -> Optional[str]:
         """
-        The statistic for the metric associated with the alarm, other than percentile.
+        The statistic for the metric associated with the alarm, other than percentile. For percentile statistics, use ``ExtendedStatistic``.
+         For an alarm based on a metric, you must specify either ``Statistic`` or ``ExtendedStatistic`` but not both.
+         For an alarm based on a math expression, you can't specify ``Statistic``. Instead, you use ``Metrics``.
         """
         return pulumi.get(self, "statistic")
 
     @property
     @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
     def threshold(self) -> Optional[float]:
         """
-        In an alarm based on an anomaly detection model, this is the ID of the ANOMALY_DETECTION_BAND function used as the threshold for the alarm.
+        The value to compare with the specified statistic.
         """
         return pulumi.get(self, "threshold")
 
@@ -232,7 +248,7 @@ class GetAlarmResult:
     @pulumi.getter(name="thresholdMetricId")
     def threshold_metric_id(self) -> Optional[str]:
         """
-        In an alarm based on an anomaly detection model, this is the ID of the ANOMALY_DETECTION_BAND function used as the threshold for the alarm.
+        In an alarm based on an anomaly detection model, this is the ID of the ``ANOMALY_DETECTION_BAND`` function used as the threshold for the alarm.
         """
         return pulumi.get(self, "threshold_metric_id")
 
@@ -240,7 +256,8 @@ class GetAlarmResult:
     @pulumi.getter(name="treatMissingData")
     def treat_missing_data(self) -> Optional[str]:
         """
-        Sets how this alarm is to handle missing data points. Valid values are breaching, notBreaching, ignore, and missing.
+        Sets how this alarm is to handle missing data points. Valid values are ``breaching``, ``notBreaching``, ``ignore``, and ``missing``. For more information, see [Configuring How Alarms Treat Missing Data](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarms-and-missing-data) in the *Amazon User Guide*.
+         If you omit this parameter, the default behavior of ``missing`` is used.
         """
         return pulumi.get(self, "treat_missing_data")
 
@@ -248,7 +265,8 @@ class GetAlarmResult:
     @pulumi.getter
     def unit(self) -> Optional[str]:
         """
-        The unit of the metric associated with the alarm.
+        The unit of the metric associated with the alarm. Specify this only if you are creating an alarm based on a single metric. Do not specify this if you are specifying a ``Metrics`` array.
+          You can specify the following values: Seconds, Microseconds, Milliseconds, Bytes, Kilobytes, Megabytes, Gigabytes, Terabytes, Bits, Kilobits, Megabits, Gigabits, Terabits, Percent, Count, Bytes/Second, Kilobytes/Second, Megabytes/Second, Gigabytes/Second, Terabytes/Second, Bits/Second, Kilobits/Second, Megabits/Second, Gigabits/Second, Terabits/Second, Count/Second, or None.
         """
         return pulumi.get(self, "unit")
 
@@ -276,6 +294,7 @@ class AwaitableGetAlarmResult(GetAlarmResult):
             ok_actions=self.ok_actions,
             period=self.period,
             statistic=self.statistic,
+            tags=self.tags,
             threshold=self.threshold,
             threshold_metric_id=self.threshold_metric_id,
             treat_missing_data=self.treat_missing_data,
@@ -285,10 +304,13 @@ class AwaitableGetAlarmResult(GetAlarmResult):
 def get_alarm(alarm_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAlarmResult:
     """
-    Resource Type definition for AWS::CloudWatch::Alarm
+    The ``AWS::CloudWatch::Alarm`` type specifies an alarm and associates it with the specified metric or metric math expression.
+     When this operation creates an alarm, the alarm state is immediately set to ``INSUFFICIENT_DATA``. The alarm is then evaluated and its state is set appropriately. Any actions associated with the new state are then executed.
+     When you update an existing alarm, its state is left unchanged, but the update completely overwrites the previous configuration of the alarm.
 
 
-    :param str alarm_name: The name of the alarm.
+    :param str alarm_name: The name of the alarm. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the alarm name. 
+             If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
     """
     __args__ = dict()
     __args__['alarmName'] = alarm_name
@@ -313,6 +335,7 @@ def get_alarm(alarm_name: Optional[str] = None,
         ok_actions=pulumi.get(__ret__, 'ok_actions'),
         period=pulumi.get(__ret__, 'period'),
         statistic=pulumi.get(__ret__, 'statistic'),
+        tags=pulumi.get(__ret__, 'tags'),
         threshold=pulumi.get(__ret__, 'threshold'),
         threshold_metric_id=pulumi.get(__ret__, 'threshold_metric_id'),
         treat_missing_data=pulumi.get(__ret__, 'treat_missing_data'),
@@ -323,9 +346,12 @@ def get_alarm(alarm_name: Optional[str] = None,
 def get_alarm_output(alarm_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAlarmResult]:
     """
-    Resource Type definition for AWS::CloudWatch::Alarm
+    The ``AWS::CloudWatch::Alarm`` type specifies an alarm and associates it with the specified metric or metric math expression.
+     When this operation creates an alarm, the alarm state is immediately set to ``INSUFFICIENT_DATA``. The alarm is then evaluated and its state is set appropriately. Any actions associated with the new state are then executed.
+     When you update an existing alarm, its state is left unchanged, but the update completely overwrites the previous configuration of the alarm.
 
 
-    :param str alarm_name: The name of the alarm.
+    :param str alarm_name: The name of the alarm. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the alarm name. 
+             If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
     """
     ...

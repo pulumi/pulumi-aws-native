@@ -18,7 +18,7 @@ type ResiliencyPolicy struct {
 
 	// Data Location Constraint of the Policy.
 	DataLocationConstraint ResiliencyPolicyDataLocationConstraintPtrOutput `pulumi:"dataLocationConstraint"`
-	Policy                 ResiliencyPolicyFailurePolicyMapOutput          `pulumi:"policy"`
+	Policy                 ResiliencyPolicyPolicyMapOutput                 `pulumi:"policy"`
 	// Amazon Resource Name (ARN) of the Resiliency Policy.
 	PolicyArn pulumi.StringOutput `pulumi:"policyArn"`
 	// Description of Resiliency Policy.
@@ -77,8 +77,8 @@ func (ResiliencyPolicyState) ElementType() reflect.Type {
 
 type resiliencyPolicyArgs struct {
 	// Data Location Constraint of the Policy.
-	DataLocationConstraint *ResiliencyPolicyDataLocationConstraint  `pulumi:"dataLocationConstraint"`
-	Policy                 map[string]ResiliencyPolicyFailurePolicy `pulumi:"policy"`
+	DataLocationConstraint *ResiliencyPolicyDataLocationConstraint `pulumi:"dataLocationConstraint"`
+	Policy                 ResiliencyPolicyPolicyMap               `pulumi:"policy"`
 	// Description of Resiliency Policy.
 	PolicyDescription *string `pulumi:"policyDescription"`
 	// Name of Resiliency Policy.
@@ -92,7 +92,7 @@ type resiliencyPolicyArgs struct {
 type ResiliencyPolicyArgs struct {
 	// Data Location Constraint of the Policy.
 	DataLocationConstraint ResiliencyPolicyDataLocationConstraintPtrInput
-	Policy                 ResiliencyPolicyFailurePolicyMapInput
+	Policy                 ResiliencyPolicyPolicyMapInput
 	// Description of Resiliency Policy.
 	PolicyDescription pulumi.StringPtrInput
 	// Name of Resiliency Policy.
@@ -146,8 +146,8 @@ func (o ResiliencyPolicyOutput) DataLocationConstraint() ResiliencyPolicyDataLoc
 	}).(ResiliencyPolicyDataLocationConstraintPtrOutput)
 }
 
-func (o ResiliencyPolicyOutput) Policy() ResiliencyPolicyFailurePolicyMapOutput {
-	return o.ApplyT(func(v *ResiliencyPolicy) ResiliencyPolicyFailurePolicyMapOutput { return v.Policy }).(ResiliencyPolicyFailurePolicyMapOutput)
+func (o ResiliencyPolicyOutput) Policy() ResiliencyPolicyPolicyMapOutput {
+	return o.ApplyT(func(v *ResiliencyPolicy) ResiliencyPolicyPolicyMapOutput { return v.Policy }).(ResiliencyPolicyPolicyMapOutput)
 }
 
 // Amazon Resource Name (ARN) of the Resiliency Policy.

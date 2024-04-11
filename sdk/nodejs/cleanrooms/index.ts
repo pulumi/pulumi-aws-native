@@ -50,10 +50,20 @@ export const getMembership: typeof import("./getMembership").getMembership = nul
 export const getMembershipOutput: typeof import("./getMembership").getMembershipOutput = null as any;
 utilities.lazyLoad(exports, ["getMembership","getMembershipOutput"], () => require("./getMembership"));
 
+export { GetPrivacyBudgetTemplateArgs, GetPrivacyBudgetTemplateResult, GetPrivacyBudgetTemplateOutputArgs } from "./getPrivacyBudgetTemplate";
+export const getPrivacyBudgetTemplate: typeof import("./getPrivacyBudgetTemplate").getPrivacyBudgetTemplate = null as any;
+export const getPrivacyBudgetTemplateOutput: typeof import("./getPrivacyBudgetTemplate").getPrivacyBudgetTemplateOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivacyBudgetTemplate","getPrivacyBudgetTemplateOutput"], () => require("./getPrivacyBudgetTemplate"));
+
 export { MembershipArgs } from "./membership";
 export type Membership = import("./membership").Membership;
 export const Membership: typeof import("./membership").Membership = null as any;
 utilities.lazyLoad(exports, ["Membership"], () => require("./membership"));
+
+export { PrivacyBudgetTemplateArgs } from "./privacyBudgetTemplate";
+export type PrivacyBudgetTemplate = import("./privacyBudgetTemplate").PrivacyBudgetTemplate;
+export const PrivacyBudgetTemplate: typeof import("./privacyBudgetTemplate").PrivacyBudgetTemplate = null as any;
+utilities.lazyLoad(exports, ["PrivacyBudgetTemplate"], () => require("./privacyBudgetTemplate"));
 
 
 // Export enums:
@@ -73,6 +83,8 @@ const _module = {
                 return new ConfiguredTableAssociation(name, <any>undefined, { urn })
             case "aws-native:cleanrooms:Membership":
                 return new Membership(name, <any>undefined, { urn })
+            case "aws-native:cleanrooms:PrivacyBudgetTemplate":
+                return new PrivacyBudgetTemplate(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

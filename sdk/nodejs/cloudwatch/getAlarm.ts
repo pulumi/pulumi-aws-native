@@ -8,7 +8,9 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::CloudWatch::Alarm
+ * The ``AWS::CloudWatch::Alarm`` type specifies an alarm and associates it with the specified metric or metric math expression.
+ *  When this operation creates an alarm, the alarm state is immediately set to ``INSUFFICIENT_DATA``. The alarm is then evaluated and its state is set appropriately. Any actions associated with the new state are then executed.
+ *  When you update an existing alarm, its state is left unchanged, but the update completely overwrites the previous configuration of the alarm.
  */
 export function getAlarm(args: GetAlarmArgs, opts?: pulumi.InvokeOptions): Promise<GetAlarmResult> {
 
@@ -20,7 +22,8 @@ export function getAlarm(args: GetAlarmArgs, opts?: pulumi.InvokeOptions): Promi
 
 export interface GetAlarmArgs {
     /**
-     * The name of the alarm.
+     * The name of the alarm. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the alarm name. 
+     *   If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
      */
     alarmName: string;
 }
@@ -31,88 +34,100 @@ export interface GetAlarmResult {
      */
     readonly actionsEnabled?: boolean;
     /**
-     * The list of actions to execute when this alarm transitions into an ALARM state from any other state.
+     * The list of actions to execute when this alarm transitions into an ALARM state from any other state. Specify each action as an Amazon Resource Name (ARN). For more information about creating alarms and the actions that you can specify, see [PutMetricAlarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutMetricAlarm.html) in the *API Reference*.
      */
     readonly alarmActions?: string[];
     /**
      * The description of the alarm.
      */
     readonly alarmDescription?: string;
-    /**
-     * Amazon Resource Name is a unique name for each resource.
-     */
     readonly arn?: string;
     /**
-     * The arithmetic operation to use when comparing the specified statistic and threshold.
+     * The arithmetic operation to use when comparing the specified statistic and threshold. The specified statistic value is used as the first operand.
      */
     readonly comparisonOperator?: string;
     /**
-     * The number of datapoints that must be breaching to trigger the alarm.
+     * The number of datapoints that must be breaching to trigger the alarm. This is used only if you are setting an "M out of N" alarm. In that case, this value is the M, and the value that you set for ``EvaluationPeriods`` is the N value. For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.
+     *  If you omit this parameter, CW uses the same value here that you set for ``EvaluationPeriods``, and the alarm goes to alarm state if that many consecutive periods are breaching.
      */
     readonly datapointsToAlarm?: number;
     /**
-     * The dimensions for the metric associated with the alarm. For an alarm based on a math expression, you can't specify Dimensions. Instead, you use Metrics.
+     * The dimensions for the metric associated with the alarm. For an alarm based on a math expression, you can't specify ``Dimensions``. Instead, you use ``Metrics``.
      */
     readonly dimensions?: outputs.cloudwatch.AlarmDimension[];
     /**
-     * Used only for alarms based on percentiles.
+     * Used only for alarms based on percentiles. If ``ignore``, the alarm state does not change during periods with too few data points to be statistically significant. If ``evaluate`` or this parameter is not used, the alarm is always evaluated and possibly changes state no matter how many data points are available.
      */
     readonly evaluateLowSampleCountPercentile?: string;
     /**
-     * The number of periods over which data is compared to the specified threshold.
+     * The number of periods over which data is compared to the specified threshold. If you are setting an alarm that requires that a number of consecutive data points be breaching to trigger the alarm, this value specifies that number. If you are setting an "M out of N" alarm, this value is the N, and ``DatapointsToAlarm`` is the M.
+     *  For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.
      */
     readonly evaluationPeriods?: number;
     /**
      * The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
+     *  For an alarm based on a metric, you must specify either ``Statistic`` or ``ExtendedStatistic`` but not both.
+     *  For an alarm based on a math expression, you can't specify ``ExtendedStatistic``. Instead, you use ``Metrics``.
      */
     readonly extendedStatistic?: string;
     /**
-     * The actions to execute when this alarm transitions to the INSUFFICIENT_DATA state from any other state.
+     * The actions to execute when this alarm transitions to the ``INSUFFICIENT_DATA`` state from any other state. Each action is specified as an Amazon Resource Name (ARN).
      */
     readonly insufficientDataActions?: string[];
     /**
-     * The name of the metric associated with the alarm.
+     * The name of the metric associated with the alarm. This is required for an alarm based on a metric. For an alarm based on a math expression, you use ``Metrics`` instead and you can't specify ``MetricName``.
      */
     readonly metricName?: string;
     /**
-     * An array that enables you to create an alarm based on the result of a metric math expression.
+     * An array that enables you to create an alarm based on the result of a metric math expression. Each item in the array either retrieves a metric or performs a math expression.
+     *  If you specify the ``Metrics`` parameter, you cannot specify ``MetricName``, ``Dimensions``, ``Period``, ``Namespace``, ``Statistic``, ``ExtendedStatistic``, or ``Unit``.
      */
     readonly metrics?: outputs.cloudwatch.AlarmMetricDataQuery[];
     /**
-     * The namespace of the metric associated with the alarm.
+     * The namespace of the metric associated with the alarm. This is required for an alarm based on a metric. For an alarm based on a math expression, you can't specify ``Namespace`` and you use ``Metrics`` instead.
+     *  For a list of namespaces for metrics from AWS services, see [Services That Publish Metrics.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html)
      */
     readonly namespace?: string;
     /**
-     * The actions to execute when this alarm transitions to the OK state from any other state.
+     * The actions to execute when this alarm transitions to the ``OK`` state from any other state. Each action is specified as an Amazon Resource Name (ARN).
      */
     readonly okActions?: string[];
     /**
-     * The period in seconds, over which the statistic is applied.
+     * The period, in seconds, over which the statistic is applied. This is required for an alarm based on a metric. Valid values are 10, 30, 60, and any multiple of 60.
+     *  For an alarm based on a math expression, you can't specify ``Period``, and instead you use the ``Metrics`` parameter.
+     *  *Minimum:* 10
      */
     readonly period?: number;
     /**
-     * The statistic for the metric associated with the alarm, other than percentile.
+     * The statistic for the metric associated with the alarm, other than percentile. For percentile statistics, use ``ExtendedStatistic``.
+     *  For an alarm based on a metric, you must specify either ``Statistic`` or ``ExtendedStatistic`` but not both.
+     *  For an alarm based on a math expression, you can't specify ``Statistic``. Instead, you use ``Metrics``.
      */
     readonly statistic?: string;
+    readonly tags?: outputs.Tag[];
     /**
-     * In an alarm based on an anomaly detection model, this is the ID of the ANOMALY_DETECTION_BAND function used as the threshold for the alarm.
+     * The value to compare with the specified statistic.
      */
     readonly threshold?: number;
     /**
-     * In an alarm based on an anomaly detection model, this is the ID of the ANOMALY_DETECTION_BAND function used as the threshold for the alarm.
+     * In an alarm based on an anomaly detection model, this is the ID of the ``ANOMALY_DETECTION_BAND`` function used as the threshold for the alarm.
      */
     readonly thresholdMetricId?: string;
     /**
-     * Sets how this alarm is to handle missing data points. Valid values are breaching, notBreaching, ignore, and missing.
+     * Sets how this alarm is to handle missing data points. Valid values are ``breaching``, ``notBreaching``, ``ignore``, and ``missing``. For more information, see [Configuring How Alarms Treat Missing Data](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarms-and-missing-data) in the *Amazon User Guide*.
+     *  If you omit this parameter, the default behavior of ``missing`` is used.
      */
     readonly treatMissingData?: string;
     /**
-     * The unit of the metric associated with the alarm.
+     * The unit of the metric associated with the alarm. Specify this only if you are creating an alarm based on a single metric. Do not specify this if you are specifying a ``Metrics`` array.
+     *   You can specify the following values: Seconds, Microseconds, Milliseconds, Bytes, Kilobytes, Megabytes, Gigabytes, Terabytes, Bits, Kilobits, Megabits, Gigabits, Terabits, Percent, Count, Bytes/Second, Kilobytes/Second, Megabytes/Second, Gigabytes/Second, Terabytes/Second, Bits/Second, Kilobits/Second, Megabits/Second, Gigabits/Second, Terabits/Second, Count/Second, or None.
      */
     readonly unit?: string;
 }
 /**
- * Resource Type definition for AWS::CloudWatch::Alarm
+ * The ``AWS::CloudWatch::Alarm`` type specifies an alarm and associates it with the specified metric or metric math expression.
+ *  When this operation creates an alarm, the alarm state is immediately set to ``INSUFFICIENT_DATA``. The alarm is then evaluated and its state is set appropriately. Any actions associated with the new state are then executed.
+ *  When you update an existing alarm, its state is left unchanged, but the update completely overwrites the previous configuration of the alarm.
  */
 export function getAlarmOutput(args: GetAlarmOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAlarmResult> {
     return pulumi.output(args).apply((a: any) => getAlarm(a, opts))
@@ -120,7 +135,8 @@ export function getAlarmOutput(args: GetAlarmOutputArgs, opts?: pulumi.InvokeOpt
 
 export interface GetAlarmOutputArgs {
     /**
-     * The name of the alarm.
+     * The name of the alarm. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the alarm name. 
+     *   If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
      */
     alarmName: pulumi.Input<string>;
 }

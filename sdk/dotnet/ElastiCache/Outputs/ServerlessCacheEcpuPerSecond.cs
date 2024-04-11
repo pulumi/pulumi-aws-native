@@ -19,12 +19,20 @@ namespace Pulumi.AwsNative.ElastiCache.Outputs
         /// <summary>
         /// The maximum ECPU per second of the Serverless Cache.
         /// </summary>
-        public readonly int Maximum;
+        public readonly int? Maximum;
+        /// <summary>
+        /// The minimum ECPU per second of the Serverless Cache.
+        /// </summary>
+        public readonly int? Minimum;
 
         [OutputConstructor]
-        private ServerlessCacheEcpuPerSecond(int maximum)
+        private ServerlessCacheEcpuPerSecond(
+            int? maximum,
+
+            int? minimum)
         {
             Maximum = maximum;
+            Minimum = minimum;
         }
     }
 }

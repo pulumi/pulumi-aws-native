@@ -173,6 +173,499 @@ func (in *idMappingWorkflowIdMappingTechniquesIdMappingTypePtr) ToIdMappingWorkf
 	return pulumi.ToOutputWithContext(ctx, in).(IdMappingWorkflowIdMappingTechniquesIdMappingTypePtrOutput)
 }
 
+type IdMappingWorkflowInputSourceType string
+
+const (
+	IdMappingWorkflowInputSourceTypeSource = IdMappingWorkflowInputSourceType("SOURCE")
+	IdMappingWorkflowInputSourceTypeTarget = IdMappingWorkflowInputSourceType("TARGET")
+)
+
+func (IdMappingWorkflowInputSourceType) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdMappingWorkflowInputSourceType)(nil)).Elem()
+}
+
+func (e IdMappingWorkflowInputSourceType) ToIdMappingWorkflowInputSourceTypeOutput() IdMappingWorkflowInputSourceTypeOutput {
+	return pulumi.ToOutput(e).(IdMappingWorkflowInputSourceTypeOutput)
+}
+
+func (e IdMappingWorkflowInputSourceType) ToIdMappingWorkflowInputSourceTypeOutputWithContext(ctx context.Context) IdMappingWorkflowInputSourceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(IdMappingWorkflowInputSourceTypeOutput)
+}
+
+func (e IdMappingWorkflowInputSourceType) ToIdMappingWorkflowInputSourceTypePtrOutput() IdMappingWorkflowInputSourceTypePtrOutput {
+	return e.ToIdMappingWorkflowInputSourceTypePtrOutputWithContext(context.Background())
+}
+
+func (e IdMappingWorkflowInputSourceType) ToIdMappingWorkflowInputSourceTypePtrOutputWithContext(ctx context.Context) IdMappingWorkflowInputSourceTypePtrOutput {
+	return IdMappingWorkflowInputSourceType(e).ToIdMappingWorkflowInputSourceTypeOutputWithContext(ctx).ToIdMappingWorkflowInputSourceTypePtrOutputWithContext(ctx)
+}
+
+func (e IdMappingWorkflowInputSourceType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IdMappingWorkflowInputSourceType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IdMappingWorkflowInputSourceType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e IdMappingWorkflowInputSourceType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type IdMappingWorkflowInputSourceTypeOutput struct{ *pulumi.OutputState }
+
+func (IdMappingWorkflowInputSourceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdMappingWorkflowInputSourceType)(nil)).Elem()
+}
+
+func (o IdMappingWorkflowInputSourceTypeOutput) ToIdMappingWorkflowInputSourceTypeOutput() IdMappingWorkflowInputSourceTypeOutput {
+	return o
+}
+
+func (o IdMappingWorkflowInputSourceTypeOutput) ToIdMappingWorkflowInputSourceTypeOutputWithContext(ctx context.Context) IdMappingWorkflowInputSourceTypeOutput {
+	return o
+}
+
+func (o IdMappingWorkflowInputSourceTypeOutput) ToIdMappingWorkflowInputSourceTypePtrOutput() IdMappingWorkflowInputSourceTypePtrOutput {
+	return o.ToIdMappingWorkflowInputSourceTypePtrOutputWithContext(context.Background())
+}
+
+func (o IdMappingWorkflowInputSourceTypeOutput) ToIdMappingWorkflowInputSourceTypePtrOutputWithContext(ctx context.Context) IdMappingWorkflowInputSourceTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdMappingWorkflowInputSourceType) *IdMappingWorkflowInputSourceType {
+		return &v
+	}).(IdMappingWorkflowInputSourceTypePtrOutput)
+}
+
+func (o IdMappingWorkflowInputSourceTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o IdMappingWorkflowInputSourceTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IdMappingWorkflowInputSourceType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o IdMappingWorkflowInputSourceTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IdMappingWorkflowInputSourceTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IdMappingWorkflowInputSourceType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type IdMappingWorkflowInputSourceTypePtrOutput struct{ *pulumi.OutputState }
+
+func (IdMappingWorkflowInputSourceTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdMappingWorkflowInputSourceType)(nil)).Elem()
+}
+
+func (o IdMappingWorkflowInputSourceTypePtrOutput) ToIdMappingWorkflowInputSourceTypePtrOutput() IdMappingWorkflowInputSourceTypePtrOutput {
+	return o
+}
+
+func (o IdMappingWorkflowInputSourceTypePtrOutput) ToIdMappingWorkflowInputSourceTypePtrOutputWithContext(ctx context.Context) IdMappingWorkflowInputSourceTypePtrOutput {
+	return o
+}
+
+func (o IdMappingWorkflowInputSourceTypePtrOutput) Elem() IdMappingWorkflowInputSourceTypeOutput {
+	return o.ApplyT(func(v *IdMappingWorkflowInputSourceType) IdMappingWorkflowInputSourceType {
+		if v != nil {
+			return *v
+		}
+		var ret IdMappingWorkflowInputSourceType
+		return ret
+	}).(IdMappingWorkflowInputSourceTypeOutput)
+}
+
+func (o IdMappingWorkflowInputSourceTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IdMappingWorkflowInputSourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IdMappingWorkflowInputSourceType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// IdMappingWorkflowInputSourceTypeInput is an input type that accepts values of the IdMappingWorkflowInputSourceType enum
+// A concrete instance of `IdMappingWorkflowInputSourceTypeInput` can be one of the following:
+//
+//	IdMappingWorkflowInputSourceTypeSource
+//	IdMappingWorkflowInputSourceTypeTarget
+type IdMappingWorkflowInputSourceTypeInput interface {
+	pulumi.Input
+
+	ToIdMappingWorkflowInputSourceTypeOutput() IdMappingWorkflowInputSourceTypeOutput
+	ToIdMappingWorkflowInputSourceTypeOutputWithContext(context.Context) IdMappingWorkflowInputSourceTypeOutput
+}
+
+var idMappingWorkflowInputSourceTypePtrType = reflect.TypeOf((**IdMappingWorkflowInputSourceType)(nil)).Elem()
+
+type IdMappingWorkflowInputSourceTypePtrInput interface {
+	pulumi.Input
+
+	ToIdMappingWorkflowInputSourceTypePtrOutput() IdMappingWorkflowInputSourceTypePtrOutput
+	ToIdMappingWorkflowInputSourceTypePtrOutputWithContext(context.Context) IdMappingWorkflowInputSourceTypePtrOutput
+}
+
+type idMappingWorkflowInputSourceTypePtr string
+
+func IdMappingWorkflowInputSourceTypePtr(v string) IdMappingWorkflowInputSourceTypePtrInput {
+	return (*idMappingWorkflowInputSourceTypePtr)(&v)
+}
+
+func (*idMappingWorkflowInputSourceTypePtr) ElementType() reflect.Type {
+	return idMappingWorkflowInputSourceTypePtrType
+}
+
+func (in *idMappingWorkflowInputSourceTypePtr) ToIdMappingWorkflowInputSourceTypePtrOutput() IdMappingWorkflowInputSourceTypePtrOutput {
+	return pulumi.ToOutput(in).(IdMappingWorkflowInputSourceTypePtrOutput)
+}
+
+func (in *idMappingWorkflowInputSourceTypePtr) ToIdMappingWorkflowInputSourceTypePtrOutputWithContext(ctx context.Context) IdMappingWorkflowInputSourceTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(IdMappingWorkflowInputSourceTypePtrOutput)
+}
+
+type IdNamespaceIdMappingWorkflowPropertiesIdMappingType string
+
+const (
+	IdNamespaceIdMappingWorkflowPropertiesIdMappingTypeProvider = IdNamespaceIdMappingWorkflowPropertiesIdMappingType("PROVIDER")
+)
+
+func (IdNamespaceIdMappingWorkflowPropertiesIdMappingType) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdNamespaceIdMappingWorkflowPropertiesIdMappingType)(nil)).Elem()
+}
+
+func (e IdNamespaceIdMappingWorkflowPropertiesIdMappingType) ToIdNamespaceIdMappingWorkflowPropertiesIdMappingTypeOutput() IdNamespaceIdMappingWorkflowPropertiesIdMappingTypeOutput {
+	return pulumi.ToOutput(e).(IdNamespaceIdMappingWorkflowPropertiesIdMappingTypeOutput)
+}
+
+func (e IdNamespaceIdMappingWorkflowPropertiesIdMappingType) ToIdNamespaceIdMappingWorkflowPropertiesIdMappingTypeOutputWithContext(ctx context.Context) IdNamespaceIdMappingWorkflowPropertiesIdMappingTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(IdNamespaceIdMappingWorkflowPropertiesIdMappingTypeOutput)
+}
+
+func (e IdNamespaceIdMappingWorkflowPropertiesIdMappingType) ToIdNamespaceIdMappingWorkflowPropertiesIdMappingTypePtrOutput() IdNamespaceIdMappingWorkflowPropertiesIdMappingTypePtrOutput {
+	return e.ToIdNamespaceIdMappingWorkflowPropertiesIdMappingTypePtrOutputWithContext(context.Background())
+}
+
+func (e IdNamespaceIdMappingWorkflowPropertiesIdMappingType) ToIdNamespaceIdMappingWorkflowPropertiesIdMappingTypePtrOutputWithContext(ctx context.Context) IdNamespaceIdMappingWorkflowPropertiesIdMappingTypePtrOutput {
+	return IdNamespaceIdMappingWorkflowPropertiesIdMappingType(e).ToIdNamespaceIdMappingWorkflowPropertiesIdMappingTypeOutputWithContext(ctx).ToIdNamespaceIdMappingWorkflowPropertiesIdMappingTypePtrOutputWithContext(ctx)
+}
+
+func (e IdNamespaceIdMappingWorkflowPropertiesIdMappingType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IdNamespaceIdMappingWorkflowPropertiesIdMappingType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IdNamespaceIdMappingWorkflowPropertiesIdMappingType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e IdNamespaceIdMappingWorkflowPropertiesIdMappingType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type IdNamespaceIdMappingWorkflowPropertiesIdMappingTypeOutput struct{ *pulumi.OutputState }
+
+func (IdNamespaceIdMappingWorkflowPropertiesIdMappingTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdNamespaceIdMappingWorkflowPropertiesIdMappingType)(nil)).Elem()
+}
+
+func (o IdNamespaceIdMappingWorkflowPropertiesIdMappingTypeOutput) ToIdNamespaceIdMappingWorkflowPropertiesIdMappingTypeOutput() IdNamespaceIdMappingWorkflowPropertiesIdMappingTypeOutput {
+	return o
+}
+
+func (o IdNamespaceIdMappingWorkflowPropertiesIdMappingTypeOutput) ToIdNamespaceIdMappingWorkflowPropertiesIdMappingTypeOutputWithContext(ctx context.Context) IdNamespaceIdMappingWorkflowPropertiesIdMappingTypeOutput {
+	return o
+}
+
+func (o IdNamespaceIdMappingWorkflowPropertiesIdMappingTypeOutput) ToIdNamespaceIdMappingWorkflowPropertiesIdMappingTypePtrOutput() IdNamespaceIdMappingWorkflowPropertiesIdMappingTypePtrOutput {
+	return o.ToIdNamespaceIdMappingWorkflowPropertiesIdMappingTypePtrOutputWithContext(context.Background())
+}
+
+func (o IdNamespaceIdMappingWorkflowPropertiesIdMappingTypeOutput) ToIdNamespaceIdMappingWorkflowPropertiesIdMappingTypePtrOutputWithContext(ctx context.Context) IdNamespaceIdMappingWorkflowPropertiesIdMappingTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdNamespaceIdMappingWorkflowPropertiesIdMappingType) *IdNamespaceIdMappingWorkflowPropertiesIdMappingType {
+		return &v
+	}).(IdNamespaceIdMappingWorkflowPropertiesIdMappingTypePtrOutput)
+}
+
+func (o IdNamespaceIdMappingWorkflowPropertiesIdMappingTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o IdNamespaceIdMappingWorkflowPropertiesIdMappingTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IdNamespaceIdMappingWorkflowPropertiesIdMappingType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o IdNamespaceIdMappingWorkflowPropertiesIdMappingTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IdNamespaceIdMappingWorkflowPropertiesIdMappingTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IdNamespaceIdMappingWorkflowPropertiesIdMappingType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type IdNamespaceIdMappingWorkflowPropertiesIdMappingTypePtrOutput struct{ *pulumi.OutputState }
+
+func (IdNamespaceIdMappingWorkflowPropertiesIdMappingTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdNamespaceIdMappingWorkflowPropertiesIdMappingType)(nil)).Elem()
+}
+
+func (o IdNamespaceIdMappingWorkflowPropertiesIdMappingTypePtrOutput) ToIdNamespaceIdMappingWorkflowPropertiesIdMappingTypePtrOutput() IdNamespaceIdMappingWorkflowPropertiesIdMappingTypePtrOutput {
+	return o
+}
+
+func (o IdNamespaceIdMappingWorkflowPropertiesIdMappingTypePtrOutput) ToIdNamespaceIdMappingWorkflowPropertiesIdMappingTypePtrOutputWithContext(ctx context.Context) IdNamespaceIdMappingWorkflowPropertiesIdMappingTypePtrOutput {
+	return o
+}
+
+func (o IdNamespaceIdMappingWorkflowPropertiesIdMappingTypePtrOutput) Elem() IdNamespaceIdMappingWorkflowPropertiesIdMappingTypeOutput {
+	return o.ApplyT(func(v *IdNamespaceIdMappingWorkflowPropertiesIdMappingType) IdNamespaceIdMappingWorkflowPropertiesIdMappingType {
+		if v != nil {
+			return *v
+		}
+		var ret IdNamespaceIdMappingWorkflowPropertiesIdMappingType
+		return ret
+	}).(IdNamespaceIdMappingWorkflowPropertiesIdMappingTypeOutput)
+}
+
+func (o IdNamespaceIdMappingWorkflowPropertiesIdMappingTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IdNamespaceIdMappingWorkflowPropertiesIdMappingTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IdNamespaceIdMappingWorkflowPropertiesIdMappingType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// IdNamespaceIdMappingWorkflowPropertiesIdMappingTypeInput is an input type that accepts values of the IdNamespaceIdMappingWorkflowPropertiesIdMappingType enum
+// A concrete instance of `IdNamespaceIdMappingWorkflowPropertiesIdMappingTypeInput` can be one of the following:
+//
+//	IdNamespaceIdMappingWorkflowPropertiesIdMappingTypeProvider
+type IdNamespaceIdMappingWorkflowPropertiesIdMappingTypeInput interface {
+	pulumi.Input
+
+	ToIdNamespaceIdMappingWorkflowPropertiesIdMappingTypeOutput() IdNamespaceIdMappingWorkflowPropertiesIdMappingTypeOutput
+	ToIdNamespaceIdMappingWorkflowPropertiesIdMappingTypeOutputWithContext(context.Context) IdNamespaceIdMappingWorkflowPropertiesIdMappingTypeOutput
+}
+
+var idNamespaceIdMappingWorkflowPropertiesIdMappingTypePtrType = reflect.TypeOf((**IdNamespaceIdMappingWorkflowPropertiesIdMappingType)(nil)).Elem()
+
+type IdNamespaceIdMappingWorkflowPropertiesIdMappingTypePtrInput interface {
+	pulumi.Input
+
+	ToIdNamespaceIdMappingWorkflowPropertiesIdMappingTypePtrOutput() IdNamespaceIdMappingWorkflowPropertiesIdMappingTypePtrOutput
+	ToIdNamespaceIdMappingWorkflowPropertiesIdMappingTypePtrOutputWithContext(context.Context) IdNamespaceIdMappingWorkflowPropertiesIdMappingTypePtrOutput
+}
+
+type idNamespaceIdMappingWorkflowPropertiesIdMappingTypePtr string
+
+func IdNamespaceIdMappingWorkflowPropertiesIdMappingTypePtr(v string) IdNamespaceIdMappingWorkflowPropertiesIdMappingTypePtrInput {
+	return (*idNamespaceIdMappingWorkflowPropertiesIdMappingTypePtr)(&v)
+}
+
+func (*idNamespaceIdMappingWorkflowPropertiesIdMappingTypePtr) ElementType() reflect.Type {
+	return idNamespaceIdMappingWorkflowPropertiesIdMappingTypePtrType
+}
+
+func (in *idNamespaceIdMappingWorkflowPropertiesIdMappingTypePtr) ToIdNamespaceIdMappingWorkflowPropertiesIdMappingTypePtrOutput() IdNamespaceIdMappingWorkflowPropertiesIdMappingTypePtrOutput {
+	return pulumi.ToOutput(in).(IdNamespaceIdMappingWorkflowPropertiesIdMappingTypePtrOutput)
+}
+
+func (in *idNamespaceIdMappingWorkflowPropertiesIdMappingTypePtr) ToIdNamespaceIdMappingWorkflowPropertiesIdMappingTypePtrOutputWithContext(ctx context.Context) IdNamespaceIdMappingWorkflowPropertiesIdMappingTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(IdNamespaceIdMappingWorkflowPropertiesIdMappingTypePtrOutput)
+}
+
+type IdNamespaceType string
+
+const (
+	IdNamespaceTypeSource = IdNamespaceType("SOURCE")
+	IdNamespaceTypeTarget = IdNamespaceType("TARGET")
+)
+
+func (IdNamespaceType) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdNamespaceType)(nil)).Elem()
+}
+
+func (e IdNamespaceType) ToIdNamespaceTypeOutput() IdNamespaceTypeOutput {
+	return pulumi.ToOutput(e).(IdNamespaceTypeOutput)
+}
+
+func (e IdNamespaceType) ToIdNamespaceTypeOutputWithContext(ctx context.Context) IdNamespaceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(IdNamespaceTypeOutput)
+}
+
+func (e IdNamespaceType) ToIdNamespaceTypePtrOutput() IdNamespaceTypePtrOutput {
+	return e.ToIdNamespaceTypePtrOutputWithContext(context.Background())
+}
+
+func (e IdNamespaceType) ToIdNamespaceTypePtrOutputWithContext(ctx context.Context) IdNamespaceTypePtrOutput {
+	return IdNamespaceType(e).ToIdNamespaceTypeOutputWithContext(ctx).ToIdNamespaceTypePtrOutputWithContext(ctx)
+}
+
+func (e IdNamespaceType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IdNamespaceType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IdNamespaceType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e IdNamespaceType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type IdNamespaceTypeOutput struct{ *pulumi.OutputState }
+
+func (IdNamespaceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdNamespaceType)(nil)).Elem()
+}
+
+func (o IdNamespaceTypeOutput) ToIdNamespaceTypeOutput() IdNamespaceTypeOutput {
+	return o
+}
+
+func (o IdNamespaceTypeOutput) ToIdNamespaceTypeOutputWithContext(ctx context.Context) IdNamespaceTypeOutput {
+	return o
+}
+
+func (o IdNamespaceTypeOutput) ToIdNamespaceTypePtrOutput() IdNamespaceTypePtrOutput {
+	return o.ToIdNamespaceTypePtrOutputWithContext(context.Background())
+}
+
+func (o IdNamespaceTypeOutput) ToIdNamespaceTypePtrOutputWithContext(ctx context.Context) IdNamespaceTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdNamespaceType) *IdNamespaceType {
+		return &v
+	}).(IdNamespaceTypePtrOutput)
+}
+
+func (o IdNamespaceTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o IdNamespaceTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IdNamespaceType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o IdNamespaceTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IdNamespaceTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IdNamespaceType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type IdNamespaceTypePtrOutput struct{ *pulumi.OutputState }
+
+func (IdNamespaceTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdNamespaceType)(nil)).Elem()
+}
+
+func (o IdNamespaceTypePtrOutput) ToIdNamespaceTypePtrOutput() IdNamespaceTypePtrOutput {
+	return o
+}
+
+func (o IdNamespaceTypePtrOutput) ToIdNamespaceTypePtrOutputWithContext(ctx context.Context) IdNamespaceTypePtrOutput {
+	return o
+}
+
+func (o IdNamespaceTypePtrOutput) Elem() IdNamespaceTypeOutput {
+	return o.ApplyT(func(v *IdNamespaceType) IdNamespaceType {
+		if v != nil {
+			return *v
+		}
+		var ret IdNamespaceType
+		return ret
+	}).(IdNamespaceTypeOutput)
+}
+
+func (o IdNamespaceTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IdNamespaceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IdNamespaceType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// IdNamespaceTypeInput is an input type that accepts values of the IdNamespaceType enum
+// A concrete instance of `IdNamespaceTypeInput` can be one of the following:
+//
+//	IdNamespaceTypeSource
+//	IdNamespaceTypeTarget
+type IdNamespaceTypeInput interface {
+	pulumi.Input
+
+	ToIdNamespaceTypeOutput() IdNamespaceTypeOutput
+	ToIdNamespaceTypeOutputWithContext(context.Context) IdNamespaceTypeOutput
+}
+
+var idNamespaceTypePtrType = reflect.TypeOf((**IdNamespaceType)(nil)).Elem()
+
+type IdNamespaceTypePtrInput interface {
+	pulumi.Input
+
+	ToIdNamespaceTypePtrOutput() IdNamespaceTypePtrOutput
+	ToIdNamespaceTypePtrOutputWithContext(context.Context) IdNamespaceTypePtrOutput
+}
+
+type idNamespaceTypePtr string
+
+func IdNamespaceTypePtr(v string) IdNamespaceTypePtrInput {
+	return (*idNamespaceTypePtr)(&v)
+}
+
+func (*idNamespaceTypePtr) ElementType() reflect.Type {
+	return idNamespaceTypePtrType
+}
+
+func (in *idNamespaceTypePtr) ToIdNamespaceTypePtrOutput() IdNamespaceTypePtrOutput {
+	return pulumi.ToOutput(in).(IdNamespaceTypePtrOutput)
+}
+
+func (in *idNamespaceTypePtr) ToIdNamespaceTypePtrOutputWithContext(ctx context.Context) IdNamespaceTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(IdNamespaceTypePtrOutput)
+}
+
 type MatchingWorkflowResolutionTechniquesResolutionType string
 
 const (
@@ -505,6 +998,171 @@ func (in *matchingWorkflowRuleBasedPropertiesAttributeMatchingModelPtr) ToMatchi
 	return pulumi.ToOutputWithContext(ctx, in).(MatchingWorkflowRuleBasedPropertiesAttributeMatchingModelPtrOutput)
 }
 
+type PolicyStatementStatementEffect string
+
+const (
+	PolicyStatementStatementEffectAllow = PolicyStatementStatementEffect("Allow")
+	PolicyStatementStatementEffectDeny  = PolicyStatementStatementEffect("Deny")
+)
+
+func (PolicyStatementStatementEffect) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyStatementStatementEffect)(nil)).Elem()
+}
+
+func (e PolicyStatementStatementEffect) ToPolicyStatementStatementEffectOutput() PolicyStatementStatementEffectOutput {
+	return pulumi.ToOutput(e).(PolicyStatementStatementEffectOutput)
+}
+
+func (e PolicyStatementStatementEffect) ToPolicyStatementStatementEffectOutputWithContext(ctx context.Context) PolicyStatementStatementEffectOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PolicyStatementStatementEffectOutput)
+}
+
+func (e PolicyStatementStatementEffect) ToPolicyStatementStatementEffectPtrOutput() PolicyStatementStatementEffectPtrOutput {
+	return e.ToPolicyStatementStatementEffectPtrOutputWithContext(context.Background())
+}
+
+func (e PolicyStatementStatementEffect) ToPolicyStatementStatementEffectPtrOutputWithContext(ctx context.Context) PolicyStatementStatementEffectPtrOutput {
+	return PolicyStatementStatementEffect(e).ToPolicyStatementStatementEffectOutputWithContext(ctx).ToPolicyStatementStatementEffectPtrOutputWithContext(ctx)
+}
+
+func (e PolicyStatementStatementEffect) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PolicyStatementStatementEffect) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PolicyStatementStatementEffect) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PolicyStatementStatementEffect) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PolicyStatementStatementEffectOutput struct{ *pulumi.OutputState }
+
+func (PolicyStatementStatementEffectOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyStatementStatementEffect)(nil)).Elem()
+}
+
+func (o PolicyStatementStatementEffectOutput) ToPolicyStatementStatementEffectOutput() PolicyStatementStatementEffectOutput {
+	return o
+}
+
+func (o PolicyStatementStatementEffectOutput) ToPolicyStatementStatementEffectOutputWithContext(ctx context.Context) PolicyStatementStatementEffectOutput {
+	return o
+}
+
+func (o PolicyStatementStatementEffectOutput) ToPolicyStatementStatementEffectPtrOutput() PolicyStatementStatementEffectPtrOutput {
+	return o.ToPolicyStatementStatementEffectPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyStatementStatementEffectOutput) ToPolicyStatementStatementEffectPtrOutputWithContext(ctx context.Context) PolicyStatementStatementEffectPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyStatementStatementEffect) *PolicyStatementStatementEffect {
+		return &v
+	}).(PolicyStatementStatementEffectPtrOutput)
+}
+
+func (o PolicyStatementStatementEffectOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PolicyStatementStatementEffectOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PolicyStatementStatementEffect) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PolicyStatementStatementEffectOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyStatementStatementEffectOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PolicyStatementStatementEffect) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PolicyStatementStatementEffectPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyStatementStatementEffectPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyStatementStatementEffect)(nil)).Elem()
+}
+
+func (o PolicyStatementStatementEffectPtrOutput) ToPolicyStatementStatementEffectPtrOutput() PolicyStatementStatementEffectPtrOutput {
+	return o
+}
+
+func (o PolicyStatementStatementEffectPtrOutput) ToPolicyStatementStatementEffectPtrOutputWithContext(ctx context.Context) PolicyStatementStatementEffectPtrOutput {
+	return o
+}
+
+func (o PolicyStatementStatementEffectPtrOutput) Elem() PolicyStatementStatementEffectOutput {
+	return o.ApplyT(func(v *PolicyStatementStatementEffect) PolicyStatementStatementEffect {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyStatementStatementEffect
+		return ret
+	}).(PolicyStatementStatementEffectOutput)
+}
+
+func (o PolicyStatementStatementEffectPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyStatementStatementEffectPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PolicyStatementStatementEffect) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PolicyStatementStatementEffectInput is an input type that accepts values of the PolicyStatementStatementEffect enum
+// A concrete instance of `PolicyStatementStatementEffectInput` can be one of the following:
+//
+//	PolicyStatementStatementEffectAllow
+//	PolicyStatementStatementEffectDeny
+type PolicyStatementStatementEffectInput interface {
+	pulumi.Input
+
+	ToPolicyStatementStatementEffectOutput() PolicyStatementStatementEffectOutput
+	ToPolicyStatementStatementEffectOutputWithContext(context.Context) PolicyStatementStatementEffectOutput
+}
+
+var policyStatementStatementEffectPtrType = reflect.TypeOf((**PolicyStatementStatementEffect)(nil)).Elem()
+
+type PolicyStatementStatementEffectPtrInput interface {
+	pulumi.Input
+
+	ToPolicyStatementStatementEffectPtrOutput() PolicyStatementStatementEffectPtrOutput
+	ToPolicyStatementStatementEffectPtrOutputWithContext(context.Context) PolicyStatementStatementEffectPtrOutput
+}
+
+type policyStatementStatementEffectPtr string
+
+func PolicyStatementStatementEffectPtr(v string) PolicyStatementStatementEffectPtrInput {
+	return (*policyStatementStatementEffectPtr)(&v)
+}
+
+func (*policyStatementStatementEffectPtr) ElementType() reflect.Type {
+	return policyStatementStatementEffectPtrType
+}
+
+func (in *policyStatementStatementEffectPtr) ToPolicyStatementStatementEffectPtrOutput() PolicyStatementStatementEffectPtrOutput {
+	return pulumi.ToOutput(in).(PolicyStatementStatementEffectPtrOutput)
+}
+
+func (in *policyStatementStatementEffectPtr) ToPolicyStatementStatementEffectPtrOutputWithContext(ctx context.Context) PolicyStatementStatementEffectPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PolicyStatementStatementEffectPtrOutput)
+}
+
 type SchemaMappingSchemaAttributeType string
 
 const (
@@ -709,18 +1367,34 @@ func (in *schemaMappingSchemaAttributeTypePtr) ToSchemaMappingSchemaAttributeTyp
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IdMappingWorkflowIdMappingTechniquesIdMappingTypeInput)(nil)).Elem(), IdMappingWorkflowIdMappingTechniquesIdMappingType("PROVIDER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IdMappingWorkflowIdMappingTechniquesIdMappingTypePtrInput)(nil)).Elem(), IdMappingWorkflowIdMappingTechniquesIdMappingType("PROVIDER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IdMappingWorkflowInputSourceTypeInput)(nil)).Elem(), IdMappingWorkflowInputSourceType("SOURCE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IdMappingWorkflowInputSourceTypePtrInput)(nil)).Elem(), IdMappingWorkflowInputSourceType("SOURCE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IdNamespaceIdMappingWorkflowPropertiesIdMappingTypeInput)(nil)).Elem(), IdNamespaceIdMappingWorkflowPropertiesIdMappingType("PROVIDER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IdNamespaceIdMappingWorkflowPropertiesIdMappingTypePtrInput)(nil)).Elem(), IdNamespaceIdMappingWorkflowPropertiesIdMappingType("PROVIDER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IdNamespaceTypeInput)(nil)).Elem(), IdNamespaceType("SOURCE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IdNamespaceTypePtrInput)(nil)).Elem(), IdNamespaceType("SOURCE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowResolutionTechniquesResolutionTypeInput)(nil)).Elem(), MatchingWorkflowResolutionTechniquesResolutionType("RULE_MATCHING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowResolutionTechniquesResolutionTypePtrInput)(nil)).Elem(), MatchingWorkflowResolutionTechniquesResolutionType("RULE_MATCHING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowRuleBasedPropertiesAttributeMatchingModelInput)(nil)).Elem(), MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel("ONE_TO_ONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowRuleBasedPropertiesAttributeMatchingModelPtrInput)(nil)).Elem(), MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel("ONE_TO_ONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStatementStatementEffectInput)(nil)).Elem(), PolicyStatementStatementEffect("Allow"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStatementStatementEffectPtrInput)(nil)).Elem(), PolicyStatementStatementEffect("Allow"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaMappingSchemaAttributeTypeInput)(nil)).Elem(), SchemaMappingSchemaAttributeType("NAME"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaMappingSchemaAttributeTypePtrInput)(nil)).Elem(), SchemaMappingSchemaAttributeType("NAME"))
 	pulumi.RegisterOutputType(IdMappingWorkflowIdMappingTechniquesIdMappingTypeOutput{})
 	pulumi.RegisterOutputType(IdMappingWorkflowIdMappingTechniquesIdMappingTypePtrOutput{})
+	pulumi.RegisterOutputType(IdMappingWorkflowInputSourceTypeOutput{})
+	pulumi.RegisterOutputType(IdMappingWorkflowInputSourceTypePtrOutput{})
+	pulumi.RegisterOutputType(IdNamespaceIdMappingWorkflowPropertiesIdMappingTypeOutput{})
+	pulumi.RegisterOutputType(IdNamespaceIdMappingWorkflowPropertiesIdMappingTypePtrOutput{})
+	pulumi.RegisterOutputType(IdNamespaceTypeOutput{})
+	pulumi.RegisterOutputType(IdNamespaceTypePtrOutput{})
 	pulumi.RegisterOutputType(MatchingWorkflowResolutionTechniquesResolutionTypeOutput{})
 	pulumi.RegisterOutputType(MatchingWorkflowResolutionTechniquesResolutionTypePtrOutput{})
 	pulumi.RegisterOutputType(MatchingWorkflowRuleBasedPropertiesAttributeMatchingModelOutput{})
 	pulumi.RegisterOutputType(MatchingWorkflowRuleBasedPropertiesAttributeMatchingModelPtrOutput{})
+	pulumi.RegisterOutputType(PolicyStatementStatementEffectOutput{})
+	pulumi.RegisterOutputType(PolicyStatementStatementEffectPtrOutput{})
 	pulumi.RegisterOutputType(SchemaMappingSchemaAttributeTypeOutput{})
 	pulumi.RegisterOutputType(SchemaMappingSchemaAttributeTypePtrOutput{})
 }

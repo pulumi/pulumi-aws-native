@@ -11,10 +11,42 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'CrossAccountAttachmentResourceArgs',
     'EndpointGroupEndpointConfigurationArgs',
     'EndpointGroupPortOverrideArgs',
     'ListenerPortRangeArgs',
 ]
+
+@pulumi.input_type
+class CrossAccountAttachmentResourceArgs:
+    def __init__(__self__, *,
+                 endpoint_id: pulumi.Input[str],
+                 region: Optional[pulumi.Input[str]] = None):
+        """
+        ARN of resource to share.
+        """
+        pulumi.set(__self__, "endpoint_id", endpoint_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+
+    @property
+    @pulumi.getter(name="endpointId")
+    def endpoint_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "endpoint_id")
+
+    @endpoint_id.setter
+    def endpoint_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "endpoint_id", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class EndpointGroupEndpointConfigurationArgs:

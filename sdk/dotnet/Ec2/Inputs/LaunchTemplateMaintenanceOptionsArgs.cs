@@ -21,9 +21,6 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         [Input("autoRecovery")]
         public Input<string>? AutoRecovery { get; set; }
 
-        [Input("rebootMigration")]
-        public Input<string>? RebootMigration { get; set; }
-
         public LaunchTemplateMaintenanceOptionsArgs()
         {
         }

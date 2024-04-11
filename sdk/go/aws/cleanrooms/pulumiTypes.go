@@ -1195,8 +1195,9 @@ func (o ConfiguredTableAnalysisRuleAggregationOutput) ScalarFunctions() Configur
 }
 
 type ConfiguredTableAnalysisRuleCustom struct {
-	AllowedAnalyses          []string `pulumi:"allowedAnalyses"`
-	AllowedAnalysisProviders []string `pulumi:"allowedAnalysisProviders"`
+	AllowedAnalyses          []string                            `pulumi:"allowedAnalyses"`
+	AllowedAnalysisProviders []string                            `pulumi:"allowedAnalysisProviders"`
+	DifferentialPrivacy      *ConfiguredTableDifferentialPrivacy `pulumi:"differentialPrivacy"`
 }
 
 // ConfiguredTableAnalysisRuleCustomInput is an input type that accepts ConfiguredTableAnalysisRuleCustomArgs and ConfiguredTableAnalysisRuleCustomOutput values.
@@ -1211,8 +1212,9 @@ type ConfiguredTableAnalysisRuleCustomInput interface {
 }
 
 type ConfiguredTableAnalysisRuleCustomArgs struct {
-	AllowedAnalyses          pulumi.StringArrayInput `pulumi:"allowedAnalyses"`
-	AllowedAnalysisProviders pulumi.StringArrayInput `pulumi:"allowedAnalysisProviders"`
+	AllowedAnalyses          pulumi.StringArrayInput                    `pulumi:"allowedAnalyses"`
+	AllowedAnalysisProviders pulumi.StringArrayInput                    `pulumi:"allowedAnalysisProviders"`
+	DifferentialPrivacy      ConfiguredTableDifferentialPrivacyPtrInput `pulumi:"differentialPrivacy"`
 }
 
 func (ConfiguredTableAnalysisRuleCustomArgs) ElementType() reflect.Type {
@@ -1247,6 +1249,12 @@ func (o ConfiguredTableAnalysisRuleCustomOutput) AllowedAnalyses() pulumi.String
 
 func (o ConfiguredTableAnalysisRuleCustomOutput) AllowedAnalysisProviders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ConfiguredTableAnalysisRuleCustom) []string { return v.AllowedAnalysisProviders }).(pulumi.StringArrayOutput)
+}
+
+func (o ConfiguredTableAnalysisRuleCustomOutput) DifferentialPrivacy() ConfiguredTableDifferentialPrivacyPtrOutput {
+	return o.ApplyT(func(v ConfiguredTableAnalysisRuleCustom) *ConfiguredTableDifferentialPrivacy {
+		return v.DifferentialPrivacy
+	}).(ConfiguredTableDifferentialPrivacyPtrOutput)
 }
 
 type ConfiguredTableAnalysisRuleList struct {
@@ -1513,6 +1521,235 @@ func (o ConfiguredTableAnalysisRulePolicyV12PropertiesOutput) Custom() Configure
 type ConfiguredTableAssociationTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
+}
+
+type ConfiguredTableDifferentialPrivacy struct {
+	Columns []ConfiguredTableDifferentialPrivacyColumn `pulumi:"columns"`
+}
+
+// ConfiguredTableDifferentialPrivacyInput is an input type that accepts ConfiguredTableDifferentialPrivacyArgs and ConfiguredTableDifferentialPrivacyOutput values.
+// You can construct a concrete instance of `ConfiguredTableDifferentialPrivacyInput` via:
+//
+//	ConfiguredTableDifferentialPrivacyArgs{...}
+type ConfiguredTableDifferentialPrivacyInput interface {
+	pulumi.Input
+
+	ToConfiguredTableDifferentialPrivacyOutput() ConfiguredTableDifferentialPrivacyOutput
+	ToConfiguredTableDifferentialPrivacyOutputWithContext(context.Context) ConfiguredTableDifferentialPrivacyOutput
+}
+
+type ConfiguredTableDifferentialPrivacyArgs struct {
+	Columns ConfiguredTableDifferentialPrivacyColumnArrayInput `pulumi:"columns"`
+}
+
+func (ConfiguredTableDifferentialPrivacyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableDifferentialPrivacy)(nil)).Elem()
+}
+
+func (i ConfiguredTableDifferentialPrivacyArgs) ToConfiguredTableDifferentialPrivacyOutput() ConfiguredTableDifferentialPrivacyOutput {
+	return i.ToConfiguredTableDifferentialPrivacyOutputWithContext(context.Background())
+}
+
+func (i ConfiguredTableDifferentialPrivacyArgs) ToConfiguredTableDifferentialPrivacyOutputWithContext(ctx context.Context) ConfiguredTableDifferentialPrivacyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableDifferentialPrivacyOutput)
+}
+
+func (i ConfiguredTableDifferentialPrivacyArgs) ToConfiguredTableDifferentialPrivacyPtrOutput() ConfiguredTableDifferentialPrivacyPtrOutput {
+	return i.ToConfiguredTableDifferentialPrivacyPtrOutputWithContext(context.Background())
+}
+
+func (i ConfiguredTableDifferentialPrivacyArgs) ToConfiguredTableDifferentialPrivacyPtrOutputWithContext(ctx context.Context) ConfiguredTableDifferentialPrivacyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableDifferentialPrivacyOutput).ToConfiguredTableDifferentialPrivacyPtrOutputWithContext(ctx)
+}
+
+// ConfiguredTableDifferentialPrivacyPtrInput is an input type that accepts ConfiguredTableDifferentialPrivacyArgs, ConfiguredTableDifferentialPrivacyPtr and ConfiguredTableDifferentialPrivacyPtrOutput values.
+// You can construct a concrete instance of `ConfiguredTableDifferentialPrivacyPtrInput` via:
+//
+//	        ConfiguredTableDifferentialPrivacyArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConfiguredTableDifferentialPrivacyPtrInput interface {
+	pulumi.Input
+
+	ToConfiguredTableDifferentialPrivacyPtrOutput() ConfiguredTableDifferentialPrivacyPtrOutput
+	ToConfiguredTableDifferentialPrivacyPtrOutputWithContext(context.Context) ConfiguredTableDifferentialPrivacyPtrOutput
+}
+
+type configuredTableDifferentialPrivacyPtrType ConfiguredTableDifferentialPrivacyArgs
+
+func ConfiguredTableDifferentialPrivacyPtr(v *ConfiguredTableDifferentialPrivacyArgs) ConfiguredTableDifferentialPrivacyPtrInput {
+	return (*configuredTableDifferentialPrivacyPtrType)(v)
+}
+
+func (*configuredTableDifferentialPrivacyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfiguredTableDifferentialPrivacy)(nil)).Elem()
+}
+
+func (i *configuredTableDifferentialPrivacyPtrType) ToConfiguredTableDifferentialPrivacyPtrOutput() ConfiguredTableDifferentialPrivacyPtrOutput {
+	return i.ToConfiguredTableDifferentialPrivacyPtrOutputWithContext(context.Background())
+}
+
+func (i *configuredTableDifferentialPrivacyPtrType) ToConfiguredTableDifferentialPrivacyPtrOutputWithContext(ctx context.Context) ConfiguredTableDifferentialPrivacyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableDifferentialPrivacyPtrOutput)
+}
+
+type ConfiguredTableDifferentialPrivacyOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableDifferentialPrivacyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableDifferentialPrivacy)(nil)).Elem()
+}
+
+func (o ConfiguredTableDifferentialPrivacyOutput) ToConfiguredTableDifferentialPrivacyOutput() ConfiguredTableDifferentialPrivacyOutput {
+	return o
+}
+
+func (o ConfiguredTableDifferentialPrivacyOutput) ToConfiguredTableDifferentialPrivacyOutputWithContext(ctx context.Context) ConfiguredTableDifferentialPrivacyOutput {
+	return o
+}
+
+func (o ConfiguredTableDifferentialPrivacyOutput) ToConfiguredTableDifferentialPrivacyPtrOutput() ConfiguredTableDifferentialPrivacyPtrOutput {
+	return o.ToConfiguredTableDifferentialPrivacyPtrOutputWithContext(context.Background())
+}
+
+func (o ConfiguredTableDifferentialPrivacyOutput) ToConfiguredTableDifferentialPrivacyPtrOutputWithContext(ctx context.Context) ConfiguredTableDifferentialPrivacyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfiguredTableDifferentialPrivacy) *ConfiguredTableDifferentialPrivacy {
+		return &v
+	}).(ConfiguredTableDifferentialPrivacyPtrOutput)
+}
+
+func (o ConfiguredTableDifferentialPrivacyOutput) Columns() ConfiguredTableDifferentialPrivacyColumnArrayOutput {
+	return o.ApplyT(func(v ConfiguredTableDifferentialPrivacy) []ConfiguredTableDifferentialPrivacyColumn {
+		return v.Columns
+	}).(ConfiguredTableDifferentialPrivacyColumnArrayOutput)
+}
+
+type ConfiguredTableDifferentialPrivacyPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableDifferentialPrivacyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfiguredTableDifferentialPrivacy)(nil)).Elem()
+}
+
+func (o ConfiguredTableDifferentialPrivacyPtrOutput) ToConfiguredTableDifferentialPrivacyPtrOutput() ConfiguredTableDifferentialPrivacyPtrOutput {
+	return o
+}
+
+func (o ConfiguredTableDifferentialPrivacyPtrOutput) ToConfiguredTableDifferentialPrivacyPtrOutputWithContext(ctx context.Context) ConfiguredTableDifferentialPrivacyPtrOutput {
+	return o
+}
+
+func (o ConfiguredTableDifferentialPrivacyPtrOutput) Elem() ConfiguredTableDifferentialPrivacyOutput {
+	return o.ApplyT(func(v *ConfiguredTableDifferentialPrivacy) ConfiguredTableDifferentialPrivacy {
+		if v != nil {
+			return *v
+		}
+		var ret ConfiguredTableDifferentialPrivacy
+		return ret
+	}).(ConfiguredTableDifferentialPrivacyOutput)
+}
+
+func (o ConfiguredTableDifferentialPrivacyPtrOutput) Columns() ConfiguredTableDifferentialPrivacyColumnArrayOutput {
+	return o.ApplyT(func(v *ConfiguredTableDifferentialPrivacy) []ConfiguredTableDifferentialPrivacyColumn {
+		if v == nil {
+			return nil
+		}
+		return v.Columns
+	}).(ConfiguredTableDifferentialPrivacyColumnArrayOutput)
+}
+
+type ConfiguredTableDifferentialPrivacyColumn struct {
+	Name string `pulumi:"name"`
+}
+
+// ConfiguredTableDifferentialPrivacyColumnInput is an input type that accepts ConfiguredTableDifferentialPrivacyColumnArgs and ConfiguredTableDifferentialPrivacyColumnOutput values.
+// You can construct a concrete instance of `ConfiguredTableDifferentialPrivacyColumnInput` via:
+//
+//	ConfiguredTableDifferentialPrivacyColumnArgs{...}
+type ConfiguredTableDifferentialPrivacyColumnInput interface {
+	pulumi.Input
+
+	ToConfiguredTableDifferentialPrivacyColumnOutput() ConfiguredTableDifferentialPrivacyColumnOutput
+	ToConfiguredTableDifferentialPrivacyColumnOutputWithContext(context.Context) ConfiguredTableDifferentialPrivacyColumnOutput
+}
+
+type ConfiguredTableDifferentialPrivacyColumnArgs struct {
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (ConfiguredTableDifferentialPrivacyColumnArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableDifferentialPrivacyColumn)(nil)).Elem()
+}
+
+func (i ConfiguredTableDifferentialPrivacyColumnArgs) ToConfiguredTableDifferentialPrivacyColumnOutput() ConfiguredTableDifferentialPrivacyColumnOutput {
+	return i.ToConfiguredTableDifferentialPrivacyColumnOutputWithContext(context.Background())
+}
+
+func (i ConfiguredTableDifferentialPrivacyColumnArgs) ToConfiguredTableDifferentialPrivacyColumnOutputWithContext(ctx context.Context) ConfiguredTableDifferentialPrivacyColumnOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableDifferentialPrivacyColumnOutput)
+}
+
+// ConfiguredTableDifferentialPrivacyColumnArrayInput is an input type that accepts ConfiguredTableDifferentialPrivacyColumnArray and ConfiguredTableDifferentialPrivacyColumnArrayOutput values.
+// You can construct a concrete instance of `ConfiguredTableDifferentialPrivacyColumnArrayInput` via:
+//
+//	ConfiguredTableDifferentialPrivacyColumnArray{ ConfiguredTableDifferentialPrivacyColumnArgs{...} }
+type ConfiguredTableDifferentialPrivacyColumnArrayInput interface {
+	pulumi.Input
+
+	ToConfiguredTableDifferentialPrivacyColumnArrayOutput() ConfiguredTableDifferentialPrivacyColumnArrayOutput
+	ToConfiguredTableDifferentialPrivacyColumnArrayOutputWithContext(context.Context) ConfiguredTableDifferentialPrivacyColumnArrayOutput
+}
+
+type ConfiguredTableDifferentialPrivacyColumnArray []ConfiguredTableDifferentialPrivacyColumnInput
+
+func (ConfiguredTableDifferentialPrivacyColumnArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfiguredTableDifferentialPrivacyColumn)(nil)).Elem()
+}
+
+func (i ConfiguredTableDifferentialPrivacyColumnArray) ToConfiguredTableDifferentialPrivacyColumnArrayOutput() ConfiguredTableDifferentialPrivacyColumnArrayOutput {
+	return i.ToConfiguredTableDifferentialPrivacyColumnArrayOutputWithContext(context.Background())
+}
+
+func (i ConfiguredTableDifferentialPrivacyColumnArray) ToConfiguredTableDifferentialPrivacyColumnArrayOutputWithContext(ctx context.Context) ConfiguredTableDifferentialPrivacyColumnArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableDifferentialPrivacyColumnArrayOutput)
+}
+
+type ConfiguredTableDifferentialPrivacyColumnOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableDifferentialPrivacyColumnOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableDifferentialPrivacyColumn)(nil)).Elem()
+}
+
+func (o ConfiguredTableDifferentialPrivacyColumnOutput) ToConfiguredTableDifferentialPrivacyColumnOutput() ConfiguredTableDifferentialPrivacyColumnOutput {
+	return o
+}
+
+func (o ConfiguredTableDifferentialPrivacyColumnOutput) ToConfiguredTableDifferentialPrivacyColumnOutputWithContext(ctx context.Context) ConfiguredTableDifferentialPrivacyColumnOutput {
+	return o
+}
+
+func (o ConfiguredTableDifferentialPrivacyColumnOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfiguredTableDifferentialPrivacyColumn) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type ConfiguredTableDifferentialPrivacyColumnArrayOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableDifferentialPrivacyColumnArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfiguredTableDifferentialPrivacyColumn)(nil)).Elem()
+}
+
+func (o ConfiguredTableDifferentialPrivacyColumnArrayOutput) ToConfiguredTableDifferentialPrivacyColumnArrayOutput() ConfiguredTableDifferentialPrivacyColumnArrayOutput {
+	return o
+}
+
+func (o ConfiguredTableDifferentialPrivacyColumnArrayOutput) ToConfiguredTableDifferentialPrivacyColumnArrayOutputWithContext(ctx context.Context) ConfiguredTableDifferentialPrivacyColumnArrayOutput {
+	return o
+}
+
+func (o ConfiguredTableDifferentialPrivacyColumnArrayOutput) Index(i pulumi.IntInput) ConfiguredTableDifferentialPrivacyColumnOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfiguredTableDifferentialPrivacyColumn {
+		return vs[0].([]ConfiguredTableDifferentialPrivacyColumn)[vs[1].(int)]
+	}).(ConfiguredTableDifferentialPrivacyColumnOutput)
 }
 
 type ConfiguredTableGlueTableReference struct {
@@ -2343,6 +2580,108 @@ type MembershipTag struct {
 	Value string `pulumi:"value"`
 }
 
+type ParametersProperties struct {
+	Epsilon            int `pulumi:"epsilon"`
+	UsersNoisePerQuery int `pulumi:"usersNoisePerQuery"`
+}
+
+// ParametersPropertiesInput is an input type that accepts ParametersPropertiesArgs and ParametersPropertiesOutput values.
+// You can construct a concrete instance of `ParametersPropertiesInput` via:
+//
+//	ParametersPropertiesArgs{...}
+type ParametersPropertiesInput interface {
+	pulumi.Input
+
+	ToParametersPropertiesOutput() ParametersPropertiesOutput
+	ToParametersPropertiesOutputWithContext(context.Context) ParametersPropertiesOutput
+}
+
+type ParametersPropertiesArgs struct {
+	Epsilon            pulumi.IntInput `pulumi:"epsilon"`
+	UsersNoisePerQuery pulumi.IntInput `pulumi:"usersNoisePerQuery"`
+}
+
+func (ParametersPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ParametersProperties)(nil)).Elem()
+}
+
+func (i ParametersPropertiesArgs) ToParametersPropertiesOutput() ParametersPropertiesOutput {
+	return i.ToParametersPropertiesOutputWithContext(context.Background())
+}
+
+func (i ParametersPropertiesArgs) ToParametersPropertiesOutputWithContext(ctx context.Context) ParametersPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ParametersPropertiesOutput)
+}
+
+type ParametersPropertiesOutput struct{ *pulumi.OutputState }
+
+func (ParametersPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ParametersProperties)(nil)).Elem()
+}
+
+func (o ParametersPropertiesOutput) ToParametersPropertiesOutput() ParametersPropertiesOutput {
+	return o
+}
+
+func (o ParametersPropertiesOutput) ToParametersPropertiesOutputWithContext(ctx context.Context) ParametersPropertiesOutput {
+	return o
+}
+
+func (o ParametersPropertiesOutput) Epsilon() pulumi.IntOutput {
+	return o.ApplyT(func(v ParametersProperties) int { return v.Epsilon }).(pulumi.IntOutput)
+}
+
+func (o ParametersPropertiesOutput) UsersNoisePerQuery() pulumi.IntOutput {
+	return o.ApplyT(func(v ParametersProperties) int { return v.UsersNoisePerQuery }).(pulumi.IntOutput)
+}
+
+type ParametersPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ParametersPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ParametersProperties)(nil)).Elem()
+}
+
+func (o ParametersPropertiesPtrOutput) ToParametersPropertiesPtrOutput() ParametersPropertiesPtrOutput {
+	return o
+}
+
+func (o ParametersPropertiesPtrOutput) ToParametersPropertiesPtrOutputWithContext(ctx context.Context) ParametersPropertiesPtrOutput {
+	return o
+}
+
+func (o ParametersPropertiesPtrOutput) Elem() ParametersPropertiesOutput {
+	return o.ApplyT(func(v *ParametersProperties) ParametersProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ParametersProperties
+		return ret
+	}).(ParametersPropertiesOutput)
+}
+
+func (o ParametersPropertiesPtrOutput) Epsilon() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ParametersProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Epsilon
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o ParametersPropertiesPtrOutput) UsersNoisePerQuery() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ParametersProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.UsersNoisePerQuery
+	}).(pulumi.IntPtrOutput)
+}
+
+type PrivacyBudgetTemplateTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateAnalysisParameterInput)(nil)).Elem(), AnalysisTemplateAnalysisParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateAnalysisParameterArrayInput)(nil)).Elem(), AnalysisTemplateAnalysisParameterArray{})
@@ -2368,6 +2707,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAnalysisRulePolicyV10PropertiesInput)(nil)).Elem(), ConfiguredTableAnalysisRulePolicyV10PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAnalysisRulePolicyV11PropertiesInput)(nil)).Elem(), ConfiguredTableAnalysisRulePolicyV11PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAnalysisRulePolicyV12PropertiesInput)(nil)).Elem(), ConfiguredTableAnalysisRulePolicyV12PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableDifferentialPrivacyInput)(nil)).Elem(), ConfiguredTableDifferentialPrivacyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableDifferentialPrivacyPtrInput)(nil)).Elem(), ConfiguredTableDifferentialPrivacyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableDifferentialPrivacyColumnInput)(nil)).Elem(), ConfiguredTableDifferentialPrivacyColumnArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableDifferentialPrivacyColumnArrayInput)(nil)).Elem(), ConfiguredTableDifferentialPrivacyColumnArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableGlueTableReferenceInput)(nil)).Elem(), ConfiguredTableGlueTableReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableTableReferenceInput)(nil)).Elem(), ConfiguredTableTableReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MembershipPaymentConfigurationInput)(nil)).Elem(), MembershipPaymentConfigurationArgs{})
@@ -2380,6 +2723,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MembershipProtectedQueryS3OutputConfigurationPtrInput)(nil)).Elem(), MembershipProtectedQueryS3OutputConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MembershipQueryComputePaymentConfigInput)(nil)).Elem(), MembershipQueryComputePaymentConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MembershipQueryComputePaymentConfigPtrInput)(nil)).Elem(), MembershipQueryComputePaymentConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ParametersPropertiesInput)(nil)).Elem(), ParametersPropertiesArgs{})
 	pulumi.RegisterOutputType(AnalysisTemplateAnalysisParameterOutput{})
 	pulumi.RegisterOutputType(AnalysisTemplateAnalysisParameterArrayOutput{})
 	pulumi.RegisterOutputType(AnalysisTemplateAnalysisSchemaOutput{})
@@ -2406,6 +2750,10 @@ func init() {
 	pulumi.RegisterOutputType(ConfiguredTableAnalysisRulePolicyV10PropertiesOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableAnalysisRulePolicyV11PropertiesOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableAnalysisRulePolicyV12PropertiesOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableDifferentialPrivacyOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableDifferentialPrivacyPtrOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableDifferentialPrivacyColumnOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableDifferentialPrivacyColumnArrayOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableGlueTableReferenceOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableTableReferenceOutput{})
 	pulumi.RegisterOutputType(MembershipPaymentConfigurationOutput{})
@@ -2418,4 +2766,6 @@ func init() {
 	pulumi.RegisterOutputType(MembershipProtectedQueryS3OutputConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(MembershipQueryComputePaymentConfigOutput{})
 	pulumi.RegisterOutputType(MembershipQueryComputePaymentConfigPtrOutput{})
+	pulumi.RegisterOutputType(ParametersPropertiesOutput{})
+	pulumi.RegisterOutputType(ParametersPropertiesPtrOutput{})
 }
