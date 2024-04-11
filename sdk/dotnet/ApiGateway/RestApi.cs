@@ -51,9 +51,9 @@ namespace Pulumi.AwsNative.ApiGateway
     ///         RestApiId = restApi.Id,
     ///     }, new CustomResourceOptions
     ///     {
-    ///         DependsOn = new[]
+    ///         DependsOn =
     ///         {
-    ///             documentationPart,
+    ///             documentationPart, 
     ///         },
     ///     });
     /// 
@@ -98,9 +98,9 @@ namespace Pulumi.AwsNative.ApiGateway
     ///         RestApiId = restApi.Id,
     ///     }, new CustomResourceOptions
     ///     {
-    ///         DependsOn = new[]
+    ///         DependsOn =
     ///         {
-    ///             documentationPart,
+    ///             documentationPart, 
     ///         },
     ///     });
     /// 
@@ -357,26 +357,26 @@ namespace Pulumi.AwsNative.ApiGateway
     /// {
     ///     var restApi = new AwsNative.ApiGateway.RestApi("restApi", new()
     ///     {
-    ///         Body = 
+    ///         Body = new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             { "swagger", 2 },
-    ///             { "info", 
+    ///             ["swagger"] = 2,
+    ///             ["info"] = new Dictionary&lt;string, object?&gt;
     ///             {
-    ///                 { "version", "0.0.1" },
-    ///                 { "title", "test" },
-    ///             } },
-    ///             { "basePath", "/pete" },
-    ///             { "schemes", new[]
+    ///                 ["version"] = "0.0.1",
+    ///                 ["title"] = "test",
+    ///             },
+    ///             ["basePath"] = "/pete",
+    ///             ["schemes"] = new[]
     ///             {
     ///                 "https",
-    ///             } },
-    ///             { "definitions", 
+    ///             },
+    ///             ["definitions"] = new Dictionary&lt;string, object?&gt;
     ///             {
-    ///                 { "empty", 
+    ///                 ["empty"] = new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     { "type", "object" },
-    ///                 } },
-    ///             } },
+    ///                     ["type"] = "object",
+    ///                 },
+    ///             },
     ///         },
     ///         Name = "myApi",
     ///         Parameters = 
@@ -400,26 +400,26 @@ namespace Pulumi.AwsNative.ApiGateway
     /// {
     ///     var restApi = new AwsNative.ApiGateway.RestApi("restApi", new()
     ///     {
-    ///         Body = 
+    ///         Body = new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             { "swagger", 2 },
-    ///             { "info", 
+    ///             ["swagger"] = 2,
+    ///             ["info"] = new Dictionary&lt;string, object?&gt;
     ///             {
-    ///                 { "version", "0.0.1" },
-    ///                 { "title", "test" },
-    ///             } },
-    ///             { "basePath", "/pete" },
-    ///             { "schemes", new[]
+    ///                 ["version"] = "0.0.1",
+    ///                 ["title"] = "test",
+    ///             },
+    ///             ["basePath"] = "/pete",
+    ///             ["schemes"] = new[]
     ///             {
     ///                 "https",
-    ///             } },
-    ///             { "definitions", 
+    ///             },
+    ///             ["definitions"] = new Dictionary&lt;string, object?&gt;
     ///             {
-    ///                 { "empty", 
+    ///                 ["empty"] = new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     { "type", "object" },
-    ///                 } },
-    ///             } },
+    ///                     ["type"] = "object",
+    ///                 },
+    ///             },
     ///         },
     ///         Name = "myApi",
     ///         Parameters = 

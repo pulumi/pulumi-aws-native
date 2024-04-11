@@ -25,29 +25,29 @@ namespace Pulumi.AwsNative.Ssm
     ///     var sessionPreferencesDocument = new AwsNative.Ssm.Document("sessionPreferencesDocument", new()
     ///     {
     ///         Name = "SSM-SessionManagerRunShell",
-    ///         Content = 
+    ///         Content = new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             { "schemaVersion", "1.0" },
-    ///             { "description", "Document to hold regional settings for Session Manager" },
-    ///             { "sessionType", "Standard_Stream" },
-    ///             { "inputs", 
+    ///             ["schemaVersion"] = "1.0",
+    ///             ["description"] = "Document to hold regional settings for Session Manager",
+    ///             ["sessionType"] = "Standard_Stream",
+    ///             ["inputs"] = new Dictionary&lt;string, object?&gt;
     ///             {
-    ///                 { "s3BucketName", "DOC-EXAMPLE-BUCKET" },
-    ///                 { "s3KeyPrefix", "MyBucketPrefix" },
-    ///                 { "s3EncryptionEnabled", true },
-    ///                 { "cloudWatchLogGroupName", "MyLogGroupName" },
-    ///                 { "cloudWatchEncryptionEnabled", true },
-    ///                 { "cloudWatchStreamingEnabled", false },
-    ///                 { "kmsKeyId", "MyKMSKeyID" },
-    ///                 { "runAsEnabled", false },
-    ///                 { "runAsDefaultUser", "MyDefaultRunAsUser" },
-    ///                 { "idleSessionTimeout", "20" },
-    ///                 { "shellProfile", 
+    ///                 ["s3BucketName"] = "DOC-EXAMPLE-BUCKET",
+    ///                 ["s3KeyPrefix"] = "MyBucketPrefix",
+    ///                 ["s3EncryptionEnabled"] = true,
+    ///                 ["cloudWatchLogGroupName"] = "MyLogGroupName",
+    ///                 ["cloudWatchEncryptionEnabled"] = true,
+    ///                 ["cloudWatchStreamingEnabled"] = false,
+    ///                 ["kmsKeyId"] = "MyKMSKeyID",
+    ///                 ["runAsEnabled"] = false,
+    ///                 ["runAsDefaultUser"] = "MyDefaultRunAsUser",
+    ///                 ["idleSessionTimeout"] = "20",
+    ///                 ["shellProfile"] = new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     { "windows", "example commands" },
-    ///                     { "linux", "example commands" },
-    ///                 } },
-    ///             } },
+    ///                     ["windows"] = "example commands",
+    ///                     ["linux"] = "example commands",
+    ///                 },
+    ///             },
     ///         },
     ///         DocumentType = AwsNative.Ssm.DocumentType.Session,
     ///     });
@@ -72,29 +72,29 @@ namespace Pulumi.AwsNative.Ssm
     ///     var sessionPreferencesDocument = new AwsNative.Ssm.Document("sessionPreferencesDocument", new()
     ///     {
     ///         Name = "SSM-SessionManagerRunShell",
-    ///         Content = 
+    ///         Content = new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             { "schemaVersion", "1.0" },
-    ///             { "description", "Document to hold regional settings for Session Manager" },
-    ///             { "sessionType", "Standard_Stream" },
-    ///             { "inputs", 
+    ///             ["schemaVersion"] = "1.0",
+    ///             ["description"] = "Document to hold regional settings for Session Manager",
+    ///             ["sessionType"] = "Standard_Stream",
+    ///             ["inputs"] = new Dictionary&lt;string, object?&gt;
     ///             {
-    ///                 { "s3BucketName", "DOC-EXAMPLE-BUCKET" },
-    ///                 { "s3KeyPrefix", "MyBucketPrefix" },
-    ///                 { "s3EncryptionEnabled", true },
-    ///                 { "cloudWatchLogGroupName", "MyLogGroupName" },
-    ///                 { "cloudWatchEncryptionEnabled", true },
-    ///                 { "cloudWatchStreamingEnabled", false },
-    ///                 { "kmsKeyId", "MyKMSKeyID" },
-    ///                 { "runAsEnabled", false },
-    ///                 { "runAsDefaultUser", "MyDefaultRunAsUser" },
-    ///                 { "idleSessionTimeout", "20" },
-    ///                 { "shellProfile", 
+    ///                 ["s3BucketName"] = "DOC-EXAMPLE-BUCKET",
+    ///                 ["s3KeyPrefix"] = "MyBucketPrefix",
+    ///                 ["s3EncryptionEnabled"] = true,
+    ///                 ["cloudWatchLogGroupName"] = "MyLogGroupName",
+    ///                 ["cloudWatchEncryptionEnabled"] = true,
+    ///                 ["cloudWatchStreamingEnabled"] = false,
+    ///                 ["kmsKeyId"] = "MyKMSKeyID",
+    ///                 ["runAsEnabled"] = false,
+    ///                 ["runAsDefaultUser"] = "MyDefaultRunAsUser",
+    ///                 ["idleSessionTimeout"] = "20",
+    ///                 ["shellProfile"] = new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     { "windows", "example commands" },
-    ///                     { "linux", "example commands" },
-    ///                 } },
-    ///             } },
+    ///                     ["windows"] = "example commands",
+    ///                     ["linux"] = "example commands",
+    ///                 },
+    ///             },
     ///         },
     ///         DocumentFormat = AwsNative.Ssm.DocumentFormat.Yaml,
     ///         DocumentType = AwsNative.Ssm.DocumentType.Session,

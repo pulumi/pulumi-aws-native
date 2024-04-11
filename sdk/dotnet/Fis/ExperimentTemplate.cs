@@ -24,45 +24,45 @@ namespace Pulumi.AwsNative.Fis
     /// {
     ///     var fisRole = new AwsNative.Iam.Role("fisRole", new()
     ///     {
-    ///         AssumeRolePolicyDocument = 
+    ///         AssumeRolePolicyDocument = new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             { "version", "2012-10-17" },
-    ///             { "statement", new[]
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
-    ///                 
+    ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     { "effect", "Allow" },
-    ///                     { "principal", 
+    ///                     ["effect"] = "Allow",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         { "service", "fis.amazonaws.com" },
-    ///                     } },
-    ///                     { "action", "sts:AssumeRole" },
+    ///                         ["service"] = "fis.amazonaws.com",
+    ///                     },
+    ///                     ["action"] = "sts:AssumeRole",
     ///                 },
-    ///             } },
+    ///             },
     ///         },
     ///         Policies = new[]
     ///         {
     ///             new AwsNative.Iam.Inputs.RolePolicyArgs
     ///             {
     ///                 PolicyName = "FISRoleEC2Actions",
-    ///                 PolicyDocument = 
+    ///                 PolicyDocument = new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     { "version", "2012-10-17" },
-    ///                     { "statement", new[]
+    ///                     ["version"] = "2012-10-17",
+    ///                     ["statement"] = new[]
     ///                     {
-    ///                         
+    ///                         new Dictionary&lt;string, object?&gt;
     ///                         {
-    ///                             { "effect", "Allow" },
-    ///                             { "action", new[]
+    ///                             ["effect"] = "Allow",
+    ///                             ["action"] = new[]
     ///                             {
     ///                                 "ec2:RebootInstances",
     ///                                 "ec2:StopInstances",
     ///                                 "ec2:StartInstances",
     ///                                 "ec2:TerminateInstances",
-    ///                             } },
-    ///                             { "resource", "arn:aws:ec2:*:*:instance/*" },
+    ///                             },
+    ///                             ["resource"] = "arn:aws:ec2:*:*:instance/*",
     ///                         },
-    ///                     } },
+    ///                     },
     ///                 },
     ///             },
     ///         },

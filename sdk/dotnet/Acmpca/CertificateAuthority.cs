@@ -124,9 +124,9 @@ namespace Pulumi.AwsNative.Acmpca
     ///         },
     ///     }, new CustomResourceOptions
     ///     {
-    ///         DependsOn = new[]
+    ///         DependsOn =
     ///         {
-    ///             rootCAActivation,
+    ///             rootCAActivation, 
     ///         },
     ///     });
     /// 
@@ -199,9 +199,9 @@ namespace Pulumi.AwsNative.Acmpca
     ///         },
     ///     }, new CustomResourceOptions
     ///     {
-    ///         DependsOn = new[]
+    ///         DependsOn =
     ///         {
-    ///             subordinateCAOneActivation,
+    ///             subordinateCAOneActivation, 
     ///         },
     ///     });
     /// 
@@ -252,9 +252,9 @@ namespace Pulumi.AwsNative.Acmpca
     ///         },
     ///     }, new CustomResourceOptions
     ///     {
-    ///         DependsOn = new[]
+    ///         DependsOn =
     ///         {
-    ///             subordinateCATwoActivation,
+    ///             subordinateCATwoActivation, 
     ///         },
     ///     });
     /// 

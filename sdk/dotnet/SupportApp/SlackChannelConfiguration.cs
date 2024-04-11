@@ -24,27 +24,27 @@ namespace Pulumi.AwsNative.SupportApp
     /// {
     ///     var awsSupportSlackAppCFNRole = new AwsNative.Iam.Role("awsSupportSlackAppCFNRole", new()
     ///     {
-    ///         AssumeRolePolicyDocument = 
+    ///         AssumeRolePolicyDocument = new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             { "version", "2012-10-17" },
-    ///             { "statement", new[]
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
-    ///                 
+    ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     { "effect", "Allow" },
-    ///                     { "principal", 
+    ///                     ["effect"] = "Allow",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         { "service", new[]
+    ///                         ["service"] = new[]
     ///                         {
     ///                             "supportapp.amazonaws.com",
-    ///                         } },
-    ///                     } },
-    ///                     { "action", new[]
+    ///                         },
+    ///                     },
+    ///                     ["action"] = new[]
     ///                     {
     ///                         "sts:AssumeRole",
-    ///                     } },
+    ///                     },
     ///                 },
-    ///             } },
+    ///             },
     ///         },
     ///         ManagedPolicyArns = new[]
     ///         {
@@ -79,27 +79,27 @@ namespace Pulumi.AwsNative.SupportApp
     /// {
     ///     var awsSupportSlackAppCFNRole = new AwsNative.Iam.Role("awsSupportSlackAppCFNRole", new()
     ///     {
-    ///         AssumeRolePolicyDocument = 
+    ///         AssumeRolePolicyDocument = new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             { "version", "2012-10-17" },
-    ///             { "statement", new[]
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
-    ///                 
+    ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     { "effect", "Allow" },
-    ///                     { "principal", 
+    ///                     ["effect"] = "Allow",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         { "service", new[]
+    ///                         ["service"] = new[]
     ///                         {
     ///                             "supportapp.amazonaws.com",
-    ///                         } },
-    ///                     } },
-    ///                     { "action", new[]
+    ///                         },
+    ///                     },
+    ///                     ["action"] = new[]
     ///                     {
     ///                         "sts:AssumeRole",
-    ///                     } },
+    ///                     },
     ///                 },
-    ///             } },
+    ///             },
     ///         },
     ///         ManagedPolicyArns = new[]
     ///         {

@@ -34,9 +34,9 @@ namespace Pulumi.AwsNative.CloudFormation
     ///         ModulePackage = "s3://my-sample-moduleversion-bucket/sample-module-package-v2.zip",
     ///     }, new CustomResourceOptions
     ///     {
-    ///         DependsOn = new[]
+    ///         DependsOn =
     ///         {
-    ///             moduleVersion1,
+    ///             moduleVersion1, 
     ///         },
     ///     });
     /// 
@@ -70,9 +70,9 @@ namespace Pulumi.AwsNative.CloudFormation
     ///         ModulePackage = "s3://my-sample-moduleversion-bucket/sample-module-package-v2.zip",
     ///     }, new CustomResourceOptions
     ///     {
-    ///         DependsOn = new[]
+    ///         DependsOn =
     ///         {
-    ///             moduleVersion1,
+    ///             moduleVersion1, 
     ///         },
     ///     });
     /// 
@@ -144,9 +144,9 @@ namespace Pulumi.AwsNative.CloudFormation
     ///         ModulePackage = "s3://my-sample-moduleversion-bucket/sample-module-package-v2.zip",
     ///     }, new CustomResourceOptions
     ///     {
-    ///         DependsOn = new[]
+    ///         DependsOn =
     ///         {
-    ///             moduleVersion1,
+    ///             moduleVersion1, 
     ///         },
     ///     });
     /// 
@@ -175,9 +175,9 @@ namespace Pulumi.AwsNative.CloudFormation
     ///         ModulePackage = "s3://my-sample-moduleversion-bucket/sample-module-package-v2.zip",
     ///     }, new CustomResourceOptions
     ///     {
-    ///         DependsOn = new[]
+    ///         DependsOn =
     ///         {
-    ///             moduleVersion1,
+    ///             moduleVersion1, 
     ///         },
     ///     });
     /// 
