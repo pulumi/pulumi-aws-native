@@ -31,9 +31,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			fisRole, err := iam.NewRole(ctx, "fisRole", &iam.RoleArgs{
-//				AssumeRolePolicyDocument: pulumi.Any{
-//					Version: "2012-10-17",
-//					Statement: []map[string]interface{}{
+//				AssumeRolePolicyDocument: pulumi.Any(map[string]interface{}{
+//					"version": "2012-10-17",
+//					"statement": []map[string]interface{}{
 //						map[string]interface{}{
 //							"effect": "Allow",
 //							"principal": map[string]interface{}{
@@ -42,13 +42,13 @@ import (
 //							"action": "sts:AssumeRole",
 //						},
 //					},
-//				},
+//				}),
 //				Policies: iam.RolePolicyTypeArray{
 //					&iam.RolePolicyTypeArgs{
 //						PolicyName: pulumi.String("FISRoleEC2Actions"),
-//						PolicyDocument: pulumi.Any{
-//							Version: "2012-10-17",
-//							Statement: []map[string]interface{}{
+//						PolicyDocument: pulumi.Any(map[string]interface{}{
+//							"version": "2012-10-17",
+//							"statement": []map[string]interface{}{
 //								map[string]interface{}{
 //									"effect": "Allow",
 //									"action": []string{
@@ -60,7 +60,7 @@ import (
 //									"resource": "arn:aws:ec2:*:*:instance/*",
 //								},
 //							},
-//						},
+//						}),
 //					},
 //				},
 //			})

@@ -187,10 +187,10 @@ import (
 //				return err
 //			}
 //			mySourceQueue, err := sqs.NewQueue(ctx, "mySourceQueue", &sqs.QueueArgs{
-//				RedrivePolicy: pulumi.Any{
-//					DeadLetterTargetArn: myDeadLetterQueue.Arn,
-//					MaxReceiveCount:     5,
-//				},
+//				RedrivePolicy: pulumi.Any(map[string]interface{}{
+//					"deadLetterTargetArn": myDeadLetterQueue.Arn,
+//					"maxReceiveCount":     5,
+//				}),
 //			})
 //			if err != nil {
 //				return err
@@ -223,10 +223,10 @@ import (
 //				return err
 //			}
 //			mySourceQueue, err := sqs.NewQueue(ctx, "mySourceQueue", &sqs.QueueArgs{
-//				RedrivePolicy: pulumi.Any{
-//					DeadLetterTargetArn: myDeadLetterQueue.Arn,
-//					MaxReceiveCount:     5,
-//				},
+//				RedrivePolicy: pulumi.Any(map[string]interface{}{
+//					"deadLetterTargetArn": myDeadLetterQueue.Arn,
+//					"maxReceiveCount":     5,
+//				}),
 //			})
 //			if err != nil {
 //				return err

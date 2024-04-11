@@ -32,9 +32,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ecr.NewRegistryPolicy(ctx, "testRegistryPolicy", &ecr.RegistryPolicyArgs{
-//				PolicyText: pulumi.Any{
-//					Version: "2012-10-17",
-//					Statement: []map[string]interface{}{
+//				PolicyText: pulumi.Any(map[string]interface{}{
+//					"version": "2012-10-17",
+//					"statement": []map[string]interface{}{
 //						map[string]interface{}{
 //							"sid":    "UpdatedRegistryPolicy",
 //							"effect": "Allow",
@@ -48,7 +48,7 @@ import (
 //							"resource": "arn:aws:ecr:us-west-2:123456789012:repository/*",
 //						},
 //					},
-//				},
+//				}),
 //			})
 //			if err != nil {
 //				return err
