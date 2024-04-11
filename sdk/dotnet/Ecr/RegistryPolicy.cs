@@ -25,27 +25,27 @@ namespace Pulumi.AwsNative.Ecr
     /// {
     ///     var testRegistryPolicy = new AwsNative.Ecr.RegistryPolicy("testRegistryPolicy", new()
     ///     {
-    ///         PolicyText = 
+    ///         PolicyText = new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             { "version", "2012-10-17" },
-    ///             { "statement", new[]
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
-    ///                 
+    ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     { "sid", "UpdatedRegistryPolicy" },
-    ///                     { "effect", "Allow" },
-    ///                     { "principal", 
+    ///                     ["sid"] = "UpdatedRegistryPolicy",
+    ///                     ["effect"] = "Allow",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         { "aws", "arn:aws:iam::210987654321:root" },
-    ///                     } },
-    ///                     { "action", new[]
+    ///                         ["aws"] = "arn:aws:iam::210987654321:root",
+    ///                     },
+    ///                     ["action"] = new[]
     ///                     {
     ///                         "ecr:CreateRepository",
     ///                         "ecr:ReplicateImage",
-    ///                     } },
-    ///                     { "resource", "arn:aws:ecr:us-west-2:123456789012:repository/*" },
+    ///                     },
+    ///                     ["resource"] = "arn:aws:ecr:us-west-2:123456789012:repository/*",
     ///                 },
-    ///             } },
+    ///             },
     ///         },
     ///     });
     /// 

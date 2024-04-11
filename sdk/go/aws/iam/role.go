@@ -34,9 +34,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			iamRole, err := iam.NewRole(ctx, "iamRole", &iam.RoleArgs{
-//				AssumeRolePolicyDocument: pulumi.Any{
-//					Version: "2012-10-17",
-//					Statement: []map[string]interface{}{
+//				AssumeRolePolicyDocument: pulumi.Any(map[string]interface{}{
+//					"version": "2012-10-17",
+//					"statement": []map[string]interface{}{
 //						map[string]interface{}{
 //							"effect": "Allow",
 //							"principal": map[string]interface{}{
@@ -48,14 +48,14 @@ import (
 //							"action": "sts:AssumeRole",
 //						},
 //					},
-//				},
+//				}),
 //				RoleName: pulumi.String("ScriptIAMRole"),
 //				Policies: iam.RolePolicyTypeArray{
 //					&iam.RolePolicyTypeArgs{
 //						PolicyName: pulumi.String("ScriptResourceIAMPolicy"),
-//						PolicyDocument: pulumi.Any{
-//							Version: "2012-10-17",
-//							Statement: []map[string]interface{}{
+//						PolicyDocument: pulumi.Any(map[string]interface{}{
+//							"version": "2012-10-17",
+//							"statement": []map[string]interface{}{
 //								map[string]interface{}{
 //									"effect": "Allow",
 //									"action": []string{
@@ -69,7 +69,7 @@ import (
 //									},
 //								},
 //							},
-//						},
+//						}),
 //					},
 //				},
 //			})
@@ -109,9 +109,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			iamRole, err := iam.NewRole(ctx, "iamRole", &iam.RoleArgs{
-//				AssumeRolePolicyDocument: pulumi.Any{
-//					Version: "2012-10-17",
-//					Statement: []map[string]interface{}{
+//				AssumeRolePolicyDocument: pulumi.Any(map[string]interface{}{
+//					"version": "2012-10-17",
+//					"statement": []map[string]interface{}{
 //						map[string]interface{}{
 //							"effect": "Allow",
 //							"principal": map[string]interface{}{
@@ -123,14 +123,14 @@ import (
 //							"action": "sts:AssumeRole",
 //						},
 //					},
-//				},
+//				}),
 //				RoleName: pulumi.String("ScriptIAMRole"),
 //				Policies: iam.RolePolicyTypeArray{
 //					&iam.RolePolicyTypeArgs{
 //						PolicyName: pulumi.String("ScriptResourceIAMPolicy"),
-//						PolicyDocument: pulumi.Any{
-//							Version: "2012-10-17",
-//							Statement: []map[string]interface{}{
+//						PolicyDocument: pulumi.Any(map[string]interface{}{
+//							"version": "2012-10-17",
+//							"statement": []map[string]interface{}{
 //								map[string]interface{}{
 //									"effect": "Allow",
 //									"action": []string{
@@ -144,7 +144,7 @@ import (
 //									},
 //								},
 //							},
-//						},
+//						}),
 //					},
 //				},
 //			})
@@ -187,9 +187,9 @@ import (
 //				ManagedPolicyArns: pulumi.StringArray{
 //					pulumi.String("arn:aws:iam::aws:policy/service-role/AmazonGrafanaAthenaAccess"),
 //				},
-//				AssumeRolePolicyDocument: pulumi.Any{
-//					Version: "2012-10-17",
-//					Statement: []map[string]interface{}{
+//				AssumeRolePolicyDocument: pulumi.Any(map[string]interface{}{
+//					"version": "2012-10-17",
+//					"statement": []map[string]interface{}{
 //						map[string]interface{}{
 //							"effect": "Allow",
 //							"principal": map[string]interface{}{
@@ -202,7 +202,7 @@ import (
 //							},
 //						},
 //					},
-//				},
+//				}),
 //			})
 //			if err != nil {
 //				return err
@@ -274,9 +274,9 @@ import (
 //				ManagedPolicyArns: pulumi.StringArray{
 //					pulumi.String("arn:aws:iam::aws:policy/service-role/AmazonGrafanaAthenaAccess"),
 //				},
-//				AssumeRolePolicyDocument: pulumi.Any{
-//					Version: "2012-10-17",
-//					Statement: []map[string]interface{}{
+//				AssumeRolePolicyDocument: pulumi.Any(map[string]interface{}{
+//					"version": "2012-10-17",
+//					"statement": []map[string]interface{}{
 //						map[string]interface{}{
 //							"effect": "Allow",
 //							"principal": map[string]interface{}{
@@ -289,7 +289,7 @@ import (
 //							},
 //						},
 //					},
-//				},
+//				}),
 //			})
 //			if err != nil {
 //				return err
@@ -357,9 +357,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			rootRole, err := iam.NewRole(ctx, "rootRole", &iam.RoleArgs{
-//				AssumeRolePolicyDocument: pulumi.Any{
-//					Version: "2012-10-17",
-//					Statement: []map[string]interface{}{
+//				AssumeRolePolicyDocument: pulumi.Any(map[string]interface{}{
+//					"version": "2012-10-17",
+//					"statement": []map[string]interface{}{
 //						map[string]interface{}{
 //							"effect": "Allow",
 //							"principal": map[string]interface{}{
@@ -372,21 +372,21 @@ import (
 //							},
 //						},
 //					},
-//				},
+//				}),
 //				Path: pulumi.String("/"),
 //				Policies: iam.RolePolicyTypeArray{
 //					&iam.RolePolicyTypeArgs{
 //						PolicyName: pulumi.String("root"),
-//						PolicyDocument: pulumi.Any{
-//							Version: "2012-10-17",
-//							Statement: []map[string]interface{}{
+//						PolicyDocument: pulumi.Any(map[string]interface{}{
+//							"version": "2012-10-17",
+//							"statement": []map[string]interface{}{
 //								map[string]interface{}{
 //									"effect":   "Allow",
 //									"action":   "*",
 //									"resource": "*",
 //								},
 //							},
-//						},
+//						}),
 //					},
 //				},
 //			})
@@ -422,9 +422,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			rootRole, err := iam.NewRole(ctx, "rootRole", &iam.RoleArgs{
-//				AssumeRolePolicyDocument: pulumi.Any{
-//					Version: "2012-10-17",
-//					Statement: []map[string]interface{}{
+//				AssumeRolePolicyDocument: pulumi.Any(map[string]interface{}{
+//					"version": "2012-10-17",
+//					"statement": []map[string]interface{}{
 //						map[string]interface{}{
 //							"effect": "Allow",
 //							"principal": map[string]interface{}{
@@ -437,21 +437,21 @@ import (
 //							},
 //						},
 //					},
-//				},
+//				}),
 //				Path: pulumi.String("/"),
 //				Policies: iam.RolePolicyTypeArray{
 //					&iam.RolePolicyTypeArgs{
 //						PolicyName: pulumi.String("root"),
-//						PolicyDocument: pulumi.Any{
-//							Version: "2012-10-17",
-//							Statement: []map[string]interface{}{
+//						PolicyDocument: pulumi.Any(map[string]interface{}{
+//							"version": "2012-10-17",
+//							"statement": []map[string]interface{}{
 //								map[string]interface{}{
 //									"effect":   "Allow",
 //									"action":   "*",
 //									"resource": "*",
 //								},
 //							},
-//						},
+//						}),
 //					},
 //				},
 //			})
@@ -488,9 +488,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := iam.NewRole(ctx, "automationExecutionRole", &iam.RoleArgs{
-//				AssumeRolePolicyDocument: pulumi.Any{
-//					Version: "2012-10-17",
-//					Statement: []map[string]interface{}{
+//				AssumeRolePolicyDocument: pulumi.Any(map[string]interface{}{
+//					"version": "2012-10-17",
+//					"statement": []map[string]interface{}{
 //						map[string]interface{}{
 //							"effect": "Allow",
 //							"principal": map[string]interface{}{
@@ -501,7 +501,7 @@ import (
 //							},
 //						},
 //					},
-//				},
+//				}),
 //				Path: pulumi.String("/"),
 //				ManagedPolicyArns: pulumi.StringArray{
 //					pulumi.String("arn:${AWS::Partition}:iam::aws:policy/AmazonEC2FullAccess"),

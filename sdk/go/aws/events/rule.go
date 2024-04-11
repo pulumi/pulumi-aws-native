@@ -30,9 +30,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			eventBridgeIAMrole, err := iam.NewRole(ctx, "eventBridgeIAMrole", &iam.RoleArgs{
-//				AssumeRolePolicyDocument: pulumi.Any{
-//					Version: "2012-10-17",
-//					Statement: []map[string]interface{}{
+//				AssumeRolePolicyDocument: pulumi.Any(map[string]interface{}{
+//					"version": "2012-10-17",
+//					"statement": []map[string]interface{}{
 //						map[string]interface{}{
 //							"effect": "Allow",
 //							"principal": map[string]interface{}{
@@ -41,14 +41,14 @@ import (
 //							"action": "sts:AssumeRole",
 //						},
 //					},
-//				},
+//				}),
 //				Path: pulumi.String("/"),
 //				Policies: iam.RolePolicyTypeArray{
 //					&iam.RolePolicyTypeArgs{
 //						PolicyName: pulumi.String("PutEventsDestinationBus"),
-//						PolicyDocument: pulumi.Any{
-//							Version: "2012-10-17",
-//							Statement: []map[string]interface{}{
+//						PolicyDocument: pulumi.Any(map[string]interface{}{
+//							"version": "2012-10-17",
+//							"statement": []map[string]interface{}{
 //								map[string]interface{}{
 //									"effect": "Allow",
 //									"action": []string{
@@ -59,7 +59,7 @@ import (
 //									},
 //								},
 //							},
-//						},
+//						}),
 //					},
 //				},
 //			})
@@ -70,14 +70,14 @@ import (
 //				Description:  pulumi.String("Routes to us-east-1 event bus"),
 //				EventBusName: pulumi.String("MyBusName"),
 //				State:        events.RuleStateEnabled,
-//				EventPattern: pulumi.Any{
-//					Source: []string{
+//				EventPattern: pulumi.Any(map[string]interface{}{
+//					"source": []string{
 //						"MyTestApp",
 //					},
-//					Detail: []string{
+//					"detail": []string{
 //						"MyTestAppDetail",
 //					},
-//				},
+//				}),
 //				Targets: events.RuleTargetArray{
 //					&events.RuleTargetArgs{
 //						Arn:     pulumi.String("arn:aws:events:us-east-1:123456789012:event-bus/CrossRegionDestinationBus"),
