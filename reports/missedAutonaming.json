@@ -2992,6 +2992,9 @@
         "type": "integer",
         "description": "For devices that support BGP, the customer gateway's BGP ASN.\n Default: 65000"
       },
+      "bgpAsnExtended": {
+        "type": "number"
+      },
       "certificateArn": {
         "type": "string"
       },
