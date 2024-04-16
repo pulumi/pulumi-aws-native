@@ -28,7 +28,15 @@ archives:
 snapshot:
   name_template: "{{ .Tag }}-SNAPSHOT"
 changelog:
-  skip: true
+  filters:
+    exclude:
+    - Merge branch
+    - Merge pull request
+    - \Winternal\W
+    - \Wci\W
+    - \Wchore\W
+  sort: asc
+  use: git
 release:
   disable: false
 blobs:
