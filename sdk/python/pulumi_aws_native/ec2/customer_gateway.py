@@ -16,43 +16,34 @@ __all__ = ['CustomerGatewayArgs', 'CustomerGateway']
 @pulumi.input_type
 class CustomerGatewayArgs:
     def __init__(__self__, *,
-                 bgp_asn: pulumi.Input[int],
                  ip_address: pulumi.Input[str],
                  type: pulumi.Input[str],
+                 bgp_asn: Optional[pulumi.Input[int]] = None,
+                 bgp_asn_extended: Optional[pulumi.Input[float]] = None,
                  certificate_arn: Optional[pulumi.Input[str]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a CustomerGateway resource.
-        :param pulumi.Input[int] bgp_asn: For devices that support BGP, the customer gateway's BGP ASN.
-                Default: 65000
         :param pulumi.Input[str] ip_address: IPv4 address for the customer gateway device's outside interface. The address must be static.
         :param pulumi.Input[str] type: The type of VPN connection that this customer gateway supports (``ipsec.1``).
+        :param pulumi.Input[int] bgp_asn: For devices that support BGP, the customer gateway's BGP ASN.
+                Default: 65000
         :param pulumi.Input[str] device_name: The name of customer gateway device.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: One or more tags for the customer gateway.
         """
-        pulumi.set(__self__, "bgp_asn", bgp_asn)
         pulumi.set(__self__, "ip_address", ip_address)
         pulumi.set(__self__, "type", type)
+        if bgp_asn is not None:
+            pulumi.set(__self__, "bgp_asn", bgp_asn)
+        if bgp_asn_extended is not None:
+            pulumi.set(__self__, "bgp_asn_extended", bgp_asn_extended)
         if certificate_arn is not None:
             pulumi.set(__self__, "certificate_arn", certificate_arn)
         if device_name is not None:
             pulumi.set(__self__, "device_name", device_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="bgpAsn")
-    def bgp_asn(self) -> pulumi.Input[int]:
-        """
-        For devices that support BGP, the customer gateway's BGP ASN.
-         Default: 65000
-        """
-        return pulumi.get(self, "bgp_asn")
-
-    @bgp_asn.setter
-    def bgp_asn(self, value: pulumi.Input[int]):
-        pulumi.set(self, "bgp_asn", value)
 
     @property
     @pulumi.getter(name="ipAddress")
@@ -77,6 +68,28 @@ class CustomerGatewayArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="bgpAsn")
+    def bgp_asn(self) -> Optional[pulumi.Input[int]]:
+        """
+        For devices that support BGP, the customer gateway's BGP ASN.
+         Default: 65000
+        """
+        return pulumi.get(self, "bgp_asn")
+
+    @bgp_asn.setter
+    def bgp_asn(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "bgp_asn", value)
+
+    @property
+    @pulumi.getter(name="bgpAsnExtended")
+    def bgp_asn_extended(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "bgp_asn_extended")
+
+    @bgp_asn_extended.setter
+    def bgp_asn_extended(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "bgp_asn_extended", value)
 
     @property
     @pulumi.getter(name="certificateArn")
@@ -118,6 +131,7 @@ class CustomerGateway(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bgp_asn: Optional[pulumi.Input[int]] = None,
+                 bgp_asn_extended: Optional[pulumi.Input[float]] = None,
                  certificate_arn: Optional[pulumi.Input[str]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
@@ -161,6 +175,7 @@ class CustomerGateway(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bgp_asn: Optional[pulumi.Input[int]] = None,
+                 bgp_asn_extended: Optional[pulumi.Input[float]] = None,
                  certificate_arn: Optional[pulumi.Input[str]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
@@ -175,9 +190,8 @@ class CustomerGateway(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CustomerGatewayArgs.__new__(CustomerGatewayArgs)
 
-            if bgp_asn is None and not opts.urn:
-                raise TypeError("Missing required property 'bgp_asn'")
             __props__.__dict__["bgp_asn"] = bgp_asn
+            __props__.__dict__["bgp_asn_extended"] = bgp_asn_extended
             __props__.__dict__["certificate_arn"] = certificate_arn
             __props__.__dict__["device_name"] = device_name
             if ip_address is None and not opts.urn:
@@ -188,7 +202,7 @@ class CustomerGateway(pulumi.CustomResource):
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
             __props__.__dict__["customer_gateway_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["bgpAsn", "certificateArn", "deviceName", "ipAddress", "type"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["bgpAsn", "bgpAsnExtended", "certificateArn", "deviceName", "ipAddress", "type"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(CustomerGateway, __self__).__init__(
             'aws-native:ec2:CustomerGateway',
@@ -213,6 +227,7 @@ class CustomerGateway(pulumi.CustomResource):
         __props__ = CustomerGatewayArgs.__new__(CustomerGatewayArgs)
 
         __props__.__dict__["bgp_asn"] = None
+        __props__.__dict__["bgp_asn_extended"] = None
         __props__.__dict__["certificate_arn"] = None
         __props__.__dict__["customer_gateway_id"] = None
         __props__.__dict__["device_name"] = None
@@ -223,12 +238,17 @@ class CustomerGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bgpAsn")
-    def bgp_asn(self) -> pulumi.Output[int]:
+    def bgp_asn(self) -> pulumi.Output[Optional[int]]:
         """
         For devices that support BGP, the customer gateway's BGP ASN.
          Default: 65000
         """
         return pulumi.get(self, "bgp_asn")
+
+    @property
+    @pulumi.getter(name="bgpAsnExtended")
+    def bgp_asn_extended(self) -> pulumi.Output[Optional[float]]:
+        return pulumi.get(self, "bgp_asn_extended")
 
     @property
     @pulumi.getter(name="certificateArn")

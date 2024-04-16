@@ -41,7 +41,8 @@ export class CustomerGateway extends pulumi.CustomResource {
      * For devices that support BGP, the customer gateway's BGP ASN.
      *  Default: 65000
      */
-    public readonly bgpAsn!: pulumi.Output<number>;
+    public readonly bgpAsn!: pulumi.Output<number | undefined>;
+    public readonly bgpAsnExtended!: pulumi.Output<number | undefined>;
     public readonly certificateArn!: pulumi.Output<string | undefined>;
     public /*out*/ readonly customerGatewayId!: pulumi.Output<string>;
     /**
@@ -72,9 +73,6 @@ export class CustomerGateway extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.bgpAsn === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'bgpAsn'");
-            }
             if ((!args || args.ipAddress === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ipAddress'");
             }
@@ -82,6 +80,7 @@ export class CustomerGateway extends pulumi.CustomResource {
                 throw new Error("Missing required property 'type'");
             }
             resourceInputs["bgpAsn"] = args ? args.bgpAsn : undefined;
+            resourceInputs["bgpAsnExtended"] = args ? args.bgpAsnExtended : undefined;
             resourceInputs["certificateArn"] = args ? args.certificateArn : undefined;
             resourceInputs["deviceName"] = args ? args.deviceName : undefined;
             resourceInputs["ipAddress"] = args ? args.ipAddress : undefined;
@@ -90,6 +89,7 @@ export class CustomerGateway extends pulumi.CustomResource {
             resourceInputs["customerGatewayId"] = undefined /*out*/;
         } else {
             resourceInputs["bgpAsn"] = undefined /*out*/;
+            resourceInputs["bgpAsnExtended"] = undefined /*out*/;
             resourceInputs["certificateArn"] = undefined /*out*/;
             resourceInputs["customerGatewayId"] = undefined /*out*/;
             resourceInputs["deviceName"] = undefined /*out*/;
@@ -98,7 +98,7 @@ export class CustomerGateway extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["bgpAsn", "certificateArn", "deviceName", "ipAddress", "type"] };
+        const replaceOnChanges = { replaceOnChanges: ["bgpAsn", "bgpAsnExtended", "certificateArn", "deviceName", "ipAddress", "type"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(CustomerGateway.__pulumiType, name, resourceInputs, opts);
     }
@@ -112,7 +112,8 @@ export interface CustomerGatewayArgs {
      * For devices that support BGP, the customer gateway's BGP ASN.
      *  Default: 65000
      */
-    bgpAsn: pulumi.Input<number>;
+    bgpAsn?: pulumi.Input<number>;
+    bgpAsnExtended?: pulumi.Input<number>;
     certificateArn?: pulumi.Input<string>;
     /**
      * The name of customer gateway device.

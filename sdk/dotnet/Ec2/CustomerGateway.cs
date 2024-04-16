@@ -20,7 +20,10 @@ namespace Pulumi.AwsNative.Ec2
         ///  Default: 65000
         /// </summary>
         [Output("bgpAsn")]
-        public Output<int> BgpAsn { get; private set; } = null!;
+        public Output<int?> BgpAsn { get; private set; } = null!;
+
+        [Output("bgpAsnExtended")]
+        public Output<double?> BgpAsnExtended { get; private set; } = null!;
 
         [Output("certificateArn")]
         public Output<string?> CertificateArn { get; private set; } = null!;
@@ -78,6 +81,7 @@ namespace Pulumi.AwsNative.Ec2
                 ReplaceOnChanges =
                 {
                     "bgpAsn",
+                    "bgpAsnExtended",
                     "certificateArn",
                     "deviceName",
                     "ipAddress",
@@ -109,8 +113,11 @@ namespace Pulumi.AwsNative.Ec2
         /// For devices that support BGP, the customer gateway's BGP ASN.
         ///  Default: 65000
         /// </summary>
-        [Input("bgpAsn", required: true)]
-        public Input<int> BgpAsn { get; set; } = null!;
+        [Input("bgpAsn")]
+        public Input<int>? BgpAsn { get; set; }
+
+        [Input("bgpAsnExtended")]
+        public Input<double>? BgpAsnExtended { get; set; }
 
         [Input("certificateArn")]
         public Input<string>? CertificateArn { get; set; }

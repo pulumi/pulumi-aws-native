@@ -8940,7 +8940,7 @@ type LaunchTemplateData struct {
 	MetadataOptions *LaunchTemplateMetadataOptions `pulumi:"metadataOptions"`
 	// The monitoring for the instance.
 	Monitoring *LaunchTemplateMonitoring `pulumi:"monitoring"`
-	// One or more network interfaces. If you specify a network interface, you must specify any security groups and subnets as part of the network interface.
+	// The network interfaces for the instance.
 	NetworkInterfaces []LaunchTemplateNetworkInterface `pulumi:"networkInterfaces"`
 	// The placement for the instance.
 	Placement *LaunchTemplatePlacement `pulumi:"placement"`
@@ -8950,8 +8950,10 @@ type LaunchTemplateData struct {
 	//   We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see [User provided kernels](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html) in the *Amazon Elastic Compute Cloud User Guide*.
 	RamDiskId *string `pulumi:"ramDiskId"`
 	// The IDs of the security groups. You can specify the IDs of existing security groups and references to resources created by the stack template.
+	//  If you specify a network interface, you must specify any security groups as part of the network interface instead.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// One or more security group names. For a nondefault VPC, you must use security group IDs instead.
+	// The names of the security groups. For a nondefault VPC, you must use security group IDs instead.
+	//  If you specify a network interface, you must specify any security groups as part of the network interface instead of using this parameter.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// The tags to apply to the resources that are created during instance launch.
 	//  To tag a resource after it has been created, see [CreateTags](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html).
@@ -9047,7 +9049,7 @@ type LaunchTemplateDataArgs struct {
 	MetadataOptions LaunchTemplateMetadataOptionsPtrInput `pulumi:"metadataOptions"`
 	// The monitoring for the instance.
 	Monitoring LaunchTemplateMonitoringPtrInput `pulumi:"monitoring"`
-	// One or more network interfaces. If you specify a network interface, you must specify any security groups and subnets as part of the network interface.
+	// The network interfaces for the instance.
 	NetworkInterfaces LaunchTemplateNetworkInterfaceArrayInput `pulumi:"networkInterfaces"`
 	// The placement for the instance.
 	Placement LaunchTemplatePlacementPtrInput `pulumi:"placement"`
@@ -9057,8 +9059,10 @@ type LaunchTemplateDataArgs struct {
 	//   We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see [User provided kernels](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html) in the *Amazon Elastic Compute Cloud User Guide*.
 	RamDiskId pulumi.StringPtrInput `pulumi:"ramDiskId"`
 	// The IDs of the security groups. You can specify the IDs of existing security groups and references to resources created by the stack template.
+	//  If you specify a network interface, you must specify any security groups as part of the network interface instead.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	// One or more security group names. For a nondefault VPC, you must use security group IDs instead.
+	// The names of the security groups. For a nondefault VPC, you must use security group IDs instead.
+	//  If you specify a network interface, you must specify any security groups as part of the network interface instead of using this parameter.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
 	// The tags to apply to the resources that are created during instance launch.
 	//  To tag a resource after it has been created, see [CreateTags](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html).
@@ -9250,7 +9254,7 @@ func (o LaunchTemplateDataOutput) Monitoring() LaunchTemplateMonitoringPtrOutput
 	return o.ApplyT(func(v LaunchTemplateData) *LaunchTemplateMonitoring { return v.Monitoring }).(LaunchTemplateMonitoringPtrOutput)
 }
 
-// One or more network interfaces. If you specify a network interface, you must specify any security groups and subnets as part of the network interface.
+// The network interfaces for the instance.
 func (o LaunchTemplateDataOutput) NetworkInterfaces() LaunchTemplateNetworkInterfaceArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateData) []LaunchTemplateNetworkInterface { return v.NetworkInterfaces }).(LaunchTemplateNetworkInterfaceArrayOutput)
 }
@@ -9273,11 +9277,15 @@ func (o LaunchTemplateDataOutput) RamDiskId() pulumi.StringPtrOutput {
 }
 
 // The IDs of the security groups. You can specify the IDs of existing security groups and references to resources created by the stack template.
+//
+//	If you specify a network interface, you must specify any security groups as part of the network interface instead.
 func (o LaunchTemplateDataOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateData) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// One or more security group names. For a nondefault VPC, you must use security group IDs instead.
+// The names of the security groups. For a nondefault VPC, you must use security group IDs instead.
+//
+//	If you specify a network interface, you must specify any security groups as part of the network interface instead of using this parameter.
 func (o LaunchTemplateDataOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateData) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }

@@ -3111,13 +3111,15 @@ class LaunchTemplateDataArgs:
         :param pulumi.Input['LaunchTemplateMaintenanceOptionsArgs'] maintenance_options: The maintenance options of your instance.
         :param pulumi.Input['LaunchTemplateMetadataOptionsArgs'] metadata_options: The metadata options for the instance. For more information, see [Instance metadata and user data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) in the *Amazon Elastic Compute Cloud User Guide*.
         :param pulumi.Input['LaunchTemplateMonitoringArgs'] monitoring: The monitoring for the instance.
-        :param pulumi.Input[Sequence[pulumi.Input['LaunchTemplateNetworkInterfaceArgs']]] network_interfaces: One or more network interfaces. If you specify a network interface, you must specify any security groups and subnets as part of the network interface.
+        :param pulumi.Input[Sequence[pulumi.Input['LaunchTemplateNetworkInterfaceArgs']]] network_interfaces: The network interfaces for the instance.
         :param pulumi.Input['LaunchTemplatePlacementArgs'] placement: The placement for the instance.
         :param pulumi.Input['LaunchTemplatePrivateDnsNameOptionsArgs'] private_dns_name_options: The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
         :param pulumi.Input[str] ram_disk_id: The ID of the RAM disk.
                  We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see [User provided kernels](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html) in the *Amazon Elastic Compute Cloud User Guide*.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The IDs of the security groups. You can specify the IDs of existing security groups and references to resources created by the stack template.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: One or more security group names. For a nondefault VPC, you must use security group IDs instead.
+                If you specify a network interface, you must specify any security groups as part of the network interface instead.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: The names of the security groups. For a nondefault VPC, you must use security group IDs instead.
+                If you specify a network interface, you must specify any security groups as part of the network interface instead of using this parameter.
         :param pulumi.Input[Sequence[pulumi.Input['TagSpecificationArgs']]] tag_specifications: The tags to apply to the resources that are created during instance launch.
                 To tag a resource after it has been created, see [CreateTags](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html).
                 To tag the launch template itself, use [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#cfn-ec2-launchtemplate-tagspecifications).
@@ -3491,7 +3493,7 @@ class LaunchTemplateDataArgs:
     @pulumi.getter(name="networkInterfaces")
     def network_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateNetworkInterfaceArgs']]]]:
         """
-        One or more network interfaces. If you specify a network interface, you must specify any security groups and subnets as part of the network interface.
+        The network interfaces for the instance.
         """
         return pulumi.get(self, "network_interfaces")
 
@@ -3541,6 +3543,7 @@ class LaunchTemplateDataArgs:
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The IDs of the security groups. You can specify the IDs of existing security groups and references to resources created by the stack template.
+         If you specify a network interface, you must specify any security groups as part of the network interface instead.
         """
         return pulumi.get(self, "security_group_ids")
 
@@ -3552,7 +3555,8 @@ class LaunchTemplateDataArgs:
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        One or more security group names. For a nondefault VPC, you must use security group IDs instead.
+        The names of the security groups. For a nondefault VPC, you must use security group IDs instead.
+         If you specify a network interface, you must specify any security groups as part of the network interface instead of using this parameter.
         """
         return pulumi.get(self, "security_groups")
 
@@ -3784,7 +3788,7 @@ class LaunchTemplateElasticInferenceAcceleratorArgs:
                  type: Optional[pulumi.Input[str]] = None):
         """
         Specifies an elastic inference accelerator.
-         ``LaunchTemplateElasticInferenceAccelerator`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+          ``LaunchTemplateElasticInferenceAccelerator`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
         :param pulumi.Input[int] count: The number of elastic inference accelerators to attach to the instance. 
                 Default: 1
         :param pulumi.Input[str] type: The type of elastic inference accelerator. The possible values are eia1.medium, eia1.large, and eia1.xlarge.
@@ -3985,7 +3989,7 @@ class LaunchTemplateInstanceMarketOptionsArgs:
                  spot_options: Optional[pulumi.Input['LaunchTemplateSpotOptionsArgs']] = None):
         """
         Specifies the market (purchasing) option for an instance.
-         ``InstanceMarketOptions`` is a property of the [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+          ``InstanceMarketOptions`` is a property of the [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
         :param pulumi.Input[str] market_type: The market type.
         :param pulumi.Input['LaunchTemplateSpotOptionsArgs'] spot_options: The options for Spot Instances.
         """
@@ -4596,7 +4600,7 @@ class LaunchTemplateIpv4PrefixSpecificationArgs:
                  ipv4_prefix: Optional[pulumi.Input[str]] = None):
         """
         Specifies an IPv4 prefix for a network interface.
-         ``Ipv4PrefixSpecification`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
+          ``Ipv4PrefixSpecification`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
         :param pulumi.Input[str] ipv4_prefix: The IPv4 prefix. For information, see [Assigning prefixes to Amazon EC2 network interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html) in the *Amazon Elastic Compute Cloud User Guide*.
         """
         if ipv4_prefix is not None:
@@ -4621,7 +4625,7 @@ class LaunchTemplateIpv6AddArgs:
                  ipv6_address: Optional[pulumi.Input[str]] = None):
         """
         Specifies an IPv6 address in an Amazon EC2 launch template.
-         ``Ipv6Add`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
+          ``Ipv6Add`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
         :param pulumi.Input[str] ipv6_address: One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying a number of IPv6 addresses.
         """
         if ipv6_address is not None:
@@ -4646,7 +4650,7 @@ class LaunchTemplateIpv6PrefixSpecificationArgs:
                  ipv6_prefix: Optional[pulumi.Input[str]] = None):
         """
         Specifies an IPv6 prefix for a network interface.
-         ``Ipv6PrefixSpecification`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
+          ``Ipv6PrefixSpecification`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
         :param pulumi.Input[str] ipv6_prefix: The IPv6 prefix.
         """
         if ipv6_prefix is not None:
@@ -4671,7 +4675,7 @@ class LaunchTemplateLicenseSpecificationArgs:
                  license_configuration_arn: Optional[pulumi.Input[str]] = None):
         """
         Specifies a license configuration for an instance.
-         ``LicenseSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+          ``LicenseSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
         :param pulumi.Input[str] license_configuration_arn: The Amazon Resource Name (ARN) of the license configuration.
         """
         if license_configuration_arn is not None:
@@ -4804,7 +4808,7 @@ class LaunchTemplateMetadataOptionsArgs:
                  instance_metadata_tags: Optional[pulumi.Input[str]] = None):
         """
         The metadata options for the instance. For more information, see [Instance metadata and user data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) in the *Amazon EC2 User Guide*.
-         ``MetadataOptions`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+          ``MetadataOptions`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
         :param pulumi.Input[str] http_endpoint: Enables or disables the HTTP metadata endpoint on your instances. If the parameter is not specified, the default state is ``enabled``.
                  If you specify a value of ``disabled``, you will not be able to access your instance metadata.
         :param pulumi.Input[str] http_protocol_ipv6: Enables or disables the IPv6 endpoint for the instance metadata service.
@@ -4907,7 +4911,7 @@ class LaunchTemplateMonitoringArgs:
                  enabled: Optional[pulumi.Input[bool]] = None):
         """
         Specifies whether detailed monitoring is enabled for an instance. For more information about detailed monitoring, see [Enable or turn off detailed monitoring for your instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch-new.html) in the *User Guide*.
-         ``Monitoring`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+          ``Monitoring`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
         :param pulumi.Input[bool] enabled: Specify ``true`` to enable detailed monitoring. Otherwise, basic monitoring is enabled.
         """
         if enabled is not None:
@@ -5034,7 +5038,7 @@ class LaunchTemplateNetworkInterfaceArgs:
                  subnet_id: Optional[pulumi.Input[str]] = None):
         """
         Specifies the parameters for a network interface.
-         ``NetworkInterface`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+          ``NetworkInterface`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
         :param pulumi.Input[bool] associate_carrier_ip_address: Associates a Carrier IP address with eth0 for a new network interface.
                 Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. For more information about Carrier IP addresses, see [Carrier IP addresses](https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#provider-owned-ip) in the *Developer Guide*.
         :param pulumi.Input[bool] associate_public_ip_address: Associates a public IPv4 address with eth0 for a new network interface.
@@ -5390,7 +5394,7 @@ class LaunchTemplatePlacementArgs:
                  tenancy: Optional[pulumi.Input[str]] = None):
         """
         Specifies the placement of an instance.
-         ``Placement`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+          ``Placement`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
         :param pulumi.Input[str] affinity: The affinity setting for an instance on a Dedicated Host.
         :param pulumi.Input[str] availability_zone: The Availability Zone for the instance.
         :param pulumi.Input[str] group_id: The Group Id of a placement group. You must specify the Placement Group *Group Id* to launch an instance in a shared placement group.
@@ -5592,7 +5596,7 @@ class LaunchTemplatePrivateIpAddArgs:
                  private_ip_address: Optional[pulumi.Input[str]] = None):
         """
         Specifies a secondary private IPv4 address for a network interface.
-         ``PrivateIpAdd`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
+          ``PrivateIpAdd`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
         :param pulumi.Input[bool] primary: Indicates whether the private IPv4 address is the primary private IPv4 address. Only one IPv4 address can be designated as primary.
         :param pulumi.Input[str] private_ip_address: The private IPv4 address.
         """
@@ -5636,7 +5640,7 @@ class LaunchTemplateSpotOptionsArgs:
                  valid_until: Optional[pulumi.Input[str]] = None):
         """
         Specifies options for Spot Instances.
-         ``SpotOptions`` is a property of [AWS::EC2::LaunchTemplate InstanceMarketOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions.html).
+          ``SpotOptions`` is a property of [AWS::EC2::LaunchTemplate InstanceMarketOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions.html).
         :param pulumi.Input[int] block_duration_minutes: Deprecated.
         :param pulumi.Input[str] instance_interruption_behavior: The behavior when a Spot Instance is interrupted. The default is ``terminate``.
         :param pulumi.Input[str] max_price: The maximum hourly price you're willing to pay for the Spot Instances. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
@@ -5734,7 +5738,7 @@ class LaunchTemplateTagSpecificationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateTagArgs']]]] = None):
         """
         Specifies the tags to apply to the launch template during creation.
-         ``LaunchTemplateTagSpecification`` is a property of [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html).
+          ``LaunchTemplateTagSpecification`` is a property of [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html).
         :param pulumi.Input[str] resource_type: The type of resource. To tag the launch template, ``ResourceType`` must be ``launch-template``.
         :param pulumi.Input[Sequence[pulumi.Input['LaunchTemplateTagArgs']]] tags: The tags for the resource.
         """
@@ -8545,7 +8549,7 @@ class TagSpecificationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateTagArgs']]]] = None):
         """
         Specifies the tags to apply to a resource when the resource is created for the launch template.
-         ``TagSpecification`` is a property type of [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications). [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications) is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+          ``TagSpecification`` is a property type of [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications). [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications) is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
         :param pulumi.Input[str] resource_type: The type of resource to tag.
                 Valid Values lists all resource types for Amazon EC2 that can be tagged. When you create a launch template, you can specify tags for the following resource types only: ``instance`` | ``volume`` | ``network-interface`` | ``spot-instances-request``. If the instance does not include the resource type that you specify, the instance launch fails. For example, not all instance types include a volume.
                 To tag a resource after it has been created, see [CreateTags](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html).

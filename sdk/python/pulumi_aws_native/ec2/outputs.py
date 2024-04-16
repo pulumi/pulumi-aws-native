@@ -3327,13 +3327,15 @@ class LaunchTemplateData(dict):
         :param 'LaunchTemplateMaintenanceOptions' maintenance_options: The maintenance options of your instance.
         :param 'LaunchTemplateMetadataOptions' metadata_options: The metadata options for the instance. For more information, see [Instance metadata and user data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) in the *Amazon Elastic Compute Cloud User Guide*.
         :param 'LaunchTemplateMonitoring' monitoring: The monitoring for the instance.
-        :param Sequence['LaunchTemplateNetworkInterface'] network_interfaces: One or more network interfaces. If you specify a network interface, you must specify any security groups and subnets as part of the network interface.
+        :param Sequence['LaunchTemplateNetworkInterface'] network_interfaces: The network interfaces for the instance.
         :param 'LaunchTemplatePlacement' placement: The placement for the instance.
         :param 'LaunchTemplatePrivateDnsNameOptions' private_dns_name_options: The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
         :param str ram_disk_id: The ID of the RAM disk.
                  We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see [User provided kernels](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html) in the *Amazon Elastic Compute Cloud User Guide*.
         :param Sequence[str] security_group_ids: The IDs of the security groups. You can specify the IDs of existing security groups and references to resources created by the stack template.
-        :param Sequence[str] security_groups: One or more security group names. For a nondefault VPC, you must use security group IDs instead.
+                If you specify a network interface, you must specify any security groups as part of the network interface instead.
+        :param Sequence[str] security_groups: The names of the security groups. For a nondefault VPC, you must use security group IDs instead.
+                If you specify a network interface, you must specify any security groups as part of the network interface instead of using this parameter.
         :param Sequence['TagSpecification'] tag_specifications: The tags to apply to the resources that are created during instance launch.
                 To tag a resource after it has been created, see [CreateTags](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html).
                 To tag the launch template itself, use [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#cfn-ec2-launchtemplate-tagspecifications).
@@ -3615,7 +3617,7 @@ class LaunchTemplateData(dict):
     @pulumi.getter(name="networkInterfaces")
     def network_interfaces(self) -> Optional[Sequence['outputs.LaunchTemplateNetworkInterface']]:
         """
-        One or more network interfaces. If you specify a network interface, you must specify any security groups and subnets as part of the network interface.
+        The network interfaces for the instance.
         """
         return pulumi.get(self, "network_interfaces")
 
@@ -3649,6 +3651,7 @@ class LaunchTemplateData(dict):
     def security_group_ids(self) -> Optional[Sequence[str]]:
         """
         The IDs of the security groups. You can specify the IDs of existing security groups and references to resources created by the stack template.
+         If you specify a network interface, you must specify any security groups as part of the network interface instead.
         """
         return pulumi.get(self, "security_group_ids")
 
@@ -3656,7 +3659,8 @@ class LaunchTemplateData(dict):
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Optional[Sequence[str]]:
         """
-        One or more security group names. For a nondefault VPC, you must use security group IDs instead.
+        The names of the security groups. For a nondefault VPC, you must use security group IDs instead.
+         If you specify a network interface, you must specify any security groups as part of the network interface instead of using this parameter.
         """
         return pulumi.get(self, "security_groups")
 
@@ -3871,14 +3875,14 @@ class LaunchTemplateElasticGpuSpecification(dict):
 class LaunchTemplateElasticInferenceAccelerator(dict):
     """
     Specifies an elastic inference accelerator.
-     ``LaunchTemplateElasticInferenceAccelerator`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+      ``LaunchTemplateElasticInferenceAccelerator`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
     """
     def __init__(__self__, *,
                  count: Optional[int] = None,
                  type: Optional[str] = None):
         """
         Specifies an elastic inference accelerator.
-         ``LaunchTemplateElasticInferenceAccelerator`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+          ``LaunchTemplateElasticInferenceAccelerator`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
         :param int count: The number of elastic inference accelerators to attach to the instance. 
                 Default: 1
         :param str type: The type of elastic inference accelerator. The possible values are eia1.medium, eia1.large, and eia1.xlarge.
@@ -4095,7 +4099,7 @@ class LaunchTemplateIamInstanceProfile(dict):
 class LaunchTemplateInstanceMarketOptions(dict):
     """
     Specifies the market (purchasing) option for an instance.
-     ``InstanceMarketOptions`` is a property of the [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+      ``InstanceMarketOptions`` is a property of the [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
     """
     @staticmethod
     def __key_warning(key: str):
@@ -4121,7 +4125,7 @@ class LaunchTemplateInstanceMarketOptions(dict):
                  spot_options: Optional['outputs.LaunchTemplateSpotOptions'] = None):
         """
         Specifies the market (purchasing) option for an instance.
-         ``InstanceMarketOptions`` is a property of the [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+          ``InstanceMarketOptions`` is a property of the [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
         :param str market_type: The market type.
         :param 'LaunchTemplateSpotOptions' spot_options: The options for Spot Instances.
         """
@@ -4701,7 +4705,7 @@ class LaunchTemplateInstanceRequirements(dict):
 class LaunchTemplateIpv4PrefixSpecification(dict):
     """
     Specifies an IPv4 prefix for a network interface.
-     ``Ipv4PrefixSpecification`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
+      ``Ipv4PrefixSpecification`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
     """
     @staticmethod
     def __key_warning(key: str):
@@ -4724,7 +4728,7 @@ class LaunchTemplateIpv4PrefixSpecification(dict):
                  ipv4_prefix: Optional[str] = None):
         """
         Specifies an IPv4 prefix for a network interface.
-         ``Ipv4PrefixSpecification`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
+          ``Ipv4PrefixSpecification`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
         :param str ipv4_prefix: The IPv4 prefix. For information, see [Assigning prefixes to Amazon EC2 network interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html) in the *Amazon Elastic Compute Cloud User Guide*.
         """
         if ipv4_prefix is not None:
@@ -4743,7 +4747,7 @@ class LaunchTemplateIpv4PrefixSpecification(dict):
 class LaunchTemplateIpv6Add(dict):
     """
     Specifies an IPv6 address in an Amazon EC2 launch template.
-     ``Ipv6Add`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
+      ``Ipv6Add`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
     """
     @staticmethod
     def __key_warning(key: str):
@@ -4766,7 +4770,7 @@ class LaunchTemplateIpv6Add(dict):
                  ipv6_address: Optional[str] = None):
         """
         Specifies an IPv6 address in an Amazon EC2 launch template.
-         ``Ipv6Add`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
+          ``Ipv6Add`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
         :param str ipv6_address: One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying a number of IPv6 addresses.
         """
         if ipv6_address is not None:
@@ -4785,7 +4789,7 @@ class LaunchTemplateIpv6Add(dict):
 class LaunchTemplateIpv6PrefixSpecification(dict):
     """
     Specifies an IPv6 prefix for a network interface.
-     ``Ipv6PrefixSpecification`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
+      ``Ipv6PrefixSpecification`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
     """
     @staticmethod
     def __key_warning(key: str):
@@ -4808,7 +4812,7 @@ class LaunchTemplateIpv6PrefixSpecification(dict):
                  ipv6_prefix: Optional[str] = None):
         """
         Specifies an IPv6 prefix for a network interface.
-         ``Ipv6PrefixSpecification`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
+          ``Ipv6PrefixSpecification`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
         :param str ipv6_prefix: The IPv6 prefix.
         """
         if ipv6_prefix is not None:
@@ -4827,7 +4831,7 @@ class LaunchTemplateIpv6PrefixSpecification(dict):
 class LaunchTemplateLicenseSpecification(dict):
     """
     Specifies a license configuration for an instance.
-     ``LicenseSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+      ``LicenseSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
     """
     @staticmethod
     def __key_warning(key: str):
@@ -4850,7 +4854,7 @@ class LaunchTemplateLicenseSpecification(dict):
                  license_configuration_arn: Optional[str] = None):
         """
         Specifies a license configuration for an instance.
-         ``LicenseSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+          ``LicenseSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
         :param str license_configuration_arn: The Amazon Resource Name (ARN) of the license configuration.
         """
         if license_configuration_arn is not None:
@@ -4979,7 +4983,7 @@ class LaunchTemplateMemoryMiB(dict):
 class LaunchTemplateMetadataOptions(dict):
     """
     The metadata options for the instance. For more information, see [Instance metadata and user data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) in the *Amazon EC2 User Guide*.
-     ``MetadataOptions`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+      ``MetadataOptions`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
     """
     @staticmethod
     def __key_warning(key: str):
@@ -5014,7 +5018,7 @@ class LaunchTemplateMetadataOptions(dict):
                  instance_metadata_tags: Optional[str] = None):
         """
         The metadata options for the instance. For more information, see [Instance metadata and user data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) in the *Amazon EC2 User Guide*.
-         ``MetadataOptions`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+          ``MetadataOptions`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
         :param str http_endpoint: Enables or disables the HTTP metadata endpoint on your instances. If the parameter is not specified, the default state is ``enabled``.
                  If you specify a value of ``disabled``, you will not be able to access your instance metadata.
         :param str http_protocol_ipv6: Enables or disables the IPv6 endpoint for the instance metadata service.
@@ -5095,13 +5099,13 @@ class LaunchTemplateMetadataOptions(dict):
 class LaunchTemplateMonitoring(dict):
     """
     Specifies whether detailed monitoring is enabled for an instance. For more information about detailed monitoring, see [Enable or turn off detailed monitoring for your instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch-new.html) in the *User Guide*.
-     ``Monitoring`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+      ``Monitoring`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
     """
     def __init__(__self__, *,
                  enabled: Optional[bool] = None):
         """
         Specifies whether detailed monitoring is enabled for an instance. For more information about detailed monitoring, see [Enable or turn off detailed monitoring for your instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch-new.html) in the *User Guide*.
-         ``Monitoring`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+          ``Monitoring`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
         :param bool enabled: Specify ``true`` to enable detailed monitoring. Otherwise, basic monitoring is enabled.
         """
         if enabled is not None:
@@ -5157,7 +5161,7 @@ class LaunchTemplateNetworkBandwidthGbps(dict):
 class LaunchTemplateNetworkInterface(dict):
     """
     Specifies the parameters for a network interface.
-     ``NetworkInterface`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+      ``NetworkInterface`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
     """
     @staticmethod
     def __key_warning(key: str):
@@ -5239,7 +5243,7 @@ class LaunchTemplateNetworkInterface(dict):
                  subnet_id: Optional[str] = None):
         """
         Specifies the parameters for a network interface.
-         ``NetworkInterface`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+          ``NetworkInterface`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
         :param bool associate_carrier_ip_address: Associates a Carrier IP address with eth0 for a new network interface.
                 Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. For more information about Carrier IP addresses, see [Carrier IP addresses](https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#provider-owned-ip) in the *Developer Guide*.
         :param bool associate_public_ip_address: Associates a public IPv4 address with eth0 for a new network interface.
@@ -5532,7 +5536,7 @@ class LaunchTemplateNetworkInterfaceCount(dict):
 class LaunchTemplatePlacement(dict):
     """
     Specifies the placement of an instance.
-     ``Placement`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+      ``Placement`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
     """
     @staticmethod
     def __key_warning(key: str):
@@ -5575,7 +5579,7 @@ class LaunchTemplatePlacement(dict):
                  tenancy: Optional[str] = None):
         """
         Specifies the placement of an instance.
-         ``Placement`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+          ``Placement`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
         :param str affinity: The affinity setting for an instance on a Dedicated Host.
         :param str availability_zone: The Availability Zone for the instance.
         :param str group_id: The Group Id of a placement group. You must specify the Placement Group *Group Id* to launch an instance in a shared placement group.
@@ -5750,7 +5754,7 @@ class LaunchTemplatePrivateDnsNameOptions(dict):
 class LaunchTemplatePrivateIpAdd(dict):
     """
     Specifies a secondary private IPv4 address for a network interface.
-     ``PrivateIpAdd`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
+      ``PrivateIpAdd`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
     """
     @staticmethod
     def __key_warning(key: str):
@@ -5774,7 +5778,7 @@ class LaunchTemplatePrivateIpAdd(dict):
                  private_ip_address: Optional[str] = None):
         """
         Specifies a secondary private IPv4 address for a network interface.
-         ``PrivateIpAdd`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
+          ``PrivateIpAdd`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
         :param bool primary: Indicates whether the private IPv4 address is the primary private IPv4 address. Only one IPv4 address can be designated as primary.
         :param str private_ip_address: The private IPv4 address.
         """
@@ -5804,7 +5808,7 @@ class LaunchTemplatePrivateIpAdd(dict):
 class LaunchTemplateSpotOptions(dict):
     """
     Specifies options for Spot Instances.
-     ``SpotOptions`` is a property of [AWS::EC2::LaunchTemplate InstanceMarketOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions.html).
+      ``SpotOptions`` is a property of [AWS::EC2::LaunchTemplate InstanceMarketOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions.html).
     """
     @staticmethod
     def __key_warning(key: str):
@@ -5839,7 +5843,7 @@ class LaunchTemplateSpotOptions(dict):
                  valid_until: Optional[str] = None):
         """
         Specifies options for Spot Instances.
-         ``SpotOptions`` is a property of [AWS::EC2::LaunchTemplate InstanceMarketOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions.html).
+          ``SpotOptions`` is a property of [AWS::EC2::LaunchTemplate InstanceMarketOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions.html).
         :param int block_duration_minutes: Deprecated.
         :param str instance_interruption_behavior: The behavior when a Spot Instance is interrupted. The default is ``terminate``.
         :param str max_price: The maximum hourly price you're willing to pay for the Spot Instances. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
@@ -5947,7 +5951,7 @@ class LaunchTemplateTag(dict):
 class LaunchTemplateTagSpecification(dict):
     """
     Specifies the tags to apply to the launch template during creation.
-     ``LaunchTemplateTagSpecification`` is a property of [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html).
+      ``LaunchTemplateTagSpecification`` is a property of [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html).
     """
     @staticmethod
     def __key_warning(key: str):
@@ -5971,7 +5975,7 @@ class LaunchTemplateTagSpecification(dict):
                  tags: Optional[Sequence['outputs.LaunchTemplateTag']] = None):
         """
         Specifies the tags to apply to the launch template during creation.
-         ``LaunchTemplateTagSpecification`` is a property of [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html).
+          ``LaunchTemplateTagSpecification`` is a property of [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html).
         :param str resource_type: The type of resource. To tag the launch template, ``ResourceType`` must be ``launch-template``.
         :param Sequence['LaunchTemplateTag'] tags: The tags for the resource.
         """
@@ -10183,7 +10187,7 @@ class SseSpecificationProperties(dict):
 class TagSpecification(dict):
     """
     Specifies the tags to apply to a resource when the resource is created for the launch template.
-     ``TagSpecification`` is a property type of [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications). [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications) is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+      ``TagSpecification`` is a property type of [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications). [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications) is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
     """
     @staticmethod
     def __key_warning(key: str):
@@ -10207,7 +10211,7 @@ class TagSpecification(dict):
                  tags: Optional[Sequence['outputs.LaunchTemplateTag']] = None):
         """
         Specifies the tags to apply to a resource when the resource is created for the launch template.
-         ``TagSpecification`` is a property type of [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications). [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications) is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+          ``TagSpecification`` is a property type of [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications). [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications) is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
         :param str resource_type: The type of resource to tag.
                 Valid Values lists all resource types for Amazon EC2 that can be tagged. When you create a launch template, you can specify tags for the following resource types only: ``instance`` | ``volume`` | ``network-interface`` | ``spot-instances-request``. If the instance does not include the resource type that you specify, the instance launch fails. For example, not all instance types include a volume.
                 To tag a resource after it has been created, see [CreateTags](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html).

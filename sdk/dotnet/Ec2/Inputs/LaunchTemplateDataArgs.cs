@@ -206,7 +206,7 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         private InputList<Inputs.LaunchTemplateNetworkInterfaceArgs>? _networkInterfaces;
 
         /// <summary>
-        /// One or more network interfaces. If you specify a network interface, you must specify any security groups and subnets as part of the network interface.
+        /// The network interfaces for the instance.
         /// </summary>
         public InputList<Inputs.LaunchTemplateNetworkInterfaceArgs> NetworkInterfaces
         {
@@ -238,6 +238,7 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 
         /// <summary>
         /// The IDs of the security groups. You can specify the IDs of existing security groups and references to resources created by the stack template.
+        ///  If you specify a network interface, you must specify any security groups as part of the network interface instead.
         /// </summary>
         public InputList<string> SecurityGroupIds
         {
@@ -249,7 +250,8 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         private InputList<string>? _securityGroups;
 
         /// <summary>
-        /// One or more security group names. For a nondefault VPC, you must use security group IDs instead.
+        /// The names of the security groups. For a nondefault VPC, you must use security group IDs instead.
+        ///  If you specify a network interface, you must specify any security groups as part of the network interface instead of using this parameter.
         /// </summary>
         public InputList<string> SecurityGroups
         {

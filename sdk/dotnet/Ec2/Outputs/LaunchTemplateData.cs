@@ -134,7 +134,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// </summary>
         public readonly Outputs.LaunchTemplateMonitoring? Monitoring;
         /// <summary>
-        /// One or more network interfaces. If you specify a network interface, you must specify any security groups and subnets as part of the network interface.
+        /// The network interfaces for the instance.
         /// </summary>
         public readonly ImmutableArray<Outputs.LaunchTemplateNetworkInterface> NetworkInterfaces;
         /// <summary>
@@ -152,10 +152,12 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         public readonly string? RamDiskId;
         /// <summary>
         /// The IDs of the security groups. You can specify the IDs of existing security groups and references to resources created by the stack template.
+        ///  If you specify a network interface, you must specify any security groups as part of the network interface instead.
         /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
         /// <summary>
-        /// One or more security group names. For a nondefault VPC, you must use security group IDs instead.
+        /// The names of the security groups. For a nondefault VPC, you must use security group IDs instead.
+        ///  If you specify a network interface, you must specify any security groups as part of the network interface instead of using this parameter.
         /// </summary>
         public readonly ImmutableArray<string> SecurityGroups;
         /// <summary>
