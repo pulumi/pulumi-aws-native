@@ -1,5 +1,9 @@
 # Change Log
 
+## Notice (2024-04-12)
+
+*As of this notice, using CHANGELOG.md is DEPRECATED. We will be using [GitHub Releases](https://github.com/pulumi/pulumi-aws-native/releases) for this repository*
+
 ## 0.101.0 (2024-04-11)
 
 ### Breaking changes
