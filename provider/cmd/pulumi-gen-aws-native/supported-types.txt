@@ -362,6 +362,7 @@ AWS::ECR::PullThroughCacheRule
 AWS::ECR::RegistryPolicy
 AWS::ECR::ReplicationConfiguration
 AWS::ECR::Repository
+AWS::ECR::RepositoryCreationTemplate
 AWS::ECS::CapacityProvider
 AWS::ECS::Cluster
 AWS::ECS::ClusterCapacityProviderAssociations
@@ -584,6 +585,7 @@ AWS::LakeFormation::DataCellsFilter
 AWS::LakeFormation::PrincipalPermissions
 AWS::LakeFormation::Tag
 AWS::LakeFormation::TagAssociation
+AWS::Lambda::Alias
 AWS::Lambda::CodeSigningConfig
 AWS::Lambda::EventInvokeConfig
 AWS::Lambda::EventSourceMapping
@@ -926,6 +928,7 @@ AWS::Synthetics::Canary
 AWS::Synthetics::Group
 AWS::SystemsManagerSAP::Application
 AWS::Timestream::Database
+AWS::Timestream::InfluxDBInstance
 AWS::Timestream::ScheduledQuery
 AWS::Timestream::Table
 AWS::Transfer::Agreement

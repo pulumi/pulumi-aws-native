@@ -1,7 +1,6 @@
 {
   "typeName" : "AWS::VerifiedPermissions::PolicyTemplate",
   "description" : "Definition of AWS::VerifiedPermissions::PolicyTemplate Resource Type",
-  "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-avp",
   "properties" : {
     "Description" : {
       "type" : "string",
@@ -36,20 +35,22 @@
     "tagUpdatable" : false,
     "cloudFormationSystemTags" : false
   },
+  "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-avp",
   "handlers" : {
     "create" : {
-      "permissions" : [ "verifiedpermissions:CreatePolicyTemplate", "verifiedpermissions:GetPolicyTemplate", "verifiedpermissions:UpdatePolicyTemplate", "verifiedpermissions:DeletePolicyTemplate" ]
+      "permissions" : [ "verifiedpermissions:CreatePolicyTemplate", "verifiedpermissions:GetPolicyTemplate" ]
     },
     "read" : {
-      "permissions" : [ "verifiedpermissions:CreatePolicyTemplate", "verifiedpermissions:GetPolicyTemplate", "verifiedpermissions:UpdatePolicyTemplate", "verifiedpermissions:DeletePolicyTemplate" ]
+      "permissions" : [ "verifiedpermissions:GetPolicyTemplate" ]
     },
     "update" : {
-      "permissions" : [ "verifiedpermissions:CreatePolicyTemplate", "verifiedpermissions:GetPolicyTemplate", "verifiedpermissions:UpdatePolicyTemplate", "verifiedpermissions:DeletePolicyTemplate" ]
+      "permissions" : [ "verifiedpermissions:UpdatePolicyTemplate", "verifiedpermissions:GetPolicyTemplate" ]
     },
     "delete" : {
-      "permissions" : [ "verifiedpermissions:CreatePolicyTemplate", "verifiedpermissions:GetPolicyTemplate", "verifiedpermissions:UpdatePolicyTemplate", "verifiedpermissions:DeletePolicyTemplate" ]
+      "permissions" : [ "verifiedpermissions:DeletePolicyTemplate", "verifiedpermissions:GetPolicyTemplate" ]
     },
     "list" : {
+      "permissions" : [ "verifiedpermissions:ListPolicyTemplates", "verifiedpermissions:GetPolicyTemplate" ],
       "handlerSchema" : {
         "properties" : {
           "PolicyStoreId" : {
@@ -57,8 +58,7 @@
           }
         },
         "required" : [ "PolicyStoreId" ]
-      },
-      "permissions" : [ "verifiedpermissions:CreatePolicyTemplate", "verifiedpermissions:GetPolicyTemplate", "verifiedpermissions:UpdatePolicyTemplate", "verifiedpermissions:DeletePolicyTemplate", "verifiedpermissions:ListPolicyTemplates" ]
+      }
     }
   },
   "additionalProperties" : false
