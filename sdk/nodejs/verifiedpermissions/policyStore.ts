@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Definition of AWS::VerifiedPermissions::PolicyStore Resource Type
+ * Represents a policy store that you can place schema, policies, and policy templates in to validate authorization requests
  *
  * ## Example Usage
  * ### Example

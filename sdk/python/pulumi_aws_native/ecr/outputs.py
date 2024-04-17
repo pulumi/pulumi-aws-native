@@ -16,6 +16,8 @@ __all__ = [
     'ReplicationConfigurationReplicationDestination',
     'ReplicationConfigurationReplicationRule',
     'ReplicationConfigurationRepositoryFilter',
+    'RepositoryCreationTemplateEncryptionConfiguration',
+    'RepositoryCreationTemplateTag',
     'RepositoryEncryptionConfiguration',
     'RepositoryImageScanningConfiguration',
     'RepositoryLifecyclePolicy',
@@ -176,6 +178,88 @@ class ReplicationConfigurationRepositoryFilter(dict):
     @pulumi.getter(name="filterType")
     def filter_type(self) -> 'ReplicationConfigurationFilterType':
         return pulumi.get(self, "filter_type")
+
+
+@pulumi.output_type
+class RepositoryCreationTemplateEncryptionConfiguration(dict):
+    """
+    The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest. By default, when no encryption configuration is set or the AES256 encryption type is used, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts your data at rest using an AES-256 encryption algorithm. This does not require any action on your part.
+
+    For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encryptionType":
+            suggest = "encryption_type"
+        elif key == "kmsKey":
+            suggest = "kms_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RepositoryCreationTemplateEncryptionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RepositoryCreationTemplateEncryptionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RepositoryCreationTemplateEncryptionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 encryption_type: 'RepositoryCreationTemplateEncryptionType',
+                 kms_key: Optional[str] = None):
+        """
+        The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest. By default, when no encryption configuration is set or the AES256 encryption type is used, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts your data at rest using an AES-256 encryption algorithm. This does not require any action on your part.
+
+        For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html
+        """
+        pulumi.set(__self__, "encryption_type", encryption_type)
+        if kms_key is not None:
+            pulumi.set(__self__, "kms_key", kms_key)
+
+    @property
+    @pulumi.getter(name="encryptionType")
+    def encryption_type(self) -> 'RepositoryCreationTemplateEncryptionType':
+        return pulumi.get(self, "encryption_type")
+
+    @property
+    @pulumi.getter(name="kmsKey")
+    def kms_key(self) -> Optional[str]:
+        return pulumi.get(self, "kms_key")
+
+
+@pulumi.output_type
+class RepositoryCreationTemplateTag(dict):
+    """
+    An array of key-value pairs to apply to this resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        An array of key-value pairs to apply to this resource.
+        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

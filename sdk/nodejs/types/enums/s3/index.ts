@@ -110,7 +110,7 @@ export const BucketDestinationFormat = {
 
 /**
  * Specifies the file format used when exporting data to Amazon S3.
- *  *Allowed values*: ``CSV`` | ``ORC`` | ``Parquet``
+ *   *Allowed values*: ``CSV`` | ``ORC`` | ``Parquet``
  */
 export type BucketDestinationFormat = (typeof BucketDestinationFormat)[keyof typeof BucketDestinationFormat];
 
@@ -226,7 +226,7 @@ export const BucketReplicaModificationsStatus = {
 
 /**
  * Specifies whether Amazon S3 replicates modifications on replicas.
- *  *Allowed values*: ``Enabled`` | ``Disabled``
+ *   *Allowed values*: ``Enabled`` | ``Disabled``
  */
 export type BucketReplicaModificationsStatus = (typeof BucketReplicaModificationsStatus)[keyof typeof BucketReplicaModificationsStatus];
 

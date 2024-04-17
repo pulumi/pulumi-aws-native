@@ -13533,6 +13533,30 @@ export namespace ecr {
     }
 
     /**
+     * The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest. By default, when no encryption configuration is set or the AES256 encryption type is used, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts your data at rest using an AES-256 encryption algorithm. This does not require any action on your part.
+     *
+     * For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html
+     */
+    export interface RepositoryCreationTemplateEncryptionConfigurationArgs {
+        encryptionType: pulumi.Input<enums.ecr.RepositoryCreationTemplateEncryptionType>;
+        kmsKey?: pulumi.Input<string>;
+    }
+
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    export interface RepositoryCreationTemplateTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
      * The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
      *  By default, when no encryption configuration is set or the ``AES256`` encryption type is used, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts your data at rest using an AES-256 encryption algorithm. This does not require any action on your part.
      *  For more control over the encryption of the contents of your repository, you can use server-side encryption with KMSlong key stored in KMSlong (KMS) to encrypt your images. For more information, see [Amazon ECR encryption at rest](https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html) in the *Amazon Elastic Container Registry User Guide*.
@@ -24470,6 +24494,40 @@ export namespace lakeformation {
 }
 
 export namespace lambda {
+    /**
+     * A provisioned concurrency configuration for a function's alias.
+     */
+    export interface AliasProvisionedConcurrencyConfigurationArgs {
+        /**
+         * The amount of provisioned concurrency to allocate for the alias.
+         */
+        provisionedConcurrentExecutions: pulumi.Input<number>;
+    }
+
+    /**
+     * The traffic-shifting configuration of a Lambda function alias.
+     */
+    export interface AliasRoutingConfigurationArgs {
+        /**
+         * The second version, and the percentage of traffic that's routed to it.
+         */
+        additionalVersionWeights: pulumi.Input<pulumi.Input<inputs.lambda.AliasVersionWeightArgs>[]>;
+    }
+
+    /**
+     * The traffic-shifting configuration of a Lambda function alias.
+     */
+    export interface AliasVersionWeightArgs {
+        /**
+         * The qualifier of the second version.
+         */
+        functionVersion: pulumi.Input<string>;
+        /**
+         * The percentage of traffic that the alias routes to the second version.
+         */
+        functionWeight: pulumi.Input<number>;
+    }
+
     /**
      * When the CodeSigningConfig is later on attached to a function, the function code will be expected to be signed by profiles from this list
      */
@@ -42759,7 +42817,7 @@ export namespace s3 {
         allowedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * An HTTP method that you allow the origin to run.
-         *  *Allowed values*: ``GET`` | ``PUT`` | ``HEAD`` | ``POST`` | ``DELETE``
+         *   *Allowed values*: ``GET`` | ``PUT`` | ``HEAD`` | ``POST`` | ``DELETE``
          */
         allowedMethods: pulumi.Input<pulumi.Input<enums.s3.BucketCorsRuleAllowedMethodsItem>[]>;
         /**
@@ -42841,7 +42899,7 @@ export namespace s3 {
         bucketArn: pulumi.Input<string>;
         /**
          * Specifies the file format used when exporting data to Amazon S3.
-         *  *Allowed values*: ``CSV`` | ``ORC`` | ``Parquet``
+         *   *Allowed values*: ``CSV`` | ``ORC`` | ``Parquet``
          */
         format: pulumi.Input<enums.s3.BucketDestinationFormat>;
         /**
@@ -43250,7 +43308,7 @@ export namespace s3 {
     export interface BucketReplicaModificationsArgs {
         /**
          * Specifies whether Amazon S3 replicates modifications on replicas.
-         *  *Allowed values*: ``Enabled`` | ``Disabled``
+         *   *Allowed values*: ``Enabled`` | ``Disabled``
          */
         status: pulumi.Input<enums.s3.BucketReplicaModificationsStatus>;
     }
@@ -49449,6 +49507,30 @@ export namespace systemsmanagersap {
 }
 
 export namespace timestream {
+    /**
+     * Configuration for sending logs to customer account from the InfluxDB instance.
+     */
+    export interface LogDeliveryConfigurationPropertiesArgs {
+        /**
+         * S3 configuration for sending logs to customer account from the InfluxDB instance.
+         */
+        s3Configuration: pulumi.Input<inputs.timestream.LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesArgs>;
+    }
+
+    /**
+     * S3 configuration for sending logs to customer account from the InfluxDB instance.
+     */
+    export interface LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesArgs {
+        /**
+         * The bucket name for logs to be sent from the InfluxDB instance
+         */
+        bucketName: pulumi.Input<string>;
+        /**
+         * Specifies whether logging to customer specified bucket is enabled.
+         */
+        enabled: pulumi.Input<boolean>;
+    }
+
     /**
      * The properties that determine whether magnetic store writes are enabled.
      */

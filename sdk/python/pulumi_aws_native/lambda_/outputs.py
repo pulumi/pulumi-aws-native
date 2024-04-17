@@ -12,6 +12,9 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AliasProvisionedConcurrencyConfiguration',
+    'AliasRoutingConfiguration',
+    'AliasVersionWeight',
     'CodeSigningConfigAllowedPublishers',
     'CodeSigningConfigCodeSigningPolicies',
     'EventInvokeConfigDestinationConfig',
@@ -45,6 +48,136 @@ __all__ = [
     'VersionProvisionedConcurrencyConfiguration',
     'VersionRuntimePolicy',
 ]
+
+@pulumi.output_type
+class AliasProvisionedConcurrencyConfiguration(dict):
+    """
+    A provisioned concurrency configuration for a function's alias.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisionedConcurrentExecutions":
+            suggest = "provisioned_concurrent_executions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AliasProvisionedConcurrencyConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AliasProvisionedConcurrencyConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AliasProvisionedConcurrencyConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioned_concurrent_executions: int):
+        """
+        A provisioned concurrency configuration for a function's alias.
+        :param int provisioned_concurrent_executions: The amount of provisioned concurrency to allocate for the alias.
+        """
+        pulumi.set(__self__, "provisioned_concurrent_executions", provisioned_concurrent_executions)
+
+    @property
+    @pulumi.getter(name="provisionedConcurrentExecutions")
+    def provisioned_concurrent_executions(self) -> int:
+        """
+        The amount of provisioned concurrency to allocate for the alias.
+        """
+        return pulumi.get(self, "provisioned_concurrent_executions")
+
+
+@pulumi.output_type
+class AliasRoutingConfiguration(dict):
+    """
+    The traffic-shifting configuration of a Lambda function alias.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalVersionWeights":
+            suggest = "additional_version_weights"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AliasRoutingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AliasRoutingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AliasRoutingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 additional_version_weights: Sequence['outputs.AliasVersionWeight']):
+        """
+        The traffic-shifting configuration of a Lambda function alias.
+        :param Sequence['AliasVersionWeight'] additional_version_weights: The second version, and the percentage of traffic that's routed to it.
+        """
+        pulumi.set(__self__, "additional_version_weights", additional_version_weights)
+
+    @property
+    @pulumi.getter(name="additionalVersionWeights")
+    def additional_version_weights(self) -> Sequence['outputs.AliasVersionWeight']:
+        """
+        The second version, and the percentage of traffic that's routed to it.
+        """
+        return pulumi.get(self, "additional_version_weights")
+
+
+@pulumi.output_type
+class AliasVersionWeight(dict):
+    """
+    The traffic-shifting configuration of a Lambda function alias.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "functionVersion":
+            suggest = "function_version"
+        elif key == "functionWeight":
+            suggest = "function_weight"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AliasVersionWeight. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AliasVersionWeight.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AliasVersionWeight.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 function_version: str,
+                 function_weight: float):
+        """
+        The traffic-shifting configuration of a Lambda function alias.
+        :param str function_version: The qualifier of the second version.
+        :param float function_weight: The percentage of traffic that the alias routes to the second version.
+        """
+        pulumi.set(__self__, "function_version", function_version)
+        pulumi.set(__self__, "function_weight", function_weight)
+
+    @property
+    @pulumi.getter(name="functionVersion")
+    def function_version(self) -> str:
+        """
+        The qualifier of the second version.
+        """
+        return pulumi.get(self, "function_version")
+
+    @property
+    @pulumi.getter(name="functionWeight")
+    def function_weight(self) -> float:
+        """
+        The percentage of traffic that the alias routes to the second version.
+        """
+        return pulumi.get(self, "function_weight")
+
 
 @pulumi.output_type
 class CodeSigningConfigAllowedPublishers(dict):

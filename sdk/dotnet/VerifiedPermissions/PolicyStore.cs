@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.VerifiedPermissions
 {
     /// <summary>
-    /// Definition of AWS::VerifiedPermissions::PolicyStore Resource Type
+    /// Represents a policy store that you can place schema, policies, and policy templates in to validate authorization requests
     /// 
     /// ## Example Usage
     /// ### Example

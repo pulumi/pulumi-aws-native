@@ -29,6 +29,8 @@ type Application struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The namespace of the application.
 	Namespace pulumi.StringPtrOutput `pulumi:"namespace"`
+	// The configuration of events or requests that the application has access to.
+	Permissions pulumi.StringArrayOutput `pulumi:"permissions"`
 	// The tags (keys and values) associated with the application.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -87,6 +89,8 @@ type applicationArgs struct {
 	Name *string `pulumi:"name"`
 	// The namespace of the application.
 	Namespace *string `pulumi:"namespace"`
+	// The configuration of events or requests that the application has access to.
+	Permissions []string `pulumi:"permissions"`
 	// The tags (keys and values) associated with the application.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -101,6 +105,8 @@ type ApplicationArgs struct {
 	Name pulumi.StringPtrInput
 	// The namespace of the application.
 	Namespace pulumi.StringPtrInput
+	// The configuration of events or requests that the application has access to.
+	Permissions pulumi.StringArrayInput
 	// The tags (keys and values) associated with the application.
 	Tags aws.TagArrayInput
 }
@@ -170,6 +176,11 @@ func (o ApplicationOutput) Name() pulumi.StringOutput {
 // The namespace of the application.
 func (o ApplicationOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.Namespace }).(pulumi.StringPtrOutput)
+}
+
+// The configuration of events or requests that the application has access to.
+func (o ApplicationOutput) Permissions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringArrayOutput { return v.Permissions }).(pulumi.StringArrayOutput)
 }
 
 // The tags (keys and values) associated with the application.

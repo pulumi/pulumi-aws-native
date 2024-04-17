@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ReplicationConfiguration{}
 	case "aws-native:ecr:Repository":
 		r = &Repository{}
+	case "aws-native:ecr:RepositoryCreationTemplate":
+		r = &RepositoryCreationTemplate{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

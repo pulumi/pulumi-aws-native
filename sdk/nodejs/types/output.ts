@@ -13806,6 +13806,30 @@ export namespace ecr {
     }
 
     /**
+     * The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest. By default, when no encryption configuration is set or the AES256 encryption type is used, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts your data at rest using an AES-256 encryption algorithm. This does not require any action on your part.
+     *
+     * For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html
+     */
+    export interface RepositoryCreationTemplateEncryptionConfiguration {
+        encryptionType: enums.ecr.RepositoryCreationTemplateEncryptionType;
+        kmsKey?: string;
+    }
+
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    export interface RepositoryCreationTemplateTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
+    }
+
+    /**
      * The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
      *  By default, when no encryption configuration is set or the ``AES256`` encryption type is used, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts your data at rest using an AES-256 encryption algorithm. This does not require any action on your part.
      *  For more control over the encryption of the contents of your repository, you can use server-side encryption with KMSlong key stored in KMSlong (KMS) to encrypt your images. For more information, see [Amazon ECR encryption at rest](https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html) in the *Amazon Elastic Container Registry User Guide*.
@@ -24817,6 +24841,40 @@ export namespace lakeformation {
 }
 
 export namespace lambda {
+    /**
+     * A provisioned concurrency configuration for a function's alias.
+     */
+    export interface AliasProvisionedConcurrencyConfiguration {
+        /**
+         * The amount of provisioned concurrency to allocate for the alias.
+         */
+        provisionedConcurrentExecutions: number;
+    }
+
+    /**
+     * The traffic-shifting configuration of a Lambda function alias.
+     */
+    export interface AliasRoutingConfiguration {
+        /**
+         * The second version, and the percentage of traffic that's routed to it.
+         */
+        additionalVersionWeights: outputs.lambda.AliasVersionWeight[];
+    }
+
+    /**
+     * The traffic-shifting configuration of a Lambda function alias.
+     */
+    export interface AliasVersionWeight {
+        /**
+         * The qualifier of the second version.
+         */
+        functionVersion: string;
+        /**
+         * The percentage of traffic that the alias routes to the second version.
+         */
+        functionWeight: number;
+    }
+
     /**
      * When the CodeSigningConfig is later on attached to a function, the function code will be expected to be signed by profiles from this list
      */
@@ -43478,7 +43536,7 @@ export namespace s3 {
         allowedHeaders?: string[];
         /**
          * An HTTP method that you allow the origin to run.
-         *  *Allowed values*: ``GET`` | ``PUT`` | ``HEAD`` | ``POST`` | ``DELETE``
+         *   *Allowed values*: ``GET`` | ``PUT`` | ``HEAD`` | ``POST`` | ``DELETE``
          */
         allowedMethods: enums.s3.BucketCorsRuleAllowedMethodsItem[];
         /**
@@ -43560,7 +43618,7 @@ export namespace s3 {
         bucketArn: string;
         /**
          * Specifies the file format used when exporting data to Amazon S3.
-         *  *Allowed values*: ``CSV`` | ``ORC`` | ``Parquet``
+         *   *Allowed values*: ``CSV`` | ``ORC`` | ``Parquet``
          */
         format: enums.s3.BucketDestinationFormat;
         /**
@@ -43969,7 +44027,7 @@ export namespace s3 {
     export interface BucketReplicaModifications {
         /**
          * Specifies whether Amazon S3 replicates modifications on replicas.
-         *  *Allowed values*: ``Enabled`` | ``Disabled``
+         *   *Allowed values*: ``Enabled`` | ``Disabled``
          */
         status: enums.s3.BucketReplicaModificationsStatus;
     }
@@ -50256,6 +50314,30 @@ export namespace systemsmanagersap {
 }
 
 export namespace timestream {
+    /**
+     * Configuration for sending logs to customer account from the InfluxDB instance.
+     */
+    export interface LogDeliveryConfigurationProperties {
+        /**
+         * S3 configuration for sending logs to customer account from the InfluxDB instance.
+         */
+        s3Configuration: outputs.timestream.LogDeliveryConfigurationPropertiesS3ConfigurationProperties;
+    }
+
+    /**
+     * S3 configuration for sending logs to customer account from the InfluxDB instance.
+     */
+    export interface LogDeliveryConfigurationPropertiesS3ConfigurationProperties {
+        /**
+         * The bucket name for logs to be sent from the InfluxDB instance
+         */
+        bucketName: string;
+        /**
+         * Specifies whether logging to customer specified bucket is enabled.
+         */
+        enabled: boolean;
+    }
+
     /**
      * The properties that determine whether magnetic store writes are enabled.
      */

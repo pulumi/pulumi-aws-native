@@ -33,6 +33,121 @@ namespace Pulumi.AwsNative.Lambda
     ///         Role = "arn:aws:iam::123456789012:role/lambda-role",
     ///         Code = new AwsNative.Lambda.Inputs.FunctionCodeArgs
     ///         {
+    ///             ZipFile = @"exports.handler = function(event){
+    ///     console.log(JSON.stringify(event, null, 2))
+    ///     const response = {
+    ///         statusCode: 200,
+    ///         body: JSON.stringify('Hello from Lambda!')
+    ///     }
+    ///     return response
+    /// };
+    /// ",
+    ///         },
+    ///         Runtime = "nodejs18.x",
+    ///         TracingConfig = new AwsNative.Lambda.Inputs.FunctionTracingConfigArgs
+    ///         {
+    ///             Mode = AwsNative.Lambda.FunctionTracingConfigMode.Active,
+    ///         },
+    ///     });
+    /// 
+    ///     var version = new AwsNative.Lambda.Version("version", new()
+    ///     {
+    ///         FunctionName = function.Id,
+    ///         Description = "v1",
+    ///     });
+    /// 
+    ///     var @alias = new AwsNative.Lambda.Alias("alias", new()
+    ///     {
+    ///         FunctionName = function.Id,
+    ///         FunctionVersion = version.Version,
+    ///         Name = "BLUE",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Example
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AwsNative = Pulumi.AwsNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var function = new AwsNative.Lambda.Function("function", new()
+    ///     {
+    ///         Handler = "index.handler",
+    ///         Role = "arn:aws:iam::123456789012:role/lambda-role",
+    ///         Code = new AwsNative.Lambda.Inputs.FunctionCodeArgs
+    ///         {
+    ///             ZipFile = @"exports.handler = function(event){
+    ///     console.log(JSON.stringify(event, null, 2))
+    ///     const response = {
+    ///         statusCode: 200,
+    ///         body: JSON.stringify('Hello again from Lambda!')
+    ///     }
+    ///     return response
+    /// }
+    /// ",
+    ///         },
+    ///         Runtime = "nodejs18.x",
+    ///         TracingConfig = new AwsNative.Lambda.Inputs.FunctionTracingConfigArgs
+    ///         {
+    ///             Mode = AwsNative.Lambda.FunctionTracingConfigMode.Active,
+    ///         },
+    ///     });
+    /// 
+    ///     var version = new AwsNative.Lambda.Version("version", new()
+    ///     {
+    ///         FunctionName = function.Id,
+    ///         Description = "v1",
+    ///     });
+    /// 
+    ///     var newVersion = new AwsNative.Lambda.Version("newVersion", new()
+    ///     {
+    ///         FunctionName = function.Id,
+    ///         Description = "v2",
+    ///     });
+    /// 
+    ///     var @alias = new AwsNative.Lambda.Alias("alias", new()
+    ///     {
+    ///         FunctionName = function.Id,
+    ///         FunctionVersion = newVersion.Version,
+    ///         Name = "BLUE",
+    ///         RoutingConfig = new AwsNative.Lambda.Inputs.AliasRoutingConfigurationArgs
+    ///         {
+    ///             AdditionalVersionWeights = new[]
+    ///             {
+    ///                 new AwsNative.Lambda.Inputs.AliasVersionWeightArgs
+    ///                 {
+    ///                     FunctionVersion = version.Version,
+    ///                     FunctionWeight = 0.5,
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Example
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AwsNative = Pulumi.AwsNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var function = new AwsNative.Lambda.Function("function", new()
+    ///     {
+    ///         Handler = "index.handler",
+    ///         Role = "arn:aws:iam::123456789012:role/lambda-role",
+    ///         Code = new AwsNative.Lambda.Inputs.FunctionCodeArgs
+    ///         {
     ///             ZipFile = @"exports.handler = async (event) =&gt; {
     ///     console.log(JSON.stringify(event, null, 2));
     ///     const response = {

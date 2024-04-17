@@ -12,6 +12,8 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'LogDeliveryConfigurationProperties',
+    'LogDeliveryConfigurationPropertiesS3ConfigurationProperties',
     'MagneticStoreWritePropertiesProperties',
     'MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationProperties',
     'MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationProperties',
@@ -30,6 +32,95 @@ __all__ = [
     'SchemaProperties',
     'TablePartitionKey',
 ]
+
+@pulumi.output_type
+class LogDeliveryConfigurationProperties(dict):
+    """
+    Configuration for sending logs to customer account from the InfluxDB instance.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Configuration":
+            suggest = "s3_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogDeliveryConfigurationProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogDeliveryConfigurationProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogDeliveryConfigurationProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_configuration: 'outputs.LogDeliveryConfigurationPropertiesS3ConfigurationProperties'):
+        """
+        Configuration for sending logs to customer account from the InfluxDB instance.
+        :param 'LogDeliveryConfigurationPropertiesS3ConfigurationProperties' s3_configuration: S3 configuration for sending logs to customer account from the InfluxDB instance.
+        """
+        pulumi.set(__self__, "s3_configuration", s3_configuration)
+
+    @property
+    @pulumi.getter(name="s3Configuration")
+    def s3_configuration(self) -> 'outputs.LogDeliveryConfigurationPropertiesS3ConfigurationProperties':
+        """
+        S3 configuration for sending logs to customer account from the InfluxDB instance.
+        """
+        return pulumi.get(self, "s3_configuration")
+
+
+@pulumi.output_type
+class LogDeliveryConfigurationPropertiesS3ConfigurationProperties(dict):
+    """
+    S3 configuration for sending logs to customer account from the InfluxDB instance.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketName":
+            suggest = "bucket_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogDeliveryConfigurationPropertiesS3ConfigurationProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogDeliveryConfigurationPropertiesS3ConfigurationProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogDeliveryConfigurationPropertiesS3ConfigurationProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket_name: str,
+                 enabled: bool):
+        """
+        S3 configuration for sending logs to customer account from the InfluxDB instance.
+        :param str bucket_name: The bucket name for logs to be sent from the InfluxDB instance
+        :param bool enabled: Specifies whether logging to customer specified bucket is enabled.
+        """
+        pulumi.set(__self__, "bucket_name", bucket_name)
+        pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> str:
+        """
+        The bucket name for logs to be sent from the InfluxDB instance
+        """
+        return pulumi.get(self, "bucket_name")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Specifies whether logging to customer specified bucket is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
 
 @pulumi.output_type
 class MagneticStoreWritePropertiesProperties(dict):

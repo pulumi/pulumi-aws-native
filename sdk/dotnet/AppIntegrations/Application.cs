@@ -52,6 +52,12 @@ namespace Pulumi.AwsNative.AppIntegrations
         public Output<string?> Namespace { get; private set; } = null!;
 
         /// <summary>
+        /// The configuration of events or requests that the application has access to.
+        /// </summary>
+        [Output("permissions")]
+        public Output<ImmutableArray<string>> Permissions { get; private set; } = null!;
+
+        /// <summary>
         /// The tags (keys and values) associated with the application.
         /// </summary>
         [Output("tags")]
@@ -125,6 +131,18 @@ namespace Pulumi.AwsNative.AppIntegrations
         /// </summary>
         [Input("namespace")]
         public Input<string>? Namespace { get; set; }
+
+        [Input("permissions")]
+        private InputList<string>? _permissions;
+
+        /// <summary>
+        /// The configuration of events or requests that the application has access to.
+        /// </summary>
+        public InputList<string> Permissions
+        {
+            get => _permissions ?? (_permissions = new InputList<string>());
+            set => _permissions = value;
+        }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

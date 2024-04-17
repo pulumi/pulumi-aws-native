@@ -15,6 +15,8 @@ __all__ = [
     'ReplicationConfigurationReplicationRuleArgs',
     'ReplicationConfigurationRepositoryFilterArgs',
     'ReplicationConfigurationArgs',
+    'RepositoryCreationTemplateEncryptionConfigurationArgs',
+    'RepositoryCreationTemplateTagArgs',
     'RepositoryEncryptionConfigurationArgs',
     'RepositoryImageScanningConfigurationArgs',
     'RepositoryLifecyclePolicyArgs',
@@ -140,6 +142,77 @@ class ReplicationConfigurationArgs:
     @rules.setter
     def rules(self, value: pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationRuleArgs']]]):
         pulumi.set(self, "rules", value)
+
+
+@pulumi.input_type
+class RepositoryCreationTemplateEncryptionConfigurationArgs:
+    def __init__(__self__, *,
+                 encryption_type: pulumi.Input['RepositoryCreationTemplateEncryptionType'],
+                 kms_key: Optional[pulumi.Input[str]] = None):
+        """
+        The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest. By default, when no encryption configuration is set or the AES256 encryption type is used, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts your data at rest using an AES-256 encryption algorithm. This does not require any action on your part.
+
+        For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html
+        """
+        pulumi.set(__self__, "encryption_type", encryption_type)
+        if kms_key is not None:
+            pulumi.set(__self__, "kms_key", kms_key)
+
+    @property
+    @pulumi.getter(name="encryptionType")
+    def encryption_type(self) -> pulumi.Input['RepositoryCreationTemplateEncryptionType']:
+        return pulumi.get(self, "encryption_type")
+
+    @encryption_type.setter
+    def encryption_type(self, value: pulumi.Input['RepositoryCreationTemplateEncryptionType']):
+        pulumi.set(self, "encryption_type", value)
+
+    @property
+    @pulumi.getter(name="kmsKey")
+    def kms_key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "kms_key")
+
+    @kms_key.setter
+    def kms_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key", value)
+
+
+@pulumi.input_type
+class RepositoryCreationTemplateTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

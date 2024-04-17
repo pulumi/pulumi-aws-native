@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of AWS::VerifiedPermissions::PolicyStore Resource Type
+// Represents a policy store that you can place schema, policies, and policy templates in to validate authorization requests
 //
 // ## Example Usage
 // ### Example

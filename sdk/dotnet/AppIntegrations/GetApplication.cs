@@ -82,6 +82,10 @@ namespace Pulumi.AwsNative.AppIntegrations
         /// </summary>
         public readonly string? Namespace;
         /// <summary>
+        /// The configuration of events or requests that the application has access to.
+        /// </summary>
+        public readonly ImmutableArray<string> Permissions;
+        /// <summary>
         /// The tags (keys and values) associated with the application.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
@@ -100,6 +104,8 @@ namespace Pulumi.AwsNative.AppIntegrations
 
             string? @namespace,
 
+            ImmutableArray<string> permissions,
+
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             ApplicationArn = applicationArn;
@@ -108,6 +114,7 @@ namespace Pulumi.AwsNative.AppIntegrations
             Id = id;
             Name = name;
             Namespace = @namespace;
+            Permissions = permissions;
             Tags = tags;
         }
     }

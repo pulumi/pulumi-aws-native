@@ -125,7 +125,7 @@ class BucketDeleteMarkerReplicationStatus(str, Enum):
 class BucketDestinationFormat(str, Enum):
     """
     Specifies the file format used when exporting data to Amazon S3.
-     *Allowed values*: ``CSV`` | ``ORC`` | ``Parquet``
+      *Allowed values*: ``CSV`` | ``ORC`` | ``Parquet``
     """
     CSV = "CSV"
     ORC = "ORC"
@@ -222,7 +222,7 @@ class BucketRedirectRuleProtocol(str, Enum):
 class BucketReplicaModificationsStatus(str, Enum):
     """
     Specifies whether Amazon S3 replicates modifications on replicas.
-     *Allowed values*: ``Enabled`` | ``Disabled``
+      *Allowed values*: ``Enabled`` | ``Disabled``
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"

@@ -5,6 +5,10 @@
 from enum import Enum
 
 __all__ = [
+    'InfluxDbInstanceDbInstanceType',
+    'InfluxDbInstanceDbStorageType',
+    'InfluxDbInstanceDeploymentType',
+    'InfluxDbInstanceStatus',
     'ScheduledQueryDimensionValueType',
     'ScheduledQueryEncryptionOption',
     'ScheduledQueryMixedMeasureMappingMeasureValueType',
@@ -12,6 +16,50 @@ __all__ = [
     'TablePartitionKeyEnforcementLevel',
     'TablePartitionKeyType',
 ]
+
+
+class InfluxDbInstanceDbInstanceType(str, Enum):
+    """
+    The compute instance of the InfluxDB instance.
+    """
+    DB_INFLUX_MEDIUM = "db.influx.medium"
+    DB_INFLUX_LARGE = "db.influx.large"
+    DB_INFLUX_XLARGE = "db.influx.xlarge"
+    DB_INFLUX2XLARGE = "db.influx.2xlarge"
+    DB_INFLUX4XLARGE = "db.influx.4xlarge"
+    DB_INFLUX8XLARGE = "db.influx.8xlarge"
+    DB_INFLUX12XLARGE = "db.influx.12xlarge"
+    DB_INFLUX16XLARGE = "db.influx.16xlarge"
+
+
+class InfluxDbInstanceDbStorageType(str, Enum):
+    """
+    The storage type of the InfluxDB instance.
+    """
+    INFLUX_IO_INCLUDED_T1 = "InfluxIOIncludedT1"
+    INFLUX_IO_INCLUDED_T2 = "InfluxIOIncludedT2"
+    INFLUX_IO_INCLUDED_T3 = "InfluxIOIncludedT3"
+
+
+class InfluxDbInstanceDeploymentType(str, Enum):
+    """
+    Deployment type of the InfluxDB Instance.
+    """
+    SINGLE_AZ = "SINGLE_AZ"
+    WITH_MULTIAZ_STANDBY = "WITH_MULTIAZ_STANDBY"
+
+
+class InfluxDbInstanceStatus(str, Enum):
+    """
+    Status of the InfluxDB Instance.
+    """
+    CREATING = "CREATING"
+    AVAILABLE = "AVAILABLE"
+    DELETING = "DELETING"
+    MODIFYING = "MODIFYING"
+    UPDATING = "UPDATING"
+    DELETED = "DELETED"
+    FAILED = "FAILED"
 
 
 class ScheduledQueryDimensionValueType(str, Enum):

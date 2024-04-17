@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Definition of AWS::VerifiedPermissions::PolicyStore Resource Type
+ * Represents a policy store that you can place schema, policies, and policy templates in to validate authorization requests
  */
 export function getPolicyStore(args: GetPolicyStoreArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyStoreResult> {
 
@@ -30,7 +30,7 @@ export interface GetPolicyStoreResult {
     readonly validationSettings?: outputs.verifiedpermissions.PolicyStoreValidationSettings;
 }
 /**
- * Definition of AWS::VerifiedPermissions::PolicyStore Resource Type
+ * Represents a policy store that you can place schema, policies, and policy templates in to validate authorization requests
  */
 export function getPolicyStoreOutput(args: GetPolicyStoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyStoreResult> {
     return pulumi.output(args).apply((a: any) => getPolicyStore(a, opts))

@@ -21,7 +21,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetBucketResult:
-    def __init__(__self__, accelerate_configuration=None, analytics_configurations=None, arn=None, bucket_encryption=None, cors_configuration=None, domain_name=None, dual_stack_domain_name=None, intelligent_tiering_configurations=None, inventory_configurations=None, lifecycle_configuration=None, logging_configuration=None, metrics_configurations=None, notification_configuration=None, object_lock_configuration=None, ownership_controls=None, public_access_block_configuration=None, regional_domain_name=None, replication_configuration=None, tags=None, versioning_configuration=None, website_configuration=None, website_url=None):
+    def __init__(__self__, accelerate_configuration=None, analytics_configurations=None, arn=None, bucket_encryption=None, cors_configuration=None, domain_name=None, dual_stack_domain_name=None, intelligent_tiering_configurations=None, inventory_configurations=None, lifecycle_configuration=None, logging_configuration=None, metrics_configurations=None, notification_configuration=None, object_lock_configuration=None, object_lock_enabled=None, ownership_controls=None, public_access_block_configuration=None, regional_domain_name=None, replication_configuration=None, tags=None, versioning_configuration=None, website_configuration=None, website_url=None):
         if accelerate_configuration and not isinstance(accelerate_configuration, dict):
             raise TypeError("Expected argument 'accelerate_configuration' to be a dict")
         pulumi.set(__self__, "accelerate_configuration", accelerate_configuration)
@@ -64,6 +64,9 @@ class GetBucketResult:
         if object_lock_configuration and not isinstance(object_lock_configuration, dict):
             raise TypeError("Expected argument 'object_lock_configuration' to be a dict")
         pulumi.set(__self__, "object_lock_configuration", object_lock_configuration)
+        if object_lock_enabled and not isinstance(object_lock_enabled, bool):
+            raise TypeError("Expected argument 'object_lock_enabled' to be a bool")
+        pulumi.set(__self__, "object_lock_enabled", object_lock_enabled)
         if ownership_controls and not isinstance(ownership_controls, dict):
             raise TypeError("Expected argument 'ownership_controls' to be a dict")
         pulumi.set(__self__, "ownership_controls", ownership_controls)
@@ -108,9 +111,6 @@ class GetBucketResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
-        """
-        The Amazon Resource Name (ARN) of the specified bucket.
-        """
         return pulumi.get(self, "arn")
 
     @property
@@ -132,17 +132,11 @@ class GetBucketResult:
     @property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> Optional[str]:
-        """
-        The IPv4 DNS name of the specified bucket.
-        """
         return pulumi.get(self, "domain_name")
 
     @property
     @pulumi.getter(name="dualStackDomainName")
     def dual_stack_domain_name(self) -> Optional[str]:
-        """
-        The IPv6 DNS name of the specified bucket. For more information about dual-stack endpoints, see [Using Amazon S3 Dual-Stack Endpoints](https://docs.aws.amazon.com/AmazonS3/latest/dev/dual-stack-endpoints.html).
-        """
         return pulumi.get(self, "dual_stack_domain_name")
 
     @property
@@ -206,6 +200,14 @@ class GetBucketResult:
         return pulumi.get(self, "object_lock_configuration")
 
     @property
+    @pulumi.getter(name="objectLockEnabled")
+    def object_lock_enabled(self) -> Optional[bool]:
+        """
+        Indicates whether this bucket has an Object Lock configuration enabled. Enable ``ObjectLockEnabled`` when you apply ``ObjectLockConfiguration`` to a bucket.
+        """
+        return pulumi.get(self, "object_lock_enabled")
+
+    @property
     @pulumi.getter(name="ownershipControls")
     def ownership_controls(self) -> Optional['outputs.BucketOwnershipControls']:
         """
@@ -224,9 +226,6 @@ class GetBucketResult:
     @property
     @pulumi.getter(name="regionalDomainName")
     def regional_domain_name(self) -> Optional[str]:
-        """
-        Returns the regional domain name of the specified bucket.
-        """
         return pulumi.get(self, "regional_domain_name")
 
     @property
@@ -265,9 +264,6 @@ class GetBucketResult:
     @property
     @pulumi.getter(name="websiteUrl")
     def website_url(self) -> Optional[str]:
-        """
-        The Amazon S3 website endpoint for the specified bucket.
-        """
         return pulumi.get(self, "website_url")
 
 
@@ -291,6 +287,7 @@ class AwaitableGetBucketResult(GetBucketResult):
             metrics_configurations=self.metrics_configurations,
             notification_configuration=self.notification_configuration,
             object_lock_configuration=self.object_lock_configuration,
+            object_lock_enabled=self.object_lock_enabled,
             ownership_controls=self.ownership_controls,
             public_access_block_configuration=self.public_access_block_configuration,
             regional_domain_name=self.regional_domain_name,
@@ -332,6 +329,7 @@ def get_bucket(bucket_name: Optional[str] = None,
         metrics_configurations=pulumi.get(__ret__, 'metrics_configurations'),
         notification_configuration=pulumi.get(__ret__, 'notification_configuration'),
         object_lock_configuration=pulumi.get(__ret__, 'object_lock_configuration'),
+        object_lock_enabled=pulumi.get(__ret__, 'object_lock_enabled'),
         ownership_controls=pulumi.get(__ret__, 'ownership_controls'),
         public_access_block_configuration=pulumi.get(__ret__, 'public_access_block_configuration'),
         regional_domain_name=pulumi.get(__ret__, 'regional_domain_name'),

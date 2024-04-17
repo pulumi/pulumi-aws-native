@@ -2,6 +2,58 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const InfluxDbInstanceDbInstanceType = {
+    DbInfluxMedium: "db.influx.medium",
+    DbInfluxLarge: "db.influx.large",
+    DbInfluxXlarge: "db.influx.xlarge",
+    DbInflux2xlarge: "db.influx.2xlarge",
+    DbInflux4xlarge: "db.influx.4xlarge",
+    DbInflux8xlarge: "db.influx.8xlarge",
+    DbInflux12xlarge: "db.influx.12xlarge",
+    DbInflux16xlarge: "db.influx.16xlarge",
+} as const;
+
+/**
+ * The compute instance of the InfluxDB instance.
+ */
+export type InfluxDbInstanceDbInstanceType = (typeof InfluxDbInstanceDbInstanceType)[keyof typeof InfluxDbInstanceDbInstanceType];
+
+export const InfluxDbInstanceDbStorageType = {
+    InfluxIoIncludedT1: "InfluxIOIncludedT1",
+    InfluxIoIncludedT2: "InfluxIOIncludedT2",
+    InfluxIoIncludedT3: "InfluxIOIncludedT3",
+} as const;
+
+/**
+ * The storage type of the InfluxDB instance.
+ */
+export type InfluxDbInstanceDbStorageType = (typeof InfluxDbInstanceDbStorageType)[keyof typeof InfluxDbInstanceDbStorageType];
+
+export const InfluxDbInstanceDeploymentType = {
+    SingleAz: "SINGLE_AZ",
+    WithMultiazStandby: "WITH_MULTIAZ_STANDBY",
+} as const;
+
+/**
+ * Deployment type of the InfluxDB Instance.
+ */
+export type InfluxDbInstanceDeploymentType = (typeof InfluxDbInstanceDeploymentType)[keyof typeof InfluxDbInstanceDeploymentType];
+
+export const InfluxDbInstanceStatus = {
+    Creating: "CREATING",
+    Available: "AVAILABLE",
+    Deleting: "DELETING",
+    Modifying: "MODIFYING",
+    Updating: "UPDATING",
+    Deleted: "DELETED",
+    Failed: "FAILED",
+} as const;
+
+/**
+ * Status of the InfluxDB Instance.
+ */
+export type InfluxDbInstanceStatus = (typeof InfluxDbInstanceStatus)[keyof typeof InfluxDbInstanceStatus];
+
 export const ScheduledQueryDimensionValueType = {
     Varchar: "VARCHAR",
 } as const;

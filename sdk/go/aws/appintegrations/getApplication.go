@@ -41,6 +41,8 @@ type LookupApplicationResult struct {
 	Name *string `pulumi:"name"`
 	// The namespace of the application.
 	Namespace *string `pulumi:"namespace"`
+	// The configuration of events or requests that the application has access to.
+	Permissions []string `pulumi:"permissions"`
 	// The tags (keys and values) associated with the application.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -109,6 +111,11 @@ func (o LookupApplicationResultOutput) Name() pulumi.StringPtrOutput {
 // The namespace of the application.
 func (o LookupApplicationResultOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.Namespace }).(pulumi.StringPtrOutput)
+}
+
+// The configuration of events or requests that the application has access to.
+func (o LookupApplicationResultOutput) Permissions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupApplicationResult) []string { return v.Permissions }).(pulumi.StringArrayOutput)
 }
 
 // The tags (keys and values) associated with the application.

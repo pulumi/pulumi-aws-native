@@ -22,6 +22,7 @@ class ApplicationArgs:
                  description: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None,
                  namespace: Optional[pulumi.Input[str]] = None,
+                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Application resource.
@@ -29,6 +30,7 @@ class ApplicationArgs:
         :param pulumi.Input[str] description: The application description.
         :param pulumi.Input[str] name: The name of the application.
         :param pulumi.Input[str] namespace: The namespace of the application.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] permissions: The configuration of events or requests that the application has access to.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags (keys and values) associated with the application.
         """
         pulumi.set(__self__, "application_source_config", application_source_config)
@@ -37,6 +39,8 @@ class ApplicationArgs:
             pulumi.set(__self__, "name", name)
         if namespace is not None:
             pulumi.set(__self__, "namespace", namespace)
+        if permissions is not None:
+            pulumi.set(__self__, "permissions", permissions)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -90,6 +94,18 @@ class ApplicationArgs:
 
     @property
     @pulumi.getter
+    def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The configuration of events or requests that the application has access to.
+        """
+        return pulumi.get(self, "permissions")
+
+    @permissions.setter
+    def permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "permissions", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags (keys and values) associated with the application.
@@ -110,6 +126,7 @@ class Application(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  namespace: Optional[pulumi.Input[str]] = None,
+                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
@@ -121,6 +138,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[str] description: The application description.
         :param pulumi.Input[str] name: The name of the application.
         :param pulumi.Input[str] namespace: The namespace of the application.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] permissions: The configuration of events or requests that the application has access to.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags (keys and values) associated with the application.
         """
         ...
@@ -151,6 +169,7 @@ class Application(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  namespace: Optional[pulumi.Input[str]] = None,
+                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -169,6 +188,7 @@ class Application(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
             __props__.__dict__["namespace"] = namespace
+            __props__.__dict__["permissions"] = permissions
             __props__.__dict__["tags"] = tags
             __props__.__dict__["application_arn"] = None
             __props__.__dict__["aws_id"] = None
@@ -200,6 +220,7 @@ class Application(pulumi.CustomResource):
         __props__.__dict__["description"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["namespace"] = None
+        __props__.__dict__["permissions"] = None
         __props__.__dict__["tags"] = None
         return Application(resource_name, opts=opts, __props__=__props__)
 
@@ -250,6 +271,14 @@ class Application(pulumi.CustomResource):
         The namespace of the application.
         """
         return pulumi.get(self, "namespace")
+
+    @property
+    @pulumi.getter
+    def permissions(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The configuration of events or requests that the application has access to.
+        """
+        return pulumi.get(self, "permissions")
 
     @property
     @pulumi.getter

@@ -26,6 +26,88 @@ import * as utilities from "../utilities";
  *     handler: "index.handler",
  *     role: "arn:aws:iam::123456789012:role/lambda-role",
  *     code: {
+ *         zipFile: `exports.handler = function(event){
+ *     console.log(JSON.stringify(event, null, 2))
+ *     const response = {
+ *         statusCode: 200,
+ *         body: JSON.stringify('Hello from Lambda!')
+ *     }
+ *     return response
+ * };
+ * `,
+ *     },
+ *     runtime: "nodejs18.x",
+ *     tracingConfig: {
+ *         mode: aws_native.lambda.FunctionTracingConfigMode.Active,
+ *     },
+ * });
+ * const version = new aws_native.lambda.Version("version", {
+ *     functionName: _function.id,
+ *     description: "v1",
+ * });
+ * const alias = new aws_native.lambda.Alias("alias", {
+ *     functionName: _function.id,
+ *     functionVersion: version.version,
+ *     name: "BLUE",
+ * });
+ *
+ * ```
+ * ### Example
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws_native from "@pulumi/aws-native";
+ *
+ * const _function = new aws_native.lambda.Function("function", {
+ *     handler: "index.handler",
+ *     role: "arn:aws:iam::123456789012:role/lambda-role",
+ *     code: {
+ *         zipFile: `exports.handler = function(event){
+ *     console.log(JSON.stringify(event, null, 2))
+ *     const response = {
+ *         statusCode: 200,
+ *         body: JSON.stringify('Hello again from Lambda!')
+ *     }
+ *     return response
+ * }
+ * `,
+ *     },
+ *     runtime: "nodejs18.x",
+ *     tracingConfig: {
+ *         mode: aws_native.lambda.FunctionTracingConfigMode.Active,
+ *     },
+ * });
+ * const version = new aws_native.lambda.Version("version", {
+ *     functionName: _function.id,
+ *     description: "v1",
+ * });
+ * const newVersion = new aws_native.lambda.Version("newVersion", {
+ *     functionName: _function.id,
+ *     description: "v2",
+ * });
+ * const alias = new aws_native.lambda.Alias("alias", {
+ *     functionName: _function.id,
+ *     functionVersion: newVersion.version,
+ *     name: "BLUE",
+ *     routingConfig: {
+ *         additionalVersionWeights: [{
+ *             functionVersion: version.version,
+ *             functionWeight: 0.5,
+ *         }],
+ *     },
+ * });
+ *
+ * ```
+ * ### Example
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws_native from "@pulumi/aws-native";
+ *
+ * const _function = new aws_native.lambda.Function("function", {
+ *     handler: "index.handler",
+ *     role: "arn:aws:iam::123456789012:role/lambda-role",
+ *     code: {
  *         zipFile: `exports.handler = async (event) => {
  *     console.log(JSON.stringify(event, null, 2));
  *     const response = {

@@ -11,6 +11,36 @@ export const ReplicationConfigurationFilterType = {
  */
 export type ReplicationConfigurationFilterType = (typeof ReplicationConfigurationFilterType)[keyof typeof ReplicationConfigurationFilterType];
 
+export const RepositoryCreationTemplateAppliedForItem = {
+    Replication: "REPLICATION",
+    PullThroughCache: "PULL_THROUGH_CACHE",
+} as const;
+
+/**
+ * Enumerable Strings representing the repository creation scenarios that the template will apply towards.
+ */
+export type RepositoryCreationTemplateAppliedForItem = (typeof RepositoryCreationTemplateAppliedForItem)[keyof typeof RepositoryCreationTemplateAppliedForItem];
+
+export const RepositoryCreationTemplateEncryptionType = {
+    Aes256: "AES256",
+    Kms: "KMS",
+} as const;
+
+/**
+ * The encryption type to use.
+ */
+export type RepositoryCreationTemplateEncryptionType = (typeof RepositoryCreationTemplateEncryptionType)[keyof typeof RepositoryCreationTemplateEncryptionType];
+
+export const RepositoryCreationTemplateImageTagMutability = {
+    Mutable: "MUTABLE",
+    Immutable: "IMMUTABLE",
+} as const;
+
+/**
+ * The image tag mutability setting for the repository.
+ */
+export type RepositoryCreationTemplateImageTagMutability = (typeof RepositoryCreationTemplateImageTagMutability)[keyof typeof RepositoryCreationTemplateImageTagMutability];
+
 export const RepositoryEncryptionType = {
     Aes256: "AES256",
     Kms: "KMS",

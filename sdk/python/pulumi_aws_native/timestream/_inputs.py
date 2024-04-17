@@ -11,6 +11,8 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesArgs',
+    'LogDeliveryConfigurationPropertiesArgs',
     'MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesArgs',
     'MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgs',
     'MagneticStoreWritePropertiesPropertiesArgs',
@@ -29,6 +31,67 @@ __all__ = [
     'SchemaPropertiesArgs',
     'TablePartitionKeyArgs',
 ]
+
+@pulumi.input_type
+class LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesArgs:
+    def __init__(__self__, *,
+                 bucket_name: pulumi.Input[str],
+                 enabled: pulumi.Input[bool]):
+        """
+        S3 configuration for sending logs to customer account from the InfluxDB instance.
+        :param pulumi.Input[str] bucket_name: The bucket name for logs to be sent from the InfluxDB instance
+        :param pulumi.Input[bool] enabled: Specifies whether logging to customer specified bucket is enabled.
+        """
+        pulumi.set(__self__, "bucket_name", bucket_name)
+        pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> pulumi.Input[str]:
+        """
+        The bucket name for logs to be sent from the InfluxDB instance
+        """
+        return pulumi.get(self, "bucket_name")
+
+    @bucket_name.setter
+    def bucket_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "bucket_name", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        """
+        Specifies whether logging to customer specified bucket is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+
+@pulumi.input_type
+class LogDeliveryConfigurationPropertiesArgs:
+    def __init__(__self__, *,
+                 s3_configuration: pulumi.Input['LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesArgs']):
+        """
+        Configuration for sending logs to customer account from the InfluxDB instance.
+        :param pulumi.Input['LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesArgs'] s3_configuration: S3 configuration for sending logs to customer account from the InfluxDB instance.
+        """
+        pulumi.set(__self__, "s3_configuration", s3_configuration)
+
+    @property
+    @pulumi.getter(name="s3Configuration")
+    def s3_configuration(self) -> pulumi.Input['LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesArgs']:
+        """
+        S3 configuration for sending logs to customer account from the InfluxDB instance.
+        """
+        return pulumi.get(self, "s3_configuration")
+
+    @s3_configuration.setter
+    def s3_configuration(self, value: pulumi.Input['LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesArgs']):
+        pulumi.set(self, "s3_configuration", value)
+
 
 @pulumi.input_type
 class MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesArgs:

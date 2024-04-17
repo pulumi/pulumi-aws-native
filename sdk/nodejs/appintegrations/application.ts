@@ -62,6 +62,10 @@ export class Application extends pulumi.CustomResource {
      */
     public readonly namespace!: pulumi.Output<string | undefined>;
     /**
+     * The configuration of events or requests that the application has access to.
+     */
+    public readonly permissions!: pulumi.Output<string[] | undefined>;
+    /**
      * The tags (keys and values) associated with the application.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
@@ -87,6 +91,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["namespace"] = args ? args.namespace : undefined;
+            resourceInputs["permissions"] = args ? args.permissions : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["applicationArn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
@@ -97,6 +102,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["namespace"] = undefined /*out*/;
+            resourceInputs["permissions"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -124,6 +130,10 @@ export interface ApplicationArgs {
      * The namespace of the application.
      */
     namespace?: pulumi.Input<string>;
+    /**
+     * The configuration of events or requests that the application has access to.
+     */
+    permissions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The tags (keys and values) associated with the application.
      */

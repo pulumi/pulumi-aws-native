@@ -6,6 +6,9 @@ from enum import Enum
 
 __all__ = [
     'ReplicationConfigurationFilterType',
+    'RepositoryCreationTemplateAppliedForItem',
+    'RepositoryCreationTemplateEncryptionType',
+    'RepositoryCreationTemplateImageTagMutability',
     'RepositoryEncryptionType',
     'RepositoryImageTagMutability',
 ]
@@ -16,6 +19,30 @@ class ReplicationConfigurationFilterType(str, Enum):
     Type of repository filter
     """
     PREFIX_MATCH = "PREFIX_MATCH"
+
+
+class RepositoryCreationTemplateAppliedForItem(str, Enum):
+    """
+    Enumerable Strings representing the repository creation scenarios that the template will apply towards.
+    """
+    REPLICATION = "REPLICATION"
+    PULL_THROUGH_CACHE = "PULL_THROUGH_CACHE"
+
+
+class RepositoryCreationTemplateEncryptionType(str, Enum):
+    """
+    The encryption type to use.
+    """
+    AES256 = "AES256"
+    KMS = "KMS"
+
+
+class RepositoryCreationTemplateImageTagMutability(str, Enum):
+    """
+    The image tag mutability setting for the repository.
+    """
+    MUTABLE = "MUTABLE"
+    IMMUTABLE = "IMMUTABLE"
 
 
 class RepositoryEncryptionType(str, Enum):

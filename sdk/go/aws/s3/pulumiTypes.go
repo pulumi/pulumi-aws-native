@@ -1322,7 +1322,7 @@ type BucketCorsRule struct {
 	// Headers that are specified in the ``Access-Control-Request-Headers`` header. These headers are allowed in a preflight OPTIONS request. In response to any preflight OPTIONS request, Amazon S3 returns any requested headers that are allowed.
 	AllowedHeaders []string `pulumi:"allowedHeaders"`
 	// An HTTP method that you allow the origin to run.
-	//  *Allowed values*: ``GET`` | ``PUT`` | ``HEAD`` | ``POST`` | ``DELETE``
+	//   *Allowed values*: ``GET`` | ``PUT`` | ``HEAD`` | ``POST`` | ``DELETE``
 	AllowedMethods []BucketCorsRuleAllowedMethodsItem `pulumi:"allowedMethods"`
 	// One or more origins you want customers to be able to access the bucket from.
 	AllowedOrigins []string `pulumi:"allowedOrigins"`
@@ -1350,7 +1350,7 @@ type BucketCorsRuleArgs struct {
 	// Headers that are specified in the ``Access-Control-Request-Headers`` header. These headers are allowed in a preflight OPTIONS request. In response to any preflight OPTIONS request, Amazon S3 returns any requested headers that are allowed.
 	AllowedHeaders pulumi.StringArrayInput `pulumi:"allowedHeaders"`
 	// An HTTP method that you allow the origin to run.
-	//  *Allowed values*: ``GET`` | ``PUT`` | ``HEAD`` | ``POST`` | ``DELETE``
+	//   *Allowed values*: ``GET`` | ``PUT`` | ``HEAD`` | ``POST`` | ``DELETE``
 	AllowedMethods BucketCorsRuleAllowedMethodsItemArrayInput `pulumi:"allowedMethods"`
 	// One or more origins you want customers to be able to access the bucket from.
 	AllowedOrigins pulumi.StringArrayInput `pulumi:"allowedOrigins"`
@@ -1966,7 +1966,7 @@ type BucketDestination struct {
 	// The Amazon Resource Name (ARN) of the bucket to which data is exported.
 	BucketArn string `pulumi:"bucketArn"`
 	// Specifies the file format used when exporting data to Amazon S3.
-	//  *Allowed values*: ``CSV`` | ``ORC`` | ``Parquet``
+	//   *Allowed values*: ``CSV`` | ``ORC`` | ``Parquet``
 	Format BucketDestinationFormat `pulumi:"format"`
 	// The prefix to use when exporting data. The prefix is prepended to all results.
 	Prefix *string `pulumi:"prefix"`
@@ -1991,7 +1991,7 @@ type BucketDestinationArgs struct {
 	// The Amazon Resource Name (ARN) of the bucket to which data is exported.
 	BucketArn pulumi.StringInput `pulumi:"bucketArn"`
 	// Specifies the file format used when exporting data to Amazon S3.
-	//  *Allowed values*: ``CSV`` | ``ORC`` | ``Parquet``
+	//   *Allowed values*: ``CSV`` | ``ORC`` | ``Parquet``
 	Format BucketDestinationFormatInput `pulumi:"format"`
 	// The prefix to use when exporting data. The prefix is prepended to all results.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
@@ -5649,7 +5649,7 @@ func (o BucketRedirectRuleOutput) ReplaceKeyWith() pulumi.StringPtrOutput {
 // A filter that you can specify for selection for modifications on replicas.
 type BucketReplicaModifications struct {
 	// Specifies whether Amazon S3 replicates modifications on replicas.
-	//  *Allowed values*: ``Enabled`` | ``Disabled``
+	//   *Allowed values*: ``Enabled`` | ``Disabled``
 	Status BucketReplicaModificationsStatus `pulumi:"status"`
 }
 
@@ -5667,7 +5667,7 @@ type BucketReplicaModificationsInput interface {
 // A filter that you can specify for selection for modifications on replicas.
 type BucketReplicaModificationsArgs struct {
 	// Specifies whether Amazon S3 replicates modifications on replicas.
-	//  *Allowed values*: ``Enabled`` | ``Disabled``
+	//   *Allowed values*: ``Enabled`` | ``Disabled``
 	Status BucketReplicaModificationsStatusInput `pulumi:"status"`
 }
 

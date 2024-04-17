@@ -51,6 +51,10 @@ export interface GetApplicationResult {
      */
     readonly namespace?: string;
     /**
+     * The configuration of events or requests that the application has access to.
+     */
+    readonly permissions?: string[];
+    /**
      * The tags (keys and values) associated with the application.
      */
     readonly tags?: outputs.Tag[];

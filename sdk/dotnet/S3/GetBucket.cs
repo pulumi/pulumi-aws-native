@@ -71,9 +71,6 @@ namespace Pulumi.AwsNative.S3
         /// Specifies the configuration and any analyses for the analytics filter of an Amazon S3 bucket.
         /// </summary>
         public readonly ImmutableArray<Outputs.BucketAnalyticsConfiguration> AnalyticsConfigurations;
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the specified bucket.
-        /// </summary>
         public readonly string? Arn;
         /// <summary>
         /// Specifies default encryption for a bucket using server-side encryption with Amazon S3-managed keys (SSE-S3), AWS KMS-managed keys (SSE-KMS), or dual-layer server-side encryption with KMS-managed keys (DSSE-KMS). For information about the Amazon S3 default encryption feature, see [Amazon S3 Default Encryption for S3 Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) in the *Amazon S3 User Guide*.
@@ -83,13 +80,7 @@ namespace Pulumi.AwsNative.S3
         /// Describes the cross-origin access configuration for objects in an Amazon S3 bucket. For more information, see [Enabling Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) in the *Amazon S3 User Guide*.
         /// </summary>
         public readonly Outputs.BucketCorsConfiguration? CorsConfiguration;
-        /// <summary>
-        /// The IPv4 DNS name of the specified bucket.
-        /// </summary>
         public readonly string? DomainName;
-        /// <summary>
-        /// The IPv6 DNS name of the specified bucket. For more information about dual-stack endpoints, see [Using Amazon S3 Dual-Stack Endpoints](https://docs.aws.amazon.com/AmazonS3/latest/dev/dual-stack-endpoints.html).
-        /// </summary>
         public readonly string? DualStackDomainName;
         /// <summary>
         /// Defines how Amazon S3 handles Intelligent-Tiering storage.
@@ -124,6 +115,10 @@ namespace Pulumi.AwsNative.S3
         /// </summary>
         public readonly Outputs.BucketObjectLockConfiguration? ObjectLockConfiguration;
         /// <summary>
+        /// Indicates whether this bucket has an Object Lock configuration enabled. Enable ``ObjectLockEnabled`` when you apply ``ObjectLockConfiguration`` to a bucket.
+        /// </summary>
+        public readonly bool? ObjectLockEnabled;
+        /// <summary>
         /// Configuration that defines how Amazon S3 handles Object Ownership rules.
         /// </summary>
         public readonly Outputs.BucketOwnershipControls? OwnershipControls;
@@ -131,9 +126,6 @@ namespace Pulumi.AwsNative.S3
         /// Configuration that defines how Amazon S3 handles public access.
         /// </summary>
         public readonly Outputs.BucketPublicAccessBlockConfiguration? PublicAccessBlockConfiguration;
-        /// <summary>
-        /// Returns the regional domain name of the specified bucket.
-        /// </summary>
         public readonly string? RegionalDomainName;
         /// <summary>
         /// Configuration for replicating objects in an S3 bucket. To enable replication, you must also enable versioning by using the ``VersioningConfiguration`` property.
@@ -152,9 +144,6 @@ namespace Pulumi.AwsNative.S3
         /// Information used to configure the bucket as a static website. For more information, see [Hosting Websites on Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html).
         /// </summary>
         public readonly Outputs.BucketWebsiteConfiguration? WebsiteConfiguration;
-        /// <summary>
-        /// The Amazon S3 website endpoint for the specified bucket.
-        /// </summary>
         public readonly string? WebsiteUrl;
 
         [OutputConstructor]
@@ -187,6 +176,8 @@ namespace Pulumi.AwsNative.S3
 
             Outputs.BucketObjectLockConfiguration? objectLockConfiguration,
 
+            bool? objectLockEnabled,
+
             Outputs.BucketOwnershipControls? ownershipControls,
 
             Outputs.BucketPublicAccessBlockConfiguration? publicAccessBlockConfiguration,
@@ -217,6 +208,7 @@ namespace Pulumi.AwsNative.S3
             MetricsConfigurations = metricsConfigurations;
             NotificationConfiguration = notificationConfiguration;
             ObjectLockConfiguration = objectLockConfiguration;
+            ObjectLockEnabled = objectLockEnabled;
             OwnershipControls = ownershipControls;
             PublicAccessBlockConfiguration = publicAccessBlockConfiguration;
             RegionalDomainName = regionalDomainName;

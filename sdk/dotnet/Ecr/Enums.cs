@@ -38,6 +38,99 @@ namespace Pulumi.AwsNative.Ecr
     }
 
     /// <summary>
+    /// Enumerable Strings representing the repository creation scenarios that the template will apply towards.
+    /// </summary>
+    [EnumType]
+    public readonly struct RepositoryCreationTemplateAppliedForItem : IEquatable<RepositoryCreationTemplateAppliedForItem>
+    {
+        private readonly string _value;
+
+        private RepositoryCreationTemplateAppliedForItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RepositoryCreationTemplateAppliedForItem Replication { get; } = new RepositoryCreationTemplateAppliedForItem("REPLICATION");
+        public static RepositoryCreationTemplateAppliedForItem PullThroughCache { get; } = new RepositoryCreationTemplateAppliedForItem("PULL_THROUGH_CACHE");
+
+        public static bool operator ==(RepositoryCreationTemplateAppliedForItem left, RepositoryCreationTemplateAppliedForItem right) => left.Equals(right);
+        public static bool operator !=(RepositoryCreationTemplateAppliedForItem left, RepositoryCreationTemplateAppliedForItem right) => !left.Equals(right);
+
+        public static explicit operator string(RepositoryCreationTemplateAppliedForItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RepositoryCreationTemplateAppliedForItem other && Equals(other);
+        public bool Equals(RepositoryCreationTemplateAppliedForItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The encryption type to use.
+    /// </summary>
+    [EnumType]
+    public readonly struct RepositoryCreationTemplateEncryptionType : IEquatable<RepositoryCreationTemplateEncryptionType>
+    {
+        private readonly string _value;
+
+        private RepositoryCreationTemplateEncryptionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RepositoryCreationTemplateEncryptionType Aes256 { get; } = new RepositoryCreationTemplateEncryptionType("AES256");
+        public static RepositoryCreationTemplateEncryptionType Kms { get; } = new RepositoryCreationTemplateEncryptionType("KMS");
+
+        public static bool operator ==(RepositoryCreationTemplateEncryptionType left, RepositoryCreationTemplateEncryptionType right) => left.Equals(right);
+        public static bool operator !=(RepositoryCreationTemplateEncryptionType left, RepositoryCreationTemplateEncryptionType right) => !left.Equals(right);
+
+        public static explicit operator string(RepositoryCreationTemplateEncryptionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RepositoryCreationTemplateEncryptionType other && Equals(other);
+        public bool Equals(RepositoryCreationTemplateEncryptionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The image tag mutability setting for the repository.
+    /// </summary>
+    [EnumType]
+    public readonly struct RepositoryCreationTemplateImageTagMutability : IEquatable<RepositoryCreationTemplateImageTagMutability>
+    {
+        private readonly string _value;
+
+        private RepositoryCreationTemplateImageTagMutability(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RepositoryCreationTemplateImageTagMutability Mutable { get; } = new RepositoryCreationTemplateImageTagMutability("MUTABLE");
+        public static RepositoryCreationTemplateImageTagMutability Immutable { get; } = new RepositoryCreationTemplateImageTagMutability("IMMUTABLE");
+
+        public static bool operator ==(RepositoryCreationTemplateImageTagMutability left, RepositoryCreationTemplateImageTagMutability right) => left.Equals(right);
+        public static bool operator !=(RepositoryCreationTemplateImageTagMutability left, RepositoryCreationTemplateImageTagMutability right) => !left.Equals(right);
+
+        public static explicit operator string(RepositoryCreationTemplateImageTagMutability value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RepositoryCreationTemplateImageTagMutability other && Equals(other);
+        public bool Equals(RepositoryCreationTemplateImageTagMutability other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The encryption type to use.
     /// </summary>
     [EnumType]

@@ -298,7 +298,7 @@ namespace Pulumi.AwsNative.S3
 
     /// <summary>
     /// Specifies the file format used when exporting data to Amazon S3.
-    ///  *Allowed values*: ``CSV`` | ``ORC`` | ``Parquet``
+    ///   *Allowed values*: ``CSV`` | ``ORC`` | ``Parquet``
     /// </summary>
     [EnumType]
     public readonly struct BucketDestinationFormat : IEquatable<BucketDestinationFormat>
@@ -625,7 +625,7 @@ namespace Pulumi.AwsNative.S3
 
     /// <summary>
     /// Specifies whether Amazon S3 replicates modifications on replicas.
-    ///  *Allowed values*: ``Enabled`` | ``Disabled``
+    ///   *Allowed values*: ``Enabled`` | ``Disabled``
     /// </summary>
     [EnumType]
     public readonly struct BucketReplicaModificationsStatus : IEquatable<BucketReplicaModificationsStatus>

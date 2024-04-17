@@ -13,6 +13,395 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// A provisioned concurrency configuration for a function's alias.
+type AliasProvisionedConcurrencyConfiguration struct {
+	// The amount of provisioned concurrency to allocate for the alias.
+	ProvisionedConcurrentExecutions int `pulumi:"provisionedConcurrentExecutions"`
+}
+
+// AliasProvisionedConcurrencyConfigurationInput is an input type that accepts AliasProvisionedConcurrencyConfigurationArgs and AliasProvisionedConcurrencyConfigurationOutput values.
+// You can construct a concrete instance of `AliasProvisionedConcurrencyConfigurationInput` via:
+//
+//	AliasProvisionedConcurrencyConfigurationArgs{...}
+type AliasProvisionedConcurrencyConfigurationInput interface {
+	pulumi.Input
+
+	ToAliasProvisionedConcurrencyConfigurationOutput() AliasProvisionedConcurrencyConfigurationOutput
+	ToAliasProvisionedConcurrencyConfigurationOutputWithContext(context.Context) AliasProvisionedConcurrencyConfigurationOutput
+}
+
+// A provisioned concurrency configuration for a function's alias.
+type AliasProvisionedConcurrencyConfigurationArgs struct {
+	// The amount of provisioned concurrency to allocate for the alias.
+	ProvisionedConcurrentExecutions pulumi.IntInput `pulumi:"provisionedConcurrentExecutions"`
+}
+
+func (AliasProvisionedConcurrencyConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AliasProvisionedConcurrencyConfiguration)(nil)).Elem()
+}
+
+func (i AliasProvisionedConcurrencyConfigurationArgs) ToAliasProvisionedConcurrencyConfigurationOutput() AliasProvisionedConcurrencyConfigurationOutput {
+	return i.ToAliasProvisionedConcurrencyConfigurationOutputWithContext(context.Background())
+}
+
+func (i AliasProvisionedConcurrencyConfigurationArgs) ToAliasProvisionedConcurrencyConfigurationOutputWithContext(ctx context.Context) AliasProvisionedConcurrencyConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AliasProvisionedConcurrencyConfigurationOutput)
+}
+
+func (i AliasProvisionedConcurrencyConfigurationArgs) ToAliasProvisionedConcurrencyConfigurationPtrOutput() AliasProvisionedConcurrencyConfigurationPtrOutput {
+	return i.ToAliasProvisionedConcurrencyConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AliasProvisionedConcurrencyConfigurationArgs) ToAliasProvisionedConcurrencyConfigurationPtrOutputWithContext(ctx context.Context) AliasProvisionedConcurrencyConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AliasProvisionedConcurrencyConfigurationOutput).ToAliasProvisionedConcurrencyConfigurationPtrOutputWithContext(ctx)
+}
+
+// AliasProvisionedConcurrencyConfigurationPtrInput is an input type that accepts AliasProvisionedConcurrencyConfigurationArgs, AliasProvisionedConcurrencyConfigurationPtr and AliasProvisionedConcurrencyConfigurationPtrOutput values.
+// You can construct a concrete instance of `AliasProvisionedConcurrencyConfigurationPtrInput` via:
+//
+//	        AliasProvisionedConcurrencyConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AliasProvisionedConcurrencyConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAliasProvisionedConcurrencyConfigurationPtrOutput() AliasProvisionedConcurrencyConfigurationPtrOutput
+	ToAliasProvisionedConcurrencyConfigurationPtrOutputWithContext(context.Context) AliasProvisionedConcurrencyConfigurationPtrOutput
+}
+
+type aliasProvisionedConcurrencyConfigurationPtrType AliasProvisionedConcurrencyConfigurationArgs
+
+func AliasProvisionedConcurrencyConfigurationPtr(v *AliasProvisionedConcurrencyConfigurationArgs) AliasProvisionedConcurrencyConfigurationPtrInput {
+	return (*aliasProvisionedConcurrencyConfigurationPtrType)(v)
+}
+
+func (*aliasProvisionedConcurrencyConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AliasProvisionedConcurrencyConfiguration)(nil)).Elem()
+}
+
+func (i *aliasProvisionedConcurrencyConfigurationPtrType) ToAliasProvisionedConcurrencyConfigurationPtrOutput() AliasProvisionedConcurrencyConfigurationPtrOutput {
+	return i.ToAliasProvisionedConcurrencyConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *aliasProvisionedConcurrencyConfigurationPtrType) ToAliasProvisionedConcurrencyConfigurationPtrOutputWithContext(ctx context.Context) AliasProvisionedConcurrencyConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AliasProvisionedConcurrencyConfigurationPtrOutput)
+}
+
+// A provisioned concurrency configuration for a function's alias.
+type AliasProvisionedConcurrencyConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AliasProvisionedConcurrencyConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AliasProvisionedConcurrencyConfiguration)(nil)).Elem()
+}
+
+func (o AliasProvisionedConcurrencyConfigurationOutput) ToAliasProvisionedConcurrencyConfigurationOutput() AliasProvisionedConcurrencyConfigurationOutput {
+	return o
+}
+
+func (o AliasProvisionedConcurrencyConfigurationOutput) ToAliasProvisionedConcurrencyConfigurationOutputWithContext(ctx context.Context) AliasProvisionedConcurrencyConfigurationOutput {
+	return o
+}
+
+func (o AliasProvisionedConcurrencyConfigurationOutput) ToAliasProvisionedConcurrencyConfigurationPtrOutput() AliasProvisionedConcurrencyConfigurationPtrOutput {
+	return o.ToAliasProvisionedConcurrencyConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AliasProvisionedConcurrencyConfigurationOutput) ToAliasProvisionedConcurrencyConfigurationPtrOutputWithContext(ctx context.Context) AliasProvisionedConcurrencyConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AliasProvisionedConcurrencyConfiguration) *AliasProvisionedConcurrencyConfiguration {
+		return &v
+	}).(AliasProvisionedConcurrencyConfigurationPtrOutput)
+}
+
+// The amount of provisioned concurrency to allocate for the alias.
+func (o AliasProvisionedConcurrencyConfigurationOutput) ProvisionedConcurrentExecutions() pulumi.IntOutput {
+	return o.ApplyT(func(v AliasProvisionedConcurrencyConfiguration) int { return v.ProvisionedConcurrentExecutions }).(pulumi.IntOutput)
+}
+
+type AliasProvisionedConcurrencyConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AliasProvisionedConcurrencyConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AliasProvisionedConcurrencyConfiguration)(nil)).Elem()
+}
+
+func (o AliasProvisionedConcurrencyConfigurationPtrOutput) ToAliasProvisionedConcurrencyConfigurationPtrOutput() AliasProvisionedConcurrencyConfigurationPtrOutput {
+	return o
+}
+
+func (o AliasProvisionedConcurrencyConfigurationPtrOutput) ToAliasProvisionedConcurrencyConfigurationPtrOutputWithContext(ctx context.Context) AliasProvisionedConcurrencyConfigurationPtrOutput {
+	return o
+}
+
+func (o AliasProvisionedConcurrencyConfigurationPtrOutput) Elem() AliasProvisionedConcurrencyConfigurationOutput {
+	return o.ApplyT(func(v *AliasProvisionedConcurrencyConfiguration) AliasProvisionedConcurrencyConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AliasProvisionedConcurrencyConfiguration
+		return ret
+	}).(AliasProvisionedConcurrencyConfigurationOutput)
+}
+
+// The amount of provisioned concurrency to allocate for the alias.
+func (o AliasProvisionedConcurrencyConfigurationPtrOutput) ProvisionedConcurrentExecutions() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AliasProvisionedConcurrencyConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.ProvisionedConcurrentExecutions
+	}).(pulumi.IntPtrOutput)
+}
+
+// The traffic-shifting configuration of a Lambda function alias.
+type AliasRoutingConfiguration struct {
+	// The second version, and the percentage of traffic that's routed to it.
+	AdditionalVersionWeights []AliasVersionWeight `pulumi:"additionalVersionWeights"`
+}
+
+// AliasRoutingConfigurationInput is an input type that accepts AliasRoutingConfigurationArgs and AliasRoutingConfigurationOutput values.
+// You can construct a concrete instance of `AliasRoutingConfigurationInput` via:
+//
+//	AliasRoutingConfigurationArgs{...}
+type AliasRoutingConfigurationInput interface {
+	pulumi.Input
+
+	ToAliasRoutingConfigurationOutput() AliasRoutingConfigurationOutput
+	ToAliasRoutingConfigurationOutputWithContext(context.Context) AliasRoutingConfigurationOutput
+}
+
+// The traffic-shifting configuration of a Lambda function alias.
+type AliasRoutingConfigurationArgs struct {
+	// The second version, and the percentage of traffic that's routed to it.
+	AdditionalVersionWeights AliasVersionWeightArrayInput `pulumi:"additionalVersionWeights"`
+}
+
+func (AliasRoutingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AliasRoutingConfiguration)(nil)).Elem()
+}
+
+func (i AliasRoutingConfigurationArgs) ToAliasRoutingConfigurationOutput() AliasRoutingConfigurationOutput {
+	return i.ToAliasRoutingConfigurationOutputWithContext(context.Background())
+}
+
+func (i AliasRoutingConfigurationArgs) ToAliasRoutingConfigurationOutputWithContext(ctx context.Context) AliasRoutingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AliasRoutingConfigurationOutput)
+}
+
+func (i AliasRoutingConfigurationArgs) ToAliasRoutingConfigurationPtrOutput() AliasRoutingConfigurationPtrOutput {
+	return i.ToAliasRoutingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AliasRoutingConfigurationArgs) ToAliasRoutingConfigurationPtrOutputWithContext(ctx context.Context) AliasRoutingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AliasRoutingConfigurationOutput).ToAliasRoutingConfigurationPtrOutputWithContext(ctx)
+}
+
+// AliasRoutingConfigurationPtrInput is an input type that accepts AliasRoutingConfigurationArgs, AliasRoutingConfigurationPtr and AliasRoutingConfigurationPtrOutput values.
+// You can construct a concrete instance of `AliasRoutingConfigurationPtrInput` via:
+//
+//	        AliasRoutingConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AliasRoutingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAliasRoutingConfigurationPtrOutput() AliasRoutingConfigurationPtrOutput
+	ToAliasRoutingConfigurationPtrOutputWithContext(context.Context) AliasRoutingConfigurationPtrOutput
+}
+
+type aliasRoutingConfigurationPtrType AliasRoutingConfigurationArgs
+
+func AliasRoutingConfigurationPtr(v *AliasRoutingConfigurationArgs) AliasRoutingConfigurationPtrInput {
+	return (*aliasRoutingConfigurationPtrType)(v)
+}
+
+func (*aliasRoutingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AliasRoutingConfiguration)(nil)).Elem()
+}
+
+func (i *aliasRoutingConfigurationPtrType) ToAliasRoutingConfigurationPtrOutput() AliasRoutingConfigurationPtrOutput {
+	return i.ToAliasRoutingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *aliasRoutingConfigurationPtrType) ToAliasRoutingConfigurationPtrOutputWithContext(ctx context.Context) AliasRoutingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AliasRoutingConfigurationPtrOutput)
+}
+
+// The traffic-shifting configuration of a Lambda function alias.
+type AliasRoutingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AliasRoutingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AliasRoutingConfiguration)(nil)).Elem()
+}
+
+func (o AliasRoutingConfigurationOutput) ToAliasRoutingConfigurationOutput() AliasRoutingConfigurationOutput {
+	return o
+}
+
+func (o AliasRoutingConfigurationOutput) ToAliasRoutingConfigurationOutputWithContext(ctx context.Context) AliasRoutingConfigurationOutput {
+	return o
+}
+
+func (o AliasRoutingConfigurationOutput) ToAliasRoutingConfigurationPtrOutput() AliasRoutingConfigurationPtrOutput {
+	return o.ToAliasRoutingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AliasRoutingConfigurationOutput) ToAliasRoutingConfigurationPtrOutputWithContext(ctx context.Context) AliasRoutingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AliasRoutingConfiguration) *AliasRoutingConfiguration {
+		return &v
+	}).(AliasRoutingConfigurationPtrOutput)
+}
+
+// The second version, and the percentage of traffic that's routed to it.
+func (o AliasRoutingConfigurationOutput) AdditionalVersionWeights() AliasVersionWeightArrayOutput {
+	return o.ApplyT(func(v AliasRoutingConfiguration) []AliasVersionWeight { return v.AdditionalVersionWeights }).(AliasVersionWeightArrayOutput)
+}
+
+type AliasRoutingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AliasRoutingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AliasRoutingConfiguration)(nil)).Elem()
+}
+
+func (o AliasRoutingConfigurationPtrOutput) ToAliasRoutingConfigurationPtrOutput() AliasRoutingConfigurationPtrOutput {
+	return o
+}
+
+func (o AliasRoutingConfigurationPtrOutput) ToAliasRoutingConfigurationPtrOutputWithContext(ctx context.Context) AliasRoutingConfigurationPtrOutput {
+	return o
+}
+
+func (o AliasRoutingConfigurationPtrOutput) Elem() AliasRoutingConfigurationOutput {
+	return o.ApplyT(func(v *AliasRoutingConfiguration) AliasRoutingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AliasRoutingConfiguration
+		return ret
+	}).(AliasRoutingConfigurationOutput)
+}
+
+// The second version, and the percentage of traffic that's routed to it.
+func (o AliasRoutingConfigurationPtrOutput) AdditionalVersionWeights() AliasVersionWeightArrayOutput {
+	return o.ApplyT(func(v *AliasRoutingConfiguration) []AliasVersionWeight {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalVersionWeights
+	}).(AliasVersionWeightArrayOutput)
+}
+
+// The traffic-shifting configuration of a Lambda function alias.
+type AliasVersionWeight struct {
+	// The qualifier of the second version.
+	FunctionVersion string `pulumi:"functionVersion"`
+	// The percentage of traffic that the alias routes to the second version.
+	FunctionWeight float64 `pulumi:"functionWeight"`
+}
+
+// AliasVersionWeightInput is an input type that accepts AliasVersionWeightArgs and AliasVersionWeightOutput values.
+// You can construct a concrete instance of `AliasVersionWeightInput` via:
+//
+//	AliasVersionWeightArgs{...}
+type AliasVersionWeightInput interface {
+	pulumi.Input
+
+	ToAliasVersionWeightOutput() AliasVersionWeightOutput
+	ToAliasVersionWeightOutputWithContext(context.Context) AliasVersionWeightOutput
+}
+
+// The traffic-shifting configuration of a Lambda function alias.
+type AliasVersionWeightArgs struct {
+	// The qualifier of the second version.
+	FunctionVersion pulumi.StringInput `pulumi:"functionVersion"`
+	// The percentage of traffic that the alias routes to the second version.
+	FunctionWeight pulumi.Float64Input `pulumi:"functionWeight"`
+}
+
+func (AliasVersionWeightArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AliasVersionWeight)(nil)).Elem()
+}
+
+func (i AliasVersionWeightArgs) ToAliasVersionWeightOutput() AliasVersionWeightOutput {
+	return i.ToAliasVersionWeightOutputWithContext(context.Background())
+}
+
+func (i AliasVersionWeightArgs) ToAliasVersionWeightOutputWithContext(ctx context.Context) AliasVersionWeightOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AliasVersionWeightOutput)
+}
+
+// AliasVersionWeightArrayInput is an input type that accepts AliasVersionWeightArray and AliasVersionWeightArrayOutput values.
+// You can construct a concrete instance of `AliasVersionWeightArrayInput` via:
+//
+//	AliasVersionWeightArray{ AliasVersionWeightArgs{...} }
+type AliasVersionWeightArrayInput interface {
+	pulumi.Input
+
+	ToAliasVersionWeightArrayOutput() AliasVersionWeightArrayOutput
+	ToAliasVersionWeightArrayOutputWithContext(context.Context) AliasVersionWeightArrayOutput
+}
+
+type AliasVersionWeightArray []AliasVersionWeightInput
+
+func (AliasVersionWeightArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AliasVersionWeight)(nil)).Elem()
+}
+
+func (i AliasVersionWeightArray) ToAliasVersionWeightArrayOutput() AliasVersionWeightArrayOutput {
+	return i.ToAliasVersionWeightArrayOutputWithContext(context.Background())
+}
+
+func (i AliasVersionWeightArray) ToAliasVersionWeightArrayOutputWithContext(ctx context.Context) AliasVersionWeightArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AliasVersionWeightArrayOutput)
+}
+
+// The traffic-shifting configuration of a Lambda function alias.
+type AliasVersionWeightOutput struct{ *pulumi.OutputState }
+
+func (AliasVersionWeightOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AliasVersionWeight)(nil)).Elem()
+}
+
+func (o AliasVersionWeightOutput) ToAliasVersionWeightOutput() AliasVersionWeightOutput {
+	return o
+}
+
+func (o AliasVersionWeightOutput) ToAliasVersionWeightOutputWithContext(ctx context.Context) AliasVersionWeightOutput {
+	return o
+}
+
+// The qualifier of the second version.
+func (o AliasVersionWeightOutput) FunctionVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v AliasVersionWeight) string { return v.FunctionVersion }).(pulumi.StringOutput)
+}
+
+// The percentage of traffic that the alias routes to the second version.
+func (o AliasVersionWeightOutput) FunctionWeight() pulumi.Float64Output {
+	return o.ApplyT(func(v AliasVersionWeight) float64 { return v.FunctionWeight }).(pulumi.Float64Output)
+}
+
+type AliasVersionWeightArrayOutput struct{ *pulumi.OutputState }
+
+func (AliasVersionWeightArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AliasVersionWeight)(nil)).Elem()
+}
+
+func (o AliasVersionWeightArrayOutput) ToAliasVersionWeightArrayOutput() AliasVersionWeightArrayOutput {
+	return o
+}
+
+func (o AliasVersionWeightArrayOutput) ToAliasVersionWeightArrayOutputWithContext(ctx context.Context) AliasVersionWeightArrayOutput {
+	return o
+}
+
+func (o AliasVersionWeightArrayOutput) Index(i pulumi.IntInput) AliasVersionWeightOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AliasVersionWeight {
+		return vs[0].([]AliasVersionWeight)[vs[1].(int)]
+	}).(AliasVersionWeightOutput)
+}
+
 // When the CodeSigningConfig is later on attached to a function, the function code will be expected to be signed by profiles from this list
 type CodeSigningConfigAllowedPublishers struct {
 	// List of Signing profile version Arns
@@ -4536,6 +4925,12 @@ func (o VersionRuntimePolicyPtrOutput) UpdateRuntimeOn() pulumi.StringPtrOutput 
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AliasProvisionedConcurrencyConfigurationInput)(nil)).Elem(), AliasProvisionedConcurrencyConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AliasProvisionedConcurrencyConfigurationPtrInput)(nil)).Elem(), AliasProvisionedConcurrencyConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AliasRoutingConfigurationInput)(nil)).Elem(), AliasRoutingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AliasRoutingConfigurationPtrInput)(nil)).Elem(), AliasRoutingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AliasVersionWeightInput)(nil)).Elem(), AliasVersionWeightArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AliasVersionWeightArrayInput)(nil)).Elem(), AliasVersionWeightArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeSigningConfigAllowedPublishersInput)(nil)).Elem(), CodeSigningConfigAllowedPublishersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeSigningConfigCodeSigningPoliciesInput)(nil)).Elem(), CodeSigningConfigCodeSigningPoliciesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeSigningConfigCodeSigningPoliciesPtrInput)(nil)).Elem(), CodeSigningConfigCodeSigningPoliciesArgs{})
@@ -4595,6 +4990,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VersionProvisionedConcurrencyConfigurationPtrInput)(nil)).Elem(), VersionProvisionedConcurrencyConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VersionRuntimePolicyInput)(nil)).Elem(), VersionRuntimePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VersionRuntimePolicyPtrInput)(nil)).Elem(), VersionRuntimePolicyArgs{})
+	pulumi.RegisterOutputType(AliasProvisionedConcurrencyConfigurationOutput{})
+	pulumi.RegisterOutputType(AliasProvisionedConcurrencyConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AliasRoutingConfigurationOutput{})
+	pulumi.RegisterOutputType(AliasRoutingConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AliasVersionWeightOutput{})
+	pulumi.RegisterOutputType(AliasVersionWeightArrayOutput{})
 	pulumi.RegisterOutputType(CodeSigningConfigAllowedPublishersOutput{})
 	pulumi.RegisterOutputType(CodeSigningConfigAllowedPublishersPtrOutput{})
 	pulumi.RegisterOutputType(CodeSigningConfigCodeSigningPoliciesOutput{})

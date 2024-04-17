@@ -11,6 +11,9 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'AliasProvisionedConcurrencyConfigurationArgs',
+    'AliasRoutingConfigurationArgs',
+    'AliasVersionWeightArgs',
     'CodeSigningConfigAllowedPublishersArgs',
     'CodeSigningConfigCodeSigningPoliciesArgs',
     'EventInvokeConfigDestinationConfigArgs',
@@ -43,6 +46,90 @@ __all__ = [
     'VersionProvisionedConcurrencyConfigurationArgs',
     'VersionRuntimePolicyArgs',
 ]
+
+@pulumi.input_type
+class AliasProvisionedConcurrencyConfigurationArgs:
+    def __init__(__self__, *,
+                 provisioned_concurrent_executions: pulumi.Input[int]):
+        """
+        A provisioned concurrency configuration for a function's alias.
+        :param pulumi.Input[int] provisioned_concurrent_executions: The amount of provisioned concurrency to allocate for the alias.
+        """
+        pulumi.set(__self__, "provisioned_concurrent_executions", provisioned_concurrent_executions)
+
+    @property
+    @pulumi.getter(name="provisionedConcurrentExecutions")
+    def provisioned_concurrent_executions(self) -> pulumi.Input[int]:
+        """
+        The amount of provisioned concurrency to allocate for the alias.
+        """
+        return pulumi.get(self, "provisioned_concurrent_executions")
+
+    @provisioned_concurrent_executions.setter
+    def provisioned_concurrent_executions(self, value: pulumi.Input[int]):
+        pulumi.set(self, "provisioned_concurrent_executions", value)
+
+
+@pulumi.input_type
+class AliasRoutingConfigurationArgs:
+    def __init__(__self__, *,
+                 additional_version_weights: pulumi.Input[Sequence[pulumi.Input['AliasVersionWeightArgs']]]):
+        """
+        The traffic-shifting configuration of a Lambda function alias.
+        :param pulumi.Input[Sequence[pulumi.Input['AliasVersionWeightArgs']]] additional_version_weights: The second version, and the percentage of traffic that's routed to it.
+        """
+        pulumi.set(__self__, "additional_version_weights", additional_version_weights)
+
+    @property
+    @pulumi.getter(name="additionalVersionWeights")
+    def additional_version_weights(self) -> pulumi.Input[Sequence[pulumi.Input['AliasVersionWeightArgs']]]:
+        """
+        The second version, and the percentage of traffic that's routed to it.
+        """
+        return pulumi.get(self, "additional_version_weights")
+
+    @additional_version_weights.setter
+    def additional_version_weights(self, value: pulumi.Input[Sequence[pulumi.Input['AliasVersionWeightArgs']]]):
+        pulumi.set(self, "additional_version_weights", value)
+
+
+@pulumi.input_type
+class AliasVersionWeightArgs:
+    def __init__(__self__, *,
+                 function_version: pulumi.Input[str],
+                 function_weight: pulumi.Input[float]):
+        """
+        The traffic-shifting configuration of a Lambda function alias.
+        :param pulumi.Input[str] function_version: The qualifier of the second version.
+        :param pulumi.Input[float] function_weight: The percentage of traffic that the alias routes to the second version.
+        """
+        pulumi.set(__self__, "function_version", function_version)
+        pulumi.set(__self__, "function_weight", function_weight)
+
+    @property
+    @pulumi.getter(name="functionVersion")
+    def function_version(self) -> pulumi.Input[str]:
+        """
+        The qualifier of the second version.
+        """
+        return pulumi.get(self, "function_version")
+
+    @function_version.setter
+    def function_version(self, value: pulumi.Input[str]):
+        pulumi.set(self, "function_version", value)
+
+    @property
+    @pulumi.getter(name="functionWeight")
+    def function_weight(self) -> pulumi.Input[float]:
+        """
+        The percentage of traffic that the alias routes to the second version.
+        """
+        return pulumi.get(self, "function_weight")
+
+    @function_weight.setter
+    def function_weight(self, value: pulumi.Input[float]):
+        pulumi.set(self, "function_weight", value)
+
 
 @pulumi.input_type
 class CodeSigningConfigAllowedPublishersArgs:

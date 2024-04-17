@@ -423,6 +423,274 @@ func (o ReplicationConfigurationRepositoryFilterArrayOutput) Index(i pulumi.IntI
 	}).(ReplicationConfigurationRepositoryFilterOutput)
 }
 
+// The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest. By default, when no encryption configuration is set or the AES256 encryption type is used, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts your data at rest using an AES-256 encryption algorithm. This does not require any action on your part.
+//
+// For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html
+type RepositoryCreationTemplateEncryptionConfiguration struct {
+	EncryptionType RepositoryCreationTemplateEncryptionType `pulumi:"encryptionType"`
+	KmsKey         *string                                  `pulumi:"kmsKey"`
+}
+
+// RepositoryCreationTemplateEncryptionConfigurationInput is an input type that accepts RepositoryCreationTemplateEncryptionConfigurationArgs and RepositoryCreationTemplateEncryptionConfigurationOutput values.
+// You can construct a concrete instance of `RepositoryCreationTemplateEncryptionConfigurationInput` via:
+//
+//	RepositoryCreationTemplateEncryptionConfigurationArgs{...}
+type RepositoryCreationTemplateEncryptionConfigurationInput interface {
+	pulumi.Input
+
+	ToRepositoryCreationTemplateEncryptionConfigurationOutput() RepositoryCreationTemplateEncryptionConfigurationOutput
+	ToRepositoryCreationTemplateEncryptionConfigurationOutputWithContext(context.Context) RepositoryCreationTemplateEncryptionConfigurationOutput
+}
+
+// The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest. By default, when no encryption configuration is set or the AES256 encryption type is used, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts your data at rest using an AES-256 encryption algorithm. This does not require any action on your part.
+//
+// For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html
+type RepositoryCreationTemplateEncryptionConfigurationArgs struct {
+	EncryptionType RepositoryCreationTemplateEncryptionTypeInput `pulumi:"encryptionType"`
+	KmsKey         pulumi.StringPtrInput                         `pulumi:"kmsKey"`
+}
+
+func (RepositoryCreationTemplateEncryptionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryCreationTemplateEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i RepositoryCreationTemplateEncryptionConfigurationArgs) ToRepositoryCreationTemplateEncryptionConfigurationOutput() RepositoryCreationTemplateEncryptionConfigurationOutput {
+	return i.ToRepositoryCreationTemplateEncryptionConfigurationOutputWithContext(context.Background())
+}
+
+func (i RepositoryCreationTemplateEncryptionConfigurationArgs) ToRepositoryCreationTemplateEncryptionConfigurationOutputWithContext(ctx context.Context) RepositoryCreationTemplateEncryptionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryCreationTemplateEncryptionConfigurationOutput)
+}
+
+func (i RepositoryCreationTemplateEncryptionConfigurationArgs) ToRepositoryCreationTemplateEncryptionConfigurationPtrOutput() RepositoryCreationTemplateEncryptionConfigurationPtrOutput {
+	return i.ToRepositoryCreationTemplateEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i RepositoryCreationTemplateEncryptionConfigurationArgs) ToRepositoryCreationTemplateEncryptionConfigurationPtrOutputWithContext(ctx context.Context) RepositoryCreationTemplateEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryCreationTemplateEncryptionConfigurationOutput).ToRepositoryCreationTemplateEncryptionConfigurationPtrOutputWithContext(ctx)
+}
+
+// RepositoryCreationTemplateEncryptionConfigurationPtrInput is an input type that accepts RepositoryCreationTemplateEncryptionConfigurationArgs, RepositoryCreationTemplateEncryptionConfigurationPtr and RepositoryCreationTemplateEncryptionConfigurationPtrOutput values.
+// You can construct a concrete instance of `RepositoryCreationTemplateEncryptionConfigurationPtrInput` via:
+//
+//	        RepositoryCreationTemplateEncryptionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type RepositoryCreationTemplateEncryptionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToRepositoryCreationTemplateEncryptionConfigurationPtrOutput() RepositoryCreationTemplateEncryptionConfigurationPtrOutput
+	ToRepositoryCreationTemplateEncryptionConfigurationPtrOutputWithContext(context.Context) RepositoryCreationTemplateEncryptionConfigurationPtrOutput
+}
+
+type repositoryCreationTemplateEncryptionConfigurationPtrType RepositoryCreationTemplateEncryptionConfigurationArgs
+
+func RepositoryCreationTemplateEncryptionConfigurationPtr(v *RepositoryCreationTemplateEncryptionConfigurationArgs) RepositoryCreationTemplateEncryptionConfigurationPtrInput {
+	return (*repositoryCreationTemplateEncryptionConfigurationPtrType)(v)
+}
+
+func (*repositoryCreationTemplateEncryptionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryCreationTemplateEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i *repositoryCreationTemplateEncryptionConfigurationPtrType) ToRepositoryCreationTemplateEncryptionConfigurationPtrOutput() RepositoryCreationTemplateEncryptionConfigurationPtrOutput {
+	return i.ToRepositoryCreationTemplateEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *repositoryCreationTemplateEncryptionConfigurationPtrType) ToRepositoryCreationTemplateEncryptionConfigurationPtrOutputWithContext(ctx context.Context) RepositoryCreationTemplateEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryCreationTemplateEncryptionConfigurationPtrOutput)
+}
+
+// The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest. By default, when no encryption configuration is set or the AES256 encryption type is used, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts your data at rest using an AES-256 encryption algorithm. This does not require any action on your part.
+//
+// For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html
+type RepositoryCreationTemplateEncryptionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (RepositoryCreationTemplateEncryptionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryCreationTemplateEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o RepositoryCreationTemplateEncryptionConfigurationOutput) ToRepositoryCreationTemplateEncryptionConfigurationOutput() RepositoryCreationTemplateEncryptionConfigurationOutput {
+	return o
+}
+
+func (o RepositoryCreationTemplateEncryptionConfigurationOutput) ToRepositoryCreationTemplateEncryptionConfigurationOutputWithContext(ctx context.Context) RepositoryCreationTemplateEncryptionConfigurationOutput {
+	return o
+}
+
+func (o RepositoryCreationTemplateEncryptionConfigurationOutput) ToRepositoryCreationTemplateEncryptionConfigurationPtrOutput() RepositoryCreationTemplateEncryptionConfigurationPtrOutput {
+	return o.ToRepositoryCreationTemplateEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o RepositoryCreationTemplateEncryptionConfigurationOutput) ToRepositoryCreationTemplateEncryptionConfigurationPtrOutputWithContext(ctx context.Context) RepositoryCreationTemplateEncryptionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryCreationTemplateEncryptionConfiguration) *RepositoryCreationTemplateEncryptionConfiguration {
+		return &v
+	}).(RepositoryCreationTemplateEncryptionConfigurationPtrOutput)
+}
+
+func (o RepositoryCreationTemplateEncryptionConfigurationOutput) EncryptionType() RepositoryCreationTemplateEncryptionTypeOutput {
+	return o.ApplyT(func(v RepositoryCreationTemplateEncryptionConfiguration) RepositoryCreationTemplateEncryptionType {
+		return v.EncryptionType
+	}).(RepositoryCreationTemplateEncryptionTypeOutput)
+}
+
+func (o RepositoryCreationTemplateEncryptionConfigurationOutput) KmsKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RepositoryCreationTemplateEncryptionConfiguration) *string { return v.KmsKey }).(pulumi.StringPtrOutput)
+}
+
+type RepositoryCreationTemplateEncryptionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (RepositoryCreationTemplateEncryptionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryCreationTemplateEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o RepositoryCreationTemplateEncryptionConfigurationPtrOutput) ToRepositoryCreationTemplateEncryptionConfigurationPtrOutput() RepositoryCreationTemplateEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o RepositoryCreationTemplateEncryptionConfigurationPtrOutput) ToRepositoryCreationTemplateEncryptionConfigurationPtrOutputWithContext(ctx context.Context) RepositoryCreationTemplateEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o RepositoryCreationTemplateEncryptionConfigurationPtrOutput) Elem() RepositoryCreationTemplateEncryptionConfigurationOutput {
+	return o.ApplyT(func(v *RepositoryCreationTemplateEncryptionConfiguration) RepositoryCreationTemplateEncryptionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret RepositoryCreationTemplateEncryptionConfiguration
+		return ret
+	}).(RepositoryCreationTemplateEncryptionConfigurationOutput)
+}
+
+func (o RepositoryCreationTemplateEncryptionConfigurationPtrOutput) EncryptionType() RepositoryCreationTemplateEncryptionTypePtrOutput {
+	return o.ApplyT(func(v *RepositoryCreationTemplateEncryptionConfiguration) *RepositoryCreationTemplateEncryptionType {
+		if v == nil {
+			return nil
+		}
+		return &v.EncryptionType
+	}).(RepositoryCreationTemplateEncryptionTypePtrOutput)
+}
+
+func (o RepositoryCreationTemplateEncryptionConfigurationPtrOutput) KmsKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryCreationTemplateEncryptionConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+type RepositoryCreationTemplateTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// RepositoryCreationTemplateTagInput is an input type that accepts RepositoryCreationTemplateTagArgs and RepositoryCreationTemplateTagOutput values.
+// You can construct a concrete instance of `RepositoryCreationTemplateTagInput` via:
+//
+//	RepositoryCreationTemplateTagArgs{...}
+type RepositoryCreationTemplateTagInput interface {
+	pulumi.Input
+
+	ToRepositoryCreationTemplateTagOutput() RepositoryCreationTemplateTagOutput
+	ToRepositoryCreationTemplateTagOutputWithContext(context.Context) RepositoryCreationTemplateTagOutput
+}
+
+// An array of key-value pairs to apply to this resource.
+type RepositoryCreationTemplateTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (RepositoryCreationTemplateTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryCreationTemplateTag)(nil)).Elem()
+}
+
+func (i RepositoryCreationTemplateTagArgs) ToRepositoryCreationTemplateTagOutput() RepositoryCreationTemplateTagOutput {
+	return i.ToRepositoryCreationTemplateTagOutputWithContext(context.Background())
+}
+
+func (i RepositoryCreationTemplateTagArgs) ToRepositoryCreationTemplateTagOutputWithContext(ctx context.Context) RepositoryCreationTemplateTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryCreationTemplateTagOutput)
+}
+
+// RepositoryCreationTemplateTagArrayInput is an input type that accepts RepositoryCreationTemplateTagArray and RepositoryCreationTemplateTagArrayOutput values.
+// You can construct a concrete instance of `RepositoryCreationTemplateTagArrayInput` via:
+//
+//	RepositoryCreationTemplateTagArray{ RepositoryCreationTemplateTagArgs{...} }
+type RepositoryCreationTemplateTagArrayInput interface {
+	pulumi.Input
+
+	ToRepositoryCreationTemplateTagArrayOutput() RepositoryCreationTemplateTagArrayOutput
+	ToRepositoryCreationTemplateTagArrayOutputWithContext(context.Context) RepositoryCreationTemplateTagArrayOutput
+}
+
+type RepositoryCreationTemplateTagArray []RepositoryCreationTemplateTagInput
+
+func (RepositoryCreationTemplateTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RepositoryCreationTemplateTag)(nil)).Elem()
+}
+
+func (i RepositoryCreationTemplateTagArray) ToRepositoryCreationTemplateTagArrayOutput() RepositoryCreationTemplateTagArrayOutput {
+	return i.ToRepositoryCreationTemplateTagArrayOutputWithContext(context.Background())
+}
+
+func (i RepositoryCreationTemplateTagArray) ToRepositoryCreationTemplateTagArrayOutputWithContext(ctx context.Context) RepositoryCreationTemplateTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryCreationTemplateTagArrayOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+type RepositoryCreationTemplateTagOutput struct{ *pulumi.OutputState }
+
+func (RepositoryCreationTemplateTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryCreationTemplateTag)(nil)).Elem()
+}
+
+func (o RepositoryCreationTemplateTagOutput) ToRepositoryCreationTemplateTagOutput() RepositoryCreationTemplateTagOutput {
+	return o
+}
+
+func (o RepositoryCreationTemplateTagOutput) ToRepositoryCreationTemplateTagOutputWithContext(ctx context.Context) RepositoryCreationTemplateTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o RepositoryCreationTemplateTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v RepositoryCreationTemplateTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o RepositoryCreationTemplateTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v RepositoryCreationTemplateTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type RepositoryCreationTemplateTagArrayOutput struct{ *pulumi.OutputState }
+
+func (RepositoryCreationTemplateTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RepositoryCreationTemplateTag)(nil)).Elem()
+}
+
+func (o RepositoryCreationTemplateTagArrayOutput) ToRepositoryCreationTemplateTagArrayOutput() RepositoryCreationTemplateTagArrayOutput {
+	return o
+}
+
+func (o RepositoryCreationTemplateTagArrayOutput) ToRepositoryCreationTemplateTagArrayOutputWithContext(ctx context.Context) RepositoryCreationTemplateTagArrayOutput {
+	return o
+}
+
+func (o RepositoryCreationTemplateTagArrayOutput) Index(i pulumi.IntInput) RepositoryCreationTemplateTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RepositoryCreationTemplateTag {
+		return vs[0].([]RepositoryCreationTemplateTag)[vs[1].(int)]
+	}).(RepositoryCreationTemplateTagOutput)
+}
+
 // The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
 //
 //	By default, when no encryption configuration is set or the ``AES256`` encryption type is used, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts your data at rest using an AES-256 encryption algorithm. This does not require any action on your part.
@@ -922,6 +1190,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationReplicationRuleArrayInput)(nil)).Elem(), ReplicationConfigurationReplicationRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationRepositoryFilterInput)(nil)).Elem(), ReplicationConfigurationRepositoryFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationRepositoryFilterArrayInput)(nil)).Elem(), ReplicationConfigurationRepositoryFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryCreationTemplateEncryptionConfigurationInput)(nil)).Elem(), RepositoryCreationTemplateEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryCreationTemplateEncryptionConfigurationPtrInput)(nil)).Elem(), RepositoryCreationTemplateEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryCreationTemplateTagInput)(nil)).Elem(), RepositoryCreationTemplateTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryCreationTemplateTagArrayInput)(nil)).Elem(), RepositoryCreationTemplateTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryEncryptionConfigurationInput)(nil)).Elem(), RepositoryEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryEncryptionConfigurationPtrInput)(nil)).Elem(), RepositoryEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryImageScanningConfigurationInput)(nil)).Elem(), RepositoryImageScanningConfigurationArgs{})
@@ -936,6 +1208,10 @@ func init() {
 	pulumi.RegisterOutputType(ReplicationConfigurationReplicationRuleArrayOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigurationRepositoryFilterOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigurationRepositoryFilterArrayOutput{})
+	pulumi.RegisterOutputType(RepositoryCreationTemplateEncryptionConfigurationOutput{})
+	pulumi.RegisterOutputType(RepositoryCreationTemplateEncryptionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(RepositoryCreationTemplateTagOutput{})
+	pulumi.RegisterOutputType(RepositoryCreationTemplateTagArrayOutput{})
 	pulumi.RegisterOutputType(RepositoryEncryptionConfigurationOutput{})
 	pulumi.RegisterOutputType(RepositoryEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RepositoryImageScanningConfigurationOutput{})

@@ -5365,6 +5365,48 @@
       }
     }
   },
+  "aws-native:ecr:RepositoryCreationTemplate": {
+    "cfTypeName": "AWS::ECR::RepositoryCreationTemplate",
+    "properties": {
+      "appliedFor": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:ecr:RepositoryCreationTemplateAppliedForItem"
+        },
+        "description": "A list of enumerable Strings representing the repository creation scenarios that the template will apply towards."
+      },
+      "description": {
+        "type": "string",
+        "description": "The description of the template."
+      },
+      "encryptionConfiguration": {
+        "$ref": "#/types/aws-native:ecr:RepositoryCreationTemplateEncryptionConfiguration"
+      },
+      "imageTagMutability": {
+        "$ref": "#/types/aws-native:ecr:RepositoryCreationTemplateImageTagMutability",
+        "description": "The image tag mutability setting for the repository."
+      },
+      "lifecyclePolicy": {
+        "type": "string",
+        "description": "The JSON lifecycle policy text to apply to the repository. For information about lifecycle policy syntax, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html"
+      },
+      "prefix": {
+        "type": "string",
+        "description": "The prefix use to match the repository name and apply the template."
+      },
+      "repositoryPolicy": {
+        "type": "string",
+        "description": "The JSON repository policy text to apply to the repository. For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/RepositoryPolicyExamples.html"
+      },
+      "resourceTags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:ecr:RepositoryCreationTemplateTag"
+        },
+        "description": "An array of key-value pairs to apply to this resource."
+      }
+    }
+  },
   "aws-native:ecs:ClusterCapacityProviderAssociations": {
     "cfTypeName": "AWS::ECS::ClusterCapacityProviderAssociations",
     "properties": {

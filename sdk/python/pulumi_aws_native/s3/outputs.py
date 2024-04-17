@@ -570,7 +570,7 @@ class BucketCorsRule(dict):
         """
         Specifies a cross-origin access rule for an Amazon S3 bucket.
         :param Sequence['BucketCorsRuleAllowedMethodsItem'] allowed_methods: An HTTP method that you allow the origin to run.
-                *Allowed values*: ``GET`` | ``PUT`` | ``HEAD`` | ``POST`` | ``DELETE``
+                 *Allowed values*: ``GET`` | ``PUT`` | ``HEAD`` | ``POST`` | ``DELETE``
         :param Sequence[str] allowed_origins: One or more origins you want customers to be able to access the bucket from.
         :param Sequence[str] allowed_headers: Headers that are specified in the ``Access-Control-Request-Headers`` header. These headers are allowed in a preflight OPTIONS request. In response to any preflight OPTIONS request, Amazon S3 returns any requested headers that are allowed.
         :param Sequence[str] exposed_headers: One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript ``XMLHttpRequest`` object).
@@ -593,7 +593,7 @@ class BucketCorsRule(dict):
     def allowed_methods(self) -> Sequence['BucketCorsRuleAllowedMethodsItem']:
         """
         An HTTP method that you allow the origin to run.
-         *Allowed values*: ``GET`` | ``PUT`` | ``HEAD`` | ``POST`` | ``DELETE``
+          *Allowed values*: ``GET`` | ``PUT`` | ``HEAD`` | ``POST`` | ``DELETE``
         """
         return pulumi.get(self, "allowed_methods")
 
@@ -799,7 +799,7 @@ class BucketDestination(dict):
         Specifies information about where to publish analysis or configuration results for an Amazon S3 bucket.
         :param str bucket_arn: The Amazon Resource Name (ARN) of the bucket to which data is exported.
         :param 'BucketDestinationFormat' format: Specifies the file format used when exporting data to Amazon S3.
-                *Allowed values*: ``CSV`` | ``ORC`` | ``Parquet``
+                 *Allowed values*: ``CSV`` | ``ORC`` | ``Parquet``
         :param str bucket_account_id: The account ID that owns the destination S3 bucket. If no account ID is provided, the owner is not validated before exporting data.
                   Although this value is optional, we strongly recommend that you set it to help prevent problems if the destination bucket ownership changes.
         :param str prefix: The prefix to use when exporting data. The prefix is prepended to all results.
@@ -824,7 +824,7 @@ class BucketDestination(dict):
     def format(self) -> 'BucketDestinationFormat':
         """
         Specifies the file format used when exporting data to Amazon S3.
-         *Allowed values*: ``CSV`` | ``ORC`` | ``Parquet``
+          *Allowed values*: ``CSV`` | ``ORC`` | ``Parquet``
         """
         return pulumi.get(self, "format")
 
@@ -2171,7 +2171,7 @@ class BucketReplicaModifications(dict):
         """
         A filter that you can specify for selection for modifications on replicas.
         :param 'BucketReplicaModificationsStatus' status: Specifies whether Amazon S3 replicates modifications on replicas.
-                *Allowed values*: ``Enabled`` | ``Disabled``
+                 *Allowed values*: ``Enabled`` | ``Disabled``
         """
         pulumi.set(__self__, "status", status)
 
@@ -2180,7 +2180,7 @@ class BucketReplicaModifications(dict):
     def status(self) -> 'BucketReplicaModificationsStatus':
         """
         Specifies whether Amazon S3 replicates modifications on replicas.
-         *Allowed values*: ``Enabled`` | ``Disabled``
+          *Allowed values*: ``Enabled`` | ``Disabled``
         """
         return pulumi.get(self, "status")
 

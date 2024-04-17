@@ -560,9 +560,6 @@ export class Bucket extends pulumi.CustomResource {
      * Specifies the configuration and any analyses for the analytics filter of an Amazon S3 bucket.
      */
     public readonly analyticsConfigurations!: pulumi.Output<outputs.s3.BucketAnalyticsConfiguration[] | undefined>;
-    /**
-     * The Amazon Resource Name (ARN) of the specified bucket.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Specifies default encryption for a bucket using server-side encryption with Amazon S3-managed keys (SSE-S3), AWS KMS-managed keys (SSE-KMS), or dual-layer server-side encryption with KMS-managed keys (DSSE-KMS). For information about the Amazon S3 default encryption feature, see [Amazon S3 Default Encryption for S3 Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) in the *Amazon S3 User Guide*.
@@ -577,13 +574,7 @@ export class Bucket extends pulumi.CustomResource {
      * Describes the cross-origin access configuration for objects in an Amazon S3 bucket. For more information, see [Enabling Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) in the *Amazon S3 User Guide*.
      */
     public readonly corsConfiguration!: pulumi.Output<outputs.s3.BucketCorsConfiguration | undefined>;
-    /**
-     * The IPv4 DNS name of the specified bucket.
-     */
     public /*out*/ readonly domainName!: pulumi.Output<string>;
-    /**
-     * The IPv6 DNS name of the specified bucket. For more information about dual-stack endpoints, see [Using Amazon S3 Dual-Stack Endpoints](https://docs.aws.amazon.com/AmazonS3/latest/dev/dual-stack-endpoints.html).
-     */
     public /*out*/ readonly dualStackDomainName!: pulumi.Output<string>;
     /**
      * Defines how Amazon S3 handles Intelligent-Tiering storage.
@@ -629,9 +620,6 @@ export class Bucket extends pulumi.CustomResource {
      * Configuration that defines how Amazon S3 handles public access.
      */
     public readonly publicAccessBlockConfiguration!: pulumi.Output<outputs.s3.BucketPublicAccessBlockConfiguration | undefined>;
-    /**
-     * Returns the regional domain name of the specified bucket.
-     */
     public /*out*/ readonly regionalDomainName!: pulumi.Output<string>;
     /**
      * Configuration for replicating objects in an S3 bucket. To enable replication, you must also enable versioning by using the ``VersioningConfiguration`` property.
@@ -650,9 +638,6 @@ export class Bucket extends pulumi.CustomResource {
      * Information used to configure the bucket as a static website. For more information, see [Hosting Websites on Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html).
      */
     public readonly websiteConfiguration!: pulumi.Output<outputs.s3.BucketWebsiteConfiguration | undefined>;
-    /**
-     * The Amazon S3 website endpoint for the specified bucket.
-     */
     public /*out*/ readonly websiteUrl!: pulumi.Output<string>;
 
     /**
@@ -719,7 +704,7 @@ export class Bucket extends pulumi.CustomResource {
             resourceInputs["websiteUrl"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["bucketName", "objectLockEnabled"] };
+        const replaceOnChanges = { replaceOnChanges: ["bucketName"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Bucket.__pulumiType, name, resourceInputs, opts);
     }

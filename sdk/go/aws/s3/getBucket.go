@@ -37,16 +37,13 @@ type LookupBucketResult struct {
 	AccelerateConfiguration *BucketAccelerateConfiguration `pulumi:"accelerateConfiguration"`
 	// Specifies the configuration and any analyses for the analytics filter of an Amazon S3 bucket.
 	AnalyticsConfigurations []BucketAnalyticsConfiguration `pulumi:"analyticsConfigurations"`
-	// The Amazon Resource Name (ARN) of the specified bucket.
-	Arn *string `pulumi:"arn"`
+	Arn                     *string                        `pulumi:"arn"`
 	// Specifies default encryption for a bucket using server-side encryption with Amazon S3-managed keys (SSE-S3), AWS KMS-managed keys (SSE-KMS), or dual-layer server-side encryption with KMS-managed keys (DSSE-KMS). For information about the Amazon S3 default encryption feature, see [Amazon S3 Default Encryption for S3 Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) in the *Amazon S3 User Guide*.
 	BucketEncryption *BucketEncryption `pulumi:"bucketEncryption"`
 	// Describes the cross-origin access configuration for objects in an Amazon S3 bucket. For more information, see [Enabling Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) in the *Amazon S3 User Guide*.
-	CorsConfiguration *BucketCorsConfiguration `pulumi:"corsConfiguration"`
-	// The IPv4 DNS name of the specified bucket.
-	DomainName *string `pulumi:"domainName"`
-	// The IPv6 DNS name of the specified bucket. For more information about dual-stack endpoints, see [Using Amazon S3 Dual-Stack Endpoints](https://docs.aws.amazon.com/AmazonS3/latest/dev/dual-stack-endpoints.html).
-	DualStackDomainName *string `pulumi:"dualStackDomainName"`
+	CorsConfiguration   *BucketCorsConfiguration `pulumi:"corsConfiguration"`
+	DomainName          *string                  `pulumi:"domainName"`
+	DualStackDomainName *string                  `pulumi:"dualStackDomainName"`
 	// Defines how Amazon S3 handles Intelligent-Tiering storage.
 	IntelligentTieringConfigurations []BucketIntelligentTieringConfiguration `pulumi:"intelligentTieringConfigurations"`
 	// Specifies the inventory configuration for an Amazon S3 bucket. For more information, see [GET Bucket inventory](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html) in the *Amazon S3 API Reference*.
@@ -65,12 +62,13 @@ type LookupBucketResult struct {
 	//   +  The ``DefaultRetention`` period can be either ``Days`` or ``Years`` but you must select one. You cannot specify ``Days`` and ``Years`` at the same time.
 	//   +  You can enable Object Lock for new or existing buckets. For more information, see [Configuring Object Lock](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-configure.html).
 	ObjectLockConfiguration *BucketObjectLockConfiguration `pulumi:"objectLockConfiguration"`
+	// Indicates whether this bucket has an Object Lock configuration enabled. Enable ``ObjectLockEnabled`` when you apply ``ObjectLockConfiguration`` to a bucket.
+	ObjectLockEnabled *bool `pulumi:"objectLockEnabled"`
 	// Configuration that defines how Amazon S3 handles Object Ownership rules.
 	OwnershipControls *BucketOwnershipControls `pulumi:"ownershipControls"`
 	// Configuration that defines how Amazon S3 handles public access.
 	PublicAccessBlockConfiguration *BucketPublicAccessBlockConfiguration `pulumi:"publicAccessBlockConfiguration"`
-	// Returns the regional domain name of the specified bucket.
-	RegionalDomainName *string `pulumi:"regionalDomainName"`
+	RegionalDomainName             *string                               `pulumi:"regionalDomainName"`
 	// Configuration for replicating objects in an S3 bucket. To enable replication, you must also enable versioning by using the ``VersioningConfiguration`` property.
 	//  Amazon S3 can store replicated objects in a single destination bucket or multiple destination buckets. The destination bucket or buckets must already exist.
 	ReplicationConfiguration *BucketReplicationConfiguration `pulumi:"replicationConfiguration"`
@@ -80,8 +78,7 @@ type LookupBucketResult struct {
 	VersioningConfiguration *BucketVersioningConfiguration `pulumi:"versioningConfiguration"`
 	// Information used to configure the bucket as a static website. For more information, see [Hosting Websites on Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html).
 	WebsiteConfiguration *BucketWebsiteConfiguration `pulumi:"websiteConfiguration"`
-	// The Amazon S3 website endpoint for the specified bucket.
-	WebsiteUrl *string `pulumi:"websiteUrl"`
+	WebsiteUrl           *string                     `pulumi:"websiteUrl"`
 }
 
 func LookupBucketOutput(ctx *pulumi.Context, args LookupBucketOutputArgs, opts ...pulumi.InvokeOption) LookupBucketResultOutput {
@@ -131,7 +128,6 @@ func (o LookupBucketResultOutput) AnalyticsConfigurations() BucketAnalyticsConfi
 	return o.ApplyT(func(v LookupBucketResult) []BucketAnalyticsConfiguration { return v.AnalyticsConfigurations }).(BucketAnalyticsConfigurationArrayOutput)
 }
 
-// The Amazon Resource Name (ARN) of the specified bucket.
 func (o LookupBucketResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupBucketResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -146,12 +142,10 @@ func (o LookupBucketResultOutput) CorsConfiguration() BucketCorsConfigurationPtr
 	return o.ApplyT(func(v LookupBucketResult) *BucketCorsConfiguration { return v.CorsConfiguration }).(BucketCorsConfigurationPtrOutput)
 }
 
-// The IPv4 DNS name of the specified bucket.
 func (o LookupBucketResultOutput) DomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupBucketResult) *string { return v.DomainName }).(pulumi.StringPtrOutput)
 }
 
-// The IPv6 DNS name of the specified bucket. For more information about dual-stack endpoints, see [Using Amazon S3 Dual-Stack Endpoints](https://docs.aws.amazon.com/AmazonS3/latest/dev/dual-stack-endpoints.html).
 func (o LookupBucketResultOutput) DualStackDomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupBucketResult) *string { return v.DualStackDomainName }).(pulumi.StringPtrOutput)
 }
@@ -198,6 +192,11 @@ func (o LookupBucketResultOutput) ObjectLockConfiguration() BucketObjectLockConf
 	return o.ApplyT(func(v LookupBucketResult) *BucketObjectLockConfiguration { return v.ObjectLockConfiguration }).(BucketObjectLockConfigurationPtrOutput)
 }
 
+// Indicates whether this bucket has an Object Lock configuration enabled. Enable “ObjectLockEnabled“ when you apply “ObjectLockConfiguration“ to a bucket.
+func (o LookupBucketResultOutput) ObjectLockEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupBucketResult) *bool { return v.ObjectLockEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // Configuration that defines how Amazon S3 handles Object Ownership rules.
 func (o LookupBucketResultOutput) OwnershipControls() BucketOwnershipControlsPtrOutput {
 	return o.ApplyT(func(v LookupBucketResult) *BucketOwnershipControls { return v.OwnershipControls }).(BucketOwnershipControlsPtrOutput)
@@ -210,7 +209,6 @@ func (o LookupBucketResultOutput) PublicAccessBlockConfiguration() BucketPublicA
 	}).(BucketPublicAccessBlockConfigurationPtrOutput)
 }
 
-// Returns the regional domain name of the specified bucket.
 func (o LookupBucketResultOutput) RegionalDomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupBucketResult) *string { return v.RegionalDomainName }).(pulumi.StringPtrOutput)
 }
@@ -237,7 +235,6 @@ func (o LookupBucketResultOutput) WebsiteConfiguration() BucketWebsiteConfigurat
 	return o.ApplyT(func(v LookupBucketResult) *BucketWebsiteConfiguration { return v.WebsiteConfiguration }).(BucketWebsiteConfigurationPtrOutput)
 }
 
-// The Amazon S3 website endpoint for the specified bucket.
 func (o LookupBucketResultOutput) WebsiteUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupBucketResult) *string { return v.WebsiteUrl }).(pulumi.StringPtrOutput)
 }

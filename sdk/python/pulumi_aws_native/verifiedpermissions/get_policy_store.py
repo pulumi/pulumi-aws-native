@@ -79,7 +79,7 @@ class AwaitableGetPolicyStoreResult(GetPolicyStoreResult):
 def get_policy_store(policy_store_id: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicyStoreResult:
     """
-    Definition of AWS::VerifiedPermissions::PolicyStore Resource Type
+    Represents a policy store that you can place schema, policies, and policy templates in to validate authorization requests
     """
     __args__ = dict()
     __args__['policyStoreId'] = policy_store_id
@@ -98,6 +98,6 @@ def get_policy_store(policy_store_id: Optional[str] = None,
 def get_policy_store_output(policy_store_id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyStoreResult]:
     """
-    Definition of AWS::VerifiedPermissions::PolicyStore Resource Type
+    Represents a policy store that you can place schema, policies, and policy templates in to validate authorization requests
     """
     ...

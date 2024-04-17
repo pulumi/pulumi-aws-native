@@ -1,6 +1,6 @@
 {
   "typeName" : "AWS::VerifiedPermissions::PolicyStore",
-  "description" : "Definition of AWS::VerifiedPermissions::PolicyStore Resource Type",
+  "description" : "Represents a policy store that you can place schema, policies, and policy templates in to validate authorization requests",
   "definitions" : {
     "ValidationMode" : {
       "type" : "string",
@@ -57,30 +57,31 @@
   "required" : [ "ValidationSettings" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/PolicyStoreId" ],
   "primaryIdentifier" : [ "/properties/PolicyStoreId" ],
-  "propertyTransform" : {
-    "/properties/Schema/CedarJson" : "$join([CedarJson, \"{}\"])"
-  },
   "tagging" : {
     "taggable" : false,
     "tagOnCreate" : false,
     "tagUpdatable" : false,
     "cloudFormationSystemTags" : false
   },
+  "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-avp",
+  "propertyTransform" : {
+    "/properties/Schema/CedarJson" : "$join([CedarJson, \"{}\"])"
+  },
   "handlers" : {
     "create" : {
-      "permissions" : [ "verifiedpermissions:CreatePolicyStore", "verifiedpermissions:GetPolicyStore", "verifiedpermissions:UpdatePolicyStore", "verifiedpermissions:DeletePolicyStore", "verifiedpermissions:PutSchema" ]
+      "permissions" : [ "verifiedpermissions:CreatePolicyStore", "verifiedpermissions:GetPolicyStore", "verifiedpermissions:PutSchema" ]
     },
     "read" : {
-      "permissions" : [ "verifiedpermissions:CreatePolicyStore", "verifiedpermissions:GetPolicyStore", "verifiedpermissions:UpdatePolicyStore", "verifiedpermissions:DeletePolicyStore", "verifiedpermissions:GetSchema" ]
+      "permissions" : [ "verifiedpermissions:GetPolicyStore", "verifiedpermissions:GetSchema" ]
     },
     "update" : {
-      "permissions" : [ "verifiedpermissions:CreatePolicyStore", "verifiedpermissions:GetPolicyStore", "verifiedpermissions:UpdatePolicyStore", "verifiedpermissions:DeletePolicyStore", "verifiedpermissions:GetSchema", "verifiedpermissions:PutSchema" ]
+      "permissions" : [ "verifiedpermissions:UpdatePolicyStore", "verifiedpermissions:GetPolicyStore", "verifiedpermissions:GetSchema", "verifiedpermissions:PutSchema" ]
     },
     "delete" : {
-      "permissions" : [ "verifiedpermissions:CreatePolicyStore", "verifiedpermissions:GetPolicyStore", "verifiedpermissions:UpdatePolicyStore", "verifiedpermissions:DeletePolicyStore" ]
+      "permissions" : [ "verifiedpermissions:DeletePolicyStore", "verifiedpermissions:GetPolicyStore" ]
     },
     "list" : {
-      "permissions" : [ "verifiedpermissions:CreatePolicyStore", "verifiedpermissions:GetPolicyStore", "verifiedpermissions:UpdatePolicyStore", "verifiedpermissions:DeletePolicyStore", "verifiedpermissions:ListPolicyStores", "verifiedpermissions:GetSchema" ]
+      "permissions" : [ "verifiedpermissions:ListPolicyStores", "verifiedpermissions:GetPolicyStore", "verifiedpermissions:GetSchema" ]
     }
   },
   "additionalProperties" : false

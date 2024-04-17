@@ -174,6 +174,549 @@ func (in *replicationConfigurationFilterTypePtr) ToReplicationConfigurationFilte
 	return pulumi.ToOutputWithContext(ctx, in).(ReplicationConfigurationFilterTypePtrOutput)
 }
 
+// Enumerable Strings representing the repository creation scenarios that the template will apply towards.
+type RepositoryCreationTemplateAppliedForItem string
+
+const (
+	RepositoryCreationTemplateAppliedForItemReplication      = RepositoryCreationTemplateAppliedForItem("REPLICATION")
+	RepositoryCreationTemplateAppliedForItemPullThroughCache = RepositoryCreationTemplateAppliedForItem("PULL_THROUGH_CACHE")
+)
+
+func (RepositoryCreationTemplateAppliedForItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryCreationTemplateAppliedForItem)(nil)).Elem()
+}
+
+func (e RepositoryCreationTemplateAppliedForItem) ToRepositoryCreationTemplateAppliedForItemOutput() RepositoryCreationTemplateAppliedForItemOutput {
+	return pulumi.ToOutput(e).(RepositoryCreationTemplateAppliedForItemOutput)
+}
+
+func (e RepositoryCreationTemplateAppliedForItem) ToRepositoryCreationTemplateAppliedForItemOutputWithContext(ctx context.Context) RepositoryCreationTemplateAppliedForItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RepositoryCreationTemplateAppliedForItemOutput)
+}
+
+func (e RepositoryCreationTemplateAppliedForItem) ToRepositoryCreationTemplateAppliedForItemPtrOutput() RepositoryCreationTemplateAppliedForItemPtrOutput {
+	return e.ToRepositoryCreationTemplateAppliedForItemPtrOutputWithContext(context.Background())
+}
+
+func (e RepositoryCreationTemplateAppliedForItem) ToRepositoryCreationTemplateAppliedForItemPtrOutputWithContext(ctx context.Context) RepositoryCreationTemplateAppliedForItemPtrOutput {
+	return RepositoryCreationTemplateAppliedForItem(e).ToRepositoryCreationTemplateAppliedForItemOutputWithContext(ctx).ToRepositoryCreationTemplateAppliedForItemPtrOutputWithContext(ctx)
+}
+
+func (e RepositoryCreationTemplateAppliedForItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RepositoryCreationTemplateAppliedForItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RepositoryCreationTemplateAppliedForItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RepositoryCreationTemplateAppliedForItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RepositoryCreationTemplateAppliedForItemOutput struct{ *pulumi.OutputState }
+
+func (RepositoryCreationTemplateAppliedForItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryCreationTemplateAppliedForItem)(nil)).Elem()
+}
+
+func (o RepositoryCreationTemplateAppliedForItemOutput) ToRepositoryCreationTemplateAppliedForItemOutput() RepositoryCreationTemplateAppliedForItemOutput {
+	return o
+}
+
+func (o RepositoryCreationTemplateAppliedForItemOutput) ToRepositoryCreationTemplateAppliedForItemOutputWithContext(ctx context.Context) RepositoryCreationTemplateAppliedForItemOutput {
+	return o
+}
+
+func (o RepositoryCreationTemplateAppliedForItemOutput) ToRepositoryCreationTemplateAppliedForItemPtrOutput() RepositoryCreationTemplateAppliedForItemPtrOutput {
+	return o.ToRepositoryCreationTemplateAppliedForItemPtrOutputWithContext(context.Background())
+}
+
+func (o RepositoryCreationTemplateAppliedForItemOutput) ToRepositoryCreationTemplateAppliedForItemPtrOutputWithContext(ctx context.Context) RepositoryCreationTemplateAppliedForItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryCreationTemplateAppliedForItem) *RepositoryCreationTemplateAppliedForItem {
+		return &v
+	}).(RepositoryCreationTemplateAppliedForItemPtrOutput)
+}
+
+func (o RepositoryCreationTemplateAppliedForItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RepositoryCreationTemplateAppliedForItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RepositoryCreationTemplateAppliedForItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RepositoryCreationTemplateAppliedForItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RepositoryCreationTemplateAppliedForItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RepositoryCreationTemplateAppliedForItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RepositoryCreationTemplateAppliedForItemPtrOutput struct{ *pulumi.OutputState }
+
+func (RepositoryCreationTemplateAppliedForItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryCreationTemplateAppliedForItem)(nil)).Elem()
+}
+
+func (o RepositoryCreationTemplateAppliedForItemPtrOutput) ToRepositoryCreationTemplateAppliedForItemPtrOutput() RepositoryCreationTemplateAppliedForItemPtrOutput {
+	return o
+}
+
+func (o RepositoryCreationTemplateAppliedForItemPtrOutput) ToRepositoryCreationTemplateAppliedForItemPtrOutputWithContext(ctx context.Context) RepositoryCreationTemplateAppliedForItemPtrOutput {
+	return o
+}
+
+func (o RepositoryCreationTemplateAppliedForItemPtrOutput) Elem() RepositoryCreationTemplateAppliedForItemOutput {
+	return o.ApplyT(func(v *RepositoryCreationTemplateAppliedForItem) RepositoryCreationTemplateAppliedForItem {
+		if v != nil {
+			return *v
+		}
+		var ret RepositoryCreationTemplateAppliedForItem
+		return ret
+	}).(RepositoryCreationTemplateAppliedForItemOutput)
+}
+
+func (o RepositoryCreationTemplateAppliedForItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RepositoryCreationTemplateAppliedForItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RepositoryCreationTemplateAppliedForItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RepositoryCreationTemplateAppliedForItemInput is an input type that accepts values of the RepositoryCreationTemplateAppliedForItem enum
+// A concrete instance of `RepositoryCreationTemplateAppliedForItemInput` can be one of the following:
+//
+//	RepositoryCreationTemplateAppliedForItemReplication
+//	RepositoryCreationTemplateAppliedForItemPullThroughCache
+type RepositoryCreationTemplateAppliedForItemInput interface {
+	pulumi.Input
+
+	ToRepositoryCreationTemplateAppliedForItemOutput() RepositoryCreationTemplateAppliedForItemOutput
+	ToRepositoryCreationTemplateAppliedForItemOutputWithContext(context.Context) RepositoryCreationTemplateAppliedForItemOutput
+}
+
+var repositoryCreationTemplateAppliedForItemPtrType = reflect.TypeOf((**RepositoryCreationTemplateAppliedForItem)(nil)).Elem()
+
+type RepositoryCreationTemplateAppliedForItemPtrInput interface {
+	pulumi.Input
+
+	ToRepositoryCreationTemplateAppliedForItemPtrOutput() RepositoryCreationTemplateAppliedForItemPtrOutput
+	ToRepositoryCreationTemplateAppliedForItemPtrOutputWithContext(context.Context) RepositoryCreationTemplateAppliedForItemPtrOutput
+}
+
+type repositoryCreationTemplateAppliedForItemPtr string
+
+func RepositoryCreationTemplateAppliedForItemPtr(v string) RepositoryCreationTemplateAppliedForItemPtrInput {
+	return (*repositoryCreationTemplateAppliedForItemPtr)(&v)
+}
+
+func (*repositoryCreationTemplateAppliedForItemPtr) ElementType() reflect.Type {
+	return repositoryCreationTemplateAppliedForItemPtrType
+}
+
+func (in *repositoryCreationTemplateAppliedForItemPtr) ToRepositoryCreationTemplateAppliedForItemPtrOutput() RepositoryCreationTemplateAppliedForItemPtrOutput {
+	return pulumi.ToOutput(in).(RepositoryCreationTemplateAppliedForItemPtrOutput)
+}
+
+func (in *repositoryCreationTemplateAppliedForItemPtr) ToRepositoryCreationTemplateAppliedForItemPtrOutputWithContext(ctx context.Context) RepositoryCreationTemplateAppliedForItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RepositoryCreationTemplateAppliedForItemPtrOutput)
+}
+
+// RepositoryCreationTemplateAppliedForItemArrayInput is an input type that accepts RepositoryCreationTemplateAppliedForItemArray and RepositoryCreationTemplateAppliedForItemArrayOutput values.
+// You can construct a concrete instance of `RepositoryCreationTemplateAppliedForItemArrayInput` via:
+//
+//	RepositoryCreationTemplateAppliedForItemArray{ RepositoryCreationTemplateAppliedForItemArgs{...} }
+type RepositoryCreationTemplateAppliedForItemArrayInput interface {
+	pulumi.Input
+
+	ToRepositoryCreationTemplateAppliedForItemArrayOutput() RepositoryCreationTemplateAppliedForItemArrayOutput
+	ToRepositoryCreationTemplateAppliedForItemArrayOutputWithContext(context.Context) RepositoryCreationTemplateAppliedForItemArrayOutput
+}
+
+type RepositoryCreationTemplateAppliedForItemArray []RepositoryCreationTemplateAppliedForItem
+
+func (RepositoryCreationTemplateAppliedForItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RepositoryCreationTemplateAppliedForItem)(nil)).Elem()
+}
+
+func (i RepositoryCreationTemplateAppliedForItemArray) ToRepositoryCreationTemplateAppliedForItemArrayOutput() RepositoryCreationTemplateAppliedForItemArrayOutput {
+	return i.ToRepositoryCreationTemplateAppliedForItemArrayOutputWithContext(context.Background())
+}
+
+func (i RepositoryCreationTemplateAppliedForItemArray) ToRepositoryCreationTemplateAppliedForItemArrayOutputWithContext(ctx context.Context) RepositoryCreationTemplateAppliedForItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryCreationTemplateAppliedForItemArrayOutput)
+}
+
+type RepositoryCreationTemplateAppliedForItemArrayOutput struct{ *pulumi.OutputState }
+
+func (RepositoryCreationTemplateAppliedForItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RepositoryCreationTemplateAppliedForItem)(nil)).Elem()
+}
+
+func (o RepositoryCreationTemplateAppliedForItemArrayOutput) ToRepositoryCreationTemplateAppliedForItemArrayOutput() RepositoryCreationTemplateAppliedForItemArrayOutput {
+	return o
+}
+
+func (o RepositoryCreationTemplateAppliedForItemArrayOutput) ToRepositoryCreationTemplateAppliedForItemArrayOutputWithContext(ctx context.Context) RepositoryCreationTemplateAppliedForItemArrayOutput {
+	return o
+}
+
+func (o RepositoryCreationTemplateAppliedForItemArrayOutput) Index(i pulumi.IntInput) RepositoryCreationTemplateAppliedForItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RepositoryCreationTemplateAppliedForItem {
+		return vs[0].([]RepositoryCreationTemplateAppliedForItem)[vs[1].(int)]
+	}).(RepositoryCreationTemplateAppliedForItemOutput)
+}
+
+// The encryption type to use.
+type RepositoryCreationTemplateEncryptionType string
+
+const (
+	RepositoryCreationTemplateEncryptionTypeAes256 = RepositoryCreationTemplateEncryptionType("AES256")
+	RepositoryCreationTemplateEncryptionTypeKms    = RepositoryCreationTemplateEncryptionType("KMS")
+)
+
+func (RepositoryCreationTemplateEncryptionType) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryCreationTemplateEncryptionType)(nil)).Elem()
+}
+
+func (e RepositoryCreationTemplateEncryptionType) ToRepositoryCreationTemplateEncryptionTypeOutput() RepositoryCreationTemplateEncryptionTypeOutput {
+	return pulumi.ToOutput(e).(RepositoryCreationTemplateEncryptionTypeOutput)
+}
+
+func (e RepositoryCreationTemplateEncryptionType) ToRepositoryCreationTemplateEncryptionTypeOutputWithContext(ctx context.Context) RepositoryCreationTemplateEncryptionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RepositoryCreationTemplateEncryptionTypeOutput)
+}
+
+func (e RepositoryCreationTemplateEncryptionType) ToRepositoryCreationTemplateEncryptionTypePtrOutput() RepositoryCreationTemplateEncryptionTypePtrOutput {
+	return e.ToRepositoryCreationTemplateEncryptionTypePtrOutputWithContext(context.Background())
+}
+
+func (e RepositoryCreationTemplateEncryptionType) ToRepositoryCreationTemplateEncryptionTypePtrOutputWithContext(ctx context.Context) RepositoryCreationTemplateEncryptionTypePtrOutput {
+	return RepositoryCreationTemplateEncryptionType(e).ToRepositoryCreationTemplateEncryptionTypeOutputWithContext(ctx).ToRepositoryCreationTemplateEncryptionTypePtrOutputWithContext(ctx)
+}
+
+func (e RepositoryCreationTemplateEncryptionType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RepositoryCreationTemplateEncryptionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RepositoryCreationTemplateEncryptionType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RepositoryCreationTemplateEncryptionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RepositoryCreationTemplateEncryptionTypeOutput struct{ *pulumi.OutputState }
+
+func (RepositoryCreationTemplateEncryptionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryCreationTemplateEncryptionType)(nil)).Elem()
+}
+
+func (o RepositoryCreationTemplateEncryptionTypeOutput) ToRepositoryCreationTemplateEncryptionTypeOutput() RepositoryCreationTemplateEncryptionTypeOutput {
+	return o
+}
+
+func (o RepositoryCreationTemplateEncryptionTypeOutput) ToRepositoryCreationTemplateEncryptionTypeOutputWithContext(ctx context.Context) RepositoryCreationTemplateEncryptionTypeOutput {
+	return o
+}
+
+func (o RepositoryCreationTemplateEncryptionTypeOutput) ToRepositoryCreationTemplateEncryptionTypePtrOutput() RepositoryCreationTemplateEncryptionTypePtrOutput {
+	return o.ToRepositoryCreationTemplateEncryptionTypePtrOutputWithContext(context.Background())
+}
+
+func (o RepositoryCreationTemplateEncryptionTypeOutput) ToRepositoryCreationTemplateEncryptionTypePtrOutputWithContext(ctx context.Context) RepositoryCreationTemplateEncryptionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryCreationTemplateEncryptionType) *RepositoryCreationTemplateEncryptionType {
+		return &v
+	}).(RepositoryCreationTemplateEncryptionTypePtrOutput)
+}
+
+func (o RepositoryCreationTemplateEncryptionTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RepositoryCreationTemplateEncryptionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RepositoryCreationTemplateEncryptionType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RepositoryCreationTemplateEncryptionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RepositoryCreationTemplateEncryptionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RepositoryCreationTemplateEncryptionType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RepositoryCreationTemplateEncryptionTypePtrOutput struct{ *pulumi.OutputState }
+
+func (RepositoryCreationTemplateEncryptionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryCreationTemplateEncryptionType)(nil)).Elem()
+}
+
+func (o RepositoryCreationTemplateEncryptionTypePtrOutput) ToRepositoryCreationTemplateEncryptionTypePtrOutput() RepositoryCreationTemplateEncryptionTypePtrOutput {
+	return o
+}
+
+func (o RepositoryCreationTemplateEncryptionTypePtrOutput) ToRepositoryCreationTemplateEncryptionTypePtrOutputWithContext(ctx context.Context) RepositoryCreationTemplateEncryptionTypePtrOutput {
+	return o
+}
+
+func (o RepositoryCreationTemplateEncryptionTypePtrOutput) Elem() RepositoryCreationTemplateEncryptionTypeOutput {
+	return o.ApplyT(func(v *RepositoryCreationTemplateEncryptionType) RepositoryCreationTemplateEncryptionType {
+		if v != nil {
+			return *v
+		}
+		var ret RepositoryCreationTemplateEncryptionType
+		return ret
+	}).(RepositoryCreationTemplateEncryptionTypeOutput)
+}
+
+func (o RepositoryCreationTemplateEncryptionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RepositoryCreationTemplateEncryptionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RepositoryCreationTemplateEncryptionType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RepositoryCreationTemplateEncryptionTypeInput is an input type that accepts values of the RepositoryCreationTemplateEncryptionType enum
+// A concrete instance of `RepositoryCreationTemplateEncryptionTypeInput` can be one of the following:
+//
+//	RepositoryCreationTemplateEncryptionTypeAes256
+//	RepositoryCreationTemplateEncryptionTypeKms
+type RepositoryCreationTemplateEncryptionTypeInput interface {
+	pulumi.Input
+
+	ToRepositoryCreationTemplateEncryptionTypeOutput() RepositoryCreationTemplateEncryptionTypeOutput
+	ToRepositoryCreationTemplateEncryptionTypeOutputWithContext(context.Context) RepositoryCreationTemplateEncryptionTypeOutput
+}
+
+var repositoryCreationTemplateEncryptionTypePtrType = reflect.TypeOf((**RepositoryCreationTemplateEncryptionType)(nil)).Elem()
+
+type RepositoryCreationTemplateEncryptionTypePtrInput interface {
+	pulumi.Input
+
+	ToRepositoryCreationTemplateEncryptionTypePtrOutput() RepositoryCreationTemplateEncryptionTypePtrOutput
+	ToRepositoryCreationTemplateEncryptionTypePtrOutputWithContext(context.Context) RepositoryCreationTemplateEncryptionTypePtrOutput
+}
+
+type repositoryCreationTemplateEncryptionTypePtr string
+
+func RepositoryCreationTemplateEncryptionTypePtr(v string) RepositoryCreationTemplateEncryptionTypePtrInput {
+	return (*repositoryCreationTemplateEncryptionTypePtr)(&v)
+}
+
+func (*repositoryCreationTemplateEncryptionTypePtr) ElementType() reflect.Type {
+	return repositoryCreationTemplateEncryptionTypePtrType
+}
+
+func (in *repositoryCreationTemplateEncryptionTypePtr) ToRepositoryCreationTemplateEncryptionTypePtrOutput() RepositoryCreationTemplateEncryptionTypePtrOutput {
+	return pulumi.ToOutput(in).(RepositoryCreationTemplateEncryptionTypePtrOutput)
+}
+
+func (in *repositoryCreationTemplateEncryptionTypePtr) ToRepositoryCreationTemplateEncryptionTypePtrOutputWithContext(ctx context.Context) RepositoryCreationTemplateEncryptionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RepositoryCreationTemplateEncryptionTypePtrOutput)
+}
+
+// The image tag mutability setting for the repository.
+type RepositoryCreationTemplateImageTagMutability string
+
+const (
+	RepositoryCreationTemplateImageTagMutabilityMutable   = RepositoryCreationTemplateImageTagMutability("MUTABLE")
+	RepositoryCreationTemplateImageTagMutabilityImmutable = RepositoryCreationTemplateImageTagMutability("IMMUTABLE")
+)
+
+func (RepositoryCreationTemplateImageTagMutability) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryCreationTemplateImageTagMutability)(nil)).Elem()
+}
+
+func (e RepositoryCreationTemplateImageTagMutability) ToRepositoryCreationTemplateImageTagMutabilityOutput() RepositoryCreationTemplateImageTagMutabilityOutput {
+	return pulumi.ToOutput(e).(RepositoryCreationTemplateImageTagMutabilityOutput)
+}
+
+func (e RepositoryCreationTemplateImageTagMutability) ToRepositoryCreationTemplateImageTagMutabilityOutputWithContext(ctx context.Context) RepositoryCreationTemplateImageTagMutabilityOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RepositoryCreationTemplateImageTagMutabilityOutput)
+}
+
+func (e RepositoryCreationTemplateImageTagMutability) ToRepositoryCreationTemplateImageTagMutabilityPtrOutput() RepositoryCreationTemplateImageTagMutabilityPtrOutput {
+	return e.ToRepositoryCreationTemplateImageTagMutabilityPtrOutputWithContext(context.Background())
+}
+
+func (e RepositoryCreationTemplateImageTagMutability) ToRepositoryCreationTemplateImageTagMutabilityPtrOutputWithContext(ctx context.Context) RepositoryCreationTemplateImageTagMutabilityPtrOutput {
+	return RepositoryCreationTemplateImageTagMutability(e).ToRepositoryCreationTemplateImageTagMutabilityOutputWithContext(ctx).ToRepositoryCreationTemplateImageTagMutabilityPtrOutputWithContext(ctx)
+}
+
+func (e RepositoryCreationTemplateImageTagMutability) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RepositoryCreationTemplateImageTagMutability) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RepositoryCreationTemplateImageTagMutability) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RepositoryCreationTemplateImageTagMutability) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RepositoryCreationTemplateImageTagMutabilityOutput struct{ *pulumi.OutputState }
+
+func (RepositoryCreationTemplateImageTagMutabilityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryCreationTemplateImageTagMutability)(nil)).Elem()
+}
+
+func (o RepositoryCreationTemplateImageTagMutabilityOutput) ToRepositoryCreationTemplateImageTagMutabilityOutput() RepositoryCreationTemplateImageTagMutabilityOutput {
+	return o
+}
+
+func (o RepositoryCreationTemplateImageTagMutabilityOutput) ToRepositoryCreationTemplateImageTagMutabilityOutputWithContext(ctx context.Context) RepositoryCreationTemplateImageTagMutabilityOutput {
+	return o
+}
+
+func (o RepositoryCreationTemplateImageTagMutabilityOutput) ToRepositoryCreationTemplateImageTagMutabilityPtrOutput() RepositoryCreationTemplateImageTagMutabilityPtrOutput {
+	return o.ToRepositoryCreationTemplateImageTagMutabilityPtrOutputWithContext(context.Background())
+}
+
+func (o RepositoryCreationTemplateImageTagMutabilityOutput) ToRepositoryCreationTemplateImageTagMutabilityPtrOutputWithContext(ctx context.Context) RepositoryCreationTemplateImageTagMutabilityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryCreationTemplateImageTagMutability) *RepositoryCreationTemplateImageTagMutability {
+		return &v
+	}).(RepositoryCreationTemplateImageTagMutabilityPtrOutput)
+}
+
+func (o RepositoryCreationTemplateImageTagMutabilityOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RepositoryCreationTemplateImageTagMutabilityOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RepositoryCreationTemplateImageTagMutability) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RepositoryCreationTemplateImageTagMutabilityOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RepositoryCreationTemplateImageTagMutabilityOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RepositoryCreationTemplateImageTagMutability) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RepositoryCreationTemplateImageTagMutabilityPtrOutput struct{ *pulumi.OutputState }
+
+func (RepositoryCreationTemplateImageTagMutabilityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryCreationTemplateImageTagMutability)(nil)).Elem()
+}
+
+func (o RepositoryCreationTemplateImageTagMutabilityPtrOutput) ToRepositoryCreationTemplateImageTagMutabilityPtrOutput() RepositoryCreationTemplateImageTagMutabilityPtrOutput {
+	return o
+}
+
+func (o RepositoryCreationTemplateImageTagMutabilityPtrOutput) ToRepositoryCreationTemplateImageTagMutabilityPtrOutputWithContext(ctx context.Context) RepositoryCreationTemplateImageTagMutabilityPtrOutput {
+	return o
+}
+
+func (o RepositoryCreationTemplateImageTagMutabilityPtrOutput) Elem() RepositoryCreationTemplateImageTagMutabilityOutput {
+	return o.ApplyT(func(v *RepositoryCreationTemplateImageTagMutability) RepositoryCreationTemplateImageTagMutability {
+		if v != nil {
+			return *v
+		}
+		var ret RepositoryCreationTemplateImageTagMutability
+		return ret
+	}).(RepositoryCreationTemplateImageTagMutabilityOutput)
+}
+
+func (o RepositoryCreationTemplateImageTagMutabilityPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RepositoryCreationTemplateImageTagMutabilityPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RepositoryCreationTemplateImageTagMutability) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RepositoryCreationTemplateImageTagMutabilityInput is an input type that accepts values of the RepositoryCreationTemplateImageTagMutability enum
+// A concrete instance of `RepositoryCreationTemplateImageTagMutabilityInput` can be one of the following:
+//
+//	RepositoryCreationTemplateImageTagMutabilityMutable
+//	RepositoryCreationTemplateImageTagMutabilityImmutable
+type RepositoryCreationTemplateImageTagMutabilityInput interface {
+	pulumi.Input
+
+	ToRepositoryCreationTemplateImageTagMutabilityOutput() RepositoryCreationTemplateImageTagMutabilityOutput
+	ToRepositoryCreationTemplateImageTagMutabilityOutputWithContext(context.Context) RepositoryCreationTemplateImageTagMutabilityOutput
+}
+
+var repositoryCreationTemplateImageTagMutabilityPtrType = reflect.TypeOf((**RepositoryCreationTemplateImageTagMutability)(nil)).Elem()
+
+type RepositoryCreationTemplateImageTagMutabilityPtrInput interface {
+	pulumi.Input
+
+	ToRepositoryCreationTemplateImageTagMutabilityPtrOutput() RepositoryCreationTemplateImageTagMutabilityPtrOutput
+	ToRepositoryCreationTemplateImageTagMutabilityPtrOutputWithContext(context.Context) RepositoryCreationTemplateImageTagMutabilityPtrOutput
+}
+
+type repositoryCreationTemplateImageTagMutabilityPtr string
+
+func RepositoryCreationTemplateImageTagMutabilityPtr(v string) RepositoryCreationTemplateImageTagMutabilityPtrInput {
+	return (*repositoryCreationTemplateImageTagMutabilityPtr)(&v)
+}
+
+func (*repositoryCreationTemplateImageTagMutabilityPtr) ElementType() reflect.Type {
+	return repositoryCreationTemplateImageTagMutabilityPtrType
+}
+
+func (in *repositoryCreationTemplateImageTagMutabilityPtr) ToRepositoryCreationTemplateImageTagMutabilityPtrOutput() RepositoryCreationTemplateImageTagMutabilityPtrOutput {
+	return pulumi.ToOutput(in).(RepositoryCreationTemplateImageTagMutabilityPtrOutput)
+}
+
+func (in *repositoryCreationTemplateImageTagMutabilityPtr) ToRepositoryCreationTemplateImageTagMutabilityPtrOutputWithContext(ctx context.Context) RepositoryCreationTemplateImageTagMutabilityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RepositoryCreationTemplateImageTagMutabilityPtrOutput)
+}
+
 // The encryption type to use.
 type RepositoryEncryptionType string
 
@@ -509,12 +1052,26 @@ func (in *repositoryImageTagMutabilityPtr) ToRepositoryImageTagMutabilityPtrOutp
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationFilterTypeInput)(nil)).Elem(), ReplicationConfigurationFilterType("PREFIX_MATCH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationFilterTypePtrInput)(nil)).Elem(), ReplicationConfigurationFilterType("PREFIX_MATCH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryCreationTemplateAppliedForItemInput)(nil)).Elem(), RepositoryCreationTemplateAppliedForItem("REPLICATION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryCreationTemplateAppliedForItemPtrInput)(nil)).Elem(), RepositoryCreationTemplateAppliedForItem("REPLICATION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryCreationTemplateAppliedForItemArrayInput)(nil)).Elem(), RepositoryCreationTemplateAppliedForItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryCreationTemplateEncryptionTypeInput)(nil)).Elem(), RepositoryCreationTemplateEncryptionType("AES256"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryCreationTemplateEncryptionTypePtrInput)(nil)).Elem(), RepositoryCreationTemplateEncryptionType("AES256"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryCreationTemplateImageTagMutabilityInput)(nil)).Elem(), RepositoryCreationTemplateImageTagMutability("MUTABLE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryCreationTemplateImageTagMutabilityPtrInput)(nil)).Elem(), RepositoryCreationTemplateImageTagMutability("MUTABLE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryEncryptionTypeInput)(nil)).Elem(), RepositoryEncryptionType("AES256"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryEncryptionTypePtrInput)(nil)).Elem(), RepositoryEncryptionType("AES256"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryImageTagMutabilityInput)(nil)).Elem(), RepositoryImageTagMutability("MUTABLE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryImageTagMutabilityPtrInput)(nil)).Elem(), RepositoryImageTagMutability("MUTABLE"))
 	pulumi.RegisterOutputType(ReplicationConfigurationFilterTypeOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigurationFilterTypePtrOutput{})
+	pulumi.RegisterOutputType(RepositoryCreationTemplateAppliedForItemOutput{})
+	pulumi.RegisterOutputType(RepositoryCreationTemplateAppliedForItemPtrOutput{})
+	pulumi.RegisterOutputType(RepositoryCreationTemplateAppliedForItemArrayOutput{})
+	pulumi.RegisterOutputType(RepositoryCreationTemplateEncryptionTypeOutput{})
+	pulumi.RegisterOutputType(RepositoryCreationTemplateEncryptionTypePtrOutput{})
+	pulumi.RegisterOutputType(RepositoryCreationTemplateImageTagMutabilityOutput{})
+	pulumi.RegisterOutputType(RepositoryCreationTemplateImageTagMutabilityPtrOutput{})
 	pulumi.RegisterOutputType(RepositoryEncryptionTypeOutput{})
 	pulumi.RegisterOutputType(RepositoryEncryptionTypePtrOutput{})
 	pulumi.RegisterOutputType(RepositoryImageTagMutabilityOutput{})

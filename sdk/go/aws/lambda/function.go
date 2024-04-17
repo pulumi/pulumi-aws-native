@@ -40,6 +40,137 @@ import (
 //				Handler: pulumi.String("index.handler"),
 //				Role:    pulumi.String("arn:aws:iam::123456789012:role/lambda-role"),
 //				Code: &lambda.FunctionCodeArgs{
+//					ZipFile: pulumi.String(`exports.handler = function(event){
+//	    console.log(JSON.stringify(event, null, 2))
+//	    const response = {
+//	        statusCode: 200,
+//	        body: JSON.stringify('Hello from Lambda!')
+//	    }
+//	    return response
+//	};
+//
+// `),
+//
+//				},
+//				Runtime: pulumi.String("nodejs18.x"),
+//				TracingConfig: &lambda.FunctionTracingConfigArgs{
+//					Mode: lambda.FunctionTracingConfigModeActive,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			version, err := lambda.NewVersion(ctx, "version", &lambda.VersionArgs{
+//				FunctionName: function.ID(),
+//				Description:  pulumi.String("v1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = lambda.NewAlias(ctx, "alias", &lambda.AliasArgs{
+//				FunctionName:    function.ID(),
+//				FunctionVersion: version.Version,
+//				Name:            pulumi.String("BLUE"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Example
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/lambda"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			function, err := lambda.NewFunction(ctx, "function", &lambda.FunctionArgs{
+//				Handler: pulumi.String("index.handler"),
+//				Role:    pulumi.String("arn:aws:iam::123456789012:role/lambda-role"),
+//				Code: &lambda.FunctionCodeArgs{
+//					ZipFile: pulumi.String(`exports.handler = function(event){
+//	    console.log(JSON.stringify(event, null, 2))
+//	    const response = {
+//	        statusCode: 200,
+//	        body: JSON.stringify('Hello again from Lambda!')
+//	    }
+//	    return response
+//	}
+//
+// `),
+//
+//				},
+//				Runtime: pulumi.String("nodejs18.x"),
+//				TracingConfig: &lambda.FunctionTracingConfigArgs{
+//					Mode: lambda.FunctionTracingConfigModeActive,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			version, err := lambda.NewVersion(ctx, "version", &lambda.VersionArgs{
+//				FunctionName: function.ID(),
+//				Description:  pulumi.String("v1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			newVersion, err := lambda.NewVersion(ctx, "newVersion", &lambda.VersionArgs{
+//				FunctionName: function.ID(),
+//				Description:  pulumi.String("v2"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = lambda.NewAlias(ctx, "alias", &lambda.AliasArgs{
+//				FunctionName:    function.ID(),
+//				FunctionVersion: newVersion.Version,
+//				Name:            pulumi.String("BLUE"),
+//				RoutingConfig: &lambda.AliasRoutingConfigurationArgs{
+//					AdditionalVersionWeights: []lambda.AliasVersionWeightArgs{
+//						{
+//							FunctionVersion: version.Version,
+//							FunctionWeight:  pulumi.Float64(0.5),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Example
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/lambda"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			function, err := lambda.NewFunction(ctx, "function", &lambda.FunctionArgs{
+//				Handler: pulumi.String("index.handler"),
+//				Role:    pulumi.String("arn:aws:iam::123456789012:role/lambda-role"),
+//				Code: &lambda.FunctionCodeArgs{
 //					ZipFile: pulumi.String(`exports.handler = async (event) => {
 //	    console.log(JSON.stringify(event, null, 2));
 //	    const response = {

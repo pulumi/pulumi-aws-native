@@ -67,7 +67,7 @@ class PolicyStore(pulumi.CustomResource):
                  validation_settings: Optional[pulumi.Input[pulumi.InputType['PolicyStoreValidationSettingsArgs']]] = None,
                  __props__=None):
         """
-        Definition of AWS::VerifiedPermissions::PolicyStore Resource Type
+        Represents a policy store that you can place schema, policies, and policy templates in to validate authorization requests
 
         ## Example Usage
         ### Example
@@ -96,7 +96,7 @@ class PolicyStore(pulumi.CustomResource):
                  args: PolicyStoreArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Definition of AWS::VerifiedPermissions::PolicyStore Resource Type
+        Represents a policy store that you can place schema, policies, and policy templates in to validate authorization requests
 
         ## Example Usage
         ### Example

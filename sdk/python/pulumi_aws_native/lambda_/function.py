@@ -478,6 +478,81 @@ class Function(pulumi.CustomResource):
             handler="index.handler",
             role="arn:aws:iam::123456789012:role/lambda-role",
             code=aws_native.lambda_.FunctionCodeArgs(
+                zip_file=\"\"\"exports.handler = function(event){
+            console.log(JSON.stringify(event, null, 2))
+            const response = {
+                statusCode: 200,
+                body: JSON.stringify('Hello from Lambda!')
+            }
+            return response
+        };
+        \"\"\",
+            ),
+            runtime="nodejs18.x",
+            tracing_config=aws_native.lambda_.FunctionTracingConfigArgs(
+                mode=aws_native.lambda_.FunctionTracingConfigMode.ACTIVE,
+            ))
+        version = aws_native.lambda_.Version("version",
+            function_name=function.id,
+            description="v1")
+        alias = aws_native.lambda_.Alias("alias",
+            function_name=function.id,
+            function_version=version.version,
+            name="BLUE")
+
+        ```
+        ### Example
+
+        ```python
+        import pulumi
+        import pulumi_aws_native as aws_native
+
+        function = aws_native.lambda_.Function("function",
+            handler="index.handler",
+            role="arn:aws:iam::123456789012:role/lambda-role",
+            code=aws_native.lambda_.FunctionCodeArgs(
+                zip_file=\"\"\"exports.handler = function(event){
+            console.log(JSON.stringify(event, null, 2))
+            const response = {
+                statusCode: 200,
+                body: JSON.stringify('Hello again from Lambda!')
+            }
+            return response
+        }
+        \"\"\",
+            ),
+            runtime="nodejs18.x",
+            tracing_config=aws_native.lambda_.FunctionTracingConfigArgs(
+                mode=aws_native.lambda_.FunctionTracingConfigMode.ACTIVE,
+            ))
+        version = aws_native.lambda_.Version("version",
+            function_name=function.id,
+            description="v1")
+        new_version = aws_native.lambda_.Version("newVersion",
+            function_name=function.id,
+            description="v2")
+        alias = aws_native.lambda_.Alias("alias",
+            function_name=function.id,
+            function_version=new_version.version,
+            name="BLUE",
+            routing_config=aws_native.lambda_.AliasRoutingConfigurationArgs(
+                additional_version_weights=[aws_native.lambda_.AliasVersionWeightArgs(
+                    function_version=version.version,
+                    function_weight=0.5,
+                )],
+            ))
+
+        ```
+        ### Example
+
+        ```python
+        import pulumi
+        import pulumi_aws_native as aws_native
+
+        function = aws_native.lambda_.Function("function",
+            handler="index.handler",
+            role="arn:aws:iam::123456789012:role/lambda-role",
+            code=aws_native.lambda_.FunctionCodeArgs(
                 zip_file=\"\"\"exports.handler = async (event) => {
             console.log(JSON.stringify(event, null, 2));
             const response = {
@@ -641,6 +716,81 @@ class Function(pulumi.CustomResource):
          For a complete introduction to Lambda functions, see [What is Lambda?](https://docs.aws.amazon.com/lambda/latest/dg/lambda-welcome.html) in the *Lambda developer guide.*
 
         ## Example Usage
+        ### Example
+
+        ```python
+        import pulumi
+        import pulumi_aws_native as aws_native
+
+        function = aws_native.lambda_.Function("function",
+            handler="index.handler",
+            role="arn:aws:iam::123456789012:role/lambda-role",
+            code=aws_native.lambda_.FunctionCodeArgs(
+                zip_file=\"\"\"exports.handler = function(event){
+            console.log(JSON.stringify(event, null, 2))
+            const response = {
+                statusCode: 200,
+                body: JSON.stringify('Hello from Lambda!')
+            }
+            return response
+        };
+        \"\"\",
+            ),
+            runtime="nodejs18.x",
+            tracing_config=aws_native.lambda_.FunctionTracingConfigArgs(
+                mode=aws_native.lambda_.FunctionTracingConfigMode.ACTIVE,
+            ))
+        version = aws_native.lambda_.Version("version",
+            function_name=function.id,
+            description="v1")
+        alias = aws_native.lambda_.Alias("alias",
+            function_name=function.id,
+            function_version=version.version,
+            name="BLUE")
+
+        ```
+        ### Example
+
+        ```python
+        import pulumi
+        import pulumi_aws_native as aws_native
+
+        function = aws_native.lambda_.Function("function",
+            handler="index.handler",
+            role="arn:aws:iam::123456789012:role/lambda-role",
+            code=aws_native.lambda_.FunctionCodeArgs(
+                zip_file=\"\"\"exports.handler = function(event){
+            console.log(JSON.stringify(event, null, 2))
+            const response = {
+                statusCode: 200,
+                body: JSON.stringify('Hello again from Lambda!')
+            }
+            return response
+        }
+        \"\"\",
+            ),
+            runtime="nodejs18.x",
+            tracing_config=aws_native.lambda_.FunctionTracingConfigArgs(
+                mode=aws_native.lambda_.FunctionTracingConfigMode.ACTIVE,
+            ))
+        version = aws_native.lambda_.Version("version",
+            function_name=function.id,
+            description="v1")
+        new_version = aws_native.lambda_.Version("newVersion",
+            function_name=function.id,
+            description="v2")
+        alias = aws_native.lambda_.Alias("alias",
+            function_name=function.id,
+            function_version=new_version.version,
+            name="BLUE",
+            routing_config=aws_native.lambda_.AliasRoutingConfigurationArgs(
+                additional_version_weights=[aws_native.lambda_.AliasVersionWeightArgs(
+                    function_version=version.version,
+                    function_weight=0.5,
+                )],
+            ))
+
+        ```
         ### Example
 
         ```python

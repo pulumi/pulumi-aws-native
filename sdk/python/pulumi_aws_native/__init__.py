@@ -1470,7 +1470,8 @@ _utilities.register(
    "aws-native:ecr:PullThroughCacheRule": "PullThroughCacheRule",
    "aws-native:ecr:RegistryPolicy": "RegistryPolicy",
    "aws-native:ecr:ReplicationConfiguration": "ReplicationConfiguration",
-   "aws-native:ecr:Repository": "Repository"
+   "aws-native:ecr:Repository": "Repository",
+   "aws-native:ecr:RepositoryCreationTemplate": "RepositoryCreationTemplate"
   }
  },
  {
@@ -2077,6 +2078,7 @@ _utilities.register(
   "mod": "lambda",
   "fqn": "pulumi_aws_native.lambda_",
   "classes": {
+   "aws-native:lambda:Alias": "Alias",
    "aws-native:lambda:CodeSigningConfig": "CodeSigningConfig",
    "aws-native:lambda:EventInvokeConfig": "EventInvokeConfig",
    "aws-native:lambda:EventSourceMapping": "EventSourceMapping",
@@ -2971,6 +2973,7 @@ _utilities.register(
   "fqn": "pulumi_aws_native.timestream",
   "classes": {
    "aws-native:timestream:Database": "Database",
+   "aws-native:timestream:InfluxDbInstance": "InfluxDbInstance",
    "aws-native:timestream:ScheduledQuery": "ScheduledQuery",
    "aws-native:timestream:Table": "Table"
   }

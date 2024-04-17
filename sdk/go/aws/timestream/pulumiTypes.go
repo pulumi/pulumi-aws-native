@@ -19,6 +19,315 @@ type DatabaseTag struct {
 	Value *string `pulumi:"value"`
 }
 
+// A key-value pair to associate with a resource.
+type InfluxDbInstanceTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value *string `pulumi:"value"`
+}
+
+// Configuration for sending logs to customer account from the InfluxDB instance.
+type LogDeliveryConfigurationProperties struct {
+	// S3 configuration for sending logs to customer account from the InfluxDB instance.
+	S3Configuration LogDeliveryConfigurationPropertiesS3ConfigurationProperties `pulumi:"s3Configuration"`
+}
+
+// LogDeliveryConfigurationPropertiesInput is an input type that accepts LogDeliveryConfigurationPropertiesArgs and LogDeliveryConfigurationPropertiesOutput values.
+// You can construct a concrete instance of `LogDeliveryConfigurationPropertiesInput` via:
+//
+//	LogDeliveryConfigurationPropertiesArgs{...}
+type LogDeliveryConfigurationPropertiesInput interface {
+	pulumi.Input
+
+	ToLogDeliveryConfigurationPropertiesOutput() LogDeliveryConfigurationPropertiesOutput
+	ToLogDeliveryConfigurationPropertiesOutputWithContext(context.Context) LogDeliveryConfigurationPropertiesOutput
+}
+
+// Configuration for sending logs to customer account from the InfluxDB instance.
+type LogDeliveryConfigurationPropertiesArgs struct {
+	// S3 configuration for sending logs to customer account from the InfluxDB instance.
+	S3Configuration LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesInput `pulumi:"s3Configuration"`
+}
+
+func (LogDeliveryConfigurationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogDeliveryConfigurationProperties)(nil)).Elem()
+}
+
+func (i LogDeliveryConfigurationPropertiesArgs) ToLogDeliveryConfigurationPropertiesOutput() LogDeliveryConfigurationPropertiesOutput {
+	return i.ToLogDeliveryConfigurationPropertiesOutputWithContext(context.Background())
+}
+
+func (i LogDeliveryConfigurationPropertiesArgs) ToLogDeliveryConfigurationPropertiesOutputWithContext(ctx context.Context) LogDeliveryConfigurationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogDeliveryConfigurationPropertiesOutput)
+}
+
+func (i LogDeliveryConfigurationPropertiesArgs) ToLogDeliveryConfigurationPropertiesPtrOutput() LogDeliveryConfigurationPropertiesPtrOutput {
+	return i.ToLogDeliveryConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i LogDeliveryConfigurationPropertiesArgs) ToLogDeliveryConfigurationPropertiesPtrOutputWithContext(ctx context.Context) LogDeliveryConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogDeliveryConfigurationPropertiesOutput).ToLogDeliveryConfigurationPropertiesPtrOutputWithContext(ctx)
+}
+
+// LogDeliveryConfigurationPropertiesPtrInput is an input type that accepts LogDeliveryConfigurationPropertiesArgs, LogDeliveryConfigurationPropertiesPtr and LogDeliveryConfigurationPropertiesPtrOutput values.
+// You can construct a concrete instance of `LogDeliveryConfigurationPropertiesPtrInput` via:
+//
+//	        LogDeliveryConfigurationPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type LogDeliveryConfigurationPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToLogDeliveryConfigurationPropertiesPtrOutput() LogDeliveryConfigurationPropertiesPtrOutput
+	ToLogDeliveryConfigurationPropertiesPtrOutputWithContext(context.Context) LogDeliveryConfigurationPropertiesPtrOutput
+}
+
+type logDeliveryConfigurationPropertiesPtrType LogDeliveryConfigurationPropertiesArgs
+
+func LogDeliveryConfigurationPropertiesPtr(v *LogDeliveryConfigurationPropertiesArgs) LogDeliveryConfigurationPropertiesPtrInput {
+	return (*logDeliveryConfigurationPropertiesPtrType)(v)
+}
+
+func (*logDeliveryConfigurationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogDeliveryConfigurationProperties)(nil)).Elem()
+}
+
+func (i *logDeliveryConfigurationPropertiesPtrType) ToLogDeliveryConfigurationPropertiesPtrOutput() LogDeliveryConfigurationPropertiesPtrOutput {
+	return i.ToLogDeliveryConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *logDeliveryConfigurationPropertiesPtrType) ToLogDeliveryConfigurationPropertiesPtrOutputWithContext(ctx context.Context) LogDeliveryConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogDeliveryConfigurationPropertiesPtrOutput)
+}
+
+// Configuration for sending logs to customer account from the InfluxDB instance.
+type LogDeliveryConfigurationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (LogDeliveryConfigurationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogDeliveryConfigurationProperties)(nil)).Elem()
+}
+
+func (o LogDeliveryConfigurationPropertiesOutput) ToLogDeliveryConfigurationPropertiesOutput() LogDeliveryConfigurationPropertiesOutput {
+	return o
+}
+
+func (o LogDeliveryConfigurationPropertiesOutput) ToLogDeliveryConfigurationPropertiesOutputWithContext(ctx context.Context) LogDeliveryConfigurationPropertiesOutput {
+	return o
+}
+
+func (o LogDeliveryConfigurationPropertiesOutput) ToLogDeliveryConfigurationPropertiesPtrOutput() LogDeliveryConfigurationPropertiesPtrOutput {
+	return o.ToLogDeliveryConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o LogDeliveryConfigurationPropertiesOutput) ToLogDeliveryConfigurationPropertiesPtrOutputWithContext(ctx context.Context) LogDeliveryConfigurationPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogDeliveryConfigurationProperties) *LogDeliveryConfigurationProperties {
+		return &v
+	}).(LogDeliveryConfigurationPropertiesPtrOutput)
+}
+
+// S3 configuration for sending logs to customer account from the InfluxDB instance.
+func (o LogDeliveryConfigurationPropertiesOutput) S3Configuration() LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesOutput {
+	return o.ApplyT(func(v LogDeliveryConfigurationProperties) LogDeliveryConfigurationPropertiesS3ConfigurationProperties {
+		return v.S3Configuration
+	}).(LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesOutput)
+}
+
+type LogDeliveryConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (LogDeliveryConfigurationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogDeliveryConfigurationProperties)(nil)).Elem()
+}
+
+func (o LogDeliveryConfigurationPropertiesPtrOutput) ToLogDeliveryConfigurationPropertiesPtrOutput() LogDeliveryConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o LogDeliveryConfigurationPropertiesPtrOutput) ToLogDeliveryConfigurationPropertiesPtrOutputWithContext(ctx context.Context) LogDeliveryConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o LogDeliveryConfigurationPropertiesPtrOutput) Elem() LogDeliveryConfigurationPropertiesOutput {
+	return o.ApplyT(func(v *LogDeliveryConfigurationProperties) LogDeliveryConfigurationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret LogDeliveryConfigurationProperties
+		return ret
+	}).(LogDeliveryConfigurationPropertiesOutput)
+}
+
+// S3 configuration for sending logs to customer account from the InfluxDB instance.
+func (o LogDeliveryConfigurationPropertiesPtrOutput) S3Configuration() LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v *LogDeliveryConfigurationProperties) *LogDeliveryConfigurationPropertiesS3ConfigurationProperties {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Configuration
+	}).(LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesPtrOutput)
+}
+
+// S3 configuration for sending logs to customer account from the InfluxDB instance.
+type LogDeliveryConfigurationPropertiesS3ConfigurationProperties struct {
+	// The bucket name for logs to be sent from the InfluxDB instance
+	BucketName string `pulumi:"bucketName"`
+	// Specifies whether logging to customer specified bucket is enabled.
+	Enabled bool `pulumi:"enabled"`
+}
+
+// LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesInput is an input type that accepts LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesArgs and LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesOutput values.
+// You can construct a concrete instance of `LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesInput` via:
+//
+//	LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesArgs{...}
+type LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesInput interface {
+	pulumi.Input
+
+	ToLogDeliveryConfigurationPropertiesS3ConfigurationPropertiesOutput() LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesOutput
+	ToLogDeliveryConfigurationPropertiesS3ConfigurationPropertiesOutputWithContext(context.Context) LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesOutput
+}
+
+// S3 configuration for sending logs to customer account from the InfluxDB instance.
+type LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesArgs struct {
+	// The bucket name for logs to be sent from the InfluxDB instance
+	BucketName pulumi.StringInput `pulumi:"bucketName"`
+	// Specifies whether logging to customer specified bucket is enabled.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogDeliveryConfigurationPropertiesS3ConfigurationProperties)(nil)).Elem()
+}
+
+func (i LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesArgs) ToLogDeliveryConfigurationPropertiesS3ConfigurationPropertiesOutput() LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesOutput {
+	return i.ToLogDeliveryConfigurationPropertiesS3ConfigurationPropertiesOutputWithContext(context.Background())
+}
+
+func (i LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesArgs) ToLogDeliveryConfigurationPropertiesS3ConfigurationPropertiesOutputWithContext(ctx context.Context) LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesOutput)
+}
+
+func (i LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesArgs) ToLogDeliveryConfigurationPropertiesS3ConfigurationPropertiesPtrOutput() LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesPtrOutput {
+	return i.ToLogDeliveryConfigurationPropertiesS3ConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesArgs) ToLogDeliveryConfigurationPropertiesS3ConfigurationPropertiesPtrOutputWithContext(ctx context.Context) LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesOutput).ToLogDeliveryConfigurationPropertiesS3ConfigurationPropertiesPtrOutputWithContext(ctx)
+}
+
+// LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesPtrInput is an input type that accepts LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesArgs, LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesPtr and LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesPtrOutput values.
+// You can construct a concrete instance of `LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesPtrInput` via:
+//
+//	        LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToLogDeliveryConfigurationPropertiesS3ConfigurationPropertiesPtrOutput() LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesPtrOutput
+	ToLogDeliveryConfigurationPropertiesS3ConfigurationPropertiesPtrOutputWithContext(context.Context) LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesPtrOutput
+}
+
+type logDeliveryConfigurationPropertiesS3ConfigurationPropertiesPtrType LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesArgs
+
+func LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesPtr(v *LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesArgs) LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesPtrInput {
+	return (*logDeliveryConfigurationPropertiesS3ConfigurationPropertiesPtrType)(v)
+}
+
+func (*logDeliveryConfigurationPropertiesS3ConfigurationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogDeliveryConfigurationPropertiesS3ConfigurationProperties)(nil)).Elem()
+}
+
+func (i *logDeliveryConfigurationPropertiesS3ConfigurationPropertiesPtrType) ToLogDeliveryConfigurationPropertiesS3ConfigurationPropertiesPtrOutput() LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesPtrOutput {
+	return i.ToLogDeliveryConfigurationPropertiesS3ConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *logDeliveryConfigurationPropertiesS3ConfigurationPropertiesPtrType) ToLogDeliveryConfigurationPropertiesS3ConfigurationPropertiesPtrOutputWithContext(ctx context.Context) LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesPtrOutput)
+}
+
+// S3 configuration for sending logs to customer account from the InfluxDB instance.
+type LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogDeliveryConfigurationPropertiesS3ConfigurationProperties)(nil)).Elem()
+}
+
+func (o LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesOutput) ToLogDeliveryConfigurationPropertiesS3ConfigurationPropertiesOutput() LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesOutput {
+	return o
+}
+
+func (o LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesOutput) ToLogDeliveryConfigurationPropertiesS3ConfigurationPropertiesOutputWithContext(ctx context.Context) LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesOutput {
+	return o
+}
+
+func (o LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesOutput) ToLogDeliveryConfigurationPropertiesS3ConfigurationPropertiesPtrOutput() LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesPtrOutput {
+	return o.ToLogDeliveryConfigurationPropertiesS3ConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesOutput) ToLogDeliveryConfigurationPropertiesS3ConfigurationPropertiesPtrOutputWithContext(ctx context.Context) LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogDeliveryConfigurationPropertiesS3ConfigurationProperties) *LogDeliveryConfigurationPropertiesS3ConfigurationProperties {
+		return &v
+	}).(LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesPtrOutput)
+}
+
+// The bucket name for logs to be sent from the InfluxDB instance
+func (o LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesOutput) BucketName() pulumi.StringOutput {
+	return o.ApplyT(func(v LogDeliveryConfigurationPropertiesS3ConfigurationProperties) string { return v.BucketName }).(pulumi.StringOutput)
+}
+
+// Specifies whether logging to customer specified bucket is enabled.
+func (o LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LogDeliveryConfigurationPropertiesS3ConfigurationProperties) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogDeliveryConfigurationPropertiesS3ConfigurationProperties)(nil)).Elem()
+}
+
+func (o LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesPtrOutput) ToLogDeliveryConfigurationPropertiesS3ConfigurationPropertiesPtrOutput() LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesPtrOutput) ToLogDeliveryConfigurationPropertiesS3ConfigurationPropertiesPtrOutputWithContext(ctx context.Context) LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesPtrOutput) Elem() LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesOutput {
+	return o.ApplyT(func(v *LogDeliveryConfigurationPropertiesS3ConfigurationProperties) LogDeliveryConfigurationPropertiesS3ConfigurationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret LogDeliveryConfigurationPropertiesS3ConfigurationProperties
+		return ret
+	}).(LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesOutput)
+}
+
+// The bucket name for logs to be sent from the InfluxDB instance
+func (o LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesPtrOutput) BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogDeliveryConfigurationPropertiesS3ConfigurationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BucketName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether logging to customer specified bucket is enabled.
+func (o LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LogDeliveryConfigurationPropertiesS3ConfigurationProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 // The properties that determine whether magnetic store writes are enabled.
 type MagneticStoreWritePropertiesProperties struct {
 	// Boolean flag indicating whether magnetic store writes are enabled.
@@ -2080,6 +2389,10 @@ type TableTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LogDeliveryConfigurationPropertiesInput)(nil)).Elem(), LogDeliveryConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogDeliveryConfigurationPropertiesPtrInput)(nil)).Elem(), LogDeliveryConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesInput)(nil)).Elem(), LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesPtrInput)(nil)).Elem(), LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MagneticStoreWritePropertiesPropertiesInput)(nil)).Elem(), MagneticStoreWritePropertiesPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MagneticStoreWritePropertiesPropertiesPtrInput)(nil)).Elem(), MagneticStoreWritePropertiesPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesInput)(nil)).Elem(), MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgs{})
@@ -2109,6 +2422,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaPropertiesPtrInput)(nil)).Elem(), SchemaPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TablePartitionKeyInput)(nil)).Elem(), TablePartitionKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TablePartitionKeyArrayInput)(nil)).Elem(), TablePartitionKeyArray{})
+	pulumi.RegisterOutputType(LogDeliveryConfigurationPropertiesOutput{})
+	pulumi.RegisterOutputType(LogDeliveryConfigurationPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesOutput{})
+	pulumi.RegisterOutputType(LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(MagneticStoreWritePropertiesPropertiesOutput{})
 	pulumi.RegisterOutputType(MagneticStoreWritePropertiesPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesOutput{})

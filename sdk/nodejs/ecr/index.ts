@@ -20,6 +20,11 @@ export const getRepository: typeof import("./getRepository").getRepository = nul
 export const getRepositoryOutput: typeof import("./getRepository").getRepositoryOutput = null as any;
 utilities.lazyLoad(exports, ["getRepository","getRepositoryOutput"], () => require("./getRepository"));
 
+export { GetRepositoryCreationTemplateArgs, GetRepositoryCreationTemplateResult, GetRepositoryCreationTemplateOutputArgs } from "./getRepositoryCreationTemplate";
+export const getRepositoryCreationTemplate: typeof import("./getRepositoryCreationTemplate").getRepositoryCreationTemplate = null as any;
+export const getRepositoryCreationTemplateOutput: typeof import("./getRepositoryCreationTemplate").getRepositoryCreationTemplateOutput = null as any;
+utilities.lazyLoad(exports, ["getRepositoryCreationTemplate","getRepositoryCreationTemplateOutput"], () => require("./getRepositoryCreationTemplate"));
+
 export { PullThroughCacheRuleArgs } from "./pullThroughCacheRule";
 export type PullThroughCacheRule = import("./pullThroughCacheRule").PullThroughCacheRule;
 export const PullThroughCacheRule: typeof import("./pullThroughCacheRule").PullThroughCacheRule = null as any;
@@ -40,6 +45,11 @@ export type Repository = import("./repository").Repository;
 export const Repository: typeof import("./repository").Repository = null as any;
 utilities.lazyLoad(exports, ["Repository"], () => require("./repository"));
 
+export { RepositoryCreationTemplateArgs } from "./repositoryCreationTemplate";
+export type RepositoryCreationTemplate = import("./repositoryCreationTemplate").RepositoryCreationTemplate;
+export const RepositoryCreationTemplate: typeof import("./repositoryCreationTemplate").RepositoryCreationTemplate = null as any;
+utilities.lazyLoad(exports, ["RepositoryCreationTemplate"], () => require("./repositoryCreationTemplate"));
+
 
 // Export enums:
 export * from "../types/enums/ecr";
@@ -56,6 +66,8 @@ const _module = {
                 return new ReplicationConfiguration(name, <any>undefined, { urn })
             case "aws-native:ecr:Repository":
                 return new Repository(name, <any>undefined, { urn })
+            case "aws-native:ecr:RepositoryCreationTemplate":
+                return new RepositoryCreationTemplate(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

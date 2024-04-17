@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetApplicationResult:
-    def __init__(__self__, application_arn=None, application_source_config=None, description=None, id=None, name=None, namespace=None, tags=None):
+    def __init__(__self__, application_arn=None, application_source_config=None, description=None, id=None, name=None, namespace=None, permissions=None, tags=None):
         if application_arn and not isinstance(application_arn, str):
             raise TypeError("Expected argument 'application_arn' to be a str")
         pulumi.set(__self__, "application_arn", application_arn)
@@ -39,6 +39,9 @@ class GetApplicationResult:
         if namespace and not isinstance(namespace, str):
             raise TypeError("Expected argument 'namespace' to be a str")
         pulumi.set(__self__, "namespace", namespace)
+        if permissions and not isinstance(permissions, list):
+            raise TypeError("Expected argument 'permissions' to be a list")
+        pulumi.set(__self__, "permissions", permissions)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -93,6 +96,14 @@ class GetApplicationResult:
 
     @property
     @pulumi.getter
+    def permissions(self) -> Optional[Sequence[str]]:
+        """
+        The configuration of events or requests that the application has access to.
+        """
+        return pulumi.get(self, "permissions")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
         The tags (keys and values) associated with the application.
@@ -112,6 +123,7 @@ class AwaitableGetApplicationResult(GetApplicationResult):
             id=self.id,
             name=self.name,
             namespace=self.namespace,
+            permissions=self.permissions,
             tags=self.tags)
 
 
@@ -135,6 +147,7 @@ def get_application(application_arn: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         namespace=pulumi.get(__ret__, 'namespace'),
+        permissions=pulumi.get(__ret__, 'permissions'),
         tags=pulumi.get(__ret__, 'tags'))
 
 
