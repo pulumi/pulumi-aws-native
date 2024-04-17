@@ -1990,6 +1990,2991 @@ func (o AutomationRulesFindingFiltersPtrOutput) WorkflowStatus() AutomationRuleS
 	}).(AutomationRuleStringFilterArrayOutput)
 }
 
+// A collection of filters that are applied to all active findings aggregated by AWS Security Hub.
+type InsightAwsSecurityFindingFilters struct {
+	// The AWS account ID in which a finding is generated.
+	AwsAccountId []InsightStringFilter `pulumi:"awsAccountId"`
+	// The name of the AWS account in which a finding is generated.
+	AwsAccountName []InsightStringFilter `pulumi:"awsAccountName"`
+	// The name of the findings provider (company) that owns the solution (product) that generates findings.
+	CompanyName []InsightStringFilter `pulumi:"companyName"`
+	// The unique identifier of a standard in which a control is enabled.
+	ComplianceAssociatedStandardsId []InsightStringFilter `pulumi:"complianceAssociatedStandardsId"`
+	// The unique identifier of a control across standards.
+	ComplianceSecurityControlId []InsightStringFilter `pulumi:"complianceSecurityControlId"`
+	// The name of a security control parameter.
+	ComplianceSecurityControlParametersName []InsightStringFilter `pulumi:"complianceSecurityControlParametersName"`
+	// The current value of a security control parameter.
+	ComplianceSecurityControlParametersValue []InsightStringFilter `pulumi:"complianceSecurityControlParametersValue"`
+	// Exclusive to findings that are generated as the result of a check run against a specific rule in a supported standard.
+	ComplianceStatus []InsightStringFilter `pulumi:"complianceStatus"`
+	// A finding's confidence.
+	Confidence []InsightNumberFilter `pulumi:"confidence"`
+	// An ISO8601-formatted timestamp that indicates when the security findings provider captured the potential security issue that a finding captured.
+	CreatedAt []InsightDateFilter `pulumi:"createdAt"`
+	// The level of importance assigned to the resources associated with the finding.
+	Criticality []InsightNumberFilter `pulumi:"criticality"`
+	// A finding's description.
+	Description []InsightStringFilter `pulumi:"description"`
+	// The finding provider value for the finding confidence.
+	FindingProviderFieldsConfidence []InsightNumberFilter `pulumi:"findingProviderFieldsConfidence"`
+	// The finding provider value for the level of importance assigned to the resources associated with the findings.
+	FindingProviderFieldsCriticality []InsightNumberFilter `pulumi:"findingProviderFieldsCriticality"`
+	// The finding identifier of a related finding that is identified by the finding provider.
+	FindingProviderFieldsRelatedFindingsId []InsightStringFilter `pulumi:"findingProviderFieldsRelatedFindingsId"`
+	// The ARN of the solution that generated a related finding that is identified by the finding provider.
+	FindingProviderFieldsRelatedFindingsProductArn []InsightStringFilter `pulumi:"findingProviderFieldsRelatedFindingsProductArn"`
+	// The finding provider value for the severity label.
+	FindingProviderFieldsSeverityLabel []InsightStringFilter `pulumi:"findingProviderFieldsSeverityLabel"`
+	// The finding provider's original value for the severity.
+	FindingProviderFieldsSeverityOriginal []InsightStringFilter `pulumi:"findingProviderFieldsSeverityOriginal"`
+	// One or more finding types that the finding provider assigned to the finding.
+	FindingProviderFieldsTypes []InsightStringFilter `pulumi:"findingProviderFieldsTypes"`
+	// An ISO8601-formatted timestamp that indicates when the security findings provider first observed the potential security issue that a finding captured.
+	FirstObservedAt []InsightDateFilter `pulumi:"firstObservedAt"`
+	// The identifier for the solution-specific component (a discrete unit of logic) that generated a finding.
+	GeneratorId []InsightStringFilter `pulumi:"generatorId"`
+	// The security findings provider-specific identifier for a finding.
+	Id []InsightStringFilter `pulumi:"id"`
+	// A keyword for a finding.
+	Keyword []InsightKeywordFilter `pulumi:"keyword"`
+	// An ISO8601-formatted timestamp that indicates when the security findings provider most recently observed the potential security issue that a finding captured.
+	LastObservedAt []InsightDateFilter `pulumi:"lastObservedAt"`
+	// The name of the malware that was observed.
+	MalwareName []InsightStringFilter `pulumi:"malwareName"`
+	// The filesystem path of the malware that was observed.
+	MalwarePath []InsightStringFilter `pulumi:"malwarePath"`
+	// The state of the malware that was observed.
+	MalwareState []InsightStringFilter `pulumi:"malwareState"`
+	// The type of the malware that was observed.
+	MalwareType []InsightStringFilter `pulumi:"malwareType"`
+	// The destination domain of network-related information about a finding.
+	NetworkDestinationDomain []InsightStringFilter `pulumi:"networkDestinationDomain"`
+	// The destination IPv4 address of network-related information about a finding.
+	NetworkDestinationIpV4 []InsightIpFilter `pulumi:"networkDestinationIpV4"`
+	// The destination IPv6 address of network-related information about a finding.
+	NetworkDestinationIpV6 []InsightIpFilter `pulumi:"networkDestinationIpV6"`
+	// The destination port of network-related information about a finding.
+	NetworkDestinationPort []InsightNumberFilter `pulumi:"networkDestinationPort"`
+	// Indicates the direction of network traffic associated with a finding.
+	NetworkDirection []InsightStringFilter `pulumi:"networkDirection"`
+	// The protocol of network-related information about a finding.
+	NetworkProtocol []InsightStringFilter `pulumi:"networkProtocol"`
+	// The source domain of network-related information about a finding.
+	NetworkSourceDomain []InsightStringFilter `pulumi:"networkSourceDomain"`
+	// The source IPv4 address of network-related information about a finding.
+	NetworkSourceIpV4 []InsightIpFilter `pulumi:"networkSourceIpV4"`
+	// The source IPv6 address of network-related information about a finding.
+	NetworkSourceIpV6 []InsightIpFilter `pulumi:"networkSourceIpV6"`
+	// The source media access control (MAC) address of network-related information about a finding.
+	NetworkSourceMac []InsightStringFilter `pulumi:"networkSourceMac"`
+	// The source port of network-related information about a finding.
+	NetworkSourcePort []InsightNumberFilter `pulumi:"networkSourcePort"`
+	// The text of a note.
+	NoteText []InsightStringFilter `pulumi:"noteText"`
+	// The timestamp of when the note was updated.
+	NoteUpdatedAt []InsightDateFilter `pulumi:"noteUpdatedAt"`
+	// The principal that created a note.
+	NoteUpdatedBy []InsightStringFilter `pulumi:"noteUpdatedBy"`
+	// A timestamp that identifies when the process was launched.
+	ProcessLaunchedAt []InsightDateFilter `pulumi:"processLaunchedAt"`
+	// The name of the process.
+	ProcessName []InsightStringFilter `pulumi:"processName"`
+	// The parent process ID.
+	ProcessParentPid []InsightNumberFilter `pulumi:"processParentPid"`
+	// The path to the process executable.
+	ProcessPath []InsightStringFilter `pulumi:"processPath"`
+	// The process ID.
+	ProcessPid []InsightNumberFilter `pulumi:"processPid"`
+	// A timestamp that identifies when the process was terminated.
+	ProcessTerminatedAt []InsightDateFilter `pulumi:"processTerminatedAt"`
+	// The ARN generated by Security Hub that uniquely identifies a third-party company (security findings provider) after this provider's product (solution that generates findings) is registered with Security Hub.
+	ProductArn []InsightStringFilter `pulumi:"productArn"`
+	// A data type where security findings providers can include additional solution-specific details that aren't part of the defined AwsSecurityFinding format.
+	ProductFields []InsightMapFilter `pulumi:"productFields"`
+	// The name of the solution (product) that generates findings.
+	ProductName []InsightStringFilter `pulumi:"productName"`
+	// The recommendation of what to do about the issue described in a finding.
+	RecommendationText []InsightStringFilter `pulumi:"recommendationText"`
+	// The updated record state for the finding.
+	RecordState []InsightStringFilter `pulumi:"recordState"`
+	// The Region from which the finding was generated.
+	Region []InsightStringFilter `pulumi:"region"`
+	// The solution-generated identifier for a related finding.
+	RelatedFindingsId []InsightStringFilter `pulumi:"relatedFindingsId"`
+	// The ARN of the solution that generated a related finding.
+	RelatedFindingsProductArn []InsightStringFilter `pulumi:"relatedFindingsProductArn"`
+	// The ARN of the application that is related to a finding.
+	ResourceApplicationArn []InsightStringFilter `pulumi:"resourceApplicationArn"`
+	// The name of the application that is related to a finding.
+	ResourceApplicationName []InsightStringFilter `pulumi:"resourceApplicationName"`
+	// The IAM profile ARN of the instance.
+	ResourceAwsEc2InstanceIamInstanceProfileArn []InsightStringFilter `pulumi:"resourceAwsEc2InstanceIamInstanceProfileArn"`
+	// The Amazon Machine Image (AMI) ID of the instance.
+	ResourceAwsEc2InstanceImageId []InsightStringFilter `pulumi:"resourceAwsEc2InstanceImageId"`
+	// The IPv4 addresses associated with the instance.
+	ResourceAwsEc2InstanceIpV4Addresses []InsightIpFilter `pulumi:"resourceAwsEc2InstanceIpV4Addresses"`
+	// The IPv6 addresses associated with the instance.
+	ResourceAwsEc2InstanceIpV6Addresses []InsightIpFilter `pulumi:"resourceAwsEc2InstanceIpV6Addresses"`
+	// The key name associated with the instance.
+	ResourceAwsEc2InstanceKeyName []InsightStringFilter `pulumi:"resourceAwsEc2InstanceKeyName"`
+	// The date and time the instance was launched.
+	ResourceAwsEc2InstanceLaunchedAt []InsightDateFilter `pulumi:"resourceAwsEc2InstanceLaunchedAt"`
+	// The identifier of the subnet that the instance was launched in.
+	ResourceAwsEc2InstanceSubnetId []InsightStringFilter `pulumi:"resourceAwsEc2InstanceSubnetId"`
+	// The instance type of the instance.
+	ResourceAwsEc2InstanceType []InsightStringFilter `pulumi:"resourceAwsEc2InstanceType"`
+	// The identifier of the VPC that the instance was launched in.
+	ResourceAwsEc2InstanceVpcId []InsightStringFilter `pulumi:"resourceAwsEc2InstanceVpcId"`
+	// The creation date/time of the IAM access key related to a finding.
+	ResourceAwsIamAccessKeyCreatedAt []InsightDateFilter `pulumi:"resourceAwsIamAccessKeyCreatedAt"`
+	// The name of the principal that is associated with an IAM access key.
+	ResourceAwsIamAccessKeyPrincipalName []InsightStringFilter `pulumi:"resourceAwsIamAccessKeyPrincipalName"`
+	// The status of the IAM access key related to a finding.
+	ResourceAwsIamAccessKeyStatus []InsightStringFilter `pulumi:"resourceAwsIamAccessKeyStatus"`
+	// The user associated with the IAM access key related to a finding.
+	ResourceAwsIamAccessKeyUserName []InsightStringFilter `pulumi:"resourceAwsIamAccessKeyUserName"`
+	// The name of an IAM user.
+	ResourceAwsIamUserUserName []InsightStringFilter `pulumi:"resourceAwsIamUserUserName"`
+	// The canonical user ID of the owner of the S3 bucket.
+	ResourceAwsS3BucketOwnerId []InsightStringFilter `pulumi:"resourceAwsS3BucketOwnerId"`
+	// The display name of the owner of the S3 bucket.
+	ResourceAwsS3BucketOwnerName []InsightStringFilter `pulumi:"resourceAwsS3BucketOwnerName"`
+	// The identifier of the image related to a finding.
+	ResourceContainerImageId []InsightStringFilter `pulumi:"resourceContainerImageId"`
+	// The name of the image related to a finding.
+	ResourceContainerImageName []InsightStringFilter `pulumi:"resourceContainerImageName"`
+	// A timestamp that identifies when the container was started.
+	ResourceContainerLaunchedAt []InsightDateFilter `pulumi:"resourceContainerLaunchedAt"`
+	// The name of the container related to a finding.
+	ResourceContainerName []InsightStringFilter `pulumi:"resourceContainerName"`
+	// The details of a resource that doesn't have a specific subfield for the resource type defined.
+	ResourceDetailsOther []InsightMapFilter `pulumi:"resourceDetailsOther"`
+	// The canonical identifier for the given resource type.
+	ResourceId []InsightStringFilter `pulumi:"resourceId"`
+	// The canonical AWS partition name that the Region is assigned to.
+	ResourcePartition []InsightStringFilter `pulumi:"resourcePartition"`
+	// The canonical AWS external Region name where this resource is located.
+	ResourceRegion []InsightStringFilter `pulumi:"resourceRegion"`
+	// A list of AWS tags associated with a resource at the time the finding was processed.
+	ResourceTags []InsightMapFilter `pulumi:"resourceTags"`
+	// Specifies the type of the resource that details are provided for.
+	ResourceType []InsightStringFilter `pulumi:"resourceType"`
+	// Indicates whether or not sample findings are included in the filter results.
+	Sample []InsightBooleanFilter `pulumi:"sample"`
+	// The label of a finding's severity.
+	SeverityLabel []InsightStringFilter `pulumi:"severityLabel"`
+	// The normalized severity of a finding.
+	SeverityNormalized []InsightNumberFilter `pulumi:"severityNormalized"`
+	// The native severity as defined by the security findings provider's solution that generated the finding.
+	SeverityProduct []InsightNumberFilter `pulumi:"severityProduct"`
+	// A URL that links to a page about the current finding in the security findings provider's solution.
+	SourceUrl []InsightStringFilter `pulumi:"sourceUrl"`
+	// The category of a threat intelligence indicator.
+	ThreatIntelIndicatorCategory []InsightStringFilter `pulumi:"threatIntelIndicatorCategory"`
+	// A timestamp that identifies the last observation of a threat intelligence indicator.
+	ThreatIntelIndicatorLastObservedAt []InsightDateFilter `pulumi:"threatIntelIndicatorLastObservedAt"`
+	// The source of the threat intelligence.
+	ThreatIntelIndicatorSource []InsightStringFilter `pulumi:"threatIntelIndicatorSource"`
+	// The URL for more details from the source of the threat intelligence.
+	ThreatIntelIndicatorSourceUrl []InsightStringFilter `pulumi:"threatIntelIndicatorSourceUrl"`
+	// The type of a threat intelligence indicator.
+	ThreatIntelIndicatorType []InsightStringFilter `pulumi:"threatIntelIndicatorType"`
+	// The value of a threat intelligence indicator.
+	ThreatIntelIndicatorValue []InsightStringFilter `pulumi:"threatIntelIndicatorValue"`
+	// A finding's title.
+	Title []InsightStringFilter `pulumi:"title"`
+	// A finding type in the format of namespace/category/classifier that classifies a finding.
+	Type []InsightStringFilter `pulumi:"type"`
+	// An ISO8601-formatted timestamp that indicates when the security findings provider last updated the finding record.
+	UpdatedAt []InsightDateFilter `pulumi:"updatedAt"`
+	// A list of name/value string pairs associated with the finding.
+	UserDefinedFields []InsightMapFilter `pulumi:"userDefinedFields"`
+	// The veracity of a finding.
+	VerificationState []InsightStringFilter `pulumi:"verificationState"`
+	// Indicates whether a software vulnerability in your environment has a known exploit.
+	VulnerabilitiesExploitAvailable []InsightStringFilter `pulumi:"vulnerabilitiesExploitAvailable"`
+	// Indicates whether a vulnerability is fixed in a newer version of the affected software packages.
+	VulnerabilitiesFixAvailable []InsightStringFilter `pulumi:"vulnerabilitiesFixAvailable"`
+	// The workflow state of a finding.
+	WorkflowState []InsightStringFilter `pulumi:"workflowState"`
+	// The status of the investigation into a finding.
+	WorkflowStatus []InsightStringFilter `pulumi:"workflowStatus"`
+}
+
+// InsightAwsSecurityFindingFiltersInput is an input type that accepts InsightAwsSecurityFindingFiltersArgs and InsightAwsSecurityFindingFiltersOutput values.
+// You can construct a concrete instance of `InsightAwsSecurityFindingFiltersInput` via:
+//
+//	InsightAwsSecurityFindingFiltersArgs{...}
+type InsightAwsSecurityFindingFiltersInput interface {
+	pulumi.Input
+
+	ToInsightAwsSecurityFindingFiltersOutput() InsightAwsSecurityFindingFiltersOutput
+	ToInsightAwsSecurityFindingFiltersOutputWithContext(context.Context) InsightAwsSecurityFindingFiltersOutput
+}
+
+// A collection of filters that are applied to all active findings aggregated by AWS Security Hub.
+type InsightAwsSecurityFindingFiltersArgs struct {
+	// The AWS account ID in which a finding is generated.
+	AwsAccountId InsightStringFilterArrayInput `pulumi:"awsAccountId"`
+	// The name of the AWS account in which a finding is generated.
+	AwsAccountName InsightStringFilterArrayInput `pulumi:"awsAccountName"`
+	// The name of the findings provider (company) that owns the solution (product) that generates findings.
+	CompanyName InsightStringFilterArrayInput `pulumi:"companyName"`
+	// The unique identifier of a standard in which a control is enabled.
+	ComplianceAssociatedStandardsId InsightStringFilterArrayInput `pulumi:"complianceAssociatedStandardsId"`
+	// The unique identifier of a control across standards.
+	ComplianceSecurityControlId InsightStringFilterArrayInput `pulumi:"complianceSecurityControlId"`
+	// The name of a security control parameter.
+	ComplianceSecurityControlParametersName InsightStringFilterArrayInput `pulumi:"complianceSecurityControlParametersName"`
+	// The current value of a security control parameter.
+	ComplianceSecurityControlParametersValue InsightStringFilterArrayInput `pulumi:"complianceSecurityControlParametersValue"`
+	// Exclusive to findings that are generated as the result of a check run against a specific rule in a supported standard.
+	ComplianceStatus InsightStringFilterArrayInput `pulumi:"complianceStatus"`
+	// A finding's confidence.
+	Confidence InsightNumberFilterArrayInput `pulumi:"confidence"`
+	// An ISO8601-formatted timestamp that indicates when the security findings provider captured the potential security issue that a finding captured.
+	CreatedAt InsightDateFilterArrayInput `pulumi:"createdAt"`
+	// The level of importance assigned to the resources associated with the finding.
+	Criticality InsightNumberFilterArrayInput `pulumi:"criticality"`
+	// A finding's description.
+	Description InsightStringFilterArrayInput `pulumi:"description"`
+	// The finding provider value for the finding confidence.
+	FindingProviderFieldsConfidence InsightNumberFilterArrayInput `pulumi:"findingProviderFieldsConfidence"`
+	// The finding provider value for the level of importance assigned to the resources associated with the findings.
+	FindingProviderFieldsCriticality InsightNumberFilterArrayInput `pulumi:"findingProviderFieldsCriticality"`
+	// The finding identifier of a related finding that is identified by the finding provider.
+	FindingProviderFieldsRelatedFindingsId InsightStringFilterArrayInput `pulumi:"findingProviderFieldsRelatedFindingsId"`
+	// The ARN of the solution that generated a related finding that is identified by the finding provider.
+	FindingProviderFieldsRelatedFindingsProductArn InsightStringFilterArrayInput `pulumi:"findingProviderFieldsRelatedFindingsProductArn"`
+	// The finding provider value for the severity label.
+	FindingProviderFieldsSeverityLabel InsightStringFilterArrayInput `pulumi:"findingProviderFieldsSeverityLabel"`
+	// The finding provider's original value for the severity.
+	FindingProviderFieldsSeverityOriginal InsightStringFilterArrayInput `pulumi:"findingProviderFieldsSeverityOriginal"`
+	// One or more finding types that the finding provider assigned to the finding.
+	FindingProviderFieldsTypes InsightStringFilterArrayInput `pulumi:"findingProviderFieldsTypes"`
+	// An ISO8601-formatted timestamp that indicates when the security findings provider first observed the potential security issue that a finding captured.
+	FirstObservedAt InsightDateFilterArrayInput `pulumi:"firstObservedAt"`
+	// The identifier for the solution-specific component (a discrete unit of logic) that generated a finding.
+	GeneratorId InsightStringFilterArrayInput `pulumi:"generatorId"`
+	// The security findings provider-specific identifier for a finding.
+	Id InsightStringFilterArrayInput `pulumi:"id"`
+	// A keyword for a finding.
+	Keyword InsightKeywordFilterArrayInput `pulumi:"keyword"`
+	// An ISO8601-formatted timestamp that indicates when the security findings provider most recently observed the potential security issue that a finding captured.
+	LastObservedAt InsightDateFilterArrayInput `pulumi:"lastObservedAt"`
+	// The name of the malware that was observed.
+	MalwareName InsightStringFilterArrayInput `pulumi:"malwareName"`
+	// The filesystem path of the malware that was observed.
+	MalwarePath InsightStringFilterArrayInput `pulumi:"malwarePath"`
+	// The state of the malware that was observed.
+	MalwareState InsightStringFilterArrayInput `pulumi:"malwareState"`
+	// The type of the malware that was observed.
+	MalwareType InsightStringFilterArrayInput `pulumi:"malwareType"`
+	// The destination domain of network-related information about a finding.
+	NetworkDestinationDomain InsightStringFilterArrayInput `pulumi:"networkDestinationDomain"`
+	// The destination IPv4 address of network-related information about a finding.
+	NetworkDestinationIpV4 InsightIpFilterArrayInput `pulumi:"networkDestinationIpV4"`
+	// The destination IPv6 address of network-related information about a finding.
+	NetworkDestinationIpV6 InsightIpFilterArrayInput `pulumi:"networkDestinationIpV6"`
+	// The destination port of network-related information about a finding.
+	NetworkDestinationPort InsightNumberFilterArrayInput `pulumi:"networkDestinationPort"`
+	// Indicates the direction of network traffic associated with a finding.
+	NetworkDirection InsightStringFilterArrayInput `pulumi:"networkDirection"`
+	// The protocol of network-related information about a finding.
+	NetworkProtocol InsightStringFilterArrayInput `pulumi:"networkProtocol"`
+	// The source domain of network-related information about a finding.
+	NetworkSourceDomain InsightStringFilterArrayInput `pulumi:"networkSourceDomain"`
+	// The source IPv4 address of network-related information about a finding.
+	NetworkSourceIpV4 InsightIpFilterArrayInput `pulumi:"networkSourceIpV4"`
+	// The source IPv6 address of network-related information about a finding.
+	NetworkSourceIpV6 InsightIpFilterArrayInput `pulumi:"networkSourceIpV6"`
+	// The source media access control (MAC) address of network-related information about a finding.
+	NetworkSourceMac InsightStringFilterArrayInput `pulumi:"networkSourceMac"`
+	// The source port of network-related information about a finding.
+	NetworkSourcePort InsightNumberFilterArrayInput `pulumi:"networkSourcePort"`
+	// The text of a note.
+	NoteText InsightStringFilterArrayInput `pulumi:"noteText"`
+	// The timestamp of when the note was updated.
+	NoteUpdatedAt InsightDateFilterArrayInput `pulumi:"noteUpdatedAt"`
+	// The principal that created a note.
+	NoteUpdatedBy InsightStringFilterArrayInput `pulumi:"noteUpdatedBy"`
+	// A timestamp that identifies when the process was launched.
+	ProcessLaunchedAt InsightDateFilterArrayInput `pulumi:"processLaunchedAt"`
+	// The name of the process.
+	ProcessName InsightStringFilterArrayInput `pulumi:"processName"`
+	// The parent process ID.
+	ProcessParentPid InsightNumberFilterArrayInput `pulumi:"processParentPid"`
+	// The path to the process executable.
+	ProcessPath InsightStringFilterArrayInput `pulumi:"processPath"`
+	// The process ID.
+	ProcessPid InsightNumberFilterArrayInput `pulumi:"processPid"`
+	// A timestamp that identifies when the process was terminated.
+	ProcessTerminatedAt InsightDateFilterArrayInput `pulumi:"processTerminatedAt"`
+	// The ARN generated by Security Hub that uniquely identifies a third-party company (security findings provider) after this provider's product (solution that generates findings) is registered with Security Hub.
+	ProductArn InsightStringFilterArrayInput `pulumi:"productArn"`
+	// A data type where security findings providers can include additional solution-specific details that aren't part of the defined AwsSecurityFinding format.
+	ProductFields InsightMapFilterArrayInput `pulumi:"productFields"`
+	// The name of the solution (product) that generates findings.
+	ProductName InsightStringFilterArrayInput `pulumi:"productName"`
+	// The recommendation of what to do about the issue described in a finding.
+	RecommendationText InsightStringFilterArrayInput `pulumi:"recommendationText"`
+	// The updated record state for the finding.
+	RecordState InsightStringFilterArrayInput `pulumi:"recordState"`
+	// The Region from which the finding was generated.
+	Region InsightStringFilterArrayInput `pulumi:"region"`
+	// The solution-generated identifier for a related finding.
+	RelatedFindingsId InsightStringFilterArrayInput `pulumi:"relatedFindingsId"`
+	// The ARN of the solution that generated a related finding.
+	RelatedFindingsProductArn InsightStringFilterArrayInput `pulumi:"relatedFindingsProductArn"`
+	// The ARN of the application that is related to a finding.
+	ResourceApplicationArn InsightStringFilterArrayInput `pulumi:"resourceApplicationArn"`
+	// The name of the application that is related to a finding.
+	ResourceApplicationName InsightStringFilterArrayInput `pulumi:"resourceApplicationName"`
+	// The IAM profile ARN of the instance.
+	ResourceAwsEc2InstanceIamInstanceProfileArn InsightStringFilterArrayInput `pulumi:"resourceAwsEc2InstanceIamInstanceProfileArn"`
+	// The Amazon Machine Image (AMI) ID of the instance.
+	ResourceAwsEc2InstanceImageId InsightStringFilterArrayInput `pulumi:"resourceAwsEc2InstanceImageId"`
+	// The IPv4 addresses associated with the instance.
+	ResourceAwsEc2InstanceIpV4Addresses InsightIpFilterArrayInput `pulumi:"resourceAwsEc2InstanceIpV4Addresses"`
+	// The IPv6 addresses associated with the instance.
+	ResourceAwsEc2InstanceIpV6Addresses InsightIpFilterArrayInput `pulumi:"resourceAwsEc2InstanceIpV6Addresses"`
+	// The key name associated with the instance.
+	ResourceAwsEc2InstanceKeyName InsightStringFilterArrayInput `pulumi:"resourceAwsEc2InstanceKeyName"`
+	// The date and time the instance was launched.
+	ResourceAwsEc2InstanceLaunchedAt InsightDateFilterArrayInput `pulumi:"resourceAwsEc2InstanceLaunchedAt"`
+	// The identifier of the subnet that the instance was launched in.
+	ResourceAwsEc2InstanceSubnetId InsightStringFilterArrayInput `pulumi:"resourceAwsEc2InstanceSubnetId"`
+	// The instance type of the instance.
+	ResourceAwsEc2InstanceType InsightStringFilterArrayInput `pulumi:"resourceAwsEc2InstanceType"`
+	// The identifier of the VPC that the instance was launched in.
+	ResourceAwsEc2InstanceVpcId InsightStringFilterArrayInput `pulumi:"resourceAwsEc2InstanceVpcId"`
+	// The creation date/time of the IAM access key related to a finding.
+	ResourceAwsIamAccessKeyCreatedAt InsightDateFilterArrayInput `pulumi:"resourceAwsIamAccessKeyCreatedAt"`
+	// The name of the principal that is associated with an IAM access key.
+	ResourceAwsIamAccessKeyPrincipalName InsightStringFilterArrayInput `pulumi:"resourceAwsIamAccessKeyPrincipalName"`
+	// The status of the IAM access key related to a finding.
+	ResourceAwsIamAccessKeyStatus InsightStringFilterArrayInput `pulumi:"resourceAwsIamAccessKeyStatus"`
+	// The user associated with the IAM access key related to a finding.
+	ResourceAwsIamAccessKeyUserName InsightStringFilterArrayInput `pulumi:"resourceAwsIamAccessKeyUserName"`
+	// The name of an IAM user.
+	ResourceAwsIamUserUserName InsightStringFilterArrayInput `pulumi:"resourceAwsIamUserUserName"`
+	// The canonical user ID of the owner of the S3 bucket.
+	ResourceAwsS3BucketOwnerId InsightStringFilterArrayInput `pulumi:"resourceAwsS3BucketOwnerId"`
+	// The display name of the owner of the S3 bucket.
+	ResourceAwsS3BucketOwnerName InsightStringFilterArrayInput `pulumi:"resourceAwsS3BucketOwnerName"`
+	// The identifier of the image related to a finding.
+	ResourceContainerImageId InsightStringFilterArrayInput `pulumi:"resourceContainerImageId"`
+	// The name of the image related to a finding.
+	ResourceContainerImageName InsightStringFilterArrayInput `pulumi:"resourceContainerImageName"`
+	// A timestamp that identifies when the container was started.
+	ResourceContainerLaunchedAt InsightDateFilterArrayInput `pulumi:"resourceContainerLaunchedAt"`
+	// The name of the container related to a finding.
+	ResourceContainerName InsightStringFilterArrayInput `pulumi:"resourceContainerName"`
+	// The details of a resource that doesn't have a specific subfield for the resource type defined.
+	ResourceDetailsOther InsightMapFilterArrayInput `pulumi:"resourceDetailsOther"`
+	// The canonical identifier for the given resource type.
+	ResourceId InsightStringFilterArrayInput `pulumi:"resourceId"`
+	// The canonical AWS partition name that the Region is assigned to.
+	ResourcePartition InsightStringFilterArrayInput `pulumi:"resourcePartition"`
+	// The canonical AWS external Region name where this resource is located.
+	ResourceRegion InsightStringFilterArrayInput `pulumi:"resourceRegion"`
+	// A list of AWS tags associated with a resource at the time the finding was processed.
+	ResourceTags InsightMapFilterArrayInput `pulumi:"resourceTags"`
+	// Specifies the type of the resource that details are provided for.
+	ResourceType InsightStringFilterArrayInput `pulumi:"resourceType"`
+	// Indicates whether or not sample findings are included in the filter results.
+	Sample InsightBooleanFilterArrayInput `pulumi:"sample"`
+	// The label of a finding's severity.
+	SeverityLabel InsightStringFilterArrayInput `pulumi:"severityLabel"`
+	// The normalized severity of a finding.
+	SeverityNormalized InsightNumberFilterArrayInput `pulumi:"severityNormalized"`
+	// The native severity as defined by the security findings provider's solution that generated the finding.
+	SeverityProduct InsightNumberFilterArrayInput `pulumi:"severityProduct"`
+	// A URL that links to a page about the current finding in the security findings provider's solution.
+	SourceUrl InsightStringFilterArrayInput `pulumi:"sourceUrl"`
+	// The category of a threat intelligence indicator.
+	ThreatIntelIndicatorCategory InsightStringFilterArrayInput `pulumi:"threatIntelIndicatorCategory"`
+	// A timestamp that identifies the last observation of a threat intelligence indicator.
+	ThreatIntelIndicatorLastObservedAt InsightDateFilterArrayInput `pulumi:"threatIntelIndicatorLastObservedAt"`
+	// The source of the threat intelligence.
+	ThreatIntelIndicatorSource InsightStringFilterArrayInput `pulumi:"threatIntelIndicatorSource"`
+	// The URL for more details from the source of the threat intelligence.
+	ThreatIntelIndicatorSourceUrl InsightStringFilterArrayInput `pulumi:"threatIntelIndicatorSourceUrl"`
+	// The type of a threat intelligence indicator.
+	ThreatIntelIndicatorType InsightStringFilterArrayInput `pulumi:"threatIntelIndicatorType"`
+	// The value of a threat intelligence indicator.
+	ThreatIntelIndicatorValue InsightStringFilterArrayInput `pulumi:"threatIntelIndicatorValue"`
+	// A finding's title.
+	Title InsightStringFilterArrayInput `pulumi:"title"`
+	// A finding type in the format of namespace/category/classifier that classifies a finding.
+	Type InsightStringFilterArrayInput `pulumi:"type"`
+	// An ISO8601-formatted timestamp that indicates when the security findings provider last updated the finding record.
+	UpdatedAt InsightDateFilterArrayInput `pulumi:"updatedAt"`
+	// A list of name/value string pairs associated with the finding.
+	UserDefinedFields InsightMapFilterArrayInput `pulumi:"userDefinedFields"`
+	// The veracity of a finding.
+	VerificationState InsightStringFilterArrayInput `pulumi:"verificationState"`
+	// Indicates whether a software vulnerability in your environment has a known exploit.
+	VulnerabilitiesExploitAvailable InsightStringFilterArrayInput `pulumi:"vulnerabilitiesExploitAvailable"`
+	// Indicates whether a vulnerability is fixed in a newer version of the affected software packages.
+	VulnerabilitiesFixAvailable InsightStringFilterArrayInput `pulumi:"vulnerabilitiesFixAvailable"`
+	// The workflow state of a finding.
+	WorkflowState InsightStringFilterArrayInput `pulumi:"workflowState"`
+	// The status of the investigation into a finding.
+	WorkflowStatus InsightStringFilterArrayInput `pulumi:"workflowStatus"`
+}
+
+func (InsightAwsSecurityFindingFiltersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InsightAwsSecurityFindingFilters)(nil)).Elem()
+}
+
+func (i InsightAwsSecurityFindingFiltersArgs) ToInsightAwsSecurityFindingFiltersOutput() InsightAwsSecurityFindingFiltersOutput {
+	return i.ToInsightAwsSecurityFindingFiltersOutputWithContext(context.Background())
+}
+
+func (i InsightAwsSecurityFindingFiltersArgs) ToInsightAwsSecurityFindingFiltersOutputWithContext(ctx context.Context) InsightAwsSecurityFindingFiltersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InsightAwsSecurityFindingFiltersOutput)
+}
+
+// A collection of filters that are applied to all active findings aggregated by AWS Security Hub.
+type InsightAwsSecurityFindingFiltersOutput struct{ *pulumi.OutputState }
+
+func (InsightAwsSecurityFindingFiltersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InsightAwsSecurityFindingFilters)(nil)).Elem()
+}
+
+func (o InsightAwsSecurityFindingFiltersOutput) ToInsightAwsSecurityFindingFiltersOutput() InsightAwsSecurityFindingFiltersOutput {
+	return o
+}
+
+func (o InsightAwsSecurityFindingFiltersOutput) ToInsightAwsSecurityFindingFiltersOutputWithContext(ctx context.Context) InsightAwsSecurityFindingFiltersOutput {
+	return o
+}
+
+// The AWS account ID in which a finding is generated.
+func (o InsightAwsSecurityFindingFiltersOutput) AwsAccountId() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter { return v.AwsAccountId }).(InsightStringFilterArrayOutput)
+}
+
+// The name of the AWS account in which a finding is generated.
+func (o InsightAwsSecurityFindingFiltersOutput) AwsAccountName() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter { return v.AwsAccountName }).(InsightStringFilterArrayOutput)
+}
+
+// The name of the findings provider (company) that owns the solution (product) that generates findings.
+func (o InsightAwsSecurityFindingFiltersOutput) CompanyName() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter { return v.CompanyName }).(InsightStringFilterArrayOutput)
+}
+
+// The unique identifier of a standard in which a control is enabled.
+func (o InsightAwsSecurityFindingFiltersOutput) ComplianceAssociatedStandardsId() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		return v.ComplianceAssociatedStandardsId
+	}).(InsightStringFilterArrayOutput)
+}
+
+// The unique identifier of a control across standards.
+func (o InsightAwsSecurityFindingFiltersOutput) ComplianceSecurityControlId() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter { return v.ComplianceSecurityControlId }).(InsightStringFilterArrayOutput)
+}
+
+// The name of a security control parameter.
+func (o InsightAwsSecurityFindingFiltersOutput) ComplianceSecurityControlParametersName() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		return v.ComplianceSecurityControlParametersName
+	}).(InsightStringFilterArrayOutput)
+}
+
+// The current value of a security control parameter.
+func (o InsightAwsSecurityFindingFiltersOutput) ComplianceSecurityControlParametersValue() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		return v.ComplianceSecurityControlParametersValue
+	}).(InsightStringFilterArrayOutput)
+}
+
+// Exclusive to findings that are generated as the result of a check run against a specific rule in a supported standard.
+func (o InsightAwsSecurityFindingFiltersOutput) ComplianceStatus() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter { return v.ComplianceStatus }).(InsightStringFilterArrayOutput)
+}
+
+// A finding's confidence.
+func (o InsightAwsSecurityFindingFiltersOutput) Confidence() InsightNumberFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightNumberFilter { return v.Confidence }).(InsightNumberFilterArrayOutput)
+}
+
+// An ISO8601-formatted timestamp that indicates when the security findings provider captured the potential security issue that a finding captured.
+func (o InsightAwsSecurityFindingFiltersOutput) CreatedAt() InsightDateFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightDateFilter { return v.CreatedAt }).(InsightDateFilterArrayOutput)
+}
+
+// The level of importance assigned to the resources associated with the finding.
+func (o InsightAwsSecurityFindingFiltersOutput) Criticality() InsightNumberFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightNumberFilter { return v.Criticality }).(InsightNumberFilterArrayOutput)
+}
+
+// A finding's description.
+func (o InsightAwsSecurityFindingFiltersOutput) Description() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter { return v.Description }).(InsightStringFilterArrayOutput)
+}
+
+// The finding provider value for the finding confidence.
+func (o InsightAwsSecurityFindingFiltersOutput) FindingProviderFieldsConfidence() InsightNumberFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightNumberFilter {
+		return v.FindingProviderFieldsConfidence
+	}).(InsightNumberFilterArrayOutput)
+}
+
+// The finding provider value for the level of importance assigned to the resources associated with the findings.
+func (o InsightAwsSecurityFindingFiltersOutput) FindingProviderFieldsCriticality() InsightNumberFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightNumberFilter {
+		return v.FindingProviderFieldsCriticality
+	}).(InsightNumberFilterArrayOutput)
+}
+
+// The finding identifier of a related finding that is identified by the finding provider.
+func (o InsightAwsSecurityFindingFiltersOutput) FindingProviderFieldsRelatedFindingsId() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		return v.FindingProviderFieldsRelatedFindingsId
+	}).(InsightStringFilterArrayOutput)
+}
+
+// The ARN of the solution that generated a related finding that is identified by the finding provider.
+func (o InsightAwsSecurityFindingFiltersOutput) FindingProviderFieldsRelatedFindingsProductArn() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		return v.FindingProviderFieldsRelatedFindingsProductArn
+	}).(InsightStringFilterArrayOutput)
+}
+
+// The finding provider value for the severity label.
+func (o InsightAwsSecurityFindingFiltersOutput) FindingProviderFieldsSeverityLabel() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		return v.FindingProviderFieldsSeverityLabel
+	}).(InsightStringFilterArrayOutput)
+}
+
+// The finding provider's original value for the severity.
+func (o InsightAwsSecurityFindingFiltersOutput) FindingProviderFieldsSeverityOriginal() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		return v.FindingProviderFieldsSeverityOriginal
+	}).(InsightStringFilterArrayOutput)
+}
+
+// One or more finding types that the finding provider assigned to the finding.
+func (o InsightAwsSecurityFindingFiltersOutput) FindingProviderFieldsTypes() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter { return v.FindingProviderFieldsTypes }).(InsightStringFilterArrayOutput)
+}
+
+// An ISO8601-formatted timestamp that indicates when the security findings provider first observed the potential security issue that a finding captured.
+func (o InsightAwsSecurityFindingFiltersOutput) FirstObservedAt() InsightDateFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightDateFilter { return v.FirstObservedAt }).(InsightDateFilterArrayOutput)
+}
+
+// The identifier for the solution-specific component (a discrete unit of logic) that generated a finding.
+func (o InsightAwsSecurityFindingFiltersOutput) GeneratorId() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter { return v.GeneratorId }).(InsightStringFilterArrayOutput)
+}
+
+// The security findings provider-specific identifier for a finding.
+func (o InsightAwsSecurityFindingFiltersOutput) Id() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter { return v.Id }).(InsightStringFilterArrayOutput)
+}
+
+// A keyword for a finding.
+func (o InsightAwsSecurityFindingFiltersOutput) Keyword() InsightKeywordFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightKeywordFilter { return v.Keyword }).(InsightKeywordFilterArrayOutput)
+}
+
+// An ISO8601-formatted timestamp that indicates when the security findings provider most recently observed the potential security issue that a finding captured.
+func (o InsightAwsSecurityFindingFiltersOutput) LastObservedAt() InsightDateFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightDateFilter { return v.LastObservedAt }).(InsightDateFilterArrayOutput)
+}
+
+// The name of the malware that was observed.
+func (o InsightAwsSecurityFindingFiltersOutput) MalwareName() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter { return v.MalwareName }).(InsightStringFilterArrayOutput)
+}
+
+// The filesystem path of the malware that was observed.
+func (o InsightAwsSecurityFindingFiltersOutput) MalwarePath() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter { return v.MalwarePath }).(InsightStringFilterArrayOutput)
+}
+
+// The state of the malware that was observed.
+func (o InsightAwsSecurityFindingFiltersOutput) MalwareState() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter { return v.MalwareState }).(InsightStringFilterArrayOutput)
+}
+
+// The type of the malware that was observed.
+func (o InsightAwsSecurityFindingFiltersOutput) MalwareType() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter { return v.MalwareType }).(InsightStringFilterArrayOutput)
+}
+
+// The destination domain of network-related information about a finding.
+func (o InsightAwsSecurityFindingFiltersOutput) NetworkDestinationDomain() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter { return v.NetworkDestinationDomain }).(InsightStringFilterArrayOutput)
+}
+
+// The destination IPv4 address of network-related information about a finding.
+func (o InsightAwsSecurityFindingFiltersOutput) NetworkDestinationIpV4() InsightIpFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightIpFilter { return v.NetworkDestinationIpV4 }).(InsightIpFilterArrayOutput)
+}
+
+// The destination IPv6 address of network-related information about a finding.
+func (o InsightAwsSecurityFindingFiltersOutput) NetworkDestinationIpV6() InsightIpFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightIpFilter { return v.NetworkDestinationIpV6 }).(InsightIpFilterArrayOutput)
+}
+
+// The destination port of network-related information about a finding.
+func (o InsightAwsSecurityFindingFiltersOutput) NetworkDestinationPort() InsightNumberFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightNumberFilter { return v.NetworkDestinationPort }).(InsightNumberFilterArrayOutput)
+}
+
+// Indicates the direction of network traffic associated with a finding.
+func (o InsightAwsSecurityFindingFiltersOutput) NetworkDirection() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter { return v.NetworkDirection }).(InsightStringFilterArrayOutput)
+}
+
+// The protocol of network-related information about a finding.
+func (o InsightAwsSecurityFindingFiltersOutput) NetworkProtocol() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter { return v.NetworkProtocol }).(InsightStringFilterArrayOutput)
+}
+
+// The source domain of network-related information about a finding.
+func (o InsightAwsSecurityFindingFiltersOutput) NetworkSourceDomain() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter { return v.NetworkSourceDomain }).(InsightStringFilterArrayOutput)
+}
+
+// The source IPv4 address of network-related information about a finding.
+func (o InsightAwsSecurityFindingFiltersOutput) NetworkSourceIpV4() InsightIpFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightIpFilter { return v.NetworkSourceIpV4 }).(InsightIpFilterArrayOutput)
+}
+
+// The source IPv6 address of network-related information about a finding.
+func (o InsightAwsSecurityFindingFiltersOutput) NetworkSourceIpV6() InsightIpFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightIpFilter { return v.NetworkSourceIpV6 }).(InsightIpFilterArrayOutput)
+}
+
+// The source media access control (MAC) address of network-related information about a finding.
+func (o InsightAwsSecurityFindingFiltersOutput) NetworkSourceMac() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter { return v.NetworkSourceMac }).(InsightStringFilterArrayOutput)
+}
+
+// The source port of network-related information about a finding.
+func (o InsightAwsSecurityFindingFiltersOutput) NetworkSourcePort() InsightNumberFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightNumberFilter { return v.NetworkSourcePort }).(InsightNumberFilterArrayOutput)
+}
+
+// The text of a note.
+func (o InsightAwsSecurityFindingFiltersOutput) NoteText() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter { return v.NoteText }).(InsightStringFilterArrayOutput)
+}
+
+// The timestamp of when the note was updated.
+func (o InsightAwsSecurityFindingFiltersOutput) NoteUpdatedAt() InsightDateFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightDateFilter { return v.NoteUpdatedAt }).(InsightDateFilterArrayOutput)
+}
+
+// The principal that created a note.
+func (o InsightAwsSecurityFindingFiltersOutput) NoteUpdatedBy() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter { return v.NoteUpdatedBy }).(InsightStringFilterArrayOutput)
+}
+
+// A timestamp that identifies when the process was launched.
+func (o InsightAwsSecurityFindingFiltersOutput) ProcessLaunchedAt() InsightDateFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightDateFilter { return v.ProcessLaunchedAt }).(InsightDateFilterArrayOutput)
+}
+
+// The name of the process.
+func (o InsightAwsSecurityFindingFiltersOutput) ProcessName() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter { return v.ProcessName }).(InsightStringFilterArrayOutput)
+}
+
+// The parent process ID.
+func (o InsightAwsSecurityFindingFiltersOutput) ProcessParentPid() InsightNumberFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightNumberFilter { return v.ProcessParentPid }).(InsightNumberFilterArrayOutput)
+}
+
+// The path to the process executable.
+func (o InsightAwsSecurityFindingFiltersOutput) ProcessPath() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter { return v.ProcessPath }).(InsightStringFilterArrayOutput)
+}
+
+// The process ID.
+func (o InsightAwsSecurityFindingFiltersOutput) ProcessPid() InsightNumberFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightNumberFilter { return v.ProcessPid }).(InsightNumberFilterArrayOutput)
+}
+
+// A timestamp that identifies when the process was terminated.
+func (o InsightAwsSecurityFindingFiltersOutput) ProcessTerminatedAt() InsightDateFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightDateFilter { return v.ProcessTerminatedAt }).(InsightDateFilterArrayOutput)
+}
+
+// The ARN generated by Security Hub that uniquely identifies a third-party company (security findings provider) after this provider's product (solution that generates findings) is registered with Security Hub.
+func (o InsightAwsSecurityFindingFiltersOutput) ProductArn() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter { return v.ProductArn }).(InsightStringFilterArrayOutput)
+}
+
+// A data type where security findings providers can include additional solution-specific details that aren't part of the defined AwsSecurityFinding format.
+func (o InsightAwsSecurityFindingFiltersOutput) ProductFields() InsightMapFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightMapFilter { return v.ProductFields }).(InsightMapFilterArrayOutput)
+}
+
+// The name of the solution (product) that generates findings.
+func (o InsightAwsSecurityFindingFiltersOutput) ProductName() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter { return v.ProductName }).(InsightStringFilterArrayOutput)
+}
+
+// The recommendation of what to do about the issue described in a finding.
+func (o InsightAwsSecurityFindingFiltersOutput) RecommendationText() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter { return v.RecommendationText }).(InsightStringFilterArrayOutput)
+}
+
+// The updated record state for the finding.
+func (o InsightAwsSecurityFindingFiltersOutput) RecordState() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter { return v.RecordState }).(InsightStringFilterArrayOutput)
+}
+
+// The Region from which the finding was generated.
+func (o InsightAwsSecurityFindingFiltersOutput) Region() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter { return v.Region }).(InsightStringFilterArrayOutput)
+}
+
+// The solution-generated identifier for a related finding.
+func (o InsightAwsSecurityFindingFiltersOutput) RelatedFindingsId() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter { return v.RelatedFindingsId }).(InsightStringFilterArrayOutput)
+}
+
+// The ARN of the solution that generated a related finding.
+func (o InsightAwsSecurityFindingFiltersOutput) RelatedFindingsProductArn() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter { return v.RelatedFindingsProductArn }).(InsightStringFilterArrayOutput)
+}
+
+// The ARN of the application that is related to a finding.
+func (o InsightAwsSecurityFindingFiltersOutput) ResourceApplicationArn() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter { return v.ResourceApplicationArn }).(InsightStringFilterArrayOutput)
+}
+
+// The name of the application that is related to a finding.
+func (o InsightAwsSecurityFindingFiltersOutput) ResourceApplicationName() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter { return v.ResourceApplicationName }).(InsightStringFilterArrayOutput)
+}
+
+// The IAM profile ARN of the instance.
+func (o InsightAwsSecurityFindingFiltersOutput) ResourceAwsEc2InstanceIamInstanceProfileArn() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		return v.ResourceAwsEc2InstanceIamInstanceProfileArn
+	}).(InsightStringFilterArrayOutput)
+}
+
+// The Amazon Machine Image (AMI) ID of the instance.
+func (o InsightAwsSecurityFindingFiltersOutput) ResourceAwsEc2InstanceImageId() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter { return v.ResourceAwsEc2InstanceImageId }).(InsightStringFilterArrayOutput)
+}
+
+// The IPv4 addresses associated with the instance.
+func (o InsightAwsSecurityFindingFiltersOutput) ResourceAwsEc2InstanceIpV4Addresses() InsightIpFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightIpFilter {
+		return v.ResourceAwsEc2InstanceIpV4Addresses
+	}).(InsightIpFilterArrayOutput)
+}
+
+// The IPv6 addresses associated with the instance.
+func (o InsightAwsSecurityFindingFiltersOutput) ResourceAwsEc2InstanceIpV6Addresses() InsightIpFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightIpFilter {
+		return v.ResourceAwsEc2InstanceIpV6Addresses
+	}).(InsightIpFilterArrayOutput)
+}
+
+// The key name associated with the instance.
+func (o InsightAwsSecurityFindingFiltersOutput) ResourceAwsEc2InstanceKeyName() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter { return v.ResourceAwsEc2InstanceKeyName }).(InsightStringFilterArrayOutput)
+}
+
+// The date and time the instance was launched.
+func (o InsightAwsSecurityFindingFiltersOutput) ResourceAwsEc2InstanceLaunchedAt() InsightDateFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightDateFilter {
+		return v.ResourceAwsEc2InstanceLaunchedAt
+	}).(InsightDateFilterArrayOutput)
+}
+
+// The identifier of the subnet that the instance was launched in.
+func (o InsightAwsSecurityFindingFiltersOutput) ResourceAwsEc2InstanceSubnetId() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		return v.ResourceAwsEc2InstanceSubnetId
+	}).(InsightStringFilterArrayOutput)
+}
+
+// The instance type of the instance.
+func (o InsightAwsSecurityFindingFiltersOutput) ResourceAwsEc2InstanceType() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter { return v.ResourceAwsEc2InstanceType }).(InsightStringFilterArrayOutput)
+}
+
+// The identifier of the VPC that the instance was launched in.
+func (o InsightAwsSecurityFindingFiltersOutput) ResourceAwsEc2InstanceVpcId() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter { return v.ResourceAwsEc2InstanceVpcId }).(InsightStringFilterArrayOutput)
+}
+
+// The creation date/time of the IAM access key related to a finding.
+func (o InsightAwsSecurityFindingFiltersOutput) ResourceAwsIamAccessKeyCreatedAt() InsightDateFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightDateFilter {
+		return v.ResourceAwsIamAccessKeyCreatedAt
+	}).(InsightDateFilterArrayOutput)
+}
+
+// The name of the principal that is associated with an IAM access key.
+func (o InsightAwsSecurityFindingFiltersOutput) ResourceAwsIamAccessKeyPrincipalName() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		return v.ResourceAwsIamAccessKeyPrincipalName
+	}).(InsightStringFilterArrayOutput)
+}
+
+// The status of the IAM access key related to a finding.
+func (o InsightAwsSecurityFindingFiltersOutput) ResourceAwsIamAccessKeyStatus() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter { return v.ResourceAwsIamAccessKeyStatus }).(InsightStringFilterArrayOutput)
+}
+
+// The user associated with the IAM access key related to a finding.
+func (o InsightAwsSecurityFindingFiltersOutput) ResourceAwsIamAccessKeyUserName() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		return v.ResourceAwsIamAccessKeyUserName
+	}).(InsightStringFilterArrayOutput)
+}
+
+// The name of an IAM user.
+func (o InsightAwsSecurityFindingFiltersOutput) ResourceAwsIamUserUserName() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter { return v.ResourceAwsIamUserUserName }).(InsightStringFilterArrayOutput)
+}
+
+// The canonical user ID of the owner of the S3 bucket.
+func (o InsightAwsSecurityFindingFiltersOutput) ResourceAwsS3BucketOwnerId() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter { return v.ResourceAwsS3BucketOwnerId }).(InsightStringFilterArrayOutput)
+}
+
+// The display name of the owner of the S3 bucket.
+func (o InsightAwsSecurityFindingFiltersOutput) ResourceAwsS3BucketOwnerName() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter { return v.ResourceAwsS3BucketOwnerName }).(InsightStringFilterArrayOutput)
+}
+
+// The identifier of the image related to a finding.
+func (o InsightAwsSecurityFindingFiltersOutput) ResourceContainerImageId() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter { return v.ResourceContainerImageId }).(InsightStringFilterArrayOutput)
+}
+
+// The name of the image related to a finding.
+func (o InsightAwsSecurityFindingFiltersOutput) ResourceContainerImageName() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter { return v.ResourceContainerImageName }).(InsightStringFilterArrayOutput)
+}
+
+// A timestamp that identifies when the container was started.
+func (o InsightAwsSecurityFindingFiltersOutput) ResourceContainerLaunchedAt() InsightDateFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightDateFilter { return v.ResourceContainerLaunchedAt }).(InsightDateFilterArrayOutput)
+}
+
+// The name of the container related to a finding.
+func (o InsightAwsSecurityFindingFiltersOutput) ResourceContainerName() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter { return v.ResourceContainerName }).(InsightStringFilterArrayOutput)
+}
+
+// The details of a resource that doesn't have a specific subfield for the resource type defined.
+func (o InsightAwsSecurityFindingFiltersOutput) ResourceDetailsOther() InsightMapFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightMapFilter { return v.ResourceDetailsOther }).(InsightMapFilterArrayOutput)
+}
+
+// The canonical identifier for the given resource type.
+func (o InsightAwsSecurityFindingFiltersOutput) ResourceId() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter { return v.ResourceId }).(InsightStringFilterArrayOutput)
+}
+
+// The canonical AWS partition name that the Region is assigned to.
+func (o InsightAwsSecurityFindingFiltersOutput) ResourcePartition() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter { return v.ResourcePartition }).(InsightStringFilterArrayOutput)
+}
+
+// The canonical AWS external Region name where this resource is located.
+func (o InsightAwsSecurityFindingFiltersOutput) ResourceRegion() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter { return v.ResourceRegion }).(InsightStringFilterArrayOutput)
+}
+
+// A list of AWS tags associated with a resource at the time the finding was processed.
+func (o InsightAwsSecurityFindingFiltersOutput) ResourceTags() InsightMapFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightMapFilter { return v.ResourceTags }).(InsightMapFilterArrayOutput)
+}
+
+// Specifies the type of the resource that details are provided for.
+func (o InsightAwsSecurityFindingFiltersOutput) ResourceType() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter { return v.ResourceType }).(InsightStringFilterArrayOutput)
+}
+
+// Indicates whether or not sample findings are included in the filter results.
+func (o InsightAwsSecurityFindingFiltersOutput) Sample() InsightBooleanFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightBooleanFilter { return v.Sample }).(InsightBooleanFilterArrayOutput)
+}
+
+// The label of a finding's severity.
+func (o InsightAwsSecurityFindingFiltersOutput) SeverityLabel() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter { return v.SeverityLabel }).(InsightStringFilterArrayOutput)
+}
+
+// The normalized severity of a finding.
+func (o InsightAwsSecurityFindingFiltersOutput) SeverityNormalized() InsightNumberFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightNumberFilter { return v.SeverityNormalized }).(InsightNumberFilterArrayOutput)
+}
+
+// The native severity as defined by the security findings provider's solution that generated the finding.
+func (o InsightAwsSecurityFindingFiltersOutput) SeverityProduct() InsightNumberFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightNumberFilter { return v.SeverityProduct }).(InsightNumberFilterArrayOutput)
+}
+
+// A URL that links to a page about the current finding in the security findings provider's solution.
+func (o InsightAwsSecurityFindingFiltersOutput) SourceUrl() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter { return v.SourceUrl }).(InsightStringFilterArrayOutput)
+}
+
+// The category of a threat intelligence indicator.
+func (o InsightAwsSecurityFindingFiltersOutput) ThreatIntelIndicatorCategory() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter { return v.ThreatIntelIndicatorCategory }).(InsightStringFilterArrayOutput)
+}
+
+// A timestamp that identifies the last observation of a threat intelligence indicator.
+func (o InsightAwsSecurityFindingFiltersOutput) ThreatIntelIndicatorLastObservedAt() InsightDateFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightDateFilter {
+		return v.ThreatIntelIndicatorLastObservedAt
+	}).(InsightDateFilterArrayOutput)
+}
+
+// The source of the threat intelligence.
+func (o InsightAwsSecurityFindingFiltersOutput) ThreatIntelIndicatorSource() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter { return v.ThreatIntelIndicatorSource }).(InsightStringFilterArrayOutput)
+}
+
+// The URL for more details from the source of the threat intelligence.
+func (o InsightAwsSecurityFindingFiltersOutput) ThreatIntelIndicatorSourceUrl() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter { return v.ThreatIntelIndicatorSourceUrl }).(InsightStringFilterArrayOutput)
+}
+
+// The type of a threat intelligence indicator.
+func (o InsightAwsSecurityFindingFiltersOutput) ThreatIntelIndicatorType() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter { return v.ThreatIntelIndicatorType }).(InsightStringFilterArrayOutput)
+}
+
+// The value of a threat intelligence indicator.
+func (o InsightAwsSecurityFindingFiltersOutput) ThreatIntelIndicatorValue() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter { return v.ThreatIntelIndicatorValue }).(InsightStringFilterArrayOutput)
+}
+
+// A finding's title.
+func (o InsightAwsSecurityFindingFiltersOutput) Title() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter { return v.Title }).(InsightStringFilterArrayOutput)
+}
+
+// A finding type in the format of namespace/category/classifier that classifies a finding.
+func (o InsightAwsSecurityFindingFiltersOutput) Type() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter { return v.Type }).(InsightStringFilterArrayOutput)
+}
+
+// An ISO8601-formatted timestamp that indicates when the security findings provider last updated the finding record.
+func (o InsightAwsSecurityFindingFiltersOutput) UpdatedAt() InsightDateFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightDateFilter { return v.UpdatedAt }).(InsightDateFilterArrayOutput)
+}
+
+// A list of name/value string pairs associated with the finding.
+func (o InsightAwsSecurityFindingFiltersOutput) UserDefinedFields() InsightMapFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightMapFilter { return v.UserDefinedFields }).(InsightMapFilterArrayOutput)
+}
+
+// The veracity of a finding.
+func (o InsightAwsSecurityFindingFiltersOutput) VerificationState() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter { return v.VerificationState }).(InsightStringFilterArrayOutput)
+}
+
+// Indicates whether a software vulnerability in your environment has a known exploit.
+func (o InsightAwsSecurityFindingFiltersOutput) VulnerabilitiesExploitAvailable() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		return v.VulnerabilitiesExploitAvailable
+	}).(InsightStringFilterArrayOutput)
+}
+
+// Indicates whether a vulnerability is fixed in a newer version of the affected software packages.
+func (o InsightAwsSecurityFindingFiltersOutput) VulnerabilitiesFixAvailable() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter { return v.VulnerabilitiesFixAvailable }).(InsightStringFilterArrayOutput)
+}
+
+// The workflow state of a finding.
+func (o InsightAwsSecurityFindingFiltersOutput) WorkflowState() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter { return v.WorkflowState }).(InsightStringFilterArrayOutput)
+}
+
+// The status of the investigation into a finding.
+func (o InsightAwsSecurityFindingFiltersOutput) WorkflowStatus() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v InsightAwsSecurityFindingFilters) []InsightStringFilter { return v.WorkflowStatus }).(InsightStringFilterArrayOutput)
+}
+
+type InsightAwsSecurityFindingFiltersPtrOutput struct{ *pulumi.OutputState }
+
+func (InsightAwsSecurityFindingFiltersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InsightAwsSecurityFindingFilters)(nil)).Elem()
+}
+
+func (o InsightAwsSecurityFindingFiltersPtrOutput) ToInsightAwsSecurityFindingFiltersPtrOutput() InsightAwsSecurityFindingFiltersPtrOutput {
+	return o
+}
+
+func (o InsightAwsSecurityFindingFiltersPtrOutput) ToInsightAwsSecurityFindingFiltersPtrOutputWithContext(ctx context.Context) InsightAwsSecurityFindingFiltersPtrOutput {
+	return o
+}
+
+func (o InsightAwsSecurityFindingFiltersPtrOutput) Elem() InsightAwsSecurityFindingFiltersOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) InsightAwsSecurityFindingFilters {
+		if v != nil {
+			return *v
+		}
+		var ret InsightAwsSecurityFindingFilters
+		return ret
+	}).(InsightAwsSecurityFindingFiltersOutput)
+}
+
+// The AWS account ID in which a finding is generated.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) AwsAccountId() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.AwsAccountId
+	}).(InsightStringFilterArrayOutput)
+}
+
+// The name of the AWS account in which a finding is generated.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) AwsAccountName() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.AwsAccountName
+	}).(InsightStringFilterArrayOutput)
+}
+
+// The name of the findings provider (company) that owns the solution (product) that generates findings.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) CompanyName() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.CompanyName
+	}).(InsightStringFilterArrayOutput)
+}
+
+// The unique identifier of a standard in which a control is enabled.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) ComplianceAssociatedStandardsId() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.ComplianceAssociatedStandardsId
+	}).(InsightStringFilterArrayOutput)
+}
+
+// The unique identifier of a control across standards.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) ComplianceSecurityControlId() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.ComplianceSecurityControlId
+	}).(InsightStringFilterArrayOutput)
+}
+
+// The name of a security control parameter.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) ComplianceSecurityControlParametersName() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.ComplianceSecurityControlParametersName
+	}).(InsightStringFilterArrayOutput)
+}
+
+// The current value of a security control parameter.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) ComplianceSecurityControlParametersValue() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.ComplianceSecurityControlParametersValue
+	}).(InsightStringFilterArrayOutput)
+}
+
+// Exclusive to findings that are generated as the result of a check run against a specific rule in a supported standard.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) ComplianceStatus() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.ComplianceStatus
+	}).(InsightStringFilterArrayOutput)
+}
+
+// A finding's confidence.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) Confidence() InsightNumberFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightNumberFilter {
+		if v == nil {
+			return nil
+		}
+		return v.Confidence
+	}).(InsightNumberFilterArrayOutput)
+}
+
+// An ISO8601-formatted timestamp that indicates when the security findings provider captured the potential security issue that a finding captured.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) CreatedAt() InsightDateFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightDateFilter {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedAt
+	}).(InsightDateFilterArrayOutput)
+}
+
+// The level of importance assigned to the resources associated with the finding.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) Criticality() InsightNumberFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightNumberFilter {
+		if v == nil {
+			return nil
+		}
+		return v.Criticality
+	}).(InsightNumberFilterArrayOutput)
+}
+
+// A finding's description.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) Description() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(InsightStringFilterArrayOutput)
+}
+
+// The finding provider value for the finding confidence.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) FindingProviderFieldsConfidence() InsightNumberFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightNumberFilter {
+		if v == nil {
+			return nil
+		}
+		return v.FindingProviderFieldsConfidence
+	}).(InsightNumberFilterArrayOutput)
+}
+
+// The finding provider value for the level of importance assigned to the resources associated with the findings.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) FindingProviderFieldsCriticality() InsightNumberFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightNumberFilter {
+		if v == nil {
+			return nil
+		}
+		return v.FindingProviderFieldsCriticality
+	}).(InsightNumberFilterArrayOutput)
+}
+
+// The finding identifier of a related finding that is identified by the finding provider.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) FindingProviderFieldsRelatedFindingsId() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.FindingProviderFieldsRelatedFindingsId
+	}).(InsightStringFilterArrayOutput)
+}
+
+// The ARN of the solution that generated a related finding that is identified by the finding provider.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) FindingProviderFieldsRelatedFindingsProductArn() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.FindingProviderFieldsRelatedFindingsProductArn
+	}).(InsightStringFilterArrayOutput)
+}
+
+// The finding provider value for the severity label.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) FindingProviderFieldsSeverityLabel() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.FindingProviderFieldsSeverityLabel
+	}).(InsightStringFilterArrayOutput)
+}
+
+// The finding provider's original value for the severity.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) FindingProviderFieldsSeverityOriginal() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.FindingProviderFieldsSeverityOriginal
+	}).(InsightStringFilterArrayOutput)
+}
+
+// One or more finding types that the finding provider assigned to the finding.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) FindingProviderFieldsTypes() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.FindingProviderFieldsTypes
+	}).(InsightStringFilterArrayOutput)
+}
+
+// An ISO8601-formatted timestamp that indicates when the security findings provider first observed the potential security issue that a finding captured.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) FirstObservedAt() InsightDateFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightDateFilter {
+		if v == nil {
+			return nil
+		}
+		return v.FirstObservedAt
+	}).(InsightDateFilterArrayOutput)
+}
+
+// The identifier for the solution-specific component (a discrete unit of logic) that generated a finding.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) GeneratorId() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.GeneratorId
+	}).(InsightStringFilterArrayOutput)
+}
+
+// The security findings provider-specific identifier for a finding.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) Id() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(InsightStringFilterArrayOutput)
+}
+
+// A keyword for a finding.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) Keyword() InsightKeywordFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightKeywordFilter {
+		if v == nil {
+			return nil
+		}
+		return v.Keyword
+	}).(InsightKeywordFilterArrayOutput)
+}
+
+// An ISO8601-formatted timestamp that indicates when the security findings provider most recently observed the potential security issue that a finding captured.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) LastObservedAt() InsightDateFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightDateFilter {
+		if v == nil {
+			return nil
+		}
+		return v.LastObservedAt
+	}).(InsightDateFilterArrayOutput)
+}
+
+// The name of the malware that was observed.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) MalwareName() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.MalwareName
+	}).(InsightStringFilterArrayOutput)
+}
+
+// The filesystem path of the malware that was observed.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) MalwarePath() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.MalwarePath
+	}).(InsightStringFilterArrayOutput)
+}
+
+// The state of the malware that was observed.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) MalwareState() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.MalwareState
+	}).(InsightStringFilterArrayOutput)
+}
+
+// The type of the malware that was observed.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) MalwareType() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.MalwareType
+	}).(InsightStringFilterArrayOutput)
+}
+
+// The destination domain of network-related information about a finding.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) NetworkDestinationDomain() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkDestinationDomain
+	}).(InsightStringFilterArrayOutput)
+}
+
+// The destination IPv4 address of network-related information about a finding.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) NetworkDestinationIpV4() InsightIpFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightIpFilter {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkDestinationIpV4
+	}).(InsightIpFilterArrayOutput)
+}
+
+// The destination IPv6 address of network-related information about a finding.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) NetworkDestinationIpV6() InsightIpFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightIpFilter {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkDestinationIpV6
+	}).(InsightIpFilterArrayOutput)
+}
+
+// The destination port of network-related information about a finding.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) NetworkDestinationPort() InsightNumberFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightNumberFilter {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkDestinationPort
+	}).(InsightNumberFilterArrayOutput)
+}
+
+// Indicates the direction of network traffic associated with a finding.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) NetworkDirection() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkDirection
+	}).(InsightStringFilterArrayOutput)
+}
+
+// The protocol of network-related information about a finding.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) NetworkProtocol() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkProtocol
+	}).(InsightStringFilterArrayOutput)
+}
+
+// The source domain of network-related information about a finding.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) NetworkSourceDomain() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkSourceDomain
+	}).(InsightStringFilterArrayOutput)
+}
+
+// The source IPv4 address of network-related information about a finding.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) NetworkSourceIpV4() InsightIpFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightIpFilter {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkSourceIpV4
+	}).(InsightIpFilterArrayOutput)
+}
+
+// The source IPv6 address of network-related information about a finding.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) NetworkSourceIpV6() InsightIpFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightIpFilter {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkSourceIpV6
+	}).(InsightIpFilterArrayOutput)
+}
+
+// The source media access control (MAC) address of network-related information about a finding.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) NetworkSourceMac() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkSourceMac
+	}).(InsightStringFilterArrayOutput)
+}
+
+// The source port of network-related information about a finding.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) NetworkSourcePort() InsightNumberFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightNumberFilter {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkSourcePort
+	}).(InsightNumberFilterArrayOutput)
+}
+
+// The text of a note.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) NoteText() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.NoteText
+	}).(InsightStringFilterArrayOutput)
+}
+
+// The timestamp of when the note was updated.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) NoteUpdatedAt() InsightDateFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightDateFilter {
+		if v == nil {
+			return nil
+		}
+		return v.NoteUpdatedAt
+	}).(InsightDateFilterArrayOutput)
+}
+
+// The principal that created a note.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) NoteUpdatedBy() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.NoteUpdatedBy
+	}).(InsightStringFilterArrayOutput)
+}
+
+// A timestamp that identifies when the process was launched.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) ProcessLaunchedAt() InsightDateFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightDateFilter {
+		if v == nil {
+			return nil
+		}
+		return v.ProcessLaunchedAt
+	}).(InsightDateFilterArrayOutput)
+}
+
+// The name of the process.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) ProcessName() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.ProcessName
+	}).(InsightStringFilterArrayOutput)
+}
+
+// The parent process ID.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) ProcessParentPid() InsightNumberFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightNumberFilter {
+		if v == nil {
+			return nil
+		}
+		return v.ProcessParentPid
+	}).(InsightNumberFilterArrayOutput)
+}
+
+// The path to the process executable.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) ProcessPath() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.ProcessPath
+	}).(InsightStringFilterArrayOutput)
+}
+
+// The process ID.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) ProcessPid() InsightNumberFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightNumberFilter {
+		if v == nil {
+			return nil
+		}
+		return v.ProcessPid
+	}).(InsightNumberFilterArrayOutput)
+}
+
+// A timestamp that identifies when the process was terminated.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) ProcessTerminatedAt() InsightDateFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightDateFilter {
+		if v == nil {
+			return nil
+		}
+		return v.ProcessTerminatedAt
+	}).(InsightDateFilterArrayOutput)
+}
+
+// The ARN generated by Security Hub that uniquely identifies a third-party company (security findings provider) after this provider's product (solution that generates findings) is registered with Security Hub.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) ProductArn() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.ProductArn
+	}).(InsightStringFilterArrayOutput)
+}
+
+// A data type where security findings providers can include additional solution-specific details that aren't part of the defined AwsSecurityFinding format.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) ProductFields() InsightMapFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightMapFilter {
+		if v == nil {
+			return nil
+		}
+		return v.ProductFields
+	}).(InsightMapFilterArrayOutput)
+}
+
+// The name of the solution (product) that generates findings.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) ProductName() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.ProductName
+	}).(InsightStringFilterArrayOutput)
+}
+
+// The recommendation of what to do about the issue described in a finding.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) RecommendationText() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.RecommendationText
+	}).(InsightStringFilterArrayOutput)
+}
+
+// The updated record state for the finding.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) RecordState() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.RecordState
+	}).(InsightStringFilterArrayOutput)
+}
+
+// The Region from which the finding was generated.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) Region() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.Region
+	}).(InsightStringFilterArrayOutput)
+}
+
+// The solution-generated identifier for a related finding.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) RelatedFindingsId() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.RelatedFindingsId
+	}).(InsightStringFilterArrayOutput)
+}
+
+// The ARN of the solution that generated a related finding.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) RelatedFindingsProductArn() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.RelatedFindingsProductArn
+	}).(InsightStringFilterArrayOutput)
+}
+
+// The ARN of the application that is related to a finding.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) ResourceApplicationArn() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceApplicationArn
+	}).(InsightStringFilterArrayOutput)
+}
+
+// The name of the application that is related to a finding.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) ResourceApplicationName() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceApplicationName
+	}).(InsightStringFilterArrayOutput)
+}
+
+// The IAM profile ARN of the instance.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) ResourceAwsEc2InstanceIamInstanceProfileArn() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceAwsEc2InstanceIamInstanceProfileArn
+	}).(InsightStringFilterArrayOutput)
+}
+
+// The Amazon Machine Image (AMI) ID of the instance.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) ResourceAwsEc2InstanceImageId() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceAwsEc2InstanceImageId
+	}).(InsightStringFilterArrayOutput)
+}
+
+// The IPv4 addresses associated with the instance.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) ResourceAwsEc2InstanceIpV4Addresses() InsightIpFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightIpFilter {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceAwsEc2InstanceIpV4Addresses
+	}).(InsightIpFilterArrayOutput)
+}
+
+// The IPv6 addresses associated with the instance.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) ResourceAwsEc2InstanceIpV6Addresses() InsightIpFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightIpFilter {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceAwsEc2InstanceIpV6Addresses
+	}).(InsightIpFilterArrayOutput)
+}
+
+// The key name associated with the instance.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) ResourceAwsEc2InstanceKeyName() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceAwsEc2InstanceKeyName
+	}).(InsightStringFilterArrayOutput)
+}
+
+// The date and time the instance was launched.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) ResourceAwsEc2InstanceLaunchedAt() InsightDateFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightDateFilter {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceAwsEc2InstanceLaunchedAt
+	}).(InsightDateFilterArrayOutput)
+}
+
+// The identifier of the subnet that the instance was launched in.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) ResourceAwsEc2InstanceSubnetId() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceAwsEc2InstanceSubnetId
+	}).(InsightStringFilterArrayOutput)
+}
+
+// The instance type of the instance.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) ResourceAwsEc2InstanceType() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceAwsEc2InstanceType
+	}).(InsightStringFilterArrayOutput)
+}
+
+// The identifier of the VPC that the instance was launched in.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) ResourceAwsEc2InstanceVpcId() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceAwsEc2InstanceVpcId
+	}).(InsightStringFilterArrayOutput)
+}
+
+// The creation date/time of the IAM access key related to a finding.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) ResourceAwsIamAccessKeyCreatedAt() InsightDateFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightDateFilter {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceAwsIamAccessKeyCreatedAt
+	}).(InsightDateFilterArrayOutput)
+}
+
+// The name of the principal that is associated with an IAM access key.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) ResourceAwsIamAccessKeyPrincipalName() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceAwsIamAccessKeyPrincipalName
+	}).(InsightStringFilterArrayOutput)
+}
+
+// The status of the IAM access key related to a finding.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) ResourceAwsIamAccessKeyStatus() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceAwsIamAccessKeyStatus
+	}).(InsightStringFilterArrayOutput)
+}
+
+// The user associated with the IAM access key related to a finding.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) ResourceAwsIamAccessKeyUserName() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceAwsIamAccessKeyUserName
+	}).(InsightStringFilterArrayOutput)
+}
+
+// The name of an IAM user.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) ResourceAwsIamUserUserName() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceAwsIamUserUserName
+	}).(InsightStringFilterArrayOutput)
+}
+
+// The canonical user ID of the owner of the S3 bucket.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) ResourceAwsS3BucketOwnerId() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceAwsS3BucketOwnerId
+	}).(InsightStringFilterArrayOutput)
+}
+
+// The display name of the owner of the S3 bucket.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) ResourceAwsS3BucketOwnerName() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceAwsS3BucketOwnerName
+	}).(InsightStringFilterArrayOutput)
+}
+
+// The identifier of the image related to a finding.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) ResourceContainerImageId() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceContainerImageId
+	}).(InsightStringFilterArrayOutput)
+}
+
+// The name of the image related to a finding.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) ResourceContainerImageName() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceContainerImageName
+	}).(InsightStringFilterArrayOutput)
+}
+
+// A timestamp that identifies when the container was started.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) ResourceContainerLaunchedAt() InsightDateFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightDateFilter {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceContainerLaunchedAt
+	}).(InsightDateFilterArrayOutput)
+}
+
+// The name of the container related to a finding.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) ResourceContainerName() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceContainerName
+	}).(InsightStringFilterArrayOutput)
+}
+
+// The details of a resource that doesn't have a specific subfield for the resource type defined.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) ResourceDetailsOther() InsightMapFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightMapFilter {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceDetailsOther
+	}).(InsightMapFilterArrayOutput)
+}
+
+// The canonical identifier for the given resource type.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) ResourceId() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceId
+	}).(InsightStringFilterArrayOutput)
+}
+
+// The canonical AWS partition name that the Region is assigned to.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) ResourcePartition() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.ResourcePartition
+	}).(InsightStringFilterArrayOutput)
+}
+
+// The canonical AWS external Region name where this resource is located.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) ResourceRegion() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceRegion
+	}).(InsightStringFilterArrayOutput)
+}
+
+// A list of AWS tags associated with a resource at the time the finding was processed.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) ResourceTags() InsightMapFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightMapFilter {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceTags
+	}).(InsightMapFilterArrayOutput)
+}
+
+// Specifies the type of the resource that details are provided for.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) ResourceType() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceType
+	}).(InsightStringFilterArrayOutput)
+}
+
+// Indicates whether or not sample findings are included in the filter results.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) Sample() InsightBooleanFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightBooleanFilter {
+		if v == nil {
+			return nil
+		}
+		return v.Sample
+	}).(InsightBooleanFilterArrayOutput)
+}
+
+// The label of a finding's severity.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) SeverityLabel() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.SeverityLabel
+	}).(InsightStringFilterArrayOutput)
+}
+
+// The normalized severity of a finding.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) SeverityNormalized() InsightNumberFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightNumberFilter {
+		if v == nil {
+			return nil
+		}
+		return v.SeverityNormalized
+	}).(InsightNumberFilterArrayOutput)
+}
+
+// The native severity as defined by the security findings provider's solution that generated the finding.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) SeverityProduct() InsightNumberFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightNumberFilter {
+		if v == nil {
+			return nil
+		}
+		return v.SeverityProduct
+	}).(InsightNumberFilterArrayOutput)
+}
+
+// A URL that links to a page about the current finding in the security findings provider's solution.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) SourceUrl() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.SourceUrl
+	}).(InsightStringFilterArrayOutput)
+}
+
+// The category of a threat intelligence indicator.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) ThreatIntelIndicatorCategory() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.ThreatIntelIndicatorCategory
+	}).(InsightStringFilterArrayOutput)
+}
+
+// A timestamp that identifies the last observation of a threat intelligence indicator.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) ThreatIntelIndicatorLastObservedAt() InsightDateFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightDateFilter {
+		if v == nil {
+			return nil
+		}
+		return v.ThreatIntelIndicatorLastObservedAt
+	}).(InsightDateFilterArrayOutput)
+}
+
+// The source of the threat intelligence.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) ThreatIntelIndicatorSource() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.ThreatIntelIndicatorSource
+	}).(InsightStringFilterArrayOutput)
+}
+
+// The URL for more details from the source of the threat intelligence.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) ThreatIntelIndicatorSourceUrl() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.ThreatIntelIndicatorSourceUrl
+	}).(InsightStringFilterArrayOutput)
+}
+
+// The type of a threat intelligence indicator.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) ThreatIntelIndicatorType() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.ThreatIntelIndicatorType
+	}).(InsightStringFilterArrayOutput)
+}
+
+// The value of a threat intelligence indicator.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) ThreatIntelIndicatorValue() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.ThreatIntelIndicatorValue
+	}).(InsightStringFilterArrayOutput)
+}
+
+// A finding's title.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) Title() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.Title
+	}).(InsightStringFilterArrayOutput)
+}
+
+// A finding type in the format of namespace/category/classifier that classifies a finding.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) Type() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(InsightStringFilterArrayOutput)
+}
+
+// An ISO8601-formatted timestamp that indicates when the security findings provider last updated the finding record.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) UpdatedAt() InsightDateFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightDateFilter {
+		if v == nil {
+			return nil
+		}
+		return v.UpdatedAt
+	}).(InsightDateFilterArrayOutput)
+}
+
+// A list of name/value string pairs associated with the finding.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) UserDefinedFields() InsightMapFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightMapFilter {
+		if v == nil {
+			return nil
+		}
+		return v.UserDefinedFields
+	}).(InsightMapFilterArrayOutput)
+}
+
+// The veracity of a finding.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) VerificationState() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.VerificationState
+	}).(InsightStringFilterArrayOutput)
+}
+
+// Indicates whether a software vulnerability in your environment has a known exploit.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) VulnerabilitiesExploitAvailable() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.VulnerabilitiesExploitAvailable
+	}).(InsightStringFilterArrayOutput)
+}
+
+// Indicates whether a vulnerability is fixed in a newer version of the affected software packages.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) VulnerabilitiesFixAvailable() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.VulnerabilitiesFixAvailable
+	}).(InsightStringFilterArrayOutput)
+}
+
+// The workflow state of a finding.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) WorkflowState() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.WorkflowState
+	}).(InsightStringFilterArrayOutput)
+}
+
+// The status of the investigation into a finding.
+func (o InsightAwsSecurityFindingFiltersPtrOutput) WorkflowStatus() InsightStringFilterArrayOutput {
+	return o.ApplyT(func(v *InsightAwsSecurityFindingFilters) []InsightStringFilter {
+		if v == nil {
+			return nil
+		}
+		return v.WorkflowStatus
+	}).(InsightStringFilterArrayOutput)
+}
+
+// Boolean filter for querying findings.
+type InsightBooleanFilter struct {
+	// The value of the boolean.
+	Value bool `pulumi:"value"`
+}
+
+// InsightBooleanFilterInput is an input type that accepts InsightBooleanFilterArgs and InsightBooleanFilterOutput values.
+// You can construct a concrete instance of `InsightBooleanFilterInput` via:
+//
+//	InsightBooleanFilterArgs{...}
+type InsightBooleanFilterInput interface {
+	pulumi.Input
+
+	ToInsightBooleanFilterOutput() InsightBooleanFilterOutput
+	ToInsightBooleanFilterOutputWithContext(context.Context) InsightBooleanFilterOutput
+}
+
+// Boolean filter for querying findings.
+type InsightBooleanFilterArgs struct {
+	// The value of the boolean.
+	Value pulumi.BoolInput `pulumi:"value"`
+}
+
+func (InsightBooleanFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InsightBooleanFilter)(nil)).Elem()
+}
+
+func (i InsightBooleanFilterArgs) ToInsightBooleanFilterOutput() InsightBooleanFilterOutput {
+	return i.ToInsightBooleanFilterOutputWithContext(context.Background())
+}
+
+func (i InsightBooleanFilterArgs) ToInsightBooleanFilterOutputWithContext(ctx context.Context) InsightBooleanFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InsightBooleanFilterOutput)
+}
+
+// InsightBooleanFilterArrayInput is an input type that accepts InsightBooleanFilterArray and InsightBooleanFilterArrayOutput values.
+// You can construct a concrete instance of `InsightBooleanFilterArrayInput` via:
+//
+//	InsightBooleanFilterArray{ InsightBooleanFilterArgs{...} }
+type InsightBooleanFilterArrayInput interface {
+	pulumi.Input
+
+	ToInsightBooleanFilterArrayOutput() InsightBooleanFilterArrayOutput
+	ToInsightBooleanFilterArrayOutputWithContext(context.Context) InsightBooleanFilterArrayOutput
+}
+
+type InsightBooleanFilterArray []InsightBooleanFilterInput
+
+func (InsightBooleanFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InsightBooleanFilter)(nil)).Elem()
+}
+
+func (i InsightBooleanFilterArray) ToInsightBooleanFilterArrayOutput() InsightBooleanFilterArrayOutput {
+	return i.ToInsightBooleanFilterArrayOutputWithContext(context.Background())
+}
+
+func (i InsightBooleanFilterArray) ToInsightBooleanFilterArrayOutputWithContext(ctx context.Context) InsightBooleanFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InsightBooleanFilterArrayOutput)
+}
+
+// Boolean filter for querying findings.
+type InsightBooleanFilterOutput struct{ *pulumi.OutputState }
+
+func (InsightBooleanFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InsightBooleanFilter)(nil)).Elem()
+}
+
+func (o InsightBooleanFilterOutput) ToInsightBooleanFilterOutput() InsightBooleanFilterOutput {
+	return o
+}
+
+func (o InsightBooleanFilterOutput) ToInsightBooleanFilterOutputWithContext(ctx context.Context) InsightBooleanFilterOutput {
+	return o
+}
+
+// The value of the boolean.
+func (o InsightBooleanFilterOutput) Value() pulumi.BoolOutput {
+	return o.ApplyT(func(v InsightBooleanFilter) bool { return v.Value }).(pulumi.BoolOutput)
+}
+
+type InsightBooleanFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (InsightBooleanFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InsightBooleanFilter)(nil)).Elem()
+}
+
+func (o InsightBooleanFilterArrayOutput) ToInsightBooleanFilterArrayOutput() InsightBooleanFilterArrayOutput {
+	return o
+}
+
+func (o InsightBooleanFilterArrayOutput) ToInsightBooleanFilterArrayOutputWithContext(ctx context.Context) InsightBooleanFilterArrayOutput {
+	return o
+}
+
+func (o InsightBooleanFilterArrayOutput) Index(i pulumi.IntInput) InsightBooleanFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InsightBooleanFilter {
+		return vs[0].([]InsightBooleanFilter)[vs[1].(int)]
+	}).(InsightBooleanFilterOutput)
+}
+
+// A date filter for querying findings.
+type InsightDateFilter struct {
+	DateRange *InsightDateRange `pulumi:"dateRange"`
+	End       *string           `pulumi:"end"`
+	Start     *string           `pulumi:"start"`
+}
+
+// InsightDateFilterInput is an input type that accepts InsightDateFilterArgs and InsightDateFilterOutput values.
+// You can construct a concrete instance of `InsightDateFilterInput` via:
+//
+//	InsightDateFilterArgs{...}
+type InsightDateFilterInput interface {
+	pulumi.Input
+
+	ToInsightDateFilterOutput() InsightDateFilterOutput
+	ToInsightDateFilterOutputWithContext(context.Context) InsightDateFilterOutput
+}
+
+// A date filter for querying findings.
+type InsightDateFilterArgs struct {
+	DateRange InsightDateRangePtrInput `pulumi:"dateRange"`
+	End       pulumi.StringPtrInput    `pulumi:"end"`
+	Start     pulumi.StringPtrInput    `pulumi:"start"`
+}
+
+func (InsightDateFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InsightDateFilter)(nil)).Elem()
+}
+
+func (i InsightDateFilterArgs) ToInsightDateFilterOutput() InsightDateFilterOutput {
+	return i.ToInsightDateFilterOutputWithContext(context.Background())
+}
+
+func (i InsightDateFilterArgs) ToInsightDateFilterOutputWithContext(ctx context.Context) InsightDateFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InsightDateFilterOutput)
+}
+
+// InsightDateFilterArrayInput is an input type that accepts InsightDateFilterArray and InsightDateFilterArrayOutput values.
+// You can construct a concrete instance of `InsightDateFilterArrayInput` via:
+//
+//	InsightDateFilterArray{ InsightDateFilterArgs{...} }
+type InsightDateFilterArrayInput interface {
+	pulumi.Input
+
+	ToInsightDateFilterArrayOutput() InsightDateFilterArrayOutput
+	ToInsightDateFilterArrayOutputWithContext(context.Context) InsightDateFilterArrayOutput
+}
+
+type InsightDateFilterArray []InsightDateFilterInput
+
+func (InsightDateFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InsightDateFilter)(nil)).Elem()
+}
+
+func (i InsightDateFilterArray) ToInsightDateFilterArrayOutput() InsightDateFilterArrayOutput {
+	return i.ToInsightDateFilterArrayOutputWithContext(context.Background())
+}
+
+func (i InsightDateFilterArray) ToInsightDateFilterArrayOutputWithContext(ctx context.Context) InsightDateFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InsightDateFilterArrayOutput)
+}
+
+// A date filter for querying findings.
+type InsightDateFilterOutput struct{ *pulumi.OutputState }
+
+func (InsightDateFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InsightDateFilter)(nil)).Elem()
+}
+
+func (o InsightDateFilterOutput) ToInsightDateFilterOutput() InsightDateFilterOutput {
+	return o
+}
+
+func (o InsightDateFilterOutput) ToInsightDateFilterOutputWithContext(ctx context.Context) InsightDateFilterOutput {
+	return o
+}
+
+func (o InsightDateFilterOutput) DateRange() InsightDateRangePtrOutput {
+	return o.ApplyT(func(v InsightDateFilter) *InsightDateRange { return v.DateRange }).(InsightDateRangePtrOutput)
+}
+
+func (o InsightDateFilterOutput) End() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InsightDateFilter) *string { return v.End }).(pulumi.StringPtrOutput)
+}
+
+func (o InsightDateFilterOutput) Start() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InsightDateFilter) *string { return v.Start }).(pulumi.StringPtrOutput)
+}
+
+type InsightDateFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (InsightDateFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InsightDateFilter)(nil)).Elem()
+}
+
+func (o InsightDateFilterArrayOutput) ToInsightDateFilterArrayOutput() InsightDateFilterArrayOutput {
+	return o
+}
+
+func (o InsightDateFilterArrayOutput) ToInsightDateFilterArrayOutputWithContext(ctx context.Context) InsightDateFilterArrayOutput {
+	return o
+}
+
+func (o InsightDateFilterArrayOutput) Index(i pulumi.IntInput) InsightDateFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InsightDateFilter {
+		return vs[0].([]InsightDateFilter)[vs[1].(int)]
+	}).(InsightDateFilterOutput)
+}
+
+// A date range for the date filter.
+type InsightDateRange struct {
+	// A date range unit for the date filter.
+	Unit InsightDateRangeUnit `pulumi:"unit"`
+	// A date range value for the date filter.
+	Value float64 `pulumi:"value"`
+}
+
+// InsightDateRangeInput is an input type that accepts InsightDateRangeArgs and InsightDateRangeOutput values.
+// You can construct a concrete instance of `InsightDateRangeInput` via:
+//
+//	InsightDateRangeArgs{...}
+type InsightDateRangeInput interface {
+	pulumi.Input
+
+	ToInsightDateRangeOutput() InsightDateRangeOutput
+	ToInsightDateRangeOutputWithContext(context.Context) InsightDateRangeOutput
+}
+
+// A date range for the date filter.
+type InsightDateRangeArgs struct {
+	// A date range unit for the date filter.
+	Unit InsightDateRangeUnitInput `pulumi:"unit"`
+	// A date range value for the date filter.
+	Value pulumi.Float64Input `pulumi:"value"`
+}
+
+func (InsightDateRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InsightDateRange)(nil)).Elem()
+}
+
+func (i InsightDateRangeArgs) ToInsightDateRangeOutput() InsightDateRangeOutput {
+	return i.ToInsightDateRangeOutputWithContext(context.Background())
+}
+
+func (i InsightDateRangeArgs) ToInsightDateRangeOutputWithContext(ctx context.Context) InsightDateRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InsightDateRangeOutput)
+}
+
+func (i InsightDateRangeArgs) ToInsightDateRangePtrOutput() InsightDateRangePtrOutput {
+	return i.ToInsightDateRangePtrOutputWithContext(context.Background())
+}
+
+func (i InsightDateRangeArgs) ToInsightDateRangePtrOutputWithContext(ctx context.Context) InsightDateRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InsightDateRangeOutput).ToInsightDateRangePtrOutputWithContext(ctx)
+}
+
+// InsightDateRangePtrInput is an input type that accepts InsightDateRangeArgs, InsightDateRangePtr and InsightDateRangePtrOutput values.
+// You can construct a concrete instance of `InsightDateRangePtrInput` via:
+//
+//	        InsightDateRangeArgs{...}
+//
+//	or:
+//
+//	        nil
+type InsightDateRangePtrInput interface {
+	pulumi.Input
+
+	ToInsightDateRangePtrOutput() InsightDateRangePtrOutput
+	ToInsightDateRangePtrOutputWithContext(context.Context) InsightDateRangePtrOutput
+}
+
+type insightDateRangePtrType InsightDateRangeArgs
+
+func InsightDateRangePtr(v *InsightDateRangeArgs) InsightDateRangePtrInput {
+	return (*insightDateRangePtrType)(v)
+}
+
+func (*insightDateRangePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InsightDateRange)(nil)).Elem()
+}
+
+func (i *insightDateRangePtrType) ToInsightDateRangePtrOutput() InsightDateRangePtrOutput {
+	return i.ToInsightDateRangePtrOutputWithContext(context.Background())
+}
+
+func (i *insightDateRangePtrType) ToInsightDateRangePtrOutputWithContext(ctx context.Context) InsightDateRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InsightDateRangePtrOutput)
+}
+
+// A date range for the date filter.
+type InsightDateRangeOutput struct{ *pulumi.OutputState }
+
+func (InsightDateRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InsightDateRange)(nil)).Elem()
+}
+
+func (o InsightDateRangeOutput) ToInsightDateRangeOutput() InsightDateRangeOutput {
+	return o
+}
+
+func (o InsightDateRangeOutput) ToInsightDateRangeOutputWithContext(ctx context.Context) InsightDateRangeOutput {
+	return o
+}
+
+func (o InsightDateRangeOutput) ToInsightDateRangePtrOutput() InsightDateRangePtrOutput {
+	return o.ToInsightDateRangePtrOutputWithContext(context.Background())
+}
+
+func (o InsightDateRangeOutput) ToInsightDateRangePtrOutputWithContext(ctx context.Context) InsightDateRangePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InsightDateRange) *InsightDateRange {
+		return &v
+	}).(InsightDateRangePtrOutput)
+}
+
+// A date range unit for the date filter.
+func (o InsightDateRangeOutput) Unit() InsightDateRangeUnitOutput {
+	return o.ApplyT(func(v InsightDateRange) InsightDateRangeUnit { return v.Unit }).(InsightDateRangeUnitOutput)
+}
+
+// A date range value for the date filter.
+func (o InsightDateRangeOutput) Value() pulumi.Float64Output {
+	return o.ApplyT(func(v InsightDateRange) float64 { return v.Value }).(pulumi.Float64Output)
+}
+
+type InsightDateRangePtrOutput struct{ *pulumi.OutputState }
+
+func (InsightDateRangePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InsightDateRange)(nil)).Elem()
+}
+
+func (o InsightDateRangePtrOutput) ToInsightDateRangePtrOutput() InsightDateRangePtrOutput {
+	return o
+}
+
+func (o InsightDateRangePtrOutput) ToInsightDateRangePtrOutputWithContext(ctx context.Context) InsightDateRangePtrOutput {
+	return o
+}
+
+func (o InsightDateRangePtrOutput) Elem() InsightDateRangeOutput {
+	return o.ApplyT(func(v *InsightDateRange) InsightDateRange {
+		if v != nil {
+			return *v
+		}
+		var ret InsightDateRange
+		return ret
+	}).(InsightDateRangeOutput)
+}
+
+// A date range unit for the date filter.
+func (o InsightDateRangePtrOutput) Unit() InsightDateRangeUnitPtrOutput {
+	return o.ApplyT(func(v *InsightDateRange) *InsightDateRangeUnit {
+		if v == nil {
+			return nil
+		}
+		return &v.Unit
+	}).(InsightDateRangeUnitPtrOutput)
+}
+
+// A date range value for the date filter.
+func (o InsightDateRangePtrOutput) Value() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *InsightDateRange) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The IP filter for querying findings.
+type InsightIpFilter struct {
+	// A finding's CIDR value.
+	Cidr string `pulumi:"cidr"`
+}
+
+// InsightIpFilterInput is an input type that accepts InsightIpFilterArgs and InsightIpFilterOutput values.
+// You can construct a concrete instance of `InsightIpFilterInput` via:
+//
+//	InsightIpFilterArgs{...}
+type InsightIpFilterInput interface {
+	pulumi.Input
+
+	ToInsightIpFilterOutput() InsightIpFilterOutput
+	ToInsightIpFilterOutputWithContext(context.Context) InsightIpFilterOutput
+}
+
+// The IP filter for querying findings.
+type InsightIpFilterArgs struct {
+	// A finding's CIDR value.
+	Cidr pulumi.StringInput `pulumi:"cidr"`
+}
+
+func (InsightIpFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InsightIpFilter)(nil)).Elem()
+}
+
+func (i InsightIpFilterArgs) ToInsightIpFilterOutput() InsightIpFilterOutput {
+	return i.ToInsightIpFilterOutputWithContext(context.Background())
+}
+
+func (i InsightIpFilterArgs) ToInsightIpFilterOutputWithContext(ctx context.Context) InsightIpFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InsightIpFilterOutput)
+}
+
+// InsightIpFilterArrayInput is an input type that accepts InsightIpFilterArray and InsightIpFilterArrayOutput values.
+// You can construct a concrete instance of `InsightIpFilterArrayInput` via:
+//
+//	InsightIpFilterArray{ InsightIpFilterArgs{...} }
+type InsightIpFilterArrayInput interface {
+	pulumi.Input
+
+	ToInsightIpFilterArrayOutput() InsightIpFilterArrayOutput
+	ToInsightIpFilterArrayOutputWithContext(context.Context) InsightIpFilterArrayOutput
+}
+
+type InsightIpFilterArray []InsightIpFilterInput
+
+func (InsightIpFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InsightIpFilter)(nil)).Elem()
+}
+
+func (i InsightIpFilterArray) ToInsightIpFilterArrayOutput() InsightIpFilterArrayOutput {
+	return i.ToInsightIpFilterArrayOutputWithContext(context.Background())
+}
+
+func (i InsightIpFilterArray) ToInsightIpFilterArrayOutputWithContext(ctx context.Context) InsightIpFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InsightIpFilterArrayOutput)
+}
+
+// The IP filter for querying findings.
+type InsightIpFilterOutput struct{ *pulumi.OutputState }
+
+func (InsightIpFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InsightIpFilter)(nil)).Elem()
+}
+
+func (o InsightIpFilterOutput) ToInsightIpFilterOutput() InsightIpFilterOutput {
+	return o
+}
+
+func (o InsightIpFilterOutput) ToInsightIpFilterOutputWithContext(ctx context.Context) InsightIpFilterOutput {
+	return o
+}
+
+// A finding's CIDR value.
+func (o InsightIpFilterOutput) Cidr() pulumi.StringOutput {
+	return o.ApplyT(func(v InsightIpFilter) string { return v.Cidr }).(pulumi.StringOutput)
+}
+
+type InsightIpFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (InsightIpFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InsightIpFilter)(nil)).Elem()
+}
+
+func (o InsightIpFilterArrayOutput) ToInsightIpFilterArrayOutput() InsightIpFilterArrayOutput {
+	return o
+}
+
+func (o InsightIpFilterArrayOutput) ToInsightIpFilterArrayOutputWithContext(ctx context.Context) InsightIpFilterArrayOutput {
+	return o
+}
+
+func (o InsightIpFilterArrayOutput) Index(i pulumi.IntInput) InsightIpFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InsightIpFilter {
+		return vs[0].([]InsightIpFilter)[vs[1].(int)]
+	}).(InsightIpFilterOutput)
+}
+
+// A keyword filter for querying findings.
+type InsightKeywordFilter struct {
+	// A value for the keyword.
+	Value string `pulumi:"value"`
+}
+
+// InsightKeywordFilterInput is an input type that accepts InsightKeywordFilterArgs and InsightKeywordFilterOutput values.
+// You can construct a concrete instance of `InsightKeywordFilterInput` via:
+//
+//	InsightKeywordFilterArgs{...}
+type InsightKeywordFilterInput interface {
+	pulumi.Input
+
+	ToInsightKeywordFilterOutput() InsightKeywordFilterOutput
+	ToInsightKeywordFilterOutputWithContext(context.Context) InsightKeywordFilterOutput
+}
+
+// A keyword filter for querying findings.
+type InsightKeywordFilterArgs struct {
+	// A value for the keyword.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (InsightKeywordFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InsightKeywordFilter)(nil)).Elem()
+}
+
+func (i InsightKeywordFilterArgs) ToInsightKeywordFilterOutput() InsightKeywordFilterOutput {
+	return i.ToInsightKeywordFilterOutputWithContext(context.Background())
+}
+
+func (i InsightKeywordFilterArgs) ToInsightKeywordFilterOutputWithContext(ctx context.Context) InsightKeywordFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InsightKeywordFilterOutput)
+}
+
+// InsightKeywordFilterArrayInput is an input type that accepts InsightKeywordFilterArray and InsightKeywordFilterArrayOutput values.
+// You can construct a concrete instance of `InsightKeywordFilterArrayInput` via:
+//
+//	InsightKeywordFilterArray{ InsightKeywordFilterArgs{...} }
+type InsightKeywordFilterArrayInput interface {
+	pulumi.Input
+
+	ToInsightKeywordFilterArrayOutput() InsightKeywordFilterArrayOutput
+	ToInsightKeywordFilterArrayOutputWithContext(context.Context) InsightKeywordFilterArrayOutput
+}
+
+type InsightKeywordFilterArray []InsightKeywordFilterInput
+
+func (InsightKeywordFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InsightKeywordFilter)(nil)).Elem()
+}
+
+func (i InsightKeywordFilterArray) ToInsightKeywordFilterArrayOutput() InsightKeywordFilterArrayOutput {
+	return i.ToInsightKeywordFilterArrayOutputWithContext(context.Background())
+}
+
+func (i InsightKeywordFilterArray) ToInsightKeywordFilterArrayOutputWithContext(ctx context.Context) InsightKeywordFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InsightKeywordFilterArrayOutput)
+}
+
+// A keyword filter for querying findings.
+type InsightKeywordFilterOutput struct{ *pulumi.OutputState }
+
+func (InsightKeywordFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InsightKeywordFilter)(nil)).Elem()
+}
+
+func (o InsightKeywordFilterOutput) ToInsightKeywordFilterOutput() InsightKeywordFilterOutput {
+	return o
+}
+
+func (o InsightKeywordFilterOutput) ToInsightKeywordFilterOutputWithContext(ctx context.Context) InsightKeywordFilterOutput {
+	return o
+}
+
+// A value for the keyword.
+func (o InsightKeywordFilterOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v InsightKeywordFilter) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type InsightKeywordFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (InsightKeywordFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InsightKeywordFilter)(nil)).Elem()
+}
+
+func (o InsightKeywordFilterArrayOutput) ToInsightKeywordFilterArrayOutput() InsightKeywordFilterArrayOutput {
+	return o
+}
+
+func (o InsightKeywordFilterArrayOutput) ToInsightKeywordFilterArrayOutputWithContext(ctx context.Context) InsightKeywordFilterArrayOutput {
+	return o
+}
+
+func (o InsightKeywordFilterArrayOutput) Index(i pulumi.IntInput) InsightKeywordFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InsightKeywordFilter {
+		return vs[0].([]InsightKeywordFilter)[vs[1].(int)]
+	}).(InsightKeywordFilterOutput)
+}
+
+// A map filter for filtering AWS Security Hub findings.
+type InsightMapFilter struct {
+	// The condition to apply to the key value when filtering Security Hub findings with a map filter.
+	Comparison InsightMapFilterComparison `pulumi:"comparison"`
+	Key        string                     `pulumi:"key"`
+	Value      string                     `pulumi:"value"`
+}
+
+// InsightMapFilterInput is an input type that accepts InsightMapFilterArgs and InsightMapFilterOutput values.
+// You can construct a concrete instance of `InsightMapFilterInput` via:
+//
+//	InsightMapFilterArgs{...}
+type InsightMapFilterInput interface {
+	pulumi.Input
+
+	ToInsightMapFilterOutput() InsightMapFilterOutput
+	ToInsightMapFilterOutputWithContext(context.Context) InsightMapFilterOutput
+}
+
+// A map filter for filtering AWS Security Hub findings.
+type InsightMapFilterArgs struct {
+	// The condition to apply to the key value when filtering Security Hub findings with a map filter.
+	Comparison InsightMapFilterComparisonInput `pulumi:"comparison"`
+	Key        pulumi.StringInput              `pulumi:"key"`
+	Value      pulumi.StringInput              `pulumi:"value"`
+}
+
+func (InsightMapFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InsightMapFilter)(nil)).Elem()
+}
+
+func (i InsightMapFilterArgs) ToInsightMapFilterOutput() InsightMapFilterOutput {
+	return i.ToInsightMapFilterOutputWithContext(context.Background())
+}
+
+func (i InsightMapFilterArgs) ToInsightMapFilterOutputWithContext(ctx context.Context) InsightMapFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InsightMapFilterOutput)
+}
+
+// InsightMapFilterArrayInput is an input type that accepts InsightMapFilterArray and InsightMapFilterArrayOutput values.
+// You can construct a concrete instance of `InsightMapFilterArrayInput` via:
+//
+//	InsightMapFilterArray{ InsightMapFilterArgs{...} }
+type InsightMapFilterArrayInput interface {
+	pulumi.Input
+
+	ToInsightMapFilterArrayOutput() InsightMapFilterArrayOutput
+	ToInsightMapFilterArrayOutputWithContext(context.Context) InsightMapFilterArrayOutput
+}
+
+type InsightMapFilterArray []InsightMapFilterInput
+
+func (InsightMapFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InsightMapFilter)(nil)).Elem()
+}
+
+func (i InsightMapFilterArray) ToInsightMapFilterArrayOutput() InsightMapFilterArrayOutput {
+	return i.ToInsightMapFilterArrayOutputWithContext(context.Background())
+}
+
+func (i InsightMapFilterArray) ToInsightMapFilterArrayOutputWithContext(ctx context.Context) InsightMapFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InsightMapFilterArrayOutput)
+}
+
+// A map filter for filtering AWS Security Hub findings.
+type InsightMapFilterOutput struct{ *pulumi.OutputState }
+
+func (InsightMapFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InsightMapFilter)(nil)).Elem()
+}
+
+func (o InsightMapFilterOutput) ToInsightMapFilterOutput() InsightMapFilterOutput {
+	return o
+}
+
+func (o InsightMapFilterOutput) ToInsightMapFilterOutputWithContext(ctx context.Context) InsightMapFilterOutput {
+	return o
+}
+
+// The condition to apply to the key value when filtering Security Hub findings with a map filter.
+func (o InsightMapFilterOutput) Comparison() InsightMapFilterComparisonOutput {
+	return o.ApplyT(func(v InsightMapFilter) InsightMapFilterComparison { return v.Comparison }).(InsightMapFilterComparisonOutput)
+}
+
+func (o InsightMapFilterOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v InsightMapFilter) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o InsightMapFilterOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v InsightMapFilter) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type InsightMapFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (InsightMapFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InsightMapFilter)(nil)).Elem()
+}
+
+func (o InsightMapFilterArrayOutput) ToInsightMapFilterArrayOutput() InsightMapFilterArrayOutput {
+	return o
+}
+
+func (o InsightMapFilterArrayOutput) ToInsightMapFilterArrayOutputWithContext(ctx context.Context) InsightMapFilterArrayOutput {
+	return o
+}
+
+func (o InsightMapFilterArrayOutput) Index(i pulumi.IntInput) InsightMapFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InsightMapFilter {
+		return vs[0].([]InsightMapFilter)[vs[1].(int)]
+	}).(InsightMapFilterOutput)
+}
+
+// A number filter for querying findings.
+type InsightNumberFilter struct {
+	// The equal-to condition to be applied to a single field when querying for findings.
+	Eq *float64 `pulumi:"eq"`
+	// The greater-than-equal condition to be applied to a single field when querying for findings.
+	Gte *float64 `pulumi:"gte"`
+	// The less-than-equal condition to be applied to a single field when querying for findings.
+	Lte *float64 `pulumi:"lte"`
+}
+
+// InsightNumberFilterInput is an input type that accepts InsightNumberFilterArgs and InsightNumberFilterOutput values.
+// You can construct a concrete instance of `InsightNumberFilterInput` via:
+//
+//	InsightNumberFilterArgs{...}
+type InsightNumberFilterInput interface {
+	pulumi.Input
+
+	ToInsightNumberFilterOutput() InsightNumberFilterOutput
+	ToInsightNumberFilterOutputWithContext(context.Context) InsightNumberFilterOutput
+}
+
+// A number filter for querying findings.
+type InsightNumberFilterArgs struct {
+	// The equal-to condition to be applied to a single field when querying for findings.
+	Eq pulumi.Float64PtrInput `pulumi:"eq"`
+	// The greater-than-equal condition to be applied to a single field when querying for findings.
+	Gte pulumi.Float64PtrInput `pulumi:"gte"`
+	// The less-than-equal condition to be applied to a single field when querying for findings.
+	Lte pulumi.Float64PtrInput `pulumi:"lte"`
+}
+
+func (InsightNumberFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InsightNumberFilter)(nil)).Elem()
+}
+
+func (i InsightNumberFilterArgs) ToInsightNumberFilterOutput() InsightNumberFilterOutput {
+	return i.ToInsightNumberFilterOutputWithContext(context.Background())
+}
+
+func (i InsightNumberFilterArgs) ToInsightNumberFilterOutputWithContext(ctx context.Context) InsightNumberFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InsightNumberFilterOutput)
+}
+
+// InsightNumberFilterArrayInput is an input type that accepts InsightNumberFilterArray and InsightNumberFilterArrayOutput values.
+// You can construct a concrete instance of `InsightNumberFilterArrayInput` via:
+//
+//	InsightNumberFilterArray{ InsightNumberFilterArgs{...} }
+type InsightNumberFilterArrayInput interface {
+	pulumi.Input
+
+	ToInsightNumberFilterArrayOutput() InsightNumberFilterArrayOutput
+	ToInsightNumberFilterArrayOutputWithContext(context.Context) InsightNumberFilterArrayOutput
+}
+
+type InsightNumberFilterArray []InsightNumberFilterInput
+
+func (InsightNumberFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InsightNumberFilter)(nil)).Elem()
+}
+
+func (i InsightNumberFilterArray) ToInsightNumberFilterArrayOutput() InsightNumberFilterArrayOutput {
+	return i.ToInsightNumberFilterArrayOutputWithContext(context.Background())
+}
+
+func (i InsightNumberFilterArray) ToInsightNumberFilterArrayOutputWithContext(ctx context.Context) InsightNumberFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InsightNumberFilterArrayOutput)
+}
+
+// A number filter for querying findings.
+type InsightNumberFilterOutput struct{ *pulumi.OutputState }
+
+func (InsightNumberFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InsightNumberFilter)(nil)).Elem()
+}
+
+func (o InsightNumberFilterOutput) ToInsightNumberFilterOutput() InsightNumberFilterOutput {
+	return o
+}
+
+func (o InsightNumberFilterOutput) ToInsightNumberFilterOutputWithContext(ctx context.Context) InsightNumberFilterOutput {
+	return o
+}
+
+// The equal-to condition to be applied to a single field when querying for findings.
+func (o InsightNumberFilterOutput) Eq() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v InsightNumberFilter) *float64 { return v.Eq }).(pulumi.Float64PtrOutput)
+}
+
+// The greater-than-equal condition to be applied to a single field when querying for findings.
+func (o InsightNumberFilterOutput) Gte() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v InsightNumberFilter) *float64 { return v.Gte }).(pulumi.Float64PtrOutput)
+}
+
+// The less-than-equal condition to be applied to a single field when querying for findings.
+func (o InsightNumberFilterOutput) Lte() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v InsightNumberFilter) *float64 { return v.Lte }).(pulumi.Float64PtrOutput)
+}
+
+type InsightNumberFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (InsightNumberFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InsightNumberFilter)(nil)).Elem()
+}
+
+func (o InsightNumberFilterArrayOutput) ToInsightNumberFilterArrayOutput() InsightNumberFilterArrayOutput {
+	return o
+}
+
+func (o InsightNumberFilterArrayOutput) ToInsightNumberFilterArrayOutputWithContext(ctx context.Context) InsightNumberFilterArrayOutput {
+	return o
+}
+
+func (o InsightNumberFilterArrayOutput) Index(i pulumi.IntInput) InsightNumberFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InsightNumberFilter {
+		return vs[0].([]InsightNumberFilter)[vs[1].(int)]
+	}).(InsightNumberFilterOutput)
+}
+
+// A string filter for filtering AWS Security Hub findings.
+type InsightStringFilter struct {
+	Comparison InsightStringFilterComparison `pulumi:"comparison"`
+	Value      string                        `pulumi:"value"`
+}
+
+// InsightStringFilterInput is an input type that accepts InsightStringFilterArgs and InsightStringFilterOutput values.
+// You can construct a concrete instance of `InsightStringFilterInput` via:
+//
+//	InsightStringFilterArgs{...}
+type InsightStringFilterInput interface {
+	pulumi.Input
+
+	ToInsightStringFilterOutput() InsightStringFilterOutput
+	ToInsightStringFilterOutputWithContext(context.Context) InsightStringFilterOutput
+}
+
+// A string filter for filtering AWS Security Hub findings.
+type InsightStringFilterArgs struct {
+	Comparison InsightStringFilterComparisonInput `pulumi:"comparison"`
+	Value      pulumi.StringInput                 `pulumi:"value"`
+}
+
+func (InsightStringFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InsightStringFilter)(nil)).Elem()
+}
+
+func (i InsightStringFilterArgs) ToInsightStringFilterOutput() InsightStringFilterOutput {
+	return i.ToInsightStringFilterOutputWithContext(context.Background())
+}
+
+func (i InsightStringFilterArgs) ToInsightStringFilterOutputWithContext(ctx context.Context) InsightStringFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InsightStringFilterOutput)
+}
+
+// InsightStringFilterArrayInput is an input type that accepts InsightStringFilterArray and InsightStringFilterArrayOutput values.
+// You can construct a concrete instance of `InsightStringFilterArrayInput` via:
+//
+//	InsightStringFilterArray{ InsightStringFilterArgs{...} }
+type InsightStringFilterArrayInput interface {
+	pulumi.Input
+
+	ToInsightStringFilterArrayOutput() InsightStringFilterArrayOutput
+	ToInsightStringFilterArrayOutputWithContext(context.Context) InsightStringFilterArrayOutput
+}
+
+type InsightStringFilterArray []InsightStringFilterInput
+
+func (InsightStringFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InsightStringFilter)(nil)).Elem()
+}
+
+func (i InsightStringFilterArray) ToInsightStringFilterArrayOutput() InsightStringFilterArrayOutput {
+	return i.ToInsightStringFilterArrayOutputWithContext(context.Background())
+}
+
+func (i InsightStringFilterArray) ToInsightStringFilterArrayOutputWithContext(ctx context.Context) InsightStringFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InsightStringFilterArrayOutput)
+}
+
+// A string filter for filtering AWS Security Hub findings.
+type InsightStringFilterOutput struct{ *pulumi.OutputState }
+
+func (InsightStringFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InsightStringFilter)(nil)).Elem()
+}
+
+func (o InsightStringFilterOutput) ToInsightStringFilterOutput() InsightStringFilterOutput {
+	return o
+}
+
+func (o InsightStringFilterOutput) ToInsightStringFilterOutputWithContext(ctx context.Context) InsightStringFilterOutput {
+	return o
+}
+
+func (o InsightStringFilterOutput) Comparison() InsightStringFilterComparisonOutput {
+	return o.ApplyT(func(v InsightStringFilter) InsightStringFilterComparison { return v.Comparison }).(InsightStringFilterComparisonOutput)
+}
+
+func (o InsightStringFilterOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v InsightStringFilter) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type InsightStringFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (InsightStringFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InsightStringFilter)(nil)).Elem()
+}
+
+func (o InsightStringFilterArrayOutput) ToInsightStringFilterArrayOutput() InsightStringFilterArrayOutput {
+	return o
+}
+
+func (o InsightStringFilterArrayOutput) ToInsightStringFilterArrayOutputWithContext(ctx context.Context) InsightStringFilterArrayOutput {
+	return o
+}
+
+func (o InsightStringFilterArrayOutput) Index(i pulumi.IntInput) InsightStringFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InsightStringFilter {
+		return vs[0].([]InsightStringFilter)[vs[1].(int)]
+	}).(InsightStringFilterOutput)
+}
+
 // Provides details about an individual security control. For a list of ASH controls, see [controls reference](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-controls-reference.html) in the *User Guide*.
 type StandardsControl struct {
 	// A user-defined reason for changing a control's enablement status in a specified standard. If you are disabling a control, then this property is required.
@@ -2123,6 +5108,23 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRulesFindingFieldsUpdateInput)(nil)).Elem(), AutomationRulesFindingFieldsUpdateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRulesFindingFiltersInput)(nil)).Elem(), AutomationRulesFindingFiltersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRulesFindingFiltersPtrInput)(nil)).Elem(), AutomationRulesFindingFiltersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InsightAwsSecurityFindingFiltersInput)(nil)).Elem(), InsightAwsSecurityFindingFiltersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InsightBooleanFilterInput)(nil)).Elem(), InsightBooleanFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InsightBooleanFilterArrayInput)(nil)).Elem(), InsightBooleanFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InsightDateFilterInput)(nil)).Elem(), InsightDateFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InsightDateFilterArrayInput)(nil)).Elem(), InsightDateFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InsightDateRangeInput)(nil)).Elem(), InsightDateRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InsightDateRangePtrInput)(nil)).Elem(), InsightDateRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InsightIpFilterInput)(nil)).Elem(), InsightIpFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InsightIpFilterArrayInput)(nil)).Elem(), InsightIpFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InsightKeywordFilterInput)(nil)).Elem(), InsightKeywordFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InsightKeywordFilterArrayInput)(nil)).Elem(), InsightKeywordFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InsightMapFilterInput)(nil)).Elem(), InsightMapFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InsightMapFilterArrayInput)(nil)).Elem(), InsightMapFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InsightNumberFilterInput)(nil)).Elem(), InsightNumberFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InsightNumberFilterArrayInput)(nil)).Elem(), InsightNumberFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InsightStringFilterInput)(nil)).Elem(), InsightStringFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InsightStringFilterArrayInput)(nil)).Elem(), InsightStringFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StandardsControlInput)(nil)).Elem(), StandardsControlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StandardsControlArrayInput)(nil)).Elem(), StandardsControlArray{})
 	pulumi.RegisterOutputType(AutomationRuleDateFilterOutput{})
@@ -2148,6 +5150,24 @@ func init() {
 	pulumi.RegisterOutputType(AutomationRulesFindingFieldsUpdateOutput{})
 	pulumi.RegisterOutputType(AutomationRulesFindingFiltersOutput{})
 	pulumi.RegisterOutputType(AutomationRulesFindingFiltersPtrOutput{})
+	pulumi.RegisterOutputType(InsightAwsSecurityFindingFiltersOutput{})
+	pulumi.RegisterOutputType(InsightAwsSecurityFindingFiltersPtrOutput{})
+	pulumi.RegisterOutputType(InsightBooleanFilterOutput{})
+	pulumi.RegisterOutputType(InsightBooleanFilterArrayOutput{})
+	pulumi.RegisterOutputType(InsightDateFilterOutput{})
+	pulumi.RegisterOutputType(InsightDateFilterArrayOutput{})
+	pulumi.RegisterOutputType(InsightDateRangeOutput{})
+	pulumi.RegisterOutputType(InsightDateRangePtrOutput{})
+	pulumi.RegisterOutputType(InsightIpFilterOutput{})
+	pulumi.RegisterOutputType(InsightIpFilterArrayOutput{})
+	pulumi.RegisterOutputType(InsightKeywordFilterOutput{})
+	pulumi.RegisterOutputType(InsightKeywordFilterArrayOutput{})
+	pulumi.RegisterOutputType(InsightMapFilterOutput{})
+	pulumi.RegisterOutputType(InsightMapFilterArrayOutput{})
+	pulumi.RegisterOutputType(InsightNumberFilterOutput{})
+	pulumi.RegisterOutputType(InsightNumberFilterArrayOutput{})
+	pulumi.RegisterOutputType(InsightStringFilterOutput{})
+	pulumi.RegisterOutputType(InsightStringFilterArrayOutput{})
 	pulumi.RegisterOutputType(StandardsControlOutput{})
 	pulumi.RegisterOutputType(StandardsControlArrayOutput{})
 }

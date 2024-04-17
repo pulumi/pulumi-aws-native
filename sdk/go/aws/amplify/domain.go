@@ -20,7 +20,7 @@ type Domain struct {
 	Arn                           pulumi.StringOutput                `pulumi:"arn"`
 	AutoSubDomainCreationPatterns pulumi.StringArrayOutput           `pulumi:"autoSubDomainCreationPatterns"`
 	AutoSubDomainIamRole          pulumi.StringPtrOutput             `pulumi:"autoSubDomainIamRole"`
-	Certificate                   DomainCertificatePtrOutput         `pulumi:"certificate"`
+	Certificate                   DomainCertificateOutput            `pulumi:"certificate"`
 	CertificateRecord             pulumi.StringOutput                `pulumi:"certificateRecord"`
 	CertificateSettings           DomainCertificateSettingsPtrOutput `pulumi:"certificateSettings"`
 	DomainName                    pulumi.StringOutput                `pulumi:"domainName"`
@@ -28,7 +28,7 @@ type Domain struct {
 	EnableAutoSubDomain           pulumi.BoolPtrOutput               `pulumi:"enableAutoSubDomain"`
 	StatusReason                  pulumi.StringOutput                `pulumi:"statusReason"`
 	SubDomainSettings             DomainSubDomainSettingArrayOutput  `pulumi:"subDomainSettings"`
-	UpdateStatus                  pulumi.StringPtrOutput             `pulumi:"updateStatus"`
+	UpdateStatus                  pulumi.StringOutput                `pulumi:"updateStatus"`
 }
 
 // NewDomain registers a new resource with the given unique name, arguments, and options.
@@ -85,12 +85,10 @@ type domainArgs struct {
 	AppId                         string                     `pulumi:"appId"`
 	AutoSubDomainCreationPatterns []string                   `pulumi:"autoSubDomainCreationPatterns"`
 	AutoSubDomainIamRole          *string                    `pulumi:"autoSubDomainIamRole"`
-	Certificate                   *DomainCertificate         `pulumi:"certificate"`
 	CertificateSettings           *DomainCertificateSettings `pulumi:"certificateSettings"`
 	DomainName                    *string                    `pulumi:"domainName"`
 	EnableAutoSubDomain           *bool                      `pulumi:"enableAutoSubDomain"`
 	SubDomainSettings             []DomainSubDomainSetting   `pulumi:"subDomainSettings"`
-	UpdateStatus                  *string                    `pulumi:"updateStatus"`
 }
 
 // The set of arguments for constructing a Domain resource.
@@ -98,12 +96,10 @@ type DomainArgs struct {
 	AppId                         pulumi.StringInput
 	AutoSubDomainCreationPatterns pulumi.StringArrayInput
 	AutoSubDomainIamRole          pulumi.StringPtrInput
-	Certificate                   DomainCertificatePtrInput
 	CertificateSettings           DomainCertificateSettingsPtrInput
 	DomainName                    pulumi.StringPtrInput
 	EnableAutoSubDomain           pulumi.BoolPtrInput
 	SubDomainSettings             DomainSubDomainSettingArrayInput
-	UpdateStatus                  pulumi.StringPtrInput
 }
 
 func (DomainArgs) ElementType() reflect.Type {
@@ -159,8 +155,8 @@ func (o DomainOutput) AutoSubDomainIamRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.AutoSubDomainIamRole }).(pulumi.StringPtrOutput)
 }
 
-func (o DomainOutput) Certificate() DomainCertificatePtrOutput {
-	return o.ApplyT(func(v *Domain) DomainCertificatePtrOutput { return v.Certificate }).(DomainCertificatePtrOutput)
+func (o DomainOutput) Certificate() DomainCertificateOutput {
+	return o.ApplyT(func(v *Domain) DomainCertificateOutput { return v.Certificate }).(DomainCertificateOutput)
 }
 
 func (o DomainOutput) CertificateRecord() pulumi.StringOutput {
@@ -191,8 +187,8 @@ func (o DomainOutput) SubDomainSettings() DomainSubDomainSettingArrayOutput {
 	return o.ApplyT(func(v *Domain) DomainSubDomainSettingArrayOutput { return v.SubDomainSettings }).(DomainSubDomainSettingArrayOutput)
 }
 
-func (o DomainOutput) UpdateStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.UpdateStatus }).(pulumi.StringPtrOutput)
+func (o DomainOutput) UpdateStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.UpdateStatus }).(pulumi.StringOutput)
 }
 
 func init() {

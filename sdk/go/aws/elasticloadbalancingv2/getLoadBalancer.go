@@ -41,14 +41,14 @@ type LookupLoadBalancerResult struct {
 	LoadBalancerName       *string                 `pulumi:"loadBalancerName"`
 	// [Application Load Balancers and Network Load Balancers] The IDs of the security groups for the load balancer.
 	SecurityGroups []string `pulumi:"securityGroups"`
-	// The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both.
+	// The IDs of the subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both.
 	//  [Application Load Balancers] You must specify subnets from at least two Availability Zones. You cannot specify Elastic IP addresses for your subnets.
 	//  [Application Load Balancers on Outposts] You must specify one Outpost subnet.
 	//  [Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones.
 	//  [Network Load Balancers] You can specify subnets from one or more Availability Zones. You can specify one Elastic IP address per subnet if you need static IP addresses for your internet-facing load balancer. For internal load balancers, you can specify one private IP address per subnet from the IPv4 range of the subnet. For internet-facing load balancer, you can specify one IPv6 address per subnet.
-	//  [Gateway Load Balancers] You can specify subnets from one or more Availability Zones. You cannot specify Elastic IP
+	//  [Gateway Load Balancers] You can specify subnets from one or more Availability Zones. You cannot specify Elastic IP addresses for your subnets.
 	SubnetMappings []LoadBalancerSubnetMapping `pulumi:"subnetMappings"`
-	// The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both. To specify an Elastic IP address, specify subnet mappings instead of subnets.
+	// The IDs of the subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both. To specify an Elastic IP address, specify subnet mappings instead of subnets.
 	//  [Application Load Balancers] You must specify subnets from at least two Availability Zones.
 	//  [Application Load Balancers on Outposts] You must specify one Outpost subnet.
 	//  [Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones.
@@ -136,18 +136,18 @@ func (o LookupLoadBalancerResultOutput) SecurityGroups() pulumi.StringArrayOutpu
 	return o.ApplyT(func(v LookupLoadBalancerResult) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
 
-// The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both.
+// The IDs of the subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both.
 //
 //	[Application Load Balancers] You must specify subnets from at least two Availability Zones. You cannot specify Elastic IP addresses for your subnets.
 //	[Application Load Balancers on Outposts] You must specify one Outpost subnet.
 //	[Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones.
 //	[Network Load Balancers] You can specify subnets from one or more Availability Zones. You can specify one Elastic IP address per subnet if you need static IP addresses for your internet-facing load balancer. For internal load balancers, you can specify one private IP address per subnet from the IPv4 range of the subnet. For internet-facing load balancer, you can specify one IPv6 address per subnet.
-//	[Gateway Load Balancers] You can specify subnets from one or more Availability Zones. You cannot specify Elastic IP
+//	[Gateway Load Balancers] You can specify subnets from one or more Availability Zones. You cannot specify Elastic IP addresses for your subnets.
 func (o LookupLoadBalancerResultOutput) SubnetMappings() LoadBalancerSubnetMappingArrayOutput {
 	return o.ApplyT(func(v LookupLoadBalancerResult) []LoadBalancerSubnetMapping { return v.SubnetMappings }).(LoadBalancerSubnetMappingArrayOutput)
 }
 
-// The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both. To specify an Elastic IP address, specify subnet mappings instead of subnets.
+// The IDs of the subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both. To specify an Elastic IP address, specify subnet mappings instead of subnets.
 //
 //	[Application Load Balancers] You must specify subnets from at least two Availability Zones.
 //	[Application Load Balancers on Outposts] You must specify one Outpost subnet.

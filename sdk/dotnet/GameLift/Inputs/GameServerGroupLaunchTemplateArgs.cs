@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.GameLift.Inputs
 {
 
     /// <summary>
-    /// The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group.
+    /// The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
     /// </summary>
     public sealed class GameServerGroupLaunchTemplateArgs : global::Pulumi.ResourceArgs
     {

@@ -192,7 +192,7 @@ namespace Pulumi.AwsNative.Ssm
 
         /// <summary>
         /// The name of the parameter.
-        ///  The maximum length constraint listed below includes capacity for additional system attributes that aren't part of the name. The maximum length for a parameter name, including the full length of the parameter Amazon Resource Name (ARN), is 1011 characters. For example, the length of the following parameter name is 65 characters, not 20 characters: ``arn:aws:ssm:us-east-2:111222333444:parameter/ExampleParameterName``
+        ///   The maximum length constraint listed below includes capacity for additional system attributes that aren't part of the name. The maximum length for a parameter name, including the full length of the parameter Amazon Resource Name (ARN), is 1011 characters. For example, the length of the following parameter name is 65 characters, not 20 characters: ``arn:aws:ssm:us-east-2:111222333444:parameter/ExampleParameterName``
         /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
@@ -218,7 +218,6 @@ namespace Pulumi.AwsNative.Ssm
 
         /// <summary>
         /// The type of parameter.
-        ///   Although ``SecureString`` is included in the list of valid values, CFNlong does *not* currently support creating ``SecureString`` parameters.
         /// </summary>
         [Output("type")]
         public Output<Pulumi.AwsNative.Ssm.ParameterType> Type { get; private set; } = null!;
@@ -299,7 +298,7 @@ namespace Pulumi.AwsNative.Ssm
 
         /// <summary>
         /// The name of the parameter.
-        ///  The maximum length constraint listed below includes capacity for additional system attributes that aren't part of the name. The maximum length for a parameter name, including the full length of the parameter Amazon Resource Name (ARN), is 1011 characters. For example, the length of the following parameter name is 65 characters, not 20 characters: ``arn:aws:ssm:us-east-2:111222333444:parameter/ExampleParameterName``
+        ///   The maximum length constraint listed below includes capacity for additional system attributes that aren't part of the name. The maximum length for a parameter name, including the full length of the parameter Amazon Resource Name (ARN), is 1011 characters. For example, the length of the following parameter name is 65 characters, not 20 characters: ``arn:aws:ssm:us-east-2:111222333444:parameter/ExampleParameterName``
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -331,7 +330,6 @@ namespace Pulumi.AwsNative.Ssm
 
         /// <summary>
         /// The type of parameter.
-        ///   Although ``SecureString`` is included in the list of valid values, CFNlong does *not* currently support creating ``SecureString`` parameters.
         /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.Ssm.ParameterType> Type { get; set; } = null!;

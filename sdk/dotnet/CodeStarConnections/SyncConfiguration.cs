@@ -37,7 +37,13 @@ namespace Pulumi.AwsNative.CodeStarConnections
         /// The name of the external provider where your third-party code repository is configured.
         /// </summary>
         [Output("providerType")]
-        public Output<string> ProviderType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.CodeStarConnections.SyncConfigurationProviderType> ProviderType { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether to enable or disable publishing of deployment status to source providers.
+        /// </summary>
+        [Output("publishDeploymentStatus")]
+        public Output<Pulumi.AwsNative.CodeStarConnections.SyncConfigurationPublishDeploymentStatus?> PublishDeploymentStatus { get; private set; } = null!;
 
         /// <summary>
         /// A UUID that uniquely identifies the RepositoryLink that the SyncConfig is associated with.
@@ -68,6 +74,12 @@ namespace Pulumi.AwsNative.CodeStarConnections
         /// </summary>
         [Output("syncType")]
         public Output<string> SyncType { get; private set; } = null!;
+
+        /// <summary>
+        /// When to trigger Git sync to begin the stack update.
+        /// </summary>
+        [Output("triggerResourceUpdateOn")]
+        public Output<Pulumi.AwsNative.CodeStarConnections.SyncConfigurationTriggerResourceUpdateOn?> TriggerResourceUpdateOn { get; private set; } = null!;
 
 
         /// <summary>
@@ -132,6 +144,12 @@ namespace Pulumi.AwsNative.CodeStarConnections
         public Input<string> ConfigFile { get; set; } = null!;
 
         /// <summary>
+        /// Whether to enable or disable publishing of deployment status to source providers.
+        /// </summary>
+        [Input("publishDeploymentStatus")]
+        public Input<Pulumi.AwsNative.CodeStarConnections.SyncConfigurationPublishDeploymentStatus>? PublishDeploymentStatus { get; set; }
+
+        /// <summary>
         /// A UUID that uniquely identifies the RepositoryLink that the SyncConfig is associated with.
         /// </summary>
         [Input("repositoryLinkId", required: true)]
@@ -154,6 +172,12 @@ namespace Pulumi.AwsNative.CodeStarConnections
         /// </summary>
         [Input("syncType", required: true)]
         public Input<string> SyncType { get; set; } = null!;
+
+        /// <summary>
+        /// When to trigger Git sync to begin the stack update.
+        /// </summary>
+        [Input("triggerResourceUpdateOn")]
+        public Input<Pulumi.AwsNative.CodeStarConnections.SyncConfigurationTriggerResourceUpdateOn>? TriggerResourceUpdateOn { get; set; }
 
         public SyncConfigurationArgs()
         {

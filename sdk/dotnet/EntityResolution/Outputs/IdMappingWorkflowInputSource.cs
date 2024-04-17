@@ -14,19 +14,23 @@ namespace Pulumi.AwsNative.EntityResolution.Outputs
     public sealed class IdMappingWorkflowInputSource
     {
         /// <summary>
-        /// An Glue table ARN for the input source table
+        /// An Glue table ARN for the input source table or IdNamespace ARN
         /// </summary>
         public readonly string InputSourceArn;
-        public readonly string SchemaArn;
+        public readonly string? SchemaArn;
+        public readonly Pulumi.AwsNative.EntityResolution.IdMappingWorkflowInputSourceType? Type;
 
         [OutputConstructor]
         private IdMappingWorkflowInputSource(
             string inputSourceArn,
 
-            string schemaArn)
+            string? schemaArn,
+
+            Pulumi.AwsNative.EntityResolution.IdMappingWorkflowInputSourceType? type)
         {
             InputSourceArn = inputSourceArn;
             SchemaArn = schemaArn;
+            Type = type;
         }
     }
 }

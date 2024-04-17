@@ -19,18 +19,22 @@ __all__ = ['AppImageConfigArgs', 'AppImageConfig']
 class AppImageConfigArgs:
     def __init__(__self__, *,
                  app_image_config_name: Optional[pulumi.Input[str]] = None,
+                 code_editor_app_image_config: Optional[pulumi.Input['AppImageConfigCodeEditorAppImageConfigArgs']] = None,
                  jupyter_lab_app_image_config: Optional[pulumi.Input['AppImageConfigJupyterLabAppImageConfigArgs']] = None,
                  kernel_gateway_image_config: Optional[pulumi.Input['AppImageConfigKernelGatewayImageConfigArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a AppImageConfig resource.
         :param pulumi.Input[str] app_image_config_name: The Name of the AppImageConfig.
+        :param pulumi.Input['AppImageConfigCodeEditorAppImageConfigArgs'] code_editor_app_image_config: The CodeEditorAppImageConfig.
         :param pulumi.Input['AppImageConfigJupyterLabAppImageConfigArgs'] jupyter_lab_app_image_config: The JupyterLabAppImageConfig.
         :param pulumi.Input['AppImageConfigKernelGatewayImageConfigArgs'] kernel_gateway_image_config: The KernelGatewayImageConfig.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: A list of tags to apply to the AppImageConfig.
         """
         if app_image_config_name is not None:
             pulumi.set(__self__, "app_image_config_name", app_image_config_name)
+        if code_editor_app_image_config is not None:
+            pulumi.set(__self__, "code_editor_app_image_config", code_editor_app_image_config)
         if jupyter_lab_app_image_config is not None:
             pulumi.set(__self__, "jupyter_lab_app_image_config", jupyter_lab_app_image_config)
         if kernel_gateway_image_config is not None:
@@ -49,6 +53,18 @@ class AppImageConfigArgs:
     @app_image_config_name.setter
     def app_image_config_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "app_image_config_name", value)
+
+    @property
+    @pulumi.getter(name="codeEditorAppImageConfig")
+    def code_editor_app_image_config(self) -> Optional[pulumi.Input['AppImageConfigCodeEditorAppImageConfigArgs']]:
+        """
+        The CodeEditorAppImageConfig.
+        """
+        return pulumi.get(self, "code_editor_app_image_config")
+
+    @code_editor_app_image_config.setter
+    def code_editor_app_image_config(self, value: Optional[pulumi.Input['AppImageConfigCodeEditorAppImageConfigArgs']]):
+        pulumi.set(self, "code_editor_app_image_config", value)
 
     @property
     @pulumi.getter(name="jupyterLabAppImageConfig")
@@ -93,6 +109,7 @@ class AppImageConfig(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_image_config_name: Optional[pulumi.Input[str]] = None,
+                 code_editor_app_image_config: Optional[pulumi.Input[pulumi.InputType['AppImageConfigCodeEditorAppImageConfigArgs']]] = None,
                  jupyter_lab_app_image_config: Optional[pulumi.Input[pulumi.InputType['AppImageConfigJupyterLabAppImageConfigArgs']]] = None,
                  kernel_gateway_image_config: Optional[pulumi.Input[pulumi.InputType['AppImageConfigKernelGatewayImageConfigArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
@@ -103,6 +120,7 @@ class AppImageConfig(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_image_config_name: The Name of the AppImageConfig.
+        :param pulumi.Input[pulumi.InputType['AppImageConfigCodeEditorAppImageConfigArgs']] code_editor_app_image_config: The CodeEditorAppImageConfig.
         :param pulumi.Input[pulumi.InputType['AppImageConfigJupyterLabAppImageConfigArgs']] jupyter_lab_app_image_config: The JupyterLabAppImageConfig.
         :param pulumi.Input[pulumi.InputType['AppImageConfigKernelGatewayImageConfigArgs']] kernel_gateway_image_config: The KernelGatewayImageConfig.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: A list of tags to apply to the AppImageConfig.
@@ -132,6 +150,7 @@ class AppImageConfig(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_image_config_name: Optional[pulumi.Input[str]] = None,
+                 code_editor_app_image_config: Optional[pulumi.Input[pulumi.InputType['AppImageConfigCodeEditorAppImageConfigArgs']]] = None,
                  jupyter_lab_app_image_config: Optional[pulumi.Input[pulumi.InputType['AppImageConfigJupyterLabAppImageConfigArgs']]] = None,
                  kernel_gateway_image_config: Optional[pulumi.Input[pulumi.InputType['AppImageConfigKernelGatewayImageConfigArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
@@ -145,6 +164,7 @@ class AppImageConfig(pulumi.CustomResource):
             __props__ = AppImageConfigArgs.__new__(AppImageConfigArgs)
 
             __props__.__dict__["app_image_config_name"] = app_image_config_name
+            __props__.__dict__["code_editor_app_image_config"] = code_editor_app_image_config
             __props__.__dict__["jupyter_lab_app_image_config"] = jupyter_lab_app_image_config
             __props__.__dict__["kernel_gateway_image_config"] = kernel_gateway_image_config
             __props__.__dict__["tags"] = tags
@@ -175,6 +195,7 @@ class AppImageConfig(pulumi.CustomResource):
 
         __props__.__dict__["app_image_config_arn"] = None
         __props__.__dict__["app_image_config_name"] = None
+        __props__.__dict__["code_editor_app_image_config"] = None
         __props__.__dict__["jupyter_lab_app_image_config"] = None
         __props__.__dict__["kernel_gateway_image_config"] = None
         __props__.__dict__["tags"] = None
@@ -195,6 +216,14 @@ class AppImageConfig(pulumi.CustomResource):
         The Name of the AppImageConfig.
         """
         return pulumi.get(self, "app_image_config_name")
+
+    @property
+    @pulumi.getter(name="codeEditorAppImageConfig")
+    def code_editor_app_image_config(self) -> pulumi.Output[Optional['outputs.AppImageConfigCodeEditorAppImageConfig']]:
+        """
+        The CodeEditorAppImageConfig.
+        """
+        return pulumi.get(self, "code_editor_app_image_config")
 
     @property
     @pulumi.getter(name="jupyterLabAppImageConfig")

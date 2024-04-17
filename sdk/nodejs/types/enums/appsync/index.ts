@@ -7,6 +7,9 @@ export const ResolverMetricsConfig = {
     Disabled: "DISABLED",
 } as const;
 
+/**
+ * Enables or disables enhanced resolver metrics for specified resolvers. Note that ``MetricsConfig`` won't be used unless the ``resolverLevelMetricsBehavior`` value is set to ``PER_RESOLVER_METRICS``. If the ``resolverLevelMetricsBehavior`` is set to ``FULL_REQUEST_RESOLVER_METRICS`` instead, ``MetricsConfig`` will be ignored. However, you can still set its value.
+ */
 export type ResolverMetricsConfig = (typeof ResolverMetricsConfig)[keyof typeof ResolverMetricsConfig];
 
 export const SourceApiAssociationConfigMergeType = {

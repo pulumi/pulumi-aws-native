@@ -20,10 +20,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetGlobalReplicationGroupResult:
-    def __init__(__self__, cache_parameter_group_name=None, global_replication_group_id=None, members=None, status=None):
+    def __init__(__self__, cache_parameter_group_name=None, global_replication_group_description=None, global_replication_group_id=None, members=None, status=None):
         if cache_parameter_group_name and not isinstance(cache_parameter_group_name, str):
             raise TypeError("Expected argument 'cache_parameter_group_name' to be a str")
         pulumi.set(__self__, "cache_parameter_group_name", cache_parameter_group_name)
+        if global_replication_group_description and not isinstance(global_replication_group_description, str):
+            raise TypeError("Expected argument 'global_replication_group_description' to be a str")
+        pulumi.set(__self__, "global_replication_group_description", global_replication_group_description)
         if global_replication_group_id and not isinstance(global_replication_group_id, str):
             raise TypeError("Expected argument 'global_replication_group_id' to be a str")
         pulumi.set(__self__, "global_replication_group_id", global_replication_group_id)
@@ -41,6 +44,14 @@ class GetGlobalReplicationGroupResult:
         Cache parameter group name to use for the new engine version. This parameter cannot be modified independently.
         """
         return pulumi.get(self, "cache_parameter_group_name")
+
+    @property
+    @pulumi.getter(name="globalReplicationGroupDescription")
+    def global_replication_group_description(self) -> Optional[str]:
+        """
+        The optional description of the Global Datastore
+        """
+        return pulumi.get(self, "global_replication_group_description")
 
     @property
     @pulumi.getter(name="globalReplicationGroupId")
@@ -74,6 +85,7 @@ class AwaitableGetGlobalReplicationGroupResult(GetGlobalReplicationGroupResult):
             yield self
         return GetGlobalReplicationGroupResult(
             cache_parameter_group_name=self.cache_parameter_group_name,
+            global_replication_group_description=self.global_replication_group_description,
             global_replication_group_id=self.global_replication_group_id,
             members=self.members,
             status=self.status)
@@ -94,6 +106,7 @@ def get_global_replication_group(global_replication_group_id: Optional[str] = No
 
     return AwaitableGetGlobalReplicationGroupResult(
         cache_parameter_group_name=pulumi.get(__ret__, 'cache_parameter_group_name'),
+        global_replication_group_description=pulumi.get(__ret__, 'global_replication_group_description'),
         global_replication_group_id=pulumi.get(__ret__, 'global_replication_group_id'),
         members=pulumi.get(__ret__, 'members'),
         status=pulumi.get(__ret__, 'status'))

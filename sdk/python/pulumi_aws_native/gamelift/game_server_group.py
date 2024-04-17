@@ -35,16 +35,16 @@ class GameServerGroupArgs:
         The set of arguments for constructing a GameServerGroup resource.
         :param pulumi.Input[Sequence[pulumi.Input['GameServerGroupInstanceDefinitionArgs']]] instance_definitions: A set of EC2 instance types to use when creating instances in the group.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
-        :param pulumi.Input['GameServerGroupAutoScalingPolicyArgs'] auto_scaling_policy: Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting
+        :param pulumi.Input['GameServerGroupAutoScalingPolicyArgs'] auto_scaling_policy: Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
         :param pulumi.Input['GameServerGroupBalancingStrategy'] balancing_strategy: The fallback balancing method to use for the game server group when Spot Instances in a Region become unavailable or are not viable for game hosting.
         :param pulumi.Input['GameServerGroupDeleteOption'] delete_option: The type of delete to perform.
         :param pulumi.Input[str] game_server_group_name: An identifier for the new game server group.
         :param pulumi.Input['GameServerGroupGameServerProtectionPolicy'] game_server_protection_policy: A flag that indicates whether instances in the game server group are protected from early termination.
-        :param pulumi.Input['GameServerGroupLaunchTemplateArgs'] launch_template: The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group.
-        :param pulumi.Input[float] max_size: The maximum number of instances allowed in the EC2 Auto Scaling group.
-        :param pulumi.Input[float] min_size: The minimum number of instances allowed in the EC2 Auto Scaling group.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of labels to assign to the new game server group resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_subnets: A list of virtual private cloud (VPC) subnets to use with instances in the game server group.
+        :param pulumi.Input['GameServerGroupLaunchTemplateArgs'] launch_template: The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
+        :param pulumi.Input[float] max_size: The maximum number of instances allowed in the EC2 Auto Scaling group. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
+        :param pulumi.Input[float] min_size: The minimum number of instances allowed in the EC2 Auto Scaling group. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of labels to assign to the new game server group resource. Updating game server group tags with CloudFormation will not take effect. Please update this property using AWS GameLift APIs instead.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_subnets: A list of virtual private cloud (VPC) subnets to use with instances in the game server group. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
         """
         pulumi.set(__self__, "instance_definitions", instance_definitions)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -97,7 +97,7 @@ class GameServerGroupArgs:
     @pulumi.getter(name="autoScalingPolicy")
     def auto_scaling_policy(self) -> Optional[pulumi.Input['GameServerGroupAutoScalingPolicyArgs']]:
         """
-        Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting
+        Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
         """
         return pulumi.get(self, "auto_scaling_policy")
 
@@ -157,7 +157,7 @@ class GameServerGroupArgs:
     @pulumi.getter(name="launchTemplate")
     def launch_template(self) -> Optional[pulumi.Input['GameServerGroupLaunchTemplateArgs']]:
         """
-        The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group.
+        The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
         """
         return pulumi.get(self, "launch_template")
 
@@ -169,7 +169,7 @@ class GameServerGroupArgs:
     @pulumi.getter(name="maxSize")
     def max_size(self) -> Optional[pulumi.Input[float]]:
         """
-        The maximum number of instances allowed in the EC2 Auto Scaling group.
+        The maximum number of instances allowed in the EC2 Auto Scaling group. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
         """
         return pulumi.get(self, "max_size")
 
@@ -181,7 +181,7 @@ class GameServerGroupArgs:
     @pulumi.getter(name="minSize")
     def min_size(self) -> Optional[pulumi.Input[float]]:
         """
-        The minimum number of instances allowed in the EC2 Auto Scaling group.
+        The minimum number of instances allowed in the EC2 Auto Scaling group. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
         """
         return pulumi.get(self, "min_size")
 
@@ -193,7 +193,7 @@ class GameServerGroupArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        A list of labels to assign to the new game server group resource.
+        A list of labels to assign to the new game server group resource. Updating game server group tags with CloudFormation will not take effect. Please update this property using AWS GameLift APIs instead.
         """
         return pulumi.get(self, "tags")
 
@@ -205,7 +205,7 @@ class GameServerGroupArgs:
     @pulumi.getter(name="vpcSubnets")
     def vpc_subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of virtual private cloud (VPC) subnets to use with instances in the game server group.
+        A list of virtual private cloud (VPC) subnets to use with instances in the game server group. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
         """
         return pulumi.get(self, "vpc_subnets")
 
@@ -237,18 +237,18 @@ class GameServerGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['GameServerGroupAutoScalingPolicyArgs']] auto_scaling_policy: Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting
+        :param pulumi.Input[pulumi.InputType['GameServerGroupAutoScalingPolicyArgs']] auto_scaling_policy: Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
         :param pulumi.Input['GameServerGroupBalancingStrategy'] balancing_strategy: The fallback balancing method to use for the game server group when Spot Instances in a Region become unavailable or are not viable for game hosting.
         :param pulumi.Input['GameServerGroupDeleteOption'] delete_option: The type of delete to perform.
         :param pulumi.Input[str] game_server_group_name: An identifier for the new game server group.
         :param pulumi.Input['GameServerGroupGameServerProtectionPolicy'] game_server_protection_policy: A flag that indicates whether instances in the game server group are protected from early termination.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GameServerGroupInstanceDefinitionArgs']]]] instance_definitions: A set of EC2 instance types to use when creating instances in the group.
-        :param pulumi.Input[pulumi.InputType['GameServerGroupLaunchTemplateArgs']] launch_template: The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group.
-        :param pulumi.Input[float] max_size: The maximum number of instances allowed in the EC2 Auto Scaling group.
-        :param pulumi.Input[float] min_size: The minimum number of instances allowed in the EC2 Auto Scaling group.
+        :param pulumi.Input[pulumi.InputType['GameServerGroupLaunchTemplateArgs']] launch_template: The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
+        :param pulumi.Input[float] max_size: The maximum number of instances allowed in the EC2 Auto Scaling group. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
+        :param pulumi.Input[float] min_size: The minimum number of instances allowed in the EC2 Auto Scaling group. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of labels to assign to the new game server group resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_subnets: A list of virtual private cloud (VPC) subnets to use with instances in the game server group.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of labels to assign to the new game server group resource. Updating game server group tags with CloudFormation will not take effect. Please update this property using AWS GameLift APIs instead.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_subnets: A list of virtual private cloud (VPC) subnets to use with instances in the game server group. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
         """
         ...
     @overload
@@ -363,7 +363,7 @@ class GameServerGroup(pulumi.CustomResource):
     @pulumi.getter(name="autoScalingPolicy")
     def auto_scaling_policy(self) -> pulumi.Output[Optional['outputs.GameServerGroupAutoScalingPolicy']]:
         """
-        Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting
+        Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
         """
         return pulumi.get(self, "auto_scaling_policy")
 
@@ -419,7 +419,7 @@ class GameServerGroup(pulumi.CustomResource):
     @pulumi.getter(name="launchTemplate")
     def launch_template(self) -> pulumi.Output[Optional['outputs.GameServerGroupLaunchTemplate']]:
         """
-        The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group.
+        The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
         """
         return pulumi.get(self, "launch_template")
 
@@ -427,7 +427,7 @@ class GameServerGroup(pulumi.CustomResource):
     @pulumi.getter(name="maxSize")
     def max_size(self) -> pulumi.Output[Optional[float]]:
         """
-        The maximum number of instances allowed in the EC2 Auto Scaling group.
+        The maximum number of instances allowed in the EC2 Auto Scaling group. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
         """
         return pulumi.get(self, "max_size")
 
@@ -435,7 +435,7 @@ class GameServerGroup(pulumi.CustomResource):
     @pulumi.getter(name="minSize")
     def min_size(self) -> pulumi.Output[Optional[float]]:
         """
-        The minimum number of instances allowed in the EC2 Auto Scaling group.
+        The minimum number of instances allowed in the EC2 Auto Scaling group. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
         """
         return pulumi.get(self, "min_size")
 
@@ -451,7 +451,7 @@ class GameServerGroup(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        A list of labels to assign to the new game server group resource.
+        A list of labels to assign to the new game server group resource. Updating game server group tags with CloudFormation will not take effect. Please update this property using AWS GameLift APIs instead.
         """
         return pulumi.get(self, "tags")
 
@@ -459,7 +459,7 @@ class GameServerGroup(pulumi.CustomResource):
     @pulumi.getter(name="vpcSubnets")
     def vpc_subnets(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        A list of virtual private cloud (VPC) subnets to use with instances in the game server group.
+        A list of virtual private cloud (VPC) subnets to use with instances in the game server group. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
         """
         return pulumi.get(self, "vpc_subnets")
 

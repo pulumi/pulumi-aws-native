@@ -176,7 +176,7 @@ func (in *globalReplicationGroupMemberRolePtr) ToGlobalReplicationGroupMemberRol
 	return pulumi.ToOutputWithContext(ctx, in).(GlobalReplicationGroupMemberRolePtrOutput)
 }
 
-// The unix of cached data capacity of the Serverless Cache.
+// The unit of cached data capacity of the Serverless Cache.
 type ServerlessCacheDataStorageUnit string
 
 const (

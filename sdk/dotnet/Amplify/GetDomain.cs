@@ -56,7 +56,6 @@ namespace Pulumi.AwsNative.Amplify
         public readonly string? AutoSubDomainIamRole;
         public readonly Outputs.DomainCertificate? Certificate;
         public readonly string? CertificateRecord;
-        public readonly Outputs.DomainCertificateSettings? CertificateSettings;
         public readonly string? DomainStatus;
         public readonly bool? EnableAutoSubDomain;
         public readonly string? StatusReason;
@@ -75,8 +74,6 @@ namespace Pulumi.AwsNative.Amplify
 
             string? certificateRecord,
 
-            Outputs.DomainCertificateSettings? certificateSettings,
-
             string? domainStatus,
 
             bool? enableAutoSubDomain,
@@ -92,7 +89,6 @@ namespace Pulumi.AwsNative.Amplify
             AutoSubDomainIamRole = autoSubDomainIamRole;
             Certificate = certificate;
             CertificateRecord = certificateRecord;
-            CertificateSettings = certificateSettings;
             DomainStatus = domainStatus;
             EnableAutoSubDomain = enableAutoSubDomain;
             StatusReason = statusReason;

@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -78,6 +81,10 @@ export class CompositeAlarm extends pulumi.CustomResource {
      * The actions to execute when this alarm transitions to the OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
      */
     public readonly okActions!: pulumi.Output<string[] | undefined>;
+    /**
+     * A list of key-value pairs to associate with the composite alarm. You can associate as many as 50 tags with an alarm.
+     */
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a CompositeAlarm resource with the given unique name, arguments, and options.
@@ -103,6 +110,7 @@ export class CompositeAlarm extends pulumi.CustomResource {
             resourceInputs["alarmRule"] = args ? args.alarmRule : undefined;
             resourceInputs["insufficientDataActions"] = args ? args.insufficientDataActions : undefined;
             resourceInputs["okActions"] = args ? args.okActions : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["actionsEnabled"] = undefined /*out*/;
@@ -116,6 +124,7 @@ export class CompositeAlarm extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["insufficientDataActions"] = undefined /*out*/;
             resourceInputs["okActions"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["alarmName"] };
@@ -168,4 +177,8 @@ export interface CompositeAlarmArgs {
      * The actions to execute when this alarm transitions to the OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
      */
     okActions?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A list of key-value pairs to associate with the composite alarm. You can associate as many as 50 tags with an alarm.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

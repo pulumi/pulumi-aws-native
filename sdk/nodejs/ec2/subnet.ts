@@ -63,6 +63,10 @@ export class Subnet extends pulumi.CustomResource {
      */
     public readonly enableDns64!: pulumi.Output<boolean | undefined>;
     /**
+     * Indicates the device position for local network interfaces in this subnet. For example, ``1`` indicates local network interfaces in this subnet are the secondary network interface (eth1).
+     */
+    public readonly enableLniAtDeviceIndex!: pulumi.Output<number | undefined>;
+    /**
      * An IPv4 IPAM pool ID for the subnet.
      */
     public readonly ipv4IpamPoolId!: pulumi.Output<string | undefined>;
@@ -93,7 +97,7 @@ export class Subnet extends pulumi.CustomResource {
     public readonly ipv6NetmaskLength!: pulumi.Output<number | undefined>;
     /**
      * Indicates whether instances launched in this subnet receive a public IPv4 address. The default value is ``false``.
-     *  AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
+     *   AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
      */
     public readonly mapPublicIpOnLaunch!: pulumi.Output<boolean | undefined>;
     public /*out*/ readonly networkAclAssociationId!: pulumi.Output<string>;
@@ -104,9 +108,9 @@ export class Subnet extends pulumi.CustomResource {
     /**
      * The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries to the instances should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
      *  Available options:
-     *   + EnableResourceNameDnsAAAARecord (true | false)
-     *  + EnableResourceNameDnsARecord (true | false)
-     *  + HostnameType (ip-name | resource-name)
+     *   +  EnableResourceNameDnsAAAARecord (true | false)
+     *   +  EnableResourceNameDnsARecord (true | false)
+     *   +  HostnameType (ip-name | resource-name)
      */
     public readonly privateDnsNameOptionsOnLaunch!: pulumi.Output<outputs.ec2.PrivateDnsNameOptionsOnLaunchProperties | undefined>;
     public /*out*/ readonly subnetId!: pulumi.Output<string>;
@@ -139,6 +143,7 @@ export class Subnet extends pulumi.CustomResource {
             resourceInputs["availabilityZoneId"] = args ? args.availabilityZoneId : undefined;
             resourceInputs["cidrBlock"] = args ? args.cidrBlock : undefined;
             resourceInputs["enableDns64"] = args ? args.enableDns64 : undefined;
+            resourceInputs["enableLniAtDeviceIndex"] = args ? args.enableLniAtDeviceIndex : undefined;
             resourceInputs["ipv4IpamPoolId"] = args ? args.ipv4IpamPoolId : undefined;
             resourceInputs["ipv4NetmaskLength"] = args ? args.ipv4NetmaskLength : undefined;
             resourceInputs["ipv6CidrBlock"] = args ? args.ipv6CidrBlock : undefined;
@@ -159,6 +164,7 @@ export class Subnet extends pulumi.CustomResource {
             resourceInputs["availabilityZoneId"] = undefined /*out*/;
             resourceInputs["cidrBlock"] = undefined /*out*/;
             resourceInputs["enableDns64"] = undefined /*out*/;
+            resourceInputs["enableLniAtDeviceIndex"] = undefined /*out*/;
             resourceInputs["ipv4IpamPoolId"] = undefined /*out*/;
             resourceInputs["ipv4NetmaskLength"] = undefined /*out*/;
             resourceInputs["ipv6CidrBlock"] = undefined /*out*/;
@@ -209,6 +215,10 @@ export interface SubnetArgs {
      */
     enableDns64?: pulumi.Input<boolean>;
     /**
+     * Indicates the device position for local network interfaces in this subnet. For example, ``1`` indicates local network interfaces in this subnet are the secondary network interface (eth1).
+     */
+    enableLniAtDeviceIndex?: pulumi.Input<number>;
+    /**
      * An IPv4 IPAM pool ID for the subnet.
      */
     ipv4IpamPoolId?: pulumi.Input<string>;
@@ -239,7 +249,7 @@ export interface SubnetArgs {
     ipv6NetmaskLength?: pulumi.Input<number>;
     /**
      * Indicates whether instances launched in this subnet receive a public IPv4 address. The default value is ``false``.
-     *  AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
+     *   AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
      */
     mapPublicIpOnLaunch?: pulumi.Input<boolean>;
     /**
@@ -249,9 +259,9 @@ export interface SubnetArgs {
     /**
      * The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries to the instances should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
      *  Available options:
-     *   + EnableResourceNameDnsAAAARecord (true | false)
-     *  + EnableResourceNameDnsARecord (true | false)
-     *  + HostnameType (ip-name | resource-name)
+     *   +  EnableResourceNameDnsAAAARecord (true | false)
+     *   +  EnableResourceNameDnsARecord (true | false)
+     *   +  HostnameType (ip-name | resource-name)
      */
     privateDnsNameOptionsOnLaunch?: pulumi.Input<inputs.ec2.PrivateDnsNameOptionsOnLaunchPropertiesArgs>;
     /**

@@ -37,7 +37,7 @@
   "primaryIdentifier" : [ "/properties/StudioId", "/properties/IdentityType", "/properties/IdentityName" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "elasticmapreduce:CreateStudioSessionMapping", "sso-directory:SearchUsers", "sso-directory:SearchGroups", "sso-directory:DescribeUser", "sso-directory:DescribeGroup", "sso:ListDirectoryAssociations", "sso:GetProfile", "sso:ListProfiles", "sso:AssociateProfile" ]
+      "permissions" : [ "elasticmapreduce:CreateStudioSessionMapping", "sso-directory:SearchUsers", "sso-directory:SearchGroups", "sso-directory:DescribeUser", "sso-directory:DescribeGroup", "sso:GetManagedApplicationInstance", "sso:ListDirectoryAssociations", "sso:GetProfile", "sso:ListProfiles", "sso:AssociateProfile" ]
     },
     "read" : {
       "permissions" : [ "elasticmapreduce:GetStudioSessionMapping", "sso-directory:SearchUsers", "sso-directory:SearchGroups", "sso-directory:DescribeUser", "sso-directory:DescribeGroup", "sso:GetManagedApplicationInstance", "sso:DescribeInstance" ]

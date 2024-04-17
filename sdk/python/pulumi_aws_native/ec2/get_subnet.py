@@ -88,7 +88,7 @@ class GetSubnetResult:
     def map_public_ip_on_launch(self) -> Optional[bool]:
         """
         Indicates whether instances launched in this subnet receive a public IPv4 address. The default value is ``false``.
-         AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
+          AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
         """
         return pulumi.get(self, "map_public_ip_on_launch")
 
@@ -103,9 +103,9 @@ class GetSubnetResult:
         """
         The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries to the instances should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
          Available options:
-          + EnableResourceNameDnsAAAARecord (true | false)
-         + EnableResourceNameDnsARecord (true | false)
-         + HostnameType (ip-name | resource-name)
+          +  EnableResourceNameDnsAAAARecord (true | false)
+          +  EnableResourceNameDnsARecord (true | false)
+          +  HostnameType (ip-name | resource-name)
         """
         return pulumi.get(self, "private_dns_name_options_on_launch")
 

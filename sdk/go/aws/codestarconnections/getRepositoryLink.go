@@ -34,7 +34,7 @@ type LookupRepositoryLinkResult struct {
 	// The ARN of the KMS key that the customer can optionally specify to use to encrypt RepositoryLink properties. If not specified, a default key will be used.
 	EncryptionKeyArn *string `pulumi:"encryptionKeyArn"`
 	// The name of the external provider where your third-party code repository is configured.
-	ProviderType *string `pulumi:"providerType"`
+	ProviderType *RepositoryLinkProviderType `pulumi:"providerType"`
 	// A unique Amazon Resource Name (ARN) to designate the repository link.
 	RepositoryLinkArn *string `pulumi:"repositoryLinkArn"`
 	// A UUID that uniquely identifies the RepositoryLink.
@@ -90,8 +90,8 @@ func (o LookupRepositoryLinkResultOutput) EncryptionKeyArn() pulumi.StringPtrOut
 }
 
 // The name of the external provider where your third-party code repository is configured.
-func (o LookupRepositoryLinkResultOutput) ProviderType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupRepositoryLinkResult) *string { return v.ProviderType }).(pulumi.StringPtrOutput)
+func (o LookupRepositoryLinkResultOutput) ProviderType() RepositoryLinkProviderTypePtrOutput {
+	return o.ApplyT(func(v LookupRepositoryLinkResult) *RepositoryLinkProviderType { return v.ProviderType }).(RepositoryLinkProviderTypePtrOutput)
 }
 
 // A unique Amazon Resource Name (ARN) to designate the repository link.

@@ -32,11 +32,11 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ssm.NewDocument(ctx, "sessionPreferencesDocument", &ssm.DocumentArgs{
 //				Name: pulumi.String("SSM-SessionManagerRunShell"),
-//				Content: pulumi.Any{
-//					SchemaVersion: "1.0",
-//					Description:   "Document to hold regional settings for Session Manager",
-//					SessionType:   "Standard_Stream",
-//					Inputs: map[string]interface{}{
+//				Content: pulumi.Any(map[string]interface{}{
+//					"schemaVersion": "1.0",
+//					"description":   "Document to hold regional settings for Session Manager",
+//					"sessionType":   "Standard_Stream",
+//					"inputs": map[string]interface{}{
 //						"s3BucketName":                "DOC-EXAMPLE-BUCKET",
 //						"s3KeyPrefix":                 "MyBucketPrefix",
 //						"s3EncryptionEnabled":         true,
@@ -52,7 +52,7 @@ import (
 //							"linux":   "example commands",
 //						},
 //					},
-//				},
+//				}),
 //				DocumentType: ssm.DocumentTypeSession,
 //			})
 //			if err != nil {
@@ -80,11 +80,11 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ssm.NewDocument(ctx, "sessionPreferencesDocument", &ssm.DocumentArgs{
 //				Name: pulumi.String("SSM-SessionManagerRunShell"),
-//				Content: pulumi.Any{
-//					SchemaVersion: "1.0",
-//					Description:   "Document to hold regional settings for Session Manager",
-//					SessionType:   "Standard_Stream",
-//					Inputs: map[string]interface{}{
+//				Content: pulumi.Any(map[string]interface{}{
+//					"schemaVersion": "1.0",
+//					"description":   "Document to hold regional settings for Session Manager",
+//					"sessionType":   "Standard_Stream",
+//					"inputs": map[string]interface{}{
 //						"s3BucketName":                "DOC-EXAMPLE-BUCKET",
 //						"s3KeyPrefix":                 "MyBucketPrefix",
 //						"s3EncryptionEnabled":         true,
@@ -100,7 +100,7 @@ import (
 //							"linux":   "example commands",
 //						},
 //					},
-//				},
+//				}),
 //				DocumentFormat: ssm.DocumentFormatYaml,
 //				DocumentType:   ssm.DocumentTypeSession,
 //			})

@@ -70,6 +70,10 @@ export class Connector extends pulumi.CustomResource {
      * The Amazon Resource Name (ARN) of the IAM role used by the connector to access Amazon S3 objects and other external resources.
      */
     public readonly serviceExecutionRoleArn!: pulumi.Output<string>;
+    /**
+     * A collection of tags associated with a resource
+     */
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly workerConfiguration!: pulumi.Output<outputs.kafkaconnect.ConnectorWorkerConfiguration | undefined>;
 
     /**
@@ -118,6 +122,7 @@ export class Connector extends pulumi.CustomResource {
             resourceInputs["logDelivery"] = args ? args.logDelivery : undefined;
             resourceInputs["plugins"] = args ? args.plugins : undefined;
             resourceInputs["serviceExecutionRoleArn"] = args ? args.serviceExecutionRoleArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["workerConfiguration"] = args ? args.workerConfiguration : undefined;
             resourceInputs["connectorArn"] = undefined /*out*/;
         } else {
@@ -133,6 +138,7 @@ export class Connector extends pulumi.CustomResource {
             resourceInputs["logDelivery"] = undefined /*out*/;
             resourceInputs["plugins"] = undefined /*out*/;
             resourceInputs["serviceExecutionRoleArn"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["workerConfiguration"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -175,5 +181,9 @@ export interface ConnectorArgs {
      * The Amazon Resource Name (ARN) of the IAM role used by the connector to access Amazon S3 objects and other external resources.
      */
     serviceExecutionRoleArn: pulumi.Input<string>;
+    /**
+     * A collection of tags associated with a resource
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     workerConfiguration?: pulumi.Input<inputs.kafkaconnect.ConnectorWorkerConfigurationArgs>;
 }

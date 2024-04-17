@@ -41,9 +41,9 @@ namespace Pulumi.AwsNative.GameLift
     ///         RuleSetName = matchmakingRuleSetResource.Id,
     ///     }, new CustomResourceOptions
     ///     {
-    ///         DependsOn = new[]
+    ///         DependsOn =
     ///         {
-    ///             matchmakingRuleSetResource,
+    ///             matchmakingRuleSetResource, 
     ///         },
     ///     });
     /// 

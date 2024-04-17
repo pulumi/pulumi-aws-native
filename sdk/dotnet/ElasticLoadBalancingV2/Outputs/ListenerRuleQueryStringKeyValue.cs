@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
 {
 
+    /// <summary>
+    /// Information about a key/value pair.
+    /// </summary>
     [OutputType]
     public sealed class ListenerRuleQueryStringKeyValue
     {
+        /// <summary>
+        /// The key. You can omit the key.
+        /// </summary>
         public readonly string? Key;
+        /// <summary>
+        /// The value.
+        /// </summary>
         public readonly string? Value;
 
         [OutputConstructor]

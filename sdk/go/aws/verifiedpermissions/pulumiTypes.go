@@ -13,9 +13,143 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type IdentitySourceCognitoGroupConfiguration struct {
+	GroupEntityType string `pulumi:"groupEntityType"`
+}
+
+// IdentitySourceCognitoGroupConfigurationInput is an input type that accepts IdentitySourceCognitoGroupConfigurationArgs and IdentitySourceCognitoGroupConfigurationOutput values.
+// You can construct a concrete instance of `IdentitySourceCognitoGroupConfigurationInput` via:
+//
+//	IdentitySourceCognitoGroupConfigurationArgs{...}
+type IdentitySourceCognitoGroupConfigurationInput interface {
+	pulumi.Input
+
+	ToIdentitySourceCognitoGroupConfigurationOutput() IdentitySourceCognitoGroupConfigurationOutput
+	ToIdentitySourceCognitoGroupConfigurationOutputWithContext(context.Context) IdentitySourceCognitoGroupConfigurationOutput
+}
+
+type IdentitySourceCognitoGroupConfigurationArgs struct {
+	GroupEntityType pulumi.StringInput `pulumi:"groupEntityType"`
+}
+
+func (IdentitySourceCognitoGroupConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceCognitoGroupConfiguration)(nil)).Elem()
+}
+
+func (i IdentitySourceCognitoGroupConfigurationArgs) ToIdentitySourceCognitoGroupConfigurationOutput() IdentitySourceCognitoGroupConfigurationOutput {
+	return i.ToIdentitySourceCognitoGroupConfigurationOutputWithContext(context.Background())
+}
+
+func (i IdentitySourceCognitoGroupConfigurationArgs) ToIdentitySourceCognitoGroupConfigurationOutputWithContext(ctx context.Context) IdentitySourceCognitoGroupConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceCognitoGroupConfigurationOutput)
+}
+
+func (i IdentitySourceCognitoGroupConfigurationArgs) ToIdentitySourceCognitoGroupConfigurationPtrOutput() IdentitySourceCognitoGroupConfigurationPtrOutput {
+	return i.ToIdentitySourceCognitoGroupConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i IdentitySourceCognitoGroupConfigurationArgs) ToIdentitySourceCognitoGroupConfigurationPtrOutputWithContext(ctx context.Context) IdentitySourceCognitoGroupConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceCognitoGroupConfigurationOutput).ToIdentitySourceCognitoGroupConfigurationPtrOutputWithContext(ctx)
+}
+
+// IdentitySourceCognitoGroupConfigurationPtrInput is an input type that accepts IdentitySourceCognitoGroupConfigurationArgs, IdentitySourceCognitoGroupConfigurationPtr and IdentitySourceCognitoGroupConfigurationPtrOutput values.
+// You can construct a concrete instance of `IdentitySourceCognitoGroupConfigurationPtrInput` via:
+//
+//	        IdentitySourceCognitoGroupConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type IdentitySourceCognitoGroupConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToIdentitySourceCognitoGroupConfigurationPtrOutput() IdentitySourceCognitoGroupConfigurationPtrOutput
+	ToIdentitySourceCognitoGroupConfigurationPtrOutputWithContext(context.Context) IdentitySourceCognitoGroupConfigurationPtrOutput
+}
+
+type identitySourceCognitoGroupConfigurationPtrType IdentitySourceCognitoGroupConfigurationArgs
+
+func IdentitySourceCognitoGroupConfigurationPtr(v *IdentitySourceCognitoGroupConfigurationArgs) IdentitySourceCognitoGroupConfigurationPtrInput {
+	return (*identitySourceCognitoGroupConfigurationPtrType)(v)
+}
+
+func (*identitySourceCognitoGroupConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentitySourceCognitoGroupConfiguration)(nil)).Elem()
+}
+
+func (i *identitySourceCognitoGroupConfigurationPtrType) ToIdentitySourceCognitoGroupConfigurationPtrOutput() IdentitySourceCognitoGroupConfigurationPtrOutput {
+	return i.ToIdentitySourceCognitoGroupConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *identitySourceCognitoGroupConfigurationPtrType) ToIdentitySourceCognitoGroupConfigurationPtrOutputWithContext(ctx context.Context) IdentitySourceCognitoGroupConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceCognitoGroupConfigurationPtrOutput)
+}
+
+type IdentitySourceCognitoGroupConfigurationOutput struct{ *pulumi.OutputState }
+
+func (IdentitySourceCognitoGroupConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceCognitoGroupConfiguration)(nil)).Elem()
+}
+
+func (o IdentitySourceCognitoGroupConfigurationOutput) ToIdentitySourceCognitoGroupConfigurationOutput() IdentitySourceCognitoGroupConfigurationOutput {
+	return o
+}
+
+func (o IdentitySourceCognitoGroupConfigurationOutput) ToIdentitySourceCognitoGroupConfigurationOutputWithContext(ctx context.Context) IdentitySourceCognitoGroupConfigurationOutput {
+	return o
+}
+
+func (o IdentitySourceCognitoGroupConfigurationOutput) ToIdentitySourceCognitoGroupConfigurationPtrOutput() IdentitySourceCognitoGroupConfigurationPtrOutput {
+	return o.ToIdentitySourceCognitoGroupConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o IdentitySourceCognitoGroupConfigurationOutput) ToIdentitySourceCognitoGroupConfigurationPtrOutputWithContext(ctx context.Context) IdentitySourceCognitoGroupConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentitySourceCognitoGroupConfiguration) *IdentitySourceCognitoGroupConfiguration {
+		return &v
+	}).(IdentitySourceCognitoGroupConfigurationPtrOutput)
+}
+
+func (o IdentitySourceCognitoGroupConfigurationOutput) GroupEntityType() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentitySourceCognitoGroupConfiguration) string { return v.GroupEntityType }).(pulumi.StringOutput)
+}
+
+type IdentitySourceCognitoGroupConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (IdentitySourceCognitoGroupConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentitySourceCognitoGroupConfiguration)(nil)).Elem()
+}
+
+func (o IdentitySourceCognitoGroupConfigurationPtrOutput) ToIdentitySourceCognitoGroupConfigurationPtrOutput() IdentitySourceCognitoGroupConfigurationPtrOutput {
+	return o
+}
+
+func (o IdentitySourceCognitoGroupConfigurationPtrOutput) ToIdentitySourceCognitoGroupConfigurationPtrOutputWithContext(ctx context.Context) IdentitySourceCognitoGroupConfigurationPtrOutput {
+	return o
+}
+
+func (o IdentitySourceCognitoGroupConfigurationPtrOutput) Elem() IdentitySourceCognitoGroupConfigurationOutput {
+	return o.ApplyT(func(v *IdentitySourceCognitoGroupConfiguration) IdentitySourceCognitoGroupConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret IdentitySourceCognitoGroupConfiguration
+		return ret
+	}).(IdentitySourceCognitoGroupConfigurationOutput)
+}
+
+func (o IdentitySourceCognitoGroupConfigurationPtrOutput) GroupEntityType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentitySourceCognitoGroupConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.GroupEntityType
+	}).(pulumi.StringPtrOutput)
+}
+
 type IdentitySourceCognitoUserPoolConfiguration struct {
-	ClientIds   []string `pulumi:"clientIds"`
-	UserPoolArn string   `pulumi:"userPoolArn"`
+	ClientIds          []string                                 `pulumi:"clientIds"`
+	GroupConfiguration *IdentitySourceCognitoGroupConfiguration `pulumi:"groupConfiguration"`
+	UserPoolArn        string                                   `pulumi:"userPoolArn"`
 }
 
 // IdentitySourceCognitoUserPoolConfigurationInput is an input type that accepts IdentitySourceCognitoUserPoolConfigurationArgs and IdentitySourceCognitoUserPoolConfigurationOutput values.
@@ -30,8 +164,9 @@ type IdentitySourceCognitoUserPoolConfigurationInput interface {
 }
 
 type IdentitySourceCognitoUserPoolConfigurationArgs struct {
-	ClientIds   pulumi.StringArrayInput `pulumi:"clientIds"`
-	UserPoolArn pulumi.StringInput      `pulumi:"userPoolArn"`
+	ClientIds          pulumi.StringArrayInput                         `pulumi:"clientIds"`
+	GroupConfiguration IdentitySourceCognitoGroupConfigurationPtrInput `pulumi:"groupConfiguration"`
+	UserPoolArn        pulumi.StringInput                              `pulumi:"userPoolArn"`
 }
 
 func (IdentitySourceCognitoUserPoolConfigurationArgs) ElementType() reflect.Type {
@@ -62,6 +197,12 @@ func (o IdentitySourceCognitoUserPoolConfigurationOutput) ToIdentitySourceCognit
 
 func (o IdentitySourceCognitoUserPoolConfigurationOutput) ClientIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v IdentitySourceCognitoUserPoolConfiguration) []string { return v.ClientIds }).(pulumi.StringArrayOutput)
+}
+
+func (o IdentitySourceCognitoUserPoolConfigurationOutput) GroupConfiguration() IdentitySourceCognitoGroupConfigurationPtrOutput {
+	return o.ApplyT(func(v IdentitySourceCognitoUserPoolConfiguration) *IdentitySourceCognitoGroupConfiguration {
+		return v.GroupConfiguration
+	}).(IdentitySourceCognitoGroupConfigurationPtrOutput)
 }
 
 func (o IdentitySourceCognitoUserPoolConfigurationOutput) UserPoolArn() pulumi.StringOutput {
@@ -99,6 +240,15 @@ func (o IdentitySourceCognitoUserPoolConfigurationPtrOutput) ClientIds() pulumi.
 		}
 		return v.ClientIds
 	}).(pulumi.StringArrayOutput)
+}
+
+func (o IdentitySourceCognitoUserPoolConfigurationPtrOutput) GroupConfiguration() IdentitySourceCognitoGroupConfigurationPtrOutput {
+	return o.ApplyT(func(v *IdentitySourceCognitoUserPoolConfiguration) *IdentitySourceCognitoGroupConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.GroupConfiguration
+	}).(IdentitySourceCognitoGroupConfigurationPtrOutput)
 }
 
 func (o IdentitySourceCognitoUserPoolConfigurationPtrOutput) UserPoolArn() pulumi.StringPtrOutput {
@@ -1028,6 +1178,8 @@ func (o PolicyTemplateLinkedPolicyDefinitionPtrOutput) Resource() PolicyEntityId
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceCognitoGroupConfigurationInput)(nil)).Elem(), IdentitySourceCognitoGroupConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceCognitoGroupConfigurationPtrInput)(nil)).Elem(), IdentitySourceCognitoGroupConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceCognitoUserPoolConfigurationInput)(nil)).Elem(), IdentitySourceCognitoUserPoolConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceConfigurationInput)(nil)).Elem(), IdentitySourceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyDefinition0PropertiesInput)(nil)).Elem(), PolicyDefinition0PropertiesArgs{})
@@ -1039,6 +1191,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStoreSchemaDefinitionPtrInput)(nil)).Elem(), PolicyStoreSchemaDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStoreValidationSettingsInput)(nil)).Elem(), PolicyStoreValidationSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyTemplateLinkedPolicyDefinitionInput)(nil)).Elem(), PolicyTemplateLinkedPolicyDefinitionArgs{})
+	pulumi.RegisterOutputType(IdentitySourceCognitoGroupConfigurationOutput{})
+	pulumi.RegisterOutputType(IdentitySourceCognitoGroupConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(IdentitySourceCognitoUserPoolConfigurationOutput{})
 	pulumi.RegisterOutputType(IdentitySourceCognitoUserPoolConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(IdentitySourceConfigurationOutput{})

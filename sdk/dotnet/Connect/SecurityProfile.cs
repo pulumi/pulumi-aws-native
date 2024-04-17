@@ -16,10 +16,22 @@ namespace Pulumi.AwsNative.Connect
     public partial class SecurityProfile : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The identifier of the hierarchy group that a security profile uses to restrict access to resources in Amazon Connect.
+        /// </summary>
+        [Output("allowedAccessControlHierarchyGroupId")]
+        public Output<string?> AllowedAccessControlHierarchyGroupId { get; private set; } = null!;
+
+        /// <summary>
         /// The list of tags that a security profile uses to restrict access to resources in Amazon Connect.
         /// </summary>
         [Output("allowedAccessControlTags")]
         public Output<ImmutableArray<Outputs.SecurityProfileTag>> AllowedAccessControlTags { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of third-party applications that the security profile will give access to.
+        /// </summary>
+        [Output("applications")]
+        public Output<ImmutableArray<Outputs.SecurityProfileApplication>> Applications { get; private set; } = null!;
 
         /// <summary>
         /// The description of the security profile.
@@ -28,10 +40,28 @@ namespace Pulumi.AwsNative.Connect
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// The list of resources that a security profile applies hierarchy restrictions to in Amazon Connect.
+        /// </summary>
+        [Output("hierarchyRestrictedResources")]
+        public Output<ImmutableArray<string>> HierarchyRestrictedResources { get; private set; } = null!;
+
+        /// <summary>
         /// The identifier of the Amazon Connect instance.
         /// </summary>
         [Output("instanceArn")]
         public Output<string> InstanceArn { get; private set; } = null!;
+
+        /// <summary>
+        /// The AWS Region where this resource was last modified.
+        /// </summary>
+        [Output("lastModifiedRegion")]
+        public Output<string> LastModifiedRegion { get; private set; } = null!;
+
+        /// <summary>
+        /// The timestamp when this resource was last modified.
+        /// </summary>
+        [Output("lastModifiedTime")]
+        public Output<double> LastModifiedTime { get; private set; } = null!;
 
         /// <summary>
         /// Permissions assigned to the security profile.
@@ -113,6 +143,12 @@ namespace Pulumi.AwsNative.Connect
 
     public sealed class SecurityProfileArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The identifier of the hierarchy group that a security profile uses to restrict access to resources in Amazon Connect.
+        /// </summary>
+        [Input("allowedAccessControlHierarchyGroupId")]
+        public Input<string>? AllowedAccessControlHierarchyGroupId { get; set; }
+
         [Input("allowedAccessControlTags")]
         private InputList<Inputs.SecurityProfileTagArgs>? _allowedAccessControlTags;
 
@@ -125,11 +161,35 @@ namespace Pulumi.AwsNative.Connect
             set => _allowedAccessControlTags = value;
         }
 
+        [Input("applications")]
+        private InputList<Inputs.SecurityProfileApplicationArgs>? _applications;
+
+        /// <summary>
+        /// A list of third-party applications that the security profile will give access to.
+        /// </summary>
+        public InputList<Inputs.SecurityProfileApplicationArgs> Applications
+        {
+            get => _applications ?? (_applications = new InputList<Inputs.SecurityProfileApplicationArgs>());
+            set => _applications = value;
+        }
+
         /// <summary>
         /// The description of the security profile.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        [Input("hierarchyRestrictedResources")]
+        private InputList<string>? _hierarchyRestrictedResources;
+
+        /// <summary>
+        /// The list of resources that a security profile applies hierarchy restrictions to in Amazon Connect.
+        /// </summary>
+        public InputList<string> HierarchyRestrictedResources
+        {
+            get => _hierarchyRestrictedResources ?? (_hierarchyRestrictedResources = new InputList<string>());
+            set => _hierarchyRestrictedResources = value;
+        }
 
         /// <summary>
         /// The identifier of the Amazon Connect instance.

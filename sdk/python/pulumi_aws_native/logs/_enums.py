@@ -42,7 +42,11 @@ class LogAnomalyDetectorEvaluationFrequency(str, Enum):
 
 class LogGroupClass(str, Enum):
     """
-    The class of the log group. Possible values are: STANDARD and INFREQUENT_ACCESS, with STANDARD being the default class
+    Specifies the log group class for this log group. There are two classes:
+      +  The ``Standard`` log class supports all CWL features.
+      +  The ``Infrequent Access`` log class supports a subset of CWL features and incurs lower costs.
+      
+     For details about the features supported by each class, see [Log classes](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch_Logs_Log_Classes.html)
     """
     STANDARD = "STANDARD"
     INFREQUENT_ACCESS = "INFREQUENT_ACCESS"
@@ -50,7 +54,7 @@ class LogGroupClass(str, Enum):
 
 class MetricFilterMetricTransformationUnit(str, Enum):
     """
-    The unit to assign to the metric. If you omit this, the unit is set as None.
+    The unit to assign to the metric. If you omit this, the unit is set as ``None``.
     """
     SECONDS = "Seconds"
     MICROSECONDS = "Microseconds"
@@ -83,7 +87,7 @@ class MetricFilterMetricTransformationUnit(str, Enum):
 
 class SubscriptionFilterDistribution(str, Enum):
     """
-    The method used to distribute log data to the destination. By default, log data is grouped by log stream, but the grouping can be set to random for a more even distribution. This property is only applicable when the destination is an Amazon Kinesis stream.
+    The method used to distribute log data to the destination, which can be either random or grouped by log stream.
     """
     RANDOM = "Random"
     BY_LOG_STREAM = "ByLogStream"

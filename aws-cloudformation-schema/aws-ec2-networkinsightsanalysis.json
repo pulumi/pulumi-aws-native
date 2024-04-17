@@ -18,7 +18,7 @@
     }
   },
   "typeName" : "AWS::EC2::NetworkInsightsAnalysis",
-  "readOnlyProperties" : [ "/properties/NetworkInsightsAnalysisId", "/properties/NetworkInsightsAnalysisArn", "/properties/StartDate", "/properties/Status", "/properties/StatusMessage", "/properties/ErrorCode", "/properties/ErrorMessage", "/properties/NetworkPathFound", "/properties/ForwardPathComponents", "/properties/ReturnPathComponents", "/properties/Explanations", "/properties/AlternatePathHints", "/properties/SuggestedAccounts" ],
+  "readOnlyProperties" : [ "/properties/NetworkInsightsAnalysisId", "/properties/NetworkInsightsAnalysisArn", "/properties/StartDate", "/properties/Status", "/properties/StatusMessage", "/properties/NetworkPathFound", "/properties/ForwardPathComponents", "/properties/ReturnPathComponents", "/properties/Explanations", "/properties/AlternatePathHints", "/properties/SuggestedAccounts" ],
   "description" : "Resource schema for AWS::EC2::NetworkInsightsAnalysis",
   "additionalIdentifiers" : [ [ "/properties/NetworkInsightsAnalysisArn" ] ],
   "createOnlyProperties" : [ "/properties/NetworkInsightsPathId", "/properties/FilterInArns" ],

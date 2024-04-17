@@ -15,16 +15,20 @@ import * as auditmanager from "./auditmanager";
 import * as b2bi from "./b2bi";
 import * as backup from "./backup";
 import * as batch from "./batch";
+import * as bedrock from "./bedrock";
 import * as budgets from "./budgets";
 import * as cassandra from "./cassandra";
 import * as ce from "./ce";
 import * as cleanrooms from "./cleanrooms";
+import * as cleanroomsml from "./cleanroomsml";
 import * as cloudformation from "./cloudformation";
 import * as cloudfront from "./cloudfront";
 import * as cloudtrail from "./cloudtrail";
+import * as codeartifact from "./codeartifact";
 import * as codebuild from "./codebuild";
 import * as codeguruprofiler from "./codeguruprofiler";
 import * as codegurureviewer from "./codegurureviewer";
+import * as codestarconnections from "./codestarconnections";
 import * as codestarnotifications from "./codestarnotifications";
 import * as comprehend from "./comprehend";
 import * as connect from "./connect";
@@ -33,6 +37,7 @@ import * as customerprofiles from "./customerprofiles";
 import * as databrew from "./databrew";
 import * as datasync from "./datasync";
 import * as datazone from "./datazone";
+import * as deadline from "./deadline";
 import * as devicefarm from "./devicefarm";
 import * as devopsguru from "./devopsguru";
 import * as dms from "./dms";
@@ -130,6 +135,7 @@ import * as s3outposts from "./s3outposts";
 import * as sagemaker from "./sagemaker";
 import * as scheduler from "./scheduler";
 import * as securityhub from "./securityhub";
+import * as securitylake from "./securitylake";
 import * as servicecatalog from "./servicecatalog";
 import * as servicecatalogappregistry from "./servicecatalogappregistry";
 import * as shield from "./shield";
@@ -166,16 +172,20 @@ export {
     b2bi,
     backup,
     batch,
+    bedrock,
     budgets,
     cassandra,
     ce,
     cleanrooms,
+    cleanroomsml,
     cloudformation,
     cloudfront,
     cloudtrail,
+    codeartifact,
     codebuild,
     codeguruprofiler,
     codegurureviewer,
+    codestarconnections,
     codestarnotifications,
     comprehend,
     connect,
@@ -184,6 +194,7 @@ export {
     databrew,
     datasync,
     datazone,
+    deadline,
     devicefarm,
     devopsguru,
     dms,
@@ -281,6 +292,7 @@ export {
     sagemaker,
     scheduler,
     securityhub,
+    securitylake,
     servicecatalog,
     servicecatalogappregistry,
     shield,

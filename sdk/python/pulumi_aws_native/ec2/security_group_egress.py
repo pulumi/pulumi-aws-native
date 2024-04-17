@@ -29,17 +29,17 @@ class SecurityGroupEgressInitArgs:
         :param pulumi.Input[str] ip_protocol: The IP protocol name (``tcp``, ``udp``, ``icmp``, ``icmpv6``) or number (see [Protocol Numbers](https://docs.aws.amazon.com/http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)).
                 Use ``-1`` to specify all protocols. When authorizing security group rules, specifying ``-1`` or a protocol number other than ``tcp``, ``udp``, ``icmp``, or ``icmpv6`` allows traffic on all ports, regardless of any port range you specify. For ``tcp``, ``udp``, and ``icmp``, you must specify a port range. For ``icmpv6``, the port range is optional; if you omit the port range, traffic for all types and codes is allowed.
         :param pulumi.Input[str] cidr_ip: The IPv4 address range, in CIDR format.
-                You must specify a destination security group (``DestinationPrefixListId`` or ``DestinationSecurityGroupId``) or a CIDR range (``CidrIp`` or ``CidrIpv6``).
+                You must specify exactly one of the following: ``CidrIp``, ``CidrIpv6``, ``DestinationPrefixListId``, or ``DestinationSecurityGroupId``.
                 For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *User Guide*.
         :param pulumi.Input[str] cidr_ipv6: The IPv6 address range, in CIDR format.
-                You must specify a destination security group (``DestinationPrefixListId`` or ``DestinationSecurityGroupId``) or a CIDR range (``CidrIp`` or ``CidrIpv6``).
+                You must specify exactly one of the following: ``CidrIp``, ``CidrIpv6``, ``DestinationPrefixListId``, or ``DestinationSecurityGroupId``.
                 For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *User Guide*.
         :param pulumi.Input[str] description: The description of an egress (outbound) security group rule.
                 Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
-        :param pulumi.Input[str] destination_prefix_list_id: The prefix list IDs for an AWS service. This is the AWS service that you want to access through a VPC endpoint from instances associated with the security group.
-                You must specify a destination security group (``DestinationPrefixListId`` or ``DestinationSecurityGroupId``) or a CIDR range (``CidrIp`` or ``CidrIpv6``).
+        :param pulumi.Input[str] destination_prefix_list_id: The prefix list IDs for an AWS service. This is the AWS service to access through a VPC endpoint from instances associated with the security group.
+                You must specify exactly one of the following: ``CidrIp``, ``CidrIpv6``, ``DestinationPrefixListId``, or ``DestinationSecurityGroupId``.
         :param pulumi.Input[str] destination_security_group_id: The ID of the security group.
-                You must specify a destination security group (``DestinationPrefixListId`` or ``DestinationSecurityGroupId``) or a CIDR range (``CidrIp`` or ``CidrIpv6``).
+                You must specify exactly one of the following: ``CidrIp``, ``CidrIpv6``, ``DestinationPrefixListId``, or ``DestinationSecurityGroupId``.
         :param pulumi.Input[int] from_port: If the protocol is TCP or UDP, this is the start of the port range. If the protocol is ICMP or ICMPv6, this is the ICMP type or -1 (all ICMP types).
         :param pulumi.Input[int] to_port: If the protocol is TCP or UDP, this is the end of the port range. If the protocol is ICMP or ICMPv6, this is the ICMP code or -1 (all ICMP codes). If the start port is -1 (all ICMP types), then the end port must be -1 (all ICMP codes).
         """
@@ -90,7 +90,7 @@ class SecurityGroupEgressInitArgs:
     def cidr_ip(self) -> Optional[pulumi.Input[str]]:
         """
         The IPv4 address range, in CIDR format.
-         You must specify a destination security group (``DestinationPrefixListId`` or ``DestinationSecurityGroupId``) or a CIDR range (``CidrIp`` or ``CidrIpv6``).
+         You must specify exactly one of the following: ``CidrIp``, ``CidrIpv6``, ``DestinationPrefixListId``, or ``DestinationSecurityGroupId``.
          For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *User Guide*.
         """
         return pulumi.get(self, "cidr_ip")
@@ -104,7 +104,7 @@ class SecurityGroupEgressInitArgs:
     def cidr_ipv6(self) -> Optional[pulumi.Input[str]]:
         """
         The IPv6 address range, in CIDR format.
-         You must specify a destination security group (``DestinationPrefixListId`` or ``DestinationSecurityGroupId``) or a CIDR range (``CidrIp`` or ``CidrIpv6``).
+         You must specify exactly one of the following: ``CidrIp``, ``CidrIpv6``, ``DestinationPrefixListId``, or ``DestinationSecurityGroupId``.
          For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *User Guide*.
         """
         return pulumi.get(self, "cidr_ipv6")
@@ -130,8 +130,8 @@ class SecurityGroupEgressInitArgs:
     @pulumi.getter(name="destinationPrefixListId")
     def destination_prefix_list_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The prefix list IDs for an AWS service. This is the AWS service that you want to access through a VPC endpoint from instances associated with the security group.
-         You must specify a destination security group (``DestinationPrefixListId`` or ``DestinationSecurityGroupId``) or a CIDR range (``CidrIp`` or ``CidrIpv6``).
+        The prefix list IDs for an AWS service. This is the AWS service to access through a VPC endpoint from instances associated with the security group.
+         You must specify exactly one of the following: ``CidrIp``, ``CidrIpv6``, ``DestinationPrefixListId``, or ``DestinationSecurityGroupId``.
         """
         return pulumi.get(self, "destination_prefix_list_id")
 
@@ -144,7 +144,7 @@ class SecurityGroupEgressInitArgs:
     def destination_security_group_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the security group.
-         You must specify a destination security group (``DestinationPrefixListId`` or ``DestinationSecurityGroupId``) or a CIDR range (``CidrIp`` or ``CidrIpv6``).
+         You must specify exactly one of the following: ``CidrIp``, ``CidrIpv6``, ``DestinationPrefixListId``, or ``DestinationSecurityGroupId``.
         """
         return pulumi.get(self, "destination_security_group_id")
 
@@ -195,24 +195,24 @@ class SecurityGroupEgress(pulumi.CustomResource):
         """
         Adds the specified outbound (egress) rule to a security group.
          An outbound rule permits instances to send traffic to the specified IPv4 or IPv6 address range, the IP addresses that are specified by a prefix list, or the instances that are associated with a destination security group. For more information, see [Security group rules](https://docs.aws.amazon.com/vpc/latest/userguide/security-group-rules.html).
-         You must specify exactly one of the following destinations: an IPv4 or IPv6 address range, a prefix list, or a security group. Otherwise, the stack launches successfully but the rule is not added to the security group.
+         You must specify exactly one of the following destinations: an IPv4 address range, an IPv6 address range, a prefix list, or a security group.
          You must specify a protocol for each rule (for example, TCP). If the protocol is TCP or UDP, you must also specify a port or port range. If the protocol is ICMP or ICMPv6, you must also specify the ICMP/ICMPv6 type and code. To specify all types or all codes, use -1.
-         Rule changes are propagated to instances associated with the security group as quickly as possible
+         Rule changes are propagated to instances associated with the security group as quickly as possible. However, a small delay might occur.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cidr_ip: The IPv4 address range, in CIDR format.
-                You must specify a destination security group (``DestinationPrefixListId`` or ``DestinationSecurityGroupId``) or a CIDR range (``CidrIp`` or ``CidrIpv6``).
+                You must specify exactly one of the following: ``CidrIp``, ``CidrIpv6``, ``DestinationPrefixListId``, or ``DestinationSecurityGroupId``.
                 For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *User Guide*.
         :param pulumi.Input[str] cidr_ipv6: The IPv6 address range, in CIDR format.
-                You must specify a destination security group (``DestinationPrefixListId`` or ``DestinationSecurityGroupId``) or a CIDR range (``CidrIp`` or ``CidrIpv6``).
+                You must specify exactly one of the following: ``CidrIp``, ``CidrIpv6``, ``DestinationPrefixListId``, or ``DestinationSecurityGroupId``.
                 For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *User Guide*.
         :param pulumi.Input[str] description: The description of an egress (outbound) security group rule.
                 Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
-        :param pulumi.Input[str] destination_prefix_list_id: The prefix list IDs for an AWS service. This is the AWS service that you want to access through a VPC endpoint from instances associated with the security group.
-                You must specify a destination security group (``DestinationPrefixListId`` or ``DestinationSecurityGroupId``) or a CIDR range (``CidrIp`` or ``CidrIpv6``).
+        :param pulumi.Input[str] destination_prefix_list_id: The prefix list IDs for an AWS service. This is the AWS service to access through a VPC endpoint from instances associated with the security group.
+                You must specify exactly one of the following: ``CidrIp``, ``CidrIpv6``, ``DestinationPrefixListId``, or ``DestinationSecurityGroupId``.
         :param pulumi.Input[str] destination_security_group_id: The ID of the security group.
-                You must specify a destination security group (``DestinationPrefixListId`` or ``DestinationSecurityGroupId``) or a CIDR range (``CidrIp`` or ``CidrIpv6``).
+                You must specify exactly one of the following: ``CidrIp``, ``CidrIpv6``, ``DestinationPrefixListId``, or ``DestinationSecurityGroupId``.
         :param pulumi.Input[int] from_port: If the protocol is TCP or UDP, this is the start of the port range. If the protocol is ICMP or ICMPv6, this is the ICMP type or -1 (all ICMP types).
         :param pulumi.Input[str] group_id: The ID of the security group. You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.
         :param pulumi.Input[str] ip_protocol: The IP protocol name (``tcp``, ``udp``, ``icmp``, ``icmpv6``) or number (see [Protocol Numbers](https://docs.aws.amazon.com/http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)).
@@ -228,9 +228,9 @@ class SecurityGroupEgress(pulumi.CustomResource):
         """
         Adds the specified outbound (egress) rule to a security group.
          An outbound rule permits instances to send traffic to the specified IPv4 or IPv6 address range, the IP addresses that are specified by a prefix list, or the instances that are associated with a destination security group. For more information, see [Security group rules](https://docs.aws.amazon.com/vpc/latest/userguide/security-group-rules.html).
-         You must specify exactly one of the following destinations: an IPv4 or IPv6 address range, a prefix list, or a security group. Otherwise, the stack launches successfully but the rule is not added to the security group.
+         You must specify exactly one of the following destinations: an IPv4 address range, an IPv6 address range, a prefix list, or a security group.
          You must specify a protocol for each rule (for example, TCP). If the protocol is TCP or UDP, you must also specify a port or port range. If the protocol is ICMP or ICMPv6, you must also specify the ICMP/ICMPv6 type and code. To specify all types or all codes, use -1.
-         Rule changes are propagated to instances associated with the security group as quickly as possible
+         Rule changes are propagated to instances associated with the security group as quickly as possible. However, a small delay might occur.
 
         :param str resource_name: The name of the resource.
         :param SecurityGroupEgressInitArgs args: The arguments to use to populate this resource's properties.
@@ -325,7 +325,7 @@ class SecurityGroupEgress(pulumi.CustomResource):
     def cidr_ip(self) -> pulumi.Output[Optional[str]]:
         """
         The IPv4 address range, in CIDR format.
-         You must specify a destination security group (``DestinationPrefixListId`` or ``DestinationSecurityGroupId``) or a CIDR range (``CidrIp`` or ``CidrIpv6``).
+         You must specify exactly one of the following: ``CidrIp``, ``CidrIpv6``, ``DestinationPrefixListId``, or ``DestinationSecurityGroupId``.
          For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *User Guide*.
         """
         return pulumi.get(self, "cidr_ip")
@@ -335,7 +335,7 @@ class SecurityGroupEgress(pulumi.CustomResource):
     def cidr_ipv6(self) -> pulumi.Output[Optional[str]]:
         """
         The IPv6 address range, in CIDR format.
-         You must specify a destination security group (``DestinationPrefixListId`` or ``DestinationSecurityGroupId``) or a CIDR range (``CidrIp`` or ``CidrIpv6``).
+         You must specify exactly one of the following: ``CidrIp``, ``CidrIpv6``, ``DestinationPrefixListId``, or ``DestinationSecurityGroupId``.
          For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *User Guide*.
         """
         return pulumi.get(self, "cidr_ipv6")
@@ -353,8 +353,8 @@ class SecurityGroupEgress(pulumi.CustomResource):
     @pulumi.getter(name="destinationPrefixListId")
     def destination_prefix_list_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The prefix list IDs for an AWS service. This is the AWS service that you want to access through a VPC endpoint from instances associated with the security group.
-         You must specify a destination security group (``DestinationPrefixListId`` or ``DestinationSecurityGroupId``) or a CIDR range (``CidrIp`` or ``CidrIpv6``).
+        The prefix list IDs for an AWS service. This is the AWS service to access through a VPC endpoint from instances associated with the security group.
+         You must specify exactly one of the following: ``CidrIp``, ``CidrIpv6``, ``DestinationPrefixListId``, or ``DestinationSecurityGroupId``.
         """
         return pulumi.get(self, "destination_prefix_list_id")
 
@@ -363,7 +363,7 @@ class SecurityGroupEgress(pulumi.CustomResource):
     def destination_security_group_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the security group.
-         You must specify a destination security group (``DestinationPrefixListId`` or ``DestinationSecurityGroupId``) or a CIDR range (``CidrIp`` or ``CidrIpv6``).
+         You must specify exactly one of the following: ``CidrIp``, ``CidrIpv6``, ``DestinationPrefixListId``, or ``DestinationSecurityGroupId``.
         """
         return pulumi.get(self, "destination_security_group_id")
 

@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -63,6 +66,10 @@ export interface GetCompositeAlarmResult {
      * The actions to execute when this alarm transitions to the OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
      */
     readonly okActions?: string[];
+    /**
+     * A list of key-value pairs to associate with the composite alarm. You can associate as many as 50 tags with an alarm.
+     */
+    readonly tags?: outputs.Tag[];
 }
 /**
  * The AWS::CloudWatch::CompositeAlarm type specifies an alarm which aggregates the states of other Alarms (Metric or Composite Alarms) as defined by the AlarmRule expression

@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::EC2::InternetGateway
+// Allocates an internet gateway for use with a VPC. After creating the Internet gateway, you then attach it to a VPC.
 func LookupInternetGateway(ctx *pulumi.Context, args *LookupInternetGatewayArgs, opts ...pulumi.InvokeOption) (*LookupInternetGatewayResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupInternetGatewayResult
@@ -24,12 +24,10 @@ func LookupInternetGateway(ctx *pulumi.Context, args *LookupInternetGatewayArgs,
 }
 
 type LookupInternetGatewayArgs struct {
-	// ID of internet gateway.
 	InternetGatewayId string `pulumi:"internetGatewayId"`
 }
 
 type LookupInternetGatewayResult struct {
-	// ID of internet gateway.
 	InternetGatewayId *string `pulumi:"internetGatewayId"`
 	// Any tags to assign to the internet gateway.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -49,7 +47,6 @@ func LookupInternetGatewayOutput(ctx *pulumi.Context, args LookupInternetGateway
 }
 
 type LookupInternetGatewayOutputArgs struct {
-	// ID of internet gateway.
 	InternetGatewayId pulumi.StringInput `pulumi:"internetGatewayId"`
 }
 
@@ -71,7 +68,6 @@ func (o LookupInternetGatewayResultOutput) ToLookupInternetGatewayResultOutputWi
 	return o
 }
 
-// ID of internet gateway.
 func (o LookupInternetGatewayResultOutput) InternetGatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupInternetGatewayResult) *string { return v.InternetGatewayId }).(pulumi.StringPtrOutput)
 }

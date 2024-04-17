@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:codeartifact:Domain":
 		r = &Domain{}
+	case "aws-native:codeartifact:PackageGroup":
+		r = &PackageGroup{}
 	case "aws-native:codeartifact:Repository":
 		r = &Repository{}
 	default:

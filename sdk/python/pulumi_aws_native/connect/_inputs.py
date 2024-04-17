@@ -57,6 +57,7 @@ __all__ = [
     'RuleTaskActionArgs',
     'RuleTriggerEventSourceArgs',
     'RuleUpdateCaseActionArgs',
+    'SecurityProfileApplicationArgs',
     'SecurityProfileTagArgs',
     'TaskTemplateDefaultFieldValueArgs',
     'TaskTemplateFieldIdentifierArgs',
@@ -2041,6 +2042,44 @@ class RuleUpdateCaseActionArgs:
     @fields.setter
     def fields(self, value: pulumi.Input[Sequence[pulumi.Input['RuleFieldArgs']]]):
         pulumi.set(self, "fields", value)
+
+
+@pulumi.input_type
+class SecurityProfileApplicationArgs:
+    def __init__(__self__, *,
+                 application_permissions: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 namespace: pulumi.Input[str]):
+        """
+        A third-party application's metadata.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] application_permissions: The permissions that the agent is granted on the application
+        :param pulumi.Input[str] namespace: Namespace of the application that you want to give access to.
+        """
+        pulumi.set(__self__, "application_permissions", application_permissions)
+        pulumi.set(__self__, "namespace", namespace)
+
+    @property
+    @pulumi.getter(name="applicationPermissions")
+    def application_permissions(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The permissions that the agent is granted on the application
+        """
+        return pulumi.get(self, "application_permissions")
+
+    @application_permissions.setter
+    def application_permissions(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "application_permissions", value)
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> pulumi.Input[str]:
+        """
+        Namespace of the application that you want to give access to.
+        """
+        return pulumi.get(self, "namespace")
+
+    @namespace.setter
+    def namespace(self, value: pulumi.Input[str]):
+        pulumi.set(self, "namespace", value)
 
 
 @pulumi.input_type

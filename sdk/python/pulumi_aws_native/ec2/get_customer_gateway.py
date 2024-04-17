@@ -30,9 +30,6 @@ class GetCustomerGatewayResult:
     @property
     @pulumi.getter(name="customerGatewayId")
     def customer_gateway_id(self) -> Optional[str]:
-        """
-        CustomerGateway ID generated after customer gateway is created. Each customer gateway has a unique ID.
-        """
         return pulumi.get(self, "customer_gateway_id")
 
     @property
@@ -57,10 +54,7 @@ class AwaitableGetCustomerGatewayResult(GetCustomerGatewayResult):
 def get_customer_gateway(customer_gateway_id: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomerGatewayResult:
     """
-    Resource Type definition for AWS::EC2::CustomerGateway
-
-
-    :param str customer_gateway_id: CustomerGateway ID generated after customer gateway is created. Each customer gateway has a unique ID.
+    Specifies a customer gateway.
     """
     __args__ = dict()
     __args__['customerGatewayId'] = customer_gateway_id
@@ -76,9 +70,6 @@ def get_customer_gateway(customer_gateway_id: Optional[str] = None,
 def get_customer_gateway_output(customer_gateway_id: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomerGatewayResult]:
     """
-    Resource Type definition for AWS::EC2::CustomerGateway
-
-
-    :param str customer_gateway_id: CustomerGateway ID generated after customer gateway is created. Each customer gateway has a unique ID.
+    Specifies a customer gateway.
     """
     ...

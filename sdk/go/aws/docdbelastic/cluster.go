@@ -20,13 +20,16 @@ type Cluster struct {
 	AdminUserName              pulumi.StringOutput      `pulumi:"adminUserName"`
 	AdminUserPassword          pulumi.StringPtrOutput   `pulumi:"adminUserPassword"`
 	AuthType                   pulumi.StringOutput      `pulumi:"authType"`
+	BackupRetentionPeriod      pulumi.IntPtrOutput      `pulumi:"backupRetentionPeriod"`
 	ClusterArn                 pulumi.StringOutput      `pulumi:"clusterArn"`
 	ClusterEndpoint            pulumi.StringOutput      `pulumi:"clusterEndpoint"`
 	ClusterName                pulumi.StringOutput      `pulumi:"clusterName"`
 	KmsKeyId                   pulumi.StringPtrOutput   `pulumi:"kmsKeyId"`
+	PreferredBackupWindow      pulumi.StringPtrOutput   `pulumi:"preferredBackupWindow"`
 	PreferredMaintenanceWindow pulumi.StringPtrOutput   `pulumi:"preferredMaintenanceWindow"`
 	ShardCapacity              pulumi.IntOutput         `pulumi:"shardCapacity"`
 	ShardCount                 pulumi.IntOutput         `pulumi:"shardCount"`
+	ShardInstanceCount         pulumi.IntPtrOutput      `pulumi:"shardInstanceCount"`
 	SubnetIds                  pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	Tags                       aws.TagArrayOutput       `pulumi:"tags"`
 	VpcSecurityGroupIds        pulumi.StringArrayOutput `pulumi:"vpcSecurityGroupIds"`
@@ -94,11 +97,14 @@ type clusterArgs struct {
 	AdminUserName              string    `pulumi:"adminUserName"`
 	AdminUserPassword          *string   `pulumi:"adminUserPassword"`
 	AuthType                   string    `pulumi:"authType"`
+	BackupRetentionPeriod      *int      `pulumi:"backupRetentionPeriod"`
 	ClusterName                *string   `pulumi:"clusterName"`
 	KmsKeyId                   *string   `pulumi:"kmsKeyId"`
+	PreferredBackupWindow      *string   `pulumi:"preferredBackupWindow"`
 	PreferredMaintenanceWindow *string   `pulumi:"preferredMaintenanceWindow"`
 	ShardCapacity              int       `pulumi:"shardCapacity"`
 	ShardCount                 int       `pulumi:"shardCount"`
+	ShardInstanceCount         *int      `pulumi:"shardInstanceCount"`
 	SubnetIds                  []string  `pulumi:"subnetIds"`
 	Tags                       []aws.Tag `pulumi:"tags"`
 	VpcSecurityGroupIds        []string  `pulumi:"vpcSecurityGroupIds"`
@@ -109,11 +115,14 @@ type ClusterArgs struct {
 	AdminUserName              pulumi.StringInput
 	AdminUserPassword          pulumi.StringPtrInput
 	AuthType                   pulumi.StringInput
+	BackupRetentionPeriod      pulumi.IntPtrInput
 	ClusterName                pulumi.StringPtrInput
 	KmsKeyId                   pulumi.StringPtrInput
+	PreferredBackupWindow      pulumi.StringPtrInput
 	PreferredMaintenanceWindow pulumi.StringPtrInput
 	ShardCapacity              pulumi.IntInput
 	ShardCount                 pulumi.IntInput
+	ShardInstanceCount         pulumi.IntPtrInput
 	SubnetIds                  pulumi.StringArrayInput
 	Tags                       aws.TagArrayInput
 	VpcSecurityGroupIds        pulumi.StringArrayInput
@@ -168,6 +177,10 @@ func (o ClusterOutput) AuthType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.AuthType }).(pulumi.StringOutput)
 }
 
+func (o ClusterOutput) BackupRetentionPeriod() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.IntPtrOutput { return v.BackupRetentionPeriod }).(pulumi.IntPtrOutput)
+}
+
 func (o ClusterOutput) ClusterArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterArn }).(pulumi.StringOutput)
 }
@@ -184,6 +197,10 @@ func (o ClusterOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
+func (o ClusterOutput) PreferredBackupWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.PreferredBackupWindow }).(pulumi.StringPtrOutput)
+}
+
 func (o ClusterOutput) PreferredMaintenanceWindow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.PreferredMaintenanceWindow }).(pulumi.StringPtrOutput)
 }
@@ -194,6 +211,10 @@ func (o ClusterOutput) ShardCapacity() pulumi.IntOutput {
 
 func (o ClusterOutput) ShardCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.IntOutput { return v.ShardCount }).(pulumi.IntOutput)
+}
+
+func (o ClusterOutput) ShardInstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.IntPtrOutput { return v.ShardInstanceCount }).(pulumi.IntPtrOutput)
 }
 
 func (o ClusterOutput) SubnetIds() pulumi.StringArrayOutput {

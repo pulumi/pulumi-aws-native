@@ -62,14 +62,14 @@ namespace Pulumi.AwsNative.CodeArtifact
     ///     {
     ///         DomainName = "my-domain",
     ///         EncryptionKey = "arn:aws:kms:us-west-2:123456789012:key/12345678-9abc-def1-2345-6789abcdef12",
-    ///         PermissionsPolicyDocument = 
+    ///         PermissionsPolicyDocument = new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             { "version", "2012-10-17" },
-    ///             { "statement", new[]
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
-    ///                 
+    ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     { "action", new[]
+    ///                     ["action"] = new[]
     ///                     {
     ///                         "codeartifact:ReadFromRepository",
     ///                         "codeartifact:DescribePackageVersion",
@@ -81,15 +81,15 @@ namespace Pulumi.AwsNative.CodeArtifact
     ///                         "codeartifact:ListPackageVersions",
     ///                         "codeartifact:ListPackages",
     ///                         "codeartifact:ReadFromRepository",
-    ///                     } },
-    ///                     { "effect", "Allow" },
-    ///                     { "principal", 
+    ///                     },
+    ///                     ["effect"] = "Allow",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         { "aws", "arn:aws:iam::123456789012:root" },
-    ///                     } },
-    ///                     { "resource", "*" },
+    ///                         ["aws"] = "arn:aws:iam::123456789012:root",
+    ///                     },
+    ///                     ["resource"] = "*",
     ///                 },
-    ///             } },
+    ///             },
     ///         },
     ///     });
     /// 
@@ -110,14 +110,14 @@ namespace Pulumi.AwsNative.CodeArtifact
     ///     {
     ///         DomainName = "my-domain",
     ///         EncryptionKey = "arn:aws:kms:us-west-2:123456789012:key/12345678-9abc-def1-2345-6789abcdef12",
-    ///         PermissionsPolicyDocument = 
+    ///         PermissionsPolicyDocument = new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             { "version", "2012-10-17" },
-    ///             { "statement", new[]
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
-    ///                 
+    ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     { "action", new[]
+    ///                     ["action"] = new[]
     ///                     {
     ///                         "codeartifact:ReadFromRepository",
     ///                         "codeartifact:DescribePackageVersion",
@@ -129,15 +129,15 @@ namespace Pulumi.AwsNative.CodeArtifact
     ///                         "codeartifact:ListPackageVersions",
     ///                         "codeartifact:ListPackages",
     ///                         "codeartifact:ReadFromRepository",
-    ///                     } },
-    ///                     { "effect", "Allow" },
-    ///                     { "principal", 
+    ///                     },
+    ///                     ["effect"] = "Allow",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         { "aws", "arn:aws:iam::123456789012:root" },
-    ///                     } },
-    ///                     { "resource", "*" },
+    ///                         ["aws"] = "arn:aws:iam::123456789012:root",
+    ///                     },
+    ///                     ["resource"] = "*",
     ///                 },
-    ///             } },
+    ///             },
     ///         },
     ///     });
     /// 

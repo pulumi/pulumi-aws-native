@@ -126,6 +126,10 @@ namespace Pulumi.AwsNative.Ec2
         /// An arbitrary set of tags (key-value pairs) for this network interface.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// The ID of the VPC
+        /// </summary>
+        public readonly string? VpcId;
 
         [OutputConstructor]
         private GetNetworkInterfaceResult(
@@ -163,7 +167,9 @@ namespace Pulumi.AwsNative.Ec2
 
             bool? sourceDestCheck,
 
-            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
+
+            string? vpcId)
         {
             ConnectionTrackingSpecification = connectionTrackingSpecification;
             Description = description;
@@ -183,6 +189,7 @@ namespace Pulumi.AwsNative.Ec2
             SecondaryPrivateIpAddresses = secondaryPrivateIpAddresses;
             SourceDestCheck = sourceDestCheck;
             Tags = tags;
+            VpcId = vpcId;
         }
     }
 }

@@ -16,4 +16,3 @@ class ZonalAutoshiftConfigurationControlConditionType(str, Enum):
 
 class ZonalAutoshiftConfigurationZonalAutoshiftStatus(str, Enum):
     ENABLED = "ENABLED"
-    DISABLED = "DISABLED"

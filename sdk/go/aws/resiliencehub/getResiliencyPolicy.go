@@ -29,8 +29,8 @@ type LookupResiliencyPolicyArgs struct {
 
 type LookupResiliencyPolicyResult struct {
 	// Data Location Constraint of the Policy.
-	DataLocationConstraint *ResiliencyPolicyDataLocationConstraint  `pulumi:"dataLocationConstraint"`
-	Policy                 map[string]ResiliencyPolicyFailurePolicy `pulumi:"policy"`
+	DataLocationConstraint *ResiliencyPolicyDataLocationConstraint `pulumi:"dataLocationConstraint"`
+	Policy                 *ResiliencyPolicyPolicyMap              `pulumi:"policy"`
 	// Amazon Resource Name (ARN) of the Resiliency Policy.
 	PolicyArn *string `pulumi:"policyArn"`
 	// Description of Resiliency Policy.
@@ -85,8 +85,8 @@ func (o LookupResiliencyPolicyResultOutput) DataLocationConstraint() ResiliencyP
 	}).(ResiliencyPolicyDataLocationConstraintPtrOutput)
 }
 
-func (o LookupResiliencyPolicyResultOutput) Policy() ResiliencyPolicyFailurePolicyMapOutput {
-	return o.ApplyT(func(v LookupResiliencyPolicyResult) map[string]ResiliencyPolicyFailurePolicy { return v.Policy }).(ResiliencyPolicyFailurePolicyMapOutput)
+func (o LookupResiliencyPolicyResultOutput) Policy() ResiliencyPolicyPolicyMapPtrOutput {
+	return o.ApplyT(func(v LookupResiliencyPolicyResult) *ResiliencyPolicyPolicyMap { return v.Policy }).(ResiliencyPolicyPolicyMapPtrOutput)
 }
 
 // Amazon Resource Name (ARN) of the Resiliency Policy.

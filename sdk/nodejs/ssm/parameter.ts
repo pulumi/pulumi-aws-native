@@ -162,7 +162,7 @@ export class Parameter extends pulumi.CustomResource {
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The name of the parameter.
-     *  The maximum length constraint listed below includes capacity for additional system attributes that aren't part of the name. The maximum length for a parameter name, including the full length of the parameter Amazon Resource Name (ARN), is 1011 characters. For example, the length of the following parameter name is 65 characters, not 20 characters: ``arn:aws:ssm:us-east-2:111222333444:parameter/ExampleParameterName``
+     *   The maximum length constraint listed below includes capacity for additional system attributes that aren't part of the name. The maximum length for a parameter name, including the full length of the parameter Amazon Resource Name (ARN), is 1011 characters. For example, the length of the following parameter name is 65 characters, not 20 characters: ``arn:aws:ssm:us-east-2:111222333444:parameter/ExampleParameterName``
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
@@ -180,7 +180,6 @@ export class Parameter extends pulumi.CustomResource {
     public readonly tier!: pulumi.Output<enums.ssm.ParameterTier | undefined>;
     /**
      * The type of parameter.
-     *   Although ``SecureString`` is included in the list of valid values, CFNlong does *not* currently support creating ``SecureString`` parameters.
      */
     public readonly type!: pulumi.Output<enums.ssm.ParameterType>;
     /**
@@ -251,7 +250,7 @@ export interface ParameterArgs {
     description?: pulumi.Input<string>;
     /**
      * The name of the parameter.
-     *  The maximum length constraint listed below includes capacity for additional system attributes that aren't part of the name. The maximum length for a parameter name, including the full length of the parameter Amazon Resource Name (ARN), is 1011 characters. For example, the length of the following parameter name is 65 characters, not 20 characters: ``arn:aws:ssm:us-east-2:111222333444:parameter/ExampleParameterName``
+     *   The maximum length constraint listed below includes capacity for additional system attributes that aren't part of the name. The maximum length for a parameter name, including the full length of the parameter Amazon Resource Name (ARN), is 1011 characters. For example, the length of the following parameter name is 65 characters, not 20 characters: ``arn:aws:ssm:us-east-2:111222333444:parameter/ExampleParameterName``
      */
     name?: pulumi.Input<string>;
     /**
@@ -269,7 +268,6 @@ export interface ParameterArgs {
     tier?: pulumi.Input<enums.ssm.ParameterTier>;
     /**
      * The type of parameter.
-     *   Although ``SecureString`` is included in the list of valid values, CFNlong does *not* currently support creating ``SecureString`` parameters.
      */
     type: pulumi.Input<enums.ssm.ParameterType>;
     /**

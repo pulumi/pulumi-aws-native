@@ -24,7 +24,7 @@ env:
   SIGNING_KEY: ${{ secrets.JAVA_SIGNING_KEY }}
   SIGNING_PASSWORD: ${{ secrets.JAVA_SIGNING_PASSWORD }}
   GOVERSION: 1.21.x
-  NODEVERSION: 16.x
+  NODEVERSION: 20.x
   PYTHONVERSION: "3.11"
   DOTNETVERSION: |
     6.0.x
@@ -78,6 +78,8 @@ jobs:
         schema-tools compare -p ${{ env.PROVIDER }} -o ${{ github.event.repository.default_branch }} -n --local-path=provider/cmd/pulumi-resource-${{ env.PROVIDER }}/schema.json >> $GITHUB_ENV
 
         echo 'EOF' >> $GITHUB_ENV
+      env:
+        GITHUB_TOKEN: ${{ secrets.PULUMI_BOT_TOKEN }}
     - if: github.event_name == 'pull_request'
       name: Comment on PR with Details of Schema Check
       uses: thollander/actions-comment-pull-request@v2

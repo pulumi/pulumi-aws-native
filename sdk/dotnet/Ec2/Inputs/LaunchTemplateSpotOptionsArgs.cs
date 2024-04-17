@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 
     /// <summary>
     /// Specifies options for Spot Instances.
-    ///  ``SpotOptions`` is a property of [AWS::EC2::LaunchTemplate InstanceMarketOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions.html).
+    ///   ``SpotOptions`` is a property of [AWS::EC2::LaunchTemplate InstanceMarketOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions.html).
     /// </summary>
     public sealed class LaunchTemplateSpotOptionsArgs : global::Pulumi.ResourceArgs
     {
@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 
         /// <summary>
         /// The Spot Instance request type.
-        ///  If you are using Spot Instances with an Auto Scaling group, use ``one-time`` requests, as the Amazon EC2 Auto Scaling service handles requesting new Spot Instances whenever the group is below its desired capacity.
+        ///  If you are using Spot Instances with an Auto Scaling group, use ``one-time`` requests, as the ASlong service handles requesting new Spot Instances whenever the group is below its desired capacity.
         /// </summary>
         [Input("spotInstanceType")]
         public Input<string>? SpotInstanceType { get; set; }

@@ -449,11 +449,11 @@ class HostedZoneVpcArgs:
                  vpc_region: pulumi.Input[str]):
         """
         *Private hosted zones only:* A complex type that contains information about an Amazon VPC. Route 53 Resolver uses the records in the private hosted zone to route traffic in that VPC. 
-         For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
+          For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
         :param pulumi.Input[str] vpc_id: *Private hosted zones only:* The ID of an Amazon VPC.
-                For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
+                 For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
         :param pulumi.Input[str] vpc_region: *Private hosted zones only:* The region that an Amazon VPC was created in.
-                For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
+                 For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
         """
         pulumi.set(__self__, "vpc_id", vpc_id)
         pulumi.set(__self__, "vpc_region", vpc_region)
@@ -463,7 +463,7 @@ class HostedZoneVpcArgs:
     def vpc_id(self) -> pulumi.Input[str]:
         """
         *Private hosted zones only:* The ID of an Amazon VPC.
-         For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
+          For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
         """
         return pulumi.get(self, "vpc_id")
 
@@ -476,7 +476,7 @@ class HostedZoneVpcArgs:
     def vpc_region(self) -> pulumi.Input[str]:
         """
         *Private hosted zones only:* The region that an Amazon VPC was created in.
-         For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
+          For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
         """
         return pulumi.get(self, "vpc_region")
 

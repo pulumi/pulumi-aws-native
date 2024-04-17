@@ -23,8 +23,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:securityhub:AutomationRule":
 		r = &AutomationRule{}
+	case "aws-native:securityhub:DelegatedAdmin":
+		r = &DelegatedAdmin{}
 	case "aws-native:securityhub:Hub":
 		r = &Hub{}
+	case "aws-native:securityhub:Insight":
+		r = &Insight{}
+	case "aws-native:securityhub:ProductSubscription":
+		r = &ProductSubscription{}
 	case "aws-native:securityhub:Standard":
 		r = &Standard{}
 	default:

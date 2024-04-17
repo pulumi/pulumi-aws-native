@@ -18,7 +18,9 @@ type Channel struct {
 	pulumi.CustomResourceState
 
 	// <p>The ARN of the channel.</p>
-	Arn              pulumi.StringOutput                        `pulumi:"arn"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// <p>The list of audiences defined in channel.</p>
+	Audiences        pulumi.StringArrayOutput                   `pulumi:"audiences"`
 	ChannelName      pulumi.StringOutput                        `pulumi:"channelName"`
 	FillerSlate      ChannelSlateSourcePtrOutput                `pulumi:"fillerSlate"`
 	LogConfiguration ChannelLogConfigurationForChannelPtrOutput `pulumi:"logConfiguration"`
@@ -82,6 +84,8 @@ func (ChannelState) ElementType() reflect.Type {
 }
 
 type channelArgs struct {
+	// <p>The list of audiences defined in channel.</p>
+	Audiences        []string                           `pulumi:"audiences"`
 	ChannelName      *string                            `pulumi:"channelName"`
 	FillerSlate      *ChannelSlateSource                `pulumi:"fillerSlate"`
 	LogConfiguration *ChannelLogConfigurationForChannel `pulumi:"logConfiguration"`
@@ -96,6 +100,8 @@ type channelArgs struct {
 
 // The set of arguments for constructing a Channel resource.
 type ChannelArgs struct {
+	// <p>The list of audiences defined in channel.</p>
+	Audiences        pulumi.StringArrayInput
 	ChannelName      pulumi.StringPtrInput
 	FillerSlate      ChannelSlateSourcePtrInput
 	LogConfiguration ChannelLogConfigurationForChannelPtrInput
@@ -148,6 +154,11 @@ func (o ChannelOutput) ToChannelOutputWithContext(ctx context.Context) ChannelOu
 // <p>The ARN of the channel.</p>
 func (o ChannelOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// <p>The list of audiences defined in channel.</p>
+func (o ChannelOutput) Audiences() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Channel) pulumi.StringArrayOutput { return v.Audiences }).(pulumi.StringArrayOutput)
 }
 
 func (o ChannelOutput) ChannelName() pulumi.StringOutput {

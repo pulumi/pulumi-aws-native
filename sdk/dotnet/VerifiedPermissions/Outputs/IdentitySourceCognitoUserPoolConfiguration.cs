@@ -14,15 +14,19 @@ namespace Pulumi.AwsNative.VerifiedPermissions.Outputs
     public sealed class IdentitySourceCognitoUserPoolConfiguration
     {
         public readonly ImmutableArray<string> ClientIds;
+        public readonly Outputs.IdentitySourceCognitoGroupConfiguration? GroupConfiguration;
         public readonly string UserPoolArn;
 
         [OutputConstructor]
         private IdentitySourceCognitoUserPoolConfiguration(
             ImmutableArray<string> clientIds,
 
+            Outputs.IdentitySourceCognitoGroupConfiguration? groupConfiguration,
+
             string userPoolArn)
         {
             ClientIds = clientIds;
+            GroupConfiguration = groupConfiguration;
             UserPoolArn = userPoolArn;
         }
     }

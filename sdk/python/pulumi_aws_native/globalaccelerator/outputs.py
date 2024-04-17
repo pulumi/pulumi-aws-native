@@ -11,10 +11,54 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'CrossAccountAttachmentResource',
     'EndpointGroupEndpointConfiguration',
     'EndpointGroupPortOverride',
     'ListenerPortRange',
 ]
+
+@pulumi.output_type
+class CrossAccountAttachmentResource(dict):
+    """
+    ARN of resource to share.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endpointId":
+            suggest = "endpoint_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CrossAccountAttachmentResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CrossAccountAttachmentResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CrossAccountAttachmentResource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 endpoint_id: str,
+                 region: Optional[str] = None):
+        """
+        ARN of resource to share.
+        """
+        pulumi.set(__self__, "endpoint_id", endpoint_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+
+    @property
+    @pulumi.getter(name="endpointId")
+    def endpoint_id(self) -> str:
+        return pulumi.get(self, "endpoint_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[str]:
+        return pulumi.get(self, "region")
+
 
 @pulumi.output_type
 class EndpointGroupEndpointConfiguration(dict):

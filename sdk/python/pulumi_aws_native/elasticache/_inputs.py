@@ -243,33 +243,26 @@ class ServerlessCacheCacheUsageLimitsArgs:
 @pulumi.input_type
 class ServerlessCacheDataStorageArgs:
     def __init__(__self__, *,
-                 maximum: pulumi.Input[int],
-                 unit: pulumi.Input['ServerlessCacheDataStorageUnit']):
+                 unit: pulumi.Input['ServerlessCacheDataStorageUnit'],
+                 maximum: Optional[pulumi.Input[int]] = None,
+                 minimum: Optional[pulumi.Input[int]] = None):
         """
         The cached data capacity of the Serverless Cache.
+        :param pulumi.Input['ServerlessCacheDataStorageUnit'] unit: The unit of cached data capacity of the Serverless Cache.
         :param pulumi.Input[int] maximum: The maximum cached data capacity of the Serverless Cache.
-        :param pulumi.Input['ServerlessCacheDataStorageUnit'] unit: The unix of cached data capacity of the Serverless Cache.
+        :param pulumi.Input[int] minimum: The minimum cached data capacity of the Serverless Cache.
         """
-        pulumi.set(__self__, "maximum", maximum)
         pulumi.set(__self__, "unit", unit)
-
-    @property
-    @pulumi.getter
-    def maximum(self) -> pulumi.Input[int]:
-        """
-        The maximum cached data capacity of the Serverless Cache.
-        """
-        return pulumi.get(self, "maximum")
-
-    @maximum.setter
-    def maximum(self, value: pulumi.Input[int]):
-        pulumi.set(self, "maximum", value)
+        if maximum is not None:
+            pulumi.set(__self__, "maximum", maximum)
+        if minimum is not None:
+            pulumi.set(__self__, "minimum", minimum)
 
     @property
     @pulumi.getter
     def unit(self) -> pulumi.Input['ServerlessCacheDataStorageUnit']:
         """
-        The unix of cached data capacity of the Serverless Cache.
+        The unit of cached data capacity of the Serverless Cache.
         """
         return pulumi.get(self, "unit")
 
@@ -277,28 +270,69 @@ class ServerlessCacheDataStorageArgs:
     def unit(self, value: pulumi.Input['ServerlessCacheDataStorageUnit']):
         pulumi.set(self, "unit", value)
 
+    @property
+    @pulumi.getter
+    def maximum(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum cached data capacity of the Serverless Cache.
+        """
+        return pulumi.get(self, "maximum")
+
+    @maximum.setter
+    def maximum(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "maximum", value)
+
+    @property
+    @pulumi.getter
+    def minimum(self) -> Optional[pulumi.Input[int]]:
+        """
+        The minimum cached data capacity of the Serverless Cache.
+        """
+        return pulumi.get(self, "minimum")
+
+    @minimum.setter
+    def minimum(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "minimum", value)
+
 
 @pulumi.input_type
 class ServerlessCacheEcpuPerSecondArgs:
     def __init__(__self__, *,
-                 maximum: pulumi.Input[int]):
+                 maximum: Optional[pulumi.Input[int]] = None,
+                 minimum: Optional[pulumi.Input[int]] = None):
         """
         The ECPU per second of the Serverless Cache.
         :param pulumi.Input[int] maximum: The maximum ECPU per second of the Serverless Cache.
+        :param pulumi.Input[int] minimum: The minimum ECPU per second of the Serverless Cache.
         """
-        pulumi.set(__self__, "maximum", maximum)
+        if maximum is not None:
+            pulumi.set(__self__, "maximum", maximum)
+        if minimum is not None:
+            pulumi.set(__self__, "minimum", minimum)
 
     @property
     @pulumi.getter
-    def maximum(self) -> pulumi.Input[int]:
+    def maximum(self) -> Optional[pulumi.Input[int]]:
         """
         The maximum ECPU per second of the Serverless Cache.
         """
         return pulumi.get(self, "maximum")
 
     @maximum.setter
-    def maximum(self, value: pulumi.Input[int]):
+    def maximum(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "maximum", value)
+
+    @property
+    @pulumi.getter
+    def minimum(self) -> Optional[pulumi.Input[int]]:
+        """
+        The minimum ECPU per second of the Serverless Cache.
+        """
+        return pulumi.get(self, "minimum")
+
+    @minimum.setter
+    def minimum(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "minimum", value)
 
 
 @pulumi.input_type

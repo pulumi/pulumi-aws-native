@@ -11,6 +11,7 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'IdentitySourceCognitoGroupConfigurationArgs',
     'IdentitySourceCognitoUserPoolConfigurationArgs',
     'IdentitySourceConfigurationArgs',
     'PolicyDefinition0PropertiesArgs',
@@ -23,13 +24,32 @@ __all__ = [
 ]
 
 @pulumi.input_type
+class IdentitySourceCognitoGroupConfigurationArgs:
+    def __init__(__self__, *,
+                 group_entity_type: pulumi.Input[str]):
+        pulumi.set(__self__, "group_entity_type", group_entity_type)
+
+    @property
+    @pulumi.getter(name="groupEntityType")
+    def group_entity_type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "group_entity_type")
+
+    @group_entity_type.setter
+    def group_entity_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "group_entity_type", value)
+
+
+@pulumi.input_type
 class IdentitySourceCognitoUserPoolConfigurationArgs:
     def __init__(__self__, *,
                  user_pool_arn: pulumi.Input[str],
-                 client_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 client_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 group_configuration: Optional[pulumi.Input['IdentitySourceCognitoGroupConfigurationArgs']] = None):
         pulumi.set(__self__, "user_pool_arn", user_pool_arn)
         if client_ids is not None:
             pulumi.set(__self__, "client_ids", client_ids)
+        if group_configuration is not None:
+            pulumi.set(__self__, "group_configuration", group_configuration)
 
     @property
     @pulumi.getter(name="userPoolArn")
@@ -48,6 +68,15 @@ class IdentitySourceCognitoUserPoolConfigurationArgs:
     @client_ids.setter
     def client_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "client_ids", value)
+
+    @property
+    @pulumi.getter(name="groupConfiguration")
+    def group_configuration(self) -> Optional[pulumi.Input['IdentitySourceCognitoGroupConfigurationArgs']]:
+        return pulumi.get(self, "group_configuration")
+
+    @group_configuration.setter
+    def group_configuration(self, value: Optional[pulumi.Input['IdentitySourceCognitoGroupConfigurationArgs']]):
+        pulumi.set(self, "group_configuration", value)
 
 
 @pulumi.input_type

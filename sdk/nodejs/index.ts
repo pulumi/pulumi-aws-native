@@ -88,18 +88,21 @@ import * as b2bi from "./b2bi";
 import * as backup from "./backup";
 import * as backupgateway from "./backupgateway";
 import * as batch from "./batch";
+import * as bedrock from "./bedrock";
 import * as budgets from "./budgets";
 import * as cassandra from "./cassandra";
 import * as ce from "./ce";
 import * as certificatemanager from "./certificatemanager";
 import * as chatbot from "./chatbot";
 import * as cleanrooms from "./cleanrooms";
+import * as cleanroomsml from "./cleanroomsml";
 import * as cloudformation from "./cloudformation";
 import * as cloudfront from "./cloudfront";
 import * as cloudtrail from "./cloudtrail";
 import * as cloudwatch from "./cloudwatch";
 import * as codeartifact from "./codeartifact";
 import * as codebuild from "./codebuild";
+import * as codeconnections from "./codeconnections";
 import * as codedeploy from "./codedeploy";
 import * as codeguruprofiler from "./codeguruprofiler";
 import * as codegurureviewer from "./codegurureviewer";
@@ -118,6 +121,7 @@ import * as databrew from "./databrew";
 import * as datapipeline from "./datapipeline";
 import * as datasync from "./datasync";
 import * as datazone from "./datazone";
+import * as deadline from "./deadline";
 import * as detective from "./detective";
 import * as devicefarm from "./devicefarm";
 import * as devopsguru from "./devopsguru";
@@ -242,6 +246,7 @@ import * as sagemaker from "./sagemaker";
 import * as scheduler from "./scheduler";
 import * as secretsmanager from "./secretsmanager";
 import * as securityhub from "./securityhub";
+import * as securitylake from "./securitylake";
 import * as servicecatalog from "./servicecatalog";
 import * as servicecatalogappregistry from "./servicecatalogappregistry";
 import * as ses from "./ses";
@@ -295,18 +300,21 @@ export {
     backup,
     backupgateway,
     batch,
+    bedrock,
     budgets,
     cassandra,
     ce,
     certificatemanager,
     chatbot,
     cleanrooms,
+    cleanroomsml,
     cloudformation,
     cloudfront,
     cloudtrail,
     cloudwatch,
     codeartifact,
     codebuild,
+    codeconnections,
     codedeploy,
     codeguruprofiler,
     codegurureviewer,
@@ -325,6 +333,7 @@ export {
     datapipeline,
     datasync,
     datazone,
+    deadline,
     detective,
     devicefarm,
     devopsguru,
@@ -449,6 +458,7 @@ export {
     scheduler,
     secretsmanager,
     securityhub,
+    securitylake,
     servicecatalog,
     servicecatalogappregistry,
     ses,

@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.GameLift
         public Output<string> AutoScalingGroupArn { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting
+        /// Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
         /// </summary>
         [Output("autoScalingPolicy")]
         public Output<Outputs.GameServerGroupAutoScalingPolicy?> AutoScalingPolicy { get; private set; } = null!;
@@ -64,19 +64,19 @@ namespace Pulumi.AwsNative.GameLift
         public Output<ImmutableArray<Outputs.GameServerGroupInstanceDefinition>> InstanceDefinitions { get; private set; } = null!;
 
         /// <summary>
-        /// The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group.
+        /// The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
         /// </summary>
         [Output("launchTemplate")]
         public Output<Outputs.GameServerGroupLaunchTemplate?> LaunchTemplate { get; private set; } = null!;
 
         /// <summary>
-        /// The maximum number of instances allowed in the EC2 Auto Scaling group.
+        /// The maximum number of instances allowed in the EC2 Auto Scaling group. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
         /// </summary>
         [Output("maxSize")]
         public Output<double?> MaxSize { get; private set; } = null!;
 
         /// <summary>
-        /// The minimum number of instances allowed in the EC2 Auto Scaling group.
+        /// The minimum number of instances allowed in the EC2 Auto Scaling group. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
         /// </summary>
         [Output("minSize")]
         public Output<double?> MinSize { get; private set; } = null!;
@@ -88,13 +88,13 @@ namespace Pulumi.AwsNative.GameLift
         public Output<string> RoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// A list of labels to assign to the new game server group resource.
+        /// A list of labels to assign to the new game server group resource. Updating game server group tags with CloudFormation will not take effect. Please update this property using AWS GameLift APIs instead.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A list of virtual private cloud (VPC) subnets to use with instances in the game server group.
+        /// A list of virtual private cloud (VPC) subnets to use with instances in the game server group. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
         /// </summary>
         [Output("vpcSubnets")]
         public Output<ImmutableArray<string>> VpcSubnets { get; private set; } = null!;
@@ -145,7 +145,7 @@ namespace Pulumi.AwsNative.GameLift
     public sealed class GameServerGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting
+        /// Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
         /// </summary>
         [Input("autoScalingPolicy")]
         public Input<Inputs.GameServerGroupAutoScalingPolicyArgs>? AutoScalingPolicy { get; set; }
@@ -187,19 +187,19 @@ namespace Pulumi.AwsNative.GameLift
         }
 
         /// <summary>
-        /// The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group.
+        /// The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
         /// </summary>
         [Input("launchTemplate")]
         public Input<Inputs.GameServerGroupLaunchTemplateArgs>? LaunchTemplate { get; set; }
 
         /// <summary>
-        /// The maximum number of instances allowed in the EC2 Auto Scaling group.
+        /// The maximum number of instances allowed in the EC2 Auto Scaling group. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
         /// </summary>
         [Input("maxSize")]
         public Input<double>? MaxSize { get; set; }
 
         /// <summary>
-        /// The minimum number of instances allowed in the EC2 Auto Scaling group.
+        /// The minimum number of instances allowed in the EC2 Auto Scaling group. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
         /// </summary>
         [Input("minSize")]
         public Input<double>? MinSize { get; set; }
@@ -214,7 +214,7 @@ namespace Pulumi.AwsNative.GameLift
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// A list of labels to assign to the new game server group resource.
+        /// A list of labels to assign to the new game server group resource. Updating game server group tags with CloudFormation will not take effect. Please update this property using AWS GameLift APIs instead.
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
@@ -226,7 +226,7 @@ namespace Pulumi.AwsNative.GameLift
         private InputList<string>? _vpcSubnets;
 
         /// <summary>
-        /// A list of virtual private cloud (VPC) subnets to use with instances in the game server group.
+        /// A list of virtual private cloud (VPC) subnets to use with instances in the game server group. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
         /// </summary>
         public InputList<string> VpcSubnets
         {

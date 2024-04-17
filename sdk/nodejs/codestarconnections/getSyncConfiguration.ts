@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -43,7 +46,11 @@ export interface GetSyncConfigurationResult {
     /**
      * The name of the external provider where your third-party code repository is configured.
      */
-    readonly providerType?: string;
+    readonly providerType?: enums.codestarconnections.SyncConfigurationProviderType;
+    /**
+     * Whether to enable or disable publishing of deployment status to source providers.
+     */
+    readonly publishDeploymentStatus?: enums.codestarconnections.SyncConfigurationPublishDeploymentStatus;
     /**
      * A UUID that uniquely identifies the RepositoryLink that the SyncConfig is associated with.
      */
@@ -56,6 +63,10 @@ export interface GetSyncConfigurationResult {
      * The IAM Role that allows AWS to update CloudFormation stacks based on content in the specified repository.
      */
     readonly roleArn?: string;
+    /**
+     * When to trigger Git sync to begin the stack update.
+     */
+    readonly triggerResourceUpdateOn?: enums.codestarconnections.SyncConfigurationTriggerResourceUpdateOn;
 }
 /**
  * Schema for AWS::CodeStarConnections::SyncConfiguration resource which is used to enables an AWS resource to be synchronized from a source-provider.

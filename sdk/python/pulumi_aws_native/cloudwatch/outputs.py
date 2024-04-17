@@ -23,15 +23,15 @@ __all__ = [
 @pulumi.output_type
 class AlarmDimension(dict):
     """
-    Dimensions are arbitrary name/value pairs that can be associated with a CloudWatch metric.
+    Dimension is an embedded property of the ``AWS::CloudWatch::Alarm`` type. Dimensions are name/value pairs that can be associated with a CW metric. You can specify a maximum of 10 dimensions for a given metric.
     """
     def __init__(__self__, *,
                  name: str,
                  value: str):
         """
-        Dimensions are arbitrary name/value pairs that can be associated with a CloudWatch metric.
-        :param str name: The name of the dimension.
-        :param str value: The value for the dimension.
+        Dimension is an embedded property of the ``AWS::CloudWatch::Alarm`` type. Dimensions are name/value pairs that can be associated with a CW metric. You can specify a maximum of 10 dimensions for a given metric.
+        :param str name: The name of the dimension, from 1–255 characters in length. This dimension name must have been included when the metric was published.
+        :param str value: The value for the dimension, from 1–255 characters in length.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -40,7 +40,7 @@ class AlarmDimension(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the dimension.
+        The name of the dimension, from 1–255 characters in length. This dimension name must have been included when the metric was published.
         """
         return pulumi.get(self, "name")
 
@@ -48,7 +48,7 @@ class AlarmDimension(dict):
     @pulumi.getter
     def value(self) -> str:
         """
-        The value for the dimension.
+        The value for the dimension, from 1–255 characters in length.
         """
         return pulumi.get(self, "value")
 
@@ -56,7 +56,7 @@ class AlarmDimension(dict):
 @pulumi.output_type
 class AlarmMetric(dict):
     """
-    The Metric property type represents a specific metric.
+    The ``Metric`` property type represents a specific metric. ``Metric`` is a property of the [MetricStat](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metricstat.html) property type.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -80,10 +80,10 @@ class AlarmMetric(dict):
                  metric_name: Optional[str] = None,
                  namespace: Optional[str] = None):
         """
-        The Metric property type represents a specific metric.
-        :param Sequence['AlarmDimension'] dimensions: The dimensions for the metric.
-        :param str metric_name: The name of the metric.
-        :param str namespace: The namespace of the metric.
+        The ``Metric`` property type represents a specific metric. ``Metric`` is a property of the [MetricStat](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metricstat.html) property type.
+        :param Sequence['AlarmDimension'] dimensions: The metric dimensions that you want to be used for the metric that the alarm will watch.
+        :param str metric_name: The name of the metric that you want the alarm to watch. This is a required field.
+        :param str namespace: The namespace of the metric that the alarm will watch.
         """
         if dimensions is not None:
             pulumi.set(__self__, "dimensions", dimensions)
@@ -96,7 +96,7 @@ class AlarmMetric(dict):
     @pulumi.getter
     def dimensions(self) -> Optional[Sequence['outputs.AlarmDimension']]:
         """
-        The dimensions for the metric.
+        The metric dimensions that you want to be used for the metric that the alarm will watch.
         """
         return pulumi.get(self, "dimensions")
 
@@ -104,7 +104,7 @@ class AlarmMetric(dict):
     @pulumi.getter(name="metricName")
     def metric_name(self) -> Optional[str]:
         """
-        The name of the metric.
+        The name of the metric that you want the alarm to watch. This is a required field.
         """
         return pulumi.get(self, "metric_name")
 
@@ -112,7 +112,7 @@ class AlarmMetric(dict):
     @pulumi.getter
     def namespace(self) -> Optional[str]:
         """
-        The namespace of the metric.
+        The namespace of the metric that the alarm will watch.
         """
         return pulumi.get(self, "namespace")
 
@@ -120,7 +120,8 @@ class AlarmMetric(dict):
 @pulumi.output_type
 class AlarmMetricDataQuery(dict):
     """
-    This property type specifies the metric data to return, and whether this call is just retrieving a batch set of data for one metric, or is performing a math expression on metric data.
+    The ``MetricDataQuery`` property type specifies the metric data to return, and whether this call is just retrieving a batch set of data for one metric, or is performing a math expression on metric data. 
+     Any expression used must return a single time series. For more information, see [Metric Math Syntax and Functions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax) in the *User Guide*.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -152,14 +153,19 @@ class AlarmMetricDataQuery(dict):
                  period: Optional[int] = None,
                  return_data: Optional[bool] = None):
         """
-        This property type specifies the metric data to return, and whether this call is just retrieving a batch set of data for one metric, or is performing a math expression on metric data.
-        :param str id: A short name used to tie this object to the results in the response.
+        The ``MetricDataQuery`` property type specifies the metric data to return, and whether this call is just retrieving a batch set of data for one metric, or is performing a math expression on metric data. 
+         Any expression used must return a single time series. For more information, see [Metric Math Syntax and Functions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax) in the *User Guide*.
+        :param str id: A short name used to tie this object to the results in the response. This name must be unique within a single call to ``GetMetricData``. If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscore. The first character must be a lowercase letter.
         :param str account_id: The ID of the account where the metrics are located, if this is a cross-account alarm.
-        :param str expression: The math expression to be performed on the returned data.
-        :param str label: A human-readable label for this metric or expression.
-        :param 'AlarmMetricStat' metric_stat: The metric to be returned, along with statistics, period, and units.
-        :param int period: The period in seconds, over which the statistic is applied.
+        :param str expression: The math expression to be performed on the returned data, if this object is performing a math expression. This expression can use the ``Id`` of the other metrics to refer to those metrics, and can also use the ``Id`` of other expressions to use the result of those expressions. For more information about metric math expressions, see [Metric Math Syntax and Functions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax) in the *User Guide*.
+                Within each MetricDataQuery object, you must specify either ``Expression`` or ``MetricStat`` but not both.
+        :param str label: A human-readable label for this metric or expression. This is especially useful if this is an expression, so that you know what the value represents. If the metric or expression is shown in a CW dashboard widget, the label is shown. If ``Label`` is omitted, CW generates a default.
+        :param 'AlarmMetricStat' metric_stat: The metric to be returned, along with statistics, period, and units. Use this parameter only if this object is retrieving a metric and not performing a math expression on returned data.
+                Within one MetricDataQuery object, you must specify either ``Expression`` or ``MetricStat`` but not both.
+        :param int period: The granularity, in seconds, of the returned data points. For metrics with regular resolution, a period can be as short as one minute (60 seconds) and must be a multiple of 60. For high-resolution metrics that are collected at intervals of less than one minute, the period can be 1, 5, 10, 30, 60, or any multiple of 60. High-resolution metrics are those metrics stored by a ``PutMetricData`` operation that includes a ``StorageResolution of 1 second``.
         :param bool return_data: This option indicates whether to return the timestamps and raw data values of this metric.
+                When you create an alarm based on a metric math expression, specify ``True`` for this value for only the one math expression that the alarm is based on. You must specify ``False`` for ``ReturnData`` for all the other metrics and expressions used in the alarm.
+                This field is required.
         """
         pulumi.set(__self__, "id", id)
         if account_id is not None:
@@ -179,7 +185,7 @@ class AlarmMetricDataQuery(dict):
     @pulumi.getter
     def id(self) -> str:
         """
-        A short name used to tie this object to the results in the response.
+        A short name used to tie this object to the results in the response. This name must be unique within a single call to ``GetMetricData``. If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscore. The first character must be a lowercase letter.
         """
         return pulumi.get(self, "id")
 
@@ -195,7 +201,8 @@ class AlarmMetricDataQuery(dict):
     @pulumi.getter
     def expression(self) -> Optional[str]:
         """
-        The math expression to be performed on the returned data.
+        The math expression to be performed on the returned data, if this object is performing a math expression. This expression can use the ``Id`` of the other metrics to refer to those metrics, and can also use the ``Id`` of other expressions to use the result of those expressions. For more information about metric math expressions, see [Metric Math Syntax and Functions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax) in the *User Guide*.
+         Within each MetricDataQuery object, you must specify either ``Expression`` or ``MetricStat`` but not both.
         """
         return pulumi.get(self, "expression")
 
@@ -203,7 +210,7 @@ class AlarmMetricDataQuery(dict):
     @pulumi.getter
     def label(self) -> Optional[str]:
         """
-        A human-readable label for this metric or expression.
+        A human-readable label for this metric or expression. This is especially useful if this is an expression, so that you know what the value represents. If the metric or expression is shown in a CW dashboard widget, the label is shown. If ``Label`` is omitted, CW generates a default.
         """
         return pulumi.get(self, "label")
 
@@ -211,7 +218,8 @@ class AlarmMetricDataQuery(dict):
     @pulumi.getter(name="metricStat")
     def metric_stat(self) -> Optional['outputs.AlarmMetricStat']:
         """
-        The metric to be returned, along with statistics, period, and units.
+        The metric to be returned, along with statistics, period, and units. Use this parameter only if this object is retrieving a metric and not performing a math expression on returned data.
+         Within one MetricDataQuery object, you must specify either ``Expression`` or ``MetricStat`` but not both.
         """
         return pulumi.get(self, "metric_stat")
 
@@ -219,7 +227,7 @@ class AlarmMetricDataQuery(dict):
     @pulumi.getter
     def period(self) -> Optional[int]:
         """
-        The period in seconds, over which the statistic is applied.
+        The granularity, in seconds, of the returned data points. For metrics with regular resolution, a period can be as short as one minute (60 seconds) and must be a multiple of 60. For high-resolution metrics that are collected at intervals of less than one minute, the period can be 1, 5, 10, 30, 60, or any multiple of 60. High-resolution metrics are those metrics stored by a ``PutMetricData`` operation that includes a ``StorageResolution of 1 second``.
         """
         return pulumi.get(self, "period")
 
@@ -228,6 +236,8 @@ class AlarmMetricDataQuery(dict):
     def return_data(self) -> Optional[bool]:
         """
         This option indicates whether to return the timestamps and raw data values of this metric.
+         When you create an alarm based on a metric math expression, specify ``True`` for this value for only the one math expression that the alarm is based on. You must specify ``False`` for ``ReturnData`` for all the other metrics and expressions used in the alarm.
+         This field is required.
         """
         return pulumi.get(self, "return_data")
 
@@ -236,6 +246,7 @@ class AlarmMetricDataQuery(dict):
 class AlarmMetricStat(dict):
     """
     This structure defines the metric to be returned, along with the statistics, period, and units.
+      ``MetricStat`` is a property of the [MetricDataQuery](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metricdataquery.html) property type.
     """
     def __init__(__self__, *,
                  metric: 'outputs.AlarmMetric',
@@ -244,10 +255,16 @@ class AlarmMetricStat(dict):
                  unit: Optional[str] = None):
         """
         This structure defines the metric to be returned, along with the statistics, period, and units.
+          ``MetricStat`` is a property of the [MetricDataQuery](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metricdataquery.html) property type.
         :param 'AlarmMetric' metric: The metric to return, including the metric name, namespace, and dimensions.
-        :param int period: The granularity, in seconds, of the returned data points.
-        :param str stat: The statistic to return.
-        :param str unit: The unit to use for the returned data points.
+        :param int period: The granularity, in seconds, of the returned data points. For metrics with regular resolution, a period can be as short as one minute (60 seconds) and must be a multiple of 60. For high-resolution metrics that are collected at intervals of less than one minute, the period can be 1, 5, 10, 30, 60, or any multiple of 60. High-resolution metrics are those metrics stored by a ``PutMetricData`` call that includes a ``StorageResolution`` of 1 second.
+                If the ``StartTime`` parameter specifies a time stamp that is greater than 3 hours ago, you must specify the period as follows or no data points in that time range is returned:
+                 +  Start time between 3 hours and 15 days ago - Use a multiple of 60 seconds (1 minute).
+                 +  Start time between 15 and 63 days ago - Use a multiple of 300 seconds (5 minutes).
+                 +  Start time greater than 63 days ago - Use a multiple of 3600 seconds (1 hour).
+        :param str stat: The statistic to return. It can include any CW statistic or extended statistic. For a list of valid values, see the table in [Statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Statistic) in the *User Guide*.
+        :param str unit: The unit to use for the returned data points. 
+                Valid values are: Seconds, Microseconds, Milliseconds, Bytes, Kilobytes, Megabytes, Gigabytes, Terabytes, Bits, Kilobits, Megabits, Gigabits, Terabits, Percent, Count, Bytes/Second, Kilobytes/Second, Megabytes/Second, Gigabytes/Second, Terabytes/Second, Bits/Second, Kilobits/Second, Megabits/Second, Gigabits/Second, Terabits/Second, Count/Second, or None.
         """
         pulumi.set(__self__, "metric", metric)
         pulumi.set(__self__, "period", period)
@@ -267,7 +284,11 @@ class AlarmMetricStat(dict):
     @pulumi.getter
     def period(self) -> int:
         """
-        The granularity, in seconds, of the returned data points.
+        The granularity, in seconds, of the returned data points. For metrics with regular resolution, a period can be as short as one minute (60 seconds) and must be a multiple of 60. For high-resolution metrics that are collected at intervals of less than one minute, the period can be 1, 5, 10, 30, 60, or any multiple of 60. High-resolution metrics are those metrics stored by a ``PutMetricData`` call that includes a ``StorageResolution`` of 1 second.
+         If the ``StartTime`` parameter specifies a time stamp that is greater than 3 hours ago, you must specify the period as follows or no data points in that time range is returned:
+          +  Start time between 3 hours and 15 days ago - Use a multiple of 60 seconds (1 minute).
+          +  Start time between 15 and 63 days ago - Use a multiple of 300 seconds (5 minutes).
+          +  Start time greater than 63 days ago - Use a multiple of 3600 seconds (1 hour).
         """
         return pulumi.get(self, "period")
 
@@ -275,7 +296,7 @@ class AlarmMetricStat(dict):
     @pulumi.getter
     def stat(self) -> str:
         """
-        The statistic to return.
+        The statistic to return. It can include any CW statistic or extended statistic. For a list of valid values, see the table in [Statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Statistic) in the *User Guide*.
         """
         return pulumi.get(self, "stat")
 
@@ -283,7 +304,8 @@ class AlarmMetricStat(dict):
     @pulumi.getter
     def unit(self) -> Optional[str]:
         """
-        The unit to use for the returned data points.
+        The unit to use for the returned data points. 
+         Valid values are: Seconds, Microseconds, Milliseconds, Bytes, Kilobytes, Megabytes, Gigabytes, Terabytes, Bits, Kilobits, Megabits, Gigabits, Terabits, Percent, Count, Bytes/Second, Kilobytes/Second, Megabytes/Second, Gigabytes/Second, Terabytes/Second, Bits/Second, Kilobits/Second, Megabits/Second, Gigabits/Second, Terabits/Second, Count/Second, or None.
         """
         return pulumi.get(self, "unit")
 

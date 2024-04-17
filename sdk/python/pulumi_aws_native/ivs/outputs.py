@@ -16,6 +16,8 @@ __all__ = [
     'RecordingConfigurationRenditionConfiguration',
     'RecordingConfigurationS3DestinationConfiguration',
     'RecordingConfigurationThumbnailConfiguration',
+    'StorageConfigurationS3StorageConfiguration',
+    'VideoProperties',
 ]
 
 @pulumi.output_type
@@ -200,5 +202,103 @@ class RecordingConfigurationThumbnailConfiguration(dict):
         Target Interval Seconds defines the interval at which thumbnails are recorded. This field is required if RecordingMode is INTERVAL.
         """
         return pulumi.get(self, "target_interval_seconds")
+
+
+@pulumi.output_type
+class StorageConfigurationS3StorageConfiguration(dict):
+    """
+    A complex type that describes an S3 location where recorded videos will be stored.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketName":
+            suggest = "bucket_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageConfigurationS3StorageConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageConfigurationS3StorageConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageConfigurationS3StorageConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket_name: str):
+        """
+        A complex type that describes an S3 location where recorded videos will be stored.
+        :param str bucket_name: Location (S3 bucket name) where recorded videos will be stored. Note that the StorageConfiguration and S3 bucket must be in the same region as the Composition.
+        """
+        pulumi.set(__self__, "bucket_name", bucket_name)
+
+    @property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> str:
+        """
+        Location (S3 bucket name) where recorded videos will be stored. Note that the StorageConfiguration and S3 bucket must be in the same region as the Composition.
+        """
+        return pulumi.get(self, "bucket_name")
+
+
+@pulumi.output_type
+class VideoProperties(dict):
+    """
+    Video configuration. Default: video resolution 1280x720, bitrate 2500 kbps, 30 fps
+    """
+    def __init__(__self__, *,
+                 bitrate: Optional[int] = None,
+                 framerate: Optional[float] = None,
+                 height: Optional[int] = None,
+                 width: Optional[int] = None):
+        """
+        Video configuration. Default: video resolution 1280x720, bitrate 2500 kbps, 30 fps
+        :param int bitrate: Bitrate for generated output, in bps. Default: 2500000.
+        :param float framerate: Video frame rate, in fps. Default: 30.
+        :param int height: Video-resolution height. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 720.
+        :param int width: Video-resolution width. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 1280.
+        """
+        if bitrate is not None:
+            pulumi.set(__self__, "bitrate", bitrate)
+        if framerate is not None:
+            pulumi.set(__self__, "framerate", framerate)
+        if height is not None:
+            pulumi.set(__self__, "height", height)
+        if width is not None:
+            pulumi.set(__self__, "width", width)
+
+    @property
+    @pulumi.getter
+    def bitrate(self) -> Optional[int]:
+        """
+        Bitrate for generated output, in bps. Default: 2500000.
+        """
+        return pulumi.get(self, "bitrate")
+
+    @property
+    @pulumi.getter
+    def framerate(self) -> Optional[float]:
+        """
+        Video frame rate, in fps. Default: 30.
+        """
+        return pulumi.get(self, "framerate")
+
+    @property
+    @pulumi.getter
+    def height(self) -> Optional[int]:
+        """
+        Video-resolution height. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 720.
+        """
+        return pulumi.get(self, "height")
+
+    @property
+    @pulumi.getter
+    def width(self) -> Optional[int]:
+        """
+        Video-resolution width. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 1280.
+        """
+        return pulumi.get(self, "width")
 
 

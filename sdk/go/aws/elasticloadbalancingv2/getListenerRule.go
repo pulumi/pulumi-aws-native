@@ -11,7 +11,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::ElasticLoadBalancingV2::ListenerRule
+// Specifies a listener rule. The listener must be associated with an Application Load Balancer. Each rule consists of a priority, one or more actions, and one or more conditions.
+//
+//	For more information, see [Quotas for your Application Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-limits.html) in the *User Guide for Application Load Balancers*.
 func LookupListenerRule(ctx *pulumi.Context, args *LookupListenerRuleArgs, opts ...pulumi.InvokeOption) (*LookupListenerRuleResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupListenerRuleResult
@@ -27,11 +29,17 @@ type LookupListenerRuleArgs struct {
 }
 
 type LookupListenerRuleResult struct {
-	Actions    []ListenerRuleAction        `pulumi:"actions"`
+	// The actions.
+	//  The rule must include exactly one of the following types of actions: ``forward``, ``fixed-response``, or ``redirect``, and it must be the last action to be performed. If the rule is for an HTTPS listener, it can also optionally include an authentication action.
+	Actions []ListenerRuleAction `pulumi:"actions"`
+	// The conditions.
+	//  The rule can optionally include up to one of each of the following conditions: ``http-request-method``, ``host-header``, ``path-pattern``, and ``source-ip``. A rule can also optionally include one or more of each of the following conditions: ``http-header`` and ``query-string``.
 	Conditions []ListenerRuleRuleCondition `pulumi:"conditions"`
 	IsDefault  *bool                       `pulumi:"isDefault"`
-	Priority   *int                        `pulumi:"priority"`
-	RuleArn    *string                     `pulumi:"ruleArn"`
+	// The rule priority. A listener can't have multiple rules with the same priority.
+	//  If you try to reorder rules by updating their priorities, do not specify a new priority if an existing rule already uses this priority, as this can cause an error. If you need to reuse a priority with a different rule, you must remove it as a priority first, and then specify it in a subsequent update.
+	Priority *int    `pulumi:"priority"`
+	RuleArn  *string `pulumi:"ruleArn"`
 }
 
 func LookupListenerRuleOutput(ctx *pulumi.Context, args LookupListenerRuleOutputArgs, opts ...pulumi.InvokeOption) LookupListenerRuleResultOutput {
@@ -69,10 +77,16 @@ func (o LookupListenerRuleResultOutput) ToLookupListenerRuleResultOutputWithCont
 	return o
 }
 
+// The actions.
+//
+//	The rule must include exactly one of the following types of actions: ``forward``, ``fixed-response``, or ``redirect``, and it must be the last action to be performed. If the rule is for an HTTPS listener, it can also optionally include an authentication action.
 func (o LookupListenerRuleResultOutput) Actions() ListenerRuleActionArrayOutput {
 	return o.ApplyT(func(v LookupListenerRuleResult) []ListenerRuleAction { return v.Actions }).(ListenerRuleActionArrayOutput)
 }
 
+// The conditions.
+//
+//	The rule can optionally include up to one of each of the following conditions: ``http-request-method``, ``host-header``, ``path-pattern``, and ``source-ip``. A rule can also optionally include one or more of each of the following conditions: ``http-header`` and ``query-string``.
 func (o LookupListenerRuleResultOutput) Conditions() ListenerRuleRuleConditionArrayOutput {
 	return o.ApplyT(func(v LookupListenerRuleResult) []ListenerRuleRuleCondition { return v.Conditions }).(ListenerRuleRuleConditionArrayOutput)
 }
@@ -81,6 +95,9 @@ func (o LookupListenerRuleResultOutput) IsDefault() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupListenerRuleResult) *bool { return v.IsDefault }).(pulumi.BoolPtrOutput)
 }
 
+// The rule priority. A listener can't have multiple rules with the same priority.
+//
+//	If you try to reorder rules by updating their priorities, do not specify a new priority if an existing rule already uses this priority, as this can cause an error. If you need to reuse a priority with a different rule, you must remove it as a priority first, and then specify it in a subsequent update.
 func (o LookupListenerRuleResultOutput) Priority() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupListenerRuleResult) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }

@@ -71,6 +71,10 @@
           "enum" : [ "MICROSECOND", "MILLISECOND" ]
         },
         "StreamArn" : {
+          "relationshipRef" : {
+            "typeName" : "AWS::Kinesis::Stream",
+            "propertyPath" : "/properties/Arn"
+          },
           "type" : "string"
         }
       },
@@ -109,6 +113,12 @@
         "ContributorInsightsSpecification" : {
           "$ref" : "#/definitions/ContributorInsightsSpecification"
         },
+        "PointInTimeRecoverySpecification" : {
+          "$ref" : "#/definitions/PointInTimeRecoverySpecification"
+        },
+        "ReplicaStreamSpecification" : {
+          "$ref" : "#/definitions/ReplicaStreamSpecification"
+        },
         "GlobalSecondaryIndexes" : {
           "uniqueItems" : true,
           "insertionOrder" : false,
@@ -120,8 +130,8 @@
         "Region" : {
           "type" : "string"
         },
-        "PointInTimeRecoverySpecification" : {
-          "$ref" : "#/definitions/PointInTimeRecoverySpecification"
+        "ResourcePolicy" : {
+          "$ref" : "#/definitions/ResourcePolicy"
         },
         "ReadProvisionedThroughputSettings" : {
           "$ref" : "#/definitions/ReadProvisionedThroughputSettings"
@@ -283,15 +293,51 @@
         }
       }
     },
+    "ReplicaStreamSpecification" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "ResourcePolicy" : {
+          "$ref" : "#/definitions/ResourcePolicy"
+        }
+      },
+      "required" : [ "ResourcePolicy" ]
+    },
     "ReplicaSSESpecification" : {
       "additionalProperties" : false,
       "type" : "object",
       "properties" : {
         "KMSMasterKeyId" : {
+          "anyOf" : [ {
+            "relationshipRef" : {
+              "typeName" : "AWS::KMS::Key",
+              "propertyPath" : "/properties/Arn"
+            }
+          }, {
+            "relationshipRef" : {
+              "typeName" : "AWS::KMS::Key",
+              "propertyPath" : "/properties/KeyId"
+            }
+          }, {
+            "relationshipRef" : {
+              "typeName" : "AWS::KMS::Alias",
+              "propertyPath" : "/properties/AliasName"
+            }
+          } ],
           "type" : "string"
         }
       },
       "required" : [ "KMSMasterKeyId" ]
+    },
+    "ResourcePolicy" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "PolicyDocument" : {
+          "type" : "object"
+        }
+      },
+      "required" : [ "PolicyDocument" ]
     },
     "KeySchema" : {
       "additionalProperties" : false,

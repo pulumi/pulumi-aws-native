@@ -81,6 +81,12 @@ namespace Pulumi.AwsNative.CloudWatch
         [Output("okActions")]
         public Output<ImmutableArray<string>> OkActions { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of key-value pairs to associate with the composite alarm. You can associate as many as 50 tags with an alarm.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a CompositeAlarm resource with the given unique name, arguments, and options.
@@ -206,6 +212,18 @@ namespace Pulumi.AwsNative.CloudWatch
         {
             get => _okActions ?? (_okActions = new InputList<string>());
             set => _okActions = value;
+        }
+
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// A list of key-value pairs to associate with the composite alarm. You can associate as many as 50 tags with an alarm.
+        /// </summary>
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
         }
 
         public CompositeAlarmArgs()

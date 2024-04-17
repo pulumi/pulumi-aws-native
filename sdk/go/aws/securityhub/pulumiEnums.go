@@ -1354,6 +1354,597 @@ func (in *automationRulesFindingFieldsUpdateVerificationStatePtr) ToAutomationRu
 	return pulumi.ToOutputWithContext(ctx, in).(AutomationRulesFindingFieldsUpdateVerificationStatePtrOutput)
 }
 
+// The current status of the Security Hub administrator account. Indicates whether the account is currently enabled as a Security Hub administrator
+type DelegatedAdminStatus string
+
+const (
+	DelegatedAdminStatusEnabled           = DelegatedAdminStatus("ENABLED")
+	DelegatedAdminStatusDisableInProgress = DelegatedAdminStatus("DISABLE_IN_PROGRESS")
+)
+
+type DelegatedAdminStatusOutput struct{ *pulumi.OutputState }
+
+func (DelegatedAdminStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DelegatedAdminStatus)(nil)).Elem()
+}
+
+func (o DelegatedAdminStatusOutput) ToDelegatedAdminStatusOutput() DelegatedAdminStatusOutput {
+	return o
+}
+
+func (o DelegatedAdminStatusOutput) ToDelegatedAdminStatusOutputWithContext(ctx context.Context) DelegatedAdminStatusOutput {
+	return o
+}
+
+func (o DelegatedAdminStatusOutput) ToDelegatedAdminStatusPtrOutput() DelegatedAdminStatusPtrOutput {
+	return o.ToDelegatedAdminStatusPtrOutputWithContext(context.Background())
+}
+
+func (o DelegatedAdminStatusOutput) ToDelegatedAdminStatusPtrOutputWithContext(ctx context.Context) DelegatedAdminStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DelegatedAdminStatus) *DelegatedAdminStatus {
+		return &v
+	}).(DelegatedAdminStatusPtrOutput)
+}
+
+func (o DelegatedAdminStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DelegatedAdminStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DelegatedAdminStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DelegatedAdminStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DelegatedAdminStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DelegatedAdminStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DelegatedAdminStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (DelegatedAdminStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DelegatedAdminStatus)(nil)).Elem()
+}
+
+func (o DelegatedAdminStatusPtrOutput) ToDelegatedAdminStatusPtrOutput() DelegatedAdminStatusPtrOutput {
+	return o
+}
+
+func (o DelegatedAdminStatusPtrOutput) ToDelegatedAdminStatusPtrOutputWithContext(ctx context.Context) DelegatedAdminStatusPtrOutput {
+	return o
+}
+
+func (o DelegatedAdminStatusPtrOutput) Elem() DelegatedAdminStatusOutput {
+	return o.ApplyT(func(v *DelegatedAdminStatus) DelegatedAdminStatus {
+		if v != nil {
+			return *v
+		}
+		var ret DelegatedAdminStatus
+		return ret
+	}).(DelegatedAdminStatusOutput)
+}
+
+func (o DelegatedAdminStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DelegatedAdminStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DelegatedAdminStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// A date range unit for the date filter.
+type InsightDateRangeUnit string
+
+const (
+	InsightDateRangeUnitDays = InsightDateRangeUnit("DAYS")
+)
+
+func (InsightDateRangeUnit) ElementType() reflect.Type {
+	return reflect.TypeOf((*InsightDateRangeUnit)(nil)).Elem()
+}
+
+func (e InsightDateRangeUnit) ToInsightDateRangeUnitOutput() InsightDateRangeUnitOutput {
+	return pulumi.ToOutput(e).(InsightDateRangeUnitOutput)
+}
+
+func (e InsightDateRangeUnit) ToInsightDateRangeUnitOutputWithContext(ctx context.Context) InsightDateRangeUnitOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(InsightDateRangeUnitOutput)
+}
+
+func (e InsightDateRangeUnit) ToInsightDateRangeUnitPtrOutput() InsightDateRangeUnitPtrOutput {
+	return e.ToInsightDateRangeUnitPtrOutputWithContext(context.Background())
+}
+
+func (e InsightDateRangeUnit) ToInsightDateRangeUnitPtrOutputWithContext(ctx context.Context) InsightDateRangeUnitPtrOutput {
+	return InsightDateRangeUnit(e).ToInsightDateRangeUnitOutputWithContext(ctx).ToInsightDateRangeUnitPtrOutputWithContext(ctx)
+}
+
+func (e InsightDateRangeUnit) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InsightDateRangeUnit) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InsightDateRangeUnit) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e InsightDateRangeUnit) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type InsightDateRangeUnitOutput struct{ *pulumi.OutputState }
+
+func (InsightDateRangeUnitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InsightDateRangeUnit)(nil)).Elem()
+}
+
+func (o InsightDateRangeUnitOutput) ToInsightDateRangeUnitOutput() InsightDateRangeUnitOutput {
+	return o
+}
+
+func (o InsightDateRangeUnitOutput) ToInsightDateRangeUnitOutputWithContext(ctx context.Context) InsightDateRangeUnitOutput {
+	return o
+}
+
+func (o InsightDateRangeUnitOutput) ToInsightDateRangeUnitPtrOutput() InsightDateRangeUnitPtrOutput {
+	return o.ToInsightDateRangeUnitPtrOutputWithContext(context.Background())
+}
+
+func (o InsightDateRangeUnitOutput) ToInsightDateRangeUnitPtrOutputWithContext(ctx context.Context) InsightDateRangeUnitPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InsightDateRangeUnit) *InsightDateRangeUnit {
+		return &v
+	}).(InsightDateRangeUnitPtrOutput)
+}
+
+func (o InsightDateRangeUnitOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InsightDateRangeUnitOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InsightDateRangeUnit) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InsightDateRangeUnitOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InsightDateRangeUnitOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InsightDateRangeUnit) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type InsightDateRangeUnitPtrOutput struct{ *pulumi.OutputState }
+
+func (InsightDateRangeUnitPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InsightDateRangeUnit)(nil)).Elem()
+}
+
+func (o InsightDateRangeUnitPtrOutput) ToInsightDateRangeUnitPtrOutput() InsightDateRangeUnitPtrOutput {
+	return o
+}
+
+func (o InsightDateRangeUnitPtrOutput) ToInsightDateRangeUnitPtrOutputWithContext(ctx context.Context) InsightDateRangeUnitPtrOutput {
+	return o
+}
+
+func (o InsightDateRangeUnitPtrOutput) Elem() InsightDateRangeUnitOutput {
+	return o.ApplyT(func(v *InsightDateRangeUnit) InsightDateRangeUnit {
+		if v != nil {
+			return *v
+		}
+		var ret InsightDateRangeUnit
+		return ret
+	}).(InsightDateRangeUnitOutput)
+}
+
+func (o InsightDateRangeUnitPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InsightDateRangeUnitPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InsightDateRangeUnit) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// InsightDateRangeUnitInput is an input type that accepts values of the InsightDateRangeUnit enum
+// A concrete instance of `InsightDateRangeUnitInput` can be one of the following:
+//
+//	InsightDateRangeUnitDays
+type InsightDateRangeUnitInput interface {
+	pulumi.Input
+
+	ToInsightDateRangeUnitOutput() InsightDateRangeUnitOutput
+	ToInsightDateRangeUnitOutputWithContext(context.Context) InsightDateRangeUnitOutput
+}
+
+var insightDateRangeUnitPtrType = reflect.TypeOf((**InsightDateRangeUnit)(nil)).Elem()
+
+type InsightDateRangeUnitPtrInput interface {
+	pulumi.Input
+
+	ToInsightDateRangeUnitPtrOutput() InsightDateRangeUnitPtrOutput
+	ToInsightDateRangeUnitPtrOutputWithContext(context.Context) InsightDateRangeUnitPtrOutput
+}
+
+type insightDateRangeUnitPtr string
+
+func InsightDateRangeUnitPtr(v string) InsightDateRangeUnitPtrInput {
+	return (*insightDateRangeUnitPtr)(&v)
+}
+
+func (*insightDateRangeUnitPtr) ElementType() reflect.Type {
+	return insightDateRangeUnitPtrType
+}
+
+func (in *insightDateRangeUnitPtr) ToInsightDateRangeUnitPtrOutput() InsightDateRangeUnitPtrOutput {
+	return pulumi.ToOutput(in).(InsightDateRangeUnitPtrOutput)
+}
+
+func (in *insightDateRangeUnitPtr) ToInsightDateRangeUnitPtrOutputWithContext(ctx context.Context) InsightDateRangeUnitPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(InsightDateRangeUnitPtrOutput)
+}
+
+// The condition to apply to the key value when filtering Security Hub findings with a map filter.
+type InsightMapFilterComparison string
+
+const (
+	InsightMapFilterComparisonEquals    = InsightMapFilterComparison("EQUALS")
+	InsightMapFilterComparisonNotEquals = InsightMapFilterComparison("NOT_EQUALS")
+)
+
+func (InsightMapFilterComparison) ElementType() reflect.Type {
+	return reflect.TypeOf((*InsightMapFilterComparison)(nil)).Elem()
+}
+
+func (e InsightMapFilterComparison) ToInsightMapFilterComparisonOutput() InsightMapFilterComparisonOutput {
+	return pulumi.ToOutput(e).(InsightMapFilterComparisonOutput)
+}
+
+func (e InsightMapFilterComparison) ToInsightMapFilterComparisonOutputWithContext(ctx context.Context) InsightMapFilterComparisonOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(InsightMapFilterComparisonOutput)
+}
+
+func (e InsightMapFilterComparison) ToInsightMapFilterComparisonPtrOutput() InsightMapFilterComparisonPtrOutput {
+	return e.ToInsightMapFilterComparisonPtrOutputWithContext(context.Background())
+}
+
+func (e InsightMapFilterComparison) ToInsightMapFilterComparisonPtrOutputWithContext(ctx context.Context) InsightMapFilterComparisonPtrOutput {
+	return InsightMapFilterComparison(e).ToInsightMapFilterComparisonOutputWithContext(ctx).ToInsightMapFilterComparisonPtrOutputWithContext(ctx)
+}
+
+func (e InsightMapFilterComparison) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InsightMapFilterComparison) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InsightMapFilterComparison) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e InsightMapFilterComparison) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type InsightMapFilterComparisonOutput struct{ *pulumi.OutputState }
+
+func (InsightMapFilterComparisonOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InsightMapFilterComparison)(nil)).Elem()
+}
+
+func (o InsightMapFilterComparisonOutput) ToInsightMapFilterComparisonOutput() InsightMapFilterComparisonOutput {
+	return o
+}
+
+func (o InsightMapFilterComparisonOutput) ToInsightMapFilterComparisonOutputWithContext(ctx context.Context) InsightMapFilterComparisonOutput {
+	return o
+}
+
+func (o InsightMapFilterComparisonOutput) ToInsightMapFilterComparisonPtrOutput() InsightMapFilterComparisonPtrOutput {
+	return o.ToInsightMapFilterComparisonPtrOutputWithContext(context.Background())
+}
+
+func (o InsightMapFilterComparisonOutput) ToInsightMapFilterComparisonPtrOutputWithContext(ctx context.Context) InsightMapFilterComparisonPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InsightMapFilterComparison) *InsightMapFilterComparison {
+		return &v
+	}).(InsightMapFilterComparisonPtrOutput)
+}
+
+func (o InsightMapFilterComparisonOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InsightMapFilterComparisonOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InsightMapFilterComparison) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InsightMapFilterComparisonOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InsightMapFilterComparisonOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InsightMapFilterComparison) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type InsightMapFilterComparisonPtrOutput struct{ *pulumi.OutputState }
+
+func (InsightMapFilterComparisonPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InsightMapFilterComparison)(nil)).Elem()
+}
+
+func (o InsightMapFilterComparisonPtrOutput) ToInsightMapFilterComparisonPtrOutput() InsightMapFilterComparisonPtrOutput {
+	return o
+}
+
+func (o InsightMapFilterComparisonPtrOutput) ToInsightMapFilterComparisonPtrOutputWithContext(ctx context.Context) InsightMapFilterComparisonPtrOutput {
+	return o
+}
+
+func (o InsightMapFilterComparisonPtrOutput) Elem() InsightMapFilterComparisonOutput {
+	return o.ApplyT(func(v *InsightMapFilterComparison) InsightMapFilterComparison {
+		if v != nil {
+			return *v
+		}
+		var ret InsightMapFilterComparison
+		return ret
+	}).(InsightMapFilterComparisonOutput)
+}
+
+func (o InsightMapFilterComparisonPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InsightMapFilterComparisonPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InsightMapFilterComparison) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// InsightMapFilterComparisonInput is an input type that accepts values of the InsightMapFilterComparison enum
+// A concrete instance of `InsightMapFilterComparisonInput` can be one of the following:
+//
+//	InsightMapFilterComparisonEquals
+//	InsightMapFilterComparisonNotEquals
+type InsightMapFilterComparisonInput interface {
+	pulumi.Input
+
+	ToInsightMapFilterComparisonOutput() InsightMapFilterComparisonOutput
+	ToInsightMapFilterComparisonOutputWithContext(context.Context) InsightMapFilterComparisonOutput
+}
+
+var insightMapFilterComparisonPtrType = reflect.TypeOf((**InsightMapFilterComparison)(nil)).Elem()
+
+type InsightMapFilterComparisonPtrInput interface {
+	pulumi.Input
+
+	ToInsightMapFilterComparisonPtrOutput() InsightMapFilterComparisonPtrOutput
+	ToInsightMapFilterComparisonPtrOutputWithContext(context.Context) InsightMapFilterComparisonPtrOutput
+}
+
+type insightMapFilterComparisonPtr string
+
+func InsightMapFilterComparisonPtr(v string) InsightMapFilterComparisonPtrInput {
+	return (*insightMapFilterComparisonPtr)(&v)
+}
+
+func (*insightMapFilterComparisonPtr) ElementType() reflect.Type {
+	return insightMapFilterComparisonPtrType
+}
+
+func (in *insightMapFilterComparisonPtr) ToInsightMapFilterComparisonPtrOutput() InsightMapFilterComparisonPtrOutput {
+	return pulumi.ToOutput(in).(InsightMapFilterComparisonPtrOutput)
+}
+
+func (in *insightMapFilterComparisonPtr) ToInsightMapFilterComparisonPtrOutputWithContext(ctx context.Context) InsightMapFilterComparisonPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(InsightMapFilterComparisonPtrOutput)
+}
+
+// The condition to apply to a string value when filtering Security Hub findings.
+type InsightStringFilterComparison string
+
+const (
+	InsightStringFilterComparisonEquals          = InsightStringFilterComparison("EQUALS")
+	InsightStringFilterComparisonPrefix          = InsightStringFilterComparison("PREFIX")
+	InsightStringFilterComparisonNotEquals       = InsightStringFilterComparison("NOT_EQUALS")
+	InsightStringFilterComparisonPrefixNotEquals = InsightStringFilterComparison("PREFIX_NOT_EQUALS")
+)
+
+func (InsightStringFilterComparison) ElementType() reflect.Type {
+	return reflect.TypeOf((*InsightStringFilterComparison)(nil)).Elem()
+}
+
+func (e InsightStringFilterComparison) ToInsightStringFilterComparisonOutput() InsightStringFilterComparisonOutput {
+	return pulumi.ToOutput(e).(InsightStringFilterComparisonOutput)
+}
+
+func (e InsightStringFilterComparison) ToInsightStringFilterComparisonOutputWithContext(ctx context.Context) InsightStringFilterComparisonOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(InsightStringFilterComparisonOutput)
+}
+
+func (e InsightStringFilterComparison) ToInsightStringFilterComparisonPtrOutput() InsightStringFilterComparisonPtrOutput {
+	return e.ToInsightStringFilterComparisonPtrOutputWithContext(context.Background())
+}
+
+func (e InsightStringFilterComparison) ToInsightStringFilterComparisonPtrOutputWithContext(ctx context.Context) InsightStringFilterComparisonPtrOutput {
+	return InsightStringFilterComparison(e).ToInsightStringFilterComparisonOutputWithContext(ctx).ToInsightStringFilterComparisonPtrOutputWithContext(ctx)
+}
+
+func (e InsightStringFilterComparison) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InsightStringFilterComparison) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InsightStringFilterComparison) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e InsightStringFilterComparison) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type InsightStringFilterComparisonOutput struct{ *pulumi.OutputState }
+
+func (InsightStringFilterComparisonOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InsightStringFilterComparison)(nil)).Elem()
+}
+
+func (o InsightStringFilterComparisonOutput) ToInsightStringFilterComparisonOutput() InsightStringFilterComparisonOutput {
+	return o
+}
+
+func (o InsightStringFilterComparisonOutput) ToInsightStringFilterComparisonOutputWithContext(ctx context.Context) InsightStringFilterComparisonOutput {
+	return o
+}
+
+func (o InsightStringFilterComparisonOutput) ToInsightStringFilterComparisonPtrOutput() InsightStringFilterComparisonPtrOutput {
+	return o.ToInsightStringFilterComparisonPtrOutputWithContext(context.Background())
+}
+
+func (o InsightStringFilterComparisonOutput) ToInsightStringFilterComparisonPtrOutputWithContext(ctx context.Context) InsightStringFilterComparisonPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InsightStringFilterComparison) *InsightStringFilterComparison {
+		return &v
+	}).(InsightStringFilterComparisonPtrOutput)
+}
+
+func (o InsightStringFilterComparisonOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InsightStringFilterComparisonOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InsightStringFilterComparison) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InsightStringFilterComparisonOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InsightStringFilterComparisonOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InsightStringFilterComparison) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type InsightStringFilterComparisonPtrOutput struct{ *pulumi.OutputState }
+
+func (InsightStringFilterComparisonPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InsightStringFilterComparison)(nil)).Elem()
+}
+
+func (o InsightStringFilterComparisonPtrOutput) ToInsightStringFilterComparisonPtrOutput() InsightStringFilterComparisonPtrOutput {
+	return o
+}
+
+func (o InsightStringFilterComparisonPtrOutput) ToInsightStringFilterComparisonPtrOutputWithContext(ctx context.Context) InsightStringFilterComparisonPtrOutput {
+	return o
+}
+
+func (o InsightStringFilterComparisonPtrOutput) Elem() InsightStringFilterComparisonOutput {
+	return o.ApplyT(func(v *InsightStringFilterComparison) InsightStringFilterComparison {
+		if v != nil {
+			return *v
+		}
+		var ret InsightStringFilterComparison
+		return ret
+	}).(InsightStringFilterComparisonOutput)
+}
+
+func (o InsightStringFilterComparisonPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InsightStringFilterComparisonPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InsightStringFilterComparison) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// InsightStringFilterComparisonInput is an input type that accepts values of the InsightStringFilterComparison enum
+// A concrete instance of `InsightStringFilterComparisonInput` can be one of the following:
+//
+//	InsightStringFilterComparisonEquals
+//	InsightStringFilterComparisonPrefix
+//	InsightStringFilterComparisonNotEquals
+//	InsightStringFilterComparisonPrefixNotEquals
+type InsightStringFilterComparisonInput interface {
+	pulumi.Input
+
+	ToInsightStringFilterComparisonOutput() InsightStringFilterComparisonOutput
+	ToInsightStringFilterComparisonOutputWithContext(context.Context) InsightStringFilterComparisonOutput
+}
+
+var insightStringFilterComparisonPtrType = reflect.TypeOf((**InsightStringFilterComparison)(nil)).Elem()
+
+type InsightStringFilterComparisonPtrInput interface {
+	pulumi.Input
+
+	ToInsightStringFilterComparisonPtrOutput() InsightStringFilterComparisonPtrOutput
+	ToInsightStringFilterComparisonPtrOutputWithContext(context.Context) InsightStringFilterComparisonPtrOutput
+}
+
+type insightStringFilterComparisonPtr string
+
+func InsightStringFilterComparisonPtr(v string) InsightStringFilterComparisonPtrInput {
+	return (*insightStringFilterComparisonPtr)(&v)
+}
+
+func (*insightStringFilterComparisonPtr) ElementType() reflect.Type {
+	return insightStringFilterComparisonPtrType
+}
+
+func (in *insightStringFilterComparisonPtr) ToInsightStringFilterComparisonPtrOutput() InsightStringFilterComparisonPtrOutput {
+	return pulumi.ToOutput(in).(InsightStringFilterComparisonPtrOutput)
+}
+
+func (in *insightStringFilterComparisonPtr) ToInsightStringFilterComparisonPtrOutputWithContext(ctx context.Context) InsightStringFilterComparisonPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(InsightStringFilterComparisonPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleDateRangeUnitInput)(nil)).Elem(), AutomationRuleDateRangeUnit("DAYS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleDateRangeUnitPtrInput)(nil)).Elem(), AutomationRuleDateRangeUnit("DAYS"))
@@ -1371,6 +1962,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRulesActionTypePtrInput)(nil)).Elem(), AutomationRulesActionType("FINDING_FIELDS_UPDATE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRulesFindingFieldsUpdateVerificationStateInput)(nil)).Elem(), AutomationRulesFindingFieldsUpdateVerificationState("UNKNOWN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRulesFindingFieldsUpdateVerificationStatePtrInput)(nil)).Elem(), AutomationRulesFindingFieldsUpdateVerificationState("UNKNOWN"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InsightDateRangeUnitInput)(nil)).Elem(), InsightDateRangeUnit("DAYS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InsightDateRangeUnitPtrInput)(nil)).Elem(), InsightDateRangeUnit("DAYS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InsightMapFilterComparisonInput)(nil)).Elem(), InsightMapFilterComparison("EQUALS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InsightMapFilterComparisonPtrInput)(nil)).Elem(), InsightMapFilterComparison("EQUALS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InsightStringFilterComparisonInput)(nil)).Elem(), InsightStringFilterComparison("EQUALS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InsightStringFilterComparisonPtrInput)(nil)).Elem(), InsightStringFilterComparison("EQUALS"))
 	pulumi.RegisterOutputType(AutomationRuleDateRangeUnitOutput{})
 	pulumi.RegisterOutputType(AutomationRuleDateRangeUnitPtrOutput{})
 	pulumi.RegisterOutputType(AutomationRuleMapFilterComparisonOutput{})
@@ -1387,4 +1984,12 @@ func init() {
 	pulumi.RegisterOutputType(AutomationRulesActionTypePtrOutput{})
 	pulumi.RegisterOutputType(AutomationRulesFindingFieldsUpdateVerificationStateOutput{})
 	pulumi.RegisterOutputType(AutomationRulesFindingFieldsUpdateVerificationStatePtrOutput{})
+	pulumi.RegisterOutputType(DelegatedAdminStatusOutput{})
+	pulumi.RegisterOutputType(DelegatedAdminStatusPtrOutput{})
+	pulumi.RegisterOutputType(InsightDateRangeUnitOutput{})
+	pulumi.RegisterOutputType(InsightDateRangeUnitPtrOutput{})
+	pulumi.RegisterOutputType(InsightMapFilterComparisonOutput{})
+	pulumi.RegisterOutputType(InsightMapFilterComparisonPtrOutput{})
+	pulumi.RegisterOutputType(InsightStringFilterComparisonOutput{})
+	pulumi.RegisterOutputType(InsightStringFilterComparisonPtrOutput{})
 }

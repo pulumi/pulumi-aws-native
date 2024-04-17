@@ -62,6 +62,10 @@ namespace Pulumi.AwsNative.SageMaker
         /// </summary>
         public readonly string? AppImageConfigArn;
         /// <summary>
+        /// The CodeEditorAppImageConfig.
+        /// </summary>
+        public readonly Outputs.AppImageConfigCodeEditorAppImageConfig? CodeEditorAppImageConfig;
+        /// <summary>
         /// The JupyterLabAppImageConfig.
         /// </summary>
         public readonly Outputs.AppImageConfigJupyterLabAppImageConfig? JupyterLabAppImageConfig;
@@ -74,11 +78,14 @@ namespace Pulumi.AwsNative.SageMaker
         private GetAppImageConfigResult(
             string? appImageConfigArn,
 
+            Outputs.AppImageConfigCodeEditorAppImageConfig? codeEditorAppImageConfig,
+
             Outputs.AppImageConfigJupyterLabAppImageConfig? jupyterLabAppImageConfig,
 
             Outputs.AppImageConfigKernelGatewayImageConfig? kernelGatewayImageConfig)
         {
             AppImageConfigArn = appImageConfigArn;
+            CodeEditorAppImageConfig = codeEditorAppImageConfig;
             JupyterLabAppImageConfig = jupyterLabAppImageConfig;
             KernelGatewayImageConfig = kernelGatewayImageConfig;
         }

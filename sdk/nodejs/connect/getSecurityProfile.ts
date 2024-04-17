@@ -27,13 +27,33 @@ export interface GetSecurityProfileArgs {
 
 export interface GetSecurityProfileResult {
     /**
+     * The identifier of the hierarchy group that a security profile uses to restrict access to resources in Amazon Connect.
+     */
+    readonly allowedAccessControlHierarchyGroupId?: string;
+    /**
      * The list of tags that a security profile uses to restrict access to resources in Amazon Connect.
      */
     readonly allowedAccessControlTags?: outputs.connect.SecurityProfileTag[];
     /**
+     * A list of third-party applications that the security profile will give access to.
+     */
+    readonly applications?: outputs.connect.SecurityProfileApplication[];
+    /**
      * The description of the security profile.
      */
     readonly description?: string;
+    /**
+     * The list of resources that a security profile applies hierarchy restrictions to in Amazon Connect.
+     */
+    readonly hierarchyRestrictedResources?: string[];
+    /**
+     * The AWS Region where this resource was last modified.
+     */
+    readonly lastModifiedRegion?: string;
+    /**
+     * The timestamp when this resource was last modified.
+     */
+    readonly lastModifiedTime?: number;
     /**
      * Permissions assigned to the security profile.
      */

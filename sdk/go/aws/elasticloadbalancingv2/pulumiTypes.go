@@ -1722,15 +1722,24 @@ func (o ListenerRedirectConfigPtrOutput) StatusCode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies an action for a listener rule.
 type ListenerRuleAction struct {
+	// [HTTPS listeners] Information for using Amazon Cognito to authenticate users. Specify only when ``Type`` is ``authenticate-cognito``.
 	AuthenticateCognitoConfig *ListenerRuleAuthenticateCognitoConfig `pulumi:"authenticateCognitoConfig"`
-	AuthenticateOidcConfig    *ListenerRuleAuthenticateOidcConfig    `pulumi:"authenticateOidcConfig"`
-	FixedResponseConfig       *ListenerRuleFixedResponseConfig       `pulumi:"fixedResponseConfig"`
-	ForwardConfig             *ListenerRuleForwardConfig             `pulumi:"forwardConfig"`
-	Order                     *int                                   `pulumi:"order"`
-	RedirectConfig            *ListenerRuleRedirectConfig            `pulumi:"redirectConfig"`
-	TargetGroupArn            *string                                `pulumi:"targetGroupArn"`
-	Type                      string                                 `pulumi:"type"`
+	// [HTTPS listeners] Information about an identity provider that is compliant with OpenID Connect (OIDC). Specify only when ``Type`` is ``authenticate-oidc``.
+	AuthenticateOidcConfig *ListenerRuleAuthenticateOidcConfig `pulumi:"authenticateOidcConfig"`
+	// [Application Load Balancer] Information for creating an action that returns a custom HTTP response. Specify only when ``Type`` is ``fixed-response``.
+	FixedResponseConfig *ListenerRuleFixedResponseConfig `pulumi:"fixedResponseConfig"`
+	// Information for creating an action that distributes requests among one or more target groups. For Network Load Balancers, you can specify a single target group. Specify only when ``Type`` is ``forward``. If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
+	ForwardConfig *ListenerRuleForwardConfig `pulumi:"forwardConfig"`
+	// The order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first.
+	Order *int `pulumi:"order"`
+	// [Application Load Balancer] Information for creating a redirect action. Specify only when ``Type`` is ``redirect``.
+	RedirectConfig *ListenerRuleRedirectConfig `pulumi:"redirectConfig"`
+	// The Amazon Resource Name (ARN) of the target group. Specify only when ``Type`` is ``forward`` and you want to route to a single target group. To route to one or more target groups, use ``ForwardConfig`` instead.
+	TargetGroupArn *string `pulumi:"targetGroupArn"`
+	// The type of action.
+	Type string `pulumi:"type"`
 }
 
 // ListenerRuleActionInput is an input type that accepts ListenerRuleActionArgs and ListenerRuleActionOutput values.
@@ -1744,15 +1753,24 @@ type ListenerRuleActionInput interface {
 	ToListenerRuleActionOutputWithContext(context.Context) ListenerRuleActionOutput
 }
 
+// Specifies an action for a listener rule.
 type ListenerRuleActionArgs struct {
+	// [HTTPS listeners] Information for using Amazon Cognito to authenticate users. Specify only when ``Type`` is ``authenticate-cognito``.
 	AuthenticateCognitoConfig ListenerRuleAuthenticateCognitoConfigPtrInput `pulumi:"authenticateCognitoConfig"`
-	AuthenticateOidcConfig    ListenerRuleAuthenticateOidcConfigPtrInput    `pulumi:"authenticateOidcConfig"`
-	FixedResponseConfig       ListenerRuleFixedResponseConfigPtrInput       `pulumi:"fixedResponseConfig"`
-	ForwardConfig             ListenerRuleForwardConfigPtrInput             `pulumi:"forwardConfig"`
-	Order                     pulumi.IntPtrInput                            `pulumi:"order"`
-	RedirectConfig            ListenerRuleRedirectConfigPtrInput            `pulumi:"redirectConfig"`
-	TargetGroupArn            pulumi.StringPtrInput                         `pulumi:"targetGroupArn"`
-	Type                      pulumi.StringInput                            `pulumi:"type"`
+	// [HTTPS listeners] Information about an identity provider that is compliant with OpenID Connect (OIDC). Specify only when ``Type`` is ``authenticate-oidc``.
+	AuthenticateOidcConfig ListenerRuleAuthenticateOidcConfigPtrInput `pulumi:"authenticateOidcConfig"`
+	// [Application Load Balancer] Information for creating an action that returns a custom HTTP response. Specify only when ``Type`` is ``fixed-response``.
+	FixedResponseConfig ListenerRuleFixedResponseConfigPtrInput `pulumi:"fixedResponseConfig"`
+	// Information for creating an action that distributes requests among one or more target groups. For Network Load Balancers, you can specify a single target group. Specify only when ``Type`` is ``forward``. If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
+	ForwardConfig ListenerRuleForwardConfigPtrInput `pulumi:"forwardConfig"`
+	// The order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first.
+	Order pulumi.IntPtrInput `pulumi:"order"`
+	// [Application Load Balancer] Information for creating a redirect action. Specify only when ``Type`` is ``redirect``.
+	RedirectConfig ListenerRuleRedirectConfigPtrInput `pulumi:"redirectConfig"`
+	// The Amazon Resource Name (ARN) of the target group. Specify only when ``Type`` is ``forward`` and you want to route to a single target group. To route to one or more target groups, use ``ForwardConfig`` instead.
+	TargetGroupArn pulumi.StringPtrInput `pulumi:"targetGroupArn"`
+	// The type of action.
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (ListenerRuleActionArgs) ElementType() reflect.Type {
@@ -1792,6 +1810,7 @@ func (i ListenerRuleActionArray) ToListenerRuleActionArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleActionArrayOutput)
 }
 
+// Specifies an action for a listener rule.
 type ListenerRuleActionOutput struct{ *pulumi.OutputState }
 
 func (ListenerRuleActionOutput) ElementType() reflect.Type {
@@ -1806,34 +1825,42 @@ func (o ListenerRuleActionOutput) ToListenerRuleActionOutputWithContext(ctx cont
 	return o
 }
 
+// [HTTPS listeners] Information for using Amazon Cognito to authenticate users. Specify only when “Type“ is “authenticate-cognito“.
 func (o ListenerRuleActionOutput) AuthenticateCognitoConfig() ListenerRuleAuthenticateCognitoConfigPtrOutput {
 	return o.ApplyT(func(v ListenerRuleAction) *ListenerRuleAuthenticateCognitoConfig { return v.AuthenticateCognitoConfig }).(ListenerRuleAuthenticateCognitoConfigPtrOutput)
 }
 
+// [HTTPS listeners] Information about an identity provider that is compliant with OpenID Connect (OIDC). Specify only when “Type“ is “authenticate-oidc“.
 func (o ListenerRuleActionOutput) AuthenticateOidcConfig() ListenerRuleAuthenticateOidcConfigPtrOutput {
 	return o.ApplyT(func(v ListenerRuleAction) *ListenerRuleAuthenticateOidcConfig { return v.AuthenticateOidcConfig }).(ListenerRuleAuthenticateOidcConfigPtrOutput)
 }
 
+// [Application Load Balancer] Information for creating an action that returns a custom HTTP response. Specify only when “Type“ is “fixed-response“.
 func (o ListenerRuleActionOutput) FixedResponseConfig() ListenerRuleFixedResponseConfigPtrOutput {
 	return o.ApplyT(func(v ListenerRuleAction) *ListenerRuleFixedResponseConfig { return v.FixedResponseConfig }).(ListenerRuleFixedResponseConfigPtrOutput)
 }
 
+// Information for creating an action that distributes requests among one or more target groups. For Network Load Balancers, you can specify a single target group. Specify only when “Type“ is “forward“. If you specify both “ForwardConfig“ and “TargetGroupArn“, you can specify only one target group using “ForwardConfig“ and it must be the same target group specified in “TargetGroupArn“.
 func (o ListenerRuleActionOutput) ForwardConfig() ListenerRuleForwardConfigPtrOutput {
 	return o.ApplyT(func(v ListenerRuleAction) *ListenerRuleForwardConfig { return v.ForwardConfig }).(ListenerRuleForwardConfigPtrOutput)
 }
 
+// The order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first.
 func (o ListenerRuleActionOutput) Order() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ListenerRuleAction) *int { return v.Order }).(pulumi.IntPtrOutput)
 }
 
+// [Application Load Balancer] Information for creating a redirect action. Specify only when “Type“ is “redirect“.
 func (o ListenerRuleActionOutput) RedirectConfig() ListenerRuleRedirectConfigPtrOutput {
 	return o.ApplyT(func(v ListenerRuleAction) *ListenerRuleRedirectConfig { return v.RedirectConfig }).(ListenerRuleRedirectConfigPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the target group. Specify only when “Type“ is “forward“ and you want to route to a single target group. To route to one or more target groups, use “ForwardConfig“ instead.
 func (o ListenerRuleActionOutput) TargetGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerRuleAction) *string { return v.TargetGroupArn }).(pulumi.StringPtrOutput)
 }
 
+// The type of action.
 func (o ListenerRuleActionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ListenerRuleAction) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1858,15 +1885,28 @@ func (o ListenerRuleActionArrayOutput) Index(i pulumi.IntInput) ListenerRuleActi
 	}).(ListenerRuleActionOutput)
 }
 
+// Specifies information required when integrating with Amazon Cognito to authenticate users.
 type ListenerRuleAuthenticateCognitoConfig struct {
+	// The query parameters (up to 10) to include in the redirect request to the authorization endpoint.
 	AuthenticationRequestExtraParams map[string]string `pulumi:"authenticationRequestExtraParams"`
-	OnUnauthenticatedRequest         *string           `pulumi:"onUnauthenticatedRequest"`
-	Scope                            *string           `pulumi:"scope"`
-	SessionCookieName                *string           `pulumi:"sessionCookieName"`
-	SessionTimeout                   *int              `pulumi:"sessionTimeout"`
-	UserPoolArn                      string            `pulumi:"userPoolArn"`
-	UserPoolClientId                 string            `pulumi:"userPoolClientId"`
-	UserPoolDomain                   string            `pulumi:"userPoolDomain"`
+	// The behavior if the user is not authenticated. The following are possible values:
+	//   +  deny```` - Return an HTTP 401 Unauthorized error.
+	//   +  allow```` - Allow the request to be forwarded to the target.
+	//   +  authenticate```` - Redirect the request to the IdP authorization endpoint. This is the default value.
+	OnUnauthenticatedRequest *string `pulumi:"onUnauthenticatedRequest"`
+	// The set of user claims to be requested from the IdP. The default is ``openid``.
+	//  To verify which scope values your IdP supports and how to separate multiple values, see the documentation for your IdP.
+	Scope *string `pulumi:"scope"`
+	// The name of the cookie used to maintain session information. The default is AWSELBAuthSessionCookie.
+	SessionCookieName *string `pulumi:"sessionCookieName"`
+	// The maximum duration of the authentication session, in seconds. The default is 604800 seconds (7 days).
+	SessionTimeout *int `pulumi:"sessionTimeout"`
+	// The Amazon Resource Name (ARN) of the Amazon Cognito user pool.
+	UserPoolArn string `pulumi:"userPoolArn"`
+	// The ID of the Amazon Cognito user pool client.
+	UserPoolClientId string `pulumi:"userPoolClientId"`
+	// The domain prefix or fully-qualified domain name of the Amazon Cognito user pool.
+	UserPoolDomain string `pulumi:"userPoolDomain"`
 }
 
 // ListenerRuleAuthenticateCognitoConfigInput is an input type that accepts ListenerRuleAuthenticateCognitoConfigArgs and ListenerRuleAuthenticateCognitoConfigOutput values.
@@ -1880,15 +1920,28 @@ type ListenerRuleAuthenticateCognitoConfigInput interface {
 	ToListenerRuleAuthenticateCognitoConfigOutputWithContext(context.Context) ListenerRuleAuthenticateCognitoConfigOutput
 }
 
+// Specifies information required when integrating with Amazon Cognito to authenticate users.
 type ListenerRuleAuthenticateCognitoConfigArgs struct {
+	// The query parameters (up to 10) to include in the redirect request to the authorization endpoint.
 	AuthenticationRequestExtraParams pulumi.StringMapInput `pulumi:"authenticationRequestExtraParams"`
-	OnUnauthenticatedRequest         pulumi.StringPtrInput `pulumi:"onUnauthenticatedRequest"`
-	Scope                            pulumi.StringPtrInput `pulumi:"scope"`
-	SessionCookieName                pulumi.StringPtrInput `pulumi:"sessionCookieName"`
-	SessionTimeout                   pulumi.IntPtrInput    `pulumi:"sessionTimeout"`
-	UserPoolArn                      pulumi.StringInput    `pulumi:"userPoolArn"`
-	UserPoolClientId                 pulumi.StringInput    `pulumi:"userPoolClientId"`
-	UserPoolDomain                   pulumi.StringInput    `pulumi:"userPoolDomain"`
+	// The behavior if the user is not authenticated. The following are possible values:
+	//   +  deny```` - Return an HTTP 401 Unauthorized error.
+	//   +  allow```` - Allow the request to be forwarded to the target.
+	//   +  authenticate```` - Redirect the request to the IdP authorization endpoint. This is the default value.
+	OnUnauthenticatedRequest pulumi.StringPtrInput `pulumi:"onUnauthenticatedRequest"`
+	// The set of user claims to be requested from the IdP. The default is ``openid``.
+	//  To verify which scope values your IdP supports and how to separate multiple values, see the documentation for your IdP.
+	Scope pulumi.StringPtrInput `pulumi:"scope"`
+	// The name of the cookie used to maintain session information. The default is AWSELBAuthSessionCookie.
+	SessionCookieName pulumi.StringPtrInput `pulumi:"sessionCookieName"`
+	// The maximum duration of the authentication session, in seconds. The default is 604800 seconds (7 days).
+	SessionTimeout pulumi.IntPtrInput `pulumi:"sessionTimeout"`
+	// The Amazon Resource Name (ARN) of the Amazon Cognito user pool.
+	UserPoolArn pulumi.StringInput `pulumi:"userPoolArn"`
+	// The ID of the Amazon Cognito user pool client.
+	UserPoolClientId pulumi.StringInput `pulumi:"userPoolClientId"`
+	// The domain prefix or fully-qualified domain name of the Amazon Cognito user pool.
+	UserPoolDomain pulumi.StringInput `pulumi:"userPoolDomain"`
 }
 
 func (ListenerRuleAuthenticateCognitoConfigArgs) ElementType() reflect.Type {
@@ -1944,6 +1997,7 @@ func (i *listenerRuleAuthenticateCognitoConfigPtrType) ToListenerRuleAuthenticat
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleAuthenticateCognitoConfigPtrOutput)
 }
 
+// Specifies information required when integrating with Amazon Cognito to authenticate users.
 type ListenerRuleAuthenticateCognitoConfigOutput struct{ *pulumi.OutputState }
 
 func (ListenerRuleAuthenticateCognitoConfigOutput) ElementType() reflect.Type {
@@ -1968,36 +2022,49 @@ func (o ListenerRuleAuthenticateCognitoConfigOutput) ToListenerRuleAuthenticateC
 	}).(ListenerRuleAuthenticateCognitoConfigPtrOutput)
 }
 
+// The query parameters (up to 10) to include in the redirect request to the authorization endpoint.
 func (o ListenerRuleAuthenticateCognitoConfigOutput) AuthenticationRequestExtraParams() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ListenerRuleAuthenticateCognitoConfig) map[string]string {
 		return v.AuthenticationRequestExtraParams
 	}).(pulumi.StringMapOutput)
 }
 
+// The behavior if the user is not authenticated. The following are possible values:
+//   - deny```` - Return an HTTP 401 Unauthorized error.
+//   - allow```` - Allow the request to be forwarded to the target.
+//   - authenticate```` - Redirect the request to the IdP authorization endpoint. This is the default value.
 func (o ListenerRuleAuthenticateCognitoConfigOutput) OnUnauthenticatedRequest() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerRuleAuthenticateCognitoConfig) *string { return v.OnUnauthenticatedRequest }).(pulumi.StringPtrOutput)
 }
 
+// The set of user claims to be requested from the IdP. The default is “openid“.
+//
+//	To verify which scope values your IdP supports and how to separate multiple values, see the documentation for your IdP.
 func (o ListenerRuleAuthenticateCognitoConfigOutput) Scope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerRuleAuthenticateCognitoConfig) *string { return v.Scope }).(pulumi.StringPtrOutput)
 }
 
+// The name of the cookie used to maintain session information. The default is AWSELBAuthSessionCookie.
 func (o ListenerRuleAuthenticateCognitoConfigOutput) SessionCookieName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerRuleAuthenticateCognitoConfig) *string { return v.SessionCookieName }).(pulumi.StringPtrOutput)
 }
 
+// The maximum duration of the authentication session, in seconds. The default is 604800 seconds (7 days).
 func (o ListenerRuleAuthenticateCognitoConfigOutput) SessionTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ListenerRuleAuthenticateCognitoConfig) *int { return v.SessionTimeout }).(pulumi.IntPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Amazon Cognito user pool.
 func (o ListenerRuleAuthenticateCognitoConfigOutput) UserPoolArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ListenerRuleAuthenticateCognitoConfig) string { return v.UserPoolArn }).(pulumi.StringOutput)
 }
 
+// The ID of the Amazon Cognito user pool client.
 func (o ListenerRuleAuthenticateCognitoConfigOutput) UserPoolClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v ListenerRuleAuthenticateCognitoConfig) string { return v.UserPoolClientId }).(pulumi.StringOutput)
 }
 
+// The domain prefix or fully-qualified domain name of the Amazon Cognito user pool.
 func (o ListenerRuleAuthenticateCognitoConfigOutput) UserPoolDomain() pulumi.StringOutput {
 	return o.ApplyT(func(v ListenerRuleAuthenticateCognitoConfig) string { return v.UserPoolDomain }).(pulumi.StringOutput)
 }
@@ -2026,6 +2093,7 @@ func (o ListenerRuleAuthenticateCognitoConfigPtrOutput) Elem() ListenerRuleAuthe
 	}).(ListenerRuleAuthenticateCognitoConfigOutput)
 }
 
+// The query parameters (up to 10) to include in the redirect request to the authorization endpoint.
 func (o ListenerRuleAuthenticateCognitoConfigPtrOutput) AuthenticationRequestExtraParams() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ListenerRuleAuthenticateCognitoConfig) map[string]string {
 		if v == nil {
@@ -2035,6 +2103,10 @@ func (o ListenerRuleAuthenticateCognitoConfigPtrOutput) AuthenticationRequestExt
 	}).(pulumi.StringMapOutput)
 }
 
+// The behavior if the user is not authenticated. The following are possible values:
+//   - deny```` - Return an HTTP 401 Unauthorized error.
+//   - allow```` - Allow the request to be forwarded to the target.
+//   - authenticate```` - Redirect the request to the IdP authorization endpoint. This is the default value.
 func (o ListenerRuleAuthenticateCognitoConfigPtrOutput) OnUnauthenticatedRequest() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerRuleAuthenticateCognitoConfig) *string {
 		if v == nil {
@@ -2044,6 +2116,9 @@ func (o ListenerRuleAuthenticateCognitoConfigPtrOutput) OnUnauthenticatedRequest
 	}).(pulumi.StringPtrOutput)
 }
 
+// The set of user claims to be requested from the IdP. The default is “openid“.
+//
+//	To verify which scope values your IdP supports and how to separate multiple values, see the documentation for your IdP.
 func (o ListenerRuleAuthenticateCognitoConfigPtrOutput) Scope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerRuleAuthenticateCognitoConfig) *string {
 		if v == nil {
@@ -2053,6 +2128,7 @@ func (o ListenerRuleAuthenticateCognitoConfigPtrOutput) Scope() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the cookie used to maintain session information. The default is AWSELBAuthSessionCookie.
 func (o ListenerRuleAuthenticateCognitoConfigPtrOutput) SessionCookieName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerRuleAuthenticateCognitoConfig) *string {
 		if v == nil {
@@ -2062,6 +2138,7 @@ func (o ListenerRuleAuthenticateCognitoConfigPtrOutput) SessionCookieName() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The maximum duration of the authentication session, in seconds. The default is 604800 seconds (7 days).
 func (o ListenerRuleAuthenticateCognitoConfigPtrOutput) SessionTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ListenerRuleAuthenticateCognitoConfig) *int {
 		if v == nil {
@@ -2071,6 +2148,7 @@ func (o ListenerRuleAuthenticateCognitoConfigPtrOutput) SessionTimeout() pulumi.
 	}).(pulumi.IntPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Amazon Cognito user pool.
 func (o ListenerRuleAuthenticateCognitoConfigPtrOutput) UserPoolArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerRuleAuthenticateCognitoConfig) *string {
 		if v == nil {
@@ -2080,6 +2158,7 @@ func (o ListenerRuleAuthenticateCognitoConfigPtrOutput) UserPoolArn() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ID of the Amazon Cognito user pool client.
 func (o ListenerRuleAuthenticateCognitoConfigPtrOutput) UserPoolClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerRuleAuthenticateCognitoConfig) *string {
 		if v == nil {
@@ -2089,6 +2168,7 @@ func (o ListenerRuleAuthenticateCognitoConfigPtrOutput) UserPoolClientId() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
+// The domain prefix or fully-qualified domain name of the Amazon Cognito user pool.
 func (o ListenerRuleAuthenticateCognitoConfigPtrOutput) UserPoolDomain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerRuleAuthenticateCognitoConfig) *string {
 		if v == nil {
@@ -2098,19 +2178,36 @@ func (o ListenerRuleAuthenticateCognitoConfigPtrOutput) UserPoolDomain() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies information required using an identity provide (IdP) that is compliant with OpenID Connect (OIDC) to authenticate users.
 type ListenerRuleAuthenticateOidcConfig struct {
+	// The query parameters (up to 10) to include in the redirect request to the authorization endpoint.
 	AuthenticationRequestExtraParams map[string]string `pulumi:"authenticationRequestExtraParams"`
-	AuthorizationEndpoint            string            `pulumi:"authorizationEndpoint"`
-	ClientId                         string            `pulumi:"clientId"`
-	ClientSecret                     *string           `pulumi:"clientSecret"`
-	Issuer                           string            `pulumi:"issuer"`
-	OnUnauthenticatedRequest         *string           `pulumi:"onUnauthenticatedRequest"`
-	Scope                            *string           `pulumi:"scope"`
-	SessionCookieName                *string           `pulumi:"sessionCookieName"`
-	SessionTimeout                   *int              `pulumi:"sessionTimeout"`
-	TokenEndpoint                    string            `pulumi:"tokenEndpoint"`
-	UseExistingClientSecret          *bool             `pulumi:"useExistingClientSecret"`
-	UserInfoEndpoint                 string            `pulumi:"userInfoEndpoint"`
+	// The authorization endpoint of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
+	AuthorizationEndpoint string `pulumi:"authorizationEndpoint"`
+	// The OAuth 2.0 client identifier.
+	ClientId string `pulumi:"clientId"`
+	// The OAuth 2.0 client secret. This parameter is required if you are creating a rule. If you are modifying a rule, you can omit this parameter if you set ``UseExistingClientSecret`` to true.
+	ClientSecret *string `pulumi:"clientSecret"`
+	// The OIDC issuer identifier of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
+	Issuer string `pulumi:"issuer"`
+	// The behavior if the user is not authenticated. The following are possible values:
+	//   +  deny```` - Return an HTTP 401 Unauthorized error.
+	//   +  allow```` - Allow the request to be forwarded to the target.
+	//   +  authenticate```` - Redirect the request to the IdP authorization endpoint. This is the default value.
+	OnUnauthenticatedRequest *string `pulumi:"onUnauthenticatedRequest"`
+	// The set of user claims to be requested from the IdP. The default is ``openid``.
+	//  To verify which scope values your IdP supports and how to separate multiple values, see the documentation for your IdP.
+	Scope *string `pulumi:"scope"`
+	// The name of the cookie used to maintain session information. The default is AWSELBAuthSessionCookie.
+	SessionCookieName *string `pulumi:"sessionCookieName"`
+	// The maximum duration of the authentication session, in seconds. The default is 604800 seconds (7 days).
+	SessionTimeout *int `pulumi:"sessionTimeout"`
+	// The token endpoint of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
+	TokenEndpoint string `pulumi:"tokenEndpoint"`
+	// Indicates whether to use the existing client secret when modifying a rule. If you are creating a rule, you can omit this parameter or set it to false.
+	UseExistingClientSecret *bool `pulumi:"useExistingClientSecret"`
+	// The user info endpoint of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
+	UserInfoEndpoint string `pulumi:"userInfoEndpoint"`
 }
 
 // ListenerRuleAuthenticateOidcConfigInput is an input type that accepts ListenerRuleAuthenticateOidcConfigArgs and ListenerRuleAuthenticateOidcConfigOutput values.
@@ -2124,19 +2221,36 @@ type ListenerRuleAuthenticateOidcConfigInput interface {
 	ToListenerRuleAuthenticateOidcConfigOutputWithContext(context.Context) ListenerRuleAuthenticateOidcConfigOutput
 }
 
+// Specifies information required using an identity provide (IdP) that is compliant with OpenID Connect (OIDC) to authenticate users.
 type ListenerRuleAuthenticateOidcConfigArgs struct {
+	// The query parameters (up to 10) to include in the redirect request to the authorization endpoint.
 	AuthenticationRequestExtraParams pulumi.StringMapInput `pulumi:"authenticationRequestExtraParams"`
-	AuthorizationEndpoint            pulumi.StringInput    `pulumi:"authorizationEndpoint"`
-	ClientId                         pulumi.StringInput    `pulumi:"clientId"`
-	ClientSecret                     pulumi.StringPtrInput `pulumi:"clientSecret"`
-	Issuer                           pulumi.StringInput    `pulumi:"issuer"`
-	OnUnauthenticatedRequest         pulumi.StringPtrInput `pulumi:"onUnauthenticatedRequest"`
-	Scope                            pulumi.StringPtrInput `pulumi:"scope"`
-	SessionCookieName                pulumi.StringPtrInput `pulumi:"sessionCookieName"`
-	SessionTimeout                   pulumi.IntPtrInput    `pulumi:"sessionTimeout"`
-	TokenEndpoint                    pulumi.StringInput    `pulumi:"tokenEndpoint"`
-	UseExistingClientSecret          pulumi.BoolPtrInput   `pulumi:"useExistingClientSecret"`
-	UserInfoEndpoint                 pulumi.StringInput    `pulumi:"userInfoEndpoint"`
+	// The authorization endpoint of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
+	AuthorizationEndpoint pulumi.StringInput `pulumi:"authorizationEndpoint"`
+	// The OAuth 2.0 client identifier.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The OAuth 2.0 client secret. This parameter is required if you are creating a rule. If you are modifying a rule, you can omit this parameter if you set ``UseExistingClientSecret`` to true.
+	ClientSecret pulumi.StringPtrInput `pulumi:"clientSecret"`
+	// The OIDC issuer identifier of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
+	Issuer pulumi.StringInput `pulumi:"issuer"`
+	// The behavior if the user is not authenticated. The following are possible values:
+	//   +  deny```` - Return an HTTP 401 Unauthorized error.
+	//   +  allow```` - Allow the request to be forwarded to the target.
+	//   +  authenticate```` - Redirect the request to the IdP authorization endpoint. This is the default value.
+	OnUnauthenticatedRequest pulumi.StringPtrInput `pulumi:"onUnauthenticatedRequest"`
+	// The set of user claims to be requested from the IdP. The default is ``openid``.
+	//  To verify which scope values your IdP supports and how to separate multiple values, see the documentation for your IdP.
+	Scope pulumi.StringPtrInput `pulumi:"scope"`
+	// The name of the cookie used to maintain session information. The default is AWSELBAuthSessionCookie.
+	SessionCookieName pulumi.StringPtrInput `pulumi:"sessionCookieName"`
+	// The maximum duration of the authentication session, in seconds. The default is 604800 seconds (7 days).
+	SessionTimeout pulumi.IntPtrInput `pulumi:"sessionTimeout"`
+	// The token endpoint of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
+	TokenEndpoint pulumi.StringInput `pulumi:"tokenEndpoint"`
+	// Indicates whether to use the existing client secret when modifying a rule. If you are creating a rule, you can omit this parameter or set it to false.
+	UseExistingClientSecret pulumi.BoolPtrInput `pulumi:"useExistingClientSecret"`
+	// The user info endpoint of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
+	UserInfoEndpoint pulumi.StringInput `pulumi:"userInfoEndpoint"`
 }
 
 func (ListenerRuleAuthenticateOidcConfigArgs) ElementType() reflect.Type {
@@ -2192,6 +2306,7 @@ func (i *listenerRuleAuthenticateOidcConfigPtrType) ToListenerRuleAuthenticateOi
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleAuthenticateOidcConfigPtrOutput)
 }
 
+// Specifies information required using an identity provide (IdP) that is compliant with OpenID Connect (OIDC) to authenticate users.
 type ListenerRuleAuthenticateOidcConfigOutput struct{ *pulumi.OutputState }
 
 func (ListenerRuleAuthenticateOidcConfigOutput) ElementType() reflect.Type {
@@ -2216,52 +2331,69 @@ func (o ListenerRuleAuthenticateOidcConfigOutput) ToListenerRuleAuthenticateOidc
 	}).(ListenerRuleAuthenticateOidcConfigPtrOutput)
 }
 
+// The query parameters (up to 10) to include in the redirect request to the authorization endpoint.
 func (o ListenerRuleAuthenticateOidcConfigOutput) AuthenticationRequestExtraParams() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ListenerRuleAuthenticateOidcConfig) map[string]string {
 		return v.AuthenticationRequestExtraParams
 	}).(pulumi.StringMapOutput)
 }
 
+// The authorization endpoint of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
 func (o ListenerRuleAuthenticateOidcConfigOutput) AuthorizationEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v ListenerRuleAuthenticateOidcConfig) string { return v.AuthorizationEndpoint }).(pulumi.StringOutput)
 }
 
+// The OAuth 2.0 client identifier.
 func (o ListenerRuleAuthenticateOidcConfigOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v ListenerRuleAuthenticateOidcConfig) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
+// The OAuth 2.0 client secret. This parameter is required if you are creating a rule. If you are modifying a rule, you can omit this parameter if you set “UseExistingClientSecret“ to true.
 func (o ListenerRuleAuthenticateOidcConfigOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerRuleAuthenticateOidcConfig) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
 }
 
+// The OIDC issuer identifier of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
 func (o ListenerRuleAuthenticateOidcConfigOutput) Issuer() pulumi.StringOutput {
 	return o.ApplyT(func(v ListenerRuleAuthenticateOidcConfig) string { return v.Issuer }).(pulumi.StringOutput)
 }
 
+// The behavior if the user is not authenticated. The following are possible values:
+//   - deny```` - Return an HTTP 401 Unauthorized error.
+//   - allow```` - Allow the request to be forwarded to the target.
+//   - authenticate```` - Redirect the request to the IdP authorization endpoint. This is the default value.
 func (o ListenerRuleAuthenticateOidcConfigOutput) OnUnauthenticatedRequest() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerRuleAuthenticateOidcConfig) *string { return v.OnUnauthenticatedRequest }).(pulumi.StringPtrOutput)
 }
 
+// The set of user claims to be requested from the IdP. The default is “openid“.
+//
+//	To verify which scope values your IdP supports and how to separate multiple values, see the documentation for your IdP.
 func (o ListenerRuleAuthenticateOidcConfigOutput) Scope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerRuleAuthenticateOidcConfig) *string { return v.Scope }).(pulumi.StringPtrOutput)
 }
 
+// The name of the cookie used to maintain session information. The default is AWSELBAuthSessionCookie.
 func (o ListenerRuleAuthenticateOidcConfigOutput) SessionCookieName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerRuleAuthenticateOidcConfig) *string { return v.SessionCookieName }).(pulumi.StringPtrOutput)
 }
 
+// The maximum duration of the authentication session, in seconds. The default is 604800 seconds (7 days).
 func (o ListenerRuleAuthenticateOidcConfigOutput) SessionTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ListenerRuleAuthenticateOidcConfig) *int { return v.SessionTimeout }).(pulumi.IntPtrOutput)
 }
 
+// The token endpoint of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
 func (o ListenerRuleAuthenticateOidcConfigOutput) TokenEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v ListenerRuleAuthenticateOidcConfig) string { return v.TokenEndpoint }).(pulumi.StringOutput)
 }
 
+// Indicates whether to use the existing client secret when modifying a rule. If you are creating a rule, you can omit this parameter or set it to false.
 func (o ListenerRuleAuthenticateOidcConfigOutput) UseExistingClientSecret() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ListenerRuleAuthenticateOidcConfig) *bool { return v.UseExistingClientSecret }).(pulumi.BoolPtrOutput)
 }
 
+// The user info endpoint of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
 func (o ListenerRuleAuthenticateOidcConfigOutput) UserInfoEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v ListenerRuleAuthenticateOidcConfig) string { return v.UserInfoEndpoint }).(pulumi.StringOutput)
 }
@@ -2290,6 +2422,7 @@ func (o ListenerRuleAuthenticateOidcConfigPtrOutput) Elem() ListenerRuleAuthenti
 	}).(ListenerRuleAuthenticateOidcConfigOutput)
 }
 
+// The query parameters (up to 10) to include in the redirect request to the authorization endpoint.
 func (o ListenerRuleAuthenticateOidcConfigPtrOutput) AuthenticationRequestExtraParams() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ListenerRuleAuthenticateOidcConfig) map[string]string {
 		if v == nil {
@@ -2299,6 +2432,7 @@ func (o ListenerRuleAuthenticateOidcConfigPtrOutput) AuthenticationRequestExtraP
 	}).(pulumi.StringMapOutput)
 }
 
+// The authorization endpoint of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
 func (o ListenerRuleAuthenticateOidcConfigPtrOutput) AuthorizationEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerRuleAuthenticateOidcConfig) *string {
 		if v == nil {
@@ -2308,6 +2442,7 @@ func (o ListenerRuleAuthenticateOidcConfigPtrOutput) AuthorizationEndpoint() pul
 	}).(pulumi.StringPtrOutput)
 }
 
+// The OAuth 2.0 client identifier.
 func (o ListenerRuleAuthenticateOidcConfigPtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerRuleAuthenticateOidcConfig) *string {
 		if v == nil {
@@ -2317,6 +2452,7 @@ func (o ListenerRuleAuthenticateOidcConfigPtrOutput) ClientId() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// The OAuth 2.0 client secret. This parameter is required if you are creating a rule. If you are modifying a rule, you can omit this parameter if you set “UseExistingClientSecret“ to true.
 func (o ListenerRuleAuthenticateOidcConfigPtrOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerRuleAuthenticateOidcConfig) *string {
 		if v == nil {
@@ -2326,6 +2462,7 @@ func (o ListenerRuleAuthenticateOidcConfigPtrOutput) ClientSecret() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// The OIDC issuer identifier of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
 func (o ListenerRuleAuthenticateOidcConfigPtrOutput) Issuer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerRuleAuthenticateOidcConfig) *string {
 		if v == nil {
@@ -2335,6 +2472,10 @@ func (o ListenerRuleAuthenticateOidcConfigPtrOutput) Issuer() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The behavior if the user is not authenticated. The following are possible values:
+//   - deny```` - Return an HTTP 401 Unauthorized error.
+//   - allow```` - Allow the request to be forwarded to the target.
+//   - authenticate```` - Redirect the request to the IdP authorization endpoint. This is the default value.
 func (o ListenerRuleAuthenticateOidcConfigPtrOutput) OnUnauthenticatedRequest() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerRuleAuthenticateOidcConfig) *string {
 		if v == nil {
@@ -2344,6 +2485,9 @@ func (o ListenerRuleAuthenticateOidcConfigPtrOutput) OnUnauthenticatedRequest() 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The set of user claims to be requested from the IdP. The default is “openid“.
+//
+//	To verify which scope values your IdP supports and how to separate multiple values, see the documentation for your IdP.
 func (o ListenerRuleAuthenticateOidcConfigPtrOutput) Scope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerRuleAuthenticateOidcConfig) *string {
 		if v == nil {
@@ -2353,6 +2497,7 @@ func (o ListenerRuleAuthenticateOidcConfigPtrOutput) Scope() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the cookie used to maintain session information. The default is AWSELBAuthSessionCookie.
 func (o ListenerRuleAuthenticateOidcConfigPtrOutput) SessionCookieName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerRuleAuthenticateOidcConfig) *string {
 		if v == nil {
@@ -2362,6 +2507,7 @@ func (o ListenerRuleAuthenticateOidcConfigPtrOutput) SessionCookieName() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
+// The maximum duration of the authentication session, in seconds. The default is 604800 seconds (7 days).
 func (o ListenerRuleAuthenticateOidcConfigPtrOutput) SessionTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ListenerRuleAuthenticateOidcConfig) *int {
 		if v == nil {
@@ -2371,6 +2517,7 @@ func (o ListenerRuleAuthenticateOidcConfigPtrOutput) SessionTimeout() pulumi.Int
 	}).(pulumi.IntPtrOutput)
 }
 
+// The token endpoint of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
 func (o ListenerRuleAuthenticateOidcConfigPtrOutput) TokenEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerRuleAuthenticateOidcConfig) *string {
 		if v == nil {
@@ -2380,6 +2527,7 @@ func (o ListenerRuleAuthenticateOidcConfigPtrOutput) TokenEndpoint() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether to use the existing client secret when modifying a rule. If you are creating a rule, you can omit this parameter or set it to false.
 func (o ListenerRuleAuthenticateOidcConfigPtrOutput) UseExistingClientSecret() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ListenerRuleAuthenticateOidcConfig) *bool {
 		if v == nil {
@@ -2389,6 +2537,7 @@ func (o ListenerRuleAuthenticateOidcConfigPtrOutput) UseExistingClientSecret() p
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The user info endpoint of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
 func (o ListenerRuleAuthenticateOidcConfigPtrOutput) UserInfoEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerRuleAuthenticateOidcConfig) *string {
 		if v == nil {
@@ -2398,10 +2547,15 @@ func (o ListenerRuleAuthenticateOidcConfigPtrOutput) UserInfoEndpoint() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies information required when returning a custom HTTP response.
 type ListenerRuleFixedResponseConfig struct {
+	// The content type.
+	//  Valid Values: text/plain | text/css | text/html | application/javascript | application/json
 	ContentType *string `pulumi:"contentType"`
+	// The message.
 	MessageBody *string `pulumi:"messageBody"`
-	StatusCode  string  `pulumi:"statusCode"`
+	// The HTTP response code (2XX, 4XX, or 5XX).
+	StatusCode string `pulumi:"statusCode"`
 }
 
 // ListenerRuleFixedResponseConfigInput is an input type that accepts ListenerRuleFixedResponseConfigArgs and ListenerRuleFixedResponseConfigOutput values.
@@ -2415,10 +2569,15 @@ type ListenerRuleFixedResponseConfigInput interface {
 	ToListenerRuleFixedResponseConfigOutputWithContext(context.Context) ListenerRuleFixedResponseConfigOutput
 }
 
+// Specifies information required when returning a custom HTTP response.
 type ListenerRuleFixedResponseConfigArgs struct {
+	// The content type.
+	//  Valid Values: text/plain | text/css | text/html | application/javascript | application/json
 	ContentType pulumi.StringPtrInput `pulumi:"contentType"`
+	// The message.
 	MessageBody pulumi.StringPtrInput `pulumi:"messageBody"`
-	StatusCode  pulumi.StringInput    `pulumi:"statusCode"`
+	// The HTTP response code (2XX, 4XX, or 5XX).
+	StatusCode pulumi.StringInput `pulumi:"statusCode"`
 }
 
 func (ListenerRuleFixedResponseConfigArgs) ElementType() reflect.Type {
@@ -2474,6 +2633,7 @@ func (i *listenerRuleFixedResponseConfigPtrType) ToListenerRuleFixedResponseConf
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleFixedResponseConfigPtrOutput)
 }
 
+// Specifies information required when returning a custom HTTP response.
 type ListenerRuleFixedResponseConfigOutput struct{ *pulumi.OutputState }
 
 func (ListenerRuleFixedResponseConfigOutput) ElementType() reflect.Type {
@@ -2498,14 +2658,19 @@ func (o ListenerRuleFixedResponseConfigOutput) ToListenerRuleFixedResponseConfig
 	}).(ListenerRuleFixedResponseConfigPtrOutput)
 }
 
+// The content type.
+//
+//	Valid Values: text/plain | text/css | text/html | application/javascript | application/json
 func (o ListenerRuleFixedResponseConfigOutput) ContentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerRuleFixedResponseConfig) *string { return v.ContentType }).(pulumi.StringPtrOutput)
 }
 
+// The message.
 func (o ListenerRuleFixedResponseConfigOutput) MessageBody() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerRuleFixedResponseConfig) *string { return v.MessageBody }).(pulumi.StringPtrOutput)
 }
 
+// The HTTP response code (2XX, 4XX, or 5XX).
 func (o ListenerRuleFixedResponseConfigOutput) StatusCode() pulumi.StringOutput {
 	return o.ApplyT(func(v ListenerRuleFixedResponseConfig) string { return v.StatusCode }).(pulumi.StringOutput)
 }
@@ -2534,6 +2699,9 @@ func (o ListenerRuleFixedResponseConfigPtrOutput) Elem() ListenerRuleFixedRespon
 	}).(ListenerRuleFixedResponseConfigOutput)
 }
 
+// The content type.
+//
+//	Valid Values: text/plain | text/css | text/html | application/javascript | application/json
 func (o ListenerRuleFixedResponseConfigPtrOutput) ContentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerRuleFixedResponseConfig) *string {
 		if v == nil {
@@ -2543,6 +2711,7 @@ func (o ListenerRuleFixedResponseConfigPtrOutput) ContentType() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// The message.
 func (o ListenerRuleFixedResponseConfigPtrOutput) MessageBody() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerRuleFixedResponseConfig) *string {
 		if v == nil {
@@ -2552,6 +2721,7 @@ func (o ListenerRuleFixedResponseConfigPtrOutput) MessageBody() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// The HTTP response code (2XX, 4XX, or 5XX).
 func (o ListenerRuleFixedResponseConfigPtrOutput) StatusCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerRuleFixedResponseConfig) *string {
 		if v == nil {
@@ -2561,9 +2731,12 @@ func (o ListenerRuleFixedResponseConfigPtrOutput) StatusCode() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// Information for creating an action that distributes requests among one or more target groups. For Network Load Balancers, you can specify a single target group. Specify only when “Type“ is “forward“. If you specify both “ForwardConfig“ and “TargetGroupArn“, you can specify only one target group using “ForwardConfig“ and it must be the same target group specified in “TargetGroupArn“.
 type ListenerRuleForwardConfig struct {
+	// Information about the target group stickiness for a rule.
 	TargetGroupStickinessConfig *ListenerRuleTargetGroupStickinessConfig `pulumi:"targetGroupStickinessConfig"`
-	TargetGroups                []ListenerRuleTargetGroupTuple           `pulumi:"targetGroups"`
+	// Information about how traffic will be distributed between multiple target groups in a forward rule.
+	TargetGroups []ListenerRuleTargetGroupTuple `pulumi:"targetGroups"`
 }
 
 // ListenerRuleForwardConfigInput is an input type that accepts ListenerRuleForwardConfigArgs and ListenerRuleForwardConfigOutput values.
@@ -2577,9 +2750,12 @@ type ListenerRuleForwardConfigInput interface {
 	ToListenerRuleForwardConfigOutputWithContext(context.Context) ListenerRuleForwardConfigOutput
 }
 
+// Information for creating an action that distributes requests among one or more target groups. For Network Load Balancers, you can specify a single target group. Specify only when “Type“ is “forward“. If you specify both “ForwardConfig“ and “TargetGroupArn“, you can specify only one target group using “ForwardConfig“ and it must be the same target group specified in “TargetGroupArn“.
 type ListenerRuleForwardConfigArgs struct {
+	// Information about the target group stickiness for a rule.
 	TargetGroupStickinessConfig ListenerRuleTargetGroupStickinessConfigPtrInput `pulumi:"targetGroupStickinessConfig"`
-	TargetGroups                ListenerRuleTargetGroupTupleArrayInput          `pulumi:"targetGroups"`
+	// Information about how traffic will be distributed between multiple target groups in a forward rule.
+	TargetGroups ListenerRuleTargetGroupTupleArrayInput `pulumi:"targetGroups"`
 }
 
 func (ListenerRuleForwardConfigArgs) ElementType() reflect.Type {
@@ -2635,6 +2811,7 @@ func (i *listenerRuleForwardConfigPtrType) ToListenerRuleForwardConfigPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleForwardConfigPtrOutput)
 }
 
+// Information for creating an action that distributes requests among one or more target groups. For Network Load Balancers, you can specify a single target group. Specify only when “Type“ is “forward“. If you specify both “ForwardConfig“ and “TargetGroupArn“, you can specify only one target group using “ForwardConfig“ and it must be the same target group specified in “TargetGroupArn“.
 type ListenerRuleForwardConfigOutput struct{ *pulumi.OutputState }
 
 func (ListenerRuleForwardConfigOutput) ElementType() reflect.Type {
@@ -2659,12 +2836,14 @@ func (o ListenerRuleForwardConfigOutput) ToListenerRuleForwardConfigPtrOutputWit
 	}).(ListenerRuleForwardConfigPtrOutput)
 }
 
+// Information about the target group stickiness for a rule.
 func (o ListenerRuleForwardConfigOutput) TargetGroupStickinessConfig() ListenerRuleTargetGroupStickinessConfigPtrOutput {
 	return o.ApplyT(func(v ListenerRuleForwardConfig) *ListenerRuleTargetGroupStickinessConfig {
 		return v.TargetGroupStickinessConfig
 	}).(ListenerRuleTargetGroupStickinessConfigPtrOutput)
 }
 
+// Information about how traffic will be distributed between multiple target groups in a forward rule.
 func (o ListenerRuleForwardConfigOutput) TargetGroups() ListenerRuleTargetGroupTupleArrayOutput {
 	return o.ApplyT(func(v ListenerRuleForwardConfig) []ListenerRuleTargetGroupTuple { return v.TargetGroups }).(ListenerRuleTargetGroupTupleArrayOutput)
 }
@@ -2693,6 +2872,7 @@ func (o ListenerRuleForwardConfigPtrOutput) Elem() ListenerRuleForwardConfigOutp
 	}).(ListenerRuleForwardConfigOutput)
 }
 
+// Information about the target group stickiness for a rule.
 func (o ListenerRuleForwardConfigPtrOutput) TargetGroupStickinessConfig() ListenerRuleTargetGroupStickinessConfigPtrOutput {
 	return o.ApplyT(func(v *ListenerRuleForwardConfig) *ListenerRuleTargetGroupStickinessConfig {
 		if v == nil {
@@ -2702,6 +2882,7 @@ func (o ListenerRuleForwardConfigPtrOutput) TargetGroupStickinessConfig() Listen
 	}).(ListenerRuleTargetGroupStickinessConfigPtrOutput)
 }
 
+// Information about how traffic will be distributed between multiple target groups in a forward rule.
 func (o ListenerRuleForwardConfigPtrOutput) TargetGroups() ListenerRuleTargetGroupTupleArrayOutput {
 	return o.ApplyT(func(v *ListenerRuleForwardConfig) []ListenerRuleTargetGroupTuple {
 		if v == nil {
@@ -2711,7 +2892,10 @@ func (o ListenerRuleForwardConfigPtrOutput) TargetGroups() ListenerRuleTargetGro
 	}).(ListenerRuleTargetGroupTupleArrayOutput)
 }
 
+// Information about a host header condition.
 type ListenerRuleHostHeaderConfig struct {
+	// The host names. The maximum size of each name is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
+	//  If you specify multiple strings, the condition is satisfied if one of the strings matches the host name.
 	Values []string `pulumi:"values"`
 }
 
@@ -2726,7 +2910,10 @@ type ListenerRuleHostHeaderConfigInput interface {
 	ToListenerRuleHostHeaderConfigOutputWithContext(context.Context) ListenerRuleHostHeaderConfigOutput
 }
 
+// Information about a host header condition.
 type ListenerRuleHostHeaderConfigArgs struct {
+	// The host names. The maximum size of each name is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
+	//  If you specify multiple strings, the condition is satisfied if one of the strings matches the host name.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -2783,6 +2970,7 @@ func (i *listenerRuleHostHeaderConfigPtrType) ToListenerRuleHostHeaderConfigPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleHostHeaderConfigPtrOutput)
 }
 
+// Information about a host header condition.
 type ListenerRuleHostHeaderConfigOutput struct{ *pulumi.OutputState }
 
 func (ListenerRuleHostHeaderConfigOutput) ElementType() reflect.Type {
@@ -2807,6 +2995,9 @@ func (o ListenerRuleHostHeaderConfigOutput) ToListenerRuleHostHeaderConfigPtrOut
 	}).(ListenerRuleHostHeaderConfigPtrOutput)
 }
 
+// The host names. The maximum size of each name is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
+//
+//	If you specify multiple strings, the condition is satisfied if one of the strings matches the host name.
 func (o ListenerRuleHostHeaderConfigOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ListenerRuleHostHeaderConfig) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -2835,6 +3026,9 @@ func (o ListenerRuleHostHeaderConfigPtrOutput) Elem() ListenerRuleHostHeaderConf
 	}).(ListenerRuleHostHeaderConfigOutput)
 }
 
+// The host names. The maximum size of each name is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
+//
+//	If you specify multiple strings, the condition is satisfied if one of the strings matches the host name.
 func (o ListenerRuleHostHeaderConfigPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ListenerRuleHostHeaderConfig) []string {
 		if v == nil {
@@ -2844,9 +3038,16 @@ func (o ListenerRuleHostHeaderConfigPtrOutput) Values() pulumi.StringArrayOutput
 	}).(pulumi.StringArrayOutput)
 }
 
+// Information about an HTTP header condition.
+//
+//	There is a set of standard HTTP header fields. You can also define custom HTTP header fields.
 type ListenerRuleHttpHeaderConfig struct {
-	HttpHeaderName *string  `pulumi:"httpHeaderName"`
-	Values         []string `pulumi:"values"`
+	// The name of the HTTP header field. The maximum size is 40 characters. The header name is case insensitive. The allowed characters are specified by RFC 7230. Wildcards are not supported.
+	HttpHeaderName *string `pulumi:"httpHeaderName"`
+	// The strings to compare against the value of the HTTP header. The maximum size of each string is 128 characters. The comparison strings are case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
+	//  If the same header appears multiple times in the request, we search them in order until a match is found.
+	//  If you specify multiple strings, the condition is satisfied if one of the strings matches the value of the HTTP header. To require that all of the strings are a match, create one condition per string.
+	Values []string `pulumi:"values"`
 }
 
 // ListenerRuleHttpHeaderConfigInput is an input type that accepts ListenerRuleHttpHeaderConfigArgs and ListenerRuleHttpHeaderConfigOutput values.
@@ -2860,9 +3061,16 @@ type ListenerRuleHttpHeaderConfigInput interface {
 	ToListenerRuleHttpHeaderConfigOutputWithContext(context.Context) ListenerRuleHttpHeaderConfigOutput
 }
 
+// Information about an HTTP header condition.
+//
+//	There is a set of standard HTTP header fields. You can also define custom HTTP header fields.
 type ListenerRuleHttpHeaderConfigArgs struct {
-	HttpHeaderName pulumi.StringPtrInput   `pulumi:"httpHeaderName"`
-	Values         pulumi.StringArrayInput `pulumi:"values"`
+	// The name of the HTTP header field. The maximum size is 40 characters. The header name is case insensitive. The allowed characters are specified by RFC 7230. Wildcards are not supported.
+	HttpHeaderName pulumi.StringPtrInput `pulumi:"httpHeaderName"`
+	// The strings to compare against the value of the HTTP header. The maximum size of each string is 128 characters. The comparison strings are case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
+	//  If the same header appears multiple times in the request, we search them in order until a match is found.
+	//  If you specify multiple strings, the condition is satisfied if one of the strings matches the value of the HTTP header. To require that all of the strings are a match, create one condition per string.
+	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
 func (ListenerRuleHttpHeaderConfigArgs) ElementType() reflect.Type {
@@ -2918,6 +3126,9 @@ func (i *listenerRuleHttpHeaderConfigPtrType) ToListenerRuleHttpHeaderConfigPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleHttpHeaderConfigPtrOutput)
 }
 
+// Information about an HTTP header condition.
+//
+//	There is a set of standard HTTP header fields. You can also define custom HTTP header fields.
 type ListenerRuleHttpHeaderConfigOutput struct{ *pulumi.OutputState }
 
 func (ListenerRuleHttpHeaderConfigOutput) ElementType() reflect.Type {
@@ -2942,10 +3153,15 @@ func (o ListenerRuleHttpHeaderConfigOutput) ToListenerRuleHttpHeaderConfigPtrOut
 	}).(ListenerRuleHttpHeaderConfigPtrOutput)
 }
 
+// The name of the HTTP header field. The maximum size is 40 characters. The header name is case insensitive. The allowed characters are specified by RFC 7230. Wildcards are not supported.
 func (o ListenerRuleHttpHeaderConfigOutput) HttpHeaderName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerRuleHttpHeaderConfig) *string { return v.HttpHeaderName }).(pulumi.StringPtrOutput)
 }
 
+// The strings to compare against the value of the HTTP header. The maximum size of each string is 128 characters. The comparison strings are case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
+//
+//	If the same header appears multiple times in the request, we search them in order until a match is found.
+//	If you specify multiple strings, the condition is satisfied if one of the strings matches the value of the HTTP header. To require that all of the strings are a match, create one condition per string.
 func (o ListenerRuleHttpHeaderConfigOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ListenerRuleHttpHeaderConfig) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -2974,6 +3190,7 @@ func (o ListenerRuleHttpHeaderConfigPtrOutput) Elem() ListenerRuleHttpHeaderConf
 	}).(ListenerRuleHttpHeaderConfigOutput)
 }
 
+// The name of the HTTP header field. The maximum size is 40 characters. The header name is case insensitive. The allowed characters are specified by RFC 7230. Wildcards are not supported.
 func (o ListenerRuleHttpHeaderConfigPtrOutput) HttpHeaderName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerRuleHttpHeaderConfig) *string {
 		if v == nil {
@@ -2983,6 +3200,10 @@ func (o ListenerRuleHttpHeaderConfigPtrOutput) HttpHeaderName() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// The strings to compare against the value of the HTTP header. The maximum size of each string is 128 characters. The comparison strings are case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
+//
+//	If the same header appears multiple times in the request, we search them in order until a match is found.
+//	If you specify multiple strings, the condition is satisfied if one of the strings matches the value of the HTTP header. To require that all of the strings are a match, create one condition per string.
 func (o ListenerRuleHttpHeaderConfigPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ListenerRuleHttpHeaderConfig) []string {
 		if v == nil {
@@ -2992,7 +3213,12 @@ func (o ListenerRuleHttpHeaderConfigPtrOutput) Values() pulumi.StringArrayOutput
 	}).(pulumi.StringArrayOutput)
 }
 
+// Information about an HTTP method condition.
+//
+//	HTTP defines a set of request methods, also referred to as HTTP verbs. For more information, see the [HTTP Method Registry](https://docs.aws.amazon.com/https://www.iana.org/assignments/http-methods/http-methods.xhtml). You can also define custom HTTP methods.
 type ListenerRuleHttpRequestMethodConfig struct {
+	// The name of the request method. The maximum size is 40 characters. The allowed characters are A-Z, hyphen (-), and underscore (_). The comparison is case sensitive. Wildcards are not supported; therefore, the method name must be an exact match.
+	//  If you specify multiple strings, the condition is satisfied if one of the strings matches the HTTP request method. We recommend that you route GET and HEAD requests in the same way, because the response to a HEAD request may be cached.
 	Values []string `pulumi:"values"`
 }
 
@@ -3007,7 +3233,12 @@ type ListenerRuleHttpRequestMethodConfigInput interface {
 	ToListenerRuleHttpRequestMethodConfigOutputWithContext(context.Context) ListenerRuleHttpRequestMethodConfigOutput
 }
 
+// Information about an HTTP method condition.
+//
+//	HTTP defines a set of request methods, also referred to as HTTP verbs. For more information, see the [HTTP Method Registry](https://docs.aws.amazon.com/https://www.iana.org/assignments/http-methods/http-methods.xhtml). You can also define custom HTTP methods.
 type ListenerRuleHttpRequestMethodConfigArgs struct {
+	// The name of the request method. The maximum size is 40 characters. The allowed characters are A-Z, hyphen (-), and underscore (_). The comparison is case sensitive. Wildcards are not supported; therefore, the method name must be an exact match.
+	//  If you specify multiple strings, the condition is satisfied if one of the strings matches the HTTP request method. We recommend that you route GET and HEAD requests in the same way, because the response to a HEAD request may be cached.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -3064,6 +3295,9 @@ func (i *listenerRuleHttpRequestMethodConfigPtrType) ToListenerRuleHttpRequestMe
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleHttpRequestMethodConfigPtrOutput)
 }
 
+// Information about an HTTP method condition.
+//
+//	HTTP defines a set of request methods, also referred to as HTTP verbs. For more information, see the [HTTP Method Registry](https://docs.aws.amazon.com/https://www.iana.org/assignments/http-methods/http-methods.xhtml). You can also define custom HTTP methods.
 type ListenerRuleHttpRequestMethodConfigOutput struct{ *pulumi.OutputState }
 
 func (ListenerRuleHttpRequestMethodConfigOutput) ElementType() reflect.Type {
@@ -3088,6 +3322,9 @@ func (o ListenerRuleHttpRequestMethodConfigOutput) ToListenerRuleHttpRequestMeth
 	}).(ListenerRuleHttpRequestMethodConfigPtrOutput)
 }
 
+// The name of the request method. The maximum size is 40 characters. The allowed characters are A-Z, hyphen (-), and underscore (_). The comparison is case sensitive. Wildcards are not supported; therefore, the method name must be an exact match.
+//
+//	If you specify multiple strings, the condition is satisfied if one of the strings matches the HTTP request method. We recommend that you route GET and HEAD requests in the same way, because the response to a HEAD request may be cached.
 func (o ListenerRuleHttpRequestMethodConfigOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ListenerRuleHttpRequestMethodConfig) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -3116,6 +3353,9 @@ func (o ListenerRuleHttpRequestMethodConfigPtrOutput) Elem() ListenerRuleHttpReq
 	}).(ListenerRuleHttpRequestMethodConfigOutput)
 }
 
+// The name of the request method. The maximum size is 40 characters. The allowed characters are A-Z, hyphen (-), and underscore (_). The comparison is case sensitive. Wildcards are not supported; therefore, the method name must be an exact match.
+//
+//	If you specify multiple strings, the condition is satisfied if one of the strings matches the HTTP request method. We recommend that you route GET and HEAD requests in the same way, because the response to a HEAD request may be cached.
 func (o ListenerRuleHttpRequestMethodConfigPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ListenerRuleHttpRequestMethodConfig) []string {
 		if v == nil {
@@ -3125,7 +3365,10 @@ func (o ListenerRuleHttpRequestMethodConfigPtrOutput) Values() pulumi.StringArra
 	}).(pulumi.StringArrayOutput)
 }
 
+// Information about a path pattern condition.
 type ListenerRulePathPatternConfig struct {
+	// The path patterns to compare against the request URL. The maximum size of each string is 128 characters. The comparison is case sensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
+	//  If you specify multiple strings, the condition is satisfied if one of them matches the request URL. The path pattern is compared only to the path of the URL, not to its query string.
 	Values []string `pulumi:"values"`
 }
 
@@ -3140,7 +3383,10 @@ type ListenerRulePathPatternConfigInput interface {
 	ToListenerRulePathPatternConfigOutputWithContext(context.Context) ListenerRulePathPatternConfigOutput
 }
 
+// Information about a path pattern condition.
 type ListenerRulePathPatternConfigArgs struct {
+	// The path patterns to compare against the request URL. The maximum size of each string is 128 characters. The comparison is case sensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
+	//  If you specify multiple strings, the condition is satisfied if one of them matches the request URL. The path pattern is compared only to the path of the URL, not to its query string.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -3197,6 +3443,7 @@ func (i *listenerRulePathPatternConfigPtrType) ToListenerRulePathPatternConfigPt
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRulePathPatternConfigPtrOutput)
 }
 
+// Information about a path pattern condition.
 type ListenerRulePathPatternConfigOutput struct{ *pulumi.OutputState }
 
 func (ListenerRulePathPatternConfigOutput) ElementType() reflect.Type {
@@ -3221,6 +3468,9 @@ func (o ListenerRulePathPatternConfigOutput) ToListenerRulePathPatternConfigPtrO
 	}).(ListenerRulePathPatternConfigPtrOutput)
 }
 
+// The path patterns to compare against the request URL. The maximum size of each string is 128 characters. The comparison is case sensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
+//
+//	If you specify multiple strings, the condition is satisfied if one of them matches the request URL. The path pattern is compared only to the path of the URL, not to its query string.
 func (o ListenerRulePathPatternConfigOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ListenerRulePathPatternConfig) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -3249,6 +3499,9 @@ func (o ListenerRulePathPatternConfigPtrOutput) Elem() ListenerRulePathPatternCo
 	}).(ListenerRulePathPatternConfigOutput)
 }
 
+// The path patterns to compare against the request URL. The maximum size of each string is 128 characters. The comparison is case sensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
+//
+//	If you specify multiple strings, the condition is satisfied if one of them matches the request URL. The path pattern is compared only to the path of the URL, not to its query string.
 func (o ListenerRulePathPatternConfigPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ListenerRulePathPatternConfig) []string {
 		if v == nil {
@@ -3258,7 +3511,12 @@ func (o ListenerRulePathPatternConfigPtrOutput) Values() pulumi.StringArrayOutpu
 	}).(pulumi.StringArrayOutput)
 }
 
+// Information about a query string condition.
+//
+//	The query string component of a URI starts after the first '?' character and is terminated by either a '#' character or the end of the URI. A typical query string contains key/value pairs separated by '&' characters. The allowed characters are specified by RFC 3986. Any character can be percentage encoded.
 type ListenerRuleQueryStringConfig struct {
+	// The key/value pairs or values to find in the query string. The maximum size of each string is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '*' or '?' character in a query string, you must escape these characters in ``Values`` using a '\' character.
+	//  If you specify multiple key/value pairs or values, the condition is satisfied if one of them is found in the query string.
 	Values []ListenerRuleQueryStringKeyValue `pulumi:"values"`
 }
 
@@ -3273,7 +3531,12 @@ type ListenerRuleQueryStringConfigInput interface {
 	ToListenerRuleQueryStringConfigOutputWithContext(context.Context) ListenerRuleQueryStringConfigOutput
 }
 
+// Information about a query string condition.
+//
+//	The query string component of a URI starts after the first '?' character and is terminated by either a '#' character or the end of the URI. A typical query string contains key/value pairs separated by '&' characters. The allowed characters are specified by RFC 3986. Any character can be percentage encoded.
 type ListenerRuleQueryStringConfigArgs struct {
+	// The key/value pairs or values to find in the query string. The maximum size of each string is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '*' or '?' character in a query string, you must escape these characters in ``Values`` using a '\' character.
+	//  If you specify multiple key/value pairs or values, the condition is satisfied if one of them is found in the query string.
 	Values ListenerRuleQueryStringKeyValueArrayInput `pulumi:"values"`
 }
 
@@ -3330,6 +3593,9 @@ func (i *listenerRuleQueryStringConfigPtrType) ToListenerRuleQueryStringConfigPt
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleQueryStringConfigPtrOutput)
 }
 
+// Information about a query string condition.
+//
+//	The query string component of a URI starts after the first '?' character and is terminated by either a '#' character or the end of the URI. A typical query string contains key/value pairs separated by '&' characters. The allowed characters are specified by RFC 3986. Any character can be percentage encoded.
 type ListenerRuleQueryStringConfigOutput struct{ *pulumi.OutputState }
 
 func (ListenerRuleQueryStringConfigOutput) ElementType() reflect.Type {
@@ -3354,6 +3620,9 @@ func (o ListenerRuleQueryStringConfigOutput) ToListenerRuleQueryStringConfigPtrO
 	}).(ListenerRuleQueryStringConfigPtrOutput)
 }
 
+// The key/value pairs or values to find in the query string. The maximum size of each string is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '*' or '?' character in a query string, you must escape these characters in “Values“ using a '\' character.
+//
+//	If you specify multiple key/value pairs or values, the condition is satisfied if one of them is found in the query string.
 func (o ListenerRuleQueryStringConfigOutput) Values() ListenerRuleQueryStringKeyValueArrayOutput {
 	return o.ApplyT(func(v ListenerRuleQueryStringConfig) []ListenerRuleQueryStringKeyValue { return v.Values }).(ListenerRuleQueryStringKeyValueArrayOutput)
 }
@@ -3382,6 +3651,9 @@ func (o ListenerRuleQueryStringConfigPtrOutput) Elem() ListenerRuleQueryStringCo
 	}).(ListenerRuleQueryStringConfigOutput)
 }
 
+// The key/value pairs or values to find in the query string. The maximum size of each string is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '*' or '?' character in a query string, you must escape these characters in “Values“ using a '\' character.
+//
+//	If you specify multiple key/value pairs or values, the condition is satisfied if one of them is found in the query string.
 func (o ListenerRuleQueryStringConfigPtrOutput) Values() ListenerRuleQueryStringKeyValueArrayOutput {
 	return o.ApplyT(func(v *ListenerRuleQueryStringConfig) []ListenerRuleQueryStringKeyValue {
 		if v == nil {
@@ -3391,8 +3663,11 @@ func (o ListenerRuleQueryStringConfigPtrOutput) Values() ListenerRuleQueryString
 	}).(ListenerRuleQueryStringKeyValueArrayOutput)
 }
 
+// Information about a key/value pair.
 type ListenerRuleQueryStringKeyValue struct {
-	Key   *string `pulumi:"key"`
+	// The key. You can omit the key.
+	Key *string `pulumi:"key"`
+	// The value.
 	Value *string `pulumi:"value"`
 }
 
@@ -3407,8 +3682,11 @@ type ListenerRuleQueryStringKeyValueInput interface {
 	ToListenerRuleQueryStringKeyValueOutputWithContext(context.Context) ListenerRuleQueryStringKeyValueOutput
 }
 
+// Information about a key/value pair.
 type ListenerRuleQueryStringKeyValueArgs struct {
-	Key   pulumi.StringPtrInput `pulumi:"key"`
+	// The key. You can omit the key.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// The value.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -3449,6 +3727,7 @@ func (i ListenerRuleQueryStringKeyValueArray) ToListenerRuleQueryStringKeyValueA
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleQueryStringKeyValueArrayOutput)
 }
 
+// Information about a key/value pair.
 type ListenerRuleQueryStringKeyValueOutput struct{ *pulumi.OutputState }
 
 func (ListenerRuleQueryStringKeyValueOutput) ElementType() reflect.Type {
@@ -3463,10 +3742,12 @@ func (o ListenerRuleQueryStringKeyValueOutput) ToListenerRuleQueryStringKeyValue
 	return o
 }
 
+// The key. You can omit the key.
 func (o ListenerRuleQueryStringKeyValueOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerRuleQueryStringKeyValue) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
+// The value.
 func (o ListenerRuleQueryStringKeyValueOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerRuleQueryStringKeyValue) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -3491,13 +3772,30 @@ func (o ListenerRuleQueryStringKeyValueArrayOutput) Index(i pulumi.IntInput) Lis
 	}).(ListenerRuleQueryStringKeyValueOutput)
 }
 
+// Information about a redirect action.
+//
+//	A URI consists of the following components: protocol://hostname:port/path?query. You must modify at least one of the following components to avoid a redirect loop: protocol, hostname, port, or path. Any components that you do not modify retain their original values.
+//	You can reuse URI components using the following reserved keywords:
+//	 +  #{protocol}
+//	 +  #{host}
+//	 +  #{port}
+//	 +  #{path} (the leading "/" is removed)
+//	 +  #{query}
+//
+//	For example, you can change the path to "/new/#{path}", the hostname to "example.#{host}", or the query to "#{query}&value=xyz".
 type ListenerRuleRedirectConfig struct {
-	Host       *string `pulumi:"host"`
-	Path       *string `pulumi:"path"`
-	Port       *string `pulumi:"port"`
-	Protocol   *string `pulumi:"protocol"`
-	Query      *string `pulumi:"query"`
-	StatusCode string  `pulumi:"statusCode"`
+	// The hostname. This component is not percent-encoded. The hostname can contain #{host}.
+	Host *string `pulumi:"host"`
+	// The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}.
+	Path *string `pulumi:"path"`
+	// The port. You can specify a value from 1 to 65535 or #{port}.
+	Port *string `pulumi:"port"`
+	// The protocol. You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You cannot redirect HTTPS to HTTP.
+	Protocol *string `pulumi:"protocol"`
+	// The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?", as it is automatically added. You can specify any of the reserved keywords.
+	Query *string `pulumi:"query"`
+	// The HTTP redirect code. The redirect is either permanent (HTTP 301) or temporary (HTTP 302).
+	StatusCode string `pulumi:"statusCode"`
 }
 
 // ListenerRuleRedirectConfigInput is an input type that accepts ListenerRuleRedirectConfigArgs and ListenerRuleRedirectConfigOutput values.
@@ -3511,13 +3809,30 @@ type ListenerRuleRedirectConfigInput interface {
 	ToListenerRuleRedirectConfigOutputWithContext(context.Context) ListenerRuleRedirectConfigOutput
 }
 
+// Information about a redirect action.
+//
+//	A URI consists of the following components: protocol://hostname:port/path?query. You must modify at least one of the following components to avoid a redirect loop: protocol, hostname, port, or path. Any components that you do not modify retain their original values.
+//	You can reuse URI components using the following reserved keywords:
+//	 +  #{protocol}
+//	 +  #{host}
+//	 +  #{port}
+//	 +  #{path} (the leading "/" is removed)
+//	 +  #{query}
+//
+//	For example, you can change the path to "/new/#{path}", the hostname to "example.#{host}", or the query to "#{query}&value=xyz".
 type ListenerRuleRedirectConfigArgs struct {
-	Host       pulumi.StringPtrInput `pulumi:"host"`
-	Path       pulumi.StringPtrInput `pulumi:"path"`
-	Port       pulumi.StringPtrInput `pulumi:"port"`
-	Protocol   pulumi.StringPtrInput `pulumi:"protocol"`
-	Query      pulumi.StringPtrInput `pulumi:"query"`
-	StatusCode pulumi.StringInput    `pulumi:"statusCode"`
+	// The hostname. This component is not percent-encoded. The hostname can contain #{host}.
+	Host pulumi.StringPtrInput `pulumi:"host"`
+	// The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}.
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// The port. You can specify a value from 1 to 65535 or #{port}.
+	Port pulumi.StringPtrInput `pulumi:"port"`
+	// The protocol. You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You cannot redirect HTTPS to HTTP.
+	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
+	// The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?", as it is automatically added. You can specify any of the reserved keywords.
+	Query pulumi.StringPtrInput `pulumi:"query"`
+	// The HTTP redirect code. The redirect is either permanent (HTTP 301) or temporary (HTTP 302).
+	StatusCode pulumi.StringInput `pulumi:"statusCode"`
 }
 
 func (ListenerRuleRedirectConfigArgs) ElementType() reflect.Type {
@@ -3573,6 +3888,17 @@ func (i *listenerRuleRedirectConfigPtrType) ToListenerRuleRedirectConfigPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleRedirectConfigPtrOutput)
 }
 
+// Information about a redirect action.
+//
+//	A URI consists of the following components: protocol://hostname:port/path?query. You must modify at least one of the following components to avoid a redirect loop: protocol, hostname, port, or path. Any components that you do not modify retain their original values.
+//	You can reuse URI components using the following reserved keywords:
+//	 +  #{protocol}
+//	 +  #{host}
+//	 +  #{port}
+//	 +  #{path} (the leading "/" is removed)
+//	 +  #{query}
+//
+//	For example, you can change the path to "/new/#{path}", the hostname to "example.#{host}", or the query to "#{query}&value=xyz".
 type ListenerRuleRedirectConfigOutput struct{ *pulumi.OutputState }
 
 func (ListenerRuleRedirectConfigOutput) ElementType() reflect.Type {
@@ -3597,26 +3923,32 @@ func (o ListenerRuleRedirectConfigOutput) ToListenerRuleRedirectConfigPtrOutputW
 	}).(ListenerRuleRedirectConfigPtrOutput)
 }
 
+// The hostname. This component is not percent-encoded. The hostname can contain #{host}.
 func (o ListenerRuleRedirectConfigOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerRuleRedirectConfig) *string { return v.Host }).(pulumi.StringPtrOutput)
 }
 
+// The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}.
 func (o ListenerRuleRedirectConfigOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerRuleRedirectConfig) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
+// The port. You can specify a value from 1 to 65535 or #{port}.
 func (o ListenerRuleRedirectConfigOutput) Port() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerRuleRedirectConfig) *string { return v.Port }).(pulumi.StringPtrOutput)
 }
 
+// The protocol. You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You cannot redirect HTTPS to HTTP.
 func (o ListenerRuleRedirectConfigOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerRuleRedirectConfig) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
+// The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?", as it is automatically added. You can specify any of the reserved keywords.
 func (o ListenerRuleRedirectConfigOutput) Query() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerRuleRedirectConfig) *string { return v.Query }).(pulumi.StringPtrOutput)
 }
 
+// The HTTP redirect code. The redirect is either permanent (HTTP 301) or temporary (HTTP 302).
 func (o ListenerRuleRedirectConfigOutput) StatusCode() pulumi.StringOutput {
 	return o.ApplyT(func(v ListenerRuleRedirectConfig) string { return v.StatusCode }).(pulumi.StringOutput)
 }
@@ -3645,6 +3977,7 @@ func (o ListenerRuleRedirectConfigPtrOutput) Elem() ListenerRuleRedirectConfigOu
 	}).(ListenerRuleRedirectConfigOutput)
 }
 
+// The hostname. This component is not percent-encoded. The hostname can contain #{host}.
 func (o ListenerRuleRedirectConfigPtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerRuleRedirectConfig) *string {
 		if v == nil {
@@ -3654,6 +3987,7 @@ func (o ListenerRuleRedirectConfigPtrOutput) Host() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}.
 func (o ListenerRuleRedirectConfigPtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerRuleRedirectConfig) *string {
 		if v == nil {
@@ -3663,6 +3997,7 @@ func (o ListenerRuleRedirectConfigPtrOutput) Path() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The port. You can specify a value from 1 to 65535 or #{port}.
 func (o ListenerRuleRedirectConfigPtrOutput) Port() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerRuleRedirectConfig) *string {
 		if v == nil {
@@ -3672,6 +4007,7 @@ func (o ListenerRuleRedirectConfigPtrOutput) Port() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The protocol. You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You cannot redirect HTTPS to HTTP.
 func (o ListenerRuleRedirectConfigPtrOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerRuleRedirectConfig) *string {
 		if v == nil {
@@ -3681,6 +4017,7 @@ func (o ListenerRuleRedirectConfigPtrOutput) Protocol() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?", as it is automatically added. You can specify any of the reserved keywords.
 func (o ListenerRuleRedirectConfigPtrOutput) Query() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerRuleRedirectConfig) *string {
 		if v == nil {
@@ -3690,6 +4027,7 @@ func (o ListenerRuleRedirectConfigPtrOutput) Query() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The HTTP redirect code. The redirect is either permanent (HTTP 301) or temporary (HTTP 302).
 func (o ListenerRuleRedirectConfigPtrOutput) StatusCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerRuleRedirectConfig) *string {
 		if v == nil {
@@ -3699,15 +4037,42 @@ func (o ListenerRuleRedirectConfigPtrOutput) StatusCode() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies a condition for a listener rule.
 type ListenerRuleRuleCondition struct {
-	Field                   *string                              `pulumi:"field"`
-	HostHeaderConfig        *ListenerRuleHostHeaderConfig        `pulumi:"hostHeaderConfig"`
-	HttpHeaderConfig        *ListenerRuleHttpHeaderConfig        `pulumi:"httpHeaderConfig"`
+	// The field in the HTTP request. The following are the possible values:
+	//   +   ``http-header``
+	//   +   ``http-request-method``
+	//   +   ``host-header``
+	//   +   ``path-pattern``
+	//   +   ``query-string``
+	//   +   ``source-ip``
+	Field *string `pulumi:"field"`
+	// Information for a host header condition. Specify only when ``Field`` is ``host-header``.
+	HostHeaderConfig *ListenerRuleHostHeaderConfig `pulumi:"hostHeaderConfig"`
+	// Information for an HTTP header condition. Specify only when ``Field`` is ``http-header``.
+	HttpHeaderConfig *ListenerRuleHttpHeaderConfig `pulumi:"httpHeaderConfig"`
+	// Information for an HTTP method condition. Specify only when ``Field`` is ``http-request-method``.
 	HttpRequestMethodConfig *ListenerRuleHttpRequestMethodConfig `pulumi:"httpRequestMethodConfig"`
-	PathPatternConfig       *ListenerRulePathPatternConfig       `pulumi:"pathPatternConfig"`
-	QueryStringConfig       *ListenerRuleQueryStringConfig       `pulumi:"queryStringConfig"`
-	SourceIpConfig          *ListenerRuleSourceIpConfig          `pulumi:"sourceIpConfig"`
-	Values                  []string                             `pulumi:"values"`
+	// Information for a path pattern condition. Specify only when ``Field`` is ``path-pattern``.
+	PathPatternConfig *ListenerRulePathPatternConfig `pulumi:"pathPatternConfig"`
+	// Information for a query string condition. Specify only when ``Field`` is ``query-string``.
+	QueryStringConfig *ListenerRuleQueryStringConfig `pulumi:"queryStringConfig"`
+	// Information for a source IP condition. Specify only when ``Field`` is ``source-ip``.
+	SourceIpConfig *ListenerRuleSourceIpConfig `pulumi:"sourceIpConfig"`
+	// The condition value. Specify only when ``Field`` is ``host-header`` or ``path-pattern``. Alternatively, to specify multiple host names or multiple path patterns, use ``HostHeaderConfig`` or ``PathPatternConfig``.
+	//  If ``Field`` is ``host-header`` and you're not using ``HostHeaderConfig``, you can specify a single host name (for example, my.example.com). A host name is case insensitive, can be up to 128 characters in length, and can contain any of the following characters.
+	//   +  A-Z, a-z, 0-9
+	//   +  - .
+	//   +  * (matches 0 or more characters)
+	//   +  ? (matches exactly 1 character)
+	//
+	//  If ``Field`` is ``path-pattern`` and you're not using ``PathPatternConfig``, you can specify a single path pattern (for example, /img/*). A path pattern is case-sensitive, can be up to 128 characters in length, and can contain any of the following characters.
+	//   +  A-Z, a-z, 0-9
+	//   +  _ - . $ / ~ " ' @ : +
+	//   +  & (using &amp;)
+	//   +  * (matches 0 or more characters)
+	//   +  ? (matches exactly 1 character)
+	Values []string `pulumi:"values"`
 }
 
 // ListenerRuleRuleConditionInput is an input type that accepts ListenerRuleRuleConditionArgs and ListenerRuleRuleConditionOutput values.
@@ -3721,15 +4086,42 @@ type ListenerRuleRuleConditionInput interface {
 	ToListenerRuleRuleConditionOutputWithContext(context.Context) ListenerRuleRuleConditionOutput
 }
 
+// Specifies a condition for a listener rule.
 type ListenerRuleRuleConditionArgs struct {
-	Field                   pulumi.StringPtrInput                       `pulumi:"field"`
-	HostHeaderConfig        ListenerRuleHostHeaderConfigPtrInput        `pulumi:"hostHeaderConfig"`
-	HttpHeaderConfig        ListenerRuleHttpHeaderConfigPtrInput        `pulumi:"httpHeaderConfig"`
+	// The field in the HTTP request. The following are the possible values:
+	//   +   ``http-header``
+	//   +   ``http-request-method``
+	//   +   ``host-header``
+	//   +   ``path-pattern``
+	//   +   ``query-string``
+	//   +   ``source-ip``
+	Field pulumi.StringPtrInput `pulumi:"field"`
+	// Information for a host header condition. Specify only when ``Field`` is ``host-header``.
+	HostHeaderConfig ListenerRuleHostHeaderConfigPtrInput `pulumi:"hostHeaderConfig"`
+	// Information for an HTTP header condition. Specify only when ``Field`` is ``http-header``.
+	HttpHeaderConfig ListenerRuleHttpHeaderConfigPtrInput `pulumi:"httpHeaderConfig"`
+	// Information for an HTTP method condition. Specify only when ``Field`` is ``http-request-method``.
 	HttpRequestMethodConfig ListenerRuleHttpRequestMethodConfigPtrInput `pulumi:"httpRequestMethodConfig"`
-	PathPatternConfig       ListenerRulePathPatternConfigPtrInput       `pulumi:"pathPatternConfig"`
-	QueryStringConfig       ListenerRuleQueryStringConfigPtrInput       `pulumi:"queryStringConfig"`
-	SourceIpConfig          ListenerRuleSourceIpConfigPtrInput          `pulumi:"sourceIpConfig"`
-	Values                  pulumi.StringArrayInput                     `pulumi:"values"`
+	// Information for a path pattern condition. Specify only when ``Field`` is ``path-pattern``.
+	PathPatternConfig ListenerRulePathPatternConfigPtrInput `pulumi:"pathPatternConfig"`
+	// Information for a query string condition. Specify only when ``Field`` is ``query-string``.
+	QueryStringConfig ListenerRuleQueryStringConfigPtrInput `pulumi:"queryStringConfig"`
+	// Information for a source IP condition. Specify only when ``Field`` is ``source-ip``.
+	SourceIpConfig ListenerRuleSourceIpConfigPtrInput `pulumi:"sourceIpConfig"`
+	// The condition value. Specify only when ``Field`` is ``host-header`` or ``path-pattern``. Alternatively, to specify multiple host names or multiple path patterns, use ``HostHeaderConfig`` or ``PathPatternConfig``.
+	//  If ``Field`` is ``host-header`` and you're not using ``HostHeaderConfig``, you can specify a single host name (for example, my.example.com). A host name is case insensitive, can be up to 128 characters in length, and can contain any of the following characters.
+	//   +  A-Z, a-z, 0-9
+	//   +  - .
+	//   +  * (matches 0 or more characters)
+	//   +  ? (matches exactly 1 character)
+	//
+	//  If ``Field`` is ``path-pattern`` and you're not using ``PathPatternConfig``, you can specify a single path pattern (for example, /img/*). A path pattern is case-sensitive, can be up to 128 characters in length, and can contain any of the following characters.
+	//   +  A-Z, a-z, 0-9
+	//   +  _ - . $ / ~ " ' @ : +
+	//   +  & (using &amp;)
+	//   +  * (matches 0 or more characters)
+	//   +  ? (matches exactly 1 character)
+	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
 func (ListenerRuleRuleConditionArgs) ElementType() reflect.Type {
@@ -3769,6 +4161,7 @@ func (i ListenerRuleRuleConditionArray) ToListenerRuleRuleConditionArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleRuleConditionArrayOutput)
 }
 
+// Specifies a condition for a listener rule.
 type ListenerRuleRuleConditionOutput struct{ *pulumi.OutputState }
 
 func (ListenerRuleRuleConditionOutput) ElementType() reflect.Type {
@@ -3783,36 +4176,63 @@ func (o ListenerRuleRuleConditionOutput) ToListenerRuleRuleConditionOutputWithCo
 	return o
 }
 
+// The field in the HTTP request. The following are the possible values:
+//   - “http-header“
+//   - “http-request-method“
+//   - “host-header“
+//   - “path-pattern“
+//   - “query-string“
+//   - “source-ip“
 func (o ListenerRuleRuleConditionOutput) Field() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerRuleRuleCondition) *string { return v.Field }).(pulumi.StringPtrOutput)
 }
 
+// Information for a host header condition. Specify only when “Field“ is “host-header“.
 func (o ListenerRuleRuleConditionOutput) HostHeaderConfig() ListenerRuleHostHeaderConfigPtrOutput {
 	return o.ApplyT(func(v ListenerRuleRuleCondition) *ListenerRuleHostHeaderConfig { return v.HostHeaderConfig }).(ListenerRuleHostHeaderConfigPtrOutput)
 }
 
+// Information for an HTTP header condition. Specify only when “Field“ is “http-header“.
 func (o ListenerRuleRuleConditionOutput) HttpHeaderConfig() ListenerRuleHttpHeaderConfigPtrOutput {
 	return o.ApplyT(func(v ListenerRuleRuleCondition) *ListenerRuleHttpHeaderConfig { return v.HttpHeaderConfig }).(ListenerRuleHttpHeaderConfigPtrOutput)
 }
 
+// Information for an HTTP method condition. Specify only when “Field“ is “http-request-method“.
 func (o ListenerRuleRuleConditionOutput) HttpRequestMethodConfig() ListenerRuleHttpRequestMethodConfigPtrOutput {
 	return o.ApplyT(func(v ListenerRuleRuleCondition) *ListenerRuleHttpRequestMethodConfig {
 		return v.HttpRequestMethodConfig
 	}).(ListenerRuleHttpRequestMethodConfigPtrOutput)
 }
 
+// Information for a path pattern condition. Specify only when “Field“ is “path-pattern“.
 func (o ListenerRuleRuleConditionOutput) PathPatternConfig() ListenerRulePathPatternConfigPtrOutput {
 	return o.ApplyT(func(v ListenerRuleRuleCondition) *ListenerRulePathPatternConfig { return v.PathPatternConfig }).(ListenerRulePathPatternConfigPtrOutput)
 }
 
+// Information for a query string condition. Specify only when “Field“ is “query-string“.
 func (o ListenerRuleRuleConditionOutput) QueryStringConfig() ListenerRuleQueryStringConfigPtrOutput {
 	return o.ApplyT(func(v ListenerRuleRuleCondition) *ListenerRuleQueryStringConfig { return v.QueryStringConfig }).(ListenerRuleQueryStringConfigPtrOutput)
 }
 
+// Information for a source IP condition. Specify only when “Field“ is “source-ip“.
 func (o ListenerRuleRuleConditionOutput) SourceIpConfig() ListenerRuleSourceIpConfigPtrOutput {
 	return o.ApplyT(func(v ListenerRuleRuleCondition) *ListenerRuleSourceIpConfig { return v.SourceIpConfig }).(ListenerRuleSourceIpConfigPtrOutput)
 }
 
+// The condition value. Specify only when “Field“ is “host-header“ or “path-pattern“. Alternatively, to specify multiple host names or multiple path patterns, use “HostHeaderConfig“ or “PathPatternConfig“.
+//
+//	If ``Field`` is ``host-header`` and you're not using ``HostHeaderConfig``, you can specify a single host name (for example, my.example.com). A host name is case insensitive, can be up to 128 characters in length, and can contain any of the following characters.
+//	 +  A-Z, a-z, 0-9
+//	 +  - .
+//	 +  * (matches 0 or more characters)
+//	 +  ? (matches exactly 1 character)
+//
+//	If ``Field`` is ``path-pattern`` and you're not using ``PathPatternConfig``, you can specify a single path pattern (for example, /img/*). A path pattern is case-sensitive, can be up to 128 characters in length, and can contain any of the following characters.
+//	 +  A-Z, a-z, 0-9
+//	 +  _ - . $ / ~ " ' @ : +
+//	 +  & (using &amp;)
+//	 +  * (matches 0 or more characters)
+//	 +  ? (matches exactly 1 character)
 func (o ListenerRuleRuleConditionOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ListenerRuleRuleCondition) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -3837,7 +4257,12 @@ func (o ListenerRuleRuleConditionArrayOutput) Index(i pulumi.IntInput) ListenerR
 	}).(ListenerRuleRuleConditionOutput)
 }
 
+// Information about a source IP condition.
+//
+//	You can use this condition to route based on the IP address of the source that connects to the load balancer. If a client is behind a proxy, this is the IP address of the proxy not the IP address of the client.
 type ListenerRuleSourceIpConfig struct {
+	// The source IP addresses, in CIDR format. You can use both IPv4 and IPv6 addresses. Wildcards are not supported.
+	//  If you specify multiple addresses, the condition is satisfied if the source IP address of the request matches one of the CIDR blocks. This condition is not satisfied by the addresses in the X-Forwarded-For header.
 	Values []string `pulumi:"values"`
 }
 
@@ -3852,7 +4277,12 @@ type ListenerRuleSourceIpConfigInput interface {
 	ToListenerRuleSourceIpConfigOutputWithContext(context.Context) ListenerRuleSourceIpConfigOutput
 }
 
+// Information about a source IP condition.
+//
+//	You can use this condition to route based on the IP address of the source that connects to the load balancer. If a client is behind a proxy, this is the IP address of the proxy not the IP address of the client.
 type ListenerRuleSourceIpConfigArgs struct {
+	// The source IP addresses, in CIDR format. You can use both IPv4 and IPv6 addresses. Wildcards are not supported.
+	//  If you specify multiple addresses, the condition is satisfied if the source IP address of the request matches one of the CIDR blocks. This condition is not satisfied by the addresses in the X-Forwarded-For header.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -3909,6 +4339,9 @@ func (i *listenerRuleSourceIpConfigPtrType) ToListenerRuleSourceIpConfigPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleSourceIpConfigPtrOutput)
 }
 
+// Information about a source IP condition.
+//
+//	You can use this condition to route based on the IP address of the source that connects to the load balancer. If a client is behind a proxy, this is the IP address of the proxy not the IP address of the client.
 type ListenerRuleSourceIpConfigOutput struct{ *pulumi.OutputState }
 
 func (ListenerRuleSourceIpConfigOutput) ElementType() reflect.Type {
@@ -3933,6 +4366,9 @@ func (o ListenerRuleSourceIpConfigOutput) ToListenerRuleSourceIpConfigPtrOutputW
 	}).(ListenerRuleSourceIpConfigPtrOutput)
 }
 
+// The source IP addresses, in CIDR format. You can use both IPv4 and IPv6 addresses. Wildcards are not supported.
+//
+//	If you specify multiple addresses, the condition is satisfied if the source IP address of the request matches one of the CIDR blocks. This condition is not satisfied by the addresses in the X-Forwarded-For header.
 func (o ListenerRuleSourceIpConfigOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ListenerRuleSourceIpConfig) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -3961,6 +4397,9 @@ func (o ListenerRuleSourceIpConfigPtrOutput) Elem() ListenerRuleSourceIpConfigOu
 	}).(ListenerRuleSourceIpConfigOutput)
 }
 
+// The source IP addresses, in CIDR format. You can use both IPv4 and IPv6 addresses. Wildcards are not supported.
+//
+//	If you specify multiple addresses, the condition is satisfied if the source IP address of the request matches one of the CIDR blocks. This condition is not satisfied by the addresses in the X-Forwarded-For header.
 func (o ListenerRuleSourceIpConfigPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ListenerRuleSourceIpConfig) []string {
 		if v == nil {
@@ -3970,9 +4409,12 @@ func (o ListenerRuleSourceIpConfigPtrOutput) Values() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+// Information about the target group stickiness for a rule.
 type ListenerRuleTargetGroupStickinessConfig struct {
-	DurationSeconds *int  `pulumi:"durationSeconds"`
-	Enabled         *bool `pulumi:"enabled"`
+	// The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+	DurationSeconds *int `pulumi:"durationSeconds"`
+	// Indicates whether target group stickiness is enabled.
+	Enabled *bool `pulumi:"enabled"`
 }
 
 // ListenerRuleTargetGroupStickinessConfigInput is an input type that accepts ListenerRuleTargetGroupStickinessConfigArgs and ListenerRuleTargetGroupStickinessConfigOutput values.
@@ -3986,9 +4428,12 @@ type ListenerRuleTargetGroupStickinessConfigInput interface {
 	ToListenerRuleTargetGroupStickinessConfigOutputWithContext(context.Context) ListenerRuleTargetGroupStickinessConfigOutput
 }
 
+// Information about the target group stickiness for a rule.
 type ListenerRuleTargetGroupStickinessConfigArgs struct {
-	DurationSeconds pulumi.IntPtrInput  `pulumi:"durationSeconds"`
-	Enabled         pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+	DurationSeconds pulumi.IntPtrInput `pulumi:"durationSeconds"`
+	// Indicates whether target group stickiness is enabled.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
 func (ListenerRuleTargetGroupStickinessConfigArgs) ElementType() reflect.Type {
@@ -4044,6 +4489,7 @@ func (i *listenerRuleTargetGroupStickinessConfigPtrType) ToListenerRuleTargetGro
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleTargetGroupStickinessConfigPtrOutput)
 }
 
+// Information about the target group stickiness for a rule.
 type ListenerRuleTargetGroupStickinessConfigOutput struct{ *pulumi.OutputState }
 
 func (ListenerRuleTargetGroupStickinessConfigOutput) ElementType() reflect.Type {
@@ -4068,10 +4514,12 @@ func (o ListenerRuleTargetGroupStickinessConfigOutput) ToListenerRuleTargetGroup
 	}).(ListenerRuleTargetGroupStickinessConfigPtrOutput)
 }
 
+// The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
 func (o ListenerRuleTargetGroupStickinessConfigOutput) DurationSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ListenerRuleTargetGroupStickinessConfig) *int { return v.DurationSeconds }).(pulumi.IntPtrOutput)
 }
 
+// Indicates whether target group stickiness is enabled.
 func (o ListenerRuleTargetGroupStickinessConfigOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ListenerRuleTargetGroupStickinessConfig) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -4100,6 +4548,7 @@ func (o ListenerRuleTargetGroupStickinessConfigPtrOutput) Elem() ListenerRuleTar
 	}).(ListenerRuleTargetGroupStickinessConfigOutput)
 }
 
+// The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
 func (o ListenerRuleTargetGroupStickinessConfigPtrOutput) DurationSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ListenerRuleTargetGroupStickinessConfig) *int {
 		if v == nil {
@@ -4109,6 +4558,7 @@ func (o ListenerRuleTargetGroupStickinessConfigPtrOutput) DurationSeconds() pulu
 	}).(pulumi.IntPtrOutput)
 }
 
+// Indicates whether target group stickiness is enabled.
 func (o ListenerRuleTargetGroupStickinessConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ListenerRuleTargetGroupStickinessConfig) *bool {
 		if v == nil {
@@ -4118,9 +4568,12 @@ func (o ListenerRuleTargetGroupStickinessConfigPtrOutput) Enabled() pulumi.BoolP
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Information about how traffic will be distributed between multiple target groups in a forward rule.
 type ListenerRuleTargetGroupTuple struct {
+	// The Amazon Resource Name (ARN) of the target group.
 	TargetGroupArn *string `pulumi:"targetGroupArn"`
-	Weight         *int    `pulumi:"weight"`
+	// The weight. The range is 0 to 999.
+	Weight *int `pulumi:"weight"`
 }
 
 // ListenerRuleTargetGroupTupleInput is an input type that accepts ListenerRuleTargetGroupTupleArgs and ListenerRuleTargetGroupTupleOutput values.
@@ -4134,9 +4587,12 @@ type ListenerRuleTargetGroupTupleInput interface {
 	ToListenerRuleTargetGroupTupleOutputWithContext(context.Context) ListenerRuleTargetGroupTupleOutput
 }
 
+// Information about how traffic will be distributed between multiple target groups in a forward rule.
 type ListenerRuleTargetGroupTupleArgs struct {
+	// The Amazon Resource Name (ARN) of the target group.
 	TargetGroupArn pulumi.StringPtrInput `pulumi:"targetGroupArn"`
-	Weight         pulumi.IntPtrInput    `pulumi:"weight"`
+	// The weight. The range is 0 to 999.
+	Weight pulumi.IntPtrInput `pulumi:"weight"`
 }
 
 func (ListenerRuleTargetGroupTupleArgs) ElementType() reflect.Type {
@@ -4176,6 +4632,7 @@ func (i ListenerRuleTargetGroupTupleArray) ToListenerRuleTargetGroupTupleArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleTargetGroupTupleArrayOutput)
 }
 
+// Information about how traffic will be distributed between multiple target groups in a forward rule.
 type ListenerRuleTargetGroupTupleOutput struct{ *pulumi.OutputState }
 
 func (ListenerRuleTargetGroupTupleOutput) ElementType() reflect.Type {
@@ -4190,10 +4647,12 @@ func (o ListenerRuleTargetGroupTupleOutput) ToListenerRuleTargetGroupTupleOutput
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the target group.
 func (o ListenerRuleTargetGroupTupleOutput) TargetGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerRuleTargetGroupTuple) *string { return v.TargetGroupArn }).(pulumi.StringPtrOutput)
 }
 
+// The weight. The range is 0 to 999.
 func (o ListenerRuleTargetGroupTupleOutput) Weight() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ListenerRuleTargetGroupTuple) *int { return v.Weight }).(pulumi.IntPtrOutput)
 }
@@ -4495,7 +4954,31 @@ type LoadBalancerAttribute struct {
 	//
 	//  The following attributes are supported by both Application Load Balancers and Network Load Balancers:
 	//   +   ``access_logs.s3.enabled`` - Indicates whether access logs are enabled. The value is ``true`` or ``false``. The default is ``false``.
-	//   +   ``access_logs.s3.bucket`` - The name of the S3 bucket for the access logs. This attribute is required if access logs are enabled. The bucket must exist in the same region as the load balancer and h
+	//   +   ``access_logs.s3.bucket`` - The name of the S3 bucket for the access logs. This attribute is required if access logs are enabled. The bucket must exist in the same region as the load balancer and have a bucket policy that grants Elastic Load Balancing permissions to write to the bucket.
+	//   +   ``access_logs.s3.prefix`` - The prefix for the location in the S3 bucket for the access logs.
+	//   +   ``ipv6.deny_all_igw_traffic`` - Blocks internet gateway (IGW) access to the load balancer. It is set to ``false`` for internet-facing load balancers and ``true`` for internal load balancers, preventing unintended access to your internal load balancer through an internet gateway.
+	//
+	//  The following attributes are supported by only Application Load Balancers:
+	//   +   ``idle_timeout.timeout_seconds`` - The idle timeout value, in seconds. The valid range is 1-4000 seconds. The default is 60 seconds.
+	//   +   ``client_keep_alive.seconds`` - The client keep alive value, in seconds. The valid range is 60-604800 seconds. The default is 3600 seconds.
+	//   +   ``connection_logs.s3.enabled`` - Indicates whether connection logs are enabled. The value is ``true`` or ``false``. The default is ``false``.
+	//   +   ``connection_logs.s3.bucket`` - The name of the S3 bucket for the connection logs. This attribute is required if connection logs are enabled. The bucket must exist in the same region as the load balancer and have a bucket policy that grants Elastic Load Balancing permissions to write to the bucket.
+	//   +   ``connection_logs.s3.prefix`` - The prefix for the location in the S3 bucket for the connection logs.
+	//   +   ``routing.http.desync_mitigation_mode`` - Determines how the load balancer handles requests that might pose a security risk to your application. The possible values are ``monitor``, ``defensive``, and ``strictest``. The default is ``defensive``.
+	//   +   ``routing.http.drop_invalid_header_fields.enabled`` - Indicates whether HTTP headers with invalid header fields are removed by the load balancer (``true``) or routed to targets (``false``). The default is ``false``.
+	//   +   ``routing.http.preserve_host_header.enabled`` - Indicates whether the Application Load Balancer should preserve the ``Host`` header in the HTTP request and send it to the target without any change. The possible values are ``true`` and ``false``. The default is ``false``.
+	//   +   ``routing.http.x_amzn_tls_version_and_cipher_suite.enabled`` - Indicates whether the two headers (``x-amzn-tls-version`` and ``x-amzn-tls-cipher-suite``), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. The ``x-amzn-tls-version`` header has information about the TLS protocol version negotiated with the client, and the ``x-amzn-tls-cipher-suite`` header has information about the cipher suite negotiated with the client. Both headers are in OpenSSL format. The possible values for the attribute are ``true`` and ``false``. The default is ``false``.
+	//   +   ``routing.http.xff_client_port.enabled`` - Indicates whether the ``X-Forwarded-For`` header should preserve the source port that the client used to connect to the load balancer. The possible values are ``true`` and ``false``. The default is ``false``.
+	//   +   ``routing.http.xff_header_processing.mode`` - Enables you to modify, preserve, or remove the ``X-Forwarded-For`` header in the HTTP request before the Application Load Balancer sends the request to the target. The possible values are ``append``, ``preserve``, and ``remove``. The default is ``append``.
+	//   +  If the value is ``append``, the Application Load Balancer adds the client IP address (of the last hop) to the ``X-Forwarded-For`` header in the HTTP request before it sends it to targets.
+	//   +  If the value is ``preserve`` the Application Load Balancer preserves the ``X-Forwarded-For`` header in the HTTP request, and sends it to targets without any change.
+	//   +  If the value is ``remove``, the Application Load Balancer removes the ``X-Forwarded-For`` header in the HTTP request before it sends it to targets.
+	//
+	//   +   ``routing.http2.enabled`` - Indicates whether HTTP/2 is enabled. The possible values are ``true`` and ``false``. The default is ``true``. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens.
+	//   +   ``waf.fail_open.enabled`` - Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. The possible values are ``true`` and ``false``. The default is ``false``.
+	//
+	//  The following attributes are supported by only Network Load Balancers:
+	//   +   ``dns_record.client_routing_policy`` - Indicates how traffic is distributed among the load balancer Availability Zones. The possible values are ``availability_zone_affinity`` with 100 percent zonal affinity, ``partial_availability_zone_affinity`` with 85 percent zonal affinity, and ``any_availability_zone`` with 0 percent zonal affinity.
 	Key *string `pulumi:"key"`
 	// The value of the attribute.
 	Value *string `pulumi:"value"`
@@ -4521,7 +5004,31 @@ type LoadBalancerAttributeArgs struct {
 	//
 	//  The following attributes are supported by both Application Load Balancers and Network Load Balancers:
 	//   +   ``access_logs.s3.enabled`` - Indicates whether access logs are enabled. The value is ``true`` or ``false``. The default is ``false``.
-	//   +   ``access_logs.s3.bucket`` - The name of the S3 bucket for the access logs. This attribute is required if access logs are enabled. The bucket must exist in the same region as the load balancer and h
+	//   +   ``access_logs.s3.bucket`` - The name of the S3 bucket for the access logs. This attribute is required if access logs are enabled. The bucket must exist in the same region as the load balancer and have a bucket policy that grants Elastic Load Balancing permissions to write to the bucket.
+	//   +   ``access_logs.s3.prefix`` - The prefix for the location in the S3 bucket for the access logs.
+	//   +   ``ipv6.deny_all_igw_traffic`` - Blocks internet gateway (IGW) access to the load balancer. It is set to ``false`` for internet-facing load balancers and ``true`` for internal load balancers, preventing unintended access to your internal load balancer through an internet gateway.
+	//
+	//  The following attributes are supported by only Application Load Balancers:
+	//   +   ``idle_timeout.timeout_seconds`` - The idle timeout value, in seconds. The valid range is 1-4000 seconds. The default is 60 seconds.
+	//   +   ``client_keep_alive.seconds`` - The client keep alive value, in seconds. The valid range is 60-604800 seconds. The default is 3600 seconds.
+	//   +   ``connection_logs.s3.enabled`` - Indicates whether connection logs are enabled. The value is ``true`` or ``false``. The default is ``false``.
+	//   +   ``connection_logs.s3.bucket`` - The name of the S3 bucket for the connection logs. This attribute is required if connection logs are enabled. The bucket must exist in the same region as the load balancer and have a bucket policy that grants Elastic Load Balancing permissions to write to the bucket.
+	//   +   ``connection_logs.s3.prefix`` - The prefix for the location in the S3 bucket for the connection logs.
+	//   +   ``routing.http.desync_mitigation_mode`` - Determines how the load balancer handles requests that might pose a security risk to your application. The possible values are ``monitor``, ``defensive``, and ``strictest``. The default is ``defensive``.
+	//   +   ``routing.http.drop_invalid_header_fields.enabled`` - Indicates whether HTTP headers with invalid header fields are removed by the load balancer (``true``) or routed to targets (``false``). The default is ``false``.
+	//   +   ``routing.http.preserve_host_header.enabled`` - Indicates whether the Application Load Balancer should preserve the ``Host`` header in the HTTP request and send it to the target without any change. The possible values are ``true`` and ``false``. The default is ``false``.
+	//   +   ``routing.http.x_amzn_tls_version_and_cipher_suite.enabled`` - Indicates whether the two headers (``x-amzn-tls-version`` and ``x-amzn-tls-cipher-suite``), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. The ``x-amzn-tls-version`` header has information about the TLS protocol version negotiated with the client, and the ``x-amzn-tls-cipher-suite`` header has information about the cipher suite negotiated with the client. Both headers are in OpenSSL format. The possible values for the attribute are ``true`` and ``false``. The default is ``false``.
+	//   +   ``routing.http.xff_client_port.enabled`` - Indicates whether the ``X-Forwarded-For`` header should preserve the source port that the client used to connect to the load balancer. The possible values are ``true`` and ``false``. The default is ``false``.
+	//   +   ``routing.http.xff_header_processing.mode`` - Enables you to modify, preserve, or remove the ``X-Forwarded-For`` header in the HTTP request before the Application Load Balancer sends the request to the target. The possible values are ``append``, ``preserve``, and ``remove``. The default is ``append``.
+	//   +  If the value is ``append``, the Application Load Balancer adds the client IP address (of the last hop) to the ``X-Forwarded-For`` header in the HTTP request before it sends it to targets.
+	//   +  If the value is ``preserve`` the Application Load Balancer preserves the ``X-Forwarded-For`` header in the HTTP request, and sends it to targets without any change.
+	//   +  If the value is ``remove``, the Application Load Balancer removes the ``X-Forwarded-For`` header in the HTTP request before it sends it to targets.
+	//
+	//   +   ``routing.http2.enabled`` - Indicates whether HTTP/2 is enabled. The possible values are ``true`` and ``false``. The default is ``true``. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens.
+	//   +   ``waf.fail_open.enabled`` - Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. The possible values are ``true`` and ``false``. The default is ``false``.
+	//
+	//  The following attributes are supported by only Network Load Balancers:
+	//   +   ``dns_record.client_routing_policy`` - Indicates how traffic is distributed among the load balancer Availability Zones. The possible values are ``availability_zone_affinity`` with 100 percent zonal affinity, ``partial_availability_zone_affinity`` with 85 percent zonal affinity, and ``any_availability_zone`` with 0 percent zonal affinity.
 	Key pulumi.StringPtrInput `pulumi:"key"`
 	// The value of the attribute.
 	Value pulumi.StringPtrInput `pulumi:"value"`
@@ -4587,7 +5094,31 @@ func (o LoadBalancerAttributeOutput) ToLoadBalancerAttributeOutputWithContext(ct
 //
 //	The following attributes are supported by both Application Load Balancers and Network Load Balancers:
 //	 +   ``access_logs.s3.enabled`` - Indicates whether access logs are enabled. The value is ``true`` or ``false``. The default is ``false``.
-//	 +   ``access_logs.s3.bucket`` - The name of the S3 bucket for the access logs. This attribute is required if access logs are enabled. The bucket must exist in the same region as the load balancer and h
+//	 +   ``access_logs.s3.bucket`` - The name of the S3 bucket for the access logs. This attribute is required if access logs are enabled. The bucket must exist in the same region as the load balancer and have a bucket policy that grants Elastic Load Balancing permissions to write to the bucket.
+//	 +   ``access_logs.s3.prefix`` - The prefix for the location in the S3 bucket for the access logs.
+//	 +   ``ipv6.deny_all_igw_traffic`` - Blocks internet gateway (IGW) access to the load balancer. It is set to ``false`` for internet-facing load balancers and ``true`` for internal load balancers, preventing unintended access to your internal load balancer through an internet gateway.
+//
+//	The following attributes are supported by only Application Load Balancers:
+//	 +   ``idle_timeout.timeout_seconds`` - The idle timeout value, in seconds. The valid range is 1-4000 seconds. The default is 60 seconds.
+//	 +   ``client_keep_alive.seconds`` - The client keep alive value, in seconds. The valid range is 60-604800 seconds. The default is 3600 seconds.
+//	 +   ``connection_logs.s3.enabled`` - Indicates whether connection logs are enabled. The value is ``true`` or ``false``. The default is ``false``.
+//	 +   ``connection_logs.s3.bucket`` - The name of the S3 bucket for the connection logs. This attribute is required if connection logs are enabled. The bucket must exist in the same region as the load balancer and have a bucket policy that grants Elastic Load Balancing permissions to write to the bucket.
+//	 +   ``connection_logs.s3.prefix`` - The prefix for the location in the S3 bucket for the connection logs.
+//	 +   ``routing.http.desync_mitigation_mode`` - Determines how the load balancer handles requests that might pose a security risk to your application. The possible values are ``monitor``, ``defensive``, and ``strictest``. The default is ``defensive``.
+//	 +   ``routing.http.drop_invalid_header_fields.enabled`` - Indicates whether HTTP headers with invalid header fields are removed by the load balancer (``true``) or routed to targets (``false``). The default is ``false``.
+//	 +   ``routing.http.preserve_host_header.enabled`` - Indicates whether the Application Load Balancer should preserve the ``Host`` header in the HTTP request and send it to the target without any change. The possible values are ``true`` and ``false``. The default is ``false``.
+//	 +   ``routing.http.x_amzn_tls_version_and_cipher_suite.enabled`` - Indicates whether the two headers (``x-amzn-tls-version`` and ``x-amzn-tls-cipher-suite``), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. The ``x-amzn-tls-version`` header has information about the TLS protocol version negotiated with the client, and the ``x-amzn-tls-cipher-suite`` header has information about the cipher suite negotiated with the client. Both headers are in OpenSSL format. The possible values for the attribute are ``true`` and ``false``. The default is ``false``.
+//	 +   ``routing.http.xff_client_port.enabled`` - Indicates whether the ``X-Forwarded-For`` header should preserve the source port that the client used to connect to the load balancer. The possible values are ``true`` and ``false``. The default is ``false``.
+//	 +   ``routing.http.xff_header_processing.mode`` - Enables you to modify, preserve, or remove the ``X-Forwarded-For`` header in the HTTP request before the Application Load Balancer sends the request to the target. The possible values are ``append``, ``preserve``, and ``remove``. The default is ``append``.
+//	 +  If the value is ``append``, the Application Load Balancer adds the client IP address (of the last hop) to the ``X-Forwarded-For`` header in the HTTP request before it sends it to targets.
+//	 +  If the value is ``preserve`` the Application Load Balancer preserves the ``X-Forwarded-For`` header in the HTTP request, and sends it to targets without any change.
+//	 +  If the value is ``remove``, the Application Load Balancer removes the ``X-Forwarded-For`` header in the HTTP request before it sends it to targets.
+//
+//	 +   ``routing.http2.enabled`` - Indicates whether HTTP/2 is enabled. The possible values are ``true`` and ``false``. The default is ``true``. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens.
+//	 +   ``waf.fail_open.enabled`` - Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. The possible values are ``true`` and ``false``. The default is ``false``.
+//
+//	The following attributes are supported by only Network Load Balancers:
+//	 +   ``dns_record.client_routing_policy`` - Indicates how traffic is distributed among the load balancer Availability Zones. The possible values are ``availability_zone_affinity`` with 100 percent zonal affinity, ``partial_availability_zone_affinity`` with 85 percent zonal affinity, and ``any_availability_zone`` with 0 percent zonal affinity.
 func (o LoadBalancerAttributeOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancerAttribute) *string { return v.Key }).(pulumi.StringPtrOutput)
 }

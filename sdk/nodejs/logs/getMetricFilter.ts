@@ -8,7 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Specifies a metric filter that describes how CloudWatch Logs extracts information from logs and transforms it into Amazon CloudWatch metrics.
+ * The ``AWS::Logs::MetricFilter`` resource specifies a metric filter that describes how CWL extracts information from logs and transforms it into Amazon CloudWatch metrics. If you have multiple metric filters that are associated with a log group, all the filters are applied to the log streams in that group.
+ *  The maximum number of metric filters that can be associated with a log group is 100.
  */
 export function getMetricFilter(args: GetMetricFilterArgs, opts?: pulumi.InvokeOptions): Promise<GetMetricFilterResult> {
 
@@ -21,27 +22,28 @@ export function getMetricFilter(args: GetMetricFilterArgs, opts?: pulumi.InvokeO
 
 export interface GetMetricFilterArgs {
     /**
-     * A name for the metric filter.
+     * The name of the metric filter.
      */
     filterName: string;
     /**
-     * Existing log group that you want to associate with this filter.
+     * The name of an existing log group that you want to associate with this metric filter.
      */
     logGroupName: string;
 }
 
 export interface GetMetricFilterResult {
     /**
-     * Pattern that Logs follows to interpret each entry in a log.
+     * A filter pattern for extracting metric data out of ingested log events. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
      */
     readonly filterPattern?: string;
     /**
-     * A collection of information that defines how metric data gets emitted.
+     * The metric transformations.
      */
     readonly metricTransformations?: outputs.logs.MetricFilterMetricTransformation[];
 }
 /**
- * Specifies a metric filter that describes how CloudWatch Logs extracts information from logs and transforms it into Amazon CloudWatch metrics.
+ * The ``AWS::Logs::MetricFilter`` resource specifies a metric filter that describes how CWL extracts information from logs and transforms it into Amazon CloudWatch metrics. If you have multiple metric filters that are associated with a log group, all the filters are applied to the log streams in that group.
+ *  The maximum number of metric filters that can be associated with a log group is 100.
  */
 export function getMetricFilterOutput(args: GetMetricFilterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMetricFilterResult> {
     return pulumi.output(args).apply((a: any) => getMetricFilter(a, opts))
@@ -49,11 +51,11 @@ export function getMetricFilterOutput(args: GetMetricFilterOutputArgs, opts?: pu
 
 export interface GetMetricFilterOutputArgs {
     /**
-     * A name for the metric filter.
+     * The name of the metric filter.
      */
     filterName: pulumi.Input<string>;
     /**
-     * Existing log group that you want to associate with this filter.
+     * The name of an existing log group that you want to associate with this metric filter.
      */
     logGroupName: pulumi.Input<string>;
 }

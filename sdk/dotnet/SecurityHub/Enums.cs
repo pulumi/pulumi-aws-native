@@ -247,4 +247,129 @@ namespace Pulumi.AwsNative.SecurityHub
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// The current status of the Security Hub administrator account. Indicates whether the account is currently enabled as a Security Hub administrator
+    /// </summary>
+    [EnumType]
+    public readonly struct DelegatedAdminStatus : IEquatable<DelegatedAdminStatus>
+    {
+        private readonly string _value;
+
+        private DelegatedAdminStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DelegatedAdminStatus Enabled { get; } = new DelegatedAdminStatus("ENABLED");
+        public static DelegatedAdminStatus DisableInProgress { get; } = new DelegatedAdminStatus("DISABLE_IN_PROGRESS");
+
+        public static bool operator ==(DelegatedAdminStatus left, DelegatedAdminStatus right) => left.Equals(right);
+        public static bool operator !=(DelegatedAdminStatus left, DelegatedAdminStatus right) => !left.Equals(right);
+
+        public static explicit operator string(DelegatedAdminStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DelegatedAdminStatus other && Equals(other);
+        public bool Equals(DelegatedAdminStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// A date range unit for the date filter.
+    /// </summary>
+    [EnumType]
+    public readonly struct InsightDateRangeUnit : IEquatable<InsightDateRangeUnit>
+    {
+        private readonly string _value;
+
+        private InsightDateRangeUnit(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static InsightDateRangeUnit Days { get; } = new InsightDateRangeUnit("DAYS");
+
+        public static bool operator ==(InsightDateRangeUnit left, InsightDateRangeUnit right) => left.Equals(right);
+        public static bool operator !=(InsightDateRangeUnit left, InsightDateRangeUnit right) => !left.Equals(right);
+
+        public static explicit operator string(InsightDateRangeUnit value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InsightDateRangeUnit other && Equals(other);
+        public bool Equals(InsightDateRangeUnit other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The condition to apply to the key value when filtering Security Hub findings with a map filter.
+    /// </summary>
+    [EnumType]
+    public readonly struct InsightMapFilterComparison : IEquatable<InsightMapFilterComparison>
+    {
+        private readonly string _value;
+
+        private InsightMapFilterComparison(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static InsightMapFilterComparison EqualsValue { get; } = new InsightMapFilterComparison("EQUALS");
+        public static InsightMapFilterComparison NotEquals { get; } = new InsightMapFilterComparison("NOT_EQUALS");
+
+        public static bool operator ==(InsightMapFilterComparison left, InsightMapFilterComparison right) => left.Equals(right);
+        public static bool operator !=(InsightMapFilterComparison left, InsightMapFilterComparison right) => !left.Equals(right);
+
+        public static explicit operator string(InsightMapFilterComparison value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InsightMapFilterComparison other && Equals(other);
+        public bool Equals(InsightMapFilterComparison other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The condition to apply to a string value when filtering Security Hub findings.
+    /// </summary>
+    [EnumType]
+    public readonly struct InsightStringFilterComparison : IEquatable<InsightStringFilterComparison>
+    {
+        private readonly string _value;
+
+        private InsightStringFilterComparison(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static InsightStringFilterComparison EqualsValue { get; } = new InsightStringFilterComparison("EQUALS");
+        public static InsightStringFilterComparison Prefix { get; } = new InsightStringFilterComparison("PREFIX");
+        public static InsightStringFilterComparison NotEquals { get; } = new InsightStringFilterComparison("NOT_EQUALS");
+        public static InsightStringFilterComparison PrefixNotEquals { get; } = new InsightStringFilterComparison("PREFIX_NOT_EQUALS");
+
+        public static bool operator ==(InsightStringFilterComparison left, InsightStringFilterComparison right) => left.Equals(right);
+        public static bool operator !=(InsightStringFilterComparison left, InsightStringFilterComparison right) => !left.Equals(right);
+
+        public static explicit operator string(InsightStringFilterComparison value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InsightStringFilterComparison other && Equals(other);
+        public bool Equals(InsightStringFilterComparison other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

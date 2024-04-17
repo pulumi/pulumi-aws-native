@@ -25,25 +25,25 @@ namespace Pulumi.AwsNative.Iam
     /// {
     ///     var iamRole = new AwsNative.Iam.Role("iamRole", new()
     ///     {
-    ///         AssumeRolePolicyDocument = 
+    ///         AssumeRolePolicyDocument = new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             { "version", "2012-10-17" },
-    ///             { "statement", new[]
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
-    ///                 
+    ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     { "effect", "Allow" },
-    ///                     { "principal", 
+    ///                     ["effect"] = "Allow",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         { "service", new[]
+    ///                         ["service"] = new[]
     ///                         {
     ///                             "cloudformation.amazonaws.com",
     ///                             "gamelift.amazonaws.com",
-    ///                         } },
-    ///                     } },
-    ///                     { "action", "sts:AssumeRole" },
+    ///                         },
+    ///                     },
+    ///                     ["action"] = "sts:AssumeRole",
     ///                 },
-    ///             } },
+    ///             },
     ///         },
     ///         RoleName = "ScriptIAMRole",
     ///         Policies = new[]
@@ -51,27 +51,27 @@ namespace Pulumi.AwsNative.Iam
     ///             new AwsNative.Iam.Inputs.RolePolicyArgs
     ///             {
     ///                 PolicyName = "ScriptResourceIAMPolicy",
-    ///                 PolicyDocument = 
+    ///                 PolicyDocument = new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     { "version", "2012-10-17" },
-    ///                     { "statement", new[]
+    ///                     ["version"] = "2012-10-17",
+    ///                     ["statement"] = new[]
     ///                     {
-    ///                         
+    ///                         new Dictionary&lt;string, object?&gt;
     ///                         {
-    ///                             { "effect", "Allow" },
-    ///                             { "action", new[]
+    ///                             ["effect"] = "Allow",
+    ///                             ["action"] = new[]
     ///                             {
     ///                                 "s3:GetObject",
     ///                                 "s3:GetObjectVersion",
     ///                                 "s3:GetObjectMetadata",
     ///                                 "s3:*Object*",
-    ///                             } },
-    ///                             { "resource", new[]
+    ///                             },
+    ///                             ["resource"] = new[]
     ///                             {
     ///                                 "*",
-    ///                             } },
+    ///                             },
     ///                         },
-    ///                     } },
+    ///                     },
     ///                 },
     ///             },
     ///         },
@@ -104,25 +104,25 @@ namespace Pulumi.AwsNative.Iam
     /// {
     ///     var iamRole = new AwsNative.Iam.Role("iamRole", new()
     ///     {
-    ///         AssumeRolePolicyDocument = 
+    ///         AssumeRolePolicyDocument = new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             { "version", "2012-10-17" },
-    ///             { "statement", new[]
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
-    ///                 
+    ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     { "effect", "Allow" },
-    ///                     { "principal", 
+    ///                     ["effect"] = "Allow",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         { "service", new[]
+    ///                         ["service"] = new[]
     ///                         {
     ///                             "cloudformation.amazonaws.com",
     ///                             "gamelift.amazonaws.com",
-    ///                         } },
-    ///                     } },
-    ///                     { "action", "sts:AssumeRole" },
+    ///                         },
+    ///                     },
+    ///                     ["action"] = "sts:AssumeRole",
     ///                 },
-    ///             } },
+    ///             },
     ///         },
     ///         RoleName = "ScriptIAMRole",
     ///         Policies = new[]
@@ -130,27 +130,27 @@ namespace Pulumi.AwsNative.Iam
     ///             new AwsNative.Iam.Inputs.RolePolicyArgs
     ///             {
     ///                 PolicyName = "ScriptResourceIAMPolicy",
-    ///                 PolicyDocument = 
+    ///                 PolicyDocument = new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     { "version", "2012-10-17" },
-    ///                     { "statement", new[]
+    ///                     ["version"] = "2012-10-17",
+    ///                     ["statement"] = new[]
     ///                     {
-    ///                         
+    ///                         new Dictionary&lt;string, object?&gt;
     ///                         {
-    ///                             { "effect", "Allow" },
-    ///                             { "action", new[]
+    ///                             ["effect"] = "Allow",
+    ///                             ["action"] = new[]
     ///                             {
     ///                                 "s3:GetObject",
     ///                                 "s3:GetObjectVersion",
     ///                                 "s3:GetObjectMetadata",
     ///                                 "s3:*Object*",
-    ///                             } },
-    ///                             { "resource", new[]
+    ///                             },
+    ///                             ["resource"] = new[]
     ///                             {
     ///                                 "*",
-    ///                             } },
+    ///                             },
     ///                         },
-    ///                     } },
+    ///                     },
     ///                 },
     ///             },
     ///         },
@@ -187,27 +187,27 @@ namespace Pulumi.AwsNative.Iam
     ///         {
     ///             "arn:aws:iam::aws:policy/service-role/AmazonGrafanaAthenaAccess",
     ///         },
-    ///         AssumeRolePolicyDocument = 
+    ///         AssumeRolePolicyDocument = new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             { "version", "2012-10-17" },
-    ///             { "statement", new[]
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
-    ///                 
+    ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     { "effect", "Allow" },
-    ///                     { "principal", 
+    ///                     ["effect"] = "Allow",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         { "service", new[]
+    ///                         ["service"] = new[]
     ///                         {
     ///                             "grafana.amazonaws.com",
-    ///                         } },
-    ///                     } },
-    ///                     { "action", new[]
+    ///                         },
+    ///                     },
+    ///                     ["action"] = new[]
     ///                     {
     ///                         "sts:AssumeRole",
-    ///                     } },
+    ///                     },
     ///                 },
-    ///             } },
+    ///             },
     ///         },
     ///     });
     /// 
@@ -283,27 +283,27 @@ namespace Pulumi.AwsNative.Iam
     ///         {
     ///             "arn:aws:iam::aws:policy/service-role/AmazonGrafanaAthenaAccess",
     ///         },
-    ///         AssumeRolePolicyDocument = 
+    ///         AssumeRolePolicyDocument = new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             { "version", "2012-10-17" },
-    ///             { "statement", new[]
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
-    ///                 
+    ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     { "effect", "Allow" },
-    ///                     { "principal", 
+    ///                     ["effect"] = "Allow",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         { "service", new[]
+    ///                         ["service"] = new[]
     ///                         {
     ///                             "grafana.amazonaws.com",
-    ///                         } },
-    ///                     } },
-    ///                     { "action", new[]
+    ///                         },
+    ///                     },
+    ///                     ["action"] = new[]
     ///                     {
     ///                         "sts:AssumeRole",
-    ///                     } },
+    ///                     },
     ///                 },
-    ///             } },
+    ///             },
     ///         },
     ///     });
     /// 
@@ -375,27 +375,27 @@ namespace Pulumi.AwsNative.Iam
     /// {
     ///     var rootRole = new AwsNative.Iam.Role("rootRole", new()
     ///     {
-    ///         AssumeRolePolicyDocument = 
+    ///         AssumeRolePolicyDocument = new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             { "version", "2012-10-17" },
-    ///             { "statement", new[]
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
-    ///                 
+    ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     { "effect", "Allow" },
-    ///                     { "principal", 
+    ///                     ["effect"] = "Allow",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         { "service", new[]
+    ///                         ["service"] = new[]
     ///                         {
     ///                             "ec2.amazonaws.com",
-    ///                         } },
-    ///                     } },
-    ///                     { "action", new[]
+    ///                         },
+    ///                     },
+    ///                     ["action"] = new[]
     ///                     {
     ///                         "sts:AssumeRole",
-    ///                     } },
+    ///                     },
     ///                 },
-    ///             } },
+    ///             },
     ///         },
     ///         Path = "/",
     ///         Policies = new[]
@@ -403,18 +403,18 @@ namespace Pulumi.AwsNative.Iam
     ///             new AwsNative.Iam.Inputs.RolePolicyArgs
     ///             {
     ///                 PolicyName = "root",
-    ///                 PolicyDocument = 
+    ///                 PolicyDocument = new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     { "version", "2012-10-17" },
-    ///                     { "statement", new[]
+    ///                     ["version"] = "2012-10-17",
+    ///                     ["statement"] = new[]
     ///                     {
-    ///                         
+    ///                         new Dictionary&lt;string, object?&gt;
     ///                         {
-    ///                             { "effect", "Allow" },
-    ///                             { "action", "*" },
-    ///                             { "resource", "*" },
+    ///                             ["effect"] = "Allow",
+    ///                             ["action"] = "*",
+    ///                             ["resource"] = "*",
     ///                         },
-    ///                     } },
+    ///                     },
     ///                 },
     ///             },
     ///         },
@@ -444,27 +444,27 @@ namespace Pulumi.AwsNative.Iam
     /// {
     ///     var rootRole = new AwsNative.Iam.Role("rootRole", new()
     ///     {
-    ///         AssumeRolePolicyDocument = 
+    ///         AssumeRolePolicyDocument = new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             { "version", "2012-10-17" },
-    ///             { "statement", new[]
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
-    ///                 
+    ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     { "effect", "Allow" },
-    ///                     { "principal", 
+    ///                     ["effect"] = "Allow",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         { "service", new[]
+    ///                         ["service"] = new[]
     ///                         {
     ///                             "ec2.amazonaws.com",
-    ///                         } },
-    ///                     } },
-    ///                     { "action", new[]
+    ///                         },
+    ///                     },
+    ///                     ["action"] = new[]
     ///                     {
     ///                         "sts:AssumeRole",
-    ///                     } },
+    ///                     },
     ///                 },
-    ///             } },
+    ///             },
     ///         },
     ///         Path = "/",
     ///         Policies = new[]
@@ -472,18 +472,18 @@ namespace Pulumi.AwsNative.Iam
     ///             new AwsNative.Iam.Inputs.RolePolicyArgs
     ///             {
     ///                 PolicyName = "root",
-    ///                 PolicyDocument = 
+    ///                 PolicyDocument = new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     { "version", "2012-10-17" },
-    ///                     { "statement", new[]
+    ///                     ["version"] = "2012-10-17",
+    ///                     ["statement"] = new[]
     ///                     {
-    ///                         
+    ///                         new Dictionary&lt;string, object?&gt;
     ///                         {
-    ///                             { "effect", "Allow" },
-    ///                             { "action", "*" },
-    ///                             { "resource", "*" },
+    ///                             ["effect"] = "Allow",
+    ///                             ["action"] = "*",
+    ///                             ["resource"] = "*",
     ///                         },
-    ///                     } },
+    ///                     },
     ///                 },
     ///             },
     ///         },
@@ -513,24 +513,24 @@ namespace Pulumi.AwsNative.Iam
     /// {
     ///     var automationExecutionRole = new AwsNative.Iam.Role("automationExecutionRole", new()
     ///     {
-    ///         AssumeRolePolicyDocument = 
+    ///         AssumeRolePolicyDocument = new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             { "version", "2012-10-17" },
-    ///             { "statement", new[]
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
-    ///                 
+    ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     { "effect", "Allow" },
-    ///                     { "principal", 
+    ///                     ["effect"] = "Allow",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         { "service", "ssm.amazonaws.com" },
-    ///                     } },
-    ///                     { "action", new[]
+    ///                         ["service"] = "ssm.amazonaws.com",
+    ///                     },
+    ///                     ["action"] = new[]
     ///                     {
     ///                         "sts:AssumeRole",
-    ///                     } },
+    ///                     },
     ///                 },
-    ///             } },
+    ///             },
     ///         },
     ///         Path = "/",
     ///         ManagedPolicyArns = new[]

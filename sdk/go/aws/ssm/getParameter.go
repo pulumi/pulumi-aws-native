@@ -28,7 +28,7 @@ func LookupParameter(ctx *pulumi.Context, args *LookupParameterArgs, opts ...pul
 
 type LookupParameterArgs struct {
 	// The name of the parameter.
-	//  The maximum length constraint listed below includes capacity for additional system attributes that aren't part of the name. The maximum length for a parameter name, including the full length of the parameter Amazon Resource Name (ARN), is 1011 characters. For example, the length of the following parameter name is 65 characters, not 20 characters: ``arn:aws:ssm:us-east-2:111222333444:parameter/ExampleParameterName``
+	//   The maximum length constraint listed below includes capacity for additional system attributes that aren't part of the name. The maximum length for a parameter name, including the full length of the parameter Amazon Resource Name (ARN), is 1011 characters. For example, the length of the following parameter name is 65 characters, not 20 characters: ``arn:aws:ssm:us-east-2:111222333444:parameter/ExampleParameterName``
 	Name string `pulumi:"name"`
 }
 
@@ -36,7 +36,6 @@ type LookupParameterResult struct {
 	// The data type of the parameter, such as ``text`` or ``aws:ec2:image``. The default is ``text``.
 	DataType *ParameterDataType `pulumi:"dataType"`
 	// The type of parameter.
-	//   Although ``SecureString`` is included in the list of valid values, CFNlong does *not* currently support creating ``SecureString`` parameters.
 	Type *ParameterType `pulumi:"type"`
 	// The parameter value.
 	//   If type is ``StringList``, the system returns a comma-separated string with no spaces between commas in the ``Value`` field.
@@ -58,7 +57,7 @@ func LookupParameterOutput(ctx *pulumi.Context, args LookupParameterOutputArgs, 
 
 type LookupParameterOutputArgs struct {
 	// The name of the parameter.
-	//  The maximum length constraint listed below includes capacity for additional system attributes that aren't part of the name. The maximum length for a parameter name, including the full length of the parameter Amazon Resource Name (ARN), is 1011 characters. For example, the length of the following parameter name is 65 characters, not 20 characters: ``arn:aws:ssm:us-east-2:111222333444:parameter/ExampleParameterName``
+	//   The maximum length constraint listed below includes capacity for additional system attributes that aren't part of the name. The maximum length for a parameter name, including the full length of the parameter Amazon Resource Name (ARN), is 1011 characters. For example, the length of the following parameter name is 65 characters, not 20 characters: ``arn:aws:ssm:us-east-2:111222333444:parameter/ExampleParameterName``
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -86,8 +85,6 @@ func (o LookupParameterResultOutput) DataType() ParameterDataTypePtrOutput {
 }
 
 // The type of parameter.
-//
-//	Although ``SecureString`` is included in the list of valid values, CFNlong does *not* currently support creating ``SecureString`` parameters.
 func (o LookupParameterResultOutput) Type() ParameterTypePtrOutput {
 	return o.ApplyT(func(v LookupParameterResult) *ParameterType { return v.Type }).(ParameterTypePtrOutput)
 }

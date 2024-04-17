@@ -18,8 +18,24 @@ type ChannelTag struct {
 	Value string `pulumi:"value"`
 }
 
+// A key-value pair to associate with a resource.
+type EncoderConfigurationTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
 type PlaybackKeyPairTag struct {
 	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// A key-value pair to associate with a resource.
+type PlaybackRestrictionPolicyTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value string `pulumi:"value"`
 }
 
@@ -589,9 +605,266 @@ type StageTag struct {
 	Value string `pulumi:"value"`
 }
 
+// A complex type that describes an S3 location where recorded videos will be stored.
+type StorageConfigurationS3StorageConfiguration struct {
+	// Location (S3 bucket name) where recorded videos will be stored. Note that the StorageConfiguration and S3 bucket must be in the same region as the Composition.
+	BucketName string `pulumi:"bucketName"`
+}
+
+// StorageConfigurationS3StorageConfigurationInput is an input type that accepts StorageConfigurationS3StorageConfigurationArgs and StorageConfigurationS3StorageConfigurationOutput values.
+// You can construct a concrete instance of `StorageConfigurationS3StorageConfigurationInput` via:
+//
+//	StorageConfigurationS3StorageConfigurationArgs{...}
+type StorageConfigurationS3StorageConfigurationInput interface {
+	pulumi.Input
+
+	ToStorageConfigurationS3StorageConfigurationOutput() StorageConfigurationS3StorageConfigurationOutput
+	ToStorageConfigurationS3StorageConfigurationOutputWithContext(context.Context) StorageConfigurationS3StorageConfigurationOutput
+}
+
+// A complex type that describes an S3 location where recorded videos will be stored.
+type StorageConfigurationS3StorageConfigurationArgs struct {
+	// Location (S3 bucket name) where recorded videos will be stored. Note that the StorageConfiguration and S3 bucket must be in the same region as the Composition.
+	BucketName pulumi.StringInput `pulumi:"bucketName"`
+}
+
+func (StorageConfigurationS3StorageConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageConfigurationS3StorageConfiguration)(nil)).Elem()
+}
+
+func (i StorageConfigurationS3StorageConfigurationArgs) ToStorageConfigurationS3StorageConfigurationOutput() StorageConfigurationS3StorageConfigurationOutput {
+	return i.ToStorageConfigurationS3StorageConfigurationOutputWithContext(context.Background())
+}
+
+func (i StorageConfigurationS3StorageConfigurationArgs) ToStorageConfigurationS3StorageConfigurationOutputWithContext(ctx context.Context) StorageConfigurationS3StorageConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageConfigurationS3StorageConfigurationOutput)
+}
+
+// A complex type that describes an S3 location where recorded videos will be stored.
+type StorageConfigurationS3StorageConfigurationOutput struct{ *pulumi.OutputState }
+
+func (StorageConfigurationS3StorageConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageConfigurationS3StorageConfiguration)(nil)).Elem()
+}
+
+func (o StorageConfigurationS3StorageConfigurationOutput) ToStorageConfigurationS3StorageConfigurationOutput() StorageConfigurationS3StorageConfigurationOutput {
+	return o
+}
+
+func (o StorageConfigurationS3StorageConfigurationOutput) ToStorageConfigurationS3StorageConfigurationOutputWithContext(ctx context.Context) StorageConfigurationS3StorageConfigurationOutput {
+	return o
+}
+
+// Location (S3 bucket name) where recorded videos will be stored. Note that the StorageConfiguration and S3 bucket must be in the same region as the Composition.
+func (o StorageConfigurationS3StorageConfigurationOutput) BucketName() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageConfigurationS3StorageConfiguration) string { return v.BucketName }).(pulumi.StringOutput)
+}
+
+type StorageConfigurationTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 type StreamKeyTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
+}
+
+// Video configuration. Default: video resolution 1280x720, bitrate 2500 kbps, 30 fps
+type VideoProperties struct {
+	// Bitrate for generated output, in bps. Default: 2500000.
+	Bitrate *int `pulumi:"bitrate"`
+	// Video frame rate, in fps. Default: 30.
+	Framerate *float64 `pulumi:"framerate"`
+	// Video-resolution height. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 720.
+	Height *int `pulumi:"height"`
+	// Video-resolution width. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 1280.
+	Width *int `pulumi:"width"`
+}
+
+// VideoPropertiesInput is an input type that accepts VideoPropertiesArgs and VideoPropertiesOutput values.
+// You can construct a concrete instance of `VideoPropertiesInput` via:
+//
+//	VideoPropertiesArgs{...}
+type VideoPropertiesInput interface {
+	pulumi.Input
+
+	ToVideoPropertiesOutput() VideoPropertiesOutput
+	ToVideoPropertiesOutputWithContext(context.Context) VideoPropertiesOutput
+}
+
+// Video configuration. Default: video resolution 1280x720, bitrate 2500 kbps, 30 fps
+type VideoPropertiesArgs struct {
+	// Bitrate for generated output, in bps. Default: 2500000.
+	Bitrate pulumi.IntPtrInput `pulumi:"bitrate"`
+	// Video frame rate, in fps. Default: 30.
+	Framerate pulumi.Float64PtrInput `pulumi:"framerate"`
+	// Video-resolution height. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 720.
+	Height pulumi.IntPtrInput `pulumi:"height"`
+	// Video-resolution width. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 1280.
+	Width pulumi.IntPtrInput `pulumi:"width"`
+}
+
+func (VideoPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VideoProperties)(nil)).Elem()
+}
+
+func (i VideoPropertiesArgs) ToVideoPropertiesOutput() VideoPropertiesOutput {
+	return i.ToVideoPropertiesOutputWithContext(context.Background())
+}
+
+func (i VideoPropertiesArgs) ToVideoPropertiesOutputWithContext(ctx context.Context) VideoPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VideoPropertiesOutput)
+}
+
+func (i VideoPropertiesArgs) ToVideoPropertiesPtrOutput() VideoPropertiesPtrOutput {
+	return i.ToVideoPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i VideoPropertiesArgs) ToVideoPropertiesPtrOutputWithContext(ctx context.Context) VideoPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VideoPropertiesOutput).ToVideoPropertiesPtrOutputWithContext(ctx)
+}
+
+// VideoPropertiesPtrInput is an input type that accepts VideoPropertiesArgs, VideoPropertiesPtr and VideoPropertiesPtrOutput values.
+// You can construct a concrete instance of `VideoPropertiesPtrInput` via:
+//
+//	        VideoPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type VideoPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToVideoPropertiesPtrOutput() VideoPropertiesPtrOutput
+	ToVideoPropertiesPtrOutputWithContext(context.Context) VideoPropertiesPtrOutput
+}
+
+type videoPropertiesPtrType VideoPropertiesArgs
+
+func VideoPropertiesPtr(v *VideoPropertiesArgs) VideoPropertiesPtrInput {
+	return (*videoPropertiesPtrType)(v)
+}
+
+func (*videoPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VideoProperties)(nil)).Elem()
+}
+
+func (i *videoPropertiesPtrType) ToVideoPropertiesPtrOutput() VideoPropertiesPtrOutput {
+	return i.ToVideoPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *videoPropertiesPtrType) ToVideoPropertiesPtrOutputWithContext(ctx context.Context) VideoPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VideoPropertiesPtrOutput)
+}
+
+// Video configuration. Default: video resolution 1280x720, bitrate 2500 kbps, 30 fps
+type VideoPropertiesOutput struct{ *pulumi.OutputState }
+
+func (VideoPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VideoProperties)(nil)).Elem()
+}
+
+func (o VideoPropertiesOutput) ToVideoPropertiesOutput() VideoPropertiesOutput {
+	return o
+}
+
+func (o VideoPropertiesOutput) ToVideoPropertiesOutputWithContext(ctx context.Context) VideoPropertiesOutput {
+	return o
+}
+
+func (o VideoPropertiesOutput) ToVideoPropertiesPtrOutput() VideoPropertiesPtrOutput {
+	return o.ToVideoPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o VideoPropertiesOutput) ToVideoPropertiesPtrOutputWithContext(ctx context.Context) VideoPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VideoProperties) *VideoProperties {
+		return &v
+	}).(VideoPropertiesPtrOutput)
+}
+
+// Bitrate for generated output, in bps. Default: 2500000.
+func (o VideoPropertiesOutput) Bitrate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VideoProperties) *int { return v.Bitrate }).(pulumi.IntPtrOutput)
+}
+
+// Video frame rate, in fps. Default: 30.
+func (o VideoPropertiesOutput) Framerate() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v VideoProperties) *float64 { return v.Framerate }).(pulumi.Float64PtrOutput)
+}
+
+// Video-resolution height. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 720.
+func (o VideoPropertiesOutput) Height() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VideoProperties) *int { return v.Height }).(pulumi.IntPtrOutput)
+}
+
+// Video-resolution width. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 1280.
+func (o VideoPropertiesOutput) Width() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VideoProperties) *int { return v.Width }).(pulumi.IntPtrOutput)
+}
+
+type VideoPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (VideoPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VideoProperties)(nil)).Elem()
+}
+
+func (o VideoPropertiesPtrOutput) ToVideoPropertiesPtrOutput() VideoPropertiesPtrOutput {
+	return o
+}
+
+func (o VideoPropertiesPtrOutput) ToVideoPropertiesPtrOutputWithContext(ctx context.Context) VideoPropertiesPtrOutput {
+	return o
+}
+
+func (o VideoPropertiesPtrOutput) Elem() VideoPropertiesOutput {
+	return o.ApplyT(func(v *VideoProperties) VideoProperties {
+		if v != nil {
+			return *v
+		}
+		var ret VideoProperties
+		return ret
+	}).(VideoPropertiesOutput)
+}
+
+// Bitrate for generated output, in bps. Default: 2500000.
+func (o VideoPropertiesPtrOutput) Bitrate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VideoProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Bitrate
+	}).(pulumi.IntPtrOutput)
+}
+
+// Video frame rate, in fps. Default: 30.
+func (o VideoPropertiesPtrOutput) Framerate() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *VideoProperties) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Framerate
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Video-resolution height. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 720.
+func (o VideoPropertiesPtrOutput) Height() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VideoProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Height
+	}).(pulumi.IntPtrOutput)
+}
+
+// Video-resolution width. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 1280.
+func (o VideoPropertiesPtrOutput) Width() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VideoProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Width
+	}).(pulumi.IntPtrOutput)
 }
 
 func init() {
@@ -602,6 +875,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationS3DestinationConfigurationPtrInput)(nil)).Elem(), RecordingConfigurationS3DestinationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationThumbnailConfigurationInput)(nil)).Elem(), RecordingConfigurationThumbnailConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationThumbnailConfigurationPtrInput)(nil)).Elem(), RecordingConfigurationThumbnailConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageConfigurationS3StorageConfigurationInput)(nil)).Elem(), StorageConfigurationS3StorageConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VideoPropertiesInput)(nil)).Elem(), VideoPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VideoPropertiesPtrInput)(nil)).Elem(), VideoPropertiesArgs{})
 	pulumi.RegisterOutputType(RecordingConfigurationDestinationConfigurationOutput{})
 	pulumi.RegisterOutputType(RecordingConfigurationRenditionConfigurationOutput{})
 	pulumi.RegisterOutputType(RecordingConfigurationRenditionConfigurationPtrOutput{})
@@ -609,4 +885,7 @@ func init() {
 	pulumi.RegisterOutputType(RecordingConfigurationS3DestinationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RecordingConfigurationThumbnailConfigurationOutput{})
 	pulumi.RegisterOutputType(RecordingConfigurationThumbnailConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(StorageConfigurationS3StorageConfigurationOutput{})
+	pulumi.RegisterOutputType(VideoPropertiesOutput{})
+	pulumi.RegisterOutputType(VideoPropertiesPtrOutput{})
 }

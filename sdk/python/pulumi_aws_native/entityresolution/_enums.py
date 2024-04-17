@@ -6,14 +6,32 @@ from enum import Enum
 
 __all__ = [
     'IdMappingWorkflowIdMappingTechniquesIdMappingType',
+    'IdMappingWorkflowInputSourceType',
+    'IdNamespaceIdMappingWorkflowPropertiesIdMappingType',
+    'IdNamespaceType',
     'MatchingWorkflowResolutionTechniquesResolutionType',
     'MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel',
+    'PolicyStatementStatementEffect',
     'SchemaMappingSchemaAttributeType',
 ]
 
 
 class IdMappingWorkflowIdMappingTechniquesIdMappingType(str, Enum):
     PROVIDER = "PROVIDER"
+
+
+class IdMappingWorkflowInputSourceType(str, Enum):
+    SOURCE = "SOURCE"
+    TARGET = "TARGET"
+
+
+class IdNamespaceIdMappingWorkflowPropertiesIdMappingType(str, Enum):
+    PROVIDER = "PROVIDER"
+
+
+class IdNamespaceType(str, Enum):
+    SOURCE = "SOURCE"
+    TARGET = "TARGET"
 
 
 class MatchingWorkflowResolutionTechniquesResolutionType(str, Enum):
@@ -25,6 +43,11 @@ class MatchingWorkflowResolutionTechniquesResolutionType(str, Enum):
 class MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel(str, Enum):
     ONE_TO_ONE = "ONE_TO_ONE"
     MANY_TO_MANY = "MANY_TO_MANY"
+
+
+class PolicyStatementStatementEffect(str, Enum):
+    ALLOW = "Allow"
+    DENY = "Deny"
 
 
 class SchemaMappingSchemaAttributeType(str, Enum):

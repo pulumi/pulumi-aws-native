@@ -39,7 +39,7 @@ namespace Pulumi.AwsNative.ElastiCache
     }
 
     /// <summary>
-    /// The unix of cached data capacity of the Serverless Cache.
+    /// The unit of cached data capacity of the Serverless Cache.
     /// </summary>
     [EnumType]
     public readonly struct ServerlessCacheDataStorageUnit : IEquatable<ServerlessCacheDataStorageUnit>

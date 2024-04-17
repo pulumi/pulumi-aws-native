@@ -31,9 +31,9 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := eventschemas.NewRegistryPolicy(ctx, "registryPolicy", &eventschemas.RegistryPolicyArgs{
 //				RegistryName: pulumi.String("registryName"),
-//				Policy: pulumi.Any{
-//					Version: "2012-10-17",
-//					Statement: map[string]interface{}{
+//				Policy: pulumi.Any(map[string]interface{}{
+//					"version": "2012-10-17",
+//					"statement": map[string]interface{}{
 //						"sid":    1,
 //						"effect": "Allow",
 //						"principal": map[string]interface{}{
@@ -45,7 +45,7 @@ import (
 //						},
 //						"resource": "registryArn",
 //					},
-//				},
+//				}),
 //			})
 //			if err != nil {
 //				return err
@@ -71,9 +71,9 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := eventschemas.NewRegistryPolicy(ctx, "registryPolicy", &eventschemas.RegistryPolicyArgs{
 //				RegistryName: pulumi.String("MyRegistry"),
-//				Policy: pulumi.Any{
-//					Version: "2012-10-17",
-//					Statement: []map[string]interface{}{
+//				Policy: pulumi.Any(map[string]interface{}{
+//					"version": "2012-10-17",
+//					"statement": []map[string]interface{}{
 //						map[string]interface{}{
 //							"sid":    "Test",
 //							"effect": "Allow",
@@ -91,7 +91,7 @@ import (
 //							},
 //						},
 //					},
-//				},
+//				}),
 //			})
 //			if err != nil {
 //				return err
@@ -117,9 +117,9 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := eventschemas.NewRegistryPolicy(ctx, "registryPolicy", &eventschemas.RegistryPolicyArgs{
 //				RegistryName: pulumi.String("MyRegistry"),
-//				Policy: pulumi.Any{
-//					Version: "2012-10-17",
-//					Statement: []map[string]interface{}{
+//				Policy: pulumi.Any(map[string]interface{}{
+//					"version": "2012-10-17",
+//					"statement": []map[string]interface{}{
 //						map[string]interface{}{
 //							"sid":    "Test",
 //							"effect": "Allow",
@@ -137,7 +137,7 @@ import (
 //							},
 //						},
 //					},
-//				},
+//				}),
 //			})
 //			if err != nil {
 //				return err

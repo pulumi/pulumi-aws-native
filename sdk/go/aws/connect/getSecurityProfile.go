@@ -29,10 +29,20 @@ type LookupSecurityProfileArgs struct {
 }
 
 type LookupSecurityProfileResult struct {
+	// The identifier of the hierarchy group that a security profile uses to restrict access to resources in Amazon Connect.
+	AllowedAccessControlHierarchyGroupId *string `pulumi:"allowedAccessControlHierarchyGroupId"`
 	// The list of tags that a security profile uses to restrict access to resources in Amazon Connect.
 	AllowedAccessControlTags []SecurityProfileTag `pulumi:"allowedAccessControlTags"`
+	// A list of third-party applications that the security profile will give access to.
+	Applications []SecurityProfileApplication `pulumi:"applications"`
 	// The description of the security profile.
 	Description *string `pulumi:"description"`
+	// The list of resources that a security profile applies hierarchy restrictions to in Amazon Connect.
+	HierarchyRestrictedResources []string `pulumi:"hierarchyRestrictedResources"`
+	// The AWS Region where this resource was last modified.
+	LastModifiedRegion *string `pulumi:"lastModifiedRegion"`
+	// The timestamp when this resource was last modified.
+	LastModifiedTime *float64 `pulumi:"lastModifiedTime"`
 	// Permissions assigned to the security profile.
 	Permissions []string `pulumi:"permissions"`
 	// The Amazon Resource Name (ARN) for the security profile.
@@ -79,14 +89,39 @@ func (o LookupSecurityProfileResultOutput) ToLookupSecurityProfileResultOutputWi
 	return o
 }
 
+// The identifier of the hierarchy group that a security profile uses to restrict access to resources in Amazon Connect.
+func (o LookupSecurityProfileResultOutput) AllowedAccessControlHierarchyGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSecurityProfileResult) *string { return v.AllowedAccessControlHierarchyGroupId }).(pulumi.StringPtrOutput)
+}
+
 // The list of tags that a security profile uses to restrict access to resources in Amazon Connect.
 func (o LookupSecurityProfileResultOutput) AllowedAccessControlTags() SecurityProfileTagArrayOutput {
 	return o.ApplyT(func(v LookupSecurityProfileResult) []SecurityProfileTag { return v.AllowedAccessControlTags }).(SecurityProfileTagArrayOutput)
 }
 
+// A list of third-party applications that the security profile will give access to.
+func (o LookupSecurityProfileResultOutput) Applications() SecurityProfileApplicationArrayOutput {
+	return o.ApplyT(func(v LookupSecurityProfileResult) []SecurityProfileApplication { return v.Applications }).(SecurityProfileApplicationArrayOutput)
+}
+
 // The description of the security profile.
 func (o LookupSecurityProfileResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSecurityProfileResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The list of resources that a security profile applies hierarchy restrictions to in Amazon Connect.
+func (o LookupSecurityProfileResultOutput) HierarchyRestrictedResources() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupSecurityProfileResult) []string { return v.HierarchyRestrictedResources }).(pulumi.StringArrayOutput)
+}
+
+// The AWS Region where this resource was last modified.
+func (o LookupSecurityProfileResultOutput) LastModifiedRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSecurityProfileResult) *string { return v.LastModifiedRegion }).(pulumi.StringPtrOutput)
+}
+
+// The timestamp when this resource was last modified.
+func (o LookupSecurityProfileResultOutput) LastModifiedTime() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v LookupSecurityProfileResult) *float64 { return v.LastModifiedTime }).(pulumi.Float64PtrOutput)
 }
 
 // Permissions assigned to the security profile.

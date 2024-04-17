@@ -12,6 +12,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'IdentitySourceCognitoGroupConfiguration',
     'IdentitySourceCognitoUserPoolConfiguration',
     'IdentitySourceConfiguration',
     'IdentitySourceDetails',
@@ -25,6 +26,35 @@ __all__ = [
 ]
 
 @pulumi.output_type
+class IdentitySourceCognitoGroupConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupEntityType":
+            suggest = "group_entity_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdentitySourceCognitoGroupConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdentitySourceCognitoGroupConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdentitySourceCognitoGroupConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 group_entity_type: str):
+        pulumi.set(__self__, "group_entity_type", group_entity_type)
+
+    @property
+    @pulumi.getter(name="groupEntityType")
+    def group_entity_type(self) -> str:
+        return pulumi.get(self, "group_entity_type")
+
+
+@pulumi.output_type
 class IdentitySourceCognitoUserPoolConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -33,6 +63,8 @@ class IdentitySourceCognitoUserPoolConfiguration(dict):
             suggest = "user_pool_arn"
         elif key == "clientIds":
             suggest = "client_ids"
+        elif key == "groupConfiguration":
+            suggest = "group_configuration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in IdentitySourceCognitoUserPoolConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -47,10 +79,13 @@ class IdentitySourceCognitoUserPoolConfiguration(dict):
 
     def __init__(__self__, *,
                  user_pool_arn: str,
-                 client_ids: Optional[Sequence[str]] = None):
+                 client_ids: Optional[Sequence[str]] = None,
+                 group_configuration: Optional['outputs.IdentitySourceCognitoGroupConfiguration'] = None):
         pulumi.set(__self__, "user_pool_arn", user_pool_arn)
         if client_ids is not None:
             pulumi.set(__self__, "client_ids", client_ids)
+        if group_configuration is not None:
+            pulumi.set(__self__, "group_configuration", group_configuration)
 
     @property
     @pulumi.getter(name="userPoolArn")
@@ -61,6 +96,11 @@ class IdentitySourceCognitoUserPoolConfiguration(dict):
     @pulumi.getter(name="clientIds")
     def client_ids(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "client_ids")
+
+    @property
+    @pulumi.getter(name="groupConfiguration")
+    def group_configuration(self) -> Optional['outputs.IdentitySourceCognitoGroupConfiguration']:
+        return pulumi.get(self, "group_configuration")
 
 
 @pulumi.output_type

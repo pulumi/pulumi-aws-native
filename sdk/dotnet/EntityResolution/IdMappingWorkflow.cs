@@ -117,7 +117,7 @@ namespace Pulumi.AwsNative.EntityResolution
             set => _inputSourceConfig = value;
         }
 
-        [Input("outputSourceConfig", required: true)]
+        [Input("outputSourceConfig")]
         private InputList<Inputs.IdMappingWorkflowOutputSourceArgs>? _outputSourceConfig;
         public InputList<Inputs.IdMappingWorkflowOutputSourceArgs> OutputSourceConfig
         {

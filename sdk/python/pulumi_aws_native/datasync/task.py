@@ -24,6 +24,7 @@ class TaskArgs:
                  cloud_watch_log_group_arn: Optional[pulumi.Input[str]] = None,
                  excludes: Optional[pulumi.Input[Sequence[pulumi.Input['TaskFilterRuleArgs']]]] = None,
                  includes: Optional[pulumi.Input[Sequence[pulumi.Input['TaskFilterRuleArgs']]]] = None,
+                 manifest_config: Optional[pulumi.Input['TaskManifestConfigArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  options: Optional[pulumi.Input['TaskOptionsArgs']] = None,
                  schedule: Optional[pulumi.Input['TaskScheduleArgs']] = None,
@@ -45,6 +46,8 @@ class TaskArgs:
             pulumi.set(__self__, "excludes", excludes)
         if includes is not None:
             pulumi.set(__self__, "includes", includes)
+        if manifest_config is not None:
+            pulumi.set(__self__, "manifest_config", manifest_config)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if options is not None:
@@ -111,6 +114,15 @@ class TaskArgs:
         pulumi.set(self, "includes", value)
 
     @property
+    @pulumi.getter(name="manifestConfig")
+    def manifest_config(self) -> Optional[pulumi.Input['TaskManifestConfigArgs']]:
+        return pulumi.get(self, "manifest_config")
+
+    @manifest_config.setter
+    def manifest_config(self, value: Optional[pulumi.Input['TaskManifestConfigArgs']]):
+        pulumi.set(self, "manifest_config", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -171,6 +183,7 @@ class Task(pulumi.CustomResource):
                  destination_location_arn: Optional[pulumi.Input[str]] = None,
                  excludes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskFilterRuleArgs']]]]] = None,
                  includes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskFilterRuleArgs']]]]] = None,
+                 manifest_config: Optional[pulumi.Input[pulumi.InputType['TaskManifestConfigArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  options: Optional[pulumi.Input[pulumi.InputType['TaskOptionsArgs']]] = None,
                  schedule: Optional[pulumi.Input[pulumi.InputType['TaskScheduleArgs']]] = None,
@@ -265,6 +278,7 @@ class Task(pulumi.CustomResource):
                  destination_location_arn: Optional[pulumi.Input[str]] = None,
                  excludes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskFilterRuleArgs']]]]] = None,
                  includes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskFilterRuleArgs']]]]] = None,
+                 manifest_config: Optional[pulumi.Input[pulumi.InputType['TaskManifestConfigArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  options: Optional[pulumi.Input[pulumi.InputType['TaskOptionsArgs']]] = None,
                  schedule: Optional[pulumi.Input[pulumi.InputType['TaskScheduleArgs']]] = None,
@@ -286,6 +300,7 @@ class Task(pulumi.CustomResource):
             __props__.__dict__["destination_location_arn"] = destination_location_arn
             __props__.__dict__["excludes"] = excludes
             __props__.__dict__["includes"] = includes
+            __props__.__dict__["manifest_config"] = manifest_config
             __props__.__dict__["name"] = name
             __props__.__dict__["options"] = options
             __props__.__dict__["schedule"] = schedule
@@ -327,6 +342,7 @@ class Task(pulumi.CustomResource):
         __props__.__dict__["destination_network_interface_arns"] = None
         __props__.__dict__["excludes"] = None
         __props__.__dict__["includes"] = None
+        __props__.__dict__["manifest_config"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["options"] = None
         __props__.__dict__["schedule"] = None
@@ -368,6 +384,11 @@ class Task(pulumi.CustomResource):
     @pulumi.getter
     def includes(self) -> pulumi.Output[Optional[Sequence['outputs.TaskFilterRule']]]:
         return pulumi.get(self, "includes")
+
+    @property
+    @pulumi.getter(name="manifestConfig")
+    def manifest_config(self) -> pulumi.Output[Optional['outputs.TaskManifestConfig']]:
+        return pulumi.get(self, "manifest_config")
 
     @property
     @pulumi.getter

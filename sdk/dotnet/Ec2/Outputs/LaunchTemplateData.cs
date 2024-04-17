@@ -97,7 +97,9 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         ///   +   ``AllowedInstanceTypes`` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
         ///   +   ``ExcludedInstanceTypes`` - The instance types to exclude from the list, even if they match your specified attributes.
         ///   
-        ///   If you specify ``InstanceReq
+        ///   If you specify ``InstanceRequirements``, you can't specify ``InstanceType``.
+        ///  Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the [launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html), or with the [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API or [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) AWS CloudFormation resource, you can't specify ``InstanceRequirements``.
+        ///   For more information, see [Attribute-based instance type selection for EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html), [Attribute-based instance type selection for Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html), and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide*.
         /// </summary>
         public readonly Outputs.LaunchTemplateInstanceRequirements? InstanceRequirements;
         /// <summary>
@@ -132,7 +134,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// </summary>
         public readonly Outputs.LaunchTemplateMonitoring? Monitoring;
         /// <summary>
-        /// One or more network interfaces. If you specify a network interface, you must specify any security groups and subnets as part of the network interface.
+        /// The network interfaces for the instance.
         /// </summary>
         public readonly ImmutableArray<Outputs.LaunchTemplateNetworkInterface> NetworkInterfaces;
         /// <summary>
@@ -150,10 +152,12 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         public readonly string? RamDiskId;
         /// <summary>
         /// The IDs of the security groups. You can specify the IDs of existing security groups and references to resources created by the stack template.
+        ///  If you specify a network interface, you must specify any security groups as part of the network interface instead.
         /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
         /// <summary>
-        /// One or more security group names. For a nondefault VPC, you must use security group IDs instead.
+        /// The names of the security groups. For a nondefault VPC, you must use security group IDs instead.
+        ///  If you specify a network interface, you must specify any security groups as part of the network interface instead of using this parameter.
         /// </summary>
         public readonly ImmutableArray<string> SecurityGroups;
         /// <summary>

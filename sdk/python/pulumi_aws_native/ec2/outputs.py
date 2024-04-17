@@ -3314,7 +3314,9 @@ class LaunchTemplateData(dict):
                  +   ``AllowedInstanceTypes`` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
                  +   ``ExcludedInstanceTypes`` - The instance types to exclude from the list, even if they match your specified attributes.
                  
-                 If you specify ``InstanceReq
+                 If you specify ``InstanceRequirements``, you can't specify ``InstanceType``.
+                Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the [launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html), or with the [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API or [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) AWS CloudFormation resource, you can't specify ``InstanceRequirements``.
+                 For more information, see [Attribute-based instance type selection for EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html), [Attribute-based instance type selection for Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html), and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide*.
         :param str instance_type: The instance type. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon Elastic Compute Cloud User Guide*.
                 If you specify ``InstanceType``, you can't specify ``InstanceRequirements``.
         :param str kernel_id: The ID of the kernel.
@@ -3325,13 +3327,15 @@ class LaunchTemplateData(dict):
         :param 'LaunchTemplateMaintenanceOptions' maintenance_options: The maintenance options of your instance.
         :param 'LaunchTemplateMetadataOptions' metadata_options: The metadata options for the instance. For more information, see [Instance metadata and user data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) in the *Amazon Elastic Compute Cloud User Guide*.
         :param 'LaunchTemplateMonitoring' monitoring: The monitoring for the instance.
-        :param Sequence['LaunchTemplateNetworkInterface'] network_interfaces: One or more network interfaces. If you specify a network interface, you must specify any security groups and subnets as part of the network interface.
+        :param Sequence['LaunchTemplateNetworkInterface'] network_interfaces: The network interfaces for the instance.
         :param 'LaunchTemplatePlacement' placement: The placement for the instance.
         :param 'LaunchTemplatePrivateDnsNameOptions' private_dns_name_options: The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
         :param str ram_disk_id: The ID of the RAM disk.
                  We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see [User provided kernels](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html) in the *Amazon Elastic Compute Cloud User Guide*.
         :param Sequence[str] security_group_ids: The IDs of the security groups. You can specify the IDs of existing security groups and references to resources created by the stack template.
-        :param Sequence[str] security_groups: One or more security group names. For a nondefault VPC, you must use security group IDs instead.
+                If you specify a network interface, you must specify any security groups as part of the network interface instead.
+        :param Sequence[str] security_groups: The names of the security groups. For a nondefault VPC, you must use security group IDs instead.
+                If you specify a network interface, you must specify any security groups as part of the network interface instead of using this parameter.
         :param Sequence['TagSpecification'] tag_specifications: The tags to apply to the resources that are created during instance launch.
                 To tag a resource after it has been created, see [CreateTags](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html).
                 To tag the launch template itself, use [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#cfn-ec2-launchtemplate-tagspecifications).
@@ -3544,7 +3548,9 @@ class LaunchTemplateData(dict):
           +   ``AllowedInstanceTypes`` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
           +   ``ExcludedInstanceTypes`` - The instance types to exclude from the list, even if they match your specified attributes.
           
-          If you specify ``InstanceReq
+          If you specify ``InstanceRequirements``, you can't specify ``InstanceType``.
+         Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the [launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html), or with the [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API or [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) AWS CloudFormation resource, you can't specify ``InstanceRequirements``.
+          For more information, see [Attribute-based instance type selection for EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html), [Attribute-based instance type selection for Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html), and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide*.
         """
         return pulumi.get(self, "instance_requirements")
 
@@ -3611,7 +3617,7 @@ class LaunchTemplateData(dict):
     @pulumi.getter(name="networkInterfaces")
     def network_interfaces(self) -> Optional[Sequence['outputs.LaunchTemplateNetworkInterface']]:
         """
-        One or more network interfaces. If you specify a network interface, you must specify any security groups and subnets as part of the network interface.
+        The network interfaces for the instance.
         """
         return pulumi.get(self, "network_interfaces")
 
@@ -3645,6 +3651,7 @@ class LaunchTemplateData(dict):
     def security_group_ids(self) -> Optional[Sequence[str]]:
         """
         The IDs of the security groups. You can specify the IDs of existing security groups and references to resources created by the stack template.
+         If you specify a network interface, you must specify any security groups as part of the network interface instead.
         """
         return pulumi.get(self, "security_group_ids")
 
@@ -3652,7 +3659,8 @@ class LaunchTemplateData(dict):
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Optional[Sequence[str]]:
         """
-        One or more security group names. For a nondefault VPC, you must use security group IDs instead.
+        The names of the security groups. For a nondefault VPC, you must use security group IDs instead.
+         If you specify a network interface, you must specify any security groups as part of the network interface instead of using this parameter.
         """
         return pulumi.get(self, "security_groups")
 
@@ -3739,7 +3747,7 @@ class LaunchTemplateEbs(dict):
                  +   ``io2``: 4 - 65,536 GiB
                  +   ``st1`` and ``sc1``: 125 - 16,384 GiB
                  +   ``standard``: 1 - 1024 GiB
-        :param str volume_type: The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html) in the *Amazon Elastic Compute Cloud User Guide*.
+        :param str volume_type: The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide*.
         """
         if delete_on_termination is not None:
             pulumi.set(__self__, "delete_on_termination", delete_on_termination)
@@ -3831,7 +3839,7 @@ class LaunchTemplateEbs(dict):
     @pulumi.getter(name="volumeType")
     def volume_type(self) -> Optional[str]:
         """
-        The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html) in the *Amazon Elastic Compute Cloud User Guide*.
+        The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide*.
         """
         return pulumi.get(self, "volume_type")
 
@@ -3839,13 +3847,15 @@ class LaunchTemplateEbs(dict):
 @pulumi.output_type
 class LaunchTemplateElasticGpuSpecification(dict):
     """
-    Specifies a specification for an Elastic GPU for an Amazon EC2 launch template.
+    Amazon Elastic Graphics reached end of life on January 8, 2024. For workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad, G4dn, or G5 instances.
+      Specifies a specification for an Elastic GPU for an Amazon EC2 launch template.
       ``ElasticGpuSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
     """
     def __init__(__self__, *,
                  type: Optional[str] = None):
         """
-        Specifies a specification for an Elastic GPU for an Amazon EC2 launch template.
+        Amazon Elastic Graphics reached end of life on January 8, 2024. For workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad, G4dn, or G5 instances.
+          Specifies a specification for an Elastic GPU for an Amazon EC2 launch template.
           ``ElasticGpuSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
         :param str type: The type of Elastic Graphics accelerator. For more information about the values to specify for ``Type``, see [Elastic Graphics Basics](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html#elastic-graphics-basics), specifically the Elastic Graphics accelerator column, in the *Amazon Elastic Compute Cloud User Guide for Windows Instances*.
         """
@@ -3865,14 +3875,14 @@ class LaunchTemplateElasticGpuSpecification(dict):
 class LaunchTemplateElasticInferenceAccelerator(dict):
     """
     Specifies an elastic inference accelerator.
-     ``LaunchTemplateElasticInferenceAccelerator`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+      ``LaunchTemplateElasticInferenceAccelerator`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
     """
     def __init__(__self__, *,
                  count: Optional[int] = None,
                  type: Optional[str] = None):
         """
         Specifies an elastic inference accelerator.
-         ``LaunchTemplateElasticInferenceAccelerator`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+          ``LaunchTemplateElasticInferenceAccelerator`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
         :param int count: The number of elastic inference accelerators to attach to the instance. 
                 Default: 1
         :param str type: The type of elastic inference accelerator. The possible values are eia1.medium, eia1.large, and eia1.xlarge.
@@ -4050,7 +4060,7 @@ class LaunchTemplateHibernationOptions(dict):
 class LaunchTemplateIamInstanceProfile(dict):
     """
     Specifies an IAM instance profile, which is a container for an IAM role for your instance. You can use an IAM role to distribute your AWS credentials to your instances.
-     If you are creating the launch template for use with an Amazon EC2 Auto Scaling group, you can specify either the name or the ARN of the instance profile, but not both.
+     If you are creating the launch template for use with an ASlong group, you can specify either the name or the ARN of the instance profile, but not both.
       ``IamInstanceProfile`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
     """
     def __init__(__self__, *,
@@ -4058,7 +4068,7 @@ class LaunchTemplateIamInstanceProfile(dict):
                  name: Optional[str] = None):
         """
         Specifies an IAM instance profile, which is a container for an IAM role for your instance. You can use an IAM role to distribute your AWS credentials to your instances.
-         If you are creating the launch template for use with an Amazon EC2 Auto Scaling group, you can specify either the name or the ARN of the instance profile, but not both.
+         If you are creating the launch template for use with an ASlong group, you can specify either the name or the ARN of the instance profile, but not both.
           ``IamInstanceProfile`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
         :param str arn: The Amazon Resource Name (ARN) of the instance profile.
         :param str name: The name of the instance profile.
@@ -4089,7 +4099,7 @@ class LaunchTemplateIamInstanceProfile(dict):
 class LaunchTemplateInstanceMarketOptions(dict):
     """
     Specifies the market (purchasing) option for an instance.
-     ``InstanceMarketOptions`` is a property of the [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+      ``InstanceMarketOptions`` is a property of the [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
     """
     @staticmethod
     def __key_warning(key: str):
@@ -4115,7 +4125,7 @@ class LaunchTemplateInstanceMarketOptions(dict):
                  spot_options: Optional['outputs.LaunchTemplateSpotOptions'] = None):
         """
         Specifies the market (purchasing) option for an instance.
-         ``InstanceMarketOptions`` is a property of the [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+          ``InstanceMarketOptions`` is a property of the [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
         :param str market_type: The market type.
         :param 'LaunchTemplateSpotOptions' spot_options: The options for Spot Instances.
         """
@@ -4151,7 +4161,9 @@ class LaunchTemplateInstanceRequirements(dict):
       +   ``AllowedInstanceTypes`` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
       +   ``ExcludedInstanceTypes`` - The instance types to exclude from the list, even if they match your specified attributes.
       
-      If you specify ``InstanceReq
+      If you specify ``InstanceRequirements``, you can't specify ``InstanceType``.
+     Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the [launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html), or with the [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API or [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) AWS CloudFormation resource, you can't specify ``InstanceRequirements``.
+      For more information, see [Attribute-based instance type selection for EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html), [Attribute-based instance type selection for Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html), and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide*.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -4249,7 +4261,9 @@ class LaunchTemplateInstanceRequirements(dict):
           +   ``AllowedInstanceTypes`` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
           +   ``ExcludedInstanceTypes`` - The instance types to exclude from the list, even if they match your specified attributes.
           
-          If you specify ``InstanceReq
+          If you specify ``InstanceRequirements``, you can't specify ``InstanceType``.
+         Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the [launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html), or with the [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API or [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) AWS CloudFormation resource, you can't specify ``InstanceRequirements``.
+          For more information, see [Attribute-based instance type selection for EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html), [Attribute-based instance type selection for Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html), and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide*.
         :param 'LaunchTemplateAcceleratorCount' accelerator_count: The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) on an instance.
                 To exclude accelerator-enabled instance types, set ``Max`` to ``0``.
                 Default: No minimum or maximum limits
@@ -4332,8 +4346,8 @@ class LaunchTemplateInstanceRequirements(dict):
                 Default: ``hdd`` and ``ssd``
         :param int max_spot_price_as_percentage_of_optimal_on_demand_price: [Price protection] The price protection threshold for Spot Instances, as a percentage of an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
                 The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
-                To indicate no price protection threshold, specify a high value, such as ``999999``.
-                If you set ``DesiredCapacityType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is based on the per vCPU or per memory price instead of the per instanc
+                If you set ``DesiredCapacityType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is based on the per vCPU or per memory price instead of the per instance price.
+                 Only one of ``SpotMaxPricePercentageOverLowestPrice`` or ``MaxSpotPriceAsPercentageOfOptimalOnDemandPrice`` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as ``999999``.
         :param 'LaunchTemplateMemoryGiBPerVCpu' memory_gi_b_per_v_cpu: The minimum and maximum amount of memory per vCPU, in GiB.
                 Default: No minimum or maximum limits
         :param 'LaunchTemplateMemoryMiB' memory_mi_b: The minimum and maximum amount of memory, in MiB.
@@ -4345,14 +4359,17 @@ class LaunchTemplateInstanceRequirements(dict):
                 The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
                 To turn off price protection, specify a high value, such as ``999999``.
                 This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html).
-                 If you set ``TargetCapacityUnitType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is applied based on the per-
+                 If you set ``TargetCapacityUnitType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
+                 Default: ``20``
         :param bool require_hibernate_support: Indicates whether instance types must support hibernation for On-Demand Instances.
                 This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html).
                 Default: ``false``
         :param int spot_max_price_percentage_over_lowest_price: [Price protection] The price protection threshold for Spot Instances, as a percentage higher than an identified Spot price. The identified Spot price is the Spot price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified Spot price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose Spot price exceeds your specified threshold.
                 The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
-                To indicate no price protection threshold, specify a high value, such as ``999999``.
-                If you set ``TargetCapacityUnitType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is applied based on the per-vCPU or per-memory price i
+                If you set ``TargetCapacityUnitType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
+                This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html).
+                 Only one of ``SpotMaxPricePercentageOverLowestPrice`` or ``MaxSpotPriceAsPercentageOfOptimalOnDemandPrice`` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as ``999999``.
+                 Default: ``100``
         :param 'LaunchTemplateTotalLocalStorageGb' total_local_storage_gb: The minimum and maximum amount of total local storage, in GB.
                 Default: No minimum or maximum limits
         :param 'LaunchTemplateVCpuCount' v_cpu_count: The minimum and maximum number of vCPUs.
@@ -4590,8 +4607,8 @@ class LaunchTemplateInstanceRequirements(dict):
         """
         [Price protection] The price protection threshold for Spot Instances, as a percentage of an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
          The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
-         To indicate no price protection threshold, specify a high value, such as ``999999``.
-         If you set ``DesiredCapacityType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is based on the per vCPU or per memory price instead of the per instanc
+         If you set ``DesiredCapacityType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is based on the per vCPU or per memory price instead of the per instance price.
+          Only one of ``SpotMaxPricePercentageOverLowestPrice`` or ``MaxSpotPriceAsPercentageOfOptimalOnDemandPrice`` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as ``999999``.
         """
         return pulumi.get(self, "max_spot_price_as_percentage_of_optimal_on_demand_price")
 
@@ -4638,7 +4655,8 @@ class LaunchTemplateInstanceRequirements(dict):
          The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
          To turn off price protection, specify a high value, such as ``999999``.
          This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html).
-          If you set ``TargetCapacityUnitType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is applied based on the per-
+          If you set ``TargetCapacityUnitType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
+          Default: ``20``
         """
         return pulumi.get(self, "on_demand_max_price_percentage_over_lowest_price")
 
@@ -4658,8 +4676,10 @@ class LaunchTemplateInstanceRequirements(dict):
         """
         [Price protection] The price protection threshold for Spot Instances, as a percentage higher than an identified Spot price. The identified Spot price is the Spot price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified Spot price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose Spot price exceeds your specified threshold.
          The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
-         To indicate no price protection threshold, specify a high value, such as ``999999``.
-         If you set ``TargetCapacityUnitType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is applied based on the per-vCPU or per-memory price i
+         If you set ``TargetCapacityUnitType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
+         This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html).
+          Only one of ``SpotMaxPricePercentageOverLowestPrice`` or ``MaxSpotPriceAsPercentageOfOptimalOnDemandPrice`` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as ``999999``.
+          Default: ``100``
         """
         return pulumi.get(self, "spot_max_price_percentage_over_lowest_price")
 
@@ -4685,7 +4705,7 @@ class LaunchTemplateInstanceRequirements(dict):
 class LaunchTemplateIpv4PrefixSpecification(dict):
     """
     Specifies an IPv4 prefix for a network interface.
-     ``Ipv4PrefixSpecification`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
+      ``Ipv4PrefixSpecification`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
     """
     @staticmethod
     def __key_warning(key: str):
@@ -4708,7 +4728,7 @@ class LaunchTemplateIpv4PrefixSpecification(dict):
                  ipv4_prefix: Optional[str] = None):
         """
         Specifies an IPv4 prefix for a network interface.
-         ``Ipv4PrefixSpecification`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
+          ``Ipv4PrefixSpecification`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
         :param str ipv4_prefix: The IPv4 prefix. For information, see [Assigning prefixes to Amazon EC2 network interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html) in the *Amazon Elastic Compute Cloud User Guide*.
         """
         if ipv4_prefix is not None:
@@ -4727,7 +4747,7 @@ class LaunchTemplateIpv4PrefixSpecification(dict):
 class LaunchTemplateIpv6Add(dict):
     """
     Specifies an IPv6 address in an Amazon EC2 launch template.
-     ``Ipv6Add`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
+      ``Ipv6Add`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
     """
     @staticmethod
     def __key_warning(key: str):
@@ -4750,7 +4770,7 @@ class LaunchTemplateIpv6Add(dict):
                  ipv6_address: Optional[str] = None):
         """
         Specifies an IPv6 address in an Amazon EC2 launch template.
-         ``Ipv6Add`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
+          ``Ipv6Add`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
         :param str ipv6_address: One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying a number of IPv6 addresses.
         """
         if ipv6_address is not None:
@@ -4769,7 +4789,7 @@ class LaunchTemplateIpv6Add(dict):
 class LaunchTemplateIpv6PrefixSpecification(dict):
     """
     Specifies an IPv6 prefix for a network interface.
-     ``Ipv6PrefixSpecification`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
+      ``Ipv6PrefixSpecification`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
     """
     @staticmethod
     def __key_warning(key: str):
@@ -4792,7 +4812,7 @@ class LaunchTemplateIpv6PrefixSpecification(dict):
                  ipv6_prefix: Optional[str] = None):
         """
         Specifies an IPv6 prefix for a network interface.
-         ``Ipv6PrefixSpecification`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
+          ``Ipv6PrefixSpecification`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
         :param str ipv6_prefix: The IPv6 prefix.
         """
         if ipv6_prefix is not None:
@@ -4811,7 +4831,7 @@ class LaunchTemplateIpv6PrefixSpecification(dict):
 class LaunchTemplateLicenseSpecification(dict):
     """
     Specifies a license configuration for an instance.
-     ``LicenseSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+      ``LicenseSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
     """
     @staticmethod
     def __key_warning(key: str):
@@ -4834,7 +4854,7 @@ class LaunchTemplateLicenseSpecification(dict):
                  license_configuration_arn: Optional[str] = None):
         """
         Specifies a license configuration for an instance.
-         ``LicenseSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+          ``LicenseSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
         :param str license_configuration_arn: The Amazon Resource Name (ARN) of the license configuration.
         """
         if license_configuration_arn is not None:
@@ -4859,8 +4879,6 @@ class LaunchTemplateMaintenanceOptions(dict):
         suggest = None
         if key == "autoRecovery":
             suggest = "auto_recovery"
-        elif key == "rebootMigration":
-            suggest = "reboot_migration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in LaunchTemplateMaintenanceOptions. Access the value via the '{suggest}' property getter instead.")
@@ -4874,16 +4892,13 @@ class LaunchTemplateMaintenanceOptions(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 auto_recovery: Optional[str] = None,
-                 reboot_migration: Optional[str] = None):
+                 auto_recovery: Optional[str] = None):
         """
         The maintenance options of your instance.
         :param str auto_recovery: Disables the automatic recovery behavior of your instance or sets it to default.
         """
         if auto_recovery is not None:
             pulumi.set(__self__, "auto_recovery", auto_recovery)
-        if reboot_migration is not None:
-            pulumi.set(__self__, "reboot_migration", reboot_migration)
 
     @property
     @pulumi.getter(name="autoRecovery")
@@ -4892,11 +4907,6 @@ class LaunchTemplateMaintenanceOptions(dict):
         Disables the automatic recovery behavior of your instance or sets it to default.
         """
         return pulumi.get(self, "auto_recovery")
-
-    @property
-    @pulumi.getter(name="rebootMigration")
-    def reboot_migration(self) -> Optional[str]:
-        return pulumi.get(self, "reboot_migration")
 
 
 @pulumi.output_type
@@ -4973,7 +4983,7 @@ class LaunchTemplateMemoryMiB(dict):
 class LaunchTemplateMetadataOptions(dict):
     """
     The metadata options for the instance. For more information, see [Instance metadata and user data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) in the *Amazon EC2 User Guide*.
-     ``MetadataOptions`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+      ``MetadataOptions`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
     """
     @staticmethod
     def __key_warning(key: str):
@@ -5008,7 +5018,7 @@ class LaunchTemplateMetadataOptions(dict):
                  instance_metadata_tags: Optional[str] = None):
         """
         The metadata options for the instance. For more information, see [Instance metadata and user data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) in the *Amazon EC2 User Guide*.
-         ``MetadataOptions`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+          ``MetadataOptions`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
         :param str http_endpoint: Enables or disables the HTTP metadata endpoint on your instances. If the parameter is not specified, the default state is ``enabled``.
                  If you specify a value of ``disabled``, you will not be able to access your instance metadata.
         :param str http_protocol_ipv6: Enables or disables the IPv6 endpoint for the instance metadata service.
@@ -5089,13 +5099,13 @@ class LaunchTemplateMetadataOptions(dict):
 class LaunchTemplateMonitoring(dict):
     """
     Specifies whether detailed monitoring is enabled for an instance. For more information about detailed monitoring, see [Enable or turn off detailed monitoring for your instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch-new.html) in the *User Guide*.
-     ``Monitoring`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+      ``Monitoring`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
     """
     def __init__(__self__, *,
                  enabled: Optional[bool] = None):
         """
         Specifies whether detailed monitoring is enabled for an instance. For more information about detailed monitoring, see [Enable or turn off detailed monitoring for your instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch-new.html) in the *User Guide*.
-         ``Monitoring`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+          ``Monitoring`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
         :param bool enabled: Specify ``true`` to enable detailed monitoring. Otherwise, basic monitoring is enabled.
         """
         if enabled is not None:
@@ -5151,7 +5161,7 @@ class LaunchTemplateNetworkBandwidthGbps(dict):
 class LaunchTemplateNetworkInterface(dict):
     """
     Specifies the parameters for a network interface.
-     ``NetworkInterface`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+      ``NetworkInterface`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
     """
     @staticmethod
     def __key_warning(key: str):
@@ -5233,7 +5243,7 @@ class LaunchTemplateNetworkInterface(dict):
                  subnet_id: Optional[str] = None):
         """
         Specifies the parameters for a network interface.
-         ``NetworkInterface`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+          ``NetworkInterface`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
         :param bool associate_carrier_ip_address: Associates a Carrier IP address with eth0 for a new network interface.
                 Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. For more information about Carrier IP addresses, see [Carrier IP addresses](https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#provider-owned-ip) in the *Developer Guide*.
         :param bool associate_public_ip_address: Associates a public IPv4 address with eth0 for a new network interface.
@@ -5526,7 +5536,7 @@ class LaunchTemplateNetworkInterfaceCount(dict):
 class LaunchTemplatePlacement(dict):
     """
     Specifies the placement of an instance.
-     ``Placement`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+      ``Placement`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
     """
     @staticmethod
     def __key_warning(key: str):
@@ -5569,7 +5579,7 @@ class LaunchTemplatePlacement(dict):
                  tenancy: Optional[str] = None):
         """
         Specifies the placement of an instance.
-         ``Placement`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+          ``Placement`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
         :param str affinity: The affinity setting for an instance on a Dedicated Host.
         :param str availability_zone: The Availability Zone for the instance.
         :param str group_id: The Group Id of a placement group. You must specify the Placement Group *Group Id* to launch an instance in a shared placement group.
@@ -5744,7 +5754,7 @@ class LaunchTemplatePrivateDnsNameOptions(dict):
 class LaunchTemplatePrivateIpAdd(dict):
     """
     Specifies a secondary private IPv4 address for a network interface.
-     ``PrivateIpAdd`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
+      ``PrivateIpAdd`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
     """
     @staticmethod
     def __key_warning(key: str):
@@ -5768,7 +5778,7 @@ class LaunchTemplatePrivateIpAdd(dict):
                  private_ip_address: Optional[str] = None):
         """
         Specifies a secondary private IPv4 address for a network interface.
-         ``PrivateIpAdd`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
+          ``PrivateIpAdd`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
         :param bool primary: Indicates whether the private IPv4 address is the primary private IPv4 address. Only one IPv4 address can be designated as primary.
         :param str private_ip_address: The private IPv4 address.
         """
@@ -5798,7 +5808,7 @@ class LaunchTemplatePrivateIpAdd(dict):
 class LaunchTemplateSpotOptions(dict):
     """
     Specifies options for Spot Instances.
-     ``SpotOptions`` is a property of [AWS::EC2::LaunchTemplate InstanceMarketOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions.html).
+      ``SpotOptions`` is a property of [AWS::EC2::LaunchTemplate InstanceMarketOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions.html).
     """
     @staticmethod
     def __key_warning(key: str):
@@ -5833,13 +5843,13 @@ class LaunchTemplateSpotOptions(dict):
                  valid_until: Optional[str] = None):
         """
         Specifies options for Spot Instances.
-         ``SpotOptions`` is a property of [AWS::EC2::LaunchTemplate InstanceMarketOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions.html).
+          ``SpotOptions`` is a property of [AWS::EC2::LaunchTemplate InstanceMarketOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions.html).
         :param int block_duration_minutes: Deprecated.
         :param str instance_interruption_behavior: The behavior when a Spot Instance is interrupted. The default is ``terminate``.
         :param str max_price: The maximum hourly price you're willing to pay for the Spot Instances. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
                  If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter.
         :param str spot_instance_type: The Spot Instance request type.
-                If you are using Spot Instances with an Auto Scaling group, use ``one-time`` requests, as the Amazon EC2 Auto Scaling service handles requesting new Spot Instances whenever the group is below its desired capacity.
+                If you are using Spot Instances with an Auto Scaling group, use ``one-time`` requests, as the ASlong service handles requesting new Spot Instances whenever the group is below its desired capacity.
         :param str valid_until: The end date of the request, in UTC format (*YYYY-MM-DD*T*HH:MM:SS*Z). Supported only for persistent requests.
                  +  For a persistent request, the request remains active until the ``ValidUntil`` date and time is reached. Otherwise, the request remains active until you cancel it.
                  +  For a one-time request, ``ValidUntil`` is not supported. The request remains active until all instances launch or you cancel the request.
@@ -5887,7 +5897,7 @@ class LaunchTemplateSpotOptions(dict):
     def spot_instance_type(self) -> Optional[str]:
         """
         The Spot Instance request type.
-         If you are using Spot Instances with an Auto Scaling group, use ``one-time`` requests, as the Amazon EC2 Auto Scaling service handles requesting new Spot Instances whenever the group is below its desired capacity.
+         If you are using Spot Instances with an Auto Scaling group, use ``one-time`` requests, as the ASlong service handles requesting new Spot Instances whenever the group is below its desired capacity.
         """
         return pulumi.get(self, "spot_instance_type")
 
@@ -5941,7 +5951,7 @@ class LaunchTemplateTag(dict):
 class LaunchTemplateTagSpecification(dict):
     """
     Specifies the tags to apply to the launch template during creation.
-     ``LaunchTemplateTagSpecification`` is a property of [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html).
+      ``LaunchTemplateTagSpecification`` is a property of [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html).
     """
     @staticmethod
     def __key_warning(key: str):
@@ -5965,7 +5975,7 @@ class LaunchTemplateTagSpecification(dict):
                  tags: Optional[Sequence['outputs.LaunchTemplateTag']] = None):
         """
         Specifies the tags to apply to the launch template during creation.
-         ``LaunchTemplateTagSpecification`` is a property of [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html).
+          ``LaunchTemplateTagSpecification`` is a property of [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html).
         :param str resource_type: The type of resource. To tag the launch template, ``ResourceType`` must be ``launch-template``.
         :param Sequence['LaunchTemplateTag'] tags: The tags for the resource.
         """
@@ -8108,9 +8118,9 @@ class PrivateDnsNameOptionsOnLaunchProperties(dict):
     """
     The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries to the instances should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
      Available options:
-      + EnableResourceNameDnsAAAARecord (true | false)
-     + EnableResourceNameDnsARecord (true | false)
-     + HostnameType (ip-name | resource-name)
+      +  EnableResourceNameDnsAAAARecord (true | false)
+      +  EnableResourceNameDnsARecord (true | false)
+      +  HostnameType (ip-name | resource-name)
     """
     @staticmethod
     def __key_warning(key: str):
@@ -8140,9 +8150,9 @@ class PrivateDnsNameOptionsOnLaunchProperties(dict):
         """
         The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries to the instances should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
          Available options:
-          + EnableResourceNameDnsAAAARecord (true | false)
-         + EnableResourceNameDnsARecord (true | false)
-         + HostnameType (ip-name | resource-name)
+          +  EnableResourceNameDnsAAAARecord (true | false)
+          +  EnableResourceNameDnsARecord (true | false)
+          +  HostnameType (ip-name | resource-name)
         """
         if enable_resource_name_dns_a_record is not None:
             pulumi.set(__self__, "enable_resource_name_dns_a_record", enable_resource_name_dns_a_record)
@@ -8184,8 +8194,6 @@ class SecurityGroupEgress(dict):
             suggest = "destination_security_group_id"
         elif key == "fromPort":
             suggest = "from_port"
-        elif key == "sourceSecurityGroupId":
-            suggest = "source_security_group_id"
         elif key == "toPort":
             suggest = "to_port"
 
@@ -8208,7 +8216,6 @@ class SecurityGroupEgress(dict):
                  destination_prefix_list_id: Optional[str] = None,
                  destination_security_group_id: Optional[str] = None,
                  from_port: Optional[int] = None,
-                 source_security_group_id: Optional[str] = None,
                  to_port: Optional[int] = None):
         pulumi.set(__self__, "ip_protocol", ip_protocol)
         if cidr_ip is not None:
@@ -8223,8 +8230,6 @@ class SecurityGroupEgress(dict):
             pulumi.set(__self__, "destination_security_group_id", destination_security_group_id)
         if from_port is not None:
             pulumi.set(__self__, "from_port", from_port)
-        if source_security_group_id is not None:
-            pulumi.set(__self__, "source_security_group_id", source_security_group_id)
         if to_port is not None:
             pulumi.set(__self__, "to_port", to_port)
 
@@ -8262,11 +8267,6 @@ class SecurityGroupEgress(dict):
     @pulumi.getter(name="fromPort")
     def from_port(self) -> Optional[int]:
         return pulumi.get(self, "from_port")
-
-    @property
-    @pulumi.getter(name="sourceSecurityGroupId")
-    def source_security_group_id(self) -> Optional[str]:
-        return pulumi.get(self, "source_security_group_id")
 
     @property
     @pulumi.getter(name="toPort")
@@ -10187,7 +10187,7 @@ class SseSpecificationProperties(dict):
 class TagSpecification(dict):
     """
     Specifies the tags to apply to a resource when the resource is created for the launch template.
-     ``TagSpecification`` is a property type of [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications). [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications) is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+      ``TagSpecification`` is a property type of [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications). [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications) is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
     """
     @staticmethod
     def __key_warning(key: str):
@@ -10211,7 +10211,7 @@ class TagSpecification(dict):
                  tags: Optional[Sequence['outputs.LaunchTemplateTag']] = None):
         """
         Specifies the tags to apply to a resource when the resource is created for the launch template.
-         ``TagSpecification`` is a property type of [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications). [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications) is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+          ``TagSpecification`` is a property type of [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications). [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications) is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
         :param str resource_type: The type of resource to tag.
                 Valid Values lists all resource types for Amazon EC2 that can be tagged. When you create a launch template, you can specify tags for the following resource types only: ``instance`` | ``volume`` | ``network-interface`` | ``spot-instances-request``. If the instance does not include the resource type that you specify, the instance launch fails. For example, not all instance types include a volume.
                 To tag a resource after it has been created, see [CreateTags](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html).

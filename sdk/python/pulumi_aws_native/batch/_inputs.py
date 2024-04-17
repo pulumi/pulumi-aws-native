@@ -36,6 +36,7 @@ __all__ = [
     'JobDefinitionEphemeralStorageArgs',
     'JobDefinitionEvaluateOnExitArgs',
     'JobDefinitionFargatePlatformConfigurationArgs',
+    'JobDefinitionImagePullSecretArgs',
     'JobDefinitionLinuxParametersArgs',
     'JobDefinitionLogConfigurationArgs',
     'JobDefinitionMetadataArgs',
@@ -1038,11 +1039,14 @@ class JobDefinitionEksContainerResourceRequirementsArgs:
 @pulumi.input_type
 class JobDefinitionEksContainerSecurityContextArgs:
     def __init__(__self__, *,
+                 allow_privilege_escalation: Optional[pulumi.Input[bool]] = None,
                  privileged: Optional[pulumi.Input[bool]] = None,
                  read_only_root_filesystem: Optional[pulumi.Input[bool]] = None,
                  run_as_group: Optional[pulumi.Input[int]] = None,
                  run_as_non_root: Optional[pulumi.Input[bool]] = None,
                  run_as_user: Optional[pulumi.Input[int]] = None):
+        if allow_privilege_escalation is not None:
+            pulumi.set(__self__, "allow_privilege_escalation", allow_privilege_escalation)
         if privileged is not None:
             pulumi.set(__self__, "privileged", privileged)
         if read_only_root_filesystem is not None:
@@ -1053,6 +1057,15 @@ class JobDefinitionEksContainerSecurityContextArgs:
             pulumi.set(__self__, "run_as_non_root", run_as_non_root)
         if run_as_user is not None:
             pulumi.set(__self__, "run_as_user", run_as_user)
+
+    @property
+    @pulumi.getter(name="allowPrivilegeEscalation")
+    def allow_privilege_escalation(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "allow_privilege_escalation")
+
+    @allow_privilege_escalation.setter
+    def allow_privilege_escalation(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_privilege_escalation", value)
 
     @property
     @pulumi.getter
@@ -1511,6 +1524,22 @@ class JobDefinitionFargatePlatformConfigurationArgs:
 
 
 @pulumi.input_type
+class JobDefinitionImagePullSecretArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str]):
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
 class JobDefinitionLinuxParametersArgs:
     def __init__(__self__, *,
                  devices: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionDeviceArgs']]]] = None,
@@ -1798,6 +1827,7 @@ class JobDefinitionPodPropertiesArgs:
                  containers: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksContainerArgs']]]] = None,
                  dns_policy: Optional[pulumi.Input[str]] = None,
                  host_network: Optional[pulumi.Input[bool]] = None,
+                 image_pull_secrets: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionImagePullSecretArgs']]]] = None,
                  init_containers: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksContainerArgs']]]] = None,
                  metadata: Optional[pulumi.Input['JobDefinitionMetadataArgs']] = None,
                  service_account_name: Optional[pulumi.Input[str]] = None,
@@ -1809,6 +1839,8 @@ class JobDefinitionPodPropertiesArgs:
             pulumi.set(__self__, "dns_policy", dns_policy)
         if host_network is not None:
             pulumi.set(__self__, "host_network", host_network)
+        if image_pull_secrets is not None:
+            pulumi.set(__self__, "image_pull_secrets", image_pull_secrets)
         if init_containers is not None:
             pulumi.set(__self__, "init_containers", init_containers)
         if metadata is not None:
@@ -1846,6 +1878,15 @@ class JobDefinitionPodPropertiesArgs:
     @host_network.setter
     def host_network(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "host_network", value)
+
+    @property
+    @pulumi.getter(name="imagePullSecrets")
+    def image_pull_secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionImagePullSecretArgs']]]]:
+        return pulumi.get(self, "image_pull_secrets")
+
+    @image_pull_secrets.setter
+    def image_pull_secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionImagePullSecretArgs']]]]):
+        pulumi.set(self, "image_pull_secrets", value)
 
     @property
     @pulumi.getter(name="initContainers")

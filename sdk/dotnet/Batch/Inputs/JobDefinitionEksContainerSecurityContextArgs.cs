@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Batch.Inputs
 
     public sealed class JobDefinitionEksContainerSecurityContextArgs : global::Pulumi.ResourceArgs
     {
+        [Input("allowPrivilegeEscalation")]
+        public Input<bool>? AllowPrivilegeEscalation { get; set; }
+
         [Input("privileged")]
         public Input<bool>? Privileged { get; set; }
 

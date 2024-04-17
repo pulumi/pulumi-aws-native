@@ -17,6 +17,9 @@ __all__ = [
     'IdMappingWorkflowIntermediateSourceConfiguration',
     'IdMappingWorkflowOutputSource',
     'IdMappingWorkflowProviderProperties',
+    'IdNamespaceIdMappingWorkflowProperties',
+    'IdNamespaceInputSource',
+    'IdNamespaceNamespaceProviderProperties',
     'MatchingWorkflowInputSource',
     'MatchingWorkflowIntermediateSourceConfiguration',
     'MatchingWorkflowOutputAttribute',
@@ -91,25 +94,34 @@ class IdMappingWorkflowInputSource(dict):
 
     def __init__(__self__, *,
                  input_source_arn: str,
-                 schema_arn: str):
+                 schema_arn: Optional[str] = None,
+                 type: Optional['IdMappingWorkflowInputSourceType'] = None):
         """
-        :param str input_source_arn: An Glue table ARN for the input source table
+        :param str input_source_arn: An Glue table ARN for the input source table or IdNamespace ARN
         """
         pulumi.set(__self__, "input_source_arn", input_source_arn)
-        pulumi.set(__self__, "schema_arn", schema_arn)
+        if schema_arn is not None:
+            pulumi.set(__self__, "schema_arn", schema_arn)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="inputSourceArn")
     def input_source_arn(self) -> str:
         """
-        An Glue table ARN for the input source table
+        An Glue table ARN for the input source table or IdNamespace ARN
         """
         return pulumi.get(self, "input_source_arn")
 
     @property
     @pulumi.getter(name="schemaArn")
-    def schema_arn(self) -> str:
+    def schema_arn(self) -> Optional[str]:
         return pulumi.get(self, "schema_arn")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional['IdMappingWorkflowInputSourceType']:
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -247,6 +259,129 @@ class IdMappingWorkflowProviderProperties(dict):
     def provider_configuration(self) -> Optional[Mapping[str, str]]:
         """
         Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format
+        """
+        return pulumi.get(self, "provider_configuration")
+
+
+@pulumi.output_type
+class IdNamespaceIdMappingWorkflowProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "idMappingType":
+            suggest = "id_mapping_type"
+        elif key == "providerProperties":
+            suggest = "provider_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdNamespaceIdMappingWorkflowProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdNamespaceIdMappingWorkflowProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdNamespaceIdMappingWorkflowProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id_mapping_type: 'IdNamespaceIdMappingWorkflowPropertiesIdMappingType',
+                 provider_properties: Optional['outputs.IdNamespaceNamespaceProviderProperties'] = None):
+        pulumi.set(__self__, "id_mapping_type", id_mapping_type)
+        if provider_properties is not None:
+            pulumi.set(__self__, "provider_properties", provider_properties)
+
+    @property
+    @pulumi.getter(name="idMappingType")
+    def id_mapping_type(self) -> 'IdNamespaceIdMappingWorkflowPropertiesIdMappingType':
+        return pulumi.get(self, "id_mapping_type")
+
+    @property
+    @pulumi.getter(name="providerProperties")
+    def provider_properties(self) -> Optional['outputs.IdNamespaceNamespaceProviderProperties']:
+        return pulumi.get(self, "provider_properties")
+
+
+@pulumi.output_type
+class IdNamespaceInputSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inputSourceArn":
+            suggest = "input_source_arn"
+        elif key == "schemaName":
+            suggest = "schema_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdNamespaceInputSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdNamespaceInputSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdNamespaceInputSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 input_source_arn: str,
+                 schema_name: Optional[str] = None):
+        pulumi.set(__self__, "input_source_arn", input_source_arn)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+
+    @property
+    @pulumi.getter(name="inputSourceArn")
+    def input_source_arn(self) -> str:
+        return pulumi.get(self, "input_source_arn")
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[str]:
+        return pulumi.get(self, "schema_name")
+
+
+@pulumi.output_type
+class IdNamespaceNamespaceProviderProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "providerServiceArn":
+            suggest = "provider_service_arn"
+        elif key == "providerConfiguration":
+            suggest = "provider_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdNamespaceNamespaceProviderProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdNamespaceNamespaceProviderProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdNamespaceNamespaceProviderProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provider_service_arn: str,
+                 provider_configuration: Optional[Mapping[str, str]] = None):
+        """
+        :param Mapping[str, str] provider_configuration: Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format.
+        """
+        pulumi.set(__self__, "provider_service_arn", provider_service_arn)
+        if provider_configuration is not None:
+            pulumi.set(__self__, "provider_configuration", provider_configuration)
+
+    @property
+    @pulumi.getter(name="providerServiceArn")
+    def provider_service_arn(self) -> str:
+        return pulumi.get(self, "provider_service_arn")
+
+    @property
+    @pulumi.getter(name="providerConfiguration")
+    def provider_configuration(self) -> Optional[Mapping[str, str]]:
+        """
+        Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format.
         """
         return pulumi.get(self, "provider_configuration")
 

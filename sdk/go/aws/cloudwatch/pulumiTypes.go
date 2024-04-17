@@ -13,11 +13,11 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
-// Dimensions are arbitrary name/value pairs that can be associated with a CloudWatch metric.
+// Dimension is an embedded property of the “AWS::CloudWatch::Alarm“ type. Dimensions are name/value pairs that can be associated with a CW metric. You can specify a maximum of 10 dimensions for a given metric.
 type AlarmDimension struct {
-	// The name of the dimension.
+	// The name of the dimension, from 1–255 characters in length. This dimension name must have been included when the metric was published.
 	Name string `pulumi:"name"`
-	// The value for the dimension.
+	// The value for the dimension, from 1–255 characters in length.
 	Value string `pulumi:"value"`
 }
 
@@ -32,11 +32,11 @@ type AlarmDimensionInput interface {
 	ToAlarmDimensionOutputWithContext(context.Context) AlarmDimensionOutput
 }
 
-// Dimensions are arbitrary name/value pairs that can be associated with a CloudWatch metric.
+// Dimension is an embedded property of the “AWS::CloudWatch::Alarm“ type. Dimensions are name/value pairs that can be associated with a CW metric. You can specify a maximum of 10 dimensions for a given metric.
 type AlarmDimensionArgs struct {
-	// The name of the dimension.
+	// The name of the dimension, from 1–255 characters in length. This dimension name must have been included when the metric was published.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The value for the dimension.
+	// The value for the dimension, from 1–255 characters in length.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -77,7 +77,7 @@ func (i AlarmDimensionArray) ToAlarmDimensionArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmDimensionArrayOutput)
 }
 
-// Dimensions are arbitrary name/value pairs that can be associated with a CloudWatch metric.
+// Dimension is an embedded property of the “AWS::CloudWatch::Alarm“ type. Dimensions are name/value pairs that can be associated with a CW metric. You can specify a maximum of 10 dimensions for a given metric.
 type AlarmDimensionOutput struct{ *pulumi.OutputState }
 
 func (AlarmDimensionOutput) ElementType() reflect.Type {
@@ -92,12 +92,12 @@ func (o AlarmDimensionOutput) ToAlarmDimensionOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The name of the dimension.
+// The name of the dimension, from 1–255 characters in length. This dimension name must have been included when the metric was published.
 func (o AlarmDimensionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AlarmDimension) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The value for the dimension.
+// The value for the dimension, from 1–255 characters in length.
 func (o AlarmDimensionOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v AlarmDimension) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -122,13 +122,13 @@ func (o AlarmDimensionArrayOutput) Index(i pulumi.IntInput) AlarmDimensionOutput
 	}).(AlarmDimensionOutput)
 }
 
-// The Metric property type represents a specific metric.
+// The “Metric“ property type represents a specific metric. “Metric“ is a property of the [MetricStat](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metricstat.html) property type.
 type AlarmMetric struct {
-	// The dimensions for the metric.
+	// The metric dimensions that you want to be used for the metric that the alarm will watch.
 	Dimensions []AlarmDimension `pulumi:"dimensions"`
-	// The name of the metric.
+	// The name of the metric that you want the alarm to watch. This is a required field.
 	MetricName *string `pulumi:"metricName"`
-	// The namespace of the metric.
+	// The namespace of the metric that the alarm will watch.
 	Namespace *string `pulumi:"namespace"`
 }
 
@@ -143,13 +143,13 @@ type AlarmMetricInput interface {
 	ToAlarmMetricOutputWithContext(context.Context) AlarmMetricOutput
 }
 
-// The Metric property type represents a specific metric.
+// The “Metric“ property type represents a specific metric. “Metric“ is a property of the [MetricStat](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metricstat.html) property type.
 type AlarmMetricArgs struct {
-	// The dimensions for the metric.
+	// The metric dimensions that you want to be used for the metric that the alarm will watch.
 	Dimensions AlarmDimensionArrayInput `pulumi:"dimensions"`
-	// The name of the metric.
+	// The name of the metric that you want the alarm to watch. This is a required field.
 	MetricName pulumi.StringPtrInput `pulumi:"metricName"`
-	// The namespace of the metric.
+	// The namespace of the metric that the alarm will watch.
 	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
 }
 
@@ -206,7 +206,7 @@ func (i *alarmMetricPtrType) ToAlarmMetricPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmMetricPtrOutput)
 }
 
-// The Metric property type represents a specific metric.
+// The “Metric“ property type represents a specific metric. “Metric“ is a property of the [MetricStat](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metricstat.html) property type.
 type AlarmMetricOutput struct{ *pulumi.OutputState }
 
 func (AlarmMetricOutput) ElementType() reflect.Type {
@@ -231,17 +231,17 @@ func (o AlarmMetricOutput) ToAlarmMetricPtrOutputWithContext(ctx context.Context
 	}).(AlarmMetricPtrOutput)
 }
 
-// The dimensions for the metric.
+// The metric dimensions that you want to be used for the metric that the alarm will watch.
 func (o AlarmMetricOutput) Dimensions() AlarmDimensionArrayOutput {
 	return o.ApplyT(func(v AlarmMetric) []AlarmDimension { return v.Dimensions }).(AlarmDimensionArrayOutput)
 }
 
-// The name of the metric.
+// The name of the metric that you want the alarm to watch. This is a required field.
 func (o AlarmMetricOutput) MetricName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlarmMetric) *string { return v.MetricName }).(pulumi.StringPtrOutput)
 }
 
-// The namespace of the metric.
+// The namespace of the metric that the alarm will watch.
 func (o AlarmMetricOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlarmMetric) *string { return v.Namespace }).(pulumi.StringPtrOutput)
 }
@@ -270,7 +270,7 @@ func (o AlarmMetricPtrOutput) Elem() AlarmMetricOutput {
 	}).(AlarmMetricOutput)
 }
 
-// The dimensions for the metric.
+// The metric dimensions that you want to be used for the metric that the alarm will watch.
 func (o AlarmMetricPtrOutput) Dimensions() AlarmDimensionArrayOutput {
 	return o.ApplyT(func(v *AlarmMetric) []AlarmDimension {
 		if v == nil {
@@ -280,7 +280,7 @@ func (o AlarmMetricPtrOutput) Dimensions() AlarmDimensionArrayOutput {
 	}).(AlarmDimensionArrayOutput)
 }
 
-// The name of the metric.
+// The name of the metric that you want the alarm to watch. This is a required field.
 func (o AlarmMetricPtrOutput) MetricName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlarmMetric) *string {
 		if v == nil {
@@ -290,7 +290,7 @@ func (o AlarmMetricPtrOutput) MetricName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The namespace of the metric.
+// The namespace of the metric that the alarm will watch.
 func (o AlarmMetricPtrOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlarmMetric) *string {
 		if v == nil {
@@ -300,21 +300,27 @@ func (o AlarmMetricPtrOutput) Namespace() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// This property type specifies the metric data to return, and whether this call is just retrieving a batch set of data for one metric, or is performing a math expression on metric data.
+// The “MetricDataQuery“ property type specifies the metric data to return, and whether this call is just retrieving a batch set of data for one metric, or is performing a math expression on metric data.
+//
+//	Any expression used must return a single time series. For more information, see [Metric Math Syntax and Functions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax) in the *User Guide*.
 type AlarmMetricDataQuery struct {
 	// The ID of the account where the metrics are located, if this is a cross-account alarm.
 	AccountId *string `pulumi:"accountId"`
-	// The math expression to be performed on the returned data.
+	// The math expression to be performed on the returned data, if this object is performing a math expression. This expression can use the ``Id`` of the other metrics to refer to those metrics, and can also use the ``Id`` of other expressions to use the result of those expressions. For more information about metric math expressions, see [Metric Math Syntax and Functions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax) in the *User Guide*.
+	//  Within each MetricDataQuery object, you must specify either ``Expression`` or ``MetricStat`` but not both.
 	Expression *string `pulumi:"expression"`
-	// A short name used to tie this object to the results in the response.
+	// A short name used to tie this object to the results in the response. This name must be unique within a single call to ``GetMetricData``. If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscore. The first character must be a lowercase letter.
 	Id string `pulumi:"id"`
-	// A human-readable label for this metric or expression.
+	// A human-readable label for this metric or expression. This is especially useful if this is an expression, so that you know what the value represents. If the metric or expression is shown in a CW dashboard widget, the label is shown. If ``Label`` is omitted, CW generates a default.
 	Label *string `pulumi:"label"`
-	// The metric to be returned, along with statistics, period, and units.
+	// The metric to be returned, along with statistics, period, and units. Use this parameter only if this object is retrieving a metric and not performing a math expression on returned data.
+	//  Within one MetricDataQuery object, you must specify either ``Expression`` or ``MetricStat`` but not both.
 	MetricStat *AlarmMetricStat `pulumi:"metricStat"`
-	// The period in seconds, over which the statistic is applied.
+	// The granularity, in seconds, of the returned data points. For metrics with regular resolution, a period can be as short as one minute (60 seconds) and must be a multiple of 60. For high-resolution metrics that are collected at intervals of less than one minute, the period can be 1, 5, 10, 30, 60, or any multiple of 60. High-resolution metrics are those metrics stored by a ``PutMetricData`` operation that includes a ``StorageResolution of 1 second``.
 	Period *int `pulumi:"period"`
 	// This option indicates whether to return the timestamps and raw data values of this metric.
+	//  When you create an alarm based on a metric math expression, specify ``True`` for this value for only the one math expression that the alarm is based on. You must specify ``False`` for ``ReturnData`` for all the other metrics and expressions used in the alarm.
+	//  This field is required.
 	ReturnData *bool `pulumi:"returnData"`
 }
 
@@ -329,21 +335,27 @@ type AlarmMetricDataQueryInput interface {
 	ToAlarmMetricDataQueryOutputWithContext(context.Context) AlarmMetricDataQueryOutput
 }
 
-// This property type specifies the metric data to return, and whether this call is just retrieving a batch set of data for one metric, or is performing a math expression on metric data.
+// The “MetricDataQuery“ property type specifies the metric data to return, and whether this call is just retrieving a batch set of data for one metric, or is performing a math expression on metric data.
+//
+//	Any expression used must return a single time series. For more information, see [Metric Math Syntax and Functions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax) in the *User Guide*.
 type AlarmMetricDataQueryArgs struct {
 	// The ID of the account where the metrics are located, if this is a cross-account alarm.
 	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
-	// The math expression to be performed on the returned data.
+	// The math expression to be performed on the returned data, if this object is performing a math expression. This expression can use the ``Id`` of the other metrics to refer to those metrics, and can also use the ``Id`` of other expressions to use the result of those expressions. For more information about metric math expressions, see [Metric Math Syntax and Functions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax) in the *User Guide*.
+	//  Within each MetricDataQuery object, you must specify either ``Expression`` or ``MetricStat`` but not both.
 	Expression pulumi.StringPtrInput `pulumi:"expression"`
-	// A short name used to tie this object to the results in the response.
+	// A short name used to tie this object to the results in the response. This name must be unique within a single call to ``GetMetricData``. If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscore. The first character must be a lowercase letter.
 	Id pulumi.StringInput `pulumi:"id"`
-	// A human-readable label for this metric or expression.
+	// A human-readable label for this metric or expression. This is especially useful if this is an expression, so that you know what the value represents. If the metric or expression is shown in a CW dashboard widget, the label is shown. If ``Label`` is omitted, CW generates a default.
 	Label pulumi.StringPtrInput `pulumi:"label"`
-	// The metric to be returned, along with statistics, period, and units.
+	// The metric to be returned, along with statistics, period, and units. Use this parameter only if this object is retrieving a metric and not performing a math expression on returned data.
+	//  Within one MetricDataQuery object, you must specify either ``Expression`` or ``MetricStat`` but not both.
 	MetricStat AlarmMetricStatPtrInput `pulumi:"metricStat"`
-	// The period in seconds, over which the statistic is applied.
+	// The granularity, in seconds, of the returned data points. For metrics with regular resolution, a period can be as short as one minute (60 seconds) and must be a multiple of 60. For high-resolution metrics that are collected at intervals of less than one minute, the period can be 1, 5, 10, 30, 60, or any multiple of 60. High-resolution metrics are those metrics stored by a ``PutMetricData`` operation that includes a ``StorageResolution of 1 second``.
 	Period pulumi.IntPtrInput `pulumi:"period"`
 	// This option indicates whether to return the timestamps and raw data values of this metric.
+	//  When you create an alarm based on a metric math expression, specify ``True`` for this value for only the one math expression that the alarm is based on. You must specify ``False`` for ``ReturnData`` for all the other metrics and expressions used in the alarm.
+	//  This field is required.
 	ReturnData pulumi.BoolPtrInput `pulumi:"returnData"`
 }
 
@@ -384,7 +396,9 @@ func (i AlarmMetricDataQueryArray) ToAlarmMetricDataQueryArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmMetricDataQueryArrayOutput)
 }
 
-// This property type specifies the metric data to return, and whether this call is just retrieving a batch set of data for one metric, or is performing a math expression on metric data.
+// The “MetricDataQuery“ property type specifies the metric data to return, and whether this call is just retrieving a batch set of data for one metric, or is performing a math expression on metric data.
+//
+//	Any expression used must return a single time series. For more information, see [Metric Math Syntax and Functions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax) in the *User Guide*.
 type AlarmMetricDataQueryOutput struct{ *pulumi.OutputState }
 
 func (AlarmMetricDataQueryOutput) ElementType() reflect.Type {
@@ -404,32 +418,39 @@ func (o AlarmMetricDataQueryOutput) AccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlarmMetricDataQuery) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
-// The math expression to be performed on the returned data.
+// The math expression to be performed on the returned data, if this object is performing a math expression. This expression can use the “Id“ of the other metrics to refer to those metrics, and can also use the “Id“ of other expressions to use the result of those expressions. For more information about metric math expressions, see [Metric Math Syntax and Functions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax) in the *User Guide*.
+//
+//	Within each MetricDataQuery object, you must specify either ``Expression`` or ``MetricStat`` but not both.
 func (o AlarmMetricDataQueryOutput) Expression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlarmMetricDataQuery) *string { return v.Expression }).(pulumi.StringPtrOutput)
 }
 
-// A short name used to tie this object to the results in the response.
+// A short name used to tie this object to the results in the response. This name must be unique within a single call to “GetMetricData“. If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscore. The first character must be a lowercase letter.
 func (o AlarmMetricDataQueryOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v AlarmMetricDataQuery) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// A human-readable label for this metric or expression.
+// A human-readable label for this metric or expression. This is especially useful if this is an expression, so that you know what the value represents. If the metric or expression is shown in a CW dashboard widget, the label is shown. If “Label“ is omitted, CW generates a default.
 func (o AlarmMetricDataQueryOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlarmMetricDataQuery) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
-// The metric to be returned, along with statistics, period, and units.
+// The metric to be returned, along with statistics, period, and units. Use this parameter only if this object is retrieving a metric and not performing a math expression on returned data.
+//
+//	Within one MetricDataQuery object, you must specify either ``Expression`` or ``MetricStat`` but not both.
 func (o AlarmMetricDataQueryOutput) MetricStat() AlarmMetricStatPtrOutput {
 	return o.ApplyT(func(v AlarmMetricDataQuery) *AlarmMetricStat { return v.MetricStat }).(AlarmMetricStatPtrOutput)
 }
 
-// The period in seconds, over which the statistic is applied.
+// The granularity, in seconds, of the returned data points. For metrics with regular resolution, a period can be as short as one minute (60 seconds) and must be a multiple of 60. For high-resolution metrics that are collected at intervals of less than one minute, the period can be 1, 5, 10, 30, 60, or any multiple of 60. High-resolution metrics are those metrics stored by a “PutMetricData“ operation that includes a “StorageResolution of 1 second“.
 func (o AlarmMetricDataQueryOutput) Period() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AlarmMetricDataQuery) *int { return v.Period }).(pulumi.IntPtrOutput)
 }
 
 // This option indicates whether to return the timestamps and raw data values of this metric.
+//
+//	When you create an alarm based on a metric math expression, specify ``True`` for this value for only the one math expression that the alarm is based on. You must specify ``False`` for ``ReturnData`` for all the other metrics and expressions used in the alarm.
+//	This field is required.
 func (o AlarmMetricDataQueryOutput) ReturnData() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AlarmMetricDataQuery) *bool { return v.ReturnData }).(pulumi.BoolPtrOutput)
 }
@@ -455,14 +476,21 @@ func (o AlarmMetricDataQueryArrayOutput) Index(i pulumi.IntInput) AlarmMetricDat
 }
 
 // This structure defines the metric to be returned, along with the statistics, period, and units.
+//
+//	``MetricStat`` is a property of the [MetricDataQuery](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metricdataquery.html) property type.
 type AlarmMetricStat struct {
 	// The metric to return, including the metric name, namespace, and dimensions.
 	Metric AlarmMetric `pulumi:"metric"`
-	// The granularity, in seconds, of the returned data points.
+	// The granularity, in seconds, of the returned data points. For metrics with regular resolution, a period can be as short as one minute (60 seconds) and must be a multiple of 60. For high-resolution metrics that are collected at intervals of less than one minute, the period can be 1, 5, 10, 30, 60, or any multiple of 60. High-resolution metrics are those metrics stored by a ``PutMetricData`` call that includes a ``StorageResolution`` of 1 second.
+	//  If the ``StartTime`` parameter specifies a time stamp that is greater than 3 hours ago, you must specify the period as follows or no data points in that time range is returned:
+	//   +  Start time between 3 hours and 15 days ago - Use a multiple of 60 seconds (1 minute).
+	//   +  Start time between 15 and 63 days ago - Use a multiple of 300 seconds (5 minutes).
+	//   +  Start time greater than 63 days ago - Use a multiple of 3600 seconds (1 hour).
 	Period int `pulumi:"period"`
-	// The statistic to return.
+	// The statistic to return. It can include any CW statistic or extended statistic. For a list of valid values, see the table in [Statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Statistic) in the *User Guide*.
 	Stat string `pulumi:"stat"`
 	// The unit to use for the returned data points.
+	//  Valid values are: Seconds, Microseconds, Milliseconds, Bytes, Kilobytes, Megabytes, Gigabytes, Terabytes, Bits, Kilobits, Megabits, Gigabits, Terabits, Percent, Count, Bytes/Second, Kilobytes/Second, Megabytes/Second, Gigabytes/Second, Terabytes/Second, Bits/Second, Kilobits/Second, Megabits/Second, Gigabits/Second, Terabits/Second, Count/Second, or None.
 	Unit *string `pulumi:"unit"`
 }
 
@@ -478,14 +506,21 @@ type AlarmMetricStatInput interface {
 }
 
 // This structure defines the metric to be returned, along with the statistics, period, and units.
+//
+//	``MetricStat`` is a property of the [MetricDataQuery](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metricdataquery.html) property type.
 type AlarmMetricStatArgs struct {
 	// The metric to return, including the metric name, namespace, and dimensions.
 	Metric AlarmMetricInput `pulumi:"metric"`
-	// The granularity, in seconds, of the returned data points.
+	// The granularity, in seconds, of the returned data points. For metrics with regular resolution, a period can be as short as one minute (60 seconds) and must be a multiple of 60. For high-resolution metrics that are collected at intervals of less than one minute, the period can be 1, 5, 10, 30, 60, or any multiple of 60. High-resolution metrics are those metrics stored by a ``PutMetricData`` call that includes a ``StorageResolution`` of 1 second.
+	//  If the ``StartTime`` parameter specifies a time stamp that is greater than 3 hours ago, you must specify the period as follows or no data points in that time range is returned:
+	//   +  Start time between 3 hours and 15 days ago - Use a multiple of 60 seconds (1 minute).
+	//   +  Start time between 15 and 63 days ago - Use a multiple of 300 seconds (5 minutes).
+	//   +  Start time greater than 63 days ago - Use a multiple of 3600 seconds (1 hour).
 	Period pulumi.IntInput `pulumi:"period"`
-	// The statistic to return.
+	// The statistic to return. It can include any CW statistic or extended statistic. For a list of valid values, see the table in [Statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Statistic) in the *User Guide*.
 	Stat pulumi.StringInput `pulumi:"stat"`
 	// The unit to use for the returned data points.
+	//  Valid values are: Seconds, Microseconds, Milliseconds, Bytes, Kilobytes, Megabytes, Gigabytes, Terabytes, Bits, Kilobits, Megabits, Gigabits, Terabits, Percent, Count, Bytes/Second, Kilobytes/Second, Megabytes/Second, Gigabytes/Second, Terabytes/Second, Bits/Second, Kilobits/Second, Megabits/Second, Gigabits/Second, Terabits/Second, Count/Second, or None.
 	Unit pulumi.StringPtrInput `pulumi:"unit"`
 }
 
@@ -543,6 +578,8 @@ func (i *alarmMetricStatPtrType) ToAlarmMetricStatPtrOutputWithContext(ctx conte
 }
 
 // This structure defines the metric to be returned, along with the statistics, period, and units.
+//
+//	``MetricStat`` is a property of the [MetricDataQuery](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metricdataquery.html) property type.
 type AlarmMetricStatOutput struct{ *pulumi.OutputState }
 
 func (AlarmMetricStatOutput) ElementType() reflect.Type {
@@ -572,17 +609,24 @@ func (o AlarmMetricStatOutput) Metric() AlarmMetricOutput {
 	return o.ApplyT(func(v AlarmMetricStat) AlarmMetric { return v.Metric }).(AlarmMetricOutput)
 }
 
-// The granularity, in seconds, of the returned data points.
+// The granularity, in seconds, of the returned data points. For metrics with regular resolution, a period can be as short as one minute (60 seconds) and must be a multiple of 60. For high-resolution metrics that are collected at intervals of less than one minute, the period can be 1, 5, 10, 30, 60, or any multiple of 60. High-resolution metrics are those metrics stored by a “PutMetricData“ call that includes a “StorageResolution“ of 1 second.
+//
+//	If the ``StartTime`` parameter specifies a time stamp that is greater than 3 hours ago, you must specify the period as follows or no data points in that time range is returned:
+//	 +  Start time between 3 hours and 15 days ago - Use a multiple of 60 seconds (1 minute).
+//	 +  Start time between 15 and 63 days ago - Use a multiple of 300 seconds (5 minutes).
+//	 +  Start time greater than 63 days ago - Use a multiple of 3600 seconds (1 hour).
 func (o AlarmMetricStatOutput) Period() pulumi.IntOutput {
 	return o.ApplyT(func(v AlarmMetricStat) int { return v.Period }).(pulumi.IntOutput)
 }
 
-// The statistic to return.
+// The statistic to return. It can include any CW statistic or extended statistic. For a list of valid values, see the table in [Statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Statistic) in the *User Guide*.
 func (o AlarmMetricStatOutput) Stat() pulumi.StringOutput {
 	return o.ApplyT(func(v AlarmMetricStat) string { return v.Stat }).(pulumi.StringOutput)
 }
 
 // The unit to use for the returned data points.
+//
+//	Valid values are: Seconds, Microseconds, Milliseconds, Bytes, Kilobytes, Megabytes, Gigabytes, Terabytes, Bits, Kilobits, Megabits, Gigabits, Terabits, Percent, Count, Bytes/Second, Kilobytes/Second, Megabytes/Second, Gigabytes/Second, Terabytes/Second, Bits/Second, Kilobits/Second, Megabits/Second, Gigabits/Second, Terabits/Second, Count/Second, or None.
 func (o AlarmMetricStatOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlarmMetricStat) *string { return v.Unit }).(pulumi.StringPtrOutput)
 }
@@ -621,7 +665,12 @@ func (o AlarmMetricStatPtrOutput) Metric() AlarmMetricPtrOutput {
 	}).(AlarmMetricPtrOutput)
 }
 
-// The granularity, in seconds, of the returned data points.
+// The granularity, in seconds, of the returned data points. For metrics with regular resolution, a period can be as short as one minute (60 seconds) and must be a multiple of 60. For high-resolution metrics that are collected at intervals of less than one minute, the period can be 1, 5, 10, 30, 60, or any multiple of 60. High-resolution metrics are those metrics stored by a “PutMetricData“ call that includes a “StorageResolution“ of 1 second.
+//
+//	If the ``StartTime`` parameter specifies a time stamp that is greater than 3 hours ago, you must specify the period as follows or no data points in that time range is returned:
+//	 +  Start time between 3 hours and 15 days ago - Use a multiple of 60 seconds (1 minute).
+//	 +  Start time between 15 and 63 days ago - Use a multiple of 300 seconds (5 minutes).
+//	 +  Start time greater than 63 days ago - Use a multiple of 3600 seconds (1 hour).
 func (o AlarmMetricStatPtrOutput) Period() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AlarmMetricStat) *int {
 		if v == nil {
@@ -631,7 +680,7 @@ func (o AlarmMetricStatPtrOutput) Period() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The statistic to return.
+// The statistic to return. It can include any CW statistic or extended statistic. For a list of valid values, see the table in [Statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Statistic) in the *User Guide*.
 func (o AlarmMetricStatPtrOutput) Stat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlarmMetricStat) *string {
 		if v == nil {
@@ -642,6 +691,8 @@ func (o AlarmMetricStatPtrOutput) Stat() pulumi.StringPtrOutput {
 }
 
 // The unit to use for the returned data points.
+//
+//	Valid values are: Seconds, Microseconds, Milliseconds, Bytes, Kilobytes, Megabytes, Gigabytes, Terabytes, Bits, Kilobits, Megabits, Gigabits, Terabits, Percent, Count, Bytes/Second, Kilobytes/Second, Megabytes/Second, Gigabytes/Second, Terabytes/Second, Bits/Second, Kilobits/Second, Megabits/Second, Gigabits/Second, Terabits/Second, Count/Second, or None.
 func (o AlarmMetricStatPtrOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlarmMetricStat) *string {
 		if v == nil {
@@ -649,6 +700,21 @@ func (o AlarmMetricStatPtrOutput) Unit() pulumi.StringPtrOutput {
 		}
 		return v.Unit
 	}).(pulumi.StringPtrOutput)
+}
+
+type AlarmTag struct {
+	// A unique identifier for the tag. The combination of tag keys and values can help you organize and categorize your resources.
+	Key string `pulumi:"key"`
+	// The value for the specified tag key.
+	Value string `pulumi:"value"`
+}
+
+// Metadata that you can assign to a composite alarm, Tags can help you organize and categorize your resources.
+type CompositeAlarmTag struct {
+	// A unique identifier for the tag. The combination of tag keys and values can help you organize and categorize your resources.
+	Key string `pulumi:"key"`
+	// The value for the specified tag key.
+	Value string `pulumi:"value"`
 }
 
 // This structure defines the metrics that will be streamed.

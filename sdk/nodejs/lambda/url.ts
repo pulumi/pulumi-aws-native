@@ -51,7 +51,7 @@ export class Url extends pulumi.CustomResource {
      */
     public /*out*/ readonly functionUrl!: pulumi.Output<string>;
     /**
-     * The invocation mode for the function’s URL. Set to BUFFERED if you want to buffer responses before returning them to the client. Set to RESPONSE_STREAM if you want to stream responses, allowing faster time to first byte and larger response payload sizes. If not set, defaults to BUFFERED.
+     * The invocation mode for the function's URL. Set to BUFFERED if you want to buffer responses before returning them to the client. Set to RESPONSE_STREAM if you want to stream responses, allowing faster time to first byte and larger response payload sizes. If not set, defaults to BUFFERED.
      */
     public readonly invokeMode!: pulumi.Output<enums.lambda.UrlInvokeMode | undefined>;
     /**
@@ -113,7 +113,7 @@ export interface UrlArgs {
     authType: pulumi.Input<enums.lambda.UrlAuthType>;
     cors?: pulumi.Input<inputs.lambda.UrlCorsArgs>;
     /**
-     * The invocation mode for the function’s URL. Set to BUFFERED if you want to buffer responses before returning them to the client. Set to RESPONSE_STREAM if you want to stream responses, allowing faster time to first byte and larger response payload sizes. If not set, defaults to BUFFERED.
+     * The invocation mode for the function's URL. Set to BUFFERED if you want to buffer responses before returning them to the client. Set to RESPONSE_STREAM if you want to stream responses, allowing faster time to first byte and larger response payload sizes. If not set, defaults to BUFFERED.
      */
     invokeMode?: pulumi.Input<enums.lambda.UrlInvokeMode>;
     /**

@@ -13,6 +13,148 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// The configuration for the kernels in a SageMaker image running as a CodeEditor app.
+type AppImageConfigCodeEditorAppImageConfig struct {
+	// The container configuration for a SageMaker image.
+	ContainerConfig *AppImageConfigContainerConfig `pulumi:"containerConfig"`
+}
+
+// AppImageConfigCodeEditorAppImageConfigInput is an input type that accepts AppImageConfigCodeEditorAppImageConfigArgs and AppImageConfigCodeEditorAppImageConfigOutput values.
+// You can construct a concrete instance of `AppImageConfigCodeEditorAppImageConfigInput` via:
+//
+//	AppImageConfigCodeEditorAppImageConfigArgs{...}
+type AppImageConfigCodeEditorAppImageConfigInput interface {
+	pulumi.Input
+
+	ToAppImageConfigCodeEditorAppImageConfigOutput() AppImageConfigCodeEditorAppImageConfigOutput
+	ToAppImageConfigCodeEditorAppImageConfigOutputWithContext(context.Context) AppImageConfigCodeEditorAppImageConfigOutput
+}
+
+// The configuration for the kernels in a SageMaker image running as a CodeEditor app.
+type AppImageConfigCodeEditorAppImageConfigArgs struct {
+	// The container configuration for a SageMaker image.
+	ContainerConfig AppImageConfigContainerConfigPtrInput `pulumi:"containerConfig"`
+}
+
+func (AppImageConfigCodeEditorAppImageConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppImageConfigCodeEditorAppImageConfig)(nil)).Elem()
+}
+
+func (i AppImageConfigCodeEditorAppImageConfigArgs) ToAppImageConfigCodeEditorAppImageConfigOutput() AppImageConfigCodeEditorAppImageConfigOutput {
+	return i.ToAppImageConfigCodeEditorAppImageConfigOutputWithContext(context.Background())
+}
+
+func (i AppImageConfigCodeEditorAppImageConfigArgs) ToAppImageConfigCodeEditorAppImageConfigOutputWithContext(ctx context.Context) AppImageConfigCodeEditorAppImageConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppImageConfigCodeEditorAppImageConfigOutput)
+}
+
+func (i AppImageConfigCodeEditorAppImageConfigArgs) ToAppImageConfigCodeEditorAppImageConfigPtrOutput() AppImageConfigCodeEditorAppImageConfigPtrOutput {
+	return i.ToAppImageConfigCodeEditorAppImageConfigPtrOutputWithContext(context.Background())
+}
+
+func (i AppImageConfigCodeEditorAppImageConfigArgs) ToAppImageConfigCodeEditorAppImageConfigPtrOutputWithContext(ctx context.Context) AppImageConfigCodeEditorAppImageConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppImageConfigCodeEditorAppImageConfigOutput).ToAppImageConfigCodeEditorAppImageConfigPtrOutputWithContext(ctx)
+}
+
+// AppImageConfigCodeEditorAppImageConfigPtrInput is an input type that accepts AppImageConfigCodeEditorAppImageConfigArgs, AppImageConfigCodeEditorAppImageConfigPtr and AppImageConfigCodeEditorAppImageConfigPtrOutput values.
+// You can construct a concrete instance of `AppImageConfigCodeEditorAppImageConfigPtrInput` via:
+//
+//	        AppImageConfigCodeEditorAppImageConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type AppImageConfigCodeEditorAppImageConfigPtrInput interface {
+	pulumi.Input
+
+	ToAppImageConfigCodeEditorAppImageConfigPtrOutput() AppImageConfigCodeEditorAppImageConfigPtrOutput
+	ToAppImageConfigCodeEditorAppImageConfigPtrOutputWithContext(context.Context) AppImageConfigCodeEditorAppImageConfigPtrOutput
+}
+
+type appImageConfigCodeEditorAppImageConfigPtrType AppImageConfigCodeEditorAppImageConfigArgs
+
+func AppImageConfigCodeEditorAppImageConfigPtr(v *AppImageConfigCodeEditorAppImageConfigArgs) AppImageConfigCodeEditorAppImageConfigPtrInput {
+	return (*appImageConfigCodeEditorAppImageConfigPtrType)(v)
+}
+
+func (*appImageConfigCodeEditorAppImageConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppImageConfigCodeEditorAppImageConfig)(nil)).Elem()
+}
+
+func (i *appImageConfigCodeEditorAppImageConfigPtrType) ToAppImageConfigCodeEditorAppImageConfigPtrOutput() AppImageConfigCodeEditorAppImageConfigPtrOutput {
+	return i.ToAppImageConfigCodeEditorAppImageConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *appImageConfigCodeEditorAppImageConfigPtrType) ToAppImageConfigCodeEditorAppImageConfigPtrOutputWithContext(ctx context.Context) AppImageConfigCodeEditorAppImageConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppImageConfigCodeEditorAppImageConfigPtrOutput)
+}
+
+// The configuration for the kernels in a SageMaker image running as a CodeEditor app.
+type AppImageConfigCodeEditorAppImageConfigOutput struct{ *pulumi.OutputState }
+
+func (AppImageConfigCodeEditorAppImageConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppImageConfigCodeEditorAppImageConfig)(nil)).Elem()
+}
+
+func (o AppImageConfigCodeEditorAppImageConfigOutput) ToAppImageConfigCodeEditorAppImageConfigOutput() AppImageConfigCodeEditorAppImageConfigOutput {
+	return o
+}
+
+func (o AppImageConfigCodeEditorAppImageConfigOutput) ToAppImageConfigCodeEditorAppImageConfigOutputWithContext(ctx context.Context) AppImageConfigCodeEditorAppImageConfigOutput {
+	return o
+}
+
+func (o AppImageConfigCodeEditorAppImageConfigOutput) ToAppImageConfigCodeEditorAppImageConfigPtrOutput() AppImageConfigCodeEditorAppImageConfigPtrOutput {
+	return o.ToAppImageConfigCodeEditorAppImageConfigPtrOutputWithContext(context.Background())
+}
+
+func (o AppImageConfigCodeEditorAppImageConfigOutput) ToAppImageConfigCodeEditorAppImageConfigPtrOutputWithContext(ctx context.Context) AppImageConfigCodeEditorAppImageConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppImageConfigCodeEditorAppImageConfig) *AppImageConfigCodeEditorAppImageConfig {
+		return &v
+	}).(AppImageConfigCodeEditorAppImageConfigPtrOutput)
+}
+
+// The container configuration for a SageMaker image.
+func (o AppImageConfigCodeEditorAppImageConfigOutput) ContainerConfig() AppImageConfigContainerConfigPtrOutput {
+	return o.ApplyT(func(v AppImageConfigCodeEditorAppImageConfig) *AppImageConfigContainerConfig {
+		return v.ContainerConfig
+	}).(AppImageConfigContainerConfigPtrOutput)
+}
+
+type AppImageConfigCodeEditorAppImageConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (AppImageConfigCodeEditorAppImageConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppImageConfigCodeEditorAppImageConfig)(nil)).Elem()
+}
+
+func (o AppImageConfigCodeEditorAppImageConfigPtrOutput) ToAppImageConfigCodeEditorAppImageConfigPtrOutput() AppImageConfigCodeEditorAppImageConfigPtrOutput {
+	return o
+}
+
+func (o AppImageConfigCodeEditorAppImageConfigPtrOutput) ToAppImageConfigCodeEditorAppImageConfigPtrOutputWithContext(ctx context.Context) AppImageConfigCodeEditorAppImageConfigPtrOutput {
+	return o
+}
+
+func (o AppImageConfigCodeEditorAppImageConfigPtrOutput) Elem() AppImageConfigCodeEditorAppImageConfigOutput {
+	return o.ApplyT(func(v *AppImageConfigCodeEditorAppImageConfig) AppImageConfigCodeEditorAppImageConfig {
+		if v != nil {
+			return *v
+		}
+		var ret AppImageConfigCodeEditorAppImageConfig
+		return ret
+	}).(AppImageConfigCodeEditorAppImageConfigOutput)
+}
+
+// The container configuration for a SageMaker image.
+func (o AppImageConfigCodeEditorAppImageConfigPtrOutput) ContainerConfig() AppImageConfigContainerConfigPtrOutput {
+	return o.ApplyT(func(v *AppImageConfigCodeEditorAppImageConfig) *AppImageConfigContainerConfig {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerConfig
+	}).(AppImageConfigContainerConfigPtrOutput)
+}
+
 // The container configuration for a SageMaker image.
 type AppImageConfigContainerConfig struct {
 	// A list of arguments to apply to the container.
@@ -3735,6 +3877,8 @@ type DeviceTag struct {
 
 // The CodeEditor app settings.
 type DomainCodeEditorAppSettings struct {
+	// A list of custom images for use for CodeEditor apps.
+	CustomImages []DomainCustomImage `pulumi:"customImages"`
 	// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the CodeEditor app.
 	DefaultResourceSpec *DomainResourceSpec `pulumi:"defaultResourceSpec"`
 	// A list of LifecycleConfigArns available for use with CodeEditor apps.
@@ -3754,6 +3898,8 @@ type DomainCodeEditorAppSettingsInput interface {
 
 // The CodeEditor app settings.
 type DomainCodeEditorAppSettingsArgs struct {
+	// A list of custom images for use for CodeEditor apps.
+	CustomImages DomainCustomImageArrayInput `pulumi:"customImages"`
 	// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the CodeEditor app.
 	DefaultResourceSpec DomainResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
 	// A list of LifecycleConfigArns available for use with CodeEditor apps.
@@ -3838,6 +3984,11 @@ func (o DomainCodeEditorAppSettingsOutput) ToDomainCodeEditorAppSettingsPtrOutpu
 	}).(DomainCodeEditorAppSettingsPtrOutput)
 }
 
+// A list of custom images for use for CodeEditor apps.
+func (o DomainCodeEditorAppSettingsOutput) CustomImages() DomainCustomImageArrayOutput {
+	return o.ApplyT(func(v DomainCodeEditorAppSettings) []DomainCustomImage { return v.CustomImages }).(DomainCustomImageArrayOutput)
+}
+
 // The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the CodeEditor app.
 func (o DomainCodeEditorAppSettingsOutput) DefaultResourceSpec() DomainResourceSpecPtrOutput {
 	return o.ApplyT(func(v DomainCodeEditorAppSettings) *DomainResourceSpec { return v.DefaultResourceSpec }).(DomainResourceSpecPtrOutput)
@@ -3870,6 +4021,16 @@ func (o DomainCodeEditorAppSettingsPtrOutput) Elem() DomainCodeEditorAppSettings
 		var ret DomainCodeEditorAppSettings
 		return ret
 	}).(DomainCodeEditorAppSettingsOutput)
+}
+
+// A list of custom images for use for CodeEditor apps.
+func (o DomainCodeEditorAppSettingsPtrOutput) CustomImages() DomainCustomImageArrayOutput {
+	return o.ApplyT(func(v *DomainCodeEditorAppSettings) []DomainCustomImage {
+		if v == nil {
+			return nil
+		}
+		return v.CustomImages
+	}).(DomainCustomImageArrayOutput)
 }
 
 // The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the CodeEditor app.
@@ -32133,6 +32294,8 @@ type SpaceTag struct {
 
 // The CodeEditor app settings.
 type UserProfileCodeEditorAppSettings struct {
+	// A list of custom images for use for CodeEditor apps.
+	CustomImages []UserProfileCustomImage `pulumi:"customImages"`
 	// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the CodeEditor app.
 	DefaultResourceSpec *UserProfileResourceSpec `pulumi:"defaultResourceSpec"`
 	// A list of LifecycleConfigArns available for use with CodeEditor apps.
@@ -32152,6 +32315,8 @@ type UserProfileCodeEditorAppSettingsInput interface {
 
 // The CodeEditor app settings.
 type UserProfileCodeEditorAppSettingsArgs struct {
+	// A list of custom images for use for CodeEditor apps.
+	CustomImages UserProfileCustomImageArrayInput `pulumi:"customImages"`
 	// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the CodeEditor app.
 	DefaultResourceSpec UserProfileResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
 	// A list of LifecycleConfigArns available for use with CodeEditor apps.
@@ -32236,6 +32401,11 @@ func (o UserProfileCodeEditorAppSettingsOutput) ToUserProfileCodeEditorAppSettin
 	}).(UserProfileCodeEditorAppSettingsPtrOutput)
 }
 
+// A list of custom images for use for CodeEditor apps.
+func (o UserProfileCodeEditorAppSettingsOutput) CustomImages() UserProfileCustomImageArrayOutput {
+	return o.ApplyT(func(v UserProfileCodeEditorAppSettings) []UserProfileCustomImage { return v.CustomImages }).(UserProfileCustomImageArrayOutput)
+}
+
 // The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the CodeEditor app.
 func (o UserProfileCodeEditorAppSettingsOutput) DefaultResourceSpec() UserProfileResourceSpecPtrOutput {
 	return o.ApplyT(func(v UserProfileCodeEditorAppSettings) *UserProfileResourceSpec { return v.DefaultResourceSpec }).(UserProfileResourceSpecPtrOutput)
@@ -32268,6 +32438,16 @@ func (o UserProfileCodeEditorAppSettingsPtrOutput) Elem() UserProfileCodeEditorA
 		var ret UserProfileCodeEditorAppSettings
 		return ret
 	}).(UserProfileCodeEditorAppSettingsOutput)
+}
+
+// A list of custom images for use for CodeEditor apps.
+func (o UserProfileCodeEditorAppSettingsPtrOutput) CustomImages() UserProfileCustomImageArrayOutput {
+	return o.ApplyT(func(v *UserProfileCodeEditorAppSettings) []UserProfileCustomImage {
+		if v == nil {
+			return nil
+		}
+		return v.CustomImages
+	}).(UserProfileCustomImageArrayOutput)
 }
 
 // The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the CodeEditor app.
@@ -34560,6 +34740,8 @@ func (o UserProfileUserSettingsPtrOutput) StudioWebPortal() UserProfileUserSetti
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AppImageConfigCodeEditorAppImageConfigInput)(nil)).Elem(), AppImageConfigCodeEditorAppImageConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppImageConfigCodeEditorAppImageConfigPtrInput)(nil)).Elem(), AppImageConfigCodeEditorAppImageConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppImageConfigContainerConfigInput)(nil)).Elem(), AppImageConfigContainerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppImageConfigContainerConfigPtrInput)(nil)).Elem(), AppImageConfigContainerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppImageConfigCustomImageContainerEnvironmentVariableInput)(nil)).Elem(), AppImageConfigCustomImageContainerEnvironmentVariableArgs{})
@@ -34984,6 +35166,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileSharingSettingsPtrInput)(nil)).Elem(), UserProfileSharingSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsInput)(nil)).Elem(), UserProfileUserSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsPtrInput)(nil)).Elem(), UserProfileUserSettingsArgs{})
+	pulumi.RegisterOutputType(AppImageConfigCodeEditorAppImageConfigOutput{})
+	pulumi.RegisterOutputType(AppImageConfigCodeEditorAppImageConfigPtrOutput{})
 	pulumi.RegisterOutputType(AppImageConfigContainerConfigOutput{})
 	pulumi.RegisterOutputType(AppImageConfigContainerConfigPtrOutput{})
 	pulumi.RegisterOutputType(AppImageConfigCustomImageContainerEnvironmentVariableOutput{})

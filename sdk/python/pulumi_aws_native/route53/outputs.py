@@ -434,7 +434,7 @@ class HostedZoneTag(dict):
 class HostedZoneVpc(dict):
     """
     *Private hosted zones only:* A complex type that contains information about an Amazon VPC. Route 53 Resolver uses the records in the private hosted zone to route traffic in that VPC. 
-     For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
+      For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -460,11 +460,11 @@ class HostedZoneVpc(dict):
                  vpc_region: str):
         """
         *Private hosted zones only:* A complex type that contains information about an Amazon VPC. Route 53 Resolver uses the records in the private hosted zone to route traffic in that VPC. 
-         For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
+          For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
         :param str vpc_id: *Private hosted zones only:* The ID of an Amazon VPC.
-                For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
+                 For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
         :param str vpc_region: *Private hosted zones only:* The region that an Amazon VPC was created in.
-                For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
+                 For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
         """
         pulumi.set(__self__, "vpc_id", vpc_id)
         pulumi.set(__self__, "vpc_region", vpc_region)
@@ -474,7 +474,7 @@ class HostedZoneVpc(dict):
     def vpc_id(self) -> str:
         """
         *Private hosted zones only:* The ID of an Amazon VPC.
-         For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
+          For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
         """
         return pulumi.get(self, "vpc_id")
 
@@ -483,7 +483,7 @@ class HostedZoneVpc(dict):
     def vpc_region(self) -> str:
         """
         *Private hosted zones only:* The region that an Amazon VPC was created in.
-         For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
+          For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
         """
         return pulumi.get(self, "vpc_region")
 

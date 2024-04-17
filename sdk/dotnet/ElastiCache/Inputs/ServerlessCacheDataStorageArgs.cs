@@ -18,11 +18,17 @@ namespace Pulumi.AwsNative.ElastiCache.Inputs
         /// <summary>
         /// The maximum cached data capacity of the Serverless Cache.
         /// </summary>
-        [Input("maximum", required: true)]
-        public Input<int> Maximum { get; set; } = null!;
+        [Input("maximum")]
+        public Input<int>? Maximum { get; set; }
 
         /// <summary>
-        /// The unix of cached data capacity of the Serverless Cache.
+        /// The minimum cached data capacity of the Serverless Cache.
+        /// </summary>
+        [Input("minimum")]
+        public Input<int>? Minimum { get; set; }
+
+        /// <summary>
+        /// The unit of cached data capacity of the Serverless Cache.
         /// </summary>
         [Input("unit", required: true)]
         public Input<Pulumi.AwsNative.ElastiCache.ServerlessCacheDataStorageUnit> Unit { get; set; } = null!;

@@ -76,7 +76,8 @@ type Resolver struct {
 	//   +   *PIPELINE*: A PIPELINE resolver type. You can use a PIPELINE resolver to invoke a series of ``Function`` objects in a serial manner. You can use a pipeline resolver to run a GraphQL query against multiple data sources.
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
 	// The maximum number of resolver request inputs that will be sent to a single LAMlong function in a ``BatchInvoke`` operation.
-	MaxBatchSize  pulumi.IntPtrOutput            `pulumi:"maxBatchSize"`
+	MaxBatchSize pulumi.IntPtrOutput `pulumi:"maxBatchSize"`
+	// Enables or disables enhanced resolver metrics for specified resolvers. Note that ``MetricsConfig`` won't be used unless the ``resolverLevelMetricsBehavior`` value is set to ``PER_RESOLVER_METRICS``. If the ``resolverLevelMetricsBehavior`` is set to ``FULL_REQUEST_RESOLVER_METRICS`` instead, ``MetricsConfig`` will be ignored. However, you can still set its value.
 	MetricsConfig ResolverMetricsConfigPtrOutput `pulumi:"metricsConfig"`
 	// Functions linked with the pipeline resolver.
 	PipelineConfig ResolverPipelineConfigPtrOutput `pulumi:"pipelineConfig"`
@@ -170,7 +171,8 @@ type resolverArgs struct {
 	//   +   *PIPELINE*: A PIPELINE resolver type. You can use a PIPELINE resolver to invoke a series of ``Function`` objects in a serial manner. You can use a pipeline resolver to run a GraphQL query against multiple data sources.
 	Kind *string `pulumi:"kind"`
 	// The maximum number of resolver request inputs that will be sent to a single LAMlong function in a ``BatchInvoke`` operation.
-	MaxBatchSize  *int                   `pulumi:"maxBatchSize"`
+	MaxBatchSize *int `pulumi:"maxBatchSize"`
+	// Enables or disables enhanced resolver metrics for specified resolvers. Note that ``MetricsConfig`` won't be used unless the ``resolverLevelMetricsBehavior`` value is set to ``PER_RESOLVER_METRICS``. If the ``resolverLevelMetricsBehavior`` is set to ``FULL_REQUEST_RESOLVER_METRICS`` instead, ``MetricsConfig`` will be ignored. However, you can still set its value.
 	MetricsConfig *ResolverMetricsConfig `pulumi:"metricsConfig"`
 	// Functions linked with the pipeline resolver.
 	PipelineConfig *ResolverPipelineConfig `pulumi:"pipelineConfig"`
@@ -210,7 +212,8 @@ type ResolverArgs struct {
 	//   +   *PIPELINE*: A PIPELINE resolver type. You can use a PIPELINE resolver to invoke a series of ``Function`` objects in a serial manner. You can use a pipeline resolver to run a GraphQL query against multiple data sources.
 	Kind pulumi.StringPtrInput
 	// The maximum number of resolver request inputs that will be sent to a single LAMlong function in a ``BatchInvoke`` operation.
-	MaxBatchSize  pulumi.IntPtrInput
+	MaxBatchSize pulumi.IntPtrInput
+	// Enables or disables enhanced resolver metrics for specified resolvers. Note that ``MetricsConfig`` won't be used unless the ``resolverLevelMetricsBehavior`` value is set to ``PER_RESOLVER_METRICS``. If the ``resolverLevelMetricsBehavior`` is set to ``FULL_REQUEST_RESOLVER_METRICS`` instead, ``MetricsConfig`` will be ignored. However, you can still set its value.
 	MetricsConfig ResolverMetricsConfigPtrInput
 	// Functions linked with the pipeline resolver.
 	PipelineConfig ResolverPipelineConfigPtrInput
@@ -310,6 +313,7 @@ func (o ResolverOutput) MaxBatchSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Resolver) pulumi.IntPtrOutput { return v.MaxBatchSize }).(pulumi.IntPtrOutput)
 }
 
+// Enables or disables enhanced resolver metrics for specified resolvers. Note that “MetricsConfig“ won't be used unless the “resolverLevelMetricsBehavior“ value is set to “PER_RESOLVER_METRICS“. If the “resolverLevelMetricsBehavior“ is set to “FULL_REQUEST_RESOLVER_METRICS“ instead, “MetricsConfig“ will be ignored. However, you can still set its value.
 func (o ResolverOutput) MetricsConfig() ResolverMetricsConfigPtrOutput {
 	return o.ApplyT(func(v *Resolver) ResolverMetricsConfigPtrOutput { return v.MetricsConfig }).(ResolverMetricsConfigPtrOutput)
 }

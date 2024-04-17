@@ -46,6 +46,10 @@ export class AppImageConfig extends pulumi.CustomResource {
      */
     public readonly appImageConfigName!: pulumi.Output<string>;
     /**
+     * The CodeEditorAppImageConfig.
+     */
+    public readonly codeEditorAppImageConfig!: pulumi.Output<outputs.sagemaker.AppImageConfigCodeEditorAppImageConfig | undefined>;
+    /**
      * The JupyterLabAppImageConfig.
      */
     public readonly jupyterLabAppImageConfig!: pulumi.Output<outputs.sagemaker.AppImageConfigJupyterLabAppImageConfig | undefined>;
@@ -70,6 +74,7 @@ export class AppImageConfig extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             resourceInputs["appImageConfigName"] = args ? args.appImageConfigName : undefined;
+            resourceInputs["codeEditorAppImageConfig"] = args ? args.codeEditorAppImageConfig : undefined;
             resourceInputs["jupyterLabAppImageConfig"] = args ? args.jupyterLabAppImageConfig : undefined;
             resourceInputs["kernelGatewayImageConfig"] = args ? args.kernelGatewayImageConfig : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -77,6 +82,7 @@ export class AppImageConfig extends pulumi.CustomResource {
         } else {
             resourceInputs["appImageConfigArn"] = undefined /*out*/;
             resourceInputs["appImageConfigName"] = undefined /*out*/;
+            resourceInputs["codeEditorAppImageConfig"] = undefined /*out*/;
             resourceInputs["jupyterLabAppImageConfig"] = undefined /*out*/;
             resourceInputs["kernelGatewayImageConfig"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -96,6 +102,10 @@ export interface AppImageConfigArgs {
      * The Name of the AppImageConfig.
      */
     appImageConfigName?: pulumi.Input<string>;
+    /**
+     * The CodeEditorAppImageConfig.
+     */
+    codeEditorAppImageConfig?: pulumi.Input<inputs.sagemaker.AppImageConfigCodeEditorAppImageConfigArgs>;
     /**
      * The JupyterLabAppImageConfig.
      */

@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.Amplify
         public Output<string?> AutoSubDomainIamRole { get; private set; } = null!;
 
         [Output("certificate")]
-        public Output<Outputs.DomainCertificate?> Certificate { get; private set; } = null!;
+        public Output<Outputs.DomainCertificate> Certificate { get; private set; } = null!;
 
         [Output("certificateRecord")]
         public Output<string> CertificateRecord { get; private set; } = null!;
@@ -52,7 +52,7 @@ namespace Pulumi.AwsNative.Amplify
         public Output<ImmutableArray<Outputs.DomainSubDomainSetting>> SubDomainSettings { get; private set; } = null!;
 
         [Output("updateStatus")]
-        public Output<string?> UpdateStatus { get; private set; } = null!;
+        public Output<string> UpdateStatus { get; private set; } = null!;
 
 
         /// <summary>
@@ -118,9 +118,6 @@ namespace Pulumi.AwsNative.Amplify
         [Input("autoSubDomainIamRole")]
         public Input<string>? AutoSubDomainIamRole { get; set; }
 
-        [Input("certificate")]
-        public Input<Inputs.DomainCertificateArgs>? Certificate { get; set; }
-
         [Input("certificateSettings")]
         public Input<Inputs.DomainCertificateSettingsArgs>? CertificateSettings { get; set; }
 
@@ -137,9 +134,6 @@ namespace Pulumi.AwsNative.Amplify
             get => _subDomainSettings ?? (_subDomainSettings = new InputList<Inputs.DomainSubDomainSettingArgs>());
             set => _subDomainSettings = value;
         }
-
-        [Input("updateStatus")]
-        public Input<string>? UpdateStatus { get; set; }
 
         public DomainArgs()
         {

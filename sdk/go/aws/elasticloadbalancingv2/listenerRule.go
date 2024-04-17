@@ -12,16 +12,25 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::ElasticLoadBalancingV2::ListenerRule
+// Specifies a listener rule. The listener must be associated with an Application Load Balancer. Each rule consists of a priority, one or more actions, and one or more conditions.
+//
+//	For more information, see [Quotas for your Application Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-limits.html) in the *User Guide for Application Load Balancers*.
 type ListenerRule struct {
 	pulumi.CustomResourceState
 
-	Actions     ListenerRuleActionArrayOutput        `pulumi:"actions"`
-	Conditions  ListenerRuleRuleConditionArrayOutput `pulumi:"conditions"`
-	IsDefault   pulumi.BoolOutput                    `pulumi:"isDefault"`
-	ListenerArn pulumi.StringPtrOutput               `pulumi:"listenerArn"`
-	Priority    pulumi.IntOutput                     `pulumi:"priority"`
-	RuleArn     pulumi.StringOutput                  `pulumi:"ruleArn"`
+	// The actions.
+	//  The rule must include exactly one of the following types of actions: ``forward``, ``fixed-response``, or ``redirect``, and it must be the last action to be performed. If the rule is for an HTTPS listener, it can also optionally include an authentication action.
+	Actions ListenerRuleActionArrayOutput `pulumi:"actions"`
+	// The conditions.
+	//  The rule can optionally include up to one of each of the following conditions: ``http-request-method``, ``host-header``, ``path-pattern``, and ``source-ip``. A rule can also optionally include one or more of each of the following conditions: ``http-header`` and ``query-string``.
+	Conditions ListenerRuleRuleConditionArrayOutput `pulumi:"conditions"`
+	IsDefault  pulumi.BoolOutput                    `pulumi:"isDefault"`
+	// The Amazon Resource Name (ARN) of the listener.
+	ListenerArn pulumi.StringPtrOutput `pulumi:"listenerArn"`
+	// The rule priority. A listener can't have multiple rules with the same priority.
+	//  If you try to reorder rules by updating their priorities, do not specify a new priority if an existing rule already uses this priority, as this can cause an error. If you need to reuse a priority with a different rule, you must remove it as a priority first, and then specify it in a subsequent update.
+	Priority pulumi.IntOutput    `pulumi:"priority"`
+	RuleArn  pulumi.StringOutput `pulumi:"ruleArn"`
 }
 
 // NewListenerRule registers a new resource with the given unique name, arguments, and options.
@@ -77,18 +86,32 @@ func (ListenerRuleState) ElementType() reflect.Type {
 }
 
 type listenerRuleArgs struct {
-	Actions     []ListenerRuleAction        `pulumi:"actions"`
-	Conditions  []ListenerRuleRuleCondition `pulumi:"conditions"`
-	ListenerArn *string                     `pulumi:"listenerArn"`
-	Priority    int                         `pulumi:"priority"`
+	// The actions.
+	//  The rule must include exactly one of the following types of actions: ``forward``, ``fixed-response``, or ``redirect``, and it must be the last action to be performed. If the rule is for an HTTPS listener, it can also optionally include an authentication action.
+	Actions []ListenerRuleAction `pulumi:"actions"`
+	// The conditions.
+	//  The rule can optionally include up to one of each of the following conditions: ``http-request-method``, ``host-header``, ``path-pattern``, and ``source-ip``. A rule can also optionally include one or more of each of the following conditions: ``http-header`` and ``query-string``.
+	Conditions []ListenerRuleRuleCondition `pulumi:"conditions"`
+	// The Amazon Resource Name (ARN) of the listener.
+	ListenerArn *string `pulumi:"listenerArn"`
+	// The rule priority. A listener can't have multiple rules with the same priority.
+	//  If you try to reorder rules by updating their priorities, do not specify a new priority if an existing rule already uses this priority, as this can cause an error. If you need to reuse a priority with a different rule, you must remove it as a priority first, and then specify it in a subsequent update.
+	Priority int `pulumi:"priority"`
 }
 
 // The set of arguments for constructing a ListenerRule resource.
 type ListenerRuleArgs struct {
-	Actions     ListenerRuleActionArrayInput
-	Conditions  ListenerRuleRuleConditionArrayInput
+	// The actions.
+	//  The rule must include exactly one of the following types of actions: ``forward``, ``fixed-response``, or ``redirect``, and it must be the last action to be performed. If the rule is for an HTTPS listener, it can also optionally include an authentication action.
+	Actions ListenerRuleActionArrayInput
+	// The conditions.
+	//  The rule can optionally include up to one of each of the following conditions: ``http-request-method``, ``host-header``, ``path-pattern``, and ``source-ip``. A rule can also optionally include one or more of each of the following conditions: ``http-header`` and ``query-string``.
+	Conditions ListenerRuleRuleConditionArrayInput
+	// The Amazon Resource Name (ARN) of the listener.
 	ListenerArn pulumi.StringPtrInput
-	Priority    pulumi.IntInput
+	// The rule priority. A listener can't have multiple rules with the same priority.
+	//  If you try to reorder rules by updating their priorities, do not specify a new priority if an existing rule already uses this priority, as this can cause an error. If you need to reuse a priority with a different rule, you must remove it as a priority first, and then specify it in a subsequent update.
+	Priority pulumi.IntInput
 }
 
 func (ListenerRuleArgs) ElementType() reflect.Type {
@@ -128,10 +151,16 @@ func (o ListenerRuleOutput) ToListenerRuleOutputWithContext(ctx context.Context)
 	return o
 }
 
+// The actions.
+//
+//	The rule must include exactly one of the following types of actions: ``forward``, ``fixed-response``, or ``redirect``, and it must be the last action to be performed. If the rule is for an HTTPS listener, it can also optionally include an authentication action.
 func (o ListenerRuleOutput) Actions() ListenerRuleActionArrayOutput {
 	return o.ApplyT(func(v *ListenerRule) ListenerRuleActionArrayOutput { return v.Actions }).(ListenerRuleActionArrayOutput)
 }
 
+// The conditions.
+//
+//	The rule can optionally include up to one of each of the following conditions: ``http-request-method``, ``host-header``, ``path-pattern``, and ``source-ip``. A rule can also optionally include one or more of each of the following conditions: ``http-header`` and ``query-string``.
 func (o ListenerRuleOutput) Conditions() ListenerRuleRuleConditionArrayOutput {
 	return o.ApplyT(func(v *ListenerRule) ListenerRuleRuleConditionArrayOutput { return v.Conditions }).(ListenerRuleRuleConditionArrayOutput)
 }
@@ -140,10 +169,14 @@ func (o ListenerRuleOutput) IsDefault() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ListenerRule) pulumi.BoolOutput { return v.IsDefault }).(pulumi.BoolOutput)
 }
 
+// The Amazon Resource Name (ARN) of the listener.
 func (o ListenerRuleOutput) ListenerArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerRule) pulumi.StringPtrOutput { return v.ListenerArn }).(pulumi.StringPtrOutput)
 }
 
+// The rule priority. A listener can't have multiple rules with the same priority.
+//
+//	If you try to reorder rules by updating their priorities, do not specify a new priority if an existing rule already uses this priority, as this can cause an error. If you need to reuse a priority with a different rule, you must remove it as a priority first, and then specify it in a subsequent update.
 func (o ListenerRuleOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v *ListenerRule) pulumi.IntOutput { return v.Priority }).(pulumi.IntOutput)
 }

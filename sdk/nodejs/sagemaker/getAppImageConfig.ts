@@ -31,6 +31,10 @@ export interface GetAppImageConfigResult {
      */
     readonly appImageConfigArn?: string;
     /**
+     * The CodeEditorAppImageConfig.
+     */
+    readonly codeEditorAppImageConfig?: outputs.sagemaker.AppImageConfigCodeEditorAppImageConfig;
+    /**
      * The JupyterLabAppImageConfig.
      */
     readonly jupyterLabAppImageConfig?: outputs.sagemaker.AppImageConfigJupyterLabAppImageConfig;

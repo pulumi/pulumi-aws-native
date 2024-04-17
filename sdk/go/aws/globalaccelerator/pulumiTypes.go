@@ -21,6 +21,117 @@ type AcceleratorTag struct {
 	Value string `pulumi:"value"`
 }
 
+// ARN of resource to share.
+type CrossAccountAttachmentResource struct {
+	EndpointId string  `pulumi:"endpointId"`
+	Region     *string `pulumi:"region"`
+}
+
+// CrossAccountAttachmentResourceInput is an input type that accepts CrossAccountAttachmentResourceArgs and CrossAccountAttachmentResourceOutput values.
+// You can construct a concrete instance of `CrossAccountAttachmentResourceInput` via:
+//
+//	CrossAccountAttachmentResourceArgs{...}
+type CrossAccountAttachmentResourceInput interface {
+	pulumi.Input
+
+	ToCrossAccountAttachmentResourceOutput() CrossAccountAttachmentResourceOutput
+	ToCrossAccountAttachmentResourceOutputWithContext(context.Context) CrossAccountAttachmentResourceOutput
+}
+
+// ARN of resource to share.
+type CrossAccountAttachmentResourceArgs struct {
+	EndpointId pulumi.StringInput    `pulumi:"endpointId"`
+	Region     pulumi.StringPtrInput `pulumi:"region"`
+}
+
+func (CrossAccountAttachmentResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrossAccountAttachmentResource)(nil)).Elem()
+}
+
+func (i CrossAccountAttachmentResourceArgs) ToCrossAccountAttachmentResourceOutput() CrossAccountAttachmentResourceOutput {
+	return i.ToCrossAccountAttachmentResourceOutputWithContext(context.Background())
+}
+
+func (i CrossAccountAttachmentResourceArgs) ToCrossAccountAttachmentResourceOutputWithContext(ctx context.Context) CrossAccountAttachmentResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrossAccountAttachmentResourceOutput)
+}
+
+// CrossAccountAttachmentResourceArrayInput is an input type that accepts CrossAccountAttachmentResourceArray and CrossAccountAttachmentResourceArrayOutput values.
+// You can construct a concrete instance of `CrossAccountAttachmentResourceArrayInput` via:
+//
+//	CrossAccountAttachmentResourceArray{ CrossAccountAttachmentResourceArgs{...} }
+type CrossAccountAttachmentResourceArrayInput interface {
+	pulumi.Input
+
+	ToCrossAccountAttachmentResourceArrayOutput() CrossAccountAttachmentResourceArrayOutput
+	ToCrossAccountAttachmentResourceArrayOutputWithContext(context.Context) CrossAccountAttachmentResourceArrayOutput
+}
+
+type CrossAccountAttachmentResourceArray []CrossAccountAttachmentResourceInput
+
+func (CrossAccountAttachmentResourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CrossAccountAttachmentResource)(nil)).Elem()
+}
+
+func (i CrossAccountAttachmentResourceArray) ToCrossAccountAttachmentResourceArrayOutput() CrossAccountAttachmentResourceArrayOutput {
+	return i.ToCrossAccountAttachmentResourceArrayOutputWithContext(context.Background())
+}
+
+func (i CrossAccountAttachmentResourceArray) ToCrossAccountAttachmentResourceArrayOutputWithContext(ctx context.Context) CrossAccountAttachmentResourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrossAccountAttachmentResourceArrayOutput)
+}
+
+// ARN of resource to share.
+type CrossAccountAttachmentResourceOutput struct{ *pulumi.OutputState }
+
+func (CrossAccountAttachmentResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrossAccountAttachmentResource)(nil)).Elem()
+}
+
+func (o CrossAccountAttachmentResourceOutput) ToCrossAccountAttachmentResourceOutput() CrossAccountAttachmentResourceOutput {
+	return o
+}
+
+func (o CrossAccountAttachmentResourceOutput) ToCrossAccountAttachmentResourceOutputWithContext(ctx context.Context) CrossAccountAttachmentResourceOutput {
+	return o
+}
+
+func (o CrossAccountAttachmentResourceOutput) EndpointId() pulumi.StringOutput {
+	return o.ApplyT(func(v CrossAccountAttachmentResource) string { return v.EndpointId }).(pulumi.StringOutput)
+}
+
+func (o CrossAccountAttachmentResourceOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrossAccountAttachmentResource) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+type CrossAccountAttachmentResourceArrayOutput struct{ *pulumi.OutputState }
+
+func (CrossAccountAttachmentResourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CrossAccountAttachmentResource)(nil)).Elem()
+}
+
+func (o CrossAccountAttachmentResourceArrayOutput) ToCrossAccountAttachmentResourceArrayOutput() CrossAccountAttachmentResourceArrayOutput {
+	return o
+}
+
+func (o CrossAccountAttachmentResourceArrayOutput) ToCrossAccountAttachmentResourceArrayOutputWithContext(ctx context.Context) CrossAccountAttachmentResourceArrayOutput {
+	return o
+}
+
+func (o CrossAccountAttachmentResourceArrayOutput) Index(i pulumi.IntInput) CrossAccountAttachmentResourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CrossAccountAttachmentResource {
+		return vs[0].([]CrossAccountAttachmentResource)[vs[1].(int)]
+	}).(CrossAccountAttachmentResourceOutput)
+}
+
+// Tag is a key-value pair associated with Cross Account Attachment.
+type CrossAccountAttachmentTag struct {
+	// Key of the tag. Value can be 1 to 127 characters.
+	Key string `pulumi:"key"`
+	// Value for the tag. Value can be 1 to 255 characters.
+	Value string `pulumi:"value"`
+}
+
 // The configuration for a given endpoint
 type EndpointGroupEndpointConfiguration struct {
 	// Attachment ARN that provides access control to the cross account endpoint. Not required for resources hosted in the same account as the endpoint group.
@@ -355,12 +466,16 @@ func (o ListenerPortRangeArrayOutput) Index(i pulumi.IntInput) ListenerPortRange
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CrossAccountAttachmentResourceInput)(nil)).Elem(), CrossAccountAttachmentResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CrossAccountAttachmentResourceArrayInput)(nil)).Elem(), CrossAccountAttachmentResourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointGroupEndpointConfigurationInput)(nil)).Elem(), EndpointGroupEndpointConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointGroupEndpointConfigurationArrayInput)(nil)).Elem(), EndpointGroupEndpointConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointGroupPortOverrideInput)(nil)).Elem(), EndpointGroupPortOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointGroupPortOverrideArrayInput)(nil)).Elem(), EndpointGroupPortOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerPortRangeInput)(nil)).Elem(), ListenerPortRangeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerPortRangeArrayInput)(nil)).Elem(), ListenerPortRangeArray{})
+	pulumi.RegisterOutputType(CrossAccountAttachmentResourceOutput{})
+	pulumi.RegisterOutputType(CrossAccountAttachmentResourceArrayOutput{})
 	pulumi.RegisterOutputType(EndpointGroupEndpointConfigurationOutput{})
 	pulumi.RegisterOutputType(EndpointGroupEndpointConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(EndpointGroupPortOverrideOutput{})

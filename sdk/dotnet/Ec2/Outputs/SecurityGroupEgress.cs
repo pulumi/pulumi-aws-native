@@ -20,7 +20,6 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         public readonly string? DestinationSecurityGroupId;
         public readonly int? FromPort;
         public readonly string IpProtocol;
-        public readonly string? SourceSecurityGroupId;
         public readonly int? ToPort;
 
         [OutputConstructor]
@@ -39,8 +38,6 @@ namespace Pulumi.AwsNative.Ec2.Outputs
 
             string ipProtocol,
 
-            string? sourceSecurityGroupId,
-
             int? toPort)
         {
             CidrIp = cidrIp;
@@ -50,7 +47,6 @@ namespace Pulumi.AwsNative.Ec2.Outputs
             DestinationSecurityGroupId = destinationSecurityGroupId;
             FromPort = fromPort;
             IpProtocol = ipProtocol;
-            SourceSecurityGroupId = sourceSecurityGroupId;
             ToPort = toPort;
         }
     }

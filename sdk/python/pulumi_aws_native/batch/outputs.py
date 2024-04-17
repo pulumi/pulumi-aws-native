@@ -37,6 +37,7 @@ __all__ = [
     'JobDefinitionEphemeralStorage',
     'JobDefinitionEvaluateOnExit',
     'JobDefinitionFargatePlatformConfiguration',
+    'JobDefinitionImagePullSecret',
     'JobDefinitionLinuxParameters',
     'JobDefinitionLogConfiguration',
     'JobDefinitionMetadata',
@@ -1107,7 +1108,9 @@ class JobDefinitionEksContainerSecurityContext(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "readOnlyRootFilesystem":
+        if key == "allowPrivilegeEscalation":
+            suggest = "allow_privilege_escalation"
+        elif key == "readOnlyRootFilesystem":
             suggest = "read_only_root_filesystem"
         elif key == "runAsGroup":
             suggest = "run_as_group"
@@ -1128,11 +1131,14 @@ class JobDefinitionEksContainerSecurityContext(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 allow_privilege_escalation: Optional[bool] = None,
                  privileged: Optional[bool] = None,
                  read_only_root_filesystem: Optional[bool] = None,
                  run_as_group: Optional[int] = None,
                  run_as_non_root: Optional[bool] = None,
                  run_as_user: Optional[int] = None):
+        if allow_privilege_escalation is not None:
+            pulumi.set(__self__, "allow_privilege_escalation", allow_privilege_escalation)
         if privileged is not None:
             pulumi.set(__self__, "privileged", privileged)
         if read_only_root_filesystem is not None:
@@ -1143,6 +1149,11 @@ class JobDefinitionEksContainerSecurityContext(dict):
             pulumi.set(__self__, "run_as_non_root", run_as_non_root)
         if run_as_user is not None:
             pulumi.set(__self__, "run_as_user", run_as_user)
+
+    @property
+    @pulumi.getter(name="allowPrivilegeEscalation")
+    def allow_privilege_escalation(self) -> Optional[bool]:
+        return pulumi.get(self, "allow_privilege_escalation")
 
     @property
     @pulumi.getter
@@ -1529,6 +1540,18 @@ class JobDefinitionFargatePlatformConfiguration(dict):
 
 
 @pulumi.output_type
+class JobDefinitionImagePullSecret(dict):
+    def __init__(__self__, *,
+                 name: str):
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
 class JobDefinitionLinuxParameters(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1855,6 +1878,8 @@ class JobDefinitionPodProperties(dict):
             suggest = "dns_policy"
         elif key == "hostNetwork":
             suggest = "host_network"
+        elif key == "imagePullSecrets":
+            suggest = "image_pull_secrets"
         elif key == "initContainers":
             suggest = "init_containers"
         elif key == "serviceAccountName":
@@ -1877,6 +1902,7 @@ class JobDefinitionPodProperties(dict):
                  containers: Optional[Sequence['outputs.JobDefinitionEksContainer']] = None,
                  dns_policy: Optional[str] = None,
                  host_network: Optional[bool] = None,
+                 image_pull_secrets: Optional[Sequence['outputs.JobDefinitionImagePullSecret']] = None,
                  init_containers: Optional[Sequence['outputs.JobDefinitionEksContainer']] = None,
                  metadata: Optional['outputs.JobDefinitionMetadata'] = None,
                  service_account_name: Optional[str] = None,
@@ -1888,6 +1914,8 @@ class JobDefinitionPodProperties(dict):
             pulumi.set(__self__, "dns_policy", dns_policy)
         if host_network is not None:
             pulumi.set(__self__, "host_network", host_network)
+        if image_pull_secrets is not None:
+            pulumi.set(__self__, "image_pull_secrets", image_pull_secrets)
         if init_containers is not None:
             pulumi.set(__self__, "init_containers", init_containers)
         if metadata is not None:
@@ -1913,6 +1941,11 @@ class JobDefinitionPodProperties(dict):
     @pulumi.getter(name="hostNetwork")
     def host_network(self) -> Optional[bool]:
         return pulumi.get(self, "host_network")
+
+    @property
+    @pulumi.getter(name="imagePullSecrets")
+    def image_pull_secrets(self) -> Optional[Sequence['outputs.JobDefinitionImagePullSecret']]:
+        return pulumi.get(self, "image_pull_secrets")
 
     @property
     @pulumi.getter(name="initContainers")

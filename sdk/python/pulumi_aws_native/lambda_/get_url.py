@@ -70,7 +70,7 @@ class GetUrlResult:
     @pulumi.getter(name="invokeMode")
     def invoke_mode(self) -> Optional['UrlInvokeMode']:
         """
-        The invocation mode for the function’s URL. Set to BUFFERED if you want to buffer responses before returning them to the client. Set to RESPONSE_STREAM if you want to stream responses, allowing faster time to first byte and larger response payload sizes. If not set, defaults to BUFFERED.
+        The invocation mode for the function's URL. Set to BUFFERED if you want to buffer responses before returning them to the client. Set to RESPONSE_STREAM if you want to stream responses, allowing faster time to first byte and larger response payload sizes. If not set, defaults to BUFFERED.
         """
         return pulumi.get(self, "invoke_mode")
 

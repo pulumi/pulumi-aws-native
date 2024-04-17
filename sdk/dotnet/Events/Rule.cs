@@ -24,21 +24,21 @@ namespace Pulumi.AwsNative.Events
     /// {
     ///     var eventBridgeIAMrole = new AwsNative.Iam.Role("eventBridgeIAMrole", new()
     ///     {
-    ///         AssumeRolePolicyDocument = 
+    ///         AssumeRolePolicyDocument = new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             { "version", "2012-10-17" },
-    ///             { "statement", new[]
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
-    ///                 
+    ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     { "effect", "Allow" },
-    ///                     { "principal", 
+    ///                     ["effect"] = "Allow",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         { "service", "events.amazonaws.com" },
-    ///                     } },
-    ///                     { "action", "sts:AssumeRole" },
+    ///                         ["service"] = "events.amazonaws.com",
+    ///                     },
+    ///                     ["action"] = "sts:AssumeRole",
     ///                 },
-    ///             } },
+    ///             },
     ///         },
     ///         Path = "/",
     ///         Policies = new[]
@@ -46,24 +46,24 @@ namespace Pulumi.AwsNative.Events
     ///             new AwsNative.Iam.Inputs.RolePolicyArgs
     ///             {
     ///                 PolicyName = "PutEventsDestinationBus",
-    ///                 PolicyDocument = 
+    ///                 PolicyDocument = new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     { "version", "2012-10-17" },
-    ///                     { "statement", new[]
+    ///                     ["version"] = "2012-10-17",
+    ///                     ["statement"] = new[]
     ///                     {
-    ///                         
+    ///                         new Dictionary&lt;string, object?&gt;
     ///                         {
-    ///                             { "effect", "Allow" },
-    ///                             { "action", new[]
+    ///                             ["effect"] = "Allow",
+    ///                             ["action"] = new[]
     ///                             {
     ///                                 "events:PutEvents",
-    ///                             } },
-    ///                             { "resource", new[]
+    ///                             },
+    ///                             ["resource"] = new[]
     ///                             {
     ///                                 "arn:aws:events:us-east-1:123456789012:event-bus/CrossRegionDestinationBus",
-    ///                             } },
+    ///                             },
     ///                         },
-    ///                     } },
+    ///                     },
     ///                 },
     ///             },
     ///         },
@@ -74,16 +74,16 @@ namespace Pulumi.AwsNative.Events
     ///         Description = "Routes to us-east-1 event bus",
     ///         EventBusName = "MyBusName",
     ///         State = AwsNative.Events.RuleState.Enabled,
-    ///         EventPattern = 
+    ///         EventPattern = new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             { "source", new[]
+    ///             ["source"] = new[]
     ///             {
     ///                 "MyTestApp",
-    ///             } },
-    ///             { "detail", new[]
+    ///             },
+    ///             ["detail"] = new[]
     ///             {
     ///                 "MyTestAppDetail",
-    ///             } },
+    ///             },
     ///         },
     ///         Targets = new[]
     ///         {

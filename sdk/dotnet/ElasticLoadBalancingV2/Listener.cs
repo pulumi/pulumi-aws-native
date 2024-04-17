@@ -64,6 +64,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
 
         /// <summary>
         /// [HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are supported.
+        ///  Updating the security policy can result in interruptions if the load balancer is handling a high volume of traffic.
         ///  For more information, see [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies) in the *Application Load Balancers Guide* and [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies) in the *Network Load Balancers Guide*.
         /// </summary>
         [Output("sslPolicy")]
@@ -182,6 +183,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
 
         /// <summary>
         /// [HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are supported.
+        ///  Updating the security policy can result in interruptions if the load balancer is handling a high volume of traffic.
         ///  For more information, see [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies) in the *Application Load Balancers Guide* and [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies) in the *Network Load Balancers Guide*.
         /// </summary>
         [Input("sslPolicy")]

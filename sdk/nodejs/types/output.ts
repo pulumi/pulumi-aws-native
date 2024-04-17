@@ -2543,6 +2543,18 @@ export namespace appflow {
 }
 
 export namespace appintegrations {
+    export interface ApplicationExternalUrlConfig {
+        accessUrl: string;
+        approvedOrigins: string[];
+    }
+
+    /**
+     * Application source config
+     */
+    export interface ApplicationSourceConfigProperties {
+        externalUrlConfig: outputs.appintegrations.ApplicationExternalUrlConfig;
+    }
+
     /**
      * The configuration for what files should be pulled from the source.
      */
@@ -3646,6 +3658,64 @@ export namespace appsync {
 
 export namespace aps {
     /**
+     * Scraper metrics destination
+     */
+    export interface ScraperDestination {
+        /**
+         * Configuration for Amazon Managed Prometheus metrics destination
+         */
+        ampConfiguration?: outputs.aps.ScraperDestinationAmpConfigurationProperties;
+    }
+
+    /**
+     * Configuration for Amazon Managed Prometheus metrics destination
+     */
+    export interface ScraperDestinationAmpConfigurationProperties {
+        /**
+         * ARN of an Amazon Managed Prometheus workspace
+         */
+        workspaceArn: string;
+    }
+
+    /**
+     * Scraper configuration
+     */
+    export interface ScraperScrapeConfiguration {
+        /**
+         * Prometheus compatible scrape configuration in base64 encoded blob format
+         */
+        configurationBlob?: string;
+    }
+
+    /**
+     * Scraper metrics source
+     */
+    export interface ScraperSource {
+        /**
+         * Configuration for EKS metrics source
+         */
+        eksConfiguration?: outputs.aps.ScraperSourceEksConfigurationProperties;
+    }
+
+    /**
+     * Configuration for EKS metrics source
+     */
+    export interface ScraperSourceEksConfigurationProperties {
+        /**
+         * ARN of an EKS cluster
+         */
+        clusterArn: string;
+        /**
+         * List of security group IDs
+         */
+        securityGroupIds?: string[];
+        /**
+         * List of subnet IDs
+         */
+        subnetIds: string[];
+    }
+
+    /**
      * Logging configuration
      */
     export interface WorkspaceLoggingConfiguration {
@@ -3836,138 +3906,590 @@ export namespace auditmanager {
 }
 
 export namespace autoscaling {
+    /**
+     * ``AcceleratorCountRequest`` is a property of the ``InstanceRequirements`` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property type that describes the minimum and maximum number of accelerators for an instance type.
+     */
     export interface AutoScalingGroupAcceleratorCountRequest {
+        /**
+         * The maximum value.
+         */
         max?: number;
+        /**
+         * The minimum value.
+         */
         min?: number;
     }
 
+    /**
+     * ``AcceleratorTotalMemoryMiBRequest`` is a property of the ``InstanceRequirements`` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property type that describes the minimum and maximum total memory size for the accelerators for an instance type, in MiB.
+     */
     export interface AutoScalingGroupAcceleratorTotalMemoryMiBRequest {
+        /**
+         * The memory maximum in MiB.
+         */
         max?: number;
+        /**
+         * The memory minimum in MiB.
+         */
         min?: number;
     }
 
+    /**
+     * ``BaselineEbsBandwidthMbpsRequest`` is a property of the ``InstanceRequirements`` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property type that describes the minimum and maximum baseline bandwidth performance for an instance type, in Mbps.
+     */
     export interface AutoScalingGroupBaselineEbsBandwidthMbpsRequest {
+        /**
+         * The maximum value in Mbps.
+         */
         max?: number;
+        /**
+         * The minimum value in Mbps.
+         */
         min?: number;
     }
 
+    /**
+     * ``InstanceMaintenancePolicy`` is a property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource.
+     *  For more information, see [Instance maintenance policies](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-maintenance-policy.html) in the *Amazon EC2 Auto Scaling User Guide*.
+     */
     export interface AutoScalingGroupInstanceMaintenancePolicy {
+        /**
+         * Specifies the upper threshold as a percentage of the desired capacity of the Auto Scaling group. It represents the maximum percentage of the group that can be in service and healthy, or pending, to support your workload when replacing instances. Value range is 100 to 200. To clear a previously set value, specify a value of ``-1``.
+         *  Both ``MinHealthyPercentage`` and ``MaxHealthyPercentage`` must be specified, and the difference between them cannot be greater than 100. A large range increases the number of instances that can be replaced at the same time.
+         */
         maxHealthyPercentage?: number;
+        /**
+         * Specifies the lower threshold as a percentage of the desired capacity of the Auto Scaling group. It represents the minimum percentage of the group to keep in service, healthy, and ready to use to support your workload when replacing instances. Value range is 0 to 100. To clear a previously set value, specify a value of ``-1``.
+         */
         minHealthyPercentage?: number;
     }
 
+    /**
+     * The attributes for the instance types for a mixed instances policy. Amazon EC2 Auto Scaling uses your specified requirements to identify instance types. Then, it uses your On-Demand and Spot allocation strategies to launch instances from these instance types.
+     *  When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.
+     *  To limit the list of instance types from which Amazon EC2 Auto Scaling can identify matching instance types, you can use one of the following parameters, but not both in the same request:
+     *   +  ``AllowedInstanceTypes`` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
+     *   +  ``ExcludedInstanceTypes`` - The instance types to exclude from the list, even if they match your specified attributes.
+     *   
+     *   You must specify ``VCpuCount`` and ``MemoryMiB``. All other attributes are optional. Any unspecified optional attribute is set to its default.
+     *   For an example template, see [Auto scaling template snippets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-autoscaling.html).
+     *  For more information, see [Creating an Auto Scaling group using attribute-based instance type selection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-instance-type-requirements.html) in the *Amazon EC2 Auto Scaling User Guide*. For help determining which instance types match your attributes before you apply them to your Auto Scaling group, see [Preview instance types with specified attributes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html#ec2fleet-get-instance-types-from-instance-requirements) in the *Amazon EC2 User Guide for Linux Instances*.
+     *  ``InstanceRequirements`` is a property of the ``LaunchTemplateOverrides`` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html) property type.
+     */
     export interface AutoScalingGroupInstanceRequirements {
+        /**
+         * The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) for an instance type.
+         *  To exclude accelerator-enabled instance types, set ``Max`` to ``0``.
+         *  Default: No minimum or maximum limits
+         */
         acceleratorCount?: outputs.autoscaling.AutoScalingGroupAcceleratorCountRequest;
+        /**
+         * Indicates whether instance types must have accelerators by specific manufacturers.
+         *   +  For instance types with NVIDIA devices, specify ``nvidia``.
+         *   +  For instance types with AMD devices, specify ``amd``.
+         *   +  For instance types with AWS devices, specify ``amazon-web-services``.
+         *   +  For instance types with Xilinx devices, specify ``xilinx``.
+         *   
+         *  Default: Any manufacturer
+         */
         acceleratorManufacturers?: string[];
+        /**
+         * Lists the accelerators that must be on an instance type.
+         *   +  For instance types with NVIDIA A100 GPUs, specify ``a100``.
+         *   +  For instance types with NVIDIA V100 GPUs, specify ``v100``.
+         *   +  For instance types with NVIDIA K80 GPUs, specify ``k80``.
+         *   +  For instance types with NVIDIA T4 GPUs, specify ``t4``.
+         *   +  For instance types with NVIDIA M60 GPUs, specify ``m60``.
+         *   +  For instance types with AMD Radeon Pro V520 GPUs, specify ``radeon-pro-v520``.
+         *   +  For instance types with Xilinx VU9P FPGAs, specify ``vu9p``.
+         *   
+         *  Default: Any accelerator
+         */
         acceleratorNames?: string[];
+        /**
+         * The minimum and maximum total memory size for the accelerators on an instance type, in MiB.
+         *  Default: No minimum or maximum limits
+         */
         acceleratorTotalMemoryMiB?: outputs.autoscaling.AutoScalingGroupAcceleratorTotalMemoryMiBRequest;
+        /**
+         * Lists the accelerator types that must be on an instance type.
+         *   +  For instance types with GPU accelerators, specify ``gpu``.
+         *   +  For instance types with FPGA accelerators, specify ``fpga``.
+         *   +  For instance types with inference accelerators, specify ``inference``.
+         *   
+         *  Default: Any accelerator type
+         */
         acceleratorTypes?: string[];
+        /**
+         * The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes.
+         *  You can use strings with one or more wild cards, represented by an asterisk (``*``), to allow an instance type, size, or generation. The following are examples: ``m5.8xlarge``, ``c5*.*``, ``m5a.*``, ``r*``, ``*3*``.
+         *  For example, if you specify ``c5*``, Amazon EC2 Auto Scaling will allow the entire C5 instance family, which includes all C5a and C5n instance types. If you specify ``m5a.*``, Amazon EC2 Auto Scaling will allow all the M5a instance types, but not the M5n instance types.
+         *   If you specify ``AllowedInstanceTypes``, you can't specify ``ExcludedInstanceTypes``.
+         *   Default: All instance types
+         */
         allowedInstanceTypes?: string[];
+        /**
+         * Indicates whether bare metal instance types are included, excluded, or required.
+         *  Default: ``excluded``
+         */
         bareMetal?: string;
+        /**
+         * The minimum and maximum baseline bandwidth performance for an instance type, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide for Linux Instances*.
+         *  Default: No minimum or maximum limits
+         */
         baselineEbsBandwidthMbps?: outputs.autoscaling.AutoScalingGroupBaselineEbsBandwidthMbpsRequest;
+        /**
+         * Indicates whether burstable performance instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) in the *Amazon EC2 User Guide for Linux Instances*.
+         *  Default: ``excluded``
+         */
         burstablePerformance?: string;
+        /**
+         * Lists which specific CPU manufacturers to include.
+         *   +  For instance types with Intel CPUs, specify ``intel``.
+         *   +  For instance types with AMD CPUs, specify ``amd``.
+         *   +  For instance types with AWS CPUs, specify ``amazon-web-services``.
+         *   
+         *   Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template. 
+         *   Default: Any manufacturer
+         */
         cpuManufacturers?: string[];
+        /**
+         * The instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (``*``), to exclude an instance family, type, size, or generation. The following are examples: ``m5.8xlarge``, ``c5*.*``, ``m5a.*``, ``r*``, ``*3*``. 
+         *  For example, if you specify ``c5*``, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify ``m5a.*``, Amazon EC2 Auto Scaling will exclude all the M5a instance types, but not the M5n instance types.
+         *   If you specify ``ExcludedInstanceTypes``, you can't specify ``AllowedInstanceTypes``.
+         *   Default: No excluded instance types
+         */
         excludedInstanceTypes?: string[];
+        /**
+         * Indicates whether current or previous generation instance types are included.
+         *   +  For current generation instance types, specify ``current``. The current generation includes EC2 instance types currently recommended for use. This typically includes the latest two to three generations in each instance family. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide for Linux Instances*.
+         *   +  For previous generation instance types, specify ``previous``.
+         *   
+         *  Default: Any current or previous generation
+         */
         instanceGenerations?: string[];
+        /**
+         * Indicates whether instance types with instance store volumes are included, excluded, or required. For more information, see [Amazon EC2 instance store](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html) in the *Amazon EC2 User Guide for Linux Instances*.
+         *  Default: ``included``
+         */
         localStorage?: string;
+        /**
+         * Indicates the type of local storage that is required.
+         *   +  For instance types with hard disk drive (HDD) storage, specify ``hdd``.
+         *   +  For instance types with solid state drive (SSD) storage, specify ``ssd``.
+         *   
+         *  Default: Any local storage type
+         */
         localStorageTypes?: string[];
+        /**
+         * [Price protection] The price protection threshold for Spot Instances, as a percentage of an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from either the lowest priced current generation instance types or, failing that, the lowest priced previous generation instance types that match your attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price exceeds your specified threshold.
+         *  The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage.
+         *  To indicate no price protection threshold, specify a high value, such as ``999999``. 
+         *  If you set ``DesiredCapacityType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is based on the per-vCPU or per-memory price instead of the per instance price. 
+         *   Only one of ``SpotMaxPricePercentageOverLowestPrice`` or ``MaxSpotPriceAsPercentageOfOptimalOnDemandPrice`` can be specified. If you don't specify either, then ``SpotMaxPricePercentageOverLowestPrice`` is used and the value for that parameter defaults to ``100``.
+         */
         maxSpotPriceAsPercentageOfOptimalOnDemandPrice?: number;
+        /**
+         * The minimum and maximum amount of memory per vCPU for an instance type, in GiB.
+         *  Default: No minimum or maximum limits
+         */
         memoryGiBPerVCpu?: outputs.autoscaling.AutoScalingGroupMemoryGiBPerVCpuRequest;
+        /**
+         * The minimum and maximum instance memory size for an instance type, in MiB.
+         */
         memoryMiB: outputs.autoscaling.AutoScalingGroupMemoryMiBRequest;
+        /**
+         * The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps).
+         *  Default: No minimum or maximum limits
+         */
         networkBandwidthGbps?: outputs.autoscaling.AutoScalingGroupNetworkBandwidthGbpsRequest;
+        /**
+         * The minimum and maximum number of network interfaces for an instance type.
+         *  Default: No minimum or maximum limits
+         */
         networkInterfaceCount?: outputs.autoscaling.AutoScalingGroupNetworkInterfaceCountRequest;
+        /**
+         * [Price protection] The price protection threshold for On-Demand Instances, as a percentage higher than an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from either the lowest priced current generation instance types or, failing that, the lowest priced previous generation instance types that match your attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price exceeds your specified threshold. 
+         *  The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage.
+         *  To turn off price protection, specify a high value, such as ``999999``. 
+         *  If you set ``DesiredCapacityType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per instance price. 
+         *  Default: ``20``
+         */
         onDemandMaxPricePercentageOverLowestPrice?: number;
+        /**
+         * Indicates whether instance types must provide On-Demand Instance hibernation support.
+         *  Default: ``false``
+         */
         requireHibernateSupport?: boolean;
+        /**
+         * [Price protection] The price protection threshold for Spot Instances, as a percentage higher than an identified Spot price. The identified Spot price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from either the lowest priced current generation instance types or, failing that, the lowest priced previous generation instance types that match your attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price exceeds your specified threshold.
+         *  The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage.
+         *  To turn off price protection, specify a high value, such as ``999999``. 
+         *  If you set ``DesiredCapacityType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is based on the per-vCPU or per-memory price instead of the per instance price. 
+         *   Only one of ``SpotMaxPricePercentageOverLowestPrice`` or ``MaxSpotPriceAsPercentageOfOptimalOnDemandPrice`` can be specified.
+         *   Default: ``100``
+         */
         spotMaxPricePercentageOverLowestPrice?: number;
+        /**
+         * The minimum and maximum total local storage size for an instance type, in GB.
+         *  Default: No minimum or maximum limits
+         */
         totalLocalStorageGb?: outputs.autoscaling.AutoScalingGroupTotalLocalStorageGbRequest;
+        /**
+         * The minimum and maximum number of vCPUs for an instance type.
+         */
         vCpuCount: outputs.autoscaling.AutoScalingGroupVCpuCountRequest;
     }
 
+    /**
+     * Use this structure to specify the distribution of On-Demand Instances and Spot Instances and the allocation strategies used to fulfill On-Demand and Spot capacities for a mixed instances policy.
+     *  For more information, see [Auto Scaling groups with multiple instance types and purchase options](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html) in the *Amazon EC2 Auto Scaling User Guide*.
+     *   ``InstancesDistribution`` is a property of the [AWS::AutoScaling::AutoScalingGroup MixedInstancesPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-mixedinstancespolicy.html) property type.
+     */
     export interface AutoScalingGroupInstancesDistribution {
+        /**
+         * The allocation strategy to apply to your On-Demand Instances when they are launched. Possible instance types are determined by the launch template overrides that you specify.
+         *  The following lists the valid values:
+         *   + lowest-price Uses price to determine which instance types are the highest priority, launching the lowest priced instance types within an Availability Zone first. This is the default value for Auto Scaling groups that specify InstanceRequirements. + prioritized You set the order of instance types for the launch template overrides from highest to lowest priority (from first to last in the list). Amazon EC2 Auto Scaling launches your highest priority instance types first. If all your On-Demand capacity cannot be fulfilled using your highest priority instance type, then Amazon EC2 Auto Scaling launches the remaining capacity using the second priority instance type, and so on. This is the default value for Auto Scaling groups that don't specify InstanceRequirements and cannot be used for groups that do.
+         */
         onDemandAllocationStrategy?: string;
+        /**
+         * The minimum amount of the Auto Scaling group's capacity that must be fulfilled by On-Demand Instances. This base portion is launched first as your group scales.
+         *  This number has the same unit of measurement as the group's desired capacity. If you change the default unit of measurement (number of instances) by specifying weighted capacity values in your launch template overrides list, or by changing the default desired capacity type setting of the group, you must specify this number using the same unit of measurement.
+         *  Default: 0
+         *   An update to this setting means a gradual replacement of instances to adjust the current On-Demand Instance levels. When replacing instances, Amazon EC2 Auto Scaling launches new instances before terminating the previous ones.
+         */
         onDemandBaseCapacity?: number;
+        /**
+         * Controls the percentages of On-Demand Instances and Spot Instances for your additional capacity beyond ``OnDemandBaseCapacity``. Expressed as a number (for example, 20 specifies 20% On-Demand Instances, 80% Spot Instances). If set to 100, only On-Demand Instances are used.
+         *  Default: 100
+         *   An update to this setting means a gradual replacement of instances to adjust the current On-Demand and Spot Instance levels for your additional capacity higher than the base capacity. When replacing instances, Amazon EC2 Auto Scaling launches new instances before terminating the previous ones.
+         */
         onDemandPercentageAboveBaseCapacity?: number;
+        /**
+         * The allocation strategy to apply to your Spot Instances when they are launched. Possible instance types are determined by the launch template overrides that you specify.
+         *  The following lists the valid values:
+         *   + capacity-optimized Requests Spot Instances using pools that are optimally chosen based on the available Spot capacity. This strategy has the lowest risk of interruption. To give certain instance types a higher chance of launching first, use capacity-optimized-prioritized. + capacity-optimized-prioritized You set the order of instance types for the launch template overrides from highest to lowest priority (from first to last in the list). Amazon EC2 Auto Scaling honors the instance type priorities on a best effort basis but optimizes for capacity first. Note that if the On-Demand allocation strategy is set to prioritized, the same priority is applied when fulfilling On-Demand capacity. This is not a valid value for Auto Scaling groups that specify InstanceRequirements. + lowest-price Requests Spot Instances using the lowest priced pools within an Availability Zone, across the number of Spot pools that you specify for the SpotInstancePools property. To ensure that your desired capacity is met, you might receive Spot Instances from several pools. This is the default value, but it might lead to high interruption rates because this strategy only considers instance price and not available capacity. + price-capacity-optimized (recommended) The price and capacity optimized allocation strategy looks at both price and capacity to select the Spot Instance pools that are the least likely to be interrupted and have the lowest possible price.
+         */
         spotAllocationStrategy?: string;
+        /**
+         * The number of Spot Instance pools across which to allocate your Spot Instances. The Spot pools are determined from the different instance types in the overrides. Valid only when the ``SpotAllocationStrategy`` is ``lowest-price``. Value must be in the range of 1–20.
+         *  Default: 2
+         */
         spotInstancePools?: number;
+        /**
+         * The maximum price per unit hour that you are willing to pay for a Spot Instance. If your maximum price is lower than the Spot price for the instance types that you selected, your Spot Instances are not launched. We do not recommend specifying a maximum price because it can lead to increased interruptions. When Spot Instances launch, you pay the current Spot price. To remove a maximum price that you previously set, include the property but specify an empty string ("") for the value.
+         *   If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify one.
+         *   Valid Range: Minimum value of 0.001
+         */
         spotMaxPrice?: string;
     }
 
+    /**
+     * Use this structure to specify the launch templates and instance types (overrides) for a mixed instances policy.
+     *   ``LaunchTemplate`` is a property of the [AWS::AutoScaling::AutoScalingGroup MixedInstancesPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-mixedinstancespolicy.html) property type.
+     */
     export interface AutoScalingGroupLaunchTemplate {
+        /**
+         * The launch template.
+         */
         launchTemplateSpecification: outputs.autoscaling.AutoScalingGroupLaunchTemplateSpecification;
+        /**
+         * Any properties that you specify override the same properties in the launch template.
+         */
         overrides?: outputs.autoscaling.AutoScalingGroupLaunchTemplateOverrides[];
     }
 
+    /**
+     * Use this structure to let Amazon EC2 Auto Scaling do the following when the Auto Scaling group has a mixed instances policy:
+     *   +  Override the instance type that is specified in the launch template.
+     *   +  Use multiple instance types.
+     *   
+     *  Specify the instance types that you want, or define your instance requirements instead and let Amazon EC2 Auto Scaling provision the available instance types that meet your requirements. This can provide Amazon EC2 Auto Scaling with a larger selection of instance types to choose from when fulfilling Spot and On-Demand capacities. You can view which instance types are matched before you apply the instance requirements to your Auto Scaling group.
+     *  After you define your instance requirements, you don't have to keep updating these settings to get new EC2 instance types automatically. Amazon EC2 Auto Scaling uses the instance requirements of the Auto Scaling group to determine whether a new EC2 instance type can be used.
+     *   ``LaunchTemplateOverrides`` is a property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html) property type.
+     */
     export interface AutoScalingGroupLaunchTemplateOverrides {
+        /**
+         * The instance requirements. Amazon EC2 Auto Scaling uses your specified requirements to identify instance types. Then, it uses your On-Demand and Spot allocation strategies to launch instances from these instance types.
+         *  You can specify up to four separate sets of instance requirements per Auto Scaling group. This is useful for provisioning instances from different Amazon Machine Images (AMIs) in the same Auto Scaling group. To do this, create the AMIs and create a new launch template for each AMI. Then, create a compatible set of instance requirements for each launch template. 
+         *   If you specify ``InstanceRequirements``, you can't specify ``InstanceType``.
+         */
         instanceRequirements?: outputs.autoscaling.AutoScalingGroupInstanceRequirements;
+        /**
+         * The instance type, such as ``m3.xlarge``. You must specify an instance type that is supported in your requested Region and Availability Zones. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon Elastic Compute Cloud User Guide*.
+         *  You can specify up to 40 instance types per Auto Scaling group.
+         */
         instanceType?: string;
+        /**
+         * Provides a launch template for the specified instance type or set of instance requirements. For example, some instance types might require a launch template with a different AMI. If not provided, Amazon EC2 Auto Scaling uses the launch template that's specified in the ``LaunchTemplate`` definition. For more information, see [Specifying a different launch template for an instance type](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups-launch-template-overrides.html) in the *Amazon EC2 Auto Scaling User Guide*. 
+         *  You can specify up to 20 launch templates per Auto Scaling group. The launch templates specified in the overrides and in the ``LaunchTemplate`` definition count towards this limit.
+         */
         launchTemplateSpecification?: outputs.autoscaling.AutoScalingGroupLaunchTemplateSpecification;
+        /**
+         * If you provide a list of instance types to use, you can specify the number of capacity units provided by each instance type in terms of virtual CPUs, memory, storage, throughput, or other relative performance characteristic. When a Spot or On-Demand Instance is launched, the capacity units count toward the desired capacity. Amazon EC2 Auto Scaling launches instances until the desired capacity is totally fulfilled, even if this results in an overage. For example, if there are two units remaining to fulfill capacity, and Amazon EC2 Auto Scaling can only launch an instance with a ``WeightedCapacity`` of five units, the instance is launched, and the desired capacity is exceeded by three units. For more information, see [Configure instance weighting for Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups-instance-weighting.html) in the *Amazon EC2 Auto Scaling User Guide*. Value must be in the range of 1-999. 
+         *  If you specify a value for ``WeightedCapacity`` for one instance type, you must specify a value for ``WeightedCapacity`` for all of them.
+         *   Every Auto Scaling group has three size parameters (``DesiredCapacity``, ``MaxSize``, and ``MinSize``). Usually, you set these sizes based on a specific number of instances. However, if you configure a mixed instances policy that defines weights for the instance types, you must specify these sizes with the same units that you use for weighting instances.
+         */
         weightedCapacity?: string;
     }
 
+    /**
+     * Specifies a launch template to use when provisioning EC2 instances for an Auto Scaling group.
+     *  You must specify the following:
+     *   +  The ID or the name of the launch template, but not both.
+     *   +  The version of the launch template.
+     *   
+     *  ``LaunchTemplateSpecification`` is property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource. It is also a property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html) and [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property types.
+     *  For information about creating a launch template, see [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html) and [Create a launch template for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-template.html) in the *Amazon EC2 Auto Scaling User Guide*.
+     *  For examples of launch templates, see [Auto scaling template snippets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-autoscaling.html) and the [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#aws-resource-ec2-launchtemplate--examples) section in the ``AWS::EC2::LaunchTemplate`` resource.
+     */
     export interface AutoScalingGroupLaunchTemplateSpecification {
+        /**
+         * The ID of the launch template.
+         *  You must specify the ``LaunchTemplateID`` or the ``LaunchTemplateName``, but not both.
+         */
         launchTemplateId?: string;
+        /**
+         * The name of the launch template.
+         *  You must specify the ``LaunchTemplateName`` or the ``LaunchTemplateID``, but not both.
+         */
         launchTemplateName?: string;
+        /**
+         * The version number of the launch template.
+         *  Specifying ``$Latest`` or ``$Default`` for the template version number is not supported. However, you can specify ``LatestVersionNumber`` or ``DefaultVersionNumber`` using the ``Fn::GetAtt`` intrinsic function. For more information, see [Fn::GetAtt](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.html).
+         *   For an example of using the ``Fn::GetAtt`` function, see the [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#aws-resource-autoscaling-autoscalinggroup--examples) section of the ``AWS::AutoScaling::AutoScalingGroup`` resource.
+         */
         version: string;
     }
 
+    /**
+     * ``LifecycleHookSpecification`` specifies a lifecycle hook for the ``LifecycleHookSpecificationList`` property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource. A lifecycle hook specifies actions to perform when Amazon EC2 Auto Scaling launches or terminates instances. 
+     *  For more information, see [Amazon EC2 Auto Scaling lifecycle hooks](https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html) in the *Amazon EC2 Auto Scaling User Guide*. You can find a sample template snippet in the [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-lifecyclehook.html#aws-resource-as-lifecyclehook--examples) section of the ``AWS::AutoScaling::LifecycleHook`` resource.
+     */
     export interface AutoScalingGroupLifecycleHookSpecification {
+        /**
+         * The action the Auto Scaling group takes when the lifecycle hook timeout elapses or if an unexpected failure occurs. The default value is ``ABANDON``.
+         *  Valid values: ``CONTINUE`` | ``ABANDON``
+         */
         defaultResult?: string;
+        /**
+         * The maximum time, in seconds, that can elapse before the lifecycle hook times out. The range is from ``30`` to ``7200`` seconds. The default value is ``3600`` seconds (1 hour).
+         */
         heartbeatTimeout?: number;
+        /**
+         * The name of the lifecycle hook.
+         */
         lifecycleHookName: string;
+        /**
+         * The lifecycle transition. For Auto Scaling groups, there are two major lifecycle transitions.
+         *   +  To create a lifecycle hook for scale-out events, specify ``autoscaling:EC2_INSTANCE_LAUNCHING``.
+         *   +  To create a lifecycle hook for scale-in events, specify ``autoscaling:EC2_INSTANCE_TERMINATING``.
+         */
         lifecycleTransition: string;
+        /**
+         * Additional information that you want to include any time Amazon EC2 Auto Scaling sends a message to the notification target.
+         */
         notificationMetadata?: string;
+        /**
+         * The Amazon Resource Name (ARN) of the notification target that Amazon EC2 Auto Scaling sends notifications to when an instance is in a wait state for the lifecycle hook. You can specify an Amazon SNS topic or an Amazon SQS queue.
+         */
         notificationTargetArn?: string;
+        /**
+         * The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target. For information about creating this role, see [Configure a notification target for a lifecycle hook](https://docs.aws.amazon.com/autoscaling/ec2/userguide/prepare-for-lifecycle-notifications.html#lifecycle-hook-notification-target) in the *Amazon EC2 Auto Scaling User Guide*.
+         *  Valid only if the notification target is an Amazon SNS topic or an Amazon SQS queue.
+         */
         roleArn?: string;
     }
 
+    /**
+     * ``MemoryGiBPerVCpuRequest`` is a property of the ``InstanceRequirements`` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property type that describes the minimum and maximum amount of memory per vCPU for an instance type, in GiB.
+     */
     export interface AutoScalingGroupMemoryGiBPerVCpuRequest {
+        /**
+         * The memory maximum in GiB.
+         */
         max?: number;
+        /**
+         * The memory minimum in GiB.
+         */
         min?: number;
     }
 
+    /**
+     * ``MemoryMiBRequest`` is a property of the ``InstanceRequirements`` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property type that describes the minimum and maximum instance memory size for an instance type, in MiB.
+     */
     export interface AutoScalingGroupMemoryMiBRequest {
+        /**
+         * The memory maximum in MiB.
+         */
         max?: number;
+        /**
+         * The memory minimum in MiB.
+         */
         min?: number;
     }
 
+    /**
+     * ``MetricsCollection`` is a property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource that describes the group metrics that an Amazon EC2 Auto Scaling group sends to Amazon CloudWatch. These metrics describe the group rather than any of its instances. 
+     *  For more information, see [Monitor CloudWatch metrics for your Auto Scaling groups and instances](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-monitoring.html) in the *Amazon EC2 Auto Scaling User Guide*. You can find a sample template snippet in the [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#aws-resource-autoscaling-autoscalinggroup--examples) section of the ``AWS::AutoScaling::AutoScalingGroup`` resource.
+     */
     export interface AutoScalingGroupMetricsCollection {
+        /**
+         * The frequency at which Amazon EC2 Auto Scaling sends aggregated data to CloudWatch. The only valid value is ``1Minute``.
+         */
         granularity: string;
+        /**
+         * Identifies the metrics to enable.
+         *  You can specify one or more of the following metrics:
+         *   +   ``GroupMinSize`` 
+         *   +   ``GroupMaxSize`` 
+         *   +   ``GroupDesiredCapacity`` 
+         *   +   ``GroupInServiceInstances`` 
+         *   +   ``GroupPendingInstances`` 
+         *   +   ``GroupStandbyInstances`` 
+         *   +   ``GroupTerminatingInstances`` 
+         *   +   ``GroupTotalInstances`` 
+         *   +   ``GroupInServiceCapacity`` 
+         *   +   ``GroupPendingCapacity`` 
+         *   +   ``GroupStandbyCapacity`` 
+         *   +   ``GroupTerminatingCapacity`` 
+         *   +   ``GroupTotalCapacity`` 
+         *   +   ``WarmPoolDesiredCapacity`` 
+         *   +   ``WarmPoolWarmedCapacity`` 
+         *   +   ``WarmPoolPendingCapacity`` 
+         *   +   ``WarmPoolTerminatingCapacity`` 
+         *   +   ``WarmPoolTotalCapacity`` 
+         *   +   ``GroupAndWarmPoolDesiredCapacity`` 
+         *   +   ``GroupAndWarmPoolTotalCapacity`` 
+         *   
+         *  If you specify ``Granularity`` and don't specify any metrics, all metrics are enabled.
+         *  For more information, see [Auto Scaling group metrics](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-cloudwatch-monitoring.html#as-group-metrics) in the *Amazon EC2 Auto Scaling User Guide*.
+         */
         metrics?: string[];
     }
 
+    /**
+     * Use this structure to launch multiple instance types and On-Demand Instances and Spot Instances within a single Auto Scaling group.
+     *  A mixed instances policy contains information that Amazon EC2 Auto Scaling can use to launch instances and help optimize your costs. For more information, see [Auto Scaling groups with multiple instance types and purchase options](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html) in the *Amazon EC2 Auto Scaling User Guide*.
+     *  You can create a mixed instances policy for new and existing Auto Scaling groups. You must use a launch template to configure the policy. You cannot use a launch configuration.
+     *  There are key differences between Spot Instances and On-Demand Instances:
+     *   +  The price for Spot Instances varies based on demand
+     *   +  Amazon EC2 can terminate an individual Spot Instance as the availability of, or price for, Spot Instances changes
+     *   
+     *  When a Spot Instance is terminated, Amazon EC2 Auto Scaling group attempts to launch a replacement instance to maintain the desired capacity for the group. 
+     *   ``MixedInstancesPolicy`` is a property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource.
+     */
     export interface AutoScalingGroupMixedInstancesPolicy {
+        /**
+         * The instances distribution.
+         */
         instancesDistribution?: outputs.autoscaling.AutoScalingGroupInstancesDistribution;
+        /**
+         * One or more launch templates and the instance types (overrides) that are used to launch EC2 instances to fulfill On-Demand and Spot capacities.
+         */
         launchTemplate: outputs.autoscaling.AutoScalingGroupLaunchTemplate;
     }
 
+    /**
+     * ``NetworkBandwidthGbpsRequest`` is a property of the ``InstanceRequirements`` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property type that describes the minimum and maximum network bandwidth for an instance type, in Gbps.
+     *   Setting the minimum bandwidth does not guarantee that your instance will achieve the minimum bandwidth. Amazon EC2 will identify instance types that support the specified minimum bandwidth, but the actual bandwidth of your instance might go below the specified minimum at times. For more information, see [Available instance bandwidth](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.html#available-instance-bandwidth) in the *Amazon EC2 User Guide for Linux Instances*.
+     */
     export interface AutoScalingGroupNetworkBandwidthGbpsRequest {
+        /**
+         * The maximum amount of network bandwidth, in gigabits per second (Gbps).
+         */
         max?: number;
+        /**
+         * The minimum amount of network bandwidth, in gigabits per second (Gbps).
+         */
         min?: number;
     }
 
+    /**
+     * ``NetworkInterfaceCountRequest`` is a property of the ``InstanceRequirements`` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property type that describes the minimum and maximum number of network interfaces for an instance type.
+     */
     export interface AutoScalingGroupNetworkInterfaceCountRequest {
+        /**
+         * The maximum number of network interfaces.
+         */
         max?: number;
+        /**
+         * The minimum number of network interfaces.
+         */
         min?: number;
     }
 
+    /**
+     * A structure that specifies an Amazon SNS notification configuration for the ``NotificationConfigurations`` property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource.
+     *  For an example template snippet, see [Auto scaling template snippets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-autoscaling.html).
+     *  For more information, see [Get Amazon SNS notifications when your Auto Scaling group scales](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ASGettingNotifications.html) in the *Amazon EC2 Auto Scaling User Guide*.
+     */
     export interface AutoScalingGroupNotificationConfiguration {
+        /**
+         * A list of event types that send a notification. Event types can include any of the following types. 
+         *  *Allowed values*:
+         *   +   ``autoscaling:EC2_INSTANCE_LAUNCH`` 
+         *   +   ``autoscaling:EC2_INSTANCE_LAUNCH_ERROR`` 
+         *   +   ``autoscaling:EC2_INSTANCE_TERMINATE`` 
+         *   +   ``autoscaling:EC2_INSTANCE_TERMINATE_ERROR`` 
+         *   +   ``autoscaling:TEST_NOTIFICATION``
+         */
         notificationTypes?: string[];
+        /**
+         * The Amazon Resource Name (ARN) of the Amazon SNS topic.
+         */
         topicArn: string[];
     }
 
+    /**
+     * A structure that specifies a tag for the ``Tags`` property of [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource.
+     *  For more information, see [Tag Auto Scaling groups and instances](https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-tagging.html) in the *Amazon EC2 Auto Scaling User Guide*. You can find a sample template snippet in the [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#aws-resource-autoscaling-autoscalinggroup--examples) section of the ``AWS::AutoScaling::AutoScalingGroup`` resource.
+     *  CloudFormation adds the following tags to all Auto Scaling groups and associated instances: 
+     *   +  aws:cloudformation:stack-name
+     *   +  aws:cloudformation:stack-id
+     *   +  aws:cloudformation:logical-id
+     */
     export interface AutoScalingGroupTagProperty {
+        /**
+         * The tag key.
+         */
         key: string;
+        /**
+         * Set to ``true`` if you want CloudFormation to copy the tag to EC2 instances that are launched as part of the Auto Scaling group. Set to ``false`` if you want the tag attached only to the Auto Scaling group and not copied to any instances launched as part of the Auto Scaling group.
+         */
         propagateAtLaunch: boolean;
+        /**
+         * The tag value.
+         */
         value: string;
     }
 
+    /**
+     * ``TotalLocalStorageGBRequest`` is a property of the ``InstanceRequirements`` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property type that describes the minimum and maximum total local storage size for an instance type, in GB.
+     */
     export interface AutoScalingGroupTotalLocalStorageGbRequest {
+        /**
+         * The storage maximum in GB.
+         */
         max?: number;
+        /**
+         * The storage minimum in GB.
+         */
         min?: number;
     }
 
+    /**
+     * ``VCpuCountRequest`` is a property of the ``InstanceRequirements`` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property type that describes the minimum and maximum number of vCPUs for an instance type.
+     */
     export interface AutoScalingGroupVCpuCountRequest {
+        /**
+         * The maximum number of vCPUs.
+         */
         max?: number;
+        /**
+         * The minimum number of vCPUs.
+         */
         min?: number;
     }
 
@@ -4509,6 +5031,7 @@ export namespace batch {
     }
 
     export interface JobDefinitionEksContainerSecurityContext {
+        allowPrivilegeEscalation?: boolean;
         privileged?: boolean;
         readOnlyRootFilesystem?: boolean;
         runAsGroup?: number;
@@ -4567,6 +5090,10 @@ export namespace batch {
         platformVersion?: string;
     }
 
+    export interface JobDefinitionImagePullSecret {
+        name: string;
+    }
+
     export interface JobDefinitionLinuxParameters {
         devices?: outputs.batch.JobDefinitionDevice[];
         initProcessEnabled?: boolean;
@@ -4613,6 +5140,7 @@ export namespace batch {
         containers?: outputs.batch.JobDefinitionEksContainer[];
         dnsPolicy?: string;
         hostNetwork?: boolean;
+        imagePullSecrets?: outputs.batch.JobDefinitionImagePullSecret[];
         initContainers?: outputs.batch.JobDefinitionEksContainer[];
         metadata?: outputs.batch.JobDefinitionMetadata;
         serviceAccountName?: string;
@@ -4721,6 +5249,367 @@ export namespace batch {
     export interface SchedulingPolicyShareAttributes {
         shareIdentifier?: string;
         weightFactor?: number;
+    }
+
+}
+
+export namespace bedrock {
+    /**
+     * Contains the information of an Agent Action Group
+     */
+    export interface AgentActionGroup {
+        actionGroupExecutor?: outputs.bedrock.AgentActionGroupExecutor;
+        /**
+         * Name of the action group
+         */
+        actionGroupName: string;
+        actionGroupState?: enums.bedrock.AgentActionGroupState;
+        apiSchema?: outputs.bedrock.AgentApiSchema0Properties | outputs.bedrock.AgentApiSchema1Properties;
+        /**
+         * Description of action group
+         */
+        description?: string;
+        parentActionGroupSignature?: enums.bedrock.AgentActionGroupSignature;
+        /**
+         * Specifies whether to allow deleting action group while it is in use.
+         */
+        skipResourceInUseCheckOnDelete?: boolean;
+    }
+
+    export interface AgentActionGroupExecutor {
+        /**
+         * ARN of a Lambda.
+         */
+        lambda: string;
+    }
+
+    /**
+     * History event for an alias for an Agent.
+     */
+    export interface AgentAliasHistoryEvent {
+        /**
+         * Time Stamp.
+         */
+        endDate?: string;
+        /**
+         * Routing configuration for an Agent alias.
+         */
+        routingConfiguration?: outputs.bedrock.AgentAliasRoutingConfigurationListItem[];
+        /**
+         * Time Stamp.
+         */
+        startDate?: string;
+    }
+
+    /**
+     * Details about the routing configuration for an Agent alias.
+     */
+    export interface AgentAliasRoutingConfigurationListItem {
+        /**
+         * Agent Version.
+         */
+        agentVersion: string;
+    }
+
+    /**
+     * Contains information about the API Schema for the Action Group
+     */
+    export interface AgentApiSchema0Properties {
+        s3: outputs.bedrock.AgentS3Identifier;
+    }
+
+    /**
+     * Contains information about the API Schema for the Action Group
+     */
+    export interface AgentApiSchema1Properties {
+        /**
+         * String OpenAPI Payload
+         */
+        payload: string;
+    }
+
+    /**
+     * Configuration for inference in prompt configuration
+     */
+    export interface AgentInferenceConfiguration {
+        /**
+         * Maximum length of output
+         */
+        maximumLength?: number;
+        /**
+         * List of stop sequences
+         */
+        stopSequences?: string[];
+        /**
+         * Controls randomness, higher values increase diversity
+         */
+        temperature?: number;
+        /**
+         * Sample from the k most likely next tokens
+         */
+        topK?: number;
+        /**
+         * Cumulative probability cutoff for token selection
+         */
+        topP?: number;
+    }
+
+    /**
+     * Agent Knowledge Base
+     */
+    export interface AgentKnowledgeBase {
+        /**
+         * Description of the Resource.
+         */
+        description: string;
+        /**
+         * Identifier for a resource.
+         */
+        knowledgeBaseId: string;
+        knowledgeBaseState?: enums.bedrock.AgentKnowledgeBaseState;
+    }
+
+    /**
+     * BasePromptConfiguration per Prompt Type.
+     */
+    export interface AgentPromptConfiguration {
+        /**
+         * Base Prompt Template.
+         */
+        basePromptTemplate?: string;
+        inferenceConfiguration?: outputs.bedrock.AgentInferenceConfiguration;
+        parserMode?: enums.bedrock.AgentCreationMode;
+        promptCreationMode?: enums.bedrock.AgentCreationMode;
+        promptState?: enums.bedrock.AgentPromptState;
+        promptType?: enums.bedrock.AgentPromptType;
+    }
+
+    /**
+     * Configuration for prompt override.
+     */
+    export interface AgentPromptOverrideConfiguration {
+        /**
+         * ARN of a Lambda.
+         */
+        overrideLambda?: string;
+        /**
+         * List of BasePromptConfiguration
+         */
+        promptConfigurations: outputs.bedrock.AgentPromptConfiguration[];
+    }
+
+    /**
+     * The identifier for the S3 resource.
+     */
+    export interface AgentS3Identifier {
+        /**
+         * A bucket in S3.
+         */
+        s3BucketName?: string;
+        /**
+         * A object key in S3.
+         */
+        s3ObjectKey?: string;
+    }
+
+    /**
+     * Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
+     */
+    export interface DataSourceChunkingConfiguration {
+        chunkingStrategy: enums.bedrock.DataSourceChunkingStrategy;
+        fixedSizeChunkingConfiguration?: outputs.bedrock.DataSourceFixedSizeChunkingConfiguration;
+    }
+
+    /**
+     * Specifies a raw data source location to ingest.
+     */
+    export interface DataSourceConfiguration {
+        s3Configuration: outputs.bedrock.DataSourceS3DataSourceConfiguration;
+        type: enums.bedrock.DataSourceType;
+    }
+
+    /**
+     * Configurations for when you choose fixed-size chunking. If you set the chunkingStrategy as NONE, exclude this field.
+     */
+    export interface DataSourceFixedSizeChunkingConfiguration {
+        /**
+         * The maximum number of tokens to include in a chunk.
+         */
+        maxTokens: number;
+        /**
+         * The percentage of overlap between adjacent chunks of a data source.
+         */
+        overlapPercentage: number;
+    }
+
+    /**
+     * Contains information about the S3 configuration of the data source.
+     */
+    export interface DataSourceS3DataSourceConfiguration {
+        /**
+         * The ARN of the bucket that contains the data source.
+         */
+        bucketArn: string;
+        /**
+         * A list of S3 prefixes that define the object containing the data sources.
+         */
+        inclusionPrefixes?: string[];
+    }
+
+    /**
+     * Contains details about the server-side encryption for the data source.
+     */
+    export interface DataSourceServerSideEncryptionConfiguration {
+        /**
+         * The ARN of the AWS KMS key used to encrypt the resource.
+         */
+        kmsKeyArn?: string;
+    }
+
+    /**
+     * Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
+     */
+    export interface DataSourceVectorIngestionConfiguration {
+        chunkingConfiguration?: outputs.bedrock.DataSourceChunkingConfiguration;
+    }
+
+    /**
+     * Contains details about the embeddings model used for the knowledge base.
+     */
+    export interface KnowledgeBaseConfiguration {
+        type: enums.bedrock.KnowledgeBaseType;
+        vectorKnowledgeBaseConfiguration: outputs.bedrock.KnowledgeBaseVectorKnowledgeBaseConfiguration;
+    }
+
+    /**
+     * Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
+     */
+    export interface KnowledgeBaseOpenSearchServerlessConfiguration {
+        /**
+         * The ARN of the OpenSearch Service vector store.
+         */
+        collectionArn: string;
+        fieldMapping: outputs.bedrock.KnowledgeBaseOpenSearchServerlessFieldMapping;
+        /**
+         * The name of the vector store.
+         */
+        vectorIndexName: string;
+    }
+
+    /**
+     * A mapping of Bedrock Knowledge Base fields to OpenSearch Serverless field names
+     */
+    export interface KnowledgeBaseOpenSearchServerlessFieldMapping {
+        /**
+         * The name of the field in which Amazon Bedrock stores metadata about the vector store.
+         */
+        metadataField: string;
+        /**
+         * The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+         */
+        textField: string;
+        /**
+         * The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+         */
+        vectorField: string;
+    }
+
+    /**
+     * Contains the storage configuration of the knowledge base in Pinecone.
+     */
+    export interface KnowledgeBasePineconeConfiguration {
+        /**
+         * The endpoint URL for your index management page.
+         */
+        connectionString: string;
+        /**
+         * The ARN of the secret that you created in AWS Secrets Manager that is linked to your Pinecone API key.
+         */
+        credentialsSecretArn: string;
+        fieldMapping: outputs.bedrock.KnowledgeBasePineconeFieldMapping;
+        /**
+         * The namespace to be used to write new data to your database.
+         */
+        namespace?: string;
+    }
+
+    /**
+     * Contains the names of the fields to which to map information about the vector store.
+     */
+    export interface KnowledgeBasePineconeFieldMapping {
+        /**
+         * The name of the field in which Amazon Bedrock stores metadata about the vector store.
+         */
+        metadataField: string;
+        /**
+         * The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+         */
+        textField: string;
+    }
+
+    /**
+     * Contains details about the storage configuration of the knowledge base in Amazon RDS. For more information, see Create a vector index in Amazon RDS.
+     */
+    export interface KnowledgeBaseRdsConfiguration {
+        /**
+         * The ARN of the secret that you created in AWS Secrets Manager that is linked to your Amazon RDS database.
+         */
+        credentialsSecretArn: string;
+        /**
+         * The name of your Amazon RDS database.
+         */
+        databaseName: string;
+        fieldMapping: outputs.bedrock.KnowledgeBaseRdsFieldMapping;
+        /**
+         * The ARN of the vector store.
+         */
+        resourceArn: string;
+        /**
+         * The name of the table in the database.
+         */
+        tableName: string;
+    }
+
+    /**
+     * Contains the names of the fields to which to map information about the vector store.
+     */
+    export interface KnowledgeBaseRdsFieldMapping {
+        /**
+         * The name of the field in which Amazon Bedrock stores metadata about the vector store.
+         */
+        metadataField: string;
+        /**
+         * The name of the field in which Amazon Bedrock stores the ID for each entry.
+         */
+        primaryKeyField: string;
+        /**
+         * The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+         */
+        textField: string;
+        /**
+         * The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+         */
+        vectorField: string;
+    }
+
+    /**
+     * The vector store service in which the knowledge base is stored.
+     */
+    export interface KnowledgeBaseStorageConfiguration {
+        opensearchServerlessConfiguration?: outputs.bedrock.KnowledgeBaseOpenSearchServerlessConfiguration;
+        pineconeConfiguration?: outputs.bedrock.KnowledgeBasePineconeConfiguration;
+        rdsConfiguration?: outputs.bedrock.KnowledgeBaseRdsConfiguration;
+        type: enums.bedrock.KnowledgeBaseStorageType;
+    }
+
+    /**
+     * Contains details about the model used to create vector embeddings for the knowledge base.
+     */
+    export interface KnowledgeBaseVectorKnowledgeBaseConfiguration {
+        /**
+         * The ARN of the model used to create vector embeddings for the knowledge base.
+         */
+        embeddingModelArn: string;
     }
 
 }
@@ -4955,6 +5844,7 @@ export namespace cleanrooms {
     export interface ConfiguredTableAnalysisRuleCustom {
         allowedAnalyses: string[];
         allowedAnalysisProviders?: string[];
+        differentialPrivacy?: outputs.cleanrooms.ConfiguredTableDifferentialPrivacy;
     }
 
     export interface ConfiguredTableAnalysisRuleList {
@@ -4977,6 +5867,14 @@ export namespace cleanrooms {
 
     export interface ConfiguredTableAnalysisRulePolicyV12Properties {
         custom: outputs.cleanrooms.ConfiguredTableAnalysisRuleCustom;
+    }
+
+    export interface ConfiguredTableDifferentialPrivacy {
+        columns: outputs.cleanrooms.ConfiguredTableDifferentialPrivacyColumn[];
+    }
+
+    export interface ConfiguredTableDifferentialPrivacyColumn {
+        name: string;
     }
 
     export interface ConfiguredTableGlueTableReference {
@@ -5009,6 +5907,39 @@ export namespace cleanrooms {
 
     export interface MembershipQueryComputePaymentConfig {
         isResponsible: boolean;
+    }
+
+    export interface ParametersProperties {
+        epsilon: number;
+        usersNoisePerQuery: number;
+    }
+
+}
+
+export namespace cleanroomsml {
+    export interface TrainingDatasetColumnSchema {
+        columnName: string;
+        columnTypes: enums.cleanroomsml.TrainingDatasetColumnType[];
+    }
+
+    export interface TrainingDatasetDataSource {
+        glueDataSource: outputs.cleanroomsml.TrainingDatasetGlueDataSource;
+    }
+
+    export interface TrainingDatasetDataset {
+        inputConfig: outputs.cleanroomsml.TrainingDatasetDatasetInputConfig;
+        type: enums.cleanroomsml.TrainingDatasetDatasetType;
+    }
+
+    export interface TrainingDatasetDatasetInputConfig {
+        dataSource: outputs.cleanroomsml.TrainingDatasetDataSource;
+        schema: outputs.cleanroomsml.TrainingDatasetColumnSchema[];
+    }
+
+    export interface TrainingDatasetGlueDataSource {
+        catalogId?: string;
+        databaseName: string;
+        tableName: string;
     }
 
 }
@@ -5216,7 +6147,9 @@ export namespace cloudfront {
      *  You must create at least as many cache behaviors (including the default cache behavior) as you have origins if you want CloudFront to serve objects from all of the origins. Each cache behavior specifies the one origin from which you want CloudFront to get objects. If you have two origins and only the default cache behavior, the default cache behavior will cause CloudFront to get objects from one of the origins, but the other origin is never used.
      *  For the current quota (formerly known as limit) on the number of cache behaviors that you can add to a distribution, see [Quotas](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html) in the *Amazon CloudFront Developer Guide*.
      *  If you don't want to specify any cache behaviors, include only an empty ``CacheBehaviors`` element. Don't include an empty ``CacheBehavior`` element because this is invalid.
-     *  To delete all cache behaviors in an exist
+     *  To delete all cache behaviors in an existing distribution, update the distribution configuration and include only an empty ``CacheBehaviors`` element.
+     *  To add, change, or remove one or more cache behaviors, update the distribution configuration and specify all of the cache behaviors that you want to include in the updated distribution.
+     *  For more information about cache behaviors, see [Cache Behavior Settings](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesCacheBehavior) in the *Amazon CloudFront Developer Guide*.
      */
     export interface DistributionCacheBehavior {
         /**
@@ -5247,7 +6180,7 @@ export namespace cloudfront {
         compress?: boolean;
         /**
          * This field is deprecated. We recommend that you use the ``DefaultTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
-         *  The default amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin does not add HTTP headers such as ``Cache-Control max-age``, ``Cache-Control s-maxage``, and ``Expires`` to objects. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide
+         *  The default amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin does not add HTTP headers such as ``Cache-Control max-age``, ``Cache-Control s-maxage``, and ``Expires`` to objects. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide*.
          */
         defaultTtl?: number;
         /**
@@ -5257,7 +6190,9 @@ export namespace cloudfront {
         /**
          * This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field. For more information, see [Working with policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/working-with-policies.html) in the *Amazon CloudFront Developer Guide*.
          *  If you want to include values in the cache key, use a cache policy. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
-         *  If you want to send values to the origin but not include them in the cache key, use an origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-r
+         *  If you want to send values to the origin but not include them in the cache key, use an origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) or [Using the managed origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-origin-request-policies.html) in the *Amazon CloudFront Developer Guide*.
+         *  A ``CacheBehavior`` must include either a ``CachePolicyId`` or ``ForwardedValues``. We recommend that you use a ``CachePolicyId``.
+         *  A complex type that specifies how CloudFront handles query strings, cookies, and HTTP headers.
          */
         forwardedValues?: outputs.cloudfront.DistributionForwardedValues;
         /**
@@ -5270,13 +6205,13 @@ export namespace cloudfront {
         lambdaFunctionAssociations?: outputs.cloudfront.DistributionLambdaFunctionAssociation[];
         /**
          * This field is deprecated. We recommend that you use the ``MaxTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
-         *  The maximum amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin adds HTTP headers such as ``Cache-Control max-age``, ``Cache-Control s-maxage``, and ``Expires`` to objects. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.
+         *  The maximum amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin adds HTTP headers such as ``Cache-Control max-age``, ``Cache-Control s-maxage``, and ``Expires`` to objects. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide*.
          */
         maxTtl?: number;
         /**
          * This field is deprecated. We recommend that you use the ``MinTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
          *  The minimum amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide*.
-         *  You must specify ``0`` for ``MinTTL`` if you configure CloudFront to forward all headers to your origin (under ``He
+         *  You must specify ``0`` for ``MinTTL`` if you configure CloudFront to forward all headers to your origin (under ``Headers``, if you specify ``1`` for ``Quantity`` and ``*`` for ``Name``).
          */
         minTtl?: number;
         /**
@@ -5324,7 +6259,7 @@ export namespace cloudfront {
          *   +   ``https-only``: If a viewer sends an HTTP request, CloudFront returns an HTTP status code of 403 (Forbidden).
          *   
          *  For more information about requiring the HTTPS protocol, see [Requiring HTTPS Between Viewers and CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-https-viewers-to-cloudfront.html) in the *Amazon CloudFront Developer Guide*.
-         *   The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol
+         *   The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol to fetch the object. If you have recently changed from HTTP to HTTPS, we recommend that you clear your objects' cache because cached objects are protocol agnostic. That means that an edge location will return an object from the cache regardless of whether the current request protocol matches the protocol used previously. For more information, see [Managing Cache Expiration](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide*.
          */
         viewerProtocolPolicy: string;
     }
@@ -5369,7 +6304,7 @@ export namespace cloudfront {
          *  If you don't want to specify a default root object when you create a distribution, include an empty ``DefaultRootObject`` element.
          *  To delete the default root object from an existing distribution, update the distribution configuration and include an empty ``DefaultRootObject`` element.
          *  To replace the default root object, update the distribution configuration and specify the new object.
-         *  For more information about the default root object, see [Creating a Default Root Object](https://docs.aws.amazon.com/AmazonCloudFront/latest/D
+         *  For more information about the default root object, see [Creating a Default Root Object](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DefaultRootObject.html) in the *Amazon CloudFront Developer Guide*.
          */
         defaultRootObject?: string;
         /**
@@ -5384,7 +6319,13 @@ export namespace cloudfront {
         httpVersion?: string;
         /**
          * If you want CloudFront to respond to IPv6 DNS requests with an IPv6 address for your distribution, specify ``true``. If you specify ``false``, CloudFront responds to IPv6 DNS requests with the DNS response code ``NOERROR`` and with no IP addresses. This allows viewers to submit a second request, for an IPv4 address for your distribution.
-         *  In general, you should enable IPv6 if you have users on IPv6 networks who want to access your content. However, if you're using signed URLs or signed cookies to restrict access to your content, and if you're using a custom policy that includes the ``IpAddress`` parameter to restrict the IP addresses that can access your content, don't enable IPv6. If you want to restrict access to some content by IP address and not restrict access to other content (or restrict access but not by IP address), you can create two distributions. For more information, see [Creating a Signed URL Using a Custom Policy](https://docs.aws.amazon.com/AmazonCloudFront/latest/Devel
+         *  In general, you should enable IPv6 if you have users on IPv6 networks who want to access your content. However, if you're using signed URLs or signed cookies to restrict access to your content, and if you're using a custom policy that includes the ``IpAddress`` parameter to restrict the IP addresses that can access your content, don't enable IPv6. If you want to restrict access to some content by IP address and not restrict access to other content (or restrict access but not by IP address), you can create two distributions. For more information, see [Creating a Signed URL Using a Custom Policy](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-creating-signed-url-custom-policy.html) in the *Amazon CloudFront Developer Guide*.
+         *  If you're using an R53AWSIntlong alias resource record set to route traffic to your CloudFront distribution, you need to create a second alias resource record set when both of the following are true:
+         *   +  You enable IPv6 for the distribution
+         *   +  You're using alternate domain names in the URLs for your objects
+         *   
+         *  For more information, see [Routing Traffic to an Amazon CloudFront Web Distribution by Using Your Domain Name](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-to-cloudfront-distribution.html) in the *Developer Guide*.
+         *  If you created a CNAME resource record set, either with R53AWSIntlong or with another DNS service, you don't need to make any changes. A CNAME record will route traffic to your distribution regardless of the IP address format of the viewer request.
          */
         ipv6Enabled?: boolean;
         /**
@@ -5421,7 +6362,7 @@ export namespace cloudfront {
         viewerCertificate?: outputs.cloudfront.DistributionViewerCertificate;
         /**
          * A unique identifier that specifies the WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of WAF, use the ACL ARN, for example ``arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/473e64fd-f30b-4765-81a0-62ad96dd167a``. To specify a web ACL created using WAF Classic, use the ACL ID, for example ``473e64fd-f30b-4765-81a0-62ad96dd167a``.
-         *   WAF is a web application firewall that lets you monitor the HTTP and HTTPS requests that are forwarded to CloudFront, and lets you control access to your content. Based on conditions that you specify, such as the IP addresses that requests originate from or the values of query strings, CloudFront responds to requests either with the requested content or with an HTTP 403 status code (Forbidden). You can also configure CloudFront to return a custom error page when a request is blocked. For more information about WAF, see the [Developer Guide](https://docs.aws.amazon.com/waf/latest
+         *   WAF is a web application firewall that lets you monitor the HTTP and HTTPS requests that are forwarded to CloudFront, and lets you control access to your content. Based on conditions that you specify, such as the IP addresses that requests originate from or the values of query strings, CloudFront responds to requests either with the requested content or with an HTTP 403 status code (Forbidden). You can also configure CloudFront to return a custom error page when a request is blocked. For more information about WAF, see the [Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html).
          */
         webAclId?: string;
     }
@@ -5430,7 +6371,7 @@ export namespace cloudfront {
      * This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field.
      *  If you want to include cookies in the cache key, use a cache policy. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) in the *Amazon CloudFront Developer Guide*.
      *  If you want to send cookies to the origin but not include them in the cache key, use an origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) in the *Amazon CloudFront Developer Guide*.
-     *  A complex type that specifies whether you want CloudFront to forward cookies to the origin and, if so, which ones. For more information about forwarding cookies to the origin, see [How CloudFront Forwards, Caches, and Logs C
+     *  A complex type that specifies whether you want CloudFront to forward cookies to the origin and, if so, which ones. For more information about forwarding cookies to the origin, see [How CloudFront Forwards, Caches, and Logs Cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Cookies.html) in the *Amazon CloudFront Developer Guide*.
      */
     export interface DistributionCookies {
         /**
@@ -5438,14 +6379,16 @@ export namespace cloudfront {
          *  If you want to include cookies in the cache key, use a cache policy. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) in the *Amazon CloudFront Developer Guide*.
          *  If you want to send cookies to the origin but not include them in the cache key, use origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) in the *Amazon CloudFront Developer Guide*.
          *  Specifies which cookies to forward to the origin for this cache behavior: all, none, or the list of cookies specified in the ``WhitelistedNames`` complex type.
-         *  Amazon S3 doesn't process cookies. When the cache behavior is forw
+         *  Amazon S3 doesn't process cookies. When the cache behavior is forwarding requests to an Amazon S3 origin, specify none for the ``Forward`` element.
          */
         forward: string;
         /**
          * This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field.
          *  If you want to include cookies in the cache key, use a cache policy. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) in the *Amazon CloudFront Developer Guide*.
          *  If you want to send cookies to the origin but not include them in the cache key, use an origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) in the *Amazon CloudFront Developer Guide*.
-         *  Required if you specify ``whitelist`` for the value of ``Forward``. A complex type that specifies how many different cookies you want CloudFront to forward to the origin for this cache behavior and, if you want to forward se
+         *  Required if you specify ``whitelist`` for the value of ``Forward``. A complex type that specifies how many different cookies you want CloudFront to forward to the origin for this cache behavior and, if you want to forward selected cookies, the names of those cookies.
+         *  If you specify ``all`` or ``none`` for the value of ``Forward``, omit ``WhitelistedNames``. If you change the value of ``Forward`` from ``whitelist`` to ``all`` or ``none`` and you don't delete the ``WhitelistedNames`` element and its child elements, CloudFront deletes them automatically.
+         *  For the current limit on the number of cookie names that you can whitelist for each cache behavior, see [CloudFront Limits](https://docs.aws.amazon.com/general/latest/gr/xrefaws_service_limits.html#limits_cloudfront) in the *General Reference*.
          */
         whitelistedNames?: string[];
     }
@@ -5482,7 +6425,7 @@ export namespace cloudfront {
          *   +  The value of ``TargetOriginId`` specifies the value of the ``ID`` element for the origin that contains your custom error pages.
          *   
          *  If you specify a value for ``ResponsePagePath``, you must also specify a value for ``ResponseCode``.
-         *  We recommend 
+         *  We recommend that you store custom error pages in an Amazon S3 bucket. If you store custom error pages on an HTTP server and the server starts to return 5xx errors, CloudFront can't get the files that you want to return to viewers because the origin server is unavailable.
          */
         responsePagePath?: string;
     }
@@ -5555,7 +6498,7 @@ export namespace cloudfront {
         compress?: boolean;
         /**
          * This field is deprecated. We recommend that you use the ``DefaultTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
-         *  The default amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin does not add HTTP headers such as ``Cache-Control max-age``, ``Cache-Control s-maxage``, and ``Expires`` to objects. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide
+         *  The default amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin does not add HTTP headers such as ``Cache-Control max-age``, ``Cache-Control s-maxage``, and ``Expires`` to objects. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide*.
          */
         defaultTtl?: number;
         /**
@@ -5565,7 +6508,9 @@ export namespace cloudfront {
         /**
          * This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field. For more information, see [Working with policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/working-with-policies.html) in the *Amazon CloudFront Developer Guide*.
          *  If you want to include values in the cache key, use a cache policy. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
-         *  If you want to send values to the origin but not include them in the cache key, use an origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-r
+         *  If you want to send values to the origin but not include them in the cache key, use an origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) or [Using the managed origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-origin-request-policies.html) in the *Amazon CloudFront Developer Guide*.
+         *  A ``DefaultCacheBehavior`` must include either a ``CachePolicyId`` or ``ForwardedValues``. We recommend that you use a ``CachePolicyId``.
+         *  A complex type that specifies how CloudFront handles query strings, cookies, and HTTP headers.
          */
         forwardedValues?: outputs.cloudfront.DistributionForwardedValues;
         /**
@@ -5578,13 +6523,13 @@ export namespace cloudfront {
         lambdaFunctionAssociations?: outputs.cloudfront.DistributionLambdaFunctionAssociation[];
         /**
          * This field is deprecated. We recommend that you use the ``MaxTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
-         *  The maximum amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin adds HTTP headers such as ``Cache-Control max-age``, ``Cache-Control s-maxage``, and ``Expires`` to objects. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.
+         *  The maximum amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin adds HTTP headers such as ``Cache-Control max-age``, ``Cache-Control s-maxage``, and ``Expires`` to objects. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide*.
          */
         maxTtl?: number;
         /**
          * This field is deprecated. We recommend that you use the ``MinTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
          *  The minimum amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide*.
-         *  You must specify ``0`` for ``MinTTL`` if you configure CloudFront to forward all headers to your origin (under ``He
+         *  You must specify ``0`` for ``MinTTL`` if you configure CloudFront to forward all headers to your origin (under ``Headers``, if you specify ``1`` for ``Quantity`` and ``*`` for ``Name``).
          */
         minTtl?: number;
         /**
@@ -5625,7 +6570,7 @@ export namespace cloudfront {
          *   +   ``https-only``: If a viewer sends an HTTP request, CloudFront returns an HTTP status code of 403 (Forbidden).
          *   
          *  For more information about requiring the HTTPS protocol, see [Requiring HTTPS Between Viewers and CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-https-viewers-to-cloudfront.html) in the *Amazon CloudFront Developer Guide*.
-         *   The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol
+         *   The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol to fetch the object. If you have recently changed from HTTP to HTTPS, we recommend that you clear your objects' cache because cached objects are protocol agnostic. That means that an edge location will return an object from the cache regardless of whether the current request protocol matches the protocol used previously. For more information, see [Managing Cache Expiration](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide*.
          */
         viewerProtocolPolicy: string;
     }
@@ -5641,21 +6586,26 @@ export namespace cloudfront {
          * This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field.
          *  If you want to include cookies in the cache key, use a cache policy. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) in the *Amazon CloudFront Developer Guide*.
          *  If you want to send cookies to the origin but not include them in the cache key, use an origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) in the *Amazon CloudFront Developer Guide*.
-         *  A complex type that specifies whether you want CloudFront to forward cookies to the origin and, if so, which ones. For more information about forwarding cookies to the origin, see [How CloudFront Forwards, Caches, and Logs C
+         *  A complex type that specifies whether you want CloudFront to forward cookies to the origin and, if so, which ones. For more information about forwarding cookies to the origin, see [How CloudFront Forwards, Caches, and Logs Cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Cookies.html) in the *Amazon CloudFront Developer Guide*.
          */
         cookies?: outputs.cloudfront.DistributionCookies;
         /**
          * This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field.
          *  If you want to include headers in the cache key, use a cache policy. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) in the *Amazon CloudFront Developer Guide*.
          *  If you want to send headers to the origin but not include them in the cache key, use an origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) in the *Amazon CloudFront Developer Guide*.
-         *  A complex type that specifies the ``Headers``, if any, that you want CloudFront to forward to the origin for this cache behavior (whitelisted headers). For the headers that you specify, CloudFront also caches separate versio
+         *  A complex type that specifies the ``Headers``, if any, that you want CloudFront to forward to the origin for this cache behavior (whitelisted headers). For the headers that you specify, CloudFront also caches separate versions of a specified object that is based on the header values in viewer requests.
+         *  For more information, see [Caching Content Based on Request Headers](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/header-caching.html) in the *Amazon CloudFront Developer Guide*.
          */
         headers?: string[];
         /**
          * This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field.
          *  If you want to include query strings in the cache key, use a cache policy. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) in the *Amazon CloudFront Developer Guide*.
          *  If you want to send query strings to the origin but not include them in the cache key, use an origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) in the *Amazon CloudFront Developer Guide*.
-         *  Indicates whether you want CloudFront to forward query strings to the origin that is associated with this cache behavior and cache based on the query string parameters. CloudFront behavior depends on the value of
+         *  Indicates whether you want CloudFront to forward query strings to the origin that is associated with this cache behavior and cache based on the query string parameters. CloudFront behavior depends on the value of ``QueryString`` and on the values that you specify for ``QueryStringCacheKeys``, if any:
+         *  If you specify true for ``QueryString`` and you don't specify any values for ``QueryStringCacheKeys``, CloudFront forwards all query string parameters to the origin and caches based on all query string parameters. Depending on how many query string parameters and values you have, this can adversely affect performance because CloudFront must forward more requests to the origin.
+         *  If you specify true for ``QueryString`` and you specify one or more values for ``QueryStringCacheKeys``, CloudFront forwards all query string parameters to the origin, but it only caches based on the query string parameters that you specify.
+         *  If you specify false for ``QueryString``, CloudFront doesn't forward any query string parameters to the origin, and doesn't cache based on query string parameters.
+         *  For more information, see [Configuring CloudFront to Cache Based on Query String Parameters](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/QueryStringParameters.html) in the *Amazon CloudFront Developer Guide*.
          */
         queryString: boolean;
         /**
@@ -5939,7 +6889,7 @@ export namespace cloudfront {
          *  If you want viewers to be able to access objects using either the CloudFront URL or the Amazon S3 URL, specify an empty ``OriginAccessIdentity`` element.
          *  To delete the origin access identity from an existing distribution, update the distribution configuration and include an empty ``OriginAccessIdentity`` element.
          *  To replace the origin access identity, update the distribution configuration and specify the new origin access identity.
-         *  For more information about the origin access identity, see [Serving Private Content through CloudFront](https://d
+         *  For more information about the origin access identity, see [Serving Private Content through CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) in the *Amazon CloudFront Developer Guide*.
          */
         originAccessIdentity?: string;
     }
@@ -5963,7 +6913,17 @@ export namespace cloudfront {
      *  If the distribution doesn't use ``Aliases`` (also known as alternate domain names or CNAMEs)—that is, if the distribution uses the CloudFront domain name such as ``d111111abcdef8.cloudfront.net``—set ``CloudFrontDefaultCertificate`` to ``true`` and leave all other fields empty.
      *  If the distribution uses ``Aliases`` (alternate domain names or CNAMEs), use the fields in this type to specify the following settings:
      *   +  Which viewers the distribution accepts HTTPS connections from: only viewers that support [server name indication (SNI)](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Server_Name_Indication) (recommended), or all viewers including those that don't support SNI.
-     *   +  To accept HTTPS connections from only viewers that support SNI, set ``SSLSupportMethod`` to ``sni-only``. This is recommended. Most browsers and clients support SNI. (In CloudFormation, the field n
+     *   +  To accept HTTPS connections from only viewers that support SNI, set ``SSLSupportMethod`` to ``sni-only``. This is recommended. Most browsers and clients support SNI. (In CloudFormation, the field name is ``SslSupportMethod``. Note the different capitalization.)
+     *   +  To accept HTTPS connections from all viewers, including those that don't support SNI, set ``SSLSupportMethod`` to ``vip``. This is not recommended, and results in additional monthly charges from CloudFront. (In CloudFormation, the field name is ``SslSupportMethod``. Note the different capitalization.)
+     *   
+     *   +  The minimum SSL/TLS protocol version that the distribution can use to communicate with viewers. To specify a minimum version, choose a value for ``MinimumProtocolVersion``. For more information, see [Security Policy](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValues-security-policy) in the *Amazon CloudFront Developer Guide*.
+     *   +  The location of the SSL/TLS certificate, [(ACM)](https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html) (recommended) or [(IAM)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html). You specify the location by setting a value in one of the following fields (not both):
+     *   +   ``ACMCertificateArn`` (In CloudFormation, this field name is ``AcmCertificateArn``. Note the different capitalization.)
+     *   +   ``IAMCertificateId`` (In CloudFormation, this field name is ``IamCertificateId``. Note the different capitalization.)
+     *   
+     *   
+     *  All distributions support HTTPS connections from viewers. To require viewers to use HTTPS only, or to redirect them from HTTP to HTTPS, use ``ViewerProtocolPolicy`` in the ``CacheBehavior`` or ``DefaultCacheBehavior``. To specify how CloudFront should use SSL/TLS to communicate with your custom origin, use ``CustomOriginConfig``.
+     *  For more information, see [Using HTTPS with CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-https.html) and [Using Alternate Domain Names and HTTPS](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-https-alternate-domain-names.html) in the *Amazon CloudFront Developer Guide*.
      */
     export interface DistributionViewerCertificate {
         /**
@@ -5993,7 +6953,8 @@ export namespace cloudfront {
          *   
          *  For more information, see [Security Policy](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValues-security-policy) and [Supported Protocols and Ciphers Between Viewers and CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html#secure-connections-supported-ciphers) in the *Amazon CloudFront Developer Guide*.
          *   On the CloudFront console, this setting is called *Security Policy*.
-         *   When you're using SNI only (you set ``SSLSupportMethod`` to ``sni-onl
+         *   When you're using SNI only (you set ``SSLSupportMethod`` to ``sni-only``), you must specify ``TLSv1`` or higher. (In CloudFormation, the field name is ``SslSupportMethod``. Note the different capitalization.)
+         *  If the distribution uses the CloudFront domain name such as ``d111111abcdef8.cloudfront.net`` (you set ``CloudFrontDefaultCertificate`` to ``true``), CloudFront automatically sets the security policy to ``TLSv1`` regardless of the value that you set here.
          */
         minimumProtocolVersion?: string;
         /**
@@ -6002,6 +6963,8 @@ export namespace cloudfront {
          *   +   ``sni-only`` – The distribution accepts HTTPS connections from only viewers that support [server name indication (SNI)](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Server_Name_Indication). This is recommended. Most browsers and clients support SNI.
          *   +   ``vip`` – The distribution accepts HTTPS connections from all viewers including those that don't support SNI. This is not recommended, and results in additional monthly charges from CloudFront.
          *   +   ``static-ip`` - Do not specify this value unless your distribution has been enabled for this feature by the CloudFront team. If you have a use case that requires static IP addresses for a distribution, contact CloudFront through the [Center](https://docs.aws.amazon.com/support/home).
+         *   
+         *  If the distribution uses the CloudFront domain name such as ``d111111abcdef8.cloudfront.net``, don't set a value for this field.
          */
         sslSupportMethod?: string;
     }
@@ -6358,39 +7321,40 @@ export namespace cloudtrail {
 
 export namespace cloudwatch {
     /**
-     * Dimensions are arbitrary name/value pairs that can be associated with a CloudWatch metric.
+     * Dimension is an embedded property of the ``AWS::CloudWatch::Alarm`` type. Dimensions are name/value pairs that can be associated with a CW metric. You can specify a maximum of 10 dimensions for a given metric.
      */
     export interface AlarmDimension {
         /**
-         * The name of the dimension.
+         * The name of the dimension, from 1–255 characters in length. This dimension name must have been included when the metric was published.
          */
         name: string;
         /**
-         * The value for the dimension.
+         * The value for the dimension, from 1–255 characters in length.
          */
         value: string;
     }
 
     /**
-     * The Metric property type represents a specific metric.
+     * The ``Metric`` property type represents a specific metric. ``Metric`` is a property of the [MetricStat](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metricstat.html) property type.
      */
     export interface AlarmMetric {
         /**
-         * The dimensions for the metric.
+         * The metric dimensions that you want to be used for the metric that the alarm will watch.
          */
         dimensions?: outputs.cloudwatch.AlarmDimension[];
         /**
-         * The name of the metric.
+         * The name of the metric that you want the alarm to watch. This is a required field.
          */
         metricName?: string;
         /**
-         * The namespace of the metric.
+         * The namespace of the metric that the alarm will watch.
          */
         namespace?: string;
     }
 
     /**
-     * This property type specifies the metric data to return, and whether this call is just retrieving a batch set of data for one metric, or is performing a math expression on metric data.
+     * The ``MetricDataQuery`` property type specifies the metric data to return, and whether this call is just retrieving a batch set of data for one metric, or is performing a math expression on metric data. 
+     *  Any expression used must return a single time series. For more information, see [Metric Math Syntax and Functions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax) in the *User Guide*.
      */
     export interface AlarmMetricDataQuery {
         /**
@@ -6398,33 +7362,38 @@ export namespace cloudwatch {
          */
         accountId?: string;
         /**
-         * The math expression to be performed on the returned data.
+         * The math expression to be performed on the returned data, if this object is performing a math expression. This expression can use the ``Id`` of the other metrics to refer to those metrics, and can also use the ``Id`` of other expressions to use the result of those expressions. For more information about metric math expressions, see [Metric Math Syntax and Functions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax) in the *User Guide*.
+         *  Within each MetricDataQuery object, you must specify either ``Expression`` or ``MetricStat`` but not both.
          */
         expression?: string;
         /**
-         * A short name used to tie this object to the results in the response.
+         * A short name used to tie this object to the results in the response. This name must be unique within a single call to ``GetMetricData``. If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscore. The first character must be a lowercase letter.
          */
         id: string;
         /**
-         * A human-readable label for this metric or expression.
+         * A human-readable label for this metric or expression. This is especially useful if this is an expression, so that you know what the value represents. If the metric or expression is shown in a CW dashboard widget, the label is shown. If ``Label`` is omitted, CW generates a default.
          */
         label?: string;
         /**
-         * The metric to be returned, along with statistics, period, and units.
+         * The metric to be returned, along with statistics, period, and units. Use this parameter only if this object is retrieving a metric and not performing a math expression on returned data.
+         *  Within one MetricDataQuery object, you must specify either ``Expression`` or ``MetricStat`` but not both.
          */
         metricStat?: outputs.cloudwatch.AlarmMetricStat;
         /**
-         * The period in seconds, over which the statistic is applied.
+         * The granularity, in seconds, of the returned data points. For metrics with regular resolution, a period can be as short as one minute (60 seconds) and must be a multiple of 60. For high-resolution metrics that are collected at intervals of less than one minute, the period can be 1, 5, 10, 30, 60, or any multiple of 60. High-resolution metrics are those metrics stored by a ``PutMetricData`` operation that includes a ``StorageResolution of 1 second``.
          */
         period?: number;
         /**
          * This option indicates whether to return the timestamps and raw data values of this metric.
+         *  When you create an alarm based on a metric math expression, specify ``True`` for this value for only the one math expression that the alarm is based on. You must specify ``False`` for ``ReturnData`` for all the other metrics and expressions used in the alarm.
+         *  This field is required.
          */
         returnData?: boolean;
     }
 
     /**
      * This structure defines the metric to be returned, along with the statistics, period, and units.
+     *   ``MetricStat`` is a property of the [MetricDataQuery](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metricdataquery.html) property type.
      */
     export interface AlarmMetricStat {
         /**
@@ -6432,15 +7401,20 @@ export namespace cloudwatch {
          */
         metric: outputs.cloudwatch.AlarmMetric;
         /**
-         * The granularity, in seconds, of the returned data points.
+         * The granularity, in seconds, of the returned data points. For metrics with regular resolution, a period can be as short as one minute (60 seconds) and must be a multiple of 60. For high-resolution metrics that are collected at intervals of less than one minute, the period can be 1, 5, 10, 30, 60, or any multiple of 60. High-resolution metrics are those metrics stored by a ``PutMetricData`` call that includes a ``StorageResolution`` of 1 second.
+         *  If the ``StartTime`` parameter specifies a time stamp that is greater than 3 hours ago, you must specify the period as follows or no data points in that time range is returned:
+         *   +  Start time between 3 hours and 15 days ago - Use a multiple of 60 seconds (1 minute).
+         *   +  Start time between 15 and 63 days ago - Use a multiple of 300 seconds (5 minutes).
+         *   +  Start time greater than 63 days ago - Use a multiple of 3600 seconds (1 hour).
          */
         period: number;
         /**
-         * The statistic to return.
+         * The statistic to return. It can include any CW statistic or extended statistic. For a list of valid values, see the table in [Statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Statistic) in the *User Guide*.
          */
         stat: string;
         /**
-         * The unit to use for the returned data points.
+         * The unit to use for the returned data points. 
+         *  Valid values are: Seconds, Microseconds, Milliseconds, Bytes, Kilobytes, Megabytes, Gigabytes, Terabytes, Bits, Kilobits, Megabits, Gigabits, Terabits, Percent, Count, Bytes/Second, Kilobytes/Second, Megabytes/Second, Gigabytes/Second, Terabytes/Second, Bits/Second, Kilobits/Second, Megabits/Second, Gigabits/Second, Terabits/Second, Count/Second, or None.
          */
         unit?: string;
     }
@@ -6490,9 +7464,39 @@ export namespace cloudwatch {
 }
 
 export namespace codeartifact {
+    export interface PackageGroupOriginConfiguration {
+        /**
+         * The origin configuration that is applied to the package group.
+         */
+        restrictions: outputs.codeartifact.PackageGroupRestrictions;
+    }
+
+    export interface PackageGroupRestrictionType {
+        repositories?: string[];
+        restrictionMode: enums.codeartifact.PackageGroupRestrictionTypeRestrictionMode;
+    }
+
+    export interface PackageGroupRestrictions {
+        /**
+         * The external upstream restriction determines if new package versions can be ingested or retained from external connections.
+         */
+        externalUpstream?: outputs.codeartifact.PackageGroupRestrictionType;
+        /**
+         * The internal upstream restriction determines if new package versions can be ingested or retained from upstream repositories.
+         */
+        internalUpstream?: outputs.codeartifact.PackageGroupRestrictionType;
+        /**
+         * The publish restriction determines if new package versions can be published.
+         */
+        publish?: outputs.codeartifact.PackageGroupRestrictionType;
+    }
+
 }
 
 export namespace codebuild {
+}
+
+export namespace codeconnections {
 }
 
 export namespace codedeploy {
@@ -7763,6 +8767,20 @@ export namespace connect {
      */
     export interface RuleUpdateCaseAction {
         fields: outputs.connect.RuleField[];
+    }
+
+    /**
+     * A third-party application's metadata.
+     */
+    export interface SecurityProfileApplication {
+        /**
+         * The permissions that the agent is granted on the application
+         */
+        applicationPermissions: string[];
+        /**
+         * Namespace of the application that you want to give access to.
+         */
+        namespace: string;
     }
 
     /**
@@ -9148,6 +10166,53 @@ export namespace datasync {
     }
 
     /**
+     * Configures a manifest, which is a list of files or objects that you want DataSync to transfer.
+     */
+    export interface TaskManifestConfig {
+        /**
+         * Specifies what DataSync uses the manifest for.
+         */
+        action?: enums.datasync.TaskManifestConfigAction;
+        /**
+         * Specifies the file format of your manifest.
+         */
+        format?: enums.datasync.TaskManifestConfigFormat;
+        /**
+         * Specifies the manifest that you want DataSync to use and where it's hosted.
+         */
+        source: outputs.datasync.TaskManifestConfigSourceProperties;
+    }
+
+    /**
+     * Specifies the manifest that you want DataSync to use and where it's hosted.
+     */
+    export interface TaskManifestConfigSourceProperties {
+        s3?: outputs.datasync.TaskManifestConfigSourceS3;
+    }
+
+    /**
+     * Specifies the S3 bucket where you're hosting the manifest that you want AWS DataSync to use.
+     */
+    export interface TaskManifestConfigSourceS3 {
+        /**
+         * Specifies the AWS Identity and Access Management (IAM) role that allows DataSync to access your manifest.
+         */
+        bucketAccessRoleArn?: string;
+        /**
+         * Specifies the Amazon S3 object key of your manifest.
+         */
+        manifestObjectPath?: string;
+        /**
+         * Specifies the object version ID of the manifest that you want DataSync to use.
+         */
+        manifestObjectVersionId?: string;
+        /**
+         * Specifies the Amazon Resource Name (ARN) of the S3 bucket where you're hosting your manifest.
+         */
+        s3BucketArn?: string;
+    }
+
+    /**
      * Represents the options that are available to control the behavior of a StartTaskExecution operation.
      */
     export interface TaskOptions {
@@ -9243,16 +10308,13 @@ export namespace datasync {
      * Specifies where DataSync uploads your task report.
      */
     export interface TaskReportConfigDestinationProperties {
-        /**
-         * Specifies the Amazon S3 bucket where DataSync uploads your task report.
-         */
-        s3?: outputs.datasync.TaskReportConfigDestinationPropertiesS3Properties;
+        s3?: outputs.datasync.TaskReportConfigDestinationS3;
     }
 
     /**
      * Specifies the Amazon S3 bucket where DataSync uploads your task report.
      */
-    export interface TaskReportConfigDestinationPropertiesS3Properties {
+    export interface TaskReportConfigDestinationS3 {
         /**
          * Specifies the Amazon Resource Name (ARN) of the IAM policy that allows Datasync to upload a task report to your S3 bucket.
          */
@@ -9559,6 +10621,125 @@ export namespace datazone {
 
 }
 
+export namespace deadline {
+    export interface FleetAcceleratorCountRange {
+        max?: number;
+        min: number;
+    }
+
+    export interface FleetAcceleratorTotalMemoryMiBRange {
+        max?: number;
+        min: number;
+    }
+
+    export interface FleetAmountCapability {
+        max?: number;
+        min: number;
+        name: string;
+    }
+
+    export interface FleetAttributeCapability {
+        name: string;
+        values: string[];
+    }
+
+    export interface FleetCapabilities {
+        amounts?: outputs.deadline.FleetAmountCapability[];
+        attributes?: outputs.deadline.FleetAttributeCapability[];
+    }
+
+    export interface FleetConfiguration0Properties {
+        customerManaged: outputs.deadline.FleetCustomerManagedFleetConfiguration;
+    }
+
+    export interface FleetConfiguration1Properties {
+        serviceManagedEc2: outputs.deadline.FleetServiceManagedEc2FleetConfiguration;
+    }
+
+    export interface FleetCustomerManagedFleetConfiguration {
+        mode: enums.deadline.FleetAutoScalingMode;
+        storageProfileId?: string;
+        workerCapabilities: outputs.deadline.FleetCustomerManagedWorkerCapabilities;
+    }
+
+    export interface FleetCustomerManagedWorkerCapabilities {
+        acceleratorCount?: outputs.deadline.FleetAcceleratorCountRange;
+        acceleratorTotalMemoryMiB?: outputs.deadline.FleetAcceleratorTotalMemoryMiBRange;
+        acceleratorTypes?: enums.deadline.FleetAcceleratorType[];
+        cpuArchitectureType: enums.deadline.FleetCpuArchitectureType;
+        customAmounts?: outputs.deadline.FleetAmountCapability[];
+        customAttributes?: outputs.deadline.FleetAttributeCapability[];
+        memoryMiB: outputs.deadline.FleetMemoryMiBRange;
+        osFamily: enums.deadline.FleetCustomerManagedFleetOperatingSystemFamily;
+        vCpuCount: outputs.deadline.FleetVCpuCountRange;
+    }
+
+    export interface FleetEc2EbsVolume {
+        iops?: number;
+        sizeGiB?: number;
+        throughputMiB?: number;
+    }
+
+    export interface FleetMemoryMiBRange {
+        max?: number;
+        min: number;
+    }
+
+    export interface FleetServiceManagedEc2FleetConfiguration {
+        instanceCapabilities: outputs.deadline.FleetServiceManagedEc2InstanceCapabilities;
+        instanceMarketOptions: outputs.deadline.FleetServiceManagedEc2InstanceMarketOptions;
+    }
+
+    export interface FleetServiceManagedEc2InstanceCapabilities {
+        allowedInstanceTypes?: string[];
+        cpuArchitectureType: enums.deadline.FleetCpuArchitectureType;
+        customAmounts?: outputs.deadline.FleetAmountCapability[];
+        customAttributes?: outputs.deadline.FleetAttributeCapability[];
+        excludedInstanceTypes?: string[];
+        memoryMiB: outputs.deadline.FleetMemoryMiBRange;
+        osFamily: enums.deadline.FleetServiceManagedFleetOperatingSystemFamily;
+        rootEbsVolume?: outputs.deadline.FleetEc2EbsVolume;
+        vCpuCount: outputs.deadline.FleetVCpuCountRange;
+    }
+
+    export interface FleetServiceManagedEc2InstanceMarketOptions {
+        type: enums.deadline.FleetEc2MarketType;
+    }
+
+    export interface FleetVCpuCountRange {
+        max?: number;
+        min: number;
+    }
+
+    export interface QueueJobAttachmentSettings {
+        rootPrefix: string;
+        s3BucketName: string;
+    }
+
+    export interface QueueJobRunAsUser {
+        posix?: outputs.deadline.QueuePosixUser;
+        runAs: enums.deadline.QueueRunAs;
+        windows?: outputs.deadline.QueueWindowsUser;
+    }
+
+    export interface QueuePosixUser {
+        group: string;
+        user: string;
+    }
+
+    export interface QueueWindowsUser {
+        passwordArn: string;
+        user: string;
+    }
+
+    export interface StorageProfileFileSystemLocation {
+        name: string;
+        path: string;
+        type: enums.deadline.StorageProfileFileSystemLocationType;
+    }
+
+}
+
 export namespace detective {
 }
 
@@ -9860,6 +11041,8 @@ export namespace dynamodb {
         pointInTimeRecoverySpecification?: outputs.dynamodb.GlobalTablePointInTimeRecoverySpecification;
         readProvisionedThroughputSettings?: outputs.dynamodb.GlobalTableReadProvisionedThroughputSettings;
         region: string;
+        replicaStreamSpecification?: outputs.dynamodb.GlobalTableReplicaStreamSpecification;
+        resourcePolicy?: outputs.dynamodb.GlobalTableResourcePolicy;
         sseSpecification?: outputs.dynamodb.GlobalTableReplicaSseSpecification;
         tableClass?: string;
         tags?: outputs.dynamodb.GlobalTableTag[];
@@ -9867,6 +11050,14 @@ export namespace dynamodb {
 
     export interface GlobalTableReplicaSseSpecification {
         kmsMasterKeyId: string;
+    }
+
+    export interface GlobalTableReplicaStreamSpecification {
+        resourcePolicy: outputs.dynamodb.GlobalTableResourcePolicy;
+    }
+
+    export interface GlobalTableResourcePolicy {
+        policyDocument: any;
     }
 
     export interface GlobalTableSseSpecification {
@@ -10110,6 +11301,25 @@ export namespace dynamodb {
     }
 
     /**
+     * Creates or updates a resource-based policy document that contains the permissions for DDB resources, such as a table, its indexes, and stream. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
+     *  In a CFNshort template, you can provide the policy in JSON or YAML format because CFNshort converts YAML to JSON before submitting it to DDB. For more information about resource-based policies, see [Using resource-based policies for](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html).
+     *  While defining resource-based policies in your CFNshort templates, the following considerations apply:
+     *   +  The maximum size supported for a resource-based policy document in JSON format is 20 KB. DDB counts whitespaces when calculating the size of a policy against this limit. 
+     *   +  Resource-based policies don't support [drift detection](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html#). If you update a policy outside of the CFNshort stack template, you'll need to update the CFNshort stack with the changes.
+     *   +  Resource-based policies don't support out-of-band changes. If you add, update, or delete a policy outside of the CFNshort template, the change won't be overwritten if there are no changes to the policy within the template.
+     *  For example, say that your template contains a resource-based policy, which you later update outside of the template. If you don't make any changes to the policy in the template, the updated policy in DDB won’t be synced with the policy in the template.
+     *  Conversely, say that your template doesn’t contain a resource-based policy, but you add a policy outside of the template. This policy won’t be removed from DDB as long as you don’t add it to the template. When you add a policy to the template and update the stack, the existing policy in DDB will be updated to match the one defined in the template.
+     *   
+     *  For a full list of all considerations, see [Resource-based policy considerations](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-considerations.html).
+     */
+    export interface TableResourcePolicy {
+        /**
+         * A resource-based policy document that contains permissions to add to the specified DDB table, index, or both. In a CFNshort template, you can provide the policy in JSON or YAML format because CFNshort converts YAML to JSON before submitting it to DDB. For more information about resource-based policies, see [Using resource-based policies for](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html).
+         */
+        policyDocument: any;
+    }
+
+    /**
      * The S3 bucket that is being imported from.
      */
     export interface TableS3BucketSource {
@@ -10151,6 +11361,11 @@ export namespace dynamodb {
      */
     export interface TableStreamSpecification {
         /**
+         * Creates or updates a resource-based policy document that contains the permissions for DDB resources, such as a table's streams. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
+         *  In a CFNshort template, you can provide the policy in JSON or YAML format because CFNshort converts YAML to JSON before submitting it to DDB. For more information about resource-based policies, see [Using resource-based policies for](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html).
+         */
+        resourcePolicy?: outputs.dynamodb.TableResourcePolicy;
+        /**
          * When an item in the table is modified, ``StreamViewType`` determines what information is written to the stream for this table. Valid values for ``StreamViewType`` are:
          *   +   ``KEYS_ONLY`` - Only the key attributes of the modified item are written to the stream.
          *   +   ``NEW_IMAGE`` - The entire item, as it appears after it was modified, is written to the stream.
@@ -10166,7 +11381,7 @@ export namespace dynamodb {
     export interface TableTimeToLiveSpecification {
         /**
          * The name of the TTL attribute used to store the expiration time for items in the table.
-         *    + The ``AttributeName`` property is required when enabling the TTL, or when TTL is already enabled.
+         *    +  The ``AttributeName`` property is required when enabling the TTL, or when TTL is already enabled.
          *   +  To update this property, you must first disable TTL and then enable TTL with the new attribute name.
          */
         attributeName?: string;
@@ -10893,7 +12108,9 @@ export namespace ec2 {
          *   +   ``AllowedInstanceTypes`` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
          *   +   ``ExcludedInstanceTypes`` - The instance types to exclude from the list, even if they match your specified attributes.
          *   
-         *   If you specify ``InstanceReq
+         *   If you specify ``InstanceRequirements``, you can't specify ``InstanceType``.
+         *  Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the [launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html), or with the [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API or [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) AWS CloudFormation resource, you can't specify ``InstanceRequirements``.
+         *   For more information, see [Attribute-based instance type selection for EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html), [Attribute-based instance type selection for Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html), and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide*.
          */
         instanceRequirements?: outputs.ec2.LaunchTemplateInstanceRequirements;
         /**
@@ -10928,7 +12145,7 @@ export namespace ec2 {
          */
         monitoring?: outputs.ec2.LaunchTemplateMonitoring;
         /**
-         * One or more network interfaces. If you specify a network interface, you must specify any security groups and subnets as part of the network interface.
+         * The network interfaces for the instance.
          */
         networkInterfaces?: outputs.ec2.LaunchTemplateNetworkInterface[];
         /**
@@ -10946,10 +12163,12 @@ export namespace ec2 {
         ramDiskId?: string;
         /**
          * The IDs of the security groups. You can specify the IDs of existing security groups and references to resources created by the stack template.
+         *  If you specify a network interface, you must specify any security groups as part of the network interface instead.
          */
         securityGroupIds?: string[];
         /**
-         * One or more security group names. For a nondefault VPC, you must use security group IDs instead.
+         * The names of the security groups. For a nondefault VPC, you must use security group IDs instead.
+         *  If you specify a network interface, you must specify any security groups as part of the network interface instead of using this parameter.
          */
         securityGroups?: string[];
         /**
@@ -11012,13 +12231,14 @@ export namespace ec2 {
          */
         volumeSize?: number;
         /**
-         * The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html) in the *Amazon Elastic Compute Cloud User Guide*.
+         * The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide*.
          */
         volumeType?: string;
     }
 
     /**
-     * Specifies a specification for an Elastic GPU for an Amazon EC2 launch template.
+     * Amazon Elastic Graphics reached end of life on January 8, 2024. For workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad, G4dn, or G5 instances.
+     *   Specifies a specification for an Elastic GPU for an Amazon EC2 launch template.
      *   ``ElasticGpuSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
      */
     export interface LaunchTemplateElasticGpuSpecification {
@@ -11030,7 +12250,7 @@ export namespace ec2 {
 
     /**
      * Specifies an elastic inference accelerator.
-     *  ``LaunchTemplateElasticInferenceAccelerator`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+     *   ``LaunchTemplateElasticInferenceAccelerator`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
      */
     export interface LaunchTemplateElasticInferenceAccelerator {
         /**
@@ -11093,7 +12313,7 @@ export namespace ec2 {
 
     /**
      * Specifies an IAM instance profile, which is a container for an IAM role for your instance. You can use an IAM role to distribute your AWS credentials to your instances.
-     *  If you are creating the launch template for use with an Amazon EC2 Auto Scaling group, you can specify either the name or the ARN of the instance profile, but not both.
+     *  If you are creating the launch template for use with an ASlong group, you can specify either the name or the ARN of the instance profile, but not both.
      *   ``IamInstanceProfile`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
      */
     export interface LaunchTemplateIamInstanceProfile {
@@ -11109,7 +12329,7 @@ export namespace ec2 {
 
     /**
      * Specifies the market (purchasing) option for an instance.
-     *  ``InstanceMarketOptions`` is a property of the [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+     *   ``InstanceMarketOptions`` is a property of the [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
      */
     export interface LaunchTemplateInstanceMarketOptions {
         /**
@@ -11130,7 +12350,9 @@ export namespace ec2 {
      *   +   ``AllowedInstanceTypes`` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
      *   +   ``ExcludedInstanceTypes`` - The instance types to exclude from the list, even if they match your specified attributes.
      *   
-     *   If you specify ``InstanceReq
+     *   If you specify ``InstanceRequirements``, you can't specify ``InstanceType``.
+     *  Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the [launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html), or with the [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API or [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) AWS CloudFormation resource, you can't specify ``InstanceRequirements``.
+     *   For more information, see [Attribute-based instance type selection for EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html), [Attribute-based instance type selection for Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html), and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide*.
      */
     export interface LaunchTemplateInstanceRequirements {
         /**
@@ -11258,8 +12480,8 @@ export namespace ec2 {
         /**
          * [Price protection] The price protection threshold for Spot Instances, as a percentage of an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
          *  The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
-         *  To indicate no price protection threshold, specify a high value, such as ``999999``.
-         *  If you set ``DesiredCapacityType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is based on the per vCPU or per memory price instead of the per instanc
+         *  If you set ``DesiredCapacityType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is based on the per vCPU or per memory price instead of the per instance price.
+         *   Only one of ``SpotMaxPricePercentageOverLowestPrice`` or ``MaxSpotPriceAsPercentageOfOptimalOnDemandPrice`` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as ``999999``.
          */
         maxSpotPriceAsPercentageOfOptimalOnDemandPrice?: number;
         /**
@@ -11286,7 +12508,8 @@ export namespace ec2 {
          *  The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
          *  To turn off price protection, specify a high value, such as ``999999``.
          *  This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html).
-         *   If you set ``TargetCapacityUnitType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is applied based on the per-
+         *   If you set ``TargetCapacityUnitType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
+         *   Default: ``20``
          */
         onDemandMaxPricePercentageOverLowestPrice?: number;
         /**
@@ -11298,8 +12521,10 @@ export namespace ec2 {
         /**
          * [Price protection] The price protection threshold for Spot Instances, as a percentage higher than an identified Spot price. The identified Spot price is the Spot price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified Spot price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose Spot price exceeds your specified threshold.
          *  The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
-         *  To indicate no price protection threshold, specify a high value, such as ``999999``.
-         *  If you set ``TargetCapacityUnitType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is applied based on the per-vCPU or per-memory price i
+         *  If you set ``TargetCapacityUnitType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
+         *  This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html).
+         *   Only one of ``SpotMaxPricePercentageOverLowestPrice`` or ``MaxSpotPriceAsPercentageOfOptimalOnDemandPrice`` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as ``999999``.
+         *   Default: ``100``
          */
         spotMaxPricePercentageOverLowestPrice?: number;
         /**
@@ -11315,7 +12540,7 @@ export namespace ec2 {
 
     /**
      * Specifies an IPv4 prefix for a network interface.
-     *  ``Ipv4PrefixSpecification`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
+     *   ``Ipv4PrefixSpecification`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
      */
     export interface LaunchTemplateIpv4PrefixSpecification {
         /**
@@ -11326,7 +12551,7 @@ export namespace ec2 {
 
     /**
      * Specifies an IPv6 address in an Amazon EC2 launch template.
-     *  ``Ipv6Add`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
+     *   ``Ipv6Add`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
      */
     export interface LaunchTemplateIpv6Add {
         /**
@@ -11337,7 +12562,7 @@ export namespace ec2 {
 
     /**
      * Specifies an IPv6 prefix for a network interface.
-     *  ``Ipv6PrefixSpecification`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
+     *   ``Ipv6PrefixSpecification`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
      */
     export interface LaunchTemplateIpv6PrefixSpecification {
         /**
@@ -11348,7 +12573,7 @@ export namespace ec2 {
 
     /**
      * Specifies a license configuration for an instance.
-     *  ``LicenseSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+     *   ``LicenseSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
      */
     export interface LaunchTemplateLicenseSpecification {
         /**
@@ -11365,7 +12590,6 @@ export namespace ec2 {
          * Disables the automatic recovery behavior of your instance or sets it to default.
          */
         autoRecovery?: string;
-        rebootMigration?: string;
     }
 
     /**
@@ -11398,7 +12622,7 @@ export namespace ec2 {
 
     /**
      * The metadata options for the instance. For more information, see [Instance metadata and user data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) in the *Amazon EC2 User Guide*.
-     *  ``MetadataOptions`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+     *   ``MetadataOptions`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
      */
     export interface LaunchTemplateMetadataOptions {
         /**
@@ -11434,7 +12658,7 @@ export namespace ec2 {
 
     /**
      * Specifies whether detailed monitoring is enabled for an instance. For more information about detailed monitoring, see [Enable or turn off detailed monitoring for your instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch-new.html) in the *User Guide*.
-     *  ``Monitoring`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+     *   ``Monitoring`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
      */
     export interface LaunchTemplateMonitoring {
         /**
@@ -11460,7 +12684,7 @@ export namespace ec2 {
 
     /**
      * Specifies the parameters for a network interface.
-     *  ``NetworkInterface`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+     *   ``NetworkInterface`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
      */
     export interface LaunchTemplateNetworkInterface {
         /**
@@ -11573,7 +12797,7 @@ export namespace ec2 {
 
     /**
      * Specifies the placement of an instance.
-     *  ``Placement`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+     *   ``Placement`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
      */
     export interface LaunchTemplatePlacement {
         /**
@@ -11634,7 +12858,7 @@ export namespace ec2 {
 
     /**
      * Specifies a secondary private IPv4 address for a network interface.
-     *  ``PrivateIpAdd`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
+     *   ``PrivateIpAdd`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
      */
     export interface LaunchTemplatePrivateIpAdd {
         /**
@@ -11649,7 +12873,7 @@ export namespace ec2 {
 
     /**
      * Specifies options for Spot Instances.
-     *  ``SpotOptions`` is a property of [AWS::EC2::LaunchTemplate InstanceMarketOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions.html).
+     *   ``SpotOptions`` is a property of [AWS::EC2::LaunchTemplate InstanceMarketOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions.html).
      */
     export interface LaunchTemplateSpotOptions {
         /**
@@ -11667,7 +12891,7 @@ export namespace ec2 {
         maxPrice?: string;
         /**
          * The Spot Instance request type.
-         *  If you are using Spot Instances with an Auto Scaling group, use ``one-time`` requests, as the Amazon EC2 Auto Scaling service handles requesting new Spot Instances whenever the group is below its desired capacity.
+         *  If you are using Spot Instances with an Auto Scaling group, use ``one-time`` requests, as the ASlong service handles requesting new Spot Instances whenever the group is below its desired capacity.
          */
         spotInstanceType?: string;
         /**
@@ -11696,7 +12920,7 @@ export namespace ec2 {
 
     /**
      * Specifies the tags to apply to the launch template during creation.
-     *  ``LaunchTemplateTagSpecification`` is a property of [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html).
+     *   ``LaunchTemplateTagSpecification`` is a property of [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html).
      */
     export interface LaunchTemplateTagSpecification {
         /**
@@ -11995,9 +13219,9 @@ export namespace ec2 {
     /**
      * The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries to the instances should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
      *  Available options:
-     *   + EnableResourceNameDnsAAAARecord (true | false)
-     *  + EnableResourceNameDnsARecord (true | false)
-     *  + HostnameType (ip-name | resource-name)
+     *   +  EnableResourceNameDnsAAAARecord (true | false)
+     *   +  EnableResourceNameDnsARecord (true | false)
+     *   +  HostnameType (ip-name | resource-name)
      */
     export interface PrivateDnsNameOptionsOnLaunchProperties {
         enableResourceNameDnsARecord?: boolean;
@@ -12013,7 +13237,6 @@ export namespace ec2 {
         destinationSecurityGroupId?: string;
         fromPort?: number;
         ipProtocol: string;
-        sourceSecurityGroupId?: string;
         toPort?: number;
     }
 
@@ -12283,7 +13506,7 @@ export namespace ec2 {
 
     /**
      * Specifies the tags to apply to a resource when the resource is created for the launch template.
-     *  ``TagSpecification`` is a property type of [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications). [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications) is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+     *   ``TagSpecification`` is a property type of [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications). [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications) is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
      */
     export interface TagSpecification {
         /**
@@ -13314,7 +14537,12 @@ export namespace ecs {
          * The number of ``cpu`` units reserved for the container. This parameter maps to ``CpuShares`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--cpu-shares`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
          *  This field is optional for tasks using the Fargate launch type, and the only requirement is that the total amount of CPU reserved for all containers within a task be lower than the task-level ``cpu`` value.
          *   You can determine the number of CPU units that are available per EC2 instance type by multiplying the vCPUs listed for that instance type on the [Amazon EC2 Instances](https://docs.aws.amazon.com/ec2/instance-types/) detail page by 1,024.
-         *   Linux containers share unallocated CPU units with other containers on the cont
+         *   Linux containers share unallocated CPU units with other containers on the container instance with the same ratio as their allocated amount. For example, if you run a single-container task on a single-core instance type with 512 CPU units specified for that container, and that's the only task running on the container instance, that container could use the full 1,024 CPU unit share at any given time. However, if you launched another copy of the same task on that container instance, each task is guaranteed a minimum of 512 CPU units when needed. Moreover, each container could float to higher CPU usage if the other container was not using it. If both tasks were 100% active all of the time, they would be limited to 512 CPU units.
+         *  On Linux container instances, the Docker daemon on the container instance uses the CPU value to calculate the relative CPU share ratios for running containers. For more information, see [CPU share constraint](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#cpu-share-constraint) in the Docker documentation. The minimum valid CPU share value that the Linux kernel allows is 2. However, the CPU parameter isn't required, and you can use CPU values below 2 in your container definitions. For CPU values below 2 (including null), the behavior varies based on your Amazon ECS container agent version:
+         *   +   *Agent versions less than or equal to 1.1.0:* Null and zero CPU values are passed to Docker as 0, which Docker then converts to 1,024 CPU shares. CPU values of 1 are passed to Docker as 1, which the Linux kernel converts to two CPU shares.
+         *   +   *Agent versions greater than or equal to 1.2.0:* Null, zero, and CPU values of 1 are passed to Docker as 2.
+         *   
+         *  On Windows container instances, the CPU limit is enforced as an absolute limit, or a quota. Windows containers only have access to the specified amount of CPU that's described in the task definition. A null or zero CPU value is passed to Docker as ``0``, which Windows interprets as 1% of one CPU.
          */
         cpu?: number;
         /**
@@ -13322,12 +14550,17 @@ export namespace ecs {
          *  There are two formats for each ARN.
          *   + credentialspecdomainless:MyARN You use credentialspecdomainless:MyARN to provide a CredSpec with an additional section for a secret in . You provide the login credentials to the domain in the secret. Each task that runs on any container instance can join different domains. You can use this format without joining the container instance to a domain. + credentialspec:MyARN You use credentialspec:MyARN to provide a CredSpec for a single domain. You must join the container instance to the domain before you start any tasks that use this task definition. 
          *  In both formats, replace ``MyARN`` with the ARN in SSM or Amazon S3.
-         *  If you provide a ``credentialspecdomainless:MyARN``, the ``credspec`` must
+         *  If you provide a ``credentialspecdomainless:MyARN``, the ``credspec`` must provide a ARN in ASMlong for a secret containing the username, password, and the domain to connect to. For better security, the instance isn't joined to the domain for domainless authentication. Other applications on the instance can't use the domainless credentials. You can use this parameter to run tasks on the same instance, even it the tasks need to join different domains. For more information, see [Using gMSAs for Windows Containers](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows-gmsa.html) and [Using gMSAs for Linux Containers](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/linux-gmsa.html).
          */
         credentialSpecs?: string[];
         /**
          * The dependencies defined for container startup and shutdown. A container can contain multiple dependencies. When a dependency is defined for container startup, for container shutdown it is reversed.
-         *  For tasks using the EC2 launch type, the container instances require at least version 1.26.0 of the container agent to turn on container dependencies. However, we recommend using the latest container agent version. For information about checking your agent version and updating to the latest version, see [Updating the Amazon ECS Container Agent](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html) in the *Amazon Elastic Container Service Developer Guide*. If you're using an Amazon ECS-optimized Linux AMI, your instance needs at least version 1.26.0-1 of the ``ecs-init`` package. If your container instances are launched from version ``20190301`` or later, then they contain the required versions of the container agent and ``ecs-init``. For more information, see [
+         *  For tasks using the EC2 launch type, the container instances require at least version 1.26.0 of the container agent to turn on container dependencies. However, we recommend using the latest container agent version. For information about checking your agent version and updating to the latest version, see [Updating the Amazon ECS Container Agent](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html) in the *Amazon Elastic Container Service Developer Guide*. If you're using an Amazon ECS-optimized Linux AMI, your instance needs at least version 1.26.0-1 of the ``ecs-init`` package. If your container instances are launched from version ``20190301`` or later, then they contain the required versions of the container agent and ``ecs-init``. For more information, see [Amazon ECS-optimized Linux AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html) in the *Amazon Elastic Container Service Developer Guide*.
+         *  For tasks using the Fargate launch type, the task or service requires the following platforms:
+         *   +  Linux platform version ``1.3.0`` or later.
+         *   +  Windows platform version ``1.0.0`` or later.
+         *   
+         *  If the task definition is used in a blue/green deployment that uses [AWS::CodeDeploy::DeploymentGroup BlueGreenDeploymentConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-bluegreendeploymentconfiguration.html), the ``dependsOn`` parameter is not supported. For more information see [Issue #680](https://docs.aws.amazon.com/https://github.com/aws-cloudformation/cloudformation-coverage-roadmap/issues/680) on the on the GitHub website.
          */
         dependsOn?: outputs.ecs.TaskDefinitionContainerDependency[];
         /**
@@ -13353,7 +14586,10 @@ export namespace ecs {
          * A list of strings to provide custom configuration for multiple security systems. For more information about valid values, see [Docker Run Security Configuration](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration). This field isn't valid for containers in tasks using the Fargate launch type.
          *  For Linux tasks on EC2, this parameter can be used to reference custom labels for SELinux and AppArmor multi-level security systems.
          *  For any tasks on EC2, this parameter can be used to reference a credential spec file that configures a container for Active Directory authentication. For more information, see [Using gMSAs for Windows Containers](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows-gmsa.html) and [Using gMSAs for Linux Containers](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/linux-gmsa.html) in the *Amazon Elastic Container Service Developer Guide*.
-         *  This parameter maps to ``SecurityOpt`` in the [Create a co
+         *  This parameter maps to ``SecurityOpt`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--security-opt`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
+         *   The Amazon ECS container agent running on a container instance must register with the ``ECS_SELINUX_CAPABLE=true`` or ``ECS_APPARMOR_CAPABLE=true`` environment variables before containers placed on that instance can use these security options. For more information, see [Amazon ECS Container Agent Configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html) in the *Amazon Elastic Container Service Developer Guide*.
+         *   For more information about valid values, see [Docker Run Security Configuration](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration). 
+         *  Valid values: "no-new-privileges" | "apparmor:PROFILE" | "label:value" | "credentialspec:CredentialSpecFilePath"
          */
         dockerSecurityOptions?: string[];
         /**
@@ -13369,7 +14605,7 @@ export namespace ecs {
         /**
          * A list of files containing the environment variables to pass to a container. This parameter maps to the ``--env-file`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
          *  You can specify up to ten environment files. The file must have a ``.env`` file extension. Each line in an environment file contains an environment variable in ``VARIABLE=VALUE`` format. Lines beginning with ``#`` are treated as comments and are ignored. For more information about the environment variable file syntax, see [Declare default environment variables in file](https://docs.aws.amazon.com/https://docs.docker.com/compose/env-file/).
-         *  If there are environment variables specified using the ``environment`` parameter in a container definition, they take precedence over the variables contained within an environment file. If multiple environment files are specified that contain the same variable, they're processed from the top down. We recommend t
+         *  If there are environment variables specified using the ``environment`` parameter in a container definition, they take precedence over the variables contained within an environment file. If multiple environment files are specified that contain the same variable, they're processed from the top down. We recommend that you use unique variable names. For more information, see [Specifying Environment Variables](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/taskdef-envfiles.html) in the *Amazon Elastic Container Service Developer Guide*.
          */
         environmentFiles?: outputs.ecs.TaskDefinitionEnvironmentFile[];
         /**
@@ -13397,7 +14633,11 @@ export namespace ecs {
         hostname?: string;
         /**
          * The image used to start a container. This string is passed directly to the Docker daemon. By default, images in the Docker Hub registry are available. Other repositories are specified with either ``repository-url/image:tag`` or ``repository-url/image@digest``. Up to 255 letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs are allowed. This parameter maps to ``Image`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``IMAGE`` parameter of [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
-         *   +  When a new task starts, the Amazon ECS container agent pulls the latest version of the specified image and tag for the container to use. However, subsequent updates to a repository image 
+         *   +  When a new task starts, the Amazon ECS container agent pulls the latest version of the specified image and tag for the container to use. However, subsequent updates to a repository image aren't propagated to already running tasks.
+         *   +  Images in Amazon ECR repositories can be specified by either using the full ``registry/repository:tag`` or ``registry/repository@digest``. For example, ``012345678910.dkr.ecr.<region-name>.amazonaws.com/<repository-name>:latest`` or ``012345678910.dkr.ecr.<region-name>.amazonaws.com/<repository-name>@sha256:94afd1f2e64d908bc90dbca0035a5b567EXAMPLE``. 
+         *   +  Images in official repositories on Docker Hub use a single name (for example, ``ubuntu`` or ``mongo``).
+         *   +  Images in other repositories on Docker Hub are qualified with an organization name (for example, ``amazon/amazon-ecs-agent``).
+         *   +  Images in other online repositories are qualified further by a domain name (for example, ``quay.io/assemblyline/ubuntu``).
          */
         image: string;
         /**
@@ -13406,7 +14646,8 @@ export namespace ecs {
         interactive?: boolean;
         /**
          * The ``links`` parameter allows containers to communicate with each other without the need for port mappings. This parameter is only supported if the network mode of a task definition is ``bridge``. The ``name:internalName`` construct is analogous to ``name:alias`` in Docker links. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed. For more information about linking Docker containers, go to [Legacy container links](https://docs.aws.amazon.com/https://docs.docker.com/network/links/) in the Docker documentation. This parameter maps to ``Links`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--link`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
-         *   This parameter is not supported for W
+         *   This parameter is not supported for Windows containers.
+         *    Containers that are collocated on a single container instance may be able to communicate with each other without requiring links or host port mappings. Network isolation is achieved on the container instance using security groups and VPC settings.
          */
         links?: string[];
         /**
@@ -13416,18 +14657,26 @@ export namespace ecs {
         linuxParameters?: outputs.ecs.TaskDefinitionLinuxParameters;
         /**
          * The log configuration specification for the container.
-         *  This parameter maps to ``LogConfig`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--log-driver`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/). By default, containers use the same logging driver that the Docker daemon uses. However, the container may use a different logging driver than the Docker daemon by specifying a log driver with this parameter in the container definition. To use a different logging driver for a container, the log system must be configured properly on the container instance (or on a different log server for remote logging options). For more information on the options for different supported log drivers, see [Configure logging drivers](https://docs.aws.amazon.com/htt
+         *  This parameter maps to ``LogConfig`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--log-driver`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/). By default, containers use the same logging driver that the Docker daemon uses. However, the container may use a different logging driver than the Docker daemon by specifying a log driver with this parameter in the container definition. To use a different logging driver for a container, the log system must be configured properly on the container instance (or on a different log server for remote logging options). For more information on the options for different supported log drivers, see [Configure logging drivers](https://docs.aws.amazon.com/https://docs.docker.com/engine/admin/logging/overview/) in the Docker documentation.
+         *   Amazon ECS currently supports a subset of the logging drivers available to the Docker daemon (shown in the [LogConfiguration](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_LogConfiguration.html) data type). Additional log drivers may be available in future releases of the Amazon ECS container agent.
+         *   This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version --format '{{.Server.APIVersion}}'`` 
+         *   The Amazon ECS container agent running on a container instance must register the logging drivers available on that instance with the ``ECS_AVAILABLE_LOGGING_DRIVERS`` environment variable before containers placed on that instance can use these log configuration options. For more information, see [Amazon ECS Container Agent Configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html) in the *Amazon Elastic Container Service Developer Guide*.
          */
         logConfiguration?: outputs.ecs.TaskDefinitionLogConfiguration;
         /**
          * The amount (in MiB) of memory to present to the container. If your container attempts to exceed the memory specified here, the container is killed. The total amount of memory reserved for all containers within a task must be lower than the task ``memory`` value, if one is specified. This parameter maps to ``Memory`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--memory`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
          *  If using the Fargate launch type, this parameter is optional.
-         *  If using the EC2 launch type, you must specify either a task-level memory value or a container-level memory value. If you specify both a container-level ``memory`` and ``memoryReservation`` value, ``memory`` must be greater than ``memoryReserva
+         *  If using the EC2 launch type, you must specify either a task-level memory value or a container-level memory value. If you specify both a container-level ``memory`` and ``memoryReservation`` value, ``memory`` must be greater than ``memoryReservation``. If you specify ``memoryReservation``, then that value is subtracted from the available memory resources for the container instance where the container is placed. Otherwise, the value of ``memory`` is used.
+         *  The Docker 20.10.0 or later daemon reserves a minimum of 6 MiB of memory for a container, so you should not specify fewer than 6 MiB of memory for your containers.
+         *  The Docker 19.03.13-ce or earlier daemon reserves a minimum of 4 MiB of memory for a container, so you should not specify fewer than 4 MiB of memory for your containers.
          */
         memory?: number;
         /**
          * The soft limit (in MiB) of memory to reserve for the container. When system memory is under heavy contention, Docker attempts to keep the container memory to this soft limit. However, your container can consume more memory when it needs to, up to either the hard limit specified with the ``memory`` parameter (if applicable), or all of the available memory on the container instance, whichever comes first. This parameter maps to ``MemoryReservation`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--memory-reservation`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
-         *  If a task-level memory value is not specified, you must specify a non-zero integer for one or both of ``memory`` or ``memoryReservation`` in a container definiti
+         *  If a task-level memory value is not specified, you must specify a non-zero integer for one or both of ``memory`` or ``memoryReservation`` in a container definition. If you specify both, ``memory`` must be greater than ``memoryReservation``. If you specify ``memoryReservation``, then that value is subtracted from the available memory resources for the container instance where the container is placed. Otherwise, the value of ``memory`` is used.
+         *  For example, if your container normally uses 128 MiB of memory, but occasionally bursts to 256 MiB of memory for short periods of time, you can set a ``memoryReservation`` of 128 MiB, and a ``memory`` hard limit of 300 MiB. This configuration would allow the container to only reserve 128 MiB of memory from the remaining resources on the container instance, but also allow the container to consume more memory resources when needed.
+         *  The Docker 20.10.0 or later daemon reserves a minimum of 6 MiB of memory for a container. So, don't specify less than 6 MiB of memory for your containers. 
+         *  The Docker 19.03.13-ce or earlier daemon reserves a minimum of 4 MiB of memory for a container. So, don't specify less than 4 MiB of memory for your containers.
          */
         memoryReservation?: number;
         /**
@@ -13444,7 +14693,8 @@ export namespace ecs {
          * The list of port mappings for the container. Port mappings allow containers to access ports on the host container instance to send or receive traffic.
          *  For task definitions that use the ``awsvpc`` network mode, you should only specify the ``containerPort``. The ``hostPort`` can be left blank or it must be the same value as the ``containerPort``.
          *  Port mappings on Windows use the ``NetNAT`` gateway address rather than ``localhost``. There is no loopback for port mappings on Windows, so you cannot access a container's mapped port from the host itself. 
-         *  This parameter maps to ``PortBindings`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--publish`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/). If the network mode of a task definition is set to
+         *  This parameter maps to ``PortBindings`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--publish`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/). If the network mode of a task definition is set to ``none``, then you can't specify port mappings. If the network mode of a task definition is set to ``host``, then host ports must either be undefined or they must match the container port in the port mapping.
+         *   After a task reaches the ``RUNNING`` status, manual and automatic host and container port assignments are visible in the *Network Bindings* section of a container description for a selected task in the Amazon ECS console. The assignments are also visible in the ``networkBindings`` section [DescribeTasks](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeTasks.html) responses.
          */
         portMappings?: outputs.ecs.TaskDefinitionPortMapping[];
         /**
@@ -13480,7 +14730,8 @@ export namespace ecs {
          *   +  Linux platform version ``1.3.0`` or later.
          *   +  Windows platform version ``1.0.0`` or later.
          *   
-         *  For tasks using the EC2 launch type, your container instances require at least version ``1.26.0`` of the container agent to use a container start timeout value. However
+         *  For tasks using the EC2 launch type, your container instances require at least version ``1.26.0`` of the container agent to use a container start timeout value. However, we recommend using the latest container agent version. For information about checking your agent version and updating to the latest version, see [Updating the Amazon ECS Container Agent](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html) in the *Amazon Elastic Container Service Developer Guide*. If you're using an Amazon ECS-optimized Linux AMI, your instance needs at least version ``1.26.0-1`` of the ``ecs-init`` package. If your container instances are launched from version ``20190301`` or later, then they contain the required versions of the container agent and ``ecs-init``. For more information, see [Amazon ECS-optimized Linux AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html) in the *Amazon Elastic Container Service Developer Guide*.
+         *  The valid values are 2-120 seconds.
          */
         startTimeout?: number;
         /**
@@ -13490,7 +14741,8 @@ export namespace ecs {
          *   +  Windows platform version ``1.0.0`` or later.
          *   
          *  The max stop timeout value is 120 seconds and if the parameter is not specified, the default value of 30 seconds is used.
-         *  For tasks that use the EC2 launch type, if the ``stopTimeout`` parameter isn't specified, the value set for the Amazon ECS container agent configuration variable ``ECS_CONTAINER_STOP_TIMEOUT`` is used. If neither the ``stopTimeout`` parameter or the ``ECS_CONTAINER_STOP_TIMEOUT`` agent configuration variable are set, then the default values of 30 seconds for Linux containers and 30 seconds on Windows containers are used. Your container instances require at least version 1.26.0 of the container agent to use a container stop timeout value. However, we recomm
+         *  For tasks that use the EC2 launch type, if the ``stopTimeout`` parameter isn't specified, the value set for the Amazon ECS container agent configuration variable ``ECS_CONTAINER_STOP_TIMEOUT`` is used. If neither the ``stopTimeout`` parameter or the ``ECS_CONTAINER_STOP_TIMEOUT`` agent configuration variable are set, then the default values of 30 seconds for Linux containers and 30 seconds on Windows containers are used. Your container instances require at least version 1.26.0 of the container agent to use a container stop timeout value. However, we recommend using the latest container agent version. For information about checking your agent version and updating to the latest version, see [Updating the Amazon ECS Container Agent](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html) in the *Amazon Elastic Container Service Developer Guide*. If you're using an Amazon ECS-optimized Linux AMI, your instance needs at least version 1.26.0-1 of the ``ecs-init`` package. If your container instances are launched from version ``20190301`` or later, then they contain the required versions of the container agent and ``ecs-init``. For more information, see [Amazon ECS-optimized Linux AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html) in the *Amazon Elastic Container Service Developer Guide*.
+         *  The valid values are 2-120 seconds.
          */
         stopTimeout?: number;
         /**
@@ -13528,7 +14780,8 @@ export namespace ecs {
 
     /**
      * The ``ContainerDependency`` property specifies the dependencies defined for container startup and shutdown. A container can contain multiple dependencies. When a dependency is defined for container startup, for container shutdown it is reversed.
-     *  Your Amazon ECS container instances require at least version 1.26.0 of the container agent to enable container dependencies. However, we recommend using the latest container agent version. For information about checking your agent version and updating to the latest version, see [Updating the Amazon ECS Container Agent](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html) in the *Amazon Elastic Container Service Developer Guide*. If you are using an Amazon ECS-optimized Linux AMI, your instance needs at least version 1.26.0-1 of the ``ecs-init`` package. If your container instances are launched from version ``20190301`` or later, then they contain the required versions of the container agent and ``ecs-init``. For m
+     *  Your Amazon ECS container instances require at least version 1.26.0 of the container agent to enable container dependencies. However, we recommend using the latest container agent version. For information about checking your agent version and updating to the latest version, see [Updating the Amazon ECS Container Agent](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html) in the *Amazon Elastic Container Service Developer Guide*. If you are using an Amazon ECS-optimized Linux AMI, your instance needs at least version 1.26.0-1 of the ``ecs-init`` package. If your container instances are launched from version ``20190301`` or later, then they contain the required versions of the container agent and ``ecs-init``. For more information, see [Amazon ECS-optimized Linux AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html) in the *Amazon Elastic Container Service Developer Guide*.
+     *   For tasks using the Fargate launch type, this parameter requires that the task or service uses platform version 1.3.0 or later.
      */
     export interface TaskDefinitionContainerDependency {
         /**
@@ -13536,7 +14789,7 @@ export namespace ecs {
          *   +   ``START`` - This condition emulates the behavior of links and volumes today. It validates that a dependent container is started before permitting other containers to start.
          *   +   ``COMPLETE`` - This condition validates that a dependent container runs to completion (exits) before permitting other containers to start. This can be useful for nonessential containers that run a script and then exit. This condition can't be set on an essential container.
          *   +   ``SUCCESS`` - This condition is the same as ``COMPLETE``, but it also requires that the container exits with a ``zero`` status. This condition can't be set on an essential container.
-         *   +   ``HEALTHY`` - This condition validates that the dependent container passes its Docker health check before permitting other containers to start. This requires that the dependent container has health checks configured. This condition is confi
+         *   +   ``HEALTHY`` - This condition validates that the dependent container passes its Docker health check before permitting other containers to start. This requires that the dependent container has health checks configured. This condition is confirmed only at task startup.
          */
         condition?: string;
         /**
@@ -13619,13 +14872,20 @@ export namespace ecs {
 
     /**
      * A list of files containing the environment variables to pass to a container. You can specify up to ten environment files. The file must have a ``.env`` file extension. Each line in an environment file should contain an environment variable in ``VARIABLE=VALUE`` format. Lines beginning with ``#`` are treated as comments and are ignored.
-     *  If there are environment variables specified using the ``environment`` parameter in a container definition, they take precedence over the variables contained within an environment file. If multiple environment files are specified that contain the same variable, they're processed from the top down. We recommend that you use unique variable names. For more information, see [Specifying environment variables](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/taskdef-envfiles.html) in the *Amazon Elastic Container Service Developer Guide*.
+     *  If there are environment variables specified using the ``environment`` parameter in a container definition, they take precedence over the variables contained within an environment file. If multiple environment files are specified that contain the same variable, they're processed from the top down. We recommend that you use unique variable names. For more information, see [Use a file to pass environment variables to a container](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/use-environment-file.html) in the *Amazon Elastic Container Service Developer Guide*.
+     *  Environment variable files are objects in Amazon S3 and all Amazon S3 security considerations apply. 
      *  You must use the following platforms for the Fargate launch type:
-     *   +  Linux platform version ``1.4.0`` or la
+     *   +  Linux platform version ``1.4.0`` or later.
+     *   +  Windows platform version ``1.0.0`` or later.
+     *   
+     *  Consider the following when using the Fargate launch type:
+     *   +  The file is handled like a native Docker env-file.
+     *   +  There is no support for shell escape handling.
+     *   +  The container entry point interperts the ``VARIABLE`` values.
      */
     export interface TaskDefinitionEnvironmentFile {
         /**
-         * The file type to use. The only supported value is ``s3``.
+         * The file type to use. Environment files are objects in Amazon S3. The only supported value is ``s3``.
          */
         type?: string;
         /**
@@ -13642,9 +14902,20 @@ export namespace ecs {
      */
     export interface TaskDefinitionEphemeralStorage {
         /**
-         * The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is ``21`` GiB and the maximum supported value is ``200`` GiB.
+         * The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is ``20`` GiB and the maximum supported value is ``200`` GiB.
          */
         sizeInGiB?: number;
+    }
+
+    export interface TaskDefinitionFSxAuthorizationConfig {
+        credentialsParameter: string;
+        domain: string;
+    }
+
+    export interface TaskDefinitionFSxWindowsFileServerVolumeConfiguration {
+        authorizationConfig?: outputs.ecs.TaskDefinitionFSxAuthorizationConfig;
+        fileSystemId: string;
+        rootDirectory: string;
     }
 
     /**
@@ -13654,9 +14925,9 @@ export namespace ecs {
         /**
          * The options to use when configuring the log router. This field is optional and can be used to add additional metadata, such as the task, task definition, cluster, and container instance details to the log event.
          *   If specified, valid option keys are:
-         *   +  ``enable-ecs-log-metadata``, which can be ``true`` or ``false``
-         *   +  ``config-file-type``, which can be ``s3`` or ``file``
-         *   +  ``config-file-value``, which is either an S3 ARN or a file path
+         *   +   ``enable-ecs-log-metadata``, which can be ``true`` or ``false`` 
+         *   +   ``config-file-type``, which can be ``s3`` or ``file`` 
+         *   +   ``config-file-value``, which is either an S3 ARN or a file path
          */
         options?: {[key: string]: string};
         /**
@@ -13668,7 +14939,11 @@ export namespace ecs {
     /**
      * The ``HealthCheck`` property specifies an object representing a container health check. Health check parameters that are specified in a container definition override any Docker health checks that exist in the container image (such as those specified in a parent image or from the image's Dockerfile). This configuration maps to the ``HEALTHCHECK`` parameter of [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/).
      *   The Amazon ECS container agent only monitors and reports on the health checks specified in the task definition. Amazon ECS does not monitor Docker health checks that are embedded in a container image and not specified in the container definition. Health check parameters that are specified in a container definition override any Docker health checks that exist in the container image.
-     *   If a task is run manually, and not as part of a service, the task will continue its lifecycle regardless of its health status. For tasks that are part of a servi
+     *   If a task is run manually, and not as part of a service, the task will continue its lifecycle regardless of its health status. For tasks that are part of a service, if the task reports as unhealthy then the task will be stopped and the service scheduler will replace it.
+     *  The following are notes about container health check support:
+     *   +  Container health checks require version 1.17.0 or greater of the Amazon ECS container agent. For more information, see [Updating the Amazon ECS Container Agent](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html).
+     *   +  Container health checks are supported for Fargate tasks if you are using platform version 1.1.0 or greater. For more information, see [Platform Versions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+     *   +  Container health checks are not supported for tasks that are part of a service that is configured to use a Classic Load Balancer.
      */
     export interface TaskDefinitionHealthCheck {
         /**
@@ -13739,18 +15014,18 @@ export namespace ecs {
     }
 
     /**
-     * The ``KernelCapabilities`` property specifies the Linux capabilities for the container that are added to or dropped from the default configuration that is provided by Docker. For more information on the default capabilities and the non-default available capabilities, see [Runtime privilege and Linux capabilities](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities) in the *Docker run reference*. For more detailed information on these Linux capabilities, see the [capabilities(7)](https://docs.aws.amazon.com/http://man7.org/linux/man-pages/man7/capabilities.7.html) Linux manual page.
+     * The Linux capabilities to add or remove from the default Docker configuration for a container defined in the task definition. For more information about the default capabilities and the non-default available capabilities, see [Runtime privilege and Linux capabilities](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities) in the *Docker run reference*. For more detailed information about these Linux capabilities, see the [capabilities(7)](https://docs.aws.amazon.com/http://man7.org/linux/man-pages/man7/capabilities.7.html) Linux manual page.
      */
     export interface TaskDefinitionKernelCapabilities {
         /**
          * The Linux capabilities for the container that have been added to the default configuration provided by Docker. This parameter maps to ``CapAdd`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--cap-add`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
          *   Tasks launched on FARGATElong only support adding the ``SYS_PTRACE`` kernel capability.
-         *   Valid values: ``"ALL" | "AUDIT_CONTROL" | "AUDIT_WRITE" | "BLOCK_SUSPEND" | "CHOWN" | "DAC_OVERRIDE" | "DAC_READ_SEARCH" | "FOWNER" | "FSETID" | "IPC_LOCK" | "IPC_OWNER" | "KILL" | "LEASE" | "LINUX_IMMUTABLE" | "MAC_ADMIN" | "MAC_OVERRIDE" | "MKNOD" | "NET_ADMIN" | "NET_BIND_SERVICE" | "NET_BROADCAST" | "NET_RAW" | "SETFCAP" | "SETGID" | "SETPCAP" | "SETUID" | "SYS_ADMIN" | "SYS_BOOT" 
+         *   Valid values: ``"ALL" | "AUDIT_CONTROL" | "AUDIT_WRITE" | "BLOCK_SUSPEND" | "CHOWN" | "DAC_OVERRIDE" | "DAC_READ_SEARCH" | "FOWNER" | "FSETID" | "IPC_LOCK" | "IPC_OWNER" | "KILL" | "LEASE" | "LINUX_IMMUTABLE" | "MAC_ADMIN" | "MAC_OVERRIDE" | "MKNOD" | "NET_ADMIN" | "NET_BIND_SERVICE" | "NET_BROADCAST" | "NET_RAW" | "SETFCAP" | "SETGID" | "SETPCAP" | "SETUID" | "SYS_ADMIN" | "SYS_BOOT" | "SYS_CHROOT" | "SYS_MODULE" | "SYS_NICE" | "SYS_PACCT" | "SYS_PTRACE" | "SYS_RAWIO" | "SYS_RESOURCE" | "SYS_TIME" | "SYS_TTY_CONFIG" | "SYSLOG" | "WAKE_ALARM"``
          */
         add?: string[];
         /**
          * The Linux capabilities for the container that have been removed from the default configuration provided by Docker. This parameter maps to ``CapDrop`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--cap-drop`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
-         *  Valid values: ``"ALL" | "AUDIT_CONTROL" | "AUDIT_WRITE" | "BLOCK_SUSPEND" | "CHOWN" | "DAC_OVERRIDE" | "DAC_READ_SEARCH" | "FOWNER" | "FSETID" | "IPC_LOCK" | "IPC_OWNER" | "KILL" | "LEASE" | "LINUX_IMMUTABLE" | "MAC_ADMIN" | "MAC_OVERRIDE" | "MKNOD" | "NET_ADMIN" | "NET_BIND_SERVICE" | "NET_BROADCAST" | "NET_RAW" | "SETFCAP" | "SETGID" | "SETPCAP" | "SETUID" | "SYS_ADMIN" | "SYS_BOOT" | "SYS_CHROOT" | "SYS_MODULE" | "SYS_NICE" | "SYS_PACCT" | "SYS_PTRACE" | "SYS_RAWIO"
+         *  Valid values: ``"ALL" | "AUDIT_CONTROL" | "AUDIT_WRITE" | "BLOCK_SUSPEND" | "CHOWN" | "DAC_OVERRIDE" | "DAC_READ_SEARCH" | "FOWNER" | "FSETID" | "IPC_LOCK" | "IPC_OWNER" | "KILL" | "LEASE" | "LINUX_IMMUTABLE" | "MAC_ADMIN" | "MAC_OVERRIDE" | "MKNOD" | "NET_ADMIN" | "NET_BIND_SERVICE" | "NET_BROADCAST" | "NET_RAW" | "SETFCAP" | "SETGID" | "SETPCAP" | "SETUID" | "SYS_ADMIN" | "SYS_BOOT" | "SYS_CHROOT" | "SYS_MODULE" | "SYS_NICE" | "SYS_PACCT" | "SYS_PTRACE" | "SYS_RAWIO" | "SYS_RESOURCE" | "SYS_TIME" | "SYS_TTY_CONFIG" | "SYSLOG" | "WAKE_ALARM"``
          */
         drop?: string[];
     }
@@ -13822,7 +15097,7 @@ export namespace ecs {
          *  For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``, ``logentries``,``syslog``, ``splunk``, and ``awsfirelens``.
          *  For more information about using the ``awslogs`` log driver, see [Using the awslogs log driver](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_awslogs.html) in the *Amazon Elastic Container Service Developer Guide*.
          *  For more information about using the ``awsfirelens`` log driver, see [Custom log routing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html) in the *Amazon Elastic Container Service Developer Guide*.
-         *   If you have a custom driver that isn't listed, you can fork the Amazon ECS container agent project that's [available on GitHub](https://docs.aws.amazon.com/https://github.com/aws/amazon-ecs
+         *   If you have a custom driver that isn't listed, you can fork the Amazon ECS container agent project that's [available on GitHub](https://docs.aws.amazon.com/https://github.com/aws/amazon-ecs-agent) and customize it to work with that driver. We encourage you to submit pull requests for changes that you would like to have included. However, we don't currently provide support for running modified copies of this software.
          */
         logDriver: string;
         /**
@@ -13878,7 +15153,7 @@ export namespace ecs {
          * The application protocol that's used for the port mapping. This parameter only applies to Service Connect. We recommend that you set this parameter to be consistent with the protocol that your application uses. If you set this parameter, Amazon ECS adds protocol-specific connection handling to the Service Connect proxy. If you set this parameter, Amazon ECS adds protocol-specific telemetry in the Amazon ECS console and CloudWatch.
          *  If you don't set a value for this parameter, then TCP is used. However, Amazon ECS doesn't add protocol-specific telemetry for TCP.
          *   ``appProtocol`` is immutable in a Service Connect service. Updating this field requires a service deletion and redeployment.
-         *  Tasks that run in a namespace can use short names to connect to services in the namespace. Tasks can connect to services across all of the clusters in the namespace. Tasks connect through a managed proxy container that collects logs and metrics for increased visibility. Only the tasks that Amazon ECS se
+         *  Tasks that run in a namespace can use short names to connect to services in the namespace. Tasks can connect to services across all of the clusters in the namespace. Tasks connect through a managed proxy container that collects logs and metrics for increased visibility. Only the tasks that Amazon ECS services create are supported with Service Connect. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
          */
         appProtocol?: enums.ecs.TaskDefinitionPortMappingAppProtocol;
         /**
@@ -13897,7 +15172,17 @@ export namespace ecs {
          *   +  You can specify a maximum of 100 port ranges per container.
          *   +  You do not specify a ``hostPortRange``. The value of the ``hostPortRange`` is set as follows:
          *   +  For containers in a task with the ``awsvpc`` network mode, the ``hostPortRange`` is set to the same value as the ``containerPortRange``. This is a static mapping strategy.
-         *   +  For containers in a task with the ``bridge`` network mode, the Amazon ECS agent finds open host 
+         *   +  For containers in a task with the ``bridge`` network mode, the Amazon ECS agent finds open host ports from the default ephemeral range and passes it to docker to bind them to the container ports.
+         *   
+         *   +  The ``containerPortRange`` valid values are between 1 and 65535.
+         *   +  A port can only be included in one port mapping per container.
+         *   +  You cannot specify overlapping port ranges.
+         *   +  The first port in the range must be less than last port in the range.
+         *   +  Docker recommends that you turn off the docker-proxy in the Docker daemon config file when you have a large number of ports.
+         *  For more information, see [Issue #11185](https://docs.aws.amazon.com/https://github.com/moby/moby/issues/11185) on the Github website.
+         *  For information about how to turn off the docker-proxy in the Docker daemon config file, see [Docker daemon](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/bootstrap_container_instance.html#bootstrap_docker_daemon) in the *Amazon ECS Developer Guide*.
+         *   
+         *  You can call [DescribeTasks](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeTasks.html) to view the ``hostPortRange`` which are the host ports that are bound to the container ports.
          */
         containerPortRange?: string;
         /**
@@ -13907,7 +15192,9 @@ export namespace ecs {
          *   +  For containers in a task with the ``bridge`` network mode, the Amazon ECS agent finds open ports on the host and automatically binds them to the container ports. This is a dynamic mapping strategy.
          *   
          *  If you use containers in a task with the ``awsvpc`` or ``host`` network mode, the ``hostPort`` can either be left blank or set to the same value as the ``containerPort``.
-         *  If you use containers in a task with the ``bridge`` network mode, you can specify a non-reserved host port for your container port mapping, or you can omit the ``hostPort`` (or set it to ``0``) while specifying a ``containerPort`` and your container automatically
+         *  If you use containers in a task with the ``bridge`` network mode, you can specify a non-reserved host port for your container port mapping, or you can omit the ``hostPort`` (or set it to ``0``) while specifying a ``containerPort`` and your container automatically receives a port in the ephemeral port range for your container instance operating system and Docker version.
+         *  The default ephemeral port range for Docker version 1.6.0 and later is listed on the instance under ``/proc/sys/net/ipv4/ip_local_port_range``. If this kernel parameter is unavailable, the default ephemeral port range from 49153 through 65535 (Linux) or 49152 through 65535 (Windows) is used. Do not attempt to specify a host port in the ephemeral port range as these are reserved for automatic assignment. In general, ports below 32768 are outside of the ephemeral port range.
+         *  The default reserved ports are 22 for SSH, the Docker ports 2375 and 2376, and the Amazon ECS container agent ports 51678-51680. Any host port that was previously specified in a running task is also reserved while the task is running. That is, after a task stops, the host port is released. The current reserved ports are displayed in the ``remainingResources`` of [DescribeContainerInstances](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeContainerInstances.html) output. A container instance can have up to 100 reserved ports at a time. This number includes the default reserved ports. Automatically assigned ports aren't included in the 100 reserved ports quota.
          */
         hostPort?: number;
         /**
@@ -13936,7 +15223,9 @@ export namespace ecs {
          *   +   ``IgnoredGID`` - (Required) The group ID (GID) of the proxy container as defined by the ``user`` parameter in a container definition. This is used to ensure the proxy ignores its own traffic. If ``IgnoredUID`` is specified, this field can be empty.
          *   +   ``AppPorts`` - (Required) The list of ports that the application uses. Network traffic to these ports is forwarded to the ``ProxyIngressPort`` and ``ProxyEgressPort``.
          *   +   ``ProxyIngressPort`` - (Required) Specifies the port that incoming traffic to the ``AppPorts`` is directed to.
-         *   +   ``ProxyEgressPort`` - (Required) Specifies the port that outgoi
+         *   +   ``ProxyEgressPort`` - (Required) Specifies the port that outgoing traffic from the ``AppPorts`` is directed to.
+         *   +   ``EgressIgnoredPorts`` - (Required) The egress traffic going to the specified ports is ignored and not redirected to the ``ProxyEgressPort``. It can be an empty list.
+         *   +   ``EgressIgnoredIPs`` - (Required) The egress traffic going to the specified IP addresses is ignored and not redirected to the ``ProxyEgressPort``. It can be an empty list.
          */
         proxyConfigurationProperties?: outputs.ecs.TaskDefinitionKeyValuePair[];
         /**
@@ -14011,7 +15300,15 @@ export namespace ecs {
     /**
      * A list of namespaced kernel parameters to set in the container. This parameter maps to ``Sysctls`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--sysctl`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration). For example, you can configure ``net.ipv4.tcp_keepalive_time`` setting to maintain longer lived connections.
      *  We don't recommend that you specify network-related ``systemControls`` parameters for multiple containers in a single task that also uses either the ``awsvpc`` or ``host`` network mode. Doing this has the following disadvantages:
-     *   +  For tasks that use the ``awsvpc`` network mode including Fargate, if you set ``systemControls`` for any container, it applies to all containers in the task. If you set different ``sy
+     *   +  For tasks that use the ``awsvpc`` network mode including Fargate, if you set ``systemControls`` for any container, it applies to all containers in the task. If you set different ``systemControls`` for multiple containers in a single task, the container that's started last determines which ``systemControls`` take effect.
+     *   +  For tasks that use the ``host`` network mode, the network namespace ``systemControls`` aren't supported.
+     *   
+     *  If you're setting an IPC resource namespace to use for the containers in the task, the following conditions apply to your system controls. For more information, see [IPC mode](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#task_definition_ipcmode).
+     *   +  For tasks that use the ``host`` IPC mode, IPC namespace ``systemControls`` aren't supported.
+     *   +  For tasks that use the ``task`` IPC mode, IPC namespace ``systemControls`` values apply to all containers within a task.
+     *   
+     *   This parameter is not supported for Windows containers.
+     *    This parameter is only supported for tasks that are hosted on FARGATElong if the tasks are using platform version ``1.4.0`` or later (Linux). This isn't supported for Windows containers on Fargate.
      */
     export interface TaskDefinitionSystemControl {
         /**
@@ -14085,6 +15382,7 @@ export namespace ecs {
          * This parameter is specified when you use an Amazon Elastic File System file system for task storage.
          */
         efsVolumeConfiguration?: outputs.ecs.TaskDefinitionEfsVolumeConfiguration;
+        fSxWindowsFileServerVolumeConfiguration?: outputs.ecs.TaskDefinitionFSxWindowsFileServerVolumeConfiguration;
         /**
          * This parameter is specified when you use bind mount host volumes. The contents of the ``host`` parameter determine whether your bind mount host volume persists on the host container instance and where it's stored. If the ``host`` parameter is empty, then the Docker daemon assigns a host path for your data volume. However, the data isn't guaranteed to persist after the containers that are associated with it stop running.
          *  Windows containers can mount whole directories on the same drive as ``$env:ProgramData``. Windows containers can't mount directories on a different drive, and mount point can't be across drives. For example, you can mount ``C:\my\path:C:\my\path`` and ``D:\:D:\``, but not ``D:\my\path:C:\my\path`` or ``D:\:C:\my\path``.
@@ -14251,7 +15549,7 @@ export namespace efs {
          *   +   *ENABLED* - Turns automatic backups on for the file system. 
          *   +   *DISABLED* - Turns automatic backups off for the file system.
          */
-        status: string;
+        status: enums.efs.FileSystemBackupPolicyStatus;
     }
 
     /**
@@ -14669,9 +15967,13 @@ export namespace elasticache {
         /**
          * The maximum cached data capacity of the Serverless Cache.
          */
-        maximum: number;
+        maximum?: number;
         /**
-         * The unix of cached data capacity of the Serverless Cache.
+         * The minimum cached data capacity of the Serverless Cache.
+         */
+        minimum?: number;
+        /**
+         * The unit of cached data capacity of the Serverless Cache.
          */
         unit: enums.elasticache.ServerlessCacheDataStorageUnit;
     }
@@ -14683,7 +15985,11 @@ export namespace elasticache {
         /**
          * The maximum ECPU per second of the Serverless Cache.
          */
-        maximum: number;
+        maximum?: number;
+        /**
+         * The minimum ECPU per second of the Serverless Cache.
+         */
+        minimum?: number;
     }
 
     /**
@@ -15071,111 +16377,386 @@ export namespace elasticloadbalancingv2 {
         statusCode: string;
     }
 
+    /**
+     * Specifies an action for a listener rule.
+     */
     export interface ListenerRuleAction {
+        /**
+         * [HTTPS listeners] Information for using Amazon Cognito to authenticate users. Specify only when ``Type`` is ``authenticate-cognito``.
+         */
         authenticateCognitoConfig?: outputs.elasticloadbalancingv2.ListenerRuleAuthenticateCognitoConfig;
+        /**
+         * [HTTPS listeners] Information about an identity provider that is compliant with OpenID Connect (OIDC). Specify only when ``Type`` is ``authenticate-oidc``.
+         */
         authenticateOidcConfig?: outputs.elasticloadbalancingv2.ListenerRuleAuthenticateOidcConfig;
+        /**
+         * [Application Load Balancer] Information for creating an action that returns a custom HTTP response. Specify only when ``Type`` is ``fixed-response``.
+         */
         fixedResponseConfig?: outputs.elasticloadbalancingv2.ListenerRuleFixedResponseConfig;
+        /**
+         * Information for creating an action that distributes requests among one or more target groups. For Network Load Balancers, you can specify a single target group. Specify only when ``Type`` is ``forward``. If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
+         */
         forwardConfig?: outputs.elasticloadbalancingv2.ListenerRuleForwardConfig;
+        /**
+         * The order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first.
+         */
         order?: number;
+        /**
+         * [Application Load Balancer] Information for creating a redirect action. Specify only when ``Type`` is ``redirect``.
+         */
         redirectConfig?: outputs.elasticloadbalancingv2.ListenerRuleRedirectConfig;
+        /**
+         * The Amazon Resource Name (ARN) of the target group. Specify only when ``Type`` is ``forward`` and you want to route to a single target group. To route to one or more target groups, use ``ForwardConfig`` instead.
+         */
         targetGroupArn?: string;
+        /**
+         * The type of action.
+         */
         type: string;
     }
 
+    /**
+     * Specifies information required when integrating with Amazon Cognito to authenticate users.
+     */
     export interface ListenerRuleAuthenticateCognitoConfig {
+        /**
+         * The query parameters (up to 10) to include in the redirect request to the authorization endpoint.
+         */
         authenticationRequestExtraParams?: {[key: string]: string};
+        /**
+         * The behavior if the user is not authenticated. The following are possible values:
+         *   +  deny```` - Return an HTTP 401 Unauthorized error.
+         *   +  allow```` - Allow the request to be forwarded to the target.
+         *   +  authenticate```` - Redirect the request to the IdP authorization endpoint. This is the default value.
+         */
         onUnauthenticatedRequest?: string;
+        /**
+         * The set of user claims to be requested from the IdP. The default is ``openid``.
+         *  To verify which scope values your IdP supports and how to separate multiple values, see the documentation for your IdP.
+         */
         scope?: string;
+        /**
+         * The name of the cookie used to maintain session information. The default is AWSELBAuthSessionCookie.
+         */
         sessionCookieName?: string;
+        /**
+         * The maximum duration of the authentication session, in seconds. The default is 604800 seconds (7 days).
+         */
         sessionTimeout?: number;
+        /**
+         * The Amazon Resource Name (ARN) of the Amazon Cognito user pool.
+         */
         userPoolArn: string;
+        /**
+         * The ID of the Amazon Cognito user pool client.
+         */
         userPoolClientId: string;
+        /**
+         * The domain prefix or fully-qualified domain name of the Amazon Cognito user pool.
+         */
         userPoolDomain: string;
     }
 
+    /**
+     * Specifies information required using an identity provide (IdP) that is compliant with OpenID Connect (OIDC) to authenticate users.
+     */
     export interface ListenerRuleAuthenticateOidcConfig {
+        /**
+         * The query parameters (up to 10) to include in the redirect request to the authorization endpoint.
+         */
         authenticationRequestExtraParams?: {[key: string]: string};
+        /**
+         * The authorization endpoint of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
+         */
         authorizationEndpoint: string;
+        /**
+         * The OAuth 2.0 client identifier.
+         */
         clientId: string;
+        /**
+         * The OAuth 2.0 client secret. This parameter is required if you are creating a rule. If you are modifying a rule, you can omit this parameter if you set ``UseExistingClientSecret`` to true.
+         */
         clientSecret?: string;
+        /**
+         * The OIDC issuer identifier of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
+         */
         issuer: string;
+        /**
+         * The behavior if the user is not authenticated. The following are possible values:
+         *   +  deny```` - Return an HTTP 401 Unauthorized error.
+         *   +  allow```` - Allow the request to be forwarded to the target.
+         *   +  authenticate```` - Redirect the request to the IdP authorization endpoint. This is the default value.
+         */
         onUnauthenticatedRequest?: string;
+        /**
+         * The set of user claims to be requested from the IdP. The default is ``openid``.
+         *  To verify which scope values your IdP supports and how to separate multiple values, see the documentation for your IdP.
+         */
         scope?: string;
+        /**
+         * The name of the cookie used to maintain session information. The default is AWSELBAuthSessionCookie.
+         */
         sessionCookieName?: string;
+        /**
+         * The maximum duration of the authentication session, in seconds. The default is 604800 seconds (7 days).
+         */
         sessionTimeout?: number;
+        /**
+         * The token endpoint of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
+         */
         tokenEndpoint: string;
+        /**
+         * Indicates whether to use the existing client secret when modifying a rule. If you are creating a rule, you can omit this parameter or set it to false.
+         */
         useExistingClientSecret?: boolean;
+        /**
+         * The user info endpoint of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
+         */
         userInfoEndpoint: string;
     }
 
+    /**
+     * Specifies information required when returning a custom HTTP response.
+     */
     export interface ListenerRuleFixedResponseConfig {
+        /**
+         * The content type.
+         *  Valid Values: text/plain | text/css | text/html | application/javascript | application/json
+         */
         contentType?: string;
+        /**
+         * The message.
+         */
         messageBody?: string;
+        /**
+         * The HTTP response code (2XX, 4XX, or 5XX).
+         */
         statusCode: string;
     }
 
+    /**
+     * Information for creating an action that distributes requests among one or more target groups. For Network Load Balancers, you can specify a single target group. Specify only when ``Type`` is ``forward``. If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
+     */
     export interface ListenerRuleForwardConfig {
+        /**
+         * Information about the target group stickiness for a rule.
+         */
         targetGroupStickinessConfig?: outputs.elasticloadbalancingv2.ListenerRuleTargetGroupStickinessConfig;
+        /**
+         * Information about how traffic will be distributed between multiple target groups in a forward rule.
+         */
         targetGroups?: outputs.elasticloadbalancingv2.ListenerRuleTargetGroupTuple[];
     }
 
+    /**
+     * Information about a host header condition.
+     */
     export interface ListenerRuleHostHeaderConfig {
+        /**
+         * The host names. The maximum size of each name is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
+         *  If you specify multiple strings, the condition is satisfied if one of the strings matches the host name.
+         */
         values?: string[];
     }
 
+    /**
+     * Information about an HTTP header condition.
+     *  There is a set of standard HTTP header fields. You can also define custom HTTP header fields.
+     */
     export interface ListenerRuleHttpHeaderConfig {
+        /**
+         * The name of the HTTP header field. The maximum size is 40 characters. The header name is case insensitive. The allowed characters are specified by RFC 7230. Wildcards are not supported.
+         */
         httpHeaderName?: string;
+        /**
+         * The strings to compare against the value of the HTTP header. The maximum size of each string is 128 characters. The comparison strings are case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
+         *  If the same header appears multiple times in the request, we search them in order until a match is found.
+         *  If you specify multiple strings, the condition is satisfied if one of the strings matches the value of the HTTP header. To require that all of the strings are a match, create one condition per string.
+         */
         values?: string[];
     }
 
+    /**
+     * Information about an HTTP method condition.
+     *  HTTP defines a set of request methods, also referred to as HTTP verbs. For more information, see the [HTTP Method Registry](https://docs.aws.amazon.com/https://www.iana.org/assignments/http-methods/http-methods.xhtml). You can also define custom HTTP methods.
+     */
     export interface ListenerRuleHttpRequestMethodConfig {
+        /**
+         * The name of the request method. The maximum size is 40 characters. The allowed characters are A-Z, hyphen (-), and underscore (_). The comparison is case sensitive. Wildcards are not supported; therefore, the method name must be an exact match.
+         *  If you specify multiple strings, the condition is satisfied if one of the strings matches the HTTP request method. We recommend that you route GET and HEAD requests in the same way, because the response to a HEAD request may be cached.
+         */
         values?: string[];
     }
 
+    /**
+     * Information about a path pattern condition.
+     */
     export interface ListenerRulePathPatternConfig {
+        /**
+         * The path patterns to compare against the request URL. The maximum size of each string is 128 characters. The comparison is case sensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
+         *  If you specify multiple strings, the condition is satisfied if one of them matches the request URL. The path pattern is compared only to the path of the URL, not to its query string.
+         */
         values?: string[];
     }
 
+    /**
+     * Information about a query string condition.
+     *  The query string component of a URI starts after the first '?' character and is terminated by either a '#' character or the end of the URI. A typical query string contains key/value pairs separated by '&' characters. The allowed characters are specified by RFC 3986. Any character can be percentage encoded.
+     */
     export interface ListenerRuleQueryStringConfig {
+        /**
+         * The key/value pairs or values to find in the query string. The maximum size of each string is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '*' or '?' character in a query string, you must escape these characters in ``Values`` using a '\' character.
+         *  If you specify multiple key/value pairs or values, the condition is satisfied if one of them is found in the query string.
+         */
         values?: outputs.elasticloadbalancingv2.ListenerRuleQueryStringKeyValue[];
     }
 
+    /**
+     * Information about a key/value pair.
+     */
     export interface ListenerRuleQueryStringKeyValue {
+        /**
+         * The key. You can omit the key.
+         */
         key?: string;
+        /**
+         * The value.
+         */
         value?: string;
     }
 
+    /**
+     * Information about a redirect action.
+     *  A URI consists of the following components: protocol://hostname:port/path?query. You must modify at least one of the following components to avoid a redirect loop: protocol, hostname, port, or path. Any components that you do not modify retain their original values.
+     *  You can reuse URI components using the following reserved keywords:
+     *   +  #{protocol}
+     *   +  #{host}
+     *   +  #{port}
+     *   +  #{path} (the leading "/" is removed)
+     *   +  #{query}
+     *   
+     *  For example, you can change the path to "/new/#{path}", the hostname to "example.#{host}", or the query to "#{query}&value=xyz".
+     */
     export interface ListenerRuleRedirectConfig {
+        /**
+         * The hostname. This component is not percent-encoded. The hostname can contain #{host}.
+         */
         host?: string;
+        /**
+         * The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}.
+         */
         path?: string;
+        /**
+         * The port. You can specify a value from 1 to 65535 or #{port}.
+         */
         port?: string;
+        /**
+         * The protocol. You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You cannot redirect HTTPS to HTTP.
+         */
         protocol?: string;
+        /**
+         * The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?", as it is automatically added. You can specify any of the reserved keywords.
+         */
         query?: string;
+        /**
+         * The HTTP redirect code. The redirect is either permanent (HTTP 301) or temporary (HTTP 302).
+         */
         statusCode: string;
     }
 
+    /**
+     * Specifies a condition for a listener rule.
+     */
     export interface ListenerRuleRuleCondition {
+        /**
+         * The field in the HTTP request. The following are the possible values:
+         *   +   ``http-header`` 
+         *   +   ``http-request-method`` 
+         *   +   ``host-header`` 
+         *   +   ``path-pattern`` 
+         *   +   ``query-string`` 
+         *   +   ``source-ip``
+         */
         field?: string;
+        /**
+         * Information for a host header condition. Specify only when ``Field`` is ``host-header``.
+         */
         hostHeaderConfig?: outputs.elasticloadbalancingv2.ListenerRuleHostHeaderConfig;
+        /**
+         * Information for an HTTP header condition. Specify only when ``Field`` is ``http-header``.
+         */
         httpHeaderConfig?: outputs.elasticloadbalancingv2.ListenerRuleHttpHeaderConfig;
+        /**
+         * Information for an HTTP method condition. Specify only when ``Field`` is ``http-request-method``.
+         */
         httpRequestMethodConfig?: outputs.elasticloadbalancingv2.ListenerRuleHttpRequestMethodConfig;
+        /**
+         * Information for a path pattern condition. Specify only when ``Field`` is ``path-pattern``.
+         */
         pathPatternConfig?: outputs.elasticloadbalancingv2.ListenerRulePathPatternConfig;
+        /**
+         * Information for a query string condition. Specify only when ``Field`` is ``query-string``.
+         */
         queryStringConfig?: outputs.elasticloadbalancingv2.ListenerRuleQueryStringConfig;
+        /**
+         * Information for a source IP condition. Specify only when ``Field`` is ``source-ip``.
+         */
         sourceIpConfig?: outputs.elasticloadbalancingv2.ListenerRuleSourceIpConfig;
+        /**
+         * The condition value. Specify only when ``Field`` is ``host-header`` or ``path-pattern``. Alternatively, to specify multiple host names or multiple path patterns, use ``HostHeaderConfig`` or ``PathPatternConfig``.
+         *  If ``Field`` is ``host-header`` and you're not using ``HostHeaderConfig``, you can specify a single host name (for example, my.example.com). A host name is case insensitive, can be up to 128 characters in length, and can contain any of the following characters.
+         *   +  A-Z, a-z, 0-9
+         *   +  - .
+         *   +  * (matches 0 or more characters)
+         *   +  ? (matches exactly 1 character)
+         *   
+         *  If ``Field`` is ``path-pattern`` and you're not using ``PathPatternConfig``, you can specify a single path pattern (for example, /img/*). A path pattern is case-sensitive, can be up to 128 characters in length, and can contain any of the following characters.
+         *   +  A-Z, a-z, 0-9
+         *   +  _ - . $ / ~ " ' @ : +
+         *   +  & (using &amp;)
+         *   +  * (matches 0 or more characters)
+         *   +  ? (matches exactly 1 character)
+         */
         values?: string[];
     }
 
+    /**
+     * Information about a source IP condition.
+     *  You can use this condition to route based on the IP address of the source that connects to the load balancer. If a client is behind a proxy, this is the IP address of the proxy not the IP address of the client.
+     */
     export interface ListenerRuleSourceIpConfig {
+        /**
+         * The source IP addresses, in CIDR format. You can use both IPv4 and IPv6 addresses. Wildcards are not supported.
+         *  If you specify multiple addresses, the condition is satisfied if the source IP address of the request matches one of the CIDR blocks. This condition is not satisfied by the addresses in the X-Forwarded-For header.
+         */
         values?: string[];
     }
 
+    /**
+     * Information about the target group stickiness for a rule.
+     */
     export interface ListenerRuleTargetGroupStickinessConfig {
+        /**
+         * The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+         */
         durationSeconds?: number;
+        /**
+         * Indicates whether target group stickiness is enabled.
+         */
         enabled?: boolean;
     }
 
+    /**
+     * Information about how traffic will be distributed between multiple target groups in a forward rule.
+     */
     export interface ListenerRuleTargetGroupTuple {
+        /**
+         * The Amazon Resource Name (ARN) of the target group.
+         */
         targetGroupArn?: string;
+        /**
+         * The weight. The range is 0 to 999.
+         */
         weight?: number;
     }
 
@@ -15219,7 +16800,31 @@ export namespace elasticloadbalancingv2 {
          *   
          *  The following attributes are supported by both Application Load Balancers and Network Load Balancers:
          *   +   ``access_logs.s3.enabled`` - Indicates whether access logs are enabled. The value is ``true`` or ``false``. The default is ``false``.
-         *   +   ``access_logs.s3.bucket`` - The name of the S3 bucket for the access logs. This attribute is required if access logs are enabled. The bucket must exist in the same region as the load balancer and h
+         *   +   ``access_logs.s3.bucket`` - The name of the S3 bucket for the access logs. This attribute is required if access logs are enabled. The bucket must exist in the same region as the load balancer and have a bucket policy that grants Elastic Load Balancing permissions to write to the bucket.
+         *   +   ``access_logs.s3.prefix`` - The prefix for the location in the S3 bucket for the access logs.
+         *   +   ``ipv6.deny_all_igw_traffic`` - Blocks internet gateway (IGW) access to the load balancer. It is set to ``false`` for internet-facing load balancers and ``true`` for internal load balancers, preventing unintended access to your internal load balancer through an internet gateway.
+         *   
+         *  The following attributes are supported by only Application Load Balancers:
+         *   +   ``idle_timeout.timeout_seconds`` - The idle timeout value, in seconds. The valid range is 1-4000 seconds. The default is 60 seconds.
+         *   +   ``client_keep_alive.seconds`` - The client keep alive value, in seconds. The valid range is 60-604800 seconds. The default is 3600 seconds.
+         *   +   ``connection_logs.s3.enabled`` - Indicates whether connection logs are enabled. The value is ``true`` or ``false``. The default is ``false``.
+         *   +   ``connection_logs.s3.bucket`` - The name of the S3 bucket for the connection logs. This attribute is required if connection logs are enabled. The bucket must exist in the same region as the load balancer and have a bucket policy that grants Elastic Load Balancing permissions to write to the bucket.
+         *   +   ``connection_logs.s3.prefix`` - The prefix for the location in the S3 bucket for the connection logs.
+         *   +   ``routing.http.desync_mitigation_mode`` - Determines how the load balancer handles requests that might pose a security risk to your application. The possible values are ``monitor``, ``defensive``, and ``strictest``. The default is ``defensive``.
+         *   +   ``routing.http.drop_invalid_header_fields.enabled`` - Indicates whether HTTP headers with invalid header fields are removed by the load balancer (``true``) or routed to targets (``false``). The default is ``false``.
+         *   +   ``routing.http.preserve_host_header.enabled`` - Indicates whether the Application Load Balancer should preserve the ``Host`` header in the HTTP request and send it to the target without any change. The possible values are ``true`` and ``false``. The default is ``false``.
+         *   +   ``routing.http.x_amzn_tls_version_and_cipher_suite.enabled`` - Indicates whether the two headers (``x-amzn-tls-version`` and ``x-amzn-tls-cipher-suite``), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. The ``x-amzn-tls-version`` header has information about the TLS protocol version negotiated with the client, and the ``x-amzn-tls-cipher-suite`` header has information about the cipher suite negotiated with the client. Both headers are in OpenSSL format. The possible values for the attribute are ``true`` and ``false``. The default is ``false``.
+         *   +   ``routing.http.xff_client_port.enabled`` - Indicates whether the ``X-Forwarded-For`` header should preserve the source port that the client used to connect to the load balancer. The possible values are ``true`` and ``false``. The default is ``false``.
+         *   +   ``routing.http.xff_header_processing.mode`` - Enables you to modify, preserve, or remove the ``X-Forwarded-For`` header in the HTTP request before the Application Load Balancer sends the request to the target. The possible values are ``append``, ``preserve``, and ``remove``. The default is ``append``.
+         *   +  If the value is ``append``, the Application Load Balancer adds the client IP address (of the last hop) to the ``X-Forwarded-For`` header in the HTTP request before it sends it to targets.
+         *   +  If the value is ``preserve`` the Application Load Balancer preserves the ``X-Forwarded-For`` header in the HTTP request, and sends it to targets without any change.
+         *   +  If the value is ``remove``, the Application Load Balancer removes the ``X-Forwarded-For`` header in the HTTP request before it sends it to targets.
+         *   
+         *   +   ``routing.http2.enabled`` - Indicates whether HTTP/2 is enabled. The possible values are ``true`` and ``false``. The default is ``true``. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens.
+         *   +   ``waf.fail_open.enabled`` - Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. The possible values are ``true`` and ``false``. The default is ``false``.
+         *   
+         *  The following attributes are supported by only Network Load Balancers:
+         *   +   ``dns_record.client_routing_policy`` - Indicates how traffic is distributed among the load balancer Availability Zones. The possible values are ``availability_zone_affinity`` with 100 percent zonal affinity, ``partial_availability_zone_affinity`` with 85 percent zonal affinity, and ``any_availability_zone`` with 0 percent zonal affinity.
          */
         key?: string;
         /**
@@ -15515,10 +17120,11 @@ export namespace entityresolution {
 
     export interface IdMappingWorkflowInputSource {
         /**
-         * An Glue table ARN for the input source table
+         * An Glue table ARN for the input source table or IdNamespace ARN
          */
         inputSourceArn: string;
-        schemaArn: string;
+        schemaArn?: string;
+        type?: enums.entityresolution.IdMappingWorkflowInputSourceType;
     }
 
     export interface IdMappingWorkflowIntermediateSourceConfiguration {
@@ -15545,6 +17151,24 @@ export namespace entityresolution {
         /**
          * Arn of the Provider Service being used.
          */
+        providerServiceArn: string;
+    }
+
+    export interface IdNamespaceIdMappingWorkflowProperties {
+        idMappingType: enums.entityresolution.IdNamespaceIdMappingWorkflowPropertiesIdMappingType;
+        providerProperties?: outputs.entityresolution.IdNamespaceNamespaceProviderProperties;
+    }
+
+    export interface IdNamespaceInputSource {
+        inputSourceArn: string;
+        schemaName?: string;
+    }
+
+    export interface IdNamespaceNamespaceProviderProperties {
+        /**
+         * Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format.
+         */
+        providerConfiguration?: {[key: string]: string};
         providerServiceArn: string;
     }
 
@@ -16697,7 +18321,7 @@ export namespace gamelift {
     }
 
     /**
-     * Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting
+     * Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
      */
     export interface GameServerGroupAutoScalingPolicy {
         estimatedInstanceWarmup?: number;
@@ -16713,7 +18337,7 @@ export namespace gamelift {
     }
 
     /**
-     * The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group.
+     * The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
      */
     export interface GameServerGroupLaunchTemplate {
         launchTemplateId?: string;
@@ -16794,6 +18418,14 @@ export namespace gamelift {
 }
 
 export namespace globalaccelerator {
+    /**
+     * ARN of resource to share.
+     */
+    export interface CrossAccountAttachmentResource {
+        endpointId: string;
+        region?: string;
+    }
+
     /**
      * The configuration for a given endpoint
      */
@@ -20537,6 +22169,20 @@ export namespace iotsitewise {
          * A gateway that runs on AWS IoT Greengrass V2.
          */
         greengrassV2?: outputs.iotsitewise.GatewayGreengrassV2;
+        /**
+         * A gateway that runs on Siemens Industrial Edge.
+         */
+        siemensIe?: outputs.iotsitewise.GatewaySiemensIe;
+    }
+
+    /**
+     * Contains the IotCoreThingName of AWS IoT Thing that the gateway runs on.
+     */
+    export interface GatewaySiemensIe {
+        /**
+         * The name of the IoT Core Thing.
+         */
+        iotCoreThingName: string;
     }
 
 }
@@ -21188,6 +22834,38 @@ export namespace ivs {
         targetIntervalSeconds?: number;
     }
 
+    /**
+     * A complex type that describes an S3 location where recorded videos will be stored.
+     */
+    export interface StorageConfigurationS3StorageConfiguration {
+        /**
+         * Location (S3 bucket name) where recorded videos will be stored. Note that the StorageConfiguration and S3 bucket must be in the same region as the Composition.
+         */
+        bucketName: string;
+    }
+
+    /**
+     * Video configuration. Default: video resolution 1280x720, bitrate 2500 kbps, 30 fps
+     */
+    export interface VideoProperties {
+        /**
+         * Bitrate for generated output, in bps. Default: 2500000.
+         */
+        bitrate?: number;
+        /**
+         * Video frame rate, in fps. Default: 30.
+         */
+        framerate?: number;
+        /**
+         * Video-resolution height. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 720.
+         */
+        height?: number;
+        /**
+         * Video-resolution width. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 1280.
+         */
+        width?: number;
+    }
+
 }
 
 export namespace ivschat {
@@ -21450,6 +23128,45 @@ export namespace kafkaconnect {
         cloudWatchLogs?: outputs.kafkaconnect.ConnectorCloudWatchLogsLogDelivery;
         firehose?: outputs.kafkaconnect.ConnectorFirehoseLogDelivery;
         s3?: outputs.kafkaconnect.ConnectorS3LogDelivery;
+    }
+
+    /**
+     * Details about the custom plugin file.
+     */
+    export interface CustomPluginFileDescription {
+        /**
+         * The hex-encoded MD5 checksum of the custom plugin file. You can use it to validate the file.
+         */
+        fileMd5?: string;
+        /**
+         * The size in bytes of the custom plugin file. You can use it to validate the file.
+         */
+        fileSize?: number;
+    }
+
+    /**
+     * Information about the location of a custom plugin.
+     */
+    export interface CustomPluginLocation {
+        s3Location: outputs.kafkaconnect.CustomPluginS3Location;
+    }
+
+    /**
+     * The S3 bucket Amazon Resource Name (ARN), file key, and object version of the plugin file stored in Amazon S3.
+     */
+    export interface CustomPluginS3Location {
+        /**
+         * The Amazon Resource Name (ARN) of an S3 bucket.
+         */
+        bucketArn: string;
+        /**
+         * The file key for an object in an S3 bucket.
+         */
+        fileKey: string;
+        /**
+         * The version of an object in an S3 bucket.
+         */
+        objectVersion?: string;
     }
 
 }
@@ -23394,11 +25111,11 @@ export namespace lambda {
         runtimeVersionArn?: string;
         /**
          * Specify the runtime update mode.
-         *   + *Auto (default)* - Automatically update to the most recent and secure runtime version using a [Two-phase runtime version rollout](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html#runtime-management-two-phase). This is the best choice for most customers to ensure they always benefit from runtime updates.
-         *  + *FunctionUpdate* - LAM updates the runtime of you function to the most recent and secure runtime version when you update your function. This approach synchronizes runtime updates with function deployments, giving you control over when runtime updates are applied and allowing you to detect and mitigate rare runtime update incompatibilities early. When using this setting, you need to regularly update your functions to keep their runtime up-to-date.
-         *  + *Manual* - You specify a runtime version in your function configuration. The function will use this runtime version indefinitely. In the rare case where a new runtime version is incompatible with an existing function, this allows you to roll back your function to an earlier runtime version. For more information, see [Roll back a runtime version](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html#runtime-management-rollback).
-         *  
-         *  *Valid Values*: ``Auto`` | ``FunctionUpdate`` | ``Manual``
+         *   +   *Auto (default)* - Automatically update to the most recent and secure runtime version using a [Two-phase runtime version rollout](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html#runtime-management-two-phase). This is the best choice for most customers to ensure they always benefit from runtime updates.
+         *   +   *FunctionUpdate* - LAM updates the runtime of you function to the most recent and secure runtime version when you update your function. This approach synchronizes runtime updates with function deployments, giving you control over when runtime updates are applied and allowing you to detect and mitigate rare runtime update incompatibilities early. When using this setting, you need to regularly update your functions to keep their runtime up-to-date.
+         *   +   *Manual* - You specify a runtime version in your function configuration. The function will use this runtime version indefinitely. In the rare case where a new runtime version is incompatible with an existing function, this allows you to roll back your function to an earlier runtime version. For more information, see [Roll back a runtime version](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html#runtime-management-rollback).
+         *   
+         *   *Valid Values*: ``Auto`` | ``FunctionUpdate`` | ``Manual``
          */
         updateRuntimeOn: enums.lambda.FunctionRuntimeManagementConfigUpdateRuntimeOn;
     }
@@ -25304,42 +27021,54 @@ export namespace logs {
     }
 
     /**
-     * the key-value pairs that further define a metric.
+     * Specifies the CW metric dimensions to publish with this metric.
+     *   Because dimensions are part of the unique identifier for a metric, whenever a unique dimension name/value pair is extracted from your logs, you are creating a new variation of that metric.
+     *  For more information about publishing dimensions with metrics created by metric filters, see [Publishing dimensions with metrics from values in JSON or space-delimited log events](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html#logs-metric-filters-dimensions).
+     *   Metrics extracted from log events are charged as custom metrics. To prevent unexpected high charges, do not specify high-cardinality fields such as ``IPAddress`` or ``requestID`` as dimensions. Each different value found for a dimension is treated as a separate metric and accrues charges as a separate custom metric. 
+     *  To help prevent accidental high charges, Amazon disables a metric filter if it generates 1000 different name/value pairs for the dimensions that you have specified within a certain amount of time.
+     *  You can also set up a billing alarm to alert you if your charges are higher than expected. For more information, see [Creating a Billing Alarm to Monitor Your Estimated Charges](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html).
      */
     export interface MetricFilterDimension {
         /**
-         * The key of the dimension. Maximum length of 255.
+         * The name for the CW metric dimension that the metric filter creates.
+         *  Dimension names must contain only ASCII characters, must include at least one non-whitespace character, and cannot start with a colon (:).
          */
         key: string;
         /**
-         * The value of the dimension. Maximum length of 255.
+         * The log event field that will contain the value for this dimension. This dimension will only be published for a metric if the value is found in the log event. For example, ``$.eventType`` for JSON log events, or ``$server`` for space-delimited log events.
          */
         value: string;
     }
 
+    /**
+     * ``MetricTransformation`` is a property of the ``AWS::Logs::MetricFilter`` resource that describes how to transform log streams into a CloudWatch metric.
+     */
     export interface MetricFilterMetricTransformation {
         /**
-         * The value to emit when a filter pattern does not match a log event. This value can be null.
+         * (Optional) The value to emit when a filter pattern does not match a log event. This value can be null.
          */
         defaultValue?: number;
         /**
-         * Dimensions are the key-value pairs that further define a metric
+         * The fields to use as dimensions for the metric. One metric filter can include as many as three dimensions.
+         *   Metrics extracted from log events are charged as custom metrics. To prevent unexpected high charges, do not specify high-cardinality fields such as ``IPAddress`` or ``requestID`` as dimensions. Each different value found for a dimension is treated as a separate metric and accrues charges as a separate custom metric. 
+         *  CloudWatch Logs disables a metric filter if it generates 1000 different name/value pairs for your specified dimensions within a certain amount of time. This helps to prevent accidental high charges.
+         *  You can also set up a billing alarm to alert you if your charges are higher than expected. For more information, see [Creating a Billing Alarm to Monitor Your Estimated Charges](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html).
          */
         dimensions?: outputs.logs.MetricFilterDimension[];
         /**
-         * The name of the CloudWatch metric. Metric name must be in ASCII format.
+         * The name of the CloudWatch metric.
          */
         metricName: string;
         /**
-         * The namespace of the CloudWatch metric.
+         * A custom namespace to contain your metric in CloudWatch. Use namespaces to group together metrics that are similar. For more information, see [Namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Namespace).
          */
         metricNamespace: string;
         /**
-         * The value to publish to the CloudWatch metric when a filter pattern matches a log event.
+         * The value that is published to the CloudWatch metric. For example, if you're counting the occurrences of a particular term like ``Error``, specify 1 for the metric value. If you're counting the number of bytes transferred, reference the value that is in the log event by using $. followed by the name of the field that you specified in the filter pattern, such as ``$.size``.
          */
         metricValue: string;
         /**
-         * The unit to assign to the metric. If you omit this, the unit is set as None.
+         * The unit to assign to the metric. If you omit this, the unit is set as ``None``.
          */
         unit?: enums.logs.MetricFilterMetricTransformationUnit;
     }
@@ -40977,6 +42706,13 @@ export namespace resiliencehub {
         rtoInSecs: number;
     }
 
+    export interface ResiliencyPolicyPolicyMap {
+        az: outputs.resiliencehub.ResiliencyPolicyFailurePolicy;
+        hardware: outputs.resiliencehub.ResiliencyPolicyFailurePolicy;
+        region?: outputs.resiliencehub.ResiliencyPolicyFailurePolicy;
+        software: outputs.resiliencehub.ResiliencyPolicyFailurePolicy;
+    }
+
 }
 
 export namespace resourceexplorer2 {
@@ -41239,17 +42975,17 @@ export namespace route53 {
 
     /**
      * *Private hosted zones only:* A complex type that contains information about an Amazon VPC. Route 53 Resolver uses the records in the private hosted zone to route traffic in that VPC. 
-     *  For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
+     *   For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
      */
     export interface HostedZoneVpc {
         /**
          * *Private hosted zones only:* The ID of an Amazon VPC.
-         *  For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
+         *   For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
          */
         vpcId: string;
         /**
          * *Private hosted zones only:* The region that an Amazon VPC was created in.
-         *  For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
+         *   For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
          */
         vpcRegion: string;
     }
@@ -43174,6 +44910,16 @@ export namespace s3outposts {
 
 export namespace sagemaker {
     /**
+     * The configuration for the kernels in a SageMaker image running as a CodeEditor app.
+     */
+    export interface AppImageConfigCodeEditorAppImageConfig {
+        /**
+         * The container configuration for a SageMaker image.
+         */
+        containerConfig?: outputs.sagemaker.AppImageConfigContainerConfig;
+    }
+
+    /**
      * The container configuration for a SageMaker image.
      */
     export interface AppImageConfigContainerConfig {
@@ -43550,6 +45296,10 @@ export namespace sagemaker {
      * The CodeEditor app settings.
      */
     export interface DomainCodeEditorAppSettings {
+        /**
+         * A list of custom images for use for CodeEditor apps.
+         */
+        customImages?: outputs.sagemaker.DomainCustomImage[];
         /**
          * The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the CodeEditor app.
          */
@@ -46214,6 +47964,10 @@ export namespace sagemaker {
      */
     export interface UserProfileCodeEditorAppSettings {
         /**
+         * A list of custom images for use for CodeEditor apps.
+         */
+        customImages?: outputs.sagemaker.UserProfileCustomImage[];
+        /**
          * The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the CodeEditor app.
          */
         defaultResourceSpec?: outputs.sagemaker.UserProfileResourceSpec;
@@ -46841,6 +48595,519 @@ export namespace securityhub {
     }
 
     /**
+     * A collection of filters that are applied to all active findings aggregated by AWS Security Hub.
+     */
+    export interface InsightAwsSecurityFindingFilters {
+        /**
+         * The AWS account ID in which a finding is generated.
+         */
+        awsAccountId?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * The name of the AWS account in which a finding is generated.
+         */
+        awsAccountName?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * The name of the findings provider (company) that owns the solution (product) that generates findings.
+         */
+        companyName?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * The unique identifier of a standard in which a control is enabled.
+         */
+        complianceAssociatedStandardsId?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * The unique identifier of a control across standards.
+         */
+        complianceSecurityControlId?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * The name of a security control parameter.
+         */
+        complianceSecurityControlParametersName?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * The current value of a security control parameter.
+         */
+        complianceSecurityControlParametersValue?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * Exclusive to findings that are generated as the result of a check run against a specific rule in a supported standard.
+         */
+        complianceStatus?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * A finding's confidence.
+         */
+        confidence?: outputs.securityhub.InsightNumberFilter[];
+        /**
+         * An ISO8601-formatted timestamp that indicates when the security findings provider captured the potential security issue that a finding captured.
+         */
+        createdAt?: outputs.securityhub.InsightDateFilter[];
+        /**
+         * The level of importance assigned to the resources associated with the finding.
+         */
+        criticality?: outputs.securityhub.InsightNumberFilter[];
+        /**
+         * A finding's description.
+         */
+        description?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * The finding provider value for the finding confidence.
+         */
+        findingProviderFieldsConfidence?: outputs.securityhub.InsightNumberFilter[];
+        /**
+         * The finding provider value for the level of importance assigned to the resources associated with the findings.
+         */
+        findingProviderFieldsCriticality?: outputs.securityhub.InsightNumberFilter[];
+        /**
+         * The finding identifier of a related finding that is identified by the finding provider.
+         */
+        findingProviderFieldsRelatedFindingsId?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * The ARN of the solution that generated a related finding that is identified by the finding provider.
+         */
+        findingProviderFieldsRelatedFindingsProductArn?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * The finding provider value for the severity label.
+         */
+        findingProviderFieldsSeverityLabel?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * The finding provider's original value for the severity.
+         */
+        findingProviderFieldsSeverityOriginal?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * One or more finding types that the finding provider assigned to the finding.
+         */
+        findingProviderFieldsTypes?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * An ISO8601-formatted timestamp that indicates when the security findings provider first observed the potential security issue that a finding captured.
+         */
+        firstObservedAt?: outputs.securityhub.InsightDateFilter[];
+        /**
+         * The identifier for the solution-specific component (a discrete unit of logic) that generated a finding.
+         */
+        generatorId?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * The security findings provider-specific identifier for a finding.
+         */
+        id?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * A keyword for a finding.
+         */
+        keyword?: outputs.securityhub.InsightKeywordFilter[];
+        /**
+         * An ISO8601-formatted timestamp that indicates when the security findings provider most recently observed the potential security issue that a finding captured.
+         */
+        lastObservedAt?: outputs.securityhub.InsightDateFilter[];
+        /**
+         * The name of the malware that was observed.
+         */
+        malwareName?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * The filesystem path of the malware that was observed.
+         */
+        malwarePath?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * The state of the malware that was observed.
+         */
+        malwareState?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * The type of the malware that was observed.
+         */
+        malwareType?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * The destination domain of network-related information about a finding.
+         */
+        networkDestinationDomain?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * The destination IPv4 address of network-related information about a finding.
+         */
+        networkDestinationIpV4?: outputs.securityhub.InsightIpFilter[];
+        /**
+         * The destination IPv6 address of network-related information about a finding.
+         */
+        networkDestinationIpV6?: outputs.securityhub.InsightIpFilter[];
+        /**
+         * The destination port of network-related information about a finding.
+         */
+        networkDestinationPort?: outputs.securityhub.InsightNumberFilter[];
+        /**
+         * Indicates the direction of network traffic associated with a finding.
+         */
+        networkDirection?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * The protocol of network-related information about a finding.
+         */
+        networkProtocol?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * The source domain of network-related information about a finding.
+         */
+        networkSourceDomain?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * The source IPv4 address of network-related information about a finding.
+         */
+        networkSourceIpV4?: outputs.securityhub.InsightIpFilter[];
+        /**
+         * The source IPv6 address of network-related information about a finding.
+         */
+        networkSourceIpV6?: outputs.securityhub.InsightIpFilter[];
+        /**
+         * The source media access control (MAC) address of network-related information about a finding.
+         */
+        networkSourceMac?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * The source port of network-related information about a finding.
+         */
+        networkSourcePort?: outputs.securityhub.InsightNumberFilter[];
+        /**
+         * The text of a note.
+         */
+        noteText?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * The timestamp of when the note was updated.
+         */
+        noteUpdatedAt?: outputs.securityhub.InsightDateFilter[];
+        /**
+         * The principal that created a note.
+         */
+        noteUpdatedBy?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * A timestamp that identifies when the process was launched.
+         */
+        processLaunchedAt?: outputs.securityhub.InsightDateFilter[];
+        /**
+         * The name of the process.
+         */
+        processName?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * The parent process ID.
+         */
+        processParentPid?: outputs.securityhub.InsightNumberFilter[];
+        /**
+         * The path to the process executable.
+         */
+        processPath?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * The process ID.
+         */
+        processPid?: outputs.securityhub.InsightNumberFilter[];
+        /**
+         * A timestamp that identifies when the process was terminated.
+         */
+        processTerminatedAt?: outputs.securityhub.InsightDateFilter[];
+        /**
+         * The ARN generated by Security Hub that uniquely identifies a third-party company (security findings provider) after this provider's product (solution that generates findings) is registered with Security Hub.
+         */
+        productArn?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * A data type where security findings providers can include additional solution-specific details that aren't part of the defined AwsSecurityFinding format.
+         */
+        productFields?: outputs.securityhub.InsightMapFilter[];
+        /**
+         * The name of the solution (product) that generates findings.
+         */
+        productName?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * The recommendation of what to do about the issue described in a finding.
+         */
+        recommendationText?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * The updated record state for the finding.
+         */
+        recordState?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * The Region from which the finding was generated.
+         */
+        region?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * The solution-generated identifier for a related finding.
+         */
+        relatedFindingsId?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * The ARN of the solution that generated a related finding.
+         */
+        relatedFindingsProductArn?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * The ARN of the application that is related to a finding.
+         */
+        resourceApplicationArn?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * The name of the application that is related to a finding.
+         */
+        resourceApplicationName?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * The IAM profile ARN of the instance.
+         */
+        resourceAwsEc2InstanceIamInstanceProfileArn?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * The Amazon Machine Image (AMI) ID of the instance.
+         */
+        resourceAwsEc2InstanceImageId?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * The IPv4 addresses associated with the instance.
+         */
+        resourceAwsEc2InstanceIpV4Addresses?: outputs.securityhub.InsightIpFilter[];
+        /**
+         * The IPv6 addresses associated with the instance.
+         */
+        resourceAwsEc2InstanceIpV6Addresses?: outputs.securityhub.InsightIpFilter[];
+        /**
+         * The key name associated with the instance.
+         */
+        resourceAwsEc2InstanceKeyName?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * The date and time the instance was launched.
+         */
+        resourceAwsEc2InstanceLaunchedAt?: outputs.securityhub.InsightDateFilter[];
+        /**
+         * The identifier of the subnet that the instance was launched in.
+         */
+        resourceAwsEc2InstanceSubnetId?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * The instance type of the instance.
+         */
+        resourceAwsEc2InstanceType?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * The identifier of the VPC that the instance was launched in.
+         */
+        resourceAwsEc2InstanceVpcId?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * The creation date/time of the IAM access key related to a finding.
+         */
+        resourceAwsIamAccessKeyCreatedAt?: outputs.securityhub.InsightDateFilter[];
+        /**
+         * The name of the principal that is associated with an IAM access key.
+         */
+        resourceAwsIamAccessKeyPrincipalName?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * The status of the IAM access key related to a finding.
+         */
+        resourceAwsIamAccessKeyStatus?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * The user associated with the IAM access key related to a finding.
+         */
+        resourceAwsIamAccessKeyUserName?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * The name of an IAM user.
+         */
+        resourceAwsIamUserUserName?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * The canonical user ID of the owner of the S3 bucket.
+         */
+        resourceAwsS3BucketOwnerId?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * The display name of the owner of the S3 bucket.
+         */
+        resourceAwsS3BucketOwnerName?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * The identifier of the image related to a finding.
+         */
+        resourceContainerImageId?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * The name of the image related to a finding.
+         */
+        resourceContainerImageName?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * A timestamp that identifies when the container was started.
+         */
+        resourceContainerLaunchedAt?: outputs.securityhub.InsightDateFilter[];
+        /**
+         * The name of the container related to a finding.
+         */
+        resourceContainerName?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * The details of a resource that doesn't have a specific subfield for the resource type defined.
+         */
+        resourceDetailsOther?: outputs.securityhub.InsightMapFilter[];
+        /**
+         * The canonical identifier for the given resource type.
+         */
+        resourceId?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * The canonical AWS partition name that the Region is assigned to.
+         */
+        resourcePartition?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * The canonical AWS external Region name where this resource is located.
+         */
+        resourceRegion?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * A list of AWS tags associated with a resource at the time the finding was processed.
+         */
+        resourceTags?: outputs.securityhub.InsightMapFilter[];
+        /**
+         * Specifies the type of the resource that details are provided for.
+         */
+        resourceType?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * Indicates whether or not sample findings are included in the filter results.
+         */
+        sample?: outputs.securityhub.InsightBooleanFilter[];
+        /**
+         * The label of a finding's severity.
+         */
+        severityLabel?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * The normalized severity of a finding.
+         */
+        severityNormalized?: outputs.securityhub.InsightNumberFilter[];
+        /**
+         * The native severity as defined by the security findings provider's solution that generated the finding.
+         */
+        severityProduct?: outputs.securityhub.InsightNumberFilter[];
+        /**
+         * A URL that links to a page about the current finding in the security findings provider's solution.
+         */
+        sourceUrl?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * The category of a threat intelligence indicator.
+         */
+        threatIntelIndicatorCategory?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * A timestamp that identifies the last observation of a threat intelligence indicator.
+         */
+        threatIntelIndicatorLastObservedAt?: outputs.securityhub.InsightDateFilter[];
+        /**
+         * The source of the threat intelligence.
+         */
+        threatIntelIndicatorSource?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * The URL for more details from the source of the threat intelligence.
+         */
+        threatIntelIndicatorSourceUrl?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * The type of a threat intelligence indicator.
+         */
+        threatIntelIndicatorType?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * The value of a threat intelligence indicator.
+         */
+        threatIntelIndicatorValue?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * A finding's title.
+         */
+        title?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * A finding type in the format of namespace/category/classifier that classifies a finding.
+         */
+        type?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * An ISO8601-formatted timestamp that indicates when the security findings provider last updated the finding record.
+         */
+        updatedAt?: outputs.securityhub.InsightDateFilter[];
+        /**
+         * A list of name/value string pairs associated with the finding.
+         */
+        userDefinedFields?: outputs.securityhub.InsightMapFilter[];
+        /**
+         * The veracity of a finding.
+         */
+        verificationState?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * Indicates whether a software vulnerability in your environment has a known exploit.
+         */
+        vulnerabilitiesExploitAvailable?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * Indicates whether a vulnerability is fixed in a newer version of the affected software packages.
+         */
+        vulnerabilitiesFixAvailable?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * The workflow state of a finding.
+         */
+        workflowState?: outputs.securityhub.InsightStringFilter[];
+        /**
+         * The status of the investigation into a finding.
+         */
+        workflowStatus?: outputs.securityhub.InsightStringFilter[];
+    }
+
+    /**
+     * Boolean filter for querying findings.
+     */
+    export interface InsightBooleanFilter {
+        /**
+         * The value of the boolean.
+         */
+        value: boolean;
+    }
+
+    /**
+     * A date filter for querying findings.
+     */
+    export interface InsightDateFilter {
+        dateRange?: outputs.securityhub.InsightDateRange;
+        end?: string;
+        start?: string;
+    }
+
+    /**
+     * A date range for the date filter.
+     */
+    export interface InsightDateRange {
+        /**
+         * A date range unit for the date filter.
+         */
+        unit: enums.securityhub.InsightDateRangeUnit;
+        /**
+         * A date range value for the date filter.
+         */
+        value: number;
+    }
+
+    /**
+     * The IP filter for querying findings.
+     */
+    export interface InsightIpFilter {
+        /**
+         * A finding's CIDR value.
+         */
+        cidr: string;
+    }
+
+    /**
+     * A keyword filter for querying findings.
+     */
+    export interface InsightKeywordFilter {
+        /**
+         * A value for the keyword.
+         */
+        value: string;
+    }
+
+    /**
+     * A map filter for filtering AWS Security Hub findings.
+     */
+    export interface InsightMapFilter {
+        /**
+         * The condition to apply to the key value when filtering Security Hub findings with a map filter.
+         */
+        comparison: enums.securityhub.InsightMapFilterComparison;
+        key: string;
+        value: string;
+    }
+
+    /**
+     * A number filter for querying findings.
+     */
+    export interface InsightNumberFilter {
+        /**
+         * The equal-to condition to be applied to a single field when querying for findings.
+         */
+        eq?: number;
+        /**
+         * The greater-than-equal condition to be applied to a single field when querying for findings.
+         */
+        gte?: number;
+        /**
+         * The less-than-equal condition to be applied to a single field when querying for findings.
+         */
+        lte?: number;
+    }
+
+    /**
+     * A string filter for filtering AWS Security Hub findings.
+     */
+    export interface InsightStringFilter {
+        comparison: enums.securityhub.InsightStringFilterComparison;
+        value: string;
+    }
+
+    /**
      * Provides details about an individual security control. For a list of ASH controls, see [controls reference](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-controls-reference.html) in the *User Guide*.
      */
     export interface StandardsControl {
@@ -46852,6 +49119,106 @@ export namespace securityhub {
          * The Amazon Resource Name (ARN) of the control.
          */
         standardsControlArn: string;
+    }
+
+}
+
+export namespace securitylake {
+    /**
+     * Provides encryption details of Amazon Security Lake object.
+     */
+    export interface DataLakeEncryptionConfiguration {
+        /**
+         * The id of KMS encryption key used by Amazon Security Lake to encrypt the Security Lake object.
+         */
+        kmsKeyId?: string;
+    }
+
+    /**
+     * Provides data expiration details of Amazon Security Lake object.
+     */
+    export interface DataLakeExpiration {
+        days?: number;
+    }
+
+    /**
+     * Provides lifecycle details of Amazon Security Lake object.
+     */
+    export interface DataLakeLifecycleConfiguration {
+        expiration?: outputs.securitylake.DataLakeExpiration;
+        /**
+         * Provides data storage transition details of Amazon Security Lake object.
+         */
+        transitions?: outputs.securitylake.DataLakeTransitions[];
+    }
+
+    /**
+     * Provides replication details of Amazon Security Lake object.
+     */
+    export interface DataLakeReplicationConfiguration {
+        regions?: string[];
+        /**
+         * Replication settings for the Amazon S3 buckets. This parameter uses the AWS Identity and Access Management (IAM) role you created that is managed by Security Lake, to ensure the replication setting is correct.
+         */
+        roleArn?: string;
+    }
+
+    export interface DataLakeTransitions {
+        /**
+         * Number of days before data transitions to a different S3 Storage Class in the Amazon Security Lake object.
+         */
+        days?: number;
+        /**
+         * The range of storage classes that you can choose from based on the data access, resiliency, and cost requirements of your workloads.
+         */
+        storageClass?: string;
+    }
+
+    /**
+     * Amazon Security Lake supports log and event collection for natively supported AWS services.
+     */
+    export interface SubscriberAwsLogSource {
+        /**
+         * The name for a AWS source. This must be a Regionally unique value.
+         */
+        sourceName?: string;
+        /**
+         * The version for a AWS source. This must be a Regionally unique value.
+         */
+        sourceVersion?: string;
+    }
+
+    export interface SubscriberCustomLogSource {
+        /**
+         * The name for a third-party custom source. This must be a Regionally unique value.
+         */
+        sourceName?: string;
+        /**
+         * The version for a third-party custom source. This must be a Regionally unique value.
+         */
+        sourceVersion?: string;
+    }
+
+    /**
+     * The AWS identity used to access your data.
+     */
+    export interface SubscriberIdentityProperties {
+        /**
+         * The external ID used to establish trust relationship with the AWS identity.
+         */
+        externalId: string;
+        /**
+         * The AWS identity principal.
+         */
+        principal: string;
+    }
+
+    export interface SubscriberSource0Properties {
+        awsLogSource: outputs.securitylake.SubscriberAwsLogSource;
+    }
+
+    export interface SubscriberSource1Properties {
+        customLogSource: outputs.securitylake.SubscriberCustomLogSource;
     }
 
 }
@@ -48300,8 +50667,13 @@ export namespace transfer {
 }
 
 export namespace verifiedpermissions {
+    export interface IdentitySourceCognitoGroupConfiguration {
+        groupEntityType: string;
+    }
+
     export interface IdentitySourceCognitoUserPoolConfiguration {
         clientIds?: string[];
+        groupConfiguration?: outputs.verifiedpermissions.IdentitySourceCognitoGroupConfiguration;
         userPoolArn: string;
     }
 

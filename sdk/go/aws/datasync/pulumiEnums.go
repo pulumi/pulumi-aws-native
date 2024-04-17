@@ -2882,6 +2882,334 @@ func (in *taskFilterRuleFilterTypePtr) ToTaskFilterRuleFilterTypePtrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, in).(TaskFilterRuleFilterTypePtrOutput)
 }
 
+// Specifies what DataSync uses the manifest for.
+type TaskManifestConfigAction string
+
+const (
+	TaskManifestConfigActionTransfer = TaskManifestConfigAction("TRANSFER")
+)
+
+func (TaskManifestConfigAction) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskManifestConfigAction)(nil)).Elem()
+}
+
+func (e TaskManifestConfigAction) ToTaskManifestConfigActionOutput() TaskManifestConfigActionOutput {
+	return pulumi.ToOutput(e).(TaskManifestConfigActionOutput)
+}
+
+func (e TaskManifestConfigAction) ToTaskManifestConfigActionOutputWithContext(ctx context.Context) TaskManifestConfigActionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TaskManifestConfigActionOutput)
+}
+
+func (e TaskManifestConfigAction) ToTaskManifestConfigActionPtrOutput() TaskManifestConfigActionPtrOutput {
+	return e.ToTaskManifestConfigActionPtrOutputWithContext(context.Background())
+}
+
+func (e TaskManifestConfigAction) ToTaskManifestConfigActionPtrOutputWithContext(ctx context.Context) TaskManifestConfigActionPtrOutput {
+	return TaskManifestConfigAction(e).ToTaskManifestConfigActionOutputWithContext(ctx).ToTaskManifestConfigActionPtrOutputWithContext(ctx)
+}
+
+func (e TaskManifestConfigAction) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TaskManifestConfigAction) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TaskManifestConfigAction) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TaskManifestConfigAction) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TaskManifestConfigActionOutput struct{ *pulumi.OutputState }
+
+func (TaskManifestConfigActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskManifestConfigAction)(nil)).Elem()
+}
+
+func (o TaskManifestConfigActionOutput) ToTaskManifestConfigActionOutput() TaskManifestConfigActionOutput {
+	return o
+}
+
+func (o TaskManifestConfigActionOutput) ToTaskManifestConfigActionOutputWithContext(ctx context.Context) TaskManifestConfigActionOutput {
+	return o
+}
+
+func (o TaskManifestConfigActionOutput) ToTaskManifestConfigActionPtrOutput() TaskManifestConfigActionPtrOutput {
+	return o.ToTaskManifestConfigActionPtrOutputWithContext(context.Background())
+}
+
+func (o TaskManifestConfigActionOutput) ToTaskManifestConfigActionPtrOutputWithContext(ctx context.Context) TaskManifestConfigActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskManifestConfigAction) *TaskManifestConfigAction {
+		return &v
+	}).(TaskManifestConfigActionPtrOutput)
+}
+
+func (o TaskManifestConfigActionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TaskManifestConfigActionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TaskManifestConfigAction) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TaskManifestConfigActionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TaskManifestConfigActionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TaskManifestConfigAction) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TaskManifestConfigActionPtrOutput struct{ *pulumi.OutputState }
+
+func (TaskManifestConfigActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskManifestConfigAction)(nil)).Elem()
+}
+
+func (o TaskManifestConfigActionPtrOutput) ToTaskManifestConfigActionPtrOutput() TaskManifestConfigActionPtrOutput {
+	return o
+}
+
+func (o TaskManifestConfigActionPtrOutput) ToTaskManifestConfigActionPtrOutputWithContext(ctx context.Context) TaskManifestConfigActionPtrOutput {
+	return o
+}
+
+func (o TaskManifestConfigActionPtrOutput) Elem() TaskManifestConfigActionOutput {
+	return o.ApplyT(func(v *TaskManifestConfigAction) TaskManifestConfigAction {
+		if v != nil {
+			return *v
+		}
+		var ret TaskManifestConfigAction
+		return ret
+	}).(TaskManifestConfigActionOutput)
+}
+
+func (o TaskManifestConfigActionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TaskManifestConfigActionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TaskManifestConfigAction) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TaskManifestConfigActionInput is an input type that accepts values of the TaskManifestConfigAction enum
+// A concrete instance of `TaskManifestConfigActionInput` can be one of the following:
+//
+//	TaskManifestConfigActionTransfer
+type TaskManifestConfigActionInput interface {
+	pulumi.Input
+
+	ToTaskManifestConfigActionOutput() TaskManifestConfigActionOutput
+	ToTaskManifestConfigActionOutputWithContext(context.Context) TaskManifestConfigActionOutput
+}
+
+var taskManifestConfigActionPtrType = reflect.TypeOf((**TaskManifestConfigAction)(nil)).Elem()
+
+type TaskManifestConfigActionPtrInput interface {
+	pulumi.Input
+
+	ToTaskManifestConfigActionPtrOutput() TaskManifestConfigActionPtrOutput
+	ToTaskManifestConfigActionPtrOutputWithContext(context.Context) TaskManifestConfigActionPtrOutput
+}
+
+type taskManifestConfigActionPtr string
+
+func TaskManifestConfigActionPtr(v string) TaskManifestConfigActionPtrInput {
+	return (*taskManifestConfigActionPtr)(&v)
+}
+
+func (*taskManifestConfigActionPtr) ElementType() reflect.Type {
+	return taskManifestConfigActionPtrType
+}
+
+func (in *taskManifestConfigActionPtr) ToTaskManifestConfigActionPtrOutput() TaskManifestConfigActionPtrOutput {
+	return pulumi.ToOutput(in).(TaskManifestConfigActionPtrOutput)
+}
+
+func (in *taskManifestConfigActionPtr) ToTaskManifestConfigActionPtrOutputWithContext(ctx context.Context) TaskManifestConfigActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TaskManifestConfigActionPtrOutput)
+}
+
+// Specifies the file format of your manifest.
+type TaskManifestConfigFormat string
+
+const (
+	TaskManifestConfigFormatCsv = TaskManifestConfigFormat("CSV")
+)
+
+func (TaskManifestConfigFormat) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskManifestConfigFormat)(nil)).Elem()
+}
+
+func (e TaskManifestConfigFormat) ToTaskManifestConfigFormatOutput() TaskManifestConfigFormatOutput {
+	return pulumi.ToOutput(e).(TaskManifestConfigFormatOutput)
+}
+
+func (e TaskManifestConfigFormat) ToTaskManifestConfigFormatOutputWithContext(ctx context.Context) TaskManifestConfigFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TaskManifestConfigFormatOutput)
+}
+
+func (e TaskManifestConfigFormat) ToTaskManifestConfigFormatPtrOutput() TaskManifestConfigFormatPtrOutput {
+	return e.ToTaskManifestConfigFormatPtrOutputWithContext(context.Background())
+}
+
+func (e TaskManifestConfigFormat) ToTaskManifestConfigFormatPtrOutputWithContext(ctx context.Context) TaskManifestConfigFormatPtrOutput {
+	return TaskManifestConfigFormat(e).ToTaskManifestConfigFormatOutputWithContext(ctx).ToTaskManifestConfigFormatPtrOutputWithContext(ctx)
+}
+
+func (e TaskManifestConfigFormat) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TaskManifestConfigFormat) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TaskManifestConfigFormat) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TaskManifestConfigFormat) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TaskManifestConfigFormatOutput struct{ *pulumi.OutputState }
+
+func (TaskManifestConfigFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskManifestConfigFormat)(nil)).Elem()
+}
+
+func (o TaskManifestConfigFormatOutput) ToTaskManifestConfigFormatOutput() TaskManifestConfigFormatOutput {
+	return o
+}
+
+func (o TaskManifestConfigFormatOutput) ToTaskManifestConfigFormatOutputWithContext(ctx context.Context) TaskManifestConfigFormatOutput {
+	return o
+}
+
+func (o TaskManifestConfigFormatOutput) ToTaskManifestConfigFormatPtrOutput() TaskManifestConfigFormatPtrOutput {
+	return o.ToTaskManifestConfigFormatPtrOutputWithContext(context.Background())
+}
+
+func (o TaskManifestConfigFormatOutput) ToTaskManifestConfigFormatPtrOutputWithContext(ctx context.Context) TaskManifestConfigFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskManifestConfigFormat) *TaskManifestConfigFormat {
+		return &v
+	}).(TaskManifestConfigFormatPtrOutput)
+}
+
+func (o TaskManifestConfigFormatOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TaskManifestConfigFormatOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TaskManifestConfigFormat) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TaskManifestConfigFormatOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TaskManifestConfigFormatOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TaskManifestConfigFormat) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TaskManifestConfigFormatPtrOutput struct{ *pulumi.OutputState }
+
+func (TaskManifestConfigFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskManifestConfigFormat)(nil)).Elem()
+}
+
+func (o TaskManifestConfigFormatPtrOutput) ToTaskManifestConfigFormatPtrOutput() TaskManifestConfigFormatPtrOutput {
+	return o
+}
+
+func (o TaskManifestConfigFormatPtrOutput) ToTaskManifestConfigFormatPtrOutputWithContext(ctx context.Context) TaskManifestConfigFormatPtrOutput {
+	return o
+}
+
+func (o TaskManifestConfigFormatPtrOutput) Elem() TaskManifestConfigFormatOutput {
+	return o.ApplyT(func(v *TaskManifestConfigFormat) TaskManifestConfigFormat {
+		if v != nil {
+			return *v
+		}
+		var ret TaskManifestConfigFormat
+		return ret
+	}).(TaskManifestConfigFormatOutput)
+}
+
+func (o TaskManifestConfigFormatPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TaskManifestConfigFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TaskManifestConfigFormat) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TaskManifestConfigFormatInput is an input type that accepts values of the TaskManifestConfigFormat enum
+// A concrete instance of `TaskManifestConfigFormatInput` can be one of the following:
+//
+//	TaskManifestConfigFormatCsv
+type TaskManifestConfigFormatInput interface {
+	pulumi.Input
+
+	ToTaskManifestConfigFormatOutput() TaskManifestConfigFormatOutput
+	ToTaskManifestConfigFormatOutputWithContext(context.Context) TaskManifestConfigFormatOutput
+}
+
+var taskManifestConfigFormatPtrType = reflect.TypeOf((**TaskManifestConfigFormat)(nil)).Elem()
+
+type TaskManifestConfigFormatPtrInput interface {
+	pulumi.Input
+
+	ToTaskManifestConfigFormatPtrOutput() TaskManifestConfigFormatPtrOutput
+	ToTaskManifestConfigFormatPtrOutputWithContext(context.Context) TaskManifestConfigFormatPtrOutput
+}
+
+type taskManifestConfigFormatPtr string
+
+func TaskManifestConfigFormatPtr(v string) TaskManifestConfigFormatPtrInput {
+	return (*taskManifestConfigFormatPtr)(&v)
+}
+
+func (*taskManifestConfigFormatPtr) ElementType() reflect.Type {
+	return taskManifestConfigFormatPtrType
+}
+
+func (in *taskManifestConfigFormatPtr) ToTaskManifestConfigFormatPtrOutput() TaskManifestConfigFormatPtrOutput {
+	return pulumi.ToOutput(in).(TaskManifestConfigFormatPtrOutput)
+}
+
+func (in *taskManifestConfigFormatPtr) ToTaskManifestConfigFormatPtrOutputWithContext(ctx context.Context) TaskManifestConfigFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TaskManifestConfigFormatPtrOutput)
+}
+
 // A file metadata value that shows the last time a file was accessed (that is, when the file was read or written to).
 type TaskOptionsAtime string
 
@@ -6509,6 +6837,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageSystemSystemTypePtrInput)(nil)).Elem(), StorageSystemSystemType("NetAppONTAP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskFilterRuleFilterTypeInput)(nil)).Elem(), TaskFilterRuleFilterType("SIMPLE_PATTERN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskFilterRuleFilterTypePtrInput)(nil)).Elem(), TaskFilterRuleFilterType("SIMPLE_PATTERN"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskManifestConfigActionInput)(nil)).Elem(), TaskManifestConfigAction("TRANSFER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskManifestConfigActionPtrInput)(nil)).Elem(), TaskManifestConfigAction("TRANSFER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskManifestConfigFormatInput)(nil)).Elem(), TaskManifestConfigFormat("CSV"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskManifestConfigFormatPtrInput)(nil)).Elem(), TaskManifestConfigFormat("CSV"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskOptionsAtimeInput)(nil)).Elem(), TaskOptionsAtime("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskOptionsAtimePtrInput)(nil)).Elem(), TaskOptionsAtime("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskOptionsGidInput)(nil)).Elem(), TaskOptionsGid("NONE"))
@@ -6587,6 +6919,10 @@ func init() {
 	pulumi.RegisterOutputType(StorageSystemSystemTypePtrOutput{})
 	pulumi.RegisterOutputType(TaskFilterRuleFilterTypeOutput{})
 	pulumi.RegisterOutputType(TaskFilterRuleFilterTypePtrOutput{})
+	pulumi.RegisterOutputType(TaskManifestConfigActionOutput{})
+	pulumi.RegisterOutputType(TaskManifestConfigActionPtrOutput{})
+	pulumi.RegisterOutputType(TaskManifestConfigFormatOutput{})
+	pulumi.RegisterOutputType(TaskManifestConfigFormatPtrOutput{})
 	pulumi.RegisterOutputType(TaskOptionsAtimeOutput{})
 	pulumi.RegisterOutputType(TaskOptionsAtimePtrOutput{})
 	pulumi.RegisterOutputType(TaskOptionsGidOutput{})

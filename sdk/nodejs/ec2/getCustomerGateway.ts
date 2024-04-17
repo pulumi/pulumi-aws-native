@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::EC2::CustomerGateway
+ * Specifies a customer gateway.
  */
 export function getCustomerGateway(args: GetCustomerGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomerGatewayResult> {
 
@@ -19,16 +19,10 @@ export function getCustomerGateway(args: GetCustomerGatewayArgs, opts?: pulumi.I
 }
 
 export interface GetCustomerGatewayArgs {
-    /**
-     * CustomerGateway ID generated after customer gateway is created. Each customer gateway has a unique ID.
-     */
     customerGatewayId: string;
 }
 
 export interface GetCustomerGatewayResult {
-    /**
-     * CustomerGateway ID generated after customer gateway is created. Each customer gateway has a unique ID.
-     */
     readonly customerGatewayId?: string;
     /**
      * One or more tags for the customer gateway.
@@ -36,15 +30,12 @@ export interface GetCustomerGatewayResult {
     readonly tags?: outputs.Tag[];
 }
 /**
- * Resource Type definition for AWS::EC2::CustomerGateway
+ * Specifies a customer gateway.
  */
 export function getCustomerGatewayOutput(args: GetCustomerGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomerGatewayResult> {
     return pulumi.output(args).apply((a: any) => getCustomerGateway(a, opts))
 }
 
 export interface GetCustomerGatewayOutputArgs {
-    /**
-     * CustomerGateway ID generated after customer gateway is created. Each customer gateway has a unique ID.
-     */
     customerGatewayId: pulumi.Input<string>;
 }

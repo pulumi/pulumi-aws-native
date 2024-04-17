@@ -97,6 +97,10 @@ namespace Pulumi.AwsNative.CloudWatch
         /// The actions to execute when this alarm transitions to the OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         /// </summary>
         public readonly ImmutableArray<string> OkActions;
+        /// <summary>
+        /// A list of key-value pairs to associate with the composite alarm. You can associate as many as 50 tags with an alarm.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetCompositeAlarmResult(
@@ -118,7 +122,9 @@ namespace Pulumi.AwsNative.CloudWatch
 
             ImmutableArray<string> insufficientDataActions,
 
-            ImmutableArray<string> okActions)
+            ImmutableArray<string> okActions,
+
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             ActionsEnabled = actionsEnabled;
             ActionsSuppressor = actionsSuppressor;
@@ -130,6 +136,7 @@ namespace Pulumi.AwsNative.CloudWatch
             Arn = arn;
             InsufficientDataActions = insufficientDataActions;
             OkActions = okActions;
+            Tags = tags;
         }
     }
 }

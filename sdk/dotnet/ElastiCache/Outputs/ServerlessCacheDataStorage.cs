@@ -19,19 +19,26 @@ namespace Pulumi.AwsNative.ElastiCache.Outputs
         /// <summary>
         /// The maximum cached data capacity of the Serverless Cache.
         /// </summary>
-        public readonly int Maximum;
+        public readonly int? Maximum;
         /// <summary>
-        /// The unix of cached data capacity of the Serverless Cache.
+        /// The minimum cached data capacity of the Serverless Cache.
+        /// </summary>
+        public readonly int? Minimum;
+        /// <summary>
+        /// The unit of cached data capacity of the Serverless Cache.
         /// </summary>
         public readonly Pulumi.AwsNative.ElastiCache.ServerlessCacheDataStorageUnit Unit;
 
         [OutputConstructor]
         private ServerlessCacheDataStorage(
-            int maximum,
+            int? maximum,
+
+            int? minimum,
 
             Pulumi.AwsNative.ElastiCache.ServerlessCacheDataStorageUnit unit)
         {
             Maximum = maximum;
+            Minimum = minimum;
             Unit = unit;
         }
     }

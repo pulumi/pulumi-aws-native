@@ -36,6 +36,7 @@ class ListenerArgs:
         :param pulumi.Input[int] port: The port on which the load balancer is listening. You cannot specify a port for a Gateway Load Balancer.
         :param pulumi.Input[str] protocol: The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack mode is enabled. You cannot specify a protocol for a Gateway Load Balancer.
         :param pulumi.Input[str] ssl_policy: [HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are supported.
+                Updating the security policy can result in interruptions if the load balancer is handling a high volume of traffic.
                 For more information, see [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies) in the *Application Load Balancers Guide* and [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies) in the *Network Load Balancers Guide*.
         """
         pulumi.set(__self__, "default_actions", default_actions)
@@ -144,6 +145,7 @@ class ListenerArgs:
     def ssl_policy(self) -> Optional[pulumi.Input[str]]:
         """
         [HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are supported.
+         Updating the security policy can result in interruptions if the load balancer is handling a high volume of traffic.
          For more information, see [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies) in the *Application Load Balancers Guide* and [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies) in the *Network Load Balancers Guide*.
         """
         return pulumi.get(self, "ssl_policy")
@@ -182,6 +184,7 @@ class Listener(pulumi.CustomResource):
         :param pulumi.Input[int] port: The port on which the load balancer is listening. You cannot specify a port for a Gateway Load Balancer.
         :param pulumi.Input[str] protocol: The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack mode is enabled. You cannot specify a protocol for a Gateway Load Balancer.
         :param pulumi.Input[str] ssl_policy: [HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are supported.
+                Updating the security policy can result in interruptions if the load balancer is handling a high volume of traffic.
                 For more information, see [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies) in the *Application Load Balancers Guide* and [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies) in the *Network Load Balancers Guide*.
         """
         ...
@@ -341,6 +344,7 @@ class Listener(pulumi.CustomResource):
     def ssl_policy(self) -> pulumi.Output[Optional[str]]:
         """
         [HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are supported.
+         Updating the security policy can result in interruptions if the load balancer is handling a high volume of traffic.
          For more information, see [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies) in the *Application Load Balancers Guide* and [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies) in the *Network Load Balancers Guide*.
         """
         return pulumi.get(self, "ssl_policy")

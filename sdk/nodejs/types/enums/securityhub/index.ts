@@ -74,3 +74,44 @@ export const AutomationRulesFindingFieldsUpdateVerificationState = {
 } as const;
 
 export type AutomationRulesFindingFieldsUpdateVerificationState = (typeof AutomationRulesFindingFieldsUpdateVerificationState)[keyof typeof AutomationRulesFindingFieldsUpdateVerificationState];
+
+export const DelegatedAdminStatus = {
+    Enabled: "ENABLED",
+    DisableInProgress: "DISABLE_IN_PROGRESS",
+} as const;
+
+/**
+ * The current status of the Security Hub administrator account. Indicates whether the account is currently enabled as a Security Hub administrator
+ */
+export type DelegatedAdminStatus = (typeof DelegatedAdminStatus)[keyof typeof DelegatedAdminStatus];
+
+export const InsightDateRangeUnit = {
+    Days: "DAYS",
+} as const;
+
+/**
+ * A date range unit for the date filter.
+ */
+export type InsightDateRangeUnit = (typeof InsightDateRangeUnit)[keyof typeof InsightDateRangeUnit];
+
+export const InsightMapFilterComparison = {
+    Equals: "EQUALS",
+    NotEquals: "NOT_EQUALS",
+} as const;
+
+/**
+ * The condition to apply to the key value when filtering Security Hub findings with a map filter.
+ */
+export type InsightMapFilterComparison = (typeof InsightMapFilterComparison)[keyof typeof InsightMapFilterComparison];
+
+export const InsightStringFilterComparison = {
+    Equals: "EQUALS",
+    Prefix: "PREFIX",
+    NotEquals: "NOT_EQUALS",
+    PrefixNotEquals: "PREFIX_NOT_EQUALS",
+} as const;
+
+/**
+ * The condition to apply to a string value when filtering Security Hub findings.
+ */
+export type InsightStringFilterComparison = (typeof InsightStringFilterComparison)[keyof typeof InsightStringFilterComparison];

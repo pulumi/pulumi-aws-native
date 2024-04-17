@@ -1083,76 +1083,6 @@ type DomainCertificate struct {
 	CertificateVerificationDnsRecord *string                           `pulumi:"certificateVerificationDnsRecord"`
 }
 
-// DomainCertificateInput is an input type that accepts DomainCertificateArgs and DomainCertificateOutput values.
-// You can construct a concrete instance of `DomainCertificateInput` via:
-//
-//	DomainCertificateArgs{...}
-type DomainCertificateInput interface {
-	pulumi.Input
-
-	ToDomainCertificateOutput() DomainCertificateOutput
-	ToDomainCertificateOutputWithContext(context.Context) DomainCertificateOutput
-}
-
-type DomainCertificateArgs struct {
-	CertificateArn                   pulumi.StringPtrInput                    `pulumi:"certificateArn"`
-	CertificateType                  DomainCertificateCertificateTypePtrInput `pulumi:"certificateType"`
-	CertificateVerificationDnsRecord pulumi.StringPtrInput                    `pulumi:"certificateVerificationDnsRecord"`
-}
-
-func (DomainCertificateArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainCertificate)(nil)).Elem()
-}
-
-func (i DomainCertificateArgs) ToDomainCertificateOutput() DomainCertificateOutput {
-	return i.ToDomainCertificateOutputWithContext(context.Background())
-}
-
-func (i DomainCertificateArgs) ToDomainCertificateOutputWithContext(ctx context.Context) DomainCertificateOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainCertificateOutput)
-}
-
-func (i DomainCertificateArgs) ToDomainCertificatePtrOutput() DomainCertificatePtrOutput {
-	return i.ToDomainCertificatePtrOutputWithContext(context.Background())
-}
-
-func (i DomainCertificateArgs) ToDomainCertificatePtrOutputWithContext(ctx context.Context) DomainCertificatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainCertificateOutput).ToDomainCertificatePtrOutputWithContext(ctx)
-}
-
-// DomainCertificatePtrInput is an input type that accepts DomainCertificateArgs, DomainCertificatePtr and DomainCertificatePtrOutput values.
-// You can construct a concrete instance of `DomainCertificatePtrInput` via:
-//
-//	        DomainCertificateArgs{...}
-//
-//	or:
-//
-//	        nil
-type DomainCertificatePtrInput interface {
-	pulumi.Input
-
-	ToDomainCertificatePtrOutput() DomainCertificatePtrOutput
-	ToDomainCertificatePtrOutputWithContext(context.Context) DomainCertificatePtrOutput
-}
-
-type domainCertificatePtrType DomainCertificateArgs
-
-func DomainCertificatePtr(v *DomainCertificateArgs) DomainCertificatePtrInput {
-	return (*domainCertificatePtrType)(v)
-}
-
-func (*domainCertificatePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DomainCertificate)(nil)).Elem()
-}
-
-func (i *domainCertificatePtrType) ToDomainCertificatePtrOutput() DomainCertificatePtrOutput {
-	return i.ToDomainCertificatePtrOutputWithContext(context.Background())
-}
-
-func (i *domainCertificatePtrType) ToDomainCertificatePtrOutputWithContext(ctx context.Context) DomainCertificatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainCertificatePtrOutput)
-}
-
 type DomainCertificateOutput struct{ *pulumi.OutputState }
 
 func (DomainCertificateOutput) ElementType() reflect.Type {
@@ -1165,16 +1095,6 @@ func (o DomainCertificateOutput) ToDomainCertificateOutput() DomainCertificateOu
 
 func (o DomainCertificateOutput) ToDomainCertificateOutputWithContext(ctx context.Context) DomainCertificateOutput {
 	return o
-}
-
-func (o DomainCertificateOutput) ToDomainCertificatePtrOutput() DomainCertificatePtrOutput {
-	return o.ToDomainCertificatePtrOutputWithContext(context.Background())
-}
-
-func (o DomainCertificateOutput) ToDomainCertificatePtrOutputWithContext(ctx context.Context) DomainCertificatePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainCertificate) *DomainCertificate {
-		return &v
-	}).(DomainCertificatePtrOutput)
 }
 
 func (o DomainCertificateOutput) CertificateArn() pulumi.StringPtrOutput {
@@ -1503,8 +1423,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchBasicAuthConfigPtrInput)(nil)).Elem(), BranchBasicAuthConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchEnvironmentVariableInput)(nil)).Elem(), BranchEnvironmentVariableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchEnvironmentVariableArrayInput)(nil)).Elem(), BranchEnvironmentVariableArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DomainCertificateInput)(nil)).Elem(), DomainCertificateArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DomainCertificatePtrInput)(nil)).Elem(), DomainCertificateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainCertificateSettingsInput)(nil)).Elem(), DomainCertificateSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainCertificateSettingsPtrInput)(nil)).Elem(), DomainCertificateSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSubDomainSettingInput)(nil)).Elem(), DomainSubDomainSettingArgs{})

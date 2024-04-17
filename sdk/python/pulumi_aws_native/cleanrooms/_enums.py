@@ -18,6 +18,8 @@ __all__ = [
     'ConfiguredTableScalarFunctions',
     'MembershipQueryLogStatus',
     'MembershipResultFormat',
+    'PrivacyBudgetTemplateAutoRefresh',
+    'PrivacyBudgetTemplatePrivacyBudgetType',
 ]
 
 
@@ -98,6 +100,17 @@ class ConfiguredTableScalarFunctions(str, Enum):
     RTRIM = "RTRIM"
     UPPER = "UPPER"
     COALESCE = "COALESCE"
+    CONVERT = "CONVERT"
+    CURRENT_DATE = "CURRENT_DATE"
+    DATEADD = "DATEADD"
+    EXTRACT = "EXTRACT"
+    GETDATE = "GETDATE"
+    SUBSTRING = "SUBSTRING"
+    TO_CHAR = "TO_CHAR"
+    TO_DATE = "TO_DATE"
+    TO_NUMBER = "TO_NUMBER"
+    TO_TIMESTAMP = "TO_TIMESTAMP"
+    TRIM = "TRIM"
 
 
 class MembershipQueryLogStatus(str, Enum):
@@ -108,3 +121,12 @@ class MembershipQueryLogStatus(str, Enum):
 class MembershipResultFormat(str, Enum):
     CSV = "CSV"
     PARQUET = "PARQUET"
+
+
+class PrivacyBudgetTemplateAutoRefresh(str, Enum):
+    CALENDAR_MONTH = "CALENDAR_MONTH"
+    NONE = "NONE"
+
+
+class PrivacyBudgetTemplatePrivacyBudgetType(str, Enum):
+    DIFFERENTIAL_PRIVACY = "DIFFERENTIAL_PRIVACY"

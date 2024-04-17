@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     public sealed class UserProfileCodeEditorAppSettings
     {
         /// <summary>
+        /// A list of custom images for use for CodeEditor apps.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.UserProfileCustomImage> CustomImages;
+        /// <summary>
         /// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the CodeEditor app.
         /// </summary>
         public readonly Outputs.UserProfileResourceSpec? DefaultResourceSpec;
@@ -27,10 +31,13 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
         [OutputConstructor]
         private UserProfileCodeEditorAppSettings(
+            ImmutableArray<Outputs.UserProfileCustomImage> customImages,
+
             Outputs.UserProfileResourceSpec? defaultResourceSpec,
 
             ImmutableArray<string> lifecycleConfigArns)
         {
+            CustomImages = customImages;
             DefaultResourceSpec = defaultResourceSpec;
             LifecycleConfigArns = lifecycleConfigArns;
         }

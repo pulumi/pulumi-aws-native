@@ -10,7 +10,6 @@ export type ZonalAutoshiftConfigurationControlConditionType = (typeof ZonalAutos
 
 export const ZonalAutoshiftConfigurationZonalAutoshiftStatus = {
     Enabled: "ENABLED",
-    Disabled: "DISABLED",
 } as const;
 
 export type ZonalAutoshiftConfigurationZonalAutoshiftStatus = (typeof ZonalAutoshiftConfigurationZonalAutoshiftStatus)[keyof typeof ZonalAutoshiftConfigurationZonalAutoshiftStatus];

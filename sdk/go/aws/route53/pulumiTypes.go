@@ -1126,10 +1126,10 @@ func (o HostedZoneTagArrayOutput) Index(i pulumi.IntInput) HostedZoneTagOutput {
 //	For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
 type HostedZoneVpc struct {
 	// *Private hosted zones only:* The ID of an Amazon VPC.
-	//  For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
+	//   For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
 	VpcId string `pulumi:"vpcId"`
 	// *Private hosted zones only:* The region that an Amazon VPC was created in.
-	//  For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
+	//   For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
 	VpcRegion string `pulumi:"vpcRegion"`
 }
 
@@ -1149,10 +1149,10 @@ type HostedZoneVpcInput interface {
 //	For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
 type HostedZoneVpcArgs struct {
 	// *Private hosted zones only:* The ID of an Amazon VPC.
-	//  For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
+	//   For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
 	VpcId pulumi.StringInput `pulumi:"vpcId"`
 	// *Private hosted zones only:* The region that an Amazon VPC was created in.
-	//  For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
+	//   For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
 	VpcRegion pulumi.StringInput `pulumi:"vpcRegion"`
 }
 

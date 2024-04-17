@@ -115,9 +115,10 @@ func (o IdMappingWorkflowIdMappingTechniquesPtrOutput) ProviderProperties() IdMa
 }
 
 type IdMappingWorkflowInputSource struct {
-	// An Glue table ARN for the input source table
-	InputSourceArn string `pulumi:"inputSourceArn"`
-	SchemaArn      string `pulumi:"schemaArn"`
+	// An Glue table ARN for the input source table or IdNamespace ARN
+	InputSourceArn string                            `pulumi:"inputSourceArn"`
+	SchemaArn      *string                           `pulumi:"schemaArn"`
+	Type           *IdMappingWorkflowInputSourceType `pulumi:"type"`
 }
 
 // IdMappingWorkflowInputSourceInput is an input type that accepts IdMappingWorkflowInputSourceArgs and IdMappingWorkflowInputSourceOutput values.
@@ -132,9 +133,10 @@ type IdMappingWorkflowInputSourceInput interface {
 }
 
 type IdMappingWorkflowInputSourceArgs struct {
-	// An Glue table ARN for the input source table
-	InputSourceArn pulumi.StringInput `pulumi:"inputSourceArn"`
-	SchemaArn      pulumi.StringInput `pulumi:"schemaArn"`
+	// An Glue table ARN for the input source table or IdNamespace ARN
+	InputSourceArn pulumi.StringInput                       `pulumi:"inputSourceArn"`
+	SchemaArn      pulumi.StringPtrInput                    `pulumi:"schemaArn"`
+	Type           IdMappingWorkflowInputSourceTypePtrInput `pulumi:"type"`
 }
 
 func (IdMappingWorkflowInputSourceArgs) ElementType() reflect.Type {
@@ -188,13 +190,17 @@ func (o IdMappingWorkflowInputSourceOutput) ToIdMappingWorkflowInputSourceOutput
 	return o
 }
 
-// An Glue table ARN for the input source table
+// An Glue table ARN for the input source table or IdNamespace ARN
 func (o IdMappingWorkflowInputSourceOutput) InputSourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v IdMappingWorkflowInputSource) string { return v.InputSourceArn }).(pulumi.StringOutput)
 }
 
-func (o IdMappingWorkflowInputSourceOutput) SchemaArn() pulumi.StringOutput {
-	return o.ApplyT(func(v IdMappingWorkflowInputSource) string { return v.SchemaArn }).(pulumi.StringOutput)
+func (o IdMappingWorkflowInputSourceOutput) SchemaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdMappingWorkflowInputSource) *string { return v.SchemaArn }).(pulumi.StringPtrOutput)
+}
+
+func (o IdMappingWorkflowInputSourceOutput) Type() IdMappingWorkflowInputSourceTypePtrOutput {
+	return o.ApplyT(func(v IdMappingWorkflowInputSource) *IdMappingWorkflowInputSourceType { return v.Type }).(IdMappingWorkflowInputSourceTypePtrOutput)
 }
 
 type IdMappingWorkflowInputSourceArrayOutput struct{ *pulumi.OutputState }
@@ -632,6 +638,370 @@ func (o IdMappingWorkflowProviderPropertiesPtrOutput) ProviderServiceArn() pulum
 
 // A key-value pair to associate with a resource
 type IdMappingWorkflowTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+type IdNamespaceIdMappingWorkflowProperties struct {
+	IdMappingType      IdNamespaceIdMappingWorkflowPropertiesIdMappingType `pulumi:"idMappingType"`
+	ProviderProperties *IdNamespaceNamespaceProviderProperties             `pulumi:"providerProperties"`
+}
+
+// IdNamespaceIdMappingWorkflowPropertiesInput is an input type that accepts IdNamespaceIdMappingWorkflowPropertiesArgs and IdNamespaceIdMappingWorkflowPropertiesOutput values.
+// You can construct a concrete instance of `IdNamespaceIdMappingWorkflowPropertiesInput` via:
+//
+//	IdNamespaceIdMappingWorkflowPropertiesArgs{...}
+type IdNamespaceIdMappingWorkflowPropertiesInput interface {
+	pulumi.Input
+
+	ToIdNamespaceIdMappingWorkflowPropertiesOutput() IdNamespaceIdMappingWorkflowPropertiesOutput
+	ToIdNamespaceIdMappingWorkflowPropertiesOutputWithContext(context.Context) IdNamespaceIdMappingWorkflowPropertiesOutput
+}
+
+type IdNamespaceIdMappingWorkflowPropertiesArgs struct {
+	IdMappingType      IdNamespaceIdMappingWorkflowPropertiesIdMappingTypeInput `pulumi:"idMappingType"`
+	ProviderProperties IdNamespaceNamespaceProviderPropertiesPtrInput           `pulumi:"providerProperties"`
+}
+
+func (IdNamespaceIdMappingWorkflowPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdNamespaceIdMappingWorkflowProperties)(nil)).Elem()
+}
+
+func (i IdNamespaceIdMappingWorkflowPropertiesArgs) ToIdNamespaceIdMappingWorkflowPropertiesOutput() IdNamespaceIdMappingWorkflowPropertiesOutput {
+	return i.ToIdNamespaceIdMappingWorkflowPropertiesOutputWithContext(context.Background())
+}
+
+func (i IdNamespaceIdMappingWorkflowPropertiesArgs) ToIdNamespaceIdMappingWorkflowPropertiesOutputWithContext(ctx context.Context) IdNamespaceIdMappingWorkflowPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdNamespaceIdMappingWorkflowPropertiesOutput)
+}
+
+// IdNamespaceIdMappingWorkflowPropertiesArrayInput is an input type that accepts IdNamespaceIdMappingWorkflowPropertiesArray and IdNamespaceIdMappingWorkflowPropertiesArrayOutput values.
+// You can construct a concrete instance of `IdNamespaceIdMappingWorkflowPropertiesArrayInput` via:
+//
+//	IdNamespaceIdMappingWorkflowPropertiesArray{ IdNamespaceIdMappingWorkflowPropertiesArgs{...} }
+type IdNamespaceIdMappingWorkflowPropertiesArrayInput interface {
+	pulumi.Input
+
+	ToIdNamespaceIdMappingWorkflowPropertiesArrayOutput() IdNamespaceIdMappingWorkflowPropertiesArrayOutput
+	ToIdNamespaceIdMappingWorkflowPropertiesArrayOutputWithContext(context.Context) IdNamespaceIdMappingWorkflowPropertiesArrayOutput
+}
+
+type IdNamespaceIdMappingWorkflowPropertiesArray []IdNamespaceIdMappingWorkflowPropertiesInput
+
+func (IdNamespaceIdMappingWorkflowPropertiesArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IdNamespaceIdMappingWorkflowProperties)(nil)).Elem()
+}
+
+func (i IdNamespaceIdMappingWorkflowPropertiesArray) ToIdNamespaceIdMappingWorkflowPropertiesArrayOutput() IdNamespaceIdMappingWorkflowPropertiesArrayOutput {
+	return i.ToIdNamespaceIdMappingWorkflowPropertiesArrayOutputWithContext(context.Background())
+}
+
+func (i IdNamespaceIdMappingWorkflowPropertiesArray) ToIdNamespaceIdMappingWorkflowPropertiesArrayOutputWithContext(ctx context.Context) IdNamespaceIdMappingWorkflowPropertiesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdNamespaceIdMappingWorkflowPropertiesArrayOutput)
+}
+
+type IdNamespaceIdMappingWorkflowPropertiesOutput struct{ *pulumi.OutputState }
+
+func (IdNamespaceIdMappingWorkflowPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdNamespaceIdMappingWorkflowProperties)(nil)).Elem()
+}
+
+func (o IdNamespaceIdMappingWorkflowPropertiesOutput) ToIdNamespaceIdMappingWorkflowPropertiesOutput() IdNamespaceIdMappingWorkflowPropertiesOutput {
+	return o
+}
+
+func (o IdNamespaceIdMappingWorkflowPropertiesOutput) ToIdNamespaceIdMappingWorkflowPropertiesOutputWithContext(ctx context.Context) IdNamespaceIdMappingWorkflowPropertiesOutput {
+	return o
+}
+
+func (o IdNamespaceIdMappingWorkflowPropertiesOutput) IdMappingType() IdNamespaceIdMappingWorkflowPropertiesIdMappingTypeOutput {
+	return o.ApplyT(func(v IdNamespaceIdMappingWorkflowProperties) IdNamespaceIdMappingWorkflowPropertiesIdMappingType {
+		return v.IdMappingType
+	}).(IdNamespaceIdMappingWorkflowPropertiesIdMappingTypeOutput)
+}
+
+func (o IdNamespaceIdMappingWorkflowPropertiesOutput) ProviderProperties() IdNamespaceNamespaceProviderPropertiesPtrOutput {
+	return o.ApplyT(func(v IdNamespaceIdMappingWorkflowProperties) *IdNamespaceNamespaceProviderProperties {
+		return v.ProviderProperties
+	}).(IdNamespaceNamespaceProviderPropertiesPtrOutput)
+}
+
+type IdNamespaceIdMappingWorkflowPropertiesArrayOutput struct{ *pulumi.OutputState }
+
+func (IdNamespaceIdMappingWorkflowPropertiesArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IdNamespaceIdMappingWorkflowProperties)(nil)).Elem()
+}
+
+func (o IdNamespaceIdMappingWorkflowPropertiesArrayOutput) ToIdNamespaceIdMappingWorkflowPropertiesArrayOutput() IdNamespaceIdMappingWorkflowPropertiesArrayOutput {
+	return o
+}
+
+func (o IdNamespaceIdMappingWorkflowPropertiesArrayOutput) ToIdNamespaceIdMappingWorkflowPropertiesArrayOutputWithContext(ctx context.Context) IdNamespaceIdMappingWorkflowPropertiesArrayOutput {
+	return o
+}
+
+func (o IdNamespaceIdMappingWorkflowPropertiesArrayOutput) Index(i pulumi.IntInput) IdNamespaceIdMappingWorkflowPropertiesOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IdNamespaceIdMappingWorkflowProperties {
+		return vs[0].([]IdNamespaceIdMappingWorkflowProperties)[vs[1].(int)]
+	}).(IdNamespaceIdMappingWorkflowPropertiesOutput)
+}
+
+type IdNamespaceInputSource struct {
+	InputSourceArn string  `pulumi:"inputSourceArn"`
+	SchemaName     *string `pulumi:"schemaName"`
+}
+
+// IdNamespaceInputSourceInput is an input type that accepts IdNamespaceInputSourceArgs and IdNamespaceInputSourceOutput values.
+// You can construct a concrete instance of `IdNamespaceInputSourceInput` via:
+//
+//	IdNamespaceInputSourceArgs{...}
+type IdNamespaceInputSourceInput interface {
+	pulumi.Input
+
+	ToIdNamespaceInputSourceOutput() IdNamespaceInputSourceOutput
+	ToIdNamespaceInputSourceOutputWithContext(context.Context) IdNamespaceInputSourceOutput
+}
+
+type IdNamespaceInputSourceArgs struct {
+	InputSourceArn pulumi.StringInput    `pulumi:"inputSourceArn"`
+	SchemaName     pulumi.StringPtrInput `pulumi:"schemaName"`
+}
+
+func (IdNamespaceInputSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdNamespaceInputSource)(nil)).Elem()
+}
+
+func (i IdNamespaceInputSourceArgs) ToIdNamespaceInputSourceOutput() IdNamespaceInputSourceOutput {
+	return i.ToIdNamespaceInputSourceOutputWithContext(context.Background())
+}
+
+func (i IdNamespaceInputSourceArgs) ToIdNamespaceInputSourceOutputWithContext(ctx context.Context) IdNamespaceInputSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdNamespaceInputSourceOutput)
+}
+
+// IdNamespaceInputSourceArrayInput is an input type that accepts IdNamespaceInputSourceArray and IdNamespaceInputSourceArrayOutput values.
+// You can construct a concrete instance of `IdNamespaceInputSourceArrayInput` via:
+//
+//	IdNamespaceInputSourceArray{ IdNamespaceInputSourceArgs{...} }
+type IdNamespaceInputSourceArrayInput interface {
+	pulumi.Input
+
+	ToIdNamespaceInputSourceArrayOutput() IdNamespaceInputSourceArrayOutput
+	ToIdNamespaceInputSourceArrayOutputWithContext(context.Context) IdNamespaceInputSourceArrayOutput
+}
+
+type IdNamespaceInputSourceArray []IdNamespaceInputSourceInput
+
+func (IdNamespaceInputSourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IdNamespaceInputSource)(nil)).Elem()
+}
+
+func (i IdNamespaceInputSourceArray) ToIdNamespaceInputSourceArrayOutput() IdNamespaceInputSourceArrayOutput {
+	return i.ToIdNamespaceInputSourceArrayOutputWithContext(context.Background())
+}
+
+func (i IdNamespaceInputSourceArray) ToIdNamespaceInputSourceArrayOutputWithContext(ctx context.Context) IdNamespaceInputSourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdNamespaceInputSourceArrayOutput)
+}
+
+type IdNamespaceInputSourceOutput struct{ *pulumi.OutputState }
+
+func (IdNamespaceInputSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdNamespaceInputSource)(nil)).Elem()
+}
+
+func (o IdNamespaceInputSourceOutput) ToIdNamespaceInputSourceOutput() IdNamespaceInputSourceOutput {
+	return o
+}
+
+func (o IdNamespaceInputSourceOutput) ToIdNamespaceInputSourceOutputWithContext(ctx context.Context) IdNamespaceInputSourceOutput {
+	return o
+}
+
+func (o IdNamespaceInputSourceOutput) InputSourceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v IdNamespaceInputSource) string { return v.InputSourceArn }).(pulumi.StringOutput)
+}
+
+func (o IdNamespaceInputSourceOutput) SchemaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdNamespaceInputSource) *string { return v.SchemaName }).(pulumi.StringPtrOutput)
+}
+
+type IdNamespaceInputSourceArrayOutput struct{ *pulumi.OutputState }
+
+func (IdNamespaceInputSourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IdNamespaceInputSource)(nil)).Elem()
+}
+
+func (o IdNamespaceInputSourceArrayOutput) ToIdNamespaceInputSourceArrayOutput() IdNamespaceInputSourceArrayOutput {
+	return o
+}
+
+func (o IdNamespaceInputSourceArrayOutput) ToIdNamespaceInputSourceArrayOutputWithContext(ctx context.Context) IdNamespaceInputSourceArrayOutput {
+	return o
+}
+
+func (o IdNamespaceInputSourceArrayOutput) Index(i pulumi.IntInput) IdNamespaceInputSourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IdNamespaceInputSource {
+		return vs[0].([]IdNamespaceInputSource)[vs[1].(int)]
+	}).(IdNamespaceInputSourceOutput)
+}
+
+type IdNamespaceNamespaceProviderProperties struct {
+	// Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format.
+	ProviderConfiguration map[string]string `pulumi:"providerConfiguration"`
+	ProviderServiceArn    string            `pulumi:"providerServiceArn"`
+}
+
+// IdNamespaceNamespaceProviderPropertiesInput is an input type that accepts IdNamespaceNamespaceProviderPropertiesArgs and IdNamespaceNamespaceProviderPropertiesOutput values.
+// You can construct a concrete instance of `IdNamespaceNamespaceProviderPropertiesInput` via:
+//
+//	IdNamespaceNamespaceProviderPropertiesArgs{...}
+type IdNamespaceNamespaceProviderPropertiesInput interface {
+	pulumi.Input
+
+	ToIdNamespaceNamespaceProviderPropertiesOutput() IdNamespaceNamespaceProviderPropertiesOutput
+	ToIdNamespaceNamespaceProviderPropertiesOutputWithContext(context.Context) IdNamespaceNamespaceProviderPropertiesOutput
+}
+
+type IdNamespaceNamespaceProviderPropertiesArgs struct {
+	// Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format.
+	ProviderConfiguration pulumi.StringMapInput `pulumi:"providerConfiguration"`
+	ProviderServiceArn    pulumi.StringInput    `pulumi:"providerServiceArn"`
+}
+
+func (IdNamespaceNamespaceProviderPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdNamespaceNamespaceProviderProperties)(nil)).Elem()
+}
+
+func (i IdNamespaceNamespaceProviderPropertiesArgs) ToIdNamespaceNamespaceProviderPropertiesOutput() IdNamespaceNamespaceProviderPropertiesOutput {
+	return i.ToIdNamespaceNamespaceProviderPropertiesOutputWithContext(context.Background())
+}
+
+func (i IdNamespaceNamespaceProviderPropertiesArgs) ToIdNamespaceNamespaceProviderPropertiesOutputWithContext(ctx context.Context) IdNamespaceNamespaceProviderPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdNamespaceNamespaceProviderPropertiesOutput)
+}
+
+func (i IdNamespaceNamespaceProviderPropertiesArgs) ToIdNamespaceNamespaceProviderPropertiesPtrOutput() IdNamespaceNamespaceProviderPropertiesPtrOutput {
+	return i.ToIdNamespaceNamespaceProviderPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i IdNamespaceNamespaceProviderPropertiesArgs) ToIdNamespaceNamespaceProviderPropertiesPtrOutputWithContext(ctx context.Context) IdNamespaceNamespaceProviderPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdNamespaceNamespaceProviderPropertiesOutput).ToIdNamespaceNamespaceProviderPropertiesPtrOutputWithContext(ctx)
+}
+
+// IdNamespaceNamespaceProviderPropertiesPtrInput is an input type that accepts IdNamespaceNamespaceProviderPropertiesArgs, IdNamespaceNamespaceProviderPropertiesPtr and IdNamespaceNamespaceProviderPropertiesPtrOutput values.
+// You can construct a concrete instance of `IdNamespaceNamespaceProviderPropertiesPtrInput` via:
+//
+//	        IdNamespaceNamespaceProviderPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type IdNamespaceNamespaceProviderPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToIdNamespaceNamespaceProviderPropertiesPtrOutput() IdNamespaceNamespaceProviderPropertiesPtrOutput
+	ToIdNamespaceNamespaceProviderPropertiesPtrOutputWithContext(context.Context) IdNamespaceNamespaceProviderPropertiesPtrOutput
+}
+
+type idNamespaceNamespaceProviderPropertiesPtrType IdNamespaceNamespaceProviderPropertiesArgs
+
+func IdNamespaceNamespaceProviderPropertiesPtr(v *IdNamespaceNamespaceProviderPropertiesArgs) IdNamespaceNamespaceProviderPropertiesPtrInput {
+	return (*idNamespaceNamespaceProviderPropertiesPtrType)(v)
+}
+
+func (*idNamespaceNamespaceProviderPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdNamespaceNamespaceProviderProperties)(nil)).Elem()
+}
+
+func (i *idNamespaceNamespaceProviderPropertiesPtrType) ToIdNamespaceNamespaceProviderPropertiesPtrOutput() IdNamespaceNamespaceProviderPropertiesPtrOutput {
+	return i.ToIdNamespaceNamespaceProviderPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *idNamespaceNamespaceProviderPropertiesPtrType) ToIdNamespaceNamespaceProviderPropertiesPtrOutputWithContext(ctx context.Context) IdNamespaceNamespaceProviderPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdNamespaceNamespaceProviderPropertiesPtrOutput)
+}
+
+type IdNamespaceNamespaceProviderPropertiesOutput struct{ *pulumi.OutputState }
+
+func (IdNamespaceNamespaceProviderPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdNamespaceNamespaceProviderProperties)(nil)).Elem()
+}
+
+func (o IdNamespaceNamespaceProviderPropertiesOutput) ToIdNamespaceNamespaceProviderPropertiesOutput() IdNamespaceNamespaceProviderPropertiesOutput {
+	return o
+}
+
+func (o IdNamespaceNamespaceProviderPropertiesOutput) ToIdNamespaceNamespaceProviderPropertiesOutputWithContext(ctx context.Context) IdNamespaceNamespaceProviderPropertiesOutput {
+	return o
+}
+
+func (o IdNamespaceNamespaceProviderPropertiesOutput) ToIdNamespaceNamespaceProviderPropertiesPtrOutput() IdNamespaceNamespaceProviderPropertiesPtrOutput {
+	return o.ToIdNamespaceNamespaceProviderPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o IdNamespaceNamespaceProviderPropertiesOutput) ToIdNamespaceNamespaceProviderPropertiesPtrOutputWithContext(ctx context.Context) IdNamespaceNamespaceProviderPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdNamespaceNamespaceProviderProperties) *IdNamespaceNamespaceProviderProperties {
+		return &v
+	}).(IdNamespaceNamespaceProviderPropertiesPtrOutput)
+}
+
+// Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format.
+func (o IdNamespaceNamespaceProviderPropertiesOutput) ProviderConfiguration() pulumi.StringMapOutput {
+	return o.ApplyT(func(v IdNamespaceNamespaceProviderProperties) map[string]string { return v.ProviderConfiguration }).(pulumi.StringMapOutput)
+}
+
+func (o IdNamespaceNamespaceProviderPropertiesOutput) ProviderServiceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v IdNamespaceNamespaceProviderProperties) string { return v.ProviderServiceArn }).(pulumi.StringOutput)
+}
+
+type IdNamespaceNamespaceProviderPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (IdNamespaceNamespaceProviderPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdNamespaceNamespaceProviderProperties)(nil)).Elem()
+}
+
+func (o IdNamespaceNamespaceProviderPropertiesPtrOutput) ToIdNamespaceNamespaceProviderPropertiesPtrOutput() IdNamespaceNamespaceProviderPropertiesPtrOutput {
+	return o
+}
+
+func (o IdNamespaceNamespaceProviderPropertiesPtrOutput) ToIdNamespaceNamespaceProviderPropertiesPtrOutputWithContext(ctx context.Context) IdNamespaceNamespaceProviderPropertiesPtrOutput {
+	return o
+}
+
+func (o IdNamespaceNamespaceProviderPropertiesPtrOutput) Elem() IdNamespaceNamespaceProviderPropertiesOutput {
+	return o.ApplyT(func(v *IdNamespaceNamespaceProviderProperties) IdNamespaceNamespaceProviderProperties {
+		if v != nil {
+			return *v
+		}
+		var ret IdNamespaceNamespaceProviderProperties
+		return ret
+	}).(IdNamespaceNamespaceProviderPropertiesOutput)
+}
+
+// Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format.
+func (o IdNamespaceNamespaceProviderPropertiesPtrOutput) ProviderConfiguration() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *IdNamespaceNamespaceProviderProperties) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.ProviderConfiguration
+	}).(pulumi.StringMapOutput)
+}
+
+func (o IdNamespaceNamespaceProviderPropertiesPtrOutput) ProviderServiceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdNamespaceNamespaceProviderProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ProviderServiceArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type IdNamespaceTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Key string `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -1787,6 +2157,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IdMappingWorkflowOutputSourceArrayInput)(nil)).Elem(), IdMappingWorkflowOutputSourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdMappingWorkflowProviderPropertiesInput)(nil)).Elem(), IdMappingWorkflowProviderPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdMappingWorkflowProviderPropertiesPtrInput)(nil)).Elem(), IdMappingWorkflowProviderPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdNamespaceIdMappingWorkflowPropertiesInput)(nil)).Elem(), IdNamespaceIdMappingWorkflowPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdNamespaceIdMappingWorkflowPropertiesArrayInput)(nil)).Elem(), IdNamespaceIdMappingWorkflowPropertiesArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdNamespaceInputSourceInput)(nil)).Elem(), IdNamespaceInputSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdNamespaceInputSourceArrayInput)(nil)).Elem(), IdNamespaceInputSourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdNamespaceNamespaceProviderPropertiesInput)(nil)).Elem(), IdNamespaceNamespaceProviderPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdNamespaceNamespaceProviderPropertiesPtrInput)(nil)).Elem(), IdNamespaceNamespaceProviderPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowInputSourceInput)(nil)).Elem(), MatchingWorkflowInputSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowInputSourceArrayInput)(nil)).Elem(), MatchingWorkflowInputSourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowIntermediateSourceConfigurationInput)(nil)).Elem(), MatchingWorkflowIntermediateSourceConfigurationArgs{})
@@ -1814,6 +2190,12 @@ func init() {
 	pulumi.RegisterOutputType(IdMappingWorkflowOutputSourceArrayOutput{})
 	pulumi.RegisterOutputType(IdMappingWorkflowProviderPropertiesOutput{})
 	pulumi.RegisterOutputType(IdMappingWorkflowProviderPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(IdNamespaceIdMappingWorkflowPropertiesOutput{})
+	pulumi.RegisterOutputType(IdNamespaceIdMappingWorkflowPropertiesArrayOutput{})
+	pulumi.RegisterOutputType(IdNamespaceInputSourceOutput{})
+	pulumi.RegisterOutputType(IdNamespaceInputSourceArrayOutput{})
+	pulumi.RegisterOutputType(IdNamespaceNamespaceProviderPropertiesOutput{})
+	pulumi.RegisterOutputType(IdNamespaceNamespaceProviderPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(MatchingWorkflowInputSourceOutput{})
 	pulumi.RegisterOutputType(MatchingWorkflowInputSourceArrayOutput{})
 	pulumi.RegisterOutputType(MatchingWorkflowIntermediateSourceConfigurationOutput{})

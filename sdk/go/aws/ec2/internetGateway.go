@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::EC2::InternetGateway
+// Allocates an internet gateway for use with a VPC. After creating the Internet gateway, you then attach it to a VPC.
 //
 // ## Example Usage
 // ### Example
@@ -49,7 +49,6 @@ import (
 type InternetGateway struct {
 	pulumi.CustomResourceState
 
-	// ID of internet gateway.
 	InternetGatewayId pulumi.StringOutput `pulumi:"internetGatewayId"`
 	// Any tags to assign to the internet gateway.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
@@ -142,7 +141,6 @@ func (o InternetGatewayOutput) ToInternetGatewayOutputWithContext(ctx context.Co
 	return o
 }
 
-// ID of internet gateway.
 func (o InternetGatewayOutput) InternetGatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v *InternetGateway) pulumi.StringOutput { return v.InternetGatewayId }).(pulumi.StringOutput)
 }

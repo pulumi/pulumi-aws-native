@@ -74,10 +74,11 @@ type Task struct {
 	// The ARN of the Amazon CloudWatch log group that is used to monitor and log events in the task.
 	CloudWatchLogGroupArn pulumi.StringPtrOutput `pulumi:"cloudWatchLogGroupArn"`
 	// The ARN of an AWS storage resource's location.
-	DestinationLocationArn          pulumi.StringOutput       `pulumi:"destinationLocationArn"`
-	DestinationNetworkInterfaceArns pulumi.StringArrayOutput  `pulumi:"destinationNetworkInterfaceArns"`
-	Excludes                        TaskFilterRuleArrayOutput `pulumi:"excludes"`
-	Includes                        TaskFilterRuleArrayOutput `pulumi:"includes"`
+	DestinationLocationArn          pulumi.StringOutput         `pulumi:"destinationLocationArn"`
+	DestinationNetworkInterfaceArns pulumi.StringArrayOutput    `pulumi:"destinationNetworkInterfaceArns"`
+	Excludes                        TaskFilterRuleArrayOutput   `pulumi:"excludes"`
+	Includes                        TaskFilterRuleArrayOutput   `pulumi:"includes"`
+	ManifestConfig                  TaskManifestConfigPtrOutput `pulumi:"manifestConfig"`
 	// The name of a task. This value is a text reference that is used to identify the task in the console.
 	Name     pulumi.StringPtrOutput `pulumi:"name"`
 	Options  TaskOptionsPtrOutput   `pulumi:"options"`
@@ -148,9 +149,10 @@ type taskArgs struct {
 	// The ARN of the Amazon CloudWatch log group that is used to monitor and log events in the task.
 	CloudWatchLogGroupArn *string `pulumi:"cloudWatchLogGroupArn"`
 	// The ARN of an AWS storage resource's location.
-	DestinationLocationArn string           `pulumi:"destinationLocationArn"`
-	Excludes               []TaskFilterRule `pulumi:"excludes"`
-	Includes               []TaskFilterRule `pulumi:"includes"`
+	DestinationLocationArn string              `pulumi:"destinationLocationArn"`
+	Excludes               []TaskFilterRule    `pulumi:"excludes"`
+	Includes               []TaskFilterRule    `pulumi:"includes"`
+	ManifestConfig         *TaskManifestConfig `pulumi:"manifestConfig"`
 	// The name of a task. This value is a text reference that is used to identify the task in the console.
 	Name     *string       `pulumi:"name"`
 	Options  *TaskOptions  `pulumi:"options"`
@@ -170,6 +172,7 @@ type TaskArgs struct {
 	DestinationLocationArn pulumi.StringInput
 	Excludes               TaskFilterRuleArrayInput
 	Includes               TaskFilterRuleArrayInput
+	ManifestConfig         TaskManifestConfigPtrInput
 	// The name of a task. This value is a text reference that is used to identify the task in the console.
 	Name     pulumi.StringPtrInput
 	Options  TaskOptionsPtrInput
@@ -238,6 +241,10 @@ func (o TaskOutput) Excludes() TaskFilterRuleArrayOutput {
 
 func (o TaskOutput) Includes() TaskFilterRuleArrayOutput {
 	return o.ApplyT(func(v *Task) TaskFilterRuleArrayOutput { return v.Includes }).(TaskFilterRuleArrayOutput)
+}
+
+func (o TaskOutput) ManifestConfig() TaskManifestConfigPtrOutput {
+	return o.ApplyT(func(v *Task) TaskManifestConfigPtrOutput { return v.ManifestConfig }).(TaskManifestConfigPtrOutput)
 }
 
 // The name of a task. This value is a text reference that is used to identify the task in the console.

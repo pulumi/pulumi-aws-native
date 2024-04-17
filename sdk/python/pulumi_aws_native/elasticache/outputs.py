@@ -280,19 +280,32 @@ class ServerlessCacheDataStorage(dict):
     The cached data capacity of the Serverless Cache.
     """
     def __init__(__self__, *,
-                 maximum: int,
-                 unit: 'ServerlessCacheDataStorageUnit'):
+                 unit: 'ServerlessCacheDataStorageUnit',
+                 maximum: Optional[int] = None,
+                 minimum: Optional[int] = None):
         """
         The cached data capacity of the Serverless Cache.
+        :param 'ServerlessCacheDataStorageUnit' unit: The unit of cached data capacity of the Serverless Cache.
         :param int maximum: The maximum cached data capacity of the Serverless Cache.
-        :param 'ServerlessCacheDataStorageUnit' unit: The unix of cached data capacity of the Serverless Cache.
+        :param int minimum: The minimum cached data capacity of the Serverless Cache.
         """
-        pulumi.set(__self__, "maximum", maximum)
         pulumi.set(__self__, "unit", unit)
+        if maximum is not None:
+            pulumi.set(__self__, "maximum", maximum)
+        if minimum is not None:
+            pulumi.set(__self__, "minimum", minimum)
 
     @property
     @pulumi.getter
-    def maximum(self) -> int:
+    def unit(self) -> 'ServerlessCacheDataStorageUnit':
+        """
+        The unit of cached data capacity of the Serverless Cache.
+        """
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter
+    def maximum(self) -> Optional[int]:
         """
         The maximum cached data capacity of the Serverless Cache.
         """
@@ -300,11 +313,11 @@ class ServerlessCacheDataStorage(dict):
 
     @property
     @pulumi.getter
-    def unit(self) -> 'ServerlessCacheDataStorageUnit':
+    def minimum(self) -> Optional[int]:
         """
-        The unix of cached data capacity of the Serverless Cache.
+        The minimum cached data capacity of the Serverless Cache.
         """
-        return pulumi.get(self, "unit")
+        return pulumi.get(self, "minimum")
 
 
 @pulumi.output_type
@@ -313,20 +326,33 @@ class ServerlessCacheEcpuPerSecond(dict):
     The ECPU per second of the Serverless Cache.
     """
     def __init__(__self__, *,
-                 maximum: int):
+                 maximum: Optional[int] = None,
+                 minimum: Optional[int] = None):
         """
         The ECPU per second of the Serverless Cache.
         :param int maximum: The maximum ECPU per second of the Serverless Cache.
+        :param int minimum: The minimum ECPU per second of the Serverless Cache.
         """
-        pulumi.set(__self__, "maximum", maximum)
+        if maximum is not None:
+            pulumi.set(__self__, "maximum", maximum)
+        if minimum is not None:
+            pulumi.set(__self__, "minimum", minimum)
 
     @property
     @pulumi.getter
-    def maximum(self) -> int:
+    def maximum(self) -> Optional[int]:
         """
         The maximum ECPU per second of the Serverless Cache.
         """
         return pulumi.get(self, "maximum")
+
+    @property
+    @pulumi.getter
+    def minimum(self) -> Optional[int]:
+        """
+        The minimum ECPU per second of the Serverless Cache.
+        """
+        return pulumi.get(self, "minimum")
 
 
 @pulumi.output_type

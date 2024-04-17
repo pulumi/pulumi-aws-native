@@ -36,6 +36,9 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         [Input("efsVolumeConfiguration")]
         public Input<Inputs.TaskDefinitionEfsVolumeConfigurationArgs>? EfsVolumeConfiguration { get; set; }
 
+        [Input("fSxWindowsFileServerVolumeConfiguration")]
+        public Input<Inputs.TaskDefinitionFSxWindowsFileServerVolumeConfigurationArgs>? FSxWindowsFileServerVolumeConfiguration { get; set; }
+
         /// <summary>
         /// This parameter is specified when you use bind mount host volumes. The contents of the ``host`` parameter determine whether your bind mount host volume persists on the host container instance and where it's stored. If the ``host`` parameter is empty, then the Docker daemon assigns a host path for your data volume. However, the data isn't guaranteed to persist after the containers that are associated with it stop running.
         ///  Windows containers can mount whole directories on the same drive as ``$env:ProgramData``. Windows containers can't mount directories on a different drive, and mount point can't be across drives. For example, you can mount ``C:\my\path:C:\my\path`` and ``D:\:D:\``, but not ``D:\my\path:C:\my\path`` or ``D:\:C:\my\path``.

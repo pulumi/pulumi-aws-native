@@ -15,6 +15,8 @@ __all__ = [
     'RecordingConfigurationRenditionConfigurationArgs',
     'RecordingConfigurationS3DestinationConfigurationArgs',
     'RecordingConfigurationThumbnailConfigurationArgs',
+    'StorageConfigurationS3StorageConfigurationArgs',
+    'VideoPropertiesArgs',
 ]
 
 @pulumi.input_type
@@ -166,5 +168,100 @@ class RecordingConfigurationThumbnailConfigurationArgs:
     @target_interval_seconds.setter
     def target_interval_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "target_interval_seconds", value)
+
+
+@pulumi.input_type
+class StorageConfigurationS3StorageConfigurationArgs:
+    def __init__(__self__, *,
+                 bucket_name: pulumi.Input[str]):
+        """
+        A complex type that describes an S3 location where recorded videos will be stored.
+        :param pulumi.Input[str] bucket_name: Location (S3 bucket name) where recorded videos will be stored. Note that the StorageConfiguration and S3 bucket must be in the same region as the Composition.
+        """
+        pulumi.set(__self__, "bucket_name", bucket_name)
+
+    @property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> pulumi.Input[str]:
+        """
+        Location (S3 bucket name) where recorded videos will be stored. Note that the StorageConfiguration and S3 bucket must be in the same region as the Composition.
+        """
+        return pulumi.get(self, "bucket_name")
+
+    @bucket_name.setter
+    def bucket_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "bucket_name", value)
+
+
+@pulumi.input_type
+class VideoPropertiesArgs:
+    def __init__(__self__, *,
+                 bitrate: Optional[pulumi.Input[int]] = None,
+                 framerate: Optional[pulumi.Input[float]] = None,
+                 height: Optional[pulumi.Input[int]] = None,
+                 width: Optional[pulumi.Input[int]] = None):
+        """
+        Video configuration. Default: video resolution 1280x720, bitrate 2500 kbps, 30 fps
+        :param pulumi.Input[int] bitrate: Bitrate for generated output, in bps. Default: 2500000.
+        :param pulumi.Input[float] framerate: Video frame rate, in fps. Default: 30.
+        :param pulumi.Input[int] height: Video-resolution height. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 720.
+        :param pulumi.Input[int] width: Video-resolution width. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 1280.
+        """
+        if bitrate is not None:
+            pulumi.set(__self__, "bitrate", bitrate)
+        if framerate is not None:
+            pulumi.set(__self__, "framerate", framerate)
+        if height is not None:
+            pulumi.set(__self__, "height", height)
+        if width is not None:
+            pulumi.set(__self__, "width", width)
+
+    @property
+    @pulumi.getter
+    def bitrate(self) -> Optional[pulumi.Input[int]]:
+        """
+        Bitrate for generated output, in bps. Default: 2500000.
+        """
+        return pulumi.get(self, "bitrate")
+
+    @bitrate.setter
+    def bitrate(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "bitrate", value)
+
+    @property
+    @pulumi.getter
+    def framerate(self) -> Optional[pulumi.Input[float]]:
+        """
+        Video frame rate, in fps. Default: 30.
+        """
+        return pulumi.get(self, "framerate")
+
+    @framerate.setter
+    def framerate(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "framerate", value)
+
+    @property
+    @pulumi.getter
+    def height(self) -> Optional[pulumi.Input[int]]:
+        """
+        Video-resolution height. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 720.
+        """
+        return pulumi.get(self, "height")
+
+    @height.setter
+    def height(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "height", value)
+
+    @property
+    @pulumi.getter
+    def width(self) -> Optional[pulumi.Input[int]]:
+        """
+        Video-resolution width. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 1280.
+        """
+        return pulumi.get(self, "width")
+
+    @width.setter
+    def width(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "width", value)
 
 

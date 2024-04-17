@@ -10,31 +10,35 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ec2
 {
     /// <summary>
-    /// Resource Type definition for AWS::EC2::CustomerGateway
+    /// Specifies a customer gateway.
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:CustomerGateway")]
     public partial class CustomerGateway : global::Pulumi.CustomResource
     {
         /// <summary>
         /// For devices that support BGP, the customer gateway's BGP ASN.
+        ///  Default: 65000
         /// </summary>
         [Output("bgpAsn")]
-        public Output<int> BgpAsn { get; private set; } = null!;
+        public Output<int?> BgpAsn { get; private set; } = null!;
 
-        /// <summary>
-        /// CustomerGateway ID generated after customer gateway is created. Each customer gateway has a unique ID.
-        /// </summary>
+        [Output("bgpAsnExtended")]
+        public Output<double?> BgpAsnExtended { get; private set; } = null!;
+
+        [Output("certificateArn")]
+        public Output<string?> CertificateArn { get; private set; } = null!;
+
         [Output("customerGatewayId")]
         public Output<string> CustomerGatewayId { get; private set; } = null!;
 
         /// <summary>
-        /// A name for the customer gateway device.
+        /// The name of customer gateway device.
         /// </summary>
         [Output("deviceName")]
         public Output<string?> DeviceName { get; private set; } = null!;
 
         /// <summary>
-        /// The internet-routable IP address for the customer gateway's outside interface. The address must be static.
+        /// IPv4 address for the customer gateway device's outside interface. The address must be static.
         /// </summary>
         [Output("ipAddress")]
         public Output<string> IpAddress { get; private set; } = null!;
@@ -46,7 +50,7 @@ namespace Pulumi.AwsNative.Ec2
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The type of VPN connection that this customer gateway supports.
+        /// The type of VPN connection that this customer gateway supports (``ipsec.1``).
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -77,6 +81,8 @@ namespace Pulumi.AwsNative.Ec2
                 ReplaceOnChanges =
                 {
                     "bgpAsn",
+                    "bgpAsnExtended",
+                    "certificateArn",
                     "deviceName",
                     "ipAddress",
                     "type",
@@ -105,18 +111,25 @@ namespace Pulumi.AwsNative.Ec2
     {
         /// <summary>
         /// For devices that support BGP, the customer gateway's BGP ASN.
+        ///  Default: 65000
         /// </summary>
-        [Input("bgpAsn", required: true)]
-        public Input<int> BgpAsn { get; set; } = null!;
+        [Input("bgpAsn")]
+        public Input<int>? BgpAsn { get; set; }
+
+        [Input("bgpAsnExtended")]
+        public Input<double>? BgpAsnExtended { get; set; }
+
+        [Input("certificateArn")]
+        public Input<string>? CertificateArn { get; set; }
 
         /// <summary>
-        /// A name for the customer gateway device.
+        /// The name of customer gateway device.
         /// </summary>
         [Input("deviceName")]
         public Input<string>? DeviceName { get; set; }
 
         /// <summary>
-        /// The internet-routable IP address for the customer gateway's outside interface. The address must be static.
+        /// IPv4 address for the customer gateway device's outside interface. The address must be static.
         /// </summary>
         [Input("ipAddress", required: true)]
         public Input<string> IpAddress { get; set; } = null!;
@@ -134,7 +147,7 @@ namespace Pulumi.AwsNative.Ec2
         }
 
         /// <summary>
-        /// The type of VPN connection that this customer gateway supports.
+        /// The type of VPN connection that this customer gateway supports (``ipsec.1``).
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

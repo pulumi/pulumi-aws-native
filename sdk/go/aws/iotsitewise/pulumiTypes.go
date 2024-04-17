@@ -3362,6 +3362,8 @@ type GatewayPlatform struct {
 	Greengrass *GatewayGreengrass `pulumi:"greengrass"`
 	// A gateway that runs on AWS IoT Greengrass V2.
 	GreengrassV2 *GatewayGreengrassV2 `pulumi:"greengrassV2"`
+	// A gateway that runs on Siemens Industrial Edge.
+	SiemensIe *GatewaySiemensIe `pulumi:"siemensIe"`
 }
 
 // GatewayPlatformInput is an input type that accepts GatewayPlatformArgs and GatewayPlatformOutput values.
@@ -3381,6 +3383,8 @@ type GatewayPlatformArgs struct {
 	Greengrass GatewayGreengrassPtrInput `pulumi:"greengrass"`
 	// A gateway that runs on AWS IoT Greengrass V2.
 	GreengrassV2 GatewayGreengrassV2PtrInput `pulumi:"greengrassV2"`
+	// A gateway that runs on Siemens Industrial Edge.
+	SiemensIe GatewaySiemensIePtrInput `pulumi:"siemensIe"`
 }
 
 func (GatewayPlatformArgs) ElementType() reflect.Type {
@@ -3418,6 +3422,151 @@ func (o GatewayPlatformOutput) Greengrass() GatewayGreengrassPtrOutput {
 // A gateway that runs on AWS IoT Greengrass V2.
 func (o GatewayPlatformOutput) GreengrassV2() GatewayGreengrassV2PtrOutput {
 	return o.ApplyT(func(v GatewayPlatform) *GatewayGreengrassV2 { return v.GreengrassV2 }).(GatewayGreengrassV2PtrOutput)
+}
+
+// A gateway that runs on Siemens Industrial Edge.
+func (o GatewayPlatformOutput) SiemensIe() GatewaySiemensIePtrOutput {
+	return o.ApplyT(func(v GatewayPlatform) *GatewaySiemensIe { return v.SiemensIe }).(GatewaySiemensIePtrOutput)
+}
+
+// Contains the IotCoreThingName of AWS IoT Thing that the gateway runs on.
+type GatewaySiemensIe struct {
+	// The name of the IoT Core Thing.
+	IotCoreThingName string `pulumi:"iotCoreThingName"`
+}
+
+// GatewaySiemensIeInput is an input type that accepts GatewaySiemensIeArgs and GatewaySiemensIeOutput values.
+// You can construct a concrete instance of `GatewaySiemensIeInput` via:
+//
+//	GatewaySiemensIeArgs{...}
+type GatewaySiemensIeInput interface {
+	pulumi.Input
+
+	ToGatewaySiemensIeOutput() GatewaySiemensIeOutput
+	ToGatewaySiemensIeOutputWithContext(context.Context) GatewaySiemensIeOutput
+}
+
+// Contains the IotCoreThingName of AWS IoT Thing that the gateway runs on.
+type GatewaySiemensIeArgs struct {
+	// The name of the IoT Core Thing.
+	IotCoreThingName pulumi.StringInput `pulumi:"iotCoreThingName"`
+}
+
+func (GatewaySiemensIeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewaySiemensIe)(nil)).Elem()
+}
+
+func (i GatewaySiemensIeArgs) ToGatewaySiemensIeOutput() GatewaySiemensIeOutput {
+	return i.ToGatewaySiemensIeOutputWithContext(context.Background())
+}
+
+func (i GatewaySiemensIeArgs) ToGatewaySiemensIeOutputWithContext(ctx context.Context) GatewaySiemensIeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewaySiemensIeOutput)
+}
+
+func (i GatewaySiemensIeArgs) ToGatewaySiemensIePtrOutput() GatewaySiemensIePtrOutput {
+	return i.ToGatewaySiemensIePtrOutputWithContext(context.Background())
+}
+
+func (i GatewaySiemensIeArgs) ToGatewaySiemensIePtrOutputWithContext(ctx context.Context) GatewaySiemensIePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewaySiemensIeOutput).ToGatewaySiemensIePtrOutputWithContext(ctx)
+}
+
+// GatewaySiemensIePtrInput is an input type that accepts GatewaySiemensIeArgs, GatewaySiemensIePtr and GatewaySiemensIePtrOutput values.
+// You can construct a concrete instance of `GatewaySiemensIePtrInput` via:
+//
+//	        GatewaySiemensIeArgs{...}
+//
+//	or:
+//
+//	        nil
+type GatewaySiemensIePtrInput interface {
+	pulumi.Input
+
+	ToGatewaySiemensIePtrOutput() GatewaySiemensIePtrOutput
+	ToGatewaySiemensIePtrOutputWithContext(context.Context) GatewaySiemensIePtrOutput
+}
+
+type gatewaySiemensIePtrType GatewaySiemensIeArgs
+
+func GatewaySiemensIePtr(v *GatewaySiemensIeArgs) GatewaySiemensIePtrInput {
+	return (*gatewaySiemensIePtrType)(v)
+}
+
+func (*gatewaySiemensIePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewaySiemensIe)(nil)).Elem()
+}
+
+func (i *gatewaySiemensIePtrType) ToGatewaySiemensIePtrOutput() GatewaySiemensIePtrOutput {
+	return i.ToGatewaySiemensIePtrOutputWithContext(context.Background())
+}
+
+func (i *gatewaySiemensIePtrType) ToGatewaySiemensIePtrOutputWithContext(ctx context.Context) GatewaySiemensIePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewaySiemensIePtrOutput)
+}
+
+// Contains the IotCoreThingName of AWS IoT Thing that the gateway runs on.
+type GatewaySiemensIeOutput struct{ *pulumi.OutputState }
+
+func (GatewaySiemensIeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewaySiemensIe)(nil)).Elem()
+}
+
+func (o GatewaySiemensIeOutput) ToGatewaySiemensIeOutput() GatewaySiemensIeOutput {
+	return o
+}
+
+func (o GatewaySiemensIeOutput) ToGatewaySiemensIeOutputWithContext(ctx context.Context) GatewaySiemensIeOutput {
+	return o
+}
+
+func (o GatewaySiemensIeOutput) ToGatewaySiemensIePtrOutput() GatewaySiemensIePtrOutput {
+	return o.ToGatewaySiemensIePtrOutputWithContext(context.Background())
+}
+
+func (o GatewaySiemensIeOutput) ToGatewaySiemensIePtrOutputWithContext(ctx context.Context) GatewaySiemensIePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewaySiemensIe) *GatewaySiemensIe {
+		return &v
+	}).(GatewaySiemensIePtrOutput)
+}
+
+// The name of the IoT Core Thing.
+func (o GatewaySiemensIeOutput) IotCoreThingName() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewaySiemensIe) string { return v.IotCoreThingName }).(pulumi.StringOutput)
+}
+
+type GatewaySiemensIePtrOutput struct{ *pulumi.OutputState }
+
+func (GatewaySiemensIePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewaySiemensIe)(nil)).Elem()
+}
+
+func (o GatewaySiemensIePtrOutput) ToGatewaySiemensIePtrOutput() GatewaySiemensIePtrOutput {
+	return o
+}
+
+func (o GatewaySiemensIePtrOutput) ToGatewaySiemensIePtrOutputWithContext(ctx context.Context) GatewaySiemensIePtrOutput {
+	return o
+}
+
+func (o GatewaySiemensIePtrOutput) Elem() GatewaySiemensIeOutput {
+	return o.ApplyT(func(v *GatewaySiemensIe) GatewaySiemensIe {
+		if v != nil {
+			return *v
+		}
+		var ret GatewaySiemensIe
+		return ret
+	}).(GatewaySiemensIeOutput)
+}
+
+// The name of the IoT Core Thing.
+func (o GatewaySiemensIePtrOutput) IotCoreThingName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewaySiemensIe) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IotCoreThingName
+	}).(pulumi.StringPtrOutput)
 }
 
 // To add or update tag, provide both key and value. To delete tag, provide only tag key to be deleted
@@ -3486,6 +3635,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayGreengrassV2Input)(nil)).Elem(), GatewayGreengrassV2Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayGreengrassV2PtrInput)(nil)).Elem(), GatewayGreengrassV2Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayPlatformInput)(nil)).Elem(), GatewayPlatformArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewaySiemensIeInput)(nil)).Elem(), GatewaySiemensIeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewaySiemensIePtrInput)(nil)).Elem(), GatewaySiemensIeArgs{})
 	pulumi.RegisterOutputType(AccessPolicyIamRoleOutput{})
 	pulumi.RegisterOutputType(AccessPolicyIamRolePtrOutput{})
 	pulumi.RegisterOutputType(AccessPolicyIamUserOutput{})
@@ -3535,4 +3686,6 @@ func init() {
 	pulumi.RegisterOutputType(GatewayGreengrassV2Output{})
 	pulumi.RegisterOutputType(GatewayGreengrassV2PtrOutput{})
 	pulumi.RegisterOutputType(GatewayPlatformOutput{})
+	pulumi.RegisterOutputType(GatewaySiemensIeOutput{})
+	pulumi.RegisterOutputType(GatewaySiemensIePtrOutput{})
 }

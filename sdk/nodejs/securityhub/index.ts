@@ -10,15 +10,35 @@ export type AutomationRule = import("./automationRule").AutomationRule;
 export const AutomationRule: typeof import("./automationRule").AutomationRule = null as any;
 utilities.lazyLoad(exports, ["AutomationRule"], () => require("./automationRule"));
 
+export { DelegatedAdminArgs } from "./delegatedAdmin";
+export type DelegatedAdmin = import("./delegatedAdmin").DelegatedAdmin;
+export const DelegatedAdmin: typeof import("./delegatedAdmin").DelegatedAdmin = null as any;
+utilities.lazyLoad(exports, ["DelegatedAdmin"], () => require("./delegatedAdmin"));
+
 export { GetAutomationRuleArgs, GetAutomationRuleResult, GetAutomationRuleOutputArgs } from "./getAutomationRule";
 export const getAutomationRule: typeof import("./getAutomationRule").getAutomationRule = null as any;
 export const getAutomationRuleOutput: typeof import("./getAutomationRule").getAutomationRuleOutput = null as any;
 utilities.lazyLoad(exports, ["getAutomationRule","getAutomationRuleOutput"], () => require("./getAutomationRule"));
 
+export { GetDelegatedAdminArgs, GetDelegatedAdminResult, GetDelegatedAdminOutputArgs } from "./getDelegatedAdmin";
+export const getDelegatedAdmin: typeof import("./getDelegatedAdmin").getDelegatedAdmin = null as any;
+export const getDelegatedAdminOutput: typeof import("./getDelegatedAdmin").getDelegatedAdminOutput = null as any;
+utilities.lazyLoad(exports, ["getDelegatedAdmin","getDelegatedAdminOutput"], () => require("./getDelegatedAdmin"));
+
 export { GetHubArgs, GetHubResult, GetHubOutputArgs } from "./getHub";
 export const getHub: typeof import("./getHub").getHub = null as any;
 export const getHubOutput: typeof import("./getHub").getHubOutput = null as any;
 utilities.lazyLoad(exports, ["getHub","getHubOutput"], () => require("./getHub"));
+
+export { GetInsightArgs, GetInsightResult, GetInsightOutputArgs } from "./getInsight";
+export const getInsight: typeof import("./getInsight").getInsight = null as any;
+export const getInsightOutput: typeof import("./getInsight").getInsightOutput = null as any;
+utilities.lazyLoad(exports, ["getInsight","getInsightOutput"], () => require("./getInsight"));
+
+export { GetProductSubscriptionArgs, GetProductSubscriptionResult, GetProductSubscriptionOutputArgs } from "./getProductSubscription";
+export const getProductSubscription: typeof import("./getProductSubscription").getProductSubscription = null as any;
+export const getProductSubscriptionOutput: typeof import("./getProductSubscription").getProductSubscriptionOutput = null as any;
+utilities.lazyLoad(exports, ["getProductSubscription","getProductSubscriptionOutput"], () => require("./getProductSubscription"));
 
 export { GetStandardArgs, GetStandardResult, GetStandardOutputArgs } from "./getStandard";
 export const getStandard: typeof import("./getStandard").getStandard = null as any;
@@ -29,6 +49,16 @@ export { HubArgs } from "./hub";
 export type Hub = import("./hub").Hub;
 export const Hub: typeof import("./hub").Hub = null as any;
 utilities.lazyLoad(exports, ["Hub"], () => require("./hub"));
+
+export { InsightArgs } from "./insight";
+export type Insight = import("./insight").Insight;
+export const Insight: typeof import("./insight").Insight = null as any;
+utilities.lazyLoad(exports, ["Insight"], () => require("./insight"));
+
+export { ProductSubscriptionArgs } from "./productSubscription";
+export type ProductSubscription = import("./productSubscription").ProductSubscription;
+export const ProductSubscription: typeof import("./productSubscription").ProductSubscription = null as any;
+utilities.lazyLoad(exports, ["ProductSubscription"], () => require("./productSubscription"));
 
 export { StandardArgs } from "./standard";
 export type Standard = import("./standard").Standard;
@@ -45,8 +75,14 @@ const _module = {
         switch (type) {
             case "aws-native:securityhub:AutomationRule":
                 return new AutomationRule(name, <any>undefined, { urn })
+            case "aws-native:securityhub:DelegatedAdmin":
+                return new DelegatedAdmin(name, <any>undefined, { urn })
             case "aws-native:securityhub:Hub":
                 return new Hub(name, <any>undefined, { urn })
+            case "aws-native:securityhub:Insight":
+                return new Insight(name, <any>undefined, { urn })
+            case "aws-native:securityhub:ProductSubscription":
+                return new ProductSubscription(name, <any>undefined, { urn })
             case "aws-native:securityhub:Standard":
                 return new Standard(name, <any>undefined, { urn })
             default:

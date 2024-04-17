@@ -556,7 +556,7 @@ type FileSystemBackupPolicy struct {
 	// Set the backup policy status for the file system.
 	//   +   *ENABLED* - Turns automatic backups on for the file system.
 	//   +   *DISABLED* - Turns automatic backups off for the file system.
-	Status string `pulumi:"status"`
+	Status FileSystemBackupPolicyStatus `pulumi:"status"`
 }
 
 // FileSystemBackupPolicyInput is an input type that accepts FileSystemBackupPolicyArgs and FileSystemBackupPolicyOutput values.
@@ -575,7 +575,7 @@ type FileSystemBackupPolicyArgs struct {
 	// Set the backup policy status for the file system.
 	//   +   *ENABLED* - Turns automatic backups on for the file system.
 	//   +   *DISABLED* - Turns automatic backups off for the file system.
-	Status pulumi.StringInput `pulumi:"status"`
+	Status FileSystemBackupPolicyStatusInput `pulumi:"status"`
 }
 
 func (FileSystemBackupPolicyArgs) ElementType() reflect.Type {
@@ -659,8 +659,8 @@ func (o FileSystemBackupPolicyOutput) ToFileSystemBackupPolicyPtrOutputWithConte
 // Set the backup policy status for the file system.
 //   - *ENABLED* - Turns automatic backups on for the file system.
 //   - *DISABLED* - Turns automatic backups off for the file system.
-func (o FileSystemBackupPolicyOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v FileSystemBackupPolicy) string { return v.Status }).(pulumi.StringOutput)
+func (o FileSystemBackupPolicyOutput) Status() FileSystemBackupPolicyStatusOutput {
+	return o.ApplyT(func(v FileSystemBackupPolicy) FileSystemBackupPolicyStatus { return v.Status }).(FileSystemBackupPolicyStatusOutput)
 }
 
 type FileSystemBackupPolicyPtrOutput struct{ *pulumi.OutputState }
@@ -690,13 +690,13 @@ func (o FileSystemBackupPolicyPtrOutput) Elem() FileSystemBackupPolicyOutput {
 // Set the backup policy status for the file system.
 //   - *ENABLED* - Turns automatic backups on for the file system.
 //   - *DISABLED* - Turns automatic backups off for the file system.
-func (o FileSystemBackupPolicyPtrOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FileSystemBackupPolicy) *string {
+func (o FileSystemBackupPolicyPtrOutput) Status() FileSystemBackupPolicyStatusPtrOutput {
+	return o.ApplyT(func(v *FileSystemBackupPolicy) *FileSystemBackupPolicyStatus {
 		if v == nil {
 			return nil
 		}
 		return &v.Status
-	}).(pulumi.StringPtrOutput)
+	}).(FileSystemBackupPolicyStatusPtrOutput)
 }
 
 // A tag is a key-value pair attached to a file system. Allowed characters in the “Key“ and “Value“ properties are letters, white space, and numbers that can be represented in UTF-8, and the following characters:“+ - = . _ : /“

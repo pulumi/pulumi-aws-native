@@ -31,10 +31,13 @@ __all__ = [
     'StorageSystemServerConfiguration',
     'StorageSystemServerCredentials',
     'TaskFilterRule',
+    'TaskManifestConfig',
+    'TaskManifestConfigSourceProperties',
+    'TaskManifestConfigSourceS3',
     'TaskOptions',
     'TaskReportConfig',
     'TaskReportConfigDestinationProperties',
-    'TaskReportConfigDestinationPropertiesS3Properties',
+    'TaskReportConfigDestinationS3',
     'TaskReportConfigOverridesProperties',
     'TaskReportConfigOverridesPropertiesDeletedProperties',
     'TaskReportConfigOverridesPropertiesSkippedProperties',
@@ -738,6 +741,153 @@ class TaskFilterRule(dict):
 
 
 @pulumi.output_type
+class TaskManifestConfig(dict):
+    """
+    Configures a manifest, which is a list of files or objects that you want DataSync to transfer.
+    """
+    def __init__(__self__, *,
+                 source: 'outputs.TaskManifestConfigSourceProperties',
+                 action: Optional['TaskManifestConfigAction'] = None,
+                 format: Optional['TaskManifestConfigFormat'] = None):
+        """
+        Configures a manifest, which is a list of files or objects that you want DataSync to transfer.
+        :param 'TaskManifestConfigSourceProperties' source: Specifies the manifest that you want DataSync to use and where it's hosted.
+        :param 'TaskManifestConfigAction' action: Specifies what DataSync uses the manifest for.
+        :param 'TaskManifestConfigFormat' format: Specifies the file format of your manifest.
+        """
+        pulumi.set(__self__, "source", source)
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if format is not None:
+            pulumi.set(__self__, "format", format)
+
+    @property
+    @pulumi.getter
+    def source(self) -> 'outputs.TaskManifestConfigSourceProperties':
+        """
+        Specifies the manifest that you want DataSync to use and where it's hosted.
+        """
+        return pulumi.get(self, "source")
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional['TaskManifestConfigAction']:
+        """
+        Specifies what DataSync uses the manifest for.
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def format(self) -> Optional['TaskManifestConfigFormat']:
+        """
+        Specifies the file format of your manifest.
+        """
+        return pulumi.get(self, "format")
+
+
+@pulumi.output_type
+class TaskManifestConfigSourceProperties(dict):
+    """
+    Specifies the manifest that you want DataSync to use and where it's hosted.
+    """
+    def __init__(__self__, *,
+                 s3: Optional['outputs.TaskManifestConfigSourceS3'] = None):
+        """
+        Specifies the manifest that you want DataSync to use and where it's hosted.
+        """
+        if s3 is not None:
+            pulumi.set(__self__, "s3", s3)
+
+    @property
+    @pulumi.getter
+    def s3(self) -> Optional['outputs.TaskManifestConfigSourceS3']:
+        return pulumi.get(self, "s3")
+
+
+@pulumi.output_type
+class TaskManifestConfigSourceS3(dict):
+    """
+    Specifies the S3 bucket where you're hosting the manifest that you want AWS DataSync to use.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketAccessRoleArn":
+            suggest = "bucket_access_role_arn"
+        elif key == "manifestObjectPath":
+            suggest = "manifest_object_path"
+        elif key == "manifestObjectVersionId":
+            suggest = "manifest_object_version_id"
+        elif key == "s3BucketArn":
+            suggest = "s3_bucket_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TaskManifestConfigSourceS3. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TaskManifestConfigSourceS3.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TaskManifestConfigSourceS3.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket_access_role_arn: Optional[str] = None,
+                 manifest_object_path: Optional[str] = None,
+                 manifest_object_version_id: Optional[str] = None,
+                 s3_bucket_arn: Optional[str] = None):
+        """
+        Specifies the S3 bucket where you're hosting the manifest that you want AWS DataSync to use.
+        :param str bucket_access_role_arn: Specifies the AWS Identity and Access Management (IAM) role that allows DataSync to access your manifest.
+        :param str manifest_object_path: Specifies the Amazon S3 object key of your manifest.
+        :param str manifest_object_version_id: Specifies the object version ID of the manifest that you want DataSync to use.
+        :param str s3_bucket_arn: Specifies the Amazon Resource Name (ARN) of the S3 bucket where you're hosting your manifest.
+        """
+        if bucket_access_role_arn is not None:
+            pulumi.set(__self__, "bucket_access_role_arn", bucket_access_role_arn)
+        if manifest_object_path is not None:
+            pulumi.set(__self__, "manifest_object_path", manifest_object_path)
+        if manifest_object_version_id is not None:
+            pulumi.set(__self__, "manifest_object_version_id", manifest_object_version_id)
+        if s3_bucket_arn is not None:
+            pulumi.set(__self__, "s3_bucket_arn", s3_bucket_arn)
+
+    @property
+    @pulumi.getter(name="bucketAccessRoleArn")
+    def bucket_access_role_arn(self) -> Optional[str]:
+        """
+        Specifies the AWS Identity and Access Management (IAM) role that allows DataSync to access your manifest.
+        """
+        return pulumi.get(self, "bucket_access_role_arn")
+
+    @property
+    @pulumi.getter(name="manifestObjectPath")
+    def manifest_object_path(self) -> Optional[str]:
+        """
+        Specifies the Amazon S3 object key of your manifest.
+        """
+        return pulumi.get(self, "manifest_object_path")
+
+    @property
+    @pulumi.getter(name="manifestObjectVersionId")
+    def manifest_object_version_id(self) -> Optional[str]:
+        """
+        Specifies the object version ID of the manifest that you want DataSync to use.
+        """
+        return pulumi.get(self, "manifest_object_version_id")
+
+    @property
+    @pulumi.getter(name="s3BucketArn")
+    def s3_bucket_arn(self) -> Optional[str]:
+        """
+        Specifies the Amazon Resource Name (ARN) of the S3 bucket where you're hosting your manifest.
+        """
+        return pulumi.get(self, "s3_bucket_arn")
+
+
+@pulumi.output_type
 class TaskOptions(dict):
     """
     Represents the options that are available to control the behavior of a StartTaskExecution operation.
@@ -1061,25 +1211,21 @@ class TaskReportConfigDestinationProperties(dict):
     Specifies where DataSync uploads your task report.
     """
     def __init__(__self__, *,
-                 s3: Optional['outputs.TaskReportConfigDestinationPropertiesS3Properties'] = None):
+                 s3: Optional['outputs.TaskReportConfigDestinationS3'] = None):
         """
         Specifies where DataSync uploads your task report.
-        :param 'TaskReportConfigDestinationPropertiesS3Properties' s3: Specifies the Amazon S3 bucket where DataSync uploads your task report.
         """
         if s3 is not None:
             pulumi.set(__self__, "s3", s3)
 
     @property
     @pulumi.getter
-    def s3(self) -> Optional['outputs.TaskReportConfigDestinationPropertiesS3Properties']:
-        """
-        Specifies the Amazon S3 bucket where DataSync uploads your task report.
-        """
+    def s3(self) -> Optional['outputs.TaskReportConfigDestinationS3']:
         return pulumi.get(self, "s3")
 
 
 @pulumi.output_type
-class TaskReportConfigDestinationPropertiesS3Properties(dict):
+class TaskReportConfigDestinationS3(dict):
     """
     Specifies the Amazon S3 bucket where DataSync uploads your task report.
     """
@@ -1092,14 +1238,14 @@ class TaskReportConfigDestinationPropertiesS3Properties(dict):
             suggest = "s3_bucket_arn"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in TaskReportConfigDestinationPropertiesS3Properties. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in TaskReportConfigDestinationS3. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        TaskReportConfigDestinationPropertiesS3Properties.__key_warning(key)
+        TaskReportConfigDestinationS3.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        TaskReportConfigDestinationPropertiesS3Properties.__key_warning(key)
+        TaskReportConfigDestinationS3.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

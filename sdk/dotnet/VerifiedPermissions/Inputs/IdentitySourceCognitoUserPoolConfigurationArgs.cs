@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.VerifiedPermissions.Inputs
             set => _clientIds = value;
         }
 
+        [Input("groupConfiguration")]
+        public Input<Inputs.IdentitySourceCognitoGroupConfigurationArgs>? GroupConfiguration { get; set; }
+
         [Input("userPoolArn", required: true)]
         public Input<string> UserPoolArn { get; set; } = null!;
 

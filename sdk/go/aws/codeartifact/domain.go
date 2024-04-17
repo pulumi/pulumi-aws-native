@@ -82,9 +82,9 @@ import (
 //			_, err := codeartifact.NewDomain(ctx, "myCodeArtifactDomain", &codeartifact.DomainArgs{
 //				DomainName:    pulumi.String("my-domain"),
 //				EncryptionKey: pulumi.String("arn:aws:kms:us-west-2:123456789012:key/12345678-9abc-def1-2345-6789abcdef12"),
-//				PermissionsPolicyDocument: pulumi.Any{
-//					Version: "2012-10-17",
-//					Statement: []map[string]interface{}{
+//				PermissionsPolicyDocument: pulumi.Any(map[string]interface{}{
+//					"version": "2012-10-17",
+//					"statement": []map[string]interface{}{
 //						map[string]interface{}{
 //							"action": []string{
 //								"codeartifact:ReadFromRepository",
@@ -105,7 +105,7 @@ import (
 //							"resource": "*",
 //						},
 //					},
-//				},
+//				}),
 //			})
 //			if err != nil {
 //				return err
@@ -132,9 +132,9 @@ import (
 //			_, err := codeartifact.NewDomain(ctx, "myCodeArtifactDomain", &codeartifact.DomainArgs{
 //				DomainName:    pulumi.String("my-domain"),
 //				EncryptionKey: pulumi.String("arn:aws:kms:us-west-2:123456789012:key/12345678-9abc-def1-2345-6789abcdef12"),
-//				PermissionsPolicyDocument: pulumi.Any{
-//					Version: "2012-10-17",
-//					Statement: []map[string]interface{}{
+//				PermissionsPolicyDocument: pulumi.Any(map[string]interface{}{
+//					"version": "2012-10-17",
+//					"statement": []map[string]interface{}{
 //						map[string]interface{}{
 //							"action": []string{
 //								"codeartifact:ReadFromRepository",
@@ -155,7 +155,7 @@ import (
 //							"resource": "*",
 //						},
 //					},
-//				},
+//				}),
 //			})
 //			if err != nil {
 //				return err

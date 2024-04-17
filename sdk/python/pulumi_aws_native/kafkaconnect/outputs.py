@@ -30,6 +30,9 @@ __all__ = [
     'ConnectorVpc',
     'ConnectorWorkerConfiguration',
     'ConnectorWorkerLogDelivery',
+    'CustomPluginFileDescription',
+    'CustomPluginLocation',
+    'CustomPluginS3Location',
 ]
 
 @pulumi.output_type
@@ -861,5 +864,160 @@ class ConnectorWorkerLogDelivery(dict):
     @pulumi.getter
     def s3(self) -> Optional['outputs.ConnectorS3LogDelivery']:
         return pulumi.get(self, "s3")
+
+
+@pulumi.output_type
+class CustomPluginFileDescription(dict):
+    """
+    Details about the custom plugin file.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fileMd5":
+            suggest = "file_md5"
+        elif key == "fileSize":
+            suggest = "file_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomPluginFileDescription. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomPluginFileDescription.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomPluginFileDescription.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 file_md5: Optional[str] = None,
+                 file_size: Optional[int] = None):
+        """
+        Details about the custom plugin file.
+        :param str file_md5: The hex-encoded MD5 checksum of the custom plugin file. You can use it to validate the file.
+        :param int file_size: The size in bytes of the custom plugin file. You can use it to validate the file.
+        """
+        if file_md5 is not None:
+            pulumi.set(__self__, "file_md5", file_md5)
+        if file_size is not None:
+            pulumi.set(__self__, "file_size", file_size)
+
+    @property
+    @pulumi.getter(name="fileMd5")
+    def file_md5(self) -> Optional[str]:
+        """
+        The hex-encoded MD5 checksum of the custom plugin file. You can use it to validate the file.
+        """
+        return pulumi.get(self, "file_md5")
+
+    @property
+    @pulumi.getter(name="fileSize")
+    def file_size(self) -> Optional[int]:
+        """
+        The size in bytes of the custom plugin file. You can use it to validate the file.
+        """
+        return pulumi.get(self, "file_size")
+
+
+@pulumi.output_type
+class CustomPluginLocation(dict):
+    """
+    Information about the location of a custom plugin.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Location":
+            suggest = "s3_location"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomPluginLocation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomPluginLocation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomPluginLocation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_location: 'outputs.CustomPluginS3Location'):
+        """
+        Information about the location of a custom plugin.
+        """
+        pulumi.set(__self__, "s3_location", s3_location)
+
+    @property
+    @pulumi.getter(name="s3Location")
+    def s3_location(self) -> 'outputs.CustomPluginS3Location':
+        return pulumi.get(self, "s3_location")
+
+
+@pulumi.output_type
+class CustomPluginS3Location(dict):
+    """
+    The S3 bucket Amazon Resource Name (ARN), file key, and object version of the plugin file stored in Amazon S3.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketArn":
+            suggest = "bucket_arn"
+        elif key == "fileKey":
+            suggest = "file_key"
+        elif key == "objectVersion":
+            suggest = "object_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomPluginS3Location. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomPluginS3Location.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomPluginS3Location.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket_arn: str,
+                 file_key: str,
+                 object_version: Optional[str] = None):
+        """
+        The S3 bucket Amazon Resource Name (ARN), file key, and object version of the plugin file stored in Amazon S3.
+        :param str bucket_arn: The Amazon Resource Name (ARN) of an S3 bucket.
+        :param str file_key: The file key for an object in an S3 bucket.
+        :param str object_version: The version of an object in an S3 bucket.
+        """
+        pulumi.set(__self__, "bucket_arn", bucket_arn)
+        pulumi.set(__self__, "file_key", file_key)
+        if object_version is not None:
+            pulumi.set(__self__, "object_version", object_version)
+
+    @property
+    @pulumi.getter(name="bucketArn")
+    def bucket_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of an S3 bucket.
+        """
+        return pulumi.get(self, "bucket_arn")
+
+    @property
+    @pulumi.getter(name="fileKey")
+    def file_key(self) -> str:
+        """
+        The file key for an object in an S3 bucket.
+        """
+        return pulumi.get(self, "file_key")
+
+    @property
+    @pulumi.getter(name="objectVersion")
+    def object_version(self) -> Optional[str]:
+        """
+        The version of an object in an S3 bucket.
+        """
+        return pulumi.get(self, "object_version")
 
 

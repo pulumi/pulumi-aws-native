@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::EC2::CustomerGateway
+// Specifies a customer gateway.
 func LookupCustomerGateway(ctx *pulumi.Context, args *LookupCustomerGatewayArgs, opts ...pulumi.InvokeOption) (*LookupCustomerGatewayResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCustomerGatewayResult
@@ -24,12 +24,10 @@ func LookupCustomerGateway(ctx *pulumi.Context, args *LookupCustomerGatewayArgs,
 }
 
 type LookupCustomerGatewayArgs struct {
-	// CustomerGateway ID generated after customer gateway is created. Each customer gateway has a unique ID.
 	CustomerGatewayId string `pulumi:"customerGatewayId"`
 }
 
 type LookupCustomerGatewayResult struct {
-	// CustomerGateway ID generated after customer gateway is created. Each customer gateway has a unique ID.
 	CustomerGatewayId *string `pulumi:"customerGatewayId"`
 	// One or more tags for the customer gateway.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -49,7 +47,6 @@ func LookupCustomerGatewayOutput(ctx *pulumi.Context, args LookupCustomerGateway
 }
 
 type LookupCustomerGatewayOutputArgs struct {
-	// CustomerGateway ID generated after customer gateway is created. Each customer gateway has a unique ID.
 	CustomerGatewayId pulumi.StringInput `pulumi:"customerGatewayId"`
 }
 
@@ -71,7 +68,6 @@ func (o LookupCustomerGatewayResultOutput) ToLookupCustomerGatewayResultOutputWi
 	return o
 }
 
-// CustomerGateway ID generated after customer gateway is created. Each customer gateway has a unique ID.
 func (o LookupCustomerGatewayResultOutput) CustomerGatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCustomerGatewayResult) *string { return v.CustomerGatewayId }).(pulumi.StringPtrOutput)
 }

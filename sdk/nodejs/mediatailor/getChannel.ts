@@ -27,6 +27,10 @@ export interface GetChannelResult {
      * <p>The ARN of the channel.</p>
      */
     readonly arn?: string;
+    /**
+     * <p>The list of audiences defined in channel.</p>
+     */
+    readonly audiences?: string[];
     readonly fillerSlate?: outputs.mediatailor.ChannelSlateSource;
     readonly logConfiguration?: outputs.mediatailor.ChannelLogConfigurationForChannel;
     readonly playbackMode?: enums.mediatailor.ChannelPlaybackMode;

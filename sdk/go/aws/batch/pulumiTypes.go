@@ -2568,11 +2568,12 @@ func (o JobDefinitionEksContainerResourceRequirementsPtrOutput) Requests() pulum
 }
 
 type JobDefinitionEksContainerSecurityContext struct {
-	Privileged             *bool `pulumi:"privileged"`
-	ReadOnlyRootFilesystem *bool `pulumi:"readOnlyRootFilesystem"`
-	RunAsGroup             *int  `pulumi:"runAsGroup"`
-	RunAsNonRoot           *bool `pulumi:"runAsNonRoot"`
-	RunAsUser              *int  `pulumi:"runAsUser"`
+	AllowPrivilegeEscalation *bool `pulumi:"allowPrivilegeEscalation"`
+	Privileged               *bool `pulumi:"privileged"`
+	ReadOnlyRootFilesystem   *bool `pulumi:"readOnlyRootFilesystem"`
+	RunAsGroup               *int  `pulumi:"runAsGroup"`
+	RunAsNonRoot             *bool `pulumi:"runAsNonRoot"`
+	RunAsUser                *int  `pulumi:"runAsUser"`
 }
 
 // JobDefinitionEksContainerSecurityContextInput is an input type that accepts JobDefinitionEksContainerSecurityContextArgs and JobDefinitionEksContainerSecurityContextOutput values.
@@ -2587,11 +2588,12 @@ type JobDefinitionEksContainerSecurityContextInput interface {
 }
 
 type JobDefinitionEksContainerSecurityContextArgs struct {
-	Privileged             pulumi.BoolPtrInput `pulumi:"privileged"`
-	ReadOnlyRootFilesystem pulumi.BoolPtrInput `pulumi:"readOnlyRootFilesystem"`
-	RunAsGroup             pulumi.IntPtrInput  `pulumi:"runAsGroup"`
-	RunAsNonRoot           pulumi.BoolPtrInput `pulumi:"runAsNonRoot"`
-	RunAsUser              pulumi.IntPtrInput  `pulumi:"runAsUser"`
+	AllowPrivilegeEscalation pulumi.BoolPtrInput `pulumi:"allowPrivilegeEscalation"`
+	Privileged               pulumi.BoolPtrInput `pulumi:"privileged"`
+	ReadOnlyRootFilesystem   pulumi.BoolPtrInput `pulumi:"readOnlyRootFilesystem"`
+	RunAsGroup               pulumi.IntPtrInput  `pulumi:"runAsGroup"`
+	RunAsNonRoot             pulumi.BoolPtrInput `pulumi:"runAsNonRoot"`
+	RunAsUser                pulumi.IntPtrInput  `pulumi:"runAsUser"`
 }
 
 func (JobDefinitionEksContainerSecurityContextArgs) ElementType() reflect.Type {
@@ -2671,6 +2673,10 @@ func (o JobDefinitionEksContainerSecurityContextOutput) ToJobDefinitionEksContai
 	}).(JobDefinitionEksContainerSecurityContextPtrOutput)
 }
 
+func (o JobDefinitionEksContainerSecurityContextOutput) AllowPrivilegeEscalation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v JobDefinitionEksContainerSecurityContext) *bool { return v.AllowPrivilegeEscalation }).(pulumi.BoolPtrOutput)
+}
+
 func (o JobDefinitionEksContainerSecurityContextOutput) Privileged() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v JobDefinitionEksContainerSecurityContext) *bool { return v.Privileged }).(pulumi.BoolPtrOutput)
 }
@@ -2713,6 +2719,15 @@ func (o JobDefinitionEksContainerSecurityContextPtrOutput) Elem() JobDefinitionE
 		var ret JobDefinitionEksContainerSecurityContext
 		return ret
 	}).(JobDefinitionEksContainerSecurityContextOutput)
+}
+
+func (o JobDefinitionEksContainerSecurityContextPtrOutput) AllowPrivilegeEscalation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionEksContainerSecurityContext) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowPrivilegeEscalation
+	}).(pulumi.BoolPtrOutput)
 }
 
 func (o JobDefinitionEksContainerSecurityContextPtrOutput) Privileged() pulumi.BoolPtrOutput {
@@ -4018,6 +4033,100 @@ func (o JobDefinitionFargatePlatformConfigurationPtrOutput) PlatformVersion() pu
 	}).(pulumi.StringPtrOutput)
 }
 
+type JobDefinitionImagePullSecret struct {
+	Name string `pulumi:"name"`
+}
+
+// JobDefinitionImagePullSecretInput is an input type that accepts JobDefinitionImagePullSecretArgs and JobDefinitionImagePullSecretOutput values.
+// You can construct a concrete instance of `JobDefinitionImagePullSecretInput` via:
+//
+//	JobDefinitionImagePullSecretArgs{...}
+type JobDefinitionImagePullSecretInput interface {
+	pulumi.Input
+
+	ToJobDefinitionImagePullSecretOutput() JobDefinitionImagePullSecretOutput
+	ToJobDefinitionImagePullSecretOutputWithContext(context.Context) JobDefinitionImagePullSecretOutput
+}
+
+type JobDefinitionImagePullSecretArgs struct {
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (JobDefinitionImagePullSecretArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionImagePullSecret)(nil)).Elem()
+}
+
+func (i JobDefinitionImagePullSecretArgs) ToJobDefinitionImagePullSecretOutput() JobDefinitionImagePullSecretOutput {
+	return i.ToJobDefinitionImagePullSecretOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionImagePullSecretArgs) ToJobDefinitionImagePullSecretOutputWithContext(ctx context.Context) JobDefinitionImagePullSecretOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionImagePullSecretOutput)
+}
+
+// JobDefinitionImagePullSecretArrayInput is an input type that accepts JobDefinitionImagePullSecretArray and JobDefinitionImagePullSecretArrayOutput values.
+// You can construct a concrete instance of `JobDefinitionImagePullSecretArrayInput` via:
+//
+//	JobDefinitionImagePullSecretArray{ JobDefinitionImagePullSecretArgs{...} }
+type JobDefinitionImagePullSecretArrayInput interface {
+	pulumi.Input
+
+	ToJobDefinitionImagePullSecretArrayOutput() JobDefinitionImagePullSecretArrayOutput
+	ToJobDefinitionImagePullSecretArrayOutputWithContext(context.Context) JobDefinitionImagePullSecretArrayOutput
+}
+
+type JobDefinitionImagePullSecretArray []JobDefinitionImagePullSecretInput
+
+func (JobDefinitionImagePullSecretArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobDefinitionImagePullSecret)(nil)).Elem()
+}
+
+func (i JobDefinitionImagePullSecretArray) ToJobDefinitionImagePullSecretArrayOutput() JobDefinitionImagePullSecretArrayOutput {
+	return i.ToJobDefinitionImagePullSecretArrayOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionImagePullSecretArray) ToJobDefinitionImagePullSecretArrayOutputWithContext(ctx context.Context) JobDefinitionImagePullSecretArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionImagePullSecretArrayOutput)
+}
+
+type JobDefinitionImagePullSecretOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionImagePullSecretOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionImagePullSecret)(nil)).Elem()
+}
+
+func (o JobDefinitionImagePullSecretOutput) ToJobDefinitionImagePullSecretOutput() JobDefinitionImagePullSecretOutput {
+	return o
+}
+
+func (o JobDefinitionImagePullSecretOutput) ToJobDefinitionImagePullSecretOutputWithContext(ctx context.Context) JobDefinitionImagePullSecretOutput {
+	return o
+}
+
+func (o JobDefinitionImagePullSecretOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v JobDefinitionImagePullSecret) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type JobDefinitionImagePullSecretArrayOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionImagePullSecretArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobDefinitionImagePullSecret)(nil)).Elem()
+}
+
+func (o JobDefinitionImagePullSecretArrayOutput) ToJobDefinitionImagePullSecretArrayOutput() JobDefinitionImagePullSecretArrayOutput {
+	return o
+}
+
+func (o JobDefinitionImagePullSecretArrayOutput) ToJobDefinitionImagePullSecretArrayOutputWithContext(ctx context.Context) JobDefinitionImagePullSecretArrayOutput {
+	return o
+}
+
+func (o JobDefinitionImagePullSecretArrayOutput) Index(i pulumi.IntInput) JobDefinitionImagePullSecretOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobDefinitionImagePullSecret {
+		return vs[0].([]JobDefinitionImagePullSecret)[vs[1].(int)]
+	}).(JobDefinitionImagePullSecretOutput)
+}
+
 type JobDefinitionLinuxParameters struct {
 	Devices            []JobDefinitionDevice `pulumi:"devices"`
 	InitProcessEnabled *bool                 `pulumi:"initProcessEnabled"`
@@ -5037,14 +5146,15 @@ func (o JobDefinitionNodeRangePropertyArrayOutput) Index(i pulumi.IntInput) JobD
 }
 
 type JobDefinitionPodProperties struct {
-	Containers            []JobDefinitionEksContainer `pulumi:"containers"`
-	DnsPolicy             *string                     `pulumi:"dnsPolicy"`
-	HostNetwork           *bool                       `pulumi:"hostNetwork"`
-	InitContainers        []JobDefinitionEksContainer `pulumi:"initContainers"`
-	Metadata              *JobDefinitionMetadata      `pulumi:"metadata"`
-	ServiceAccountName    *string                     `pulumi:"serviceAccountName"`
-	ShareProcessNamespace *bool                       `pulumi:"shareProcessNamespace"`
-	Volumes               []JobDefinitionEksVolume    `pulumi:"volumes"`
+	Containers            []JobDefinitionEksContainer    `pulumi:"containers"`
+	DnsPolicy             *string                        `pulumi:"dnsPolicy"`
+	HostNetwork           *bool                          `pulumi:"hostNetwork"`
+	ImagePullSecrets      []JobDefinitionImagePullSecret `pulumi:"imagePullSecrets"`
+	InitContainers        []JobDefinitionEksContainer    `pulumi:"initContainers"`
+	Metadata              *JobDefinitionMetadata         `pulumi:"metadata"`
+	ServiceAccountName    *string                        `pulumi:"serviceAccountName"`
+	ShareProcessNamespace *bool                          `pulumi:"shareProcessNamespace"`
+	Volumes               []JobDefinitionEksVolume       `pulumi:"volumes"`
 }
 
 // JobDefinitionPodPropertiesInput is an input type that accepts JobDefinitionPodPropertiesArgs and JobDefinitionPodPropertiesOutput values.
@@ -5059,14 +5169,15 @@ type JobDefinitionPodPropertiesInput interface {
 }
 
 type JobDefinitionPodPropertiesArgs struct {
-	Containers            JobDefinitionEksContainerArrayInput `pulumi:"containers"`
-	DnsPolicy             pulumi.StringPtrInput               `pulumi:"dnsPolicy"`
-	HostNetwork           pulumi.BoolPtrInput                 `pulumi:"hostNetwork"`
-	InitContainers        JobDefinitionEksContainerArrayInput `pulumi:"initContainers"`
-	Metadata              JobDefinitionMetadataPtrInput       `pulumi:"metadata"`
-	ServiceAccountName    pulumi.StringPtrInput               `pulumi:"serviceAccountName"`
-	ShareProcessNamespace pulumi.BoolPtrInput                 `pulumi:"shareProcessNamespace"`
-	Volumes               JobDefinitionEksVolumeArrayInput    `pulumi:"volumes"`
+	Containers            JobDefinitionEksContainerArrayInput    `pulumi:"containers"`
+	DnsPolicy             pulumi.StringPtrInput                  `pulumi:"dnsPolicy"`
+	HostNetwork           pulumi.BoolPtrInput                    `pulumi:"hostNetwork"`
+	ImagePullSecrets      JobDefinitionImagePullSecretArrayInput `pulumi:"imagePullSecrets"`
+	InitContainers        JobDefinitionEksContainerArrayInput    `pulumi:"initContainers"`
+	Metadata              JobDefinitionMetadataPtrInput          `pulumi:"metadata"`
+	ServiceAccountName    pulumi.StringPtrInput                  `pulumi:"serviceAccountName"`
+	ShareProcessNamespace pulumi.BoolPtrInput                    `pulumi:"shareProcessNamespace"`
+	Volumes               JobDefinitionEksVolumeArrayInput       `pulumi:"volumes"`
 }
 
 func (JobDefinitionPodPropertiesArgs) ElementType() reflect.Type {
@@ -5158,6 +5269,10 @@ func (o JobDefinitionPodPropertiesOutput) HostNetwork() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v JobDefinitionPodProperties) *bool { return v.HostNetwork }).(pulumi.BoolPtrOutput)
 }
 
+func (o JobDefinitionPodPropertiesOutput) ImagePullSecrets() JobDefinitionImagePullSecretArrayOutput {
+	return o.ApplyT(func(v JobDefinitionPodProperties) []JobDefinitionImagePullSecret { return v.ImagePullSecrets }).(JobDefinitionImagePullSecretArrayOutput)
+}
+
 func (o JobDefinitionPodPropertiesOutput) InitContainers() JobDefinitionEksContainerArrayOutput {
 	return o.ApplyT(func(v JobDefinitionPodProperties) []JobDefinitionEksContainer { return v.InitContainers }).(JobDefinitionEksContainerArrayOutput)
 }
@@ -5227,6 +5342,15 @@ func (o JobDefinitionPodPropertiesPtrOutput) HostNetwork() pulumi.BoolPtrOutput 
 		}
 		return v.HostNetwork
 	}).(pulumi.BoolPtrOutput)
+}
+
+func (o JobDefinitionPodPropertiesPtrOutput) ImagePullSecrets() JobDefinitionImagePullSecretArrayOutput {
+	return o.ApplyT(func(v *JobDefinitionPodProperties) []JobDefinitionImagePullSecret {
+		if v == nil {
+			return nil
+		}
+		return v.ImagePullSecrets
+	}).(JobDefinitionImagePullSecretArrayOutput)
 }
 
 func (o JobDefinitionPodPropertiesPtrOutput) InitContainers() JobDefinitionEksContainerArrayOutput {
@@ -7310,6 +7434,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEvaluateOnExitArrayInput)(nil)).Elem(), JobDefinitionEvaluateOnExitArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionFargatePlatformConfigurationInput)(nil)).Elem(), JobDefinitionFargatePlatformConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionFargatePlatformConfigurationPtrInput)(nil)).Elem(), JobDefinitionFargatePlatformConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionImagePullSecretInput)(nil)).Elem(), JobDefinitionImagePullSecretArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionImagePullSecretArrayInput)(nil)).Elem(), JobDefinitionImagePullSecretArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionLinuxParametersInput)(nil)).Elem(), JobDefinitionLinuxParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionLinuxParametersPtrInput)(nil)).Elem(), JobDefinitionLinuxParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionLogConfigurationInput)(nil)).Elem(), JobDefinitionLogConfigurationArgs{})
@@ -7408,6 +7534,8 @@ func init() {
 	pulumi.RegisterOutputType(JobDefinitionEvaluateOnExitArrayOutput{})
 	pulumi.RegisterOutputType(JobDefinitionFargatePlatformConfigurationOutput{})
 	pulumi.RegisterOutputType(JobDefinitionFargatePlatformConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(JobDefinitionImagePullSecretOutput{})
+	pulumi.RegisterOutputType(JobDefinitionImagePullSecretArrayOutput{})
 	pulumi.RegisterOutputType(JobDefinitionLinuxParametersOutput{})
 	pulumi.RegisterOutputType(JobDefinitionLinuxParametersPtrOutput{})
 	pulumi.RegisterOutputType(JobDefinitionLogConfigurationOutput{})

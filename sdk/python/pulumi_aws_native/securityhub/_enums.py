@@ -13,6 +13,10 @@ __all__ = [
     'AutomationRuleWorkflowUpdateStatus',
     'AutomationRulesActionType',
     'AutomationRulesFindingFieldsUpdateVerificationState',
+    'DelegatedAdminStatus',
+    'InsightDateRangeUnit',
+    'InsightMapFilterComparison',
+    'InsightStringFilterComparison',
 ]
 
 
@@ -71,3 +75,36 @@ class AutomationRulesFindingFieldsUpdateVerificationState(str, Enum):
     TRUE_POSITIVE = "TRUE_POSITIVE"
     FALSE_POSITIVE = "FALSE_POSITIVE"
     BENIGN_POSITIVE = "BENIGN_POSITIVE"
+
+
+class DelegatedAdminStatus(str, Enum):
+    """
+    The current status of the Security Hub administrator account. Indicates whether the account is currently enabled as a Security Hub administrator
+    """
+    ENABLED = "ENABLED"
+    DISABLE_IN_PROGRESS = "DISABLE_IN_PROGRESS"
+
+
+class InsightDateRangeUnit(str, Enum):
+    """
+    A date range unit for the date filter.
+    """
+    DAYS = "DAYS"
+
+
+class InsightMapFilterComparison(str, Enum):
+    """
+    The condition to apply to the key value when filtering Security Hub findings with a map filter.
+    """
+    EQUALS = "EQUALS"
+    NOT_EQUALS = "NOT_EQUALS"
+
+
+class InsightStringFilterComparison(str, Enum):
+    """
+    The condition to apply to a string value when filtering Security Hub findings.
+    """
+    EQUALS = "EQUALS"
+    PREFIX = "PREFIX"
+    NOT_EQUALS = "NOT_EQUALS"
+    PREFIX_NOT_EQUALS = "PREFIX_NOT_EQUALS"

@@ -5,6 +5,7 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from ._enums import *
 from .connection import *
 from .get_connection import *
 from .get_repository_link import *

@@ -13,6 +13,7 @@ namespace Pulumi.AwsNative.Batch.Outputs
     [OutputType]
     public sealed class JobDefinitionEksContainerSecurityContext
     {
+        public readonly bool? AllowPrivilegeEscalation;
         public readonly bool? Privileged;
         public readonly bool? ReadOnlyRootFilesystem;
         public readonly int? RunAsGroup;
@@ -21,6 +22,8 @@ namespace Pulumi.AwsNative.Batch.Outputs
 
         [OutputConstructor]
         private JobDefinitionEksContainerSecurityContext(
+            bool? allowPrivilegeEscalation,
+
             bool? privileged,
 
             bool? readOnlyRootFilesystem,
@@ -31,6 +34,7 @@ namespace Pulumi.AwsNative.Batch.Outputs
 
             int? runAsUser)
         {
+            AllowPrivilegeEscalation = allowPrivilegeEscalation;
             Privileged = privileged;
             ReadOnlyRootFilesystem = readOnlyRootFilesystem;
             RunAsGroup = runAsGroup;

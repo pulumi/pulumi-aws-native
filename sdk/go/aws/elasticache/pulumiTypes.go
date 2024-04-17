@@ -661,8 +661,10 @@ func (o ServerlessCacheCacheUsageLimitsPtrOutput) EcpuPerSecond() ServerlessCach
 // The cached data capacity of the Serverless Cache.
 type ServerlessCacheDataStorage struct {
 	// The maximum cached data capacity of the Serverless Cache.
-	Maximum int `pulumi:"maximum"`
-	// The unix of cached data capacity of the Serverless Cache.
+	Maximum *int `pulumi:"maximum"`
+	// The minimum cached data capacity of the Serverless Cache.
+	Minimum *int `pulumi:"minimum"`
+	// The unit of cached data capacity of the Serverless Cache.
 	Unit ServerlessCacheDataStorageUnit `pulumi:"unit"`
 }
 
@@ -680,8 +682,10 @@ type ServerlessCacheDataStorageInput interface {
 // The cached data capacity of the Serverless Cache.
 type ServerlessCacheDataStorageArgs struct {
 	// The maximum cached data capacity of the Serverless Cache.
-	Maximum pulumi.IntInput `pulumi:"maximum"`
-	// The unix of cached data capacity of the Serverless Cache.
+	Maximum pulumi.IntPtrInput `pulumi:"maximum"`
+	// The minimum cached data capacity of the Serverless Cache.
+	Minimum pulumi.IntPtrInput `pulumi:"minimum"`
+	// The unit of cached data capacity of the Serverless Cache.
 	Unit ServerlessCacheDataStorageUnitInput `pulumi:"unit"`
 }
 
@@ -764,11 +768,16 @@ func (o ServerlessCacheDataStorageOutput) ToServerlessCacheDataStoragePtrOutputW
 }
 
 // The maximum cached data capacity of the Serverless Cache.
-func (o ServerlessCacheDataStorageOutput) Maximum() pulumi.IntOutput {
-	return o.ApplyT(func(v ServerlessCacheDataStorage) int { return v.Maximum }).(pulumi.IntOutput)
+func (o ServerlessCacheDataStorageOutput) Maximum() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServerlessCacheDataStorage) *int { return v.Maximum }).(pulumi.IntPtrOutput)
 }
 
-// The unix of cached data capacity of the Serverless Cache.
+// The minimum cached data capacity of the Serverless Cache.
+func (o ServerlessCacheDataStorageOutput) Minimum() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServerlessCacheDataStorage) *int { return v.Minimum }).(pulumi.IntPtrOutput)
+}
+
+// The unit of cached data capacity of the Serverless Cache.
 func (o ServerlessCacheDataStorageOutput) Unit() ServerlessCacheDataStorageUnitOutput {
 	return o.ApplyT(func(v ServerlessCacheDataStorage) ServerlessCacheDataStorageUnit { return v.Unit }).(ServerlessCacheDataStorageUnitOutput)
 }
@@ -803,11 +812,21 @@ func (o ServerlessCacheDataStoragePtrOutput) Maximum() pulumi.IntPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.Maximum
+		return v.Maximum
 	}).(pulumi.IntPtrOutput)
 }
 
-// The unix of cached data capacity of the Serverless Cache.
+// The minimum cached data capacity of the Serverless Cache.
+func (o ServerlessCacheDataStoragePtrOutput) Minimum() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServerlessCacheDataStorage) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Minimum
+	}).(pulumi.IntPtrOutput)
+}
+
+// The unit of cached data capacity of the Serverless Cache.
 func (o ServerlessCacheDataStoragePtrOutput) Unit() ServerlessCacheDataStorageUnitPtrOutput {
 	return o.ApplyT(func(v *ServerlessCacheDataStorage) *ServerlessCacheDataStorageUnit {
 		if v == nil {
@@ -820,7 +839,9 @@ func (o ServerlessCacheDataStoragePtrOutput) Unit() ServerlessCacheDataStorageUn
 // The ECPU per second of the Serverless Cache.
 type ServerlessCacheEcpuPerSecond struct {
 	// The maximum ECPU per second of the Serverless Cache.
-	Maximum int `pulumi:"maximum"`
+	Maximum *int `pulumi:"maximum"`
+	// The minimum ECPU per second of the Serverless Cache.
+	Minimum *int `pulumi:"minimum"`
 }
 
 // ServerlessCacheEcpuPerSecondInput is an input type that accepts ServerlessCacheEcpuPerSecondArgs and ServerlessCacheEcpuPerSecondOutput values.
@@ -837,7 +858,9 @@ type ServerlessCacheEcpuPerSecondInput interface {
 // The ECPU per second of the Serverless Cache.
 type ServerlessCacheEcpuPerSecondArgs struct {
 	// The maximum ECPU per second of the Serverless Cache.
-	Maximum pulumi.IntInput `pulumi:"maximum"`
+	Maximum pulumi.IntPtrInput `pulumi:"maximum"`
+	// The minimum ECPU per second of the Serverless Cache.
+	Minimum pulumi.IntPtrInput `pulumi:"minimum"`
 }
 
 func (ServerlessCacheEcpuPerSecondArgs) ElementType() reflect.Type {
@@ -919,8 +942,13 @@ func (o ServerlessCacheEcpuPerSecondOutput) ToServerlessCacheEcpuPerSecondPtrOut
 }
 
 // The maximum ECPU per second of the Serverless Cache.
-func (o ServerlessCacheEcpuPerSecondOutput) Maximum() pulumi.IntOutput {
-	return o.ApplyT(func(v ServerlessCacheEcpuPerSecond) int { return v.Maximum }).(pulumi.IntOutput)
+func (o ServerlessCacheEcpuPerSecondOutput) Maximum() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServerlessCacheEcpuPerSecond) *int { return v.Maximum }).(pulumi.IntPtrOutput)
+}
+
+// The minimum ECPU per second of the Serverless Cache.
+func (o ServerlessCacheEcpuPerSecondOutput) Minimum() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServerlessCacheEcpuPerSecond) *int { return v.Minimum }).(pulumi.IntPtrOutput)
 }
 
 type ServerlessCacheEcpuPerSecondPtrOutput struct{ *pulumi.OutputState }
@@ -953,7 +981,17 @@ func (o ServerlessCacheEcpuPerSecondPtrOutput) Maximum() pulumi.IntPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.Maximum
+		return v.Maximum
+	}).(pulumi.IntPtrOutput)
+}
+
+// The minimum ECPU per second of the Serverless Cache.
+func (o ServerlessCacheEcpuPerSecondPtrOutput) Minimum() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServerlessCacheEcpuPerSecond) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Minimum
 	}).(pulumi.IntPtrOutput)
 }
 

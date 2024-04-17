@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetNetworkInterfaceResult:
-    def __init__(__self__, connection_tracking_specification=None, description=None, enable_primary_ipv6=None, group_set=None, id=None, ipv4_prefix_count=None, ipv4_prefixes=None, ipv6_address_count=None, ipv6_addresses=None, ipv6_prefix_count=None, ipv6_prefixes=None, primary_ipv6_address=None, primary_private_ip_address=None, private_ip_addresses=None, secondary_private_ip_address_count=None, secondary_private_ip_addresses=None, source_dest_check=None, tags=None):
+    def __init__(__self__, connection_tracking_specification=None, description=None, enable_primary_ipv6=None, group_set=None, id=None, ipv4_prefix_count=None, ipv4_prefixes=None, ipv6_address_count=None, ipv6_addresses=None, ipv6_prefix_count=None, ipv6_prefixes=None, primary_ipv6_address=None, primary_private_ip_address=None, private_ip_addresses=None, secondary_private_ip_address_count=None, secondary_private_ip_addresses=None, source_dest_check=None, tags=None, vpc_id=None):
         if connection_tracking_specification and not isinstance(connection_tracking_specification, dict):
             raise TypeError("Expected argument 'connection_tracking_specification' to be a dict")
         pulumi.set(__self__, "connection_tracking_specification", connection_tracking_specification)
@@ -75,6 +75,9 @@ class GetNetworkInterfaceResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+        if vpc_id and not isinstance(vpc_id, str):
+            raise TypeError("Expected argument 'vpc_id' to be a str")
+        pulumi.set(__self__, "vpc_id", vpc_id)
 
     @property
     @pulumi.getter(name="connectionTrackingSpecification")
@@ -217,6 +220,14 @@ class GetNetworkInterfaceResult:
         """
         return pulumi.get(self, "tags")
 
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> Optional[str]:
+        """
+        The ID of the VPC
+        """
+        return pulumi.get(self, "vpc_id")
+
 
 class AwaitableGetNetworkInterfaceResult(GetNetworkInterfaceResult):
     # pylint: disable=using-constant-test
@@ -241,7 +252,8 @@ class AwaitableGetNetworkInterfaceResult(GetNetworkInterfaceResult):
             secondary_private_ip_address_count=self.secondary_private_ip_address_count,
             secondary_private_ip_addresses=self.secondary_private_ip_addresses,
             source_dest_check=self.source_dest_check,
-            tags=self.tags)
+            tags=self.tags,
+            vpc_id=self.vpc_id)
 
 
 def get_network_interface(id: Optional[str] = None,
@@ -275,7 +287,8 @@ def get_network_interface(id: Optional[str] = None,
         secondary_private_ip_address_count=pulumi.get(__ret__, 'secondary_private_ip_address_count'),
         secondary_private_ip_addresses=pulumi.get(__ret__, 'secondary_private_ip_addresses'),
         source_dest_check=pulumi.get(__ret__, 'source_dest_check'),
-        tags=pulumi.get(__ret__, 'tags'))
+        tags=pulumi.get(__ret__, 'tags'),
+        vpc_id=pulumi.get(__ret__, 'vpc_id'))
 
 
 @_utilities.lift_output_func(get_network_interface)

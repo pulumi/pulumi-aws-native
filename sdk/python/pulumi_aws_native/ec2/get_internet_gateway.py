@@ -30,9 +30,6 @@ class GetInternetGatewayResult:
     @property
     @pulumi.getter(name="internetGatewayId")
     def internet_gateway_id(self) -> Optional[str]:
-        """
-        ID of internet gateway.
-        """
         return pulumi.get(self, "internet_gateway_id")
 
     @property
@@ -57,10 +54,7 @@ class AwaitableGetInternetGatewayResult(GetInternetGatewayResult):
 def get_internet_gateway(internet_gateway_id: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInternetGatewayResult:
     """
-    Resource Type definition for AWS::EC2::InternetGateway
-
-
-    :param str internet_gateway_id: ID of internet gateway.
+    Allocates an internet gateway for use with a VPC. After creating the Internet gateway, you then attach it to a VPC.
     """
     __args__ = dict()
     __args__['internetGatewayId'] = internet_gateway_id
@@ -76,9 +70,6 @@ def get_internet_gateway(internet_gateway_id: Optional[str] = None,
 def get_internet_gateway_output(internet_gateway_id: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInternetGatewayResult]:
     """
-    Resource Type definition for AWS::EC2::InternetGateway
-
-
-    :param str internet_gateway_id: ID of internet gateway.
+    Allocates an internet gateway for use with a VPC. After creating the Internet gateway, you then attach it to a VPC.
     """
     ...

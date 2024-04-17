@@ -10,6 +10,11 @@ export type Accelerator = import("./accelerator").Accelerator;
 export const Accelerator: typeof import("./accelerator").Accelerator = null as any;
 utilities.lazyLoad(exports, ["Accelerator"], () => require("./accelerator"));
 
+export { CrossAccountAttachmentArgs } from "./crossAccountAttachment";
+export type CrossAccountAttachment = import("./crossAccountAttachment").CrossAccountAttachment;
+export const CrossAccountAttachment: typeof import("./crossAccountAttachment").CrossAccountAttachment = null as any;
+utilities.lazyLoad(exports, ["CrossAccountAttachment"], () => require("./crossAccountAttachment"));
+
 export { EndpointGroupArgs } from "./endpointGroup";
 export type EndpointGroup = import("./endpointGroup").EndpointGroup;
 export const EndpointGroup: typeof import("./endpointGroup").EndpointGroup = null as any;
@@ -19,6 +24,11 @@ export { GetAcceleratorArgs, GetAcceleratorResult, GetAcceleratorOutputArgs } fr
 export const getAccelerator: typeof import("./getAccelerator").getAccelerator = null as any;
 export const getAcceleratorOutput: typeof import("./getAccelerator").getAcceleratorOutput = null as any;
 utilities.lazyLoad(exports, ["getAccelerator","getAcceleratorOutput"], () => require("./getAccelerator"));
+
+export { GetCrossAccountAttachmentArgs, GetCrossAccountAttachmentResult, GetCrossAccountAttachmentOutputArgs } from "./getCrossAccountAttachment";
+export const getCrossAccountAttachment: typeof import("./getCrossAccountAttachment").getCrossAccountAttachment = null as any;
+export const getCrossAccountAttachmentOutput: typeof import("./getCrossAccountAttachment").getCrossAccountAttachmentOutput = null as any;
+utilities.lazyLoad(exports, ["getCrossAccountAttachment","getCrossAccountAttachmentOutput"], () => require("./getCrossAccountAttachment"));
 
 export { GetEndpointGroupArgs, GetEndpointGroupResult, GetEndpointGroupOutputArgs } from "./getEndpointGroup";
 export const getEndpointGroup: typeof import("./getEndpointGroup").getEndpointGroup = null as any;
@@ -45,6 +55,8 @@ const _module = {
         switch (type) {
             case "aws-native:globalaccelerator:Accelerator":
                 return new Accelerator(name, <any>undefined, { urn })
+            case "aws-native:globalaccelerator:CrossAccountAttachment":
+                return new CrossAccountAttachment(name, <any>undefined, { urn })
             case "aws-native:globalaccelerator:EndpointGroup":
                 return new EndpointGroup(name, <any>undefined, { urn })
             case "aws-native:globalaccelerator:Listener":

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::EC2::InternetGateway
+ * Allocates an internet gateway for use with a VPC. After creating the Internet gateway, you then attach it to a VPC.
  *
  * ## Example Usage
  * ### Example
@@ -51,9 +51,6 @@ export class InternetGateway extends pulumi.CustomResource {
         return obj['__pulumiType'] === InternetGateway.__pulumiType;
     }
 
-    /**
-     * ID of internet gateway.
-     */
     public /*out*/ readonly internetGatewayId!: pulumi.Output<string>;
     /**
      * Any tags to assign to the internet gateway.

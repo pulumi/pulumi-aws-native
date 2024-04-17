@@ -22,6 +22,13 @@ class ListenerRuleArgs:
                  listener_arn: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ListenerRule resource.
+        :param pulumi.Input[Sequence[pulumi.Input['ListenerRuleActionArgs']]] actions: The actions.
+                The rule must include exactly one of the following types of actions: ``forward``, ``fixed-response``, or ``redirect``, and it must be the last action to be performed. If the rule is for an HTTPS listener, it can also optionally include an authentication action.
+        :param pulumi.Input[Sequence[pulumi.Input['ListenerRuleRuleConditionArgs']]] conditions: The conditions.
+                The rule can optionally include up to one of each of the following conditions: ``http-request-method``, ``host-header``, ``path-pattern``, and ``source-ip``. A rule can also optionally include one or more of each of the following conditions: ``http-header`` and ``query-string``.
+        :param pulumi.Input[int] priority: The rule priority. A listener can't have multiple rules with the same priority.
+                If you try to reorder rules by updating their priorities, do not specify a new priority if an existing rule already uses this priority, as this can cause an error. If you need to reuse a priority with a different rule, you must remove it as a priority first, and then specify it in a subsequent update.
+        :param pulumi.Input[str] listener_arn: The Amazon Resource Name (ARN) of the listener.
         """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "conditions", conditions)
@@ -32,6 +39,10 @@ class ListenerRuleArgs:
     @property
     @pulumi.getter
     def actions(self) -> pulumi.Input[Sequence[pulumi.Input['ListenerRuleActionArgs']]]:
+        """
+        The actions.
+         The rule must include exactly one of the following types of actions: ``forward``, ``fixed-response``, or ``redirect``, and it must be the last action to be performed. If the rule is for an HTTPS listener, it can also optionally include an authentication action.
+        """
         return pulumi.get(self, "actions")
 
     @actions.setter
@@ -41,6 +52,10 @@ class ListenerRuleArgs:
     @property
     @pulumi.getter
     def conditions(self) -> pulumi.Input[Sequence[pulumi.Input['ListenerRuleRuleConditionArgs']]]:
+        """
+        The conditions.
+         The rule can optionally include up to one of each of the following conditions: ``http-request-method``, ``host-header``, ``path-pattern``, and ``source-ip``. A rule can also optionally include one or more of each of the following conditions: ``http-header`` and ``query-string``.
+        """
         return pulumi.get(self, "conditions")
 
     @conditions.setter
@@ -50,6 +65,10 @@ class ListenerRuleArgs:
     @property
     @pulumi.getter
     def priority(self) -> pulumi.Input[int]:
+        """
+        The rule priority. A listener can't have multiple rules with the same priority.
+         If you try to reorder rules by updating their priorities, do not specify a new priority if an existing rule already uses this priority, as this can cause an error. If you need to reuse a priority with a different rule, you must remove it as a priority first, and then specify it in a subsequent update.
+        """
         return pulumi.get(self, "priority")
 
     @priority.setter
@@ -59,6 +78,9 @@ class ListenerRuleArgs:
     @property
     @pulumi.getter(name="listenerArn")
     def listener_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the listener.
+        """
         return pulumi.get(self, "listener_arn")
 
     @listener_arn.setter
@@ -77,10 +99,18 @@ class ListenerRule(pulumi.CustomResource):
                  priority: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::ElasticLoadBalancingV2::ListenerRule
+        Specifies a listener rule. The listener must be associated with an Application Load Balancer. Each rule consists of a priority, one or more actions, and one or more conditions.
+         For more information, see [Quotas for your Application Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-limits.html) in the *User Guide for Application Load Balancers*.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ListenerRuleActionArgs']]]] actions: The actions.
+                The rule must include exactly one of the following types of actions: ``forward``, ``fixed-response``, or ``redirect``, and it must be the last action to be performed. If the rule is for an HTTPS listener, it can also optionally include an authentication action.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ListenerRuleRuleConditionArgs']]]] conditions: The conditions.
+                The rule can optionally include up to one of each of the following conditions: ``http-request-method``, ``host-header``, ``path-pattern``, and ``source-ip``. A rule can also optionally include one or more of each of the following conditions: ``http-header`` and ``query-string``.
+        :param pulumi.Input[str] listener_arn: The Amazon Resource Name (ARN) of the listener.
+        :param pulumi.Input[int] priority: The rule priority. A listener can't have multiple rules with the same priority.
+                If you try to reorder rules by updating their priorities, do not specify a new priority if an existing rule already uses this priority, as this can cause an error. If you need to reuse a priority with a different rule, you must remove it as a priority first, and then specify it in a subsequent update.
         """
         ...
     @overload
@@ -89,7 +119,8 @@ class ListenerRule(pulumi.CustomResource):
                  args: ListenerRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::ElasticLoadBalancingV2::ListenerRule
+        Specifies a listener rule. The listener must be associated with an Application Load Balancer. Each rule consists of a priority, one or more actions, and one or more conditions.
+         For more information, see [Quotas for your Application Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-limits.html) in the *User Guide for Application Load Balancers*.
 
         :param str resource_name: The name of the resource.
         :param ListenerRuleArgs args: The arguments to use to populate this resource's properties.
@@ -166,11 +197,19 @@ class ListenerRule(pulumi.CustomResource):
     @property
     @pulumi.getter
     def actions(self) -> pulumi.Output[Sequence['outputs.ListenerRuleAction']]:
+        """
+        The actions.
+         The rule must include exactly one of the following types of actions: ``forward``, ``fixed-response``, or ``redirect``, and it must be the last action to be performed. If the rule is for an HTTPS listener, it can also optionally include an authentication action.
+        """
         return pulumi.get(self, "actions")
 
     @property
     @pulumi.getter
     def conditions(self) -> pulumi.Output[Sequence['outputs.ListenerRuleRuleCondition']]:
+        """
+        The conditions.
+         The rule can optionally include up to one of each of the following conditions: ``http-request-method``, ``host-header``, ``path-pattern``, and ``source-ip``. A rule can also optionally include one or more of each of the following conditions: ``http-header`` and ``query-string``.
+        """
         return pulumi.get(self, "conditions")
 
     @property
@@ -181,11 +220,18 @@ class ListenerRule(pulumi.CustomResource):
     @property
     @pulumi.getter(name="listenerArn")
     def listener_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Amazon Resource Name (ARN) of the listener.
+        """
         return pulumi.get(self, "listener_arn")
 
     @property
     @pulumi.getter
     def priority(self) -> pulumi.Output[int]:
+        """
+        The rule priority. A listener can't have multiple rules with the same priority.
+         If you try to reorder rules by updating their priorities, do not specify a new priority if an existing rule already uses this priority, as this can cause an error. If you need to reuse a priority with a different rule, you must remove it as a priority first, and then specify it in a subsequent update.
+        """
         return pulumi.get(self, "priority")
 
     @property

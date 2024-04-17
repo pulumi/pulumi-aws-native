@@ -40,6 +40,14 @@ export class Integration extends pulumi.CustomResource {
     public readonly additionalEncryptionContext!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly createTime!: pulumi.Output<string>;
     /**
+     * The data filter for the integration.
+     */
+    public readonly dataFilter!: pulumi.Output<string | undefined>;
+    /**
+     * The description of the integration.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
      * The ARN of the integration.
      */
     public /*out*/ readonly integrationArn!: pulumi.Output<string>;
@@ -82,6 +90,8 @@ export class Integration extends pulumi.CustomResource {
                 throw new Error("Missing required property 'targetArn'");
             }
             resourceInputs["additionalEncryptionContext"] = args ? args.additionalEncryptionContext : undefined;
+            resourceInputs["dataFilter"] = args ? args.dataFilter : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["integrationName"] = args ? args.integrationName : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["sourceArn"] = args ? args.sourceArn : undefined;
@@ -92,6 +102,8 @@ export class Integration extends pulumi.CustomResource {
         } else {
             resourceInputs["additionalEncryptionContext"] = undefined /*out*/;
             resourceInputs["createTime"] = undefined /*out*/;
+            resourceInputs["dataFilter"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
             resourceInputs["integrationArn"] = undefined /*out*/;
             resourceInputs["integrationName"] = undefined /*out*/;
             resourceInputs["kmsKeyId"] = undefined /*out*/;
@@ -100,7 +112,7 @@ export class Integration extends pulumi.CustomResource {
             resourceInputs["targetArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["additionalEncryptionContext.*", "integrationName", "kmsKeyId", "sourceArn", "targetArn"] };
+        const replaceOnChanges = { replaceOnChanges: ["additionalEncryptionContext.*", "kmsKeyId", "sourceArn", "targetArn"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Integration.__pulumiType, name, resourceInputs, opts);
     }
@@ -111,6 +123,14 @@ export class Integration extends pulumi.CustomResource {
  */
 export interface IntegrationArgs {
     additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The data filter for the integration.
+     */
+    dataFilter?: pulumi.Input<string>;
+    /**
+     * The description of the integration.
+     */
+    description?: pulumi.Input<string>;
     /**
      * The name of the integration.
      */

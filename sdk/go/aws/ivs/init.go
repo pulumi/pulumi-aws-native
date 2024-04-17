@@ -23,12 +23,18 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:ivs:Channel":
 		r = &Channel{}
+	case "aws-native:ivs:EncoderConfiguration":
+		r = &EncoderConfiguration{}
 	case "aws-native:ivs:PlaybackKeyPair":
 		r = &PlaybackKeyPair{}
+	case "aws-native:ivs:PlaybackRestrictionPolicy":
+		r = &PlaybackRestrictionPolicy{}
 	case "aws-native:ivs:RecordingConfiguration":
 		r = &RecordingConfiguration{}
 	case "aws-native:ivs:Stage":
 		r = &Stage{}
+	case "aws-native:ivs:StorageConfiguration":
+		r = &StorageConfiguration{}
 	case "aws-native:ivs:StreamKey":
 		r = &StreamKey{}
 	default:

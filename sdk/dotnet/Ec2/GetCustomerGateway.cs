@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.Ec2
     public static class GetCustomerGateway
     {
         /// <summary>
-        /// Resource Type definition for AWS::EC2::CustomerGateway
+        /// Specifies a customer gateway.
         /// </summary>
         public static Task<GetCustomerGatewayResult> InvokeAsync(GetCustomerGatewayArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCustomerGatewayResult>("aws-native:ec2:getCustomerGateway", args ?? new GetCustomerGatewayArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::EC2::CustomerGateway
+        /// Specifies a customer gateway.
         /// </summary>
         public static Output<GetCustomerGatewayResult> Invoke(GetCustomerGatewayInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomerGatewayResult>("aws-native:ec2:getCustomerGateway", args ?? new GetCustomerGatewayInvokeArgs(), options.WithDefaults());
@@ -27,9 +27,6 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetCustomerGatewayArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// CustomerGateway ID generated after customer gateway is created. Each customer gateway has a unique ID.
-        /// </summary>
         [Input("customerGatewayId", required: true)]
         public string CustomerGatewayId { get; set; } = null!;
 
@@ -41,9 +38,6 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetCustomerGatewayInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// CustomerGateway ID generated after customer gateway is created. Each customer gateway has a unique ID.
-        /// </summary>
         [Input("customerGatewayId", required: true)]
         public Input<string> CustomerGatewayId { get; set; } = null!;
 
@@ -57,9 +51,6 @@ namespace Pulumi.AwsNative.Ec2
     [OutputType]
     public sealed class GetCustomerGatewayResult
     {
-        /// <summary>
-        /// CustomerGateway ID generated after customer gateway is created. Each customer gateway has a unique ID.
-        /// </summary>
         public readonly string? CustomerGatewayId;
         /// <summary>
         /// One or more tags for the customer gateway.

@@ -10,10 +10,27 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AutoScaling.Outputs
 {
 
+    /// <summary>
+    /// A structure that specifies an Amazon SNS notification configuration for the ``NotificationConfigurations`` property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource.
+    ///  For an example template snippet, see [Auto scaling template snippets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-autoscaling.html).
+    ///  For more information, see [Get Amazon SNS notifications when your Auto Scaling group scales](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ASGettingNotifications.html) in the *Amazon EC2 Auto Scaling User Guide*.
+    /// </summary>
     [OutputType]
     public sealed class AutoScalingGroupNotificationConfiguration
     {
+        /// <summary>
+        /// A list of event types that send a notification. Event types can include any of the following types. 
+        ///  *Allowed values*:
+        ///   +   ``autoscaling:EC2_INSTANCE_LAUNCH`` 
+        ///   +   ``autoscaling:EC2_INSTANCE_LAUNCH_ERROR`` 
+        ///   +   ``autoscaling:EC2_INSTANCE_TERMINATE`` 
+        ///   +   ``autoscaling:EC2_INSTANCE_TERMINATE_ERROR`` 
+        ///   +   ``autoscaling:TEST_NOTIFICATION``
+        /// </summary>
         public readonly ImmutableArray<string> NotificationTypes;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Amazon SNS topic.
+        /// </summary>
         public readonly ImmutableArray<string> TopicArn;
 
         [OutputConstructor]
