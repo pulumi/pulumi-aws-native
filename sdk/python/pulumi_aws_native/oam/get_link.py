@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = [
@@ -19,13 +20,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetLinkResult:
-    def __init__(__self__, arn=None, label=None, resource_types=None, tags=None):
+    def __init__(__self__, arn=None, label=None, link_configuration=None, resource_types=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if label and not isinstance(label, str):
             raise TypeError("Expected argument 'label' to be a str")
         pulumi.set(__self__, "label", label)
+        if link_configuration and not isinstance(link_configuration, dict):
+            raise TypeError("Expected argument 'link_configuration' to be a dict")
+        pulumi.set(__self__, "link_configuration", link_configuration)
         if resource_types and not isinstance(resource_types, list):
             raise TypeError("Expected argument 'resource_types' to be a list")
         pulumi.set(__self__, "resource_types", resource_types)
@@ -42,6 +46,11 @@ class GetLinkResult:
     @pulumi.getter
     def label(self) -> Optional[str]:
         return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter(name="linkConfiguration")
+    def link_configuration(self) -> Optional['outputs.LinkConfiguration']:
+        return pulumi.get(self, "link_configuration")
 
     @property
     @pulumi.getter(name="resourceTypes")
@@ -65,6 +74,7 @@ class AwaitableGetLinkResult(GetLinkResult):
         return GetLinkResult(
             arn=self.arn,
             label=self.label,
+            link_configuration=self.link_configuration,
             resource_types=self.resource_types,
             tags=self.tags)
 
@@ -82,6 +92,7 @@ def get_link(arn: Optional[str] = None,
     return AwaitableGetLinkResult(
         arn=pulumi.get(__ret__, 'arn'),
         label=pulumi.get(__ret__, 'label'),
+        link_configuration=pulumi.get(__ret__, 'link_configuration'),
         resource_types=pulumi.get(__ret__, 'resource_types'),
         tags=pulumi.get(__ret__, 'tags'))
 

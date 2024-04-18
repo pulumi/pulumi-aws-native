@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.Oam
         [Output("labelTemplate")]
         public Output<string?> LabelTemplate { get; private set; } = null!;
 
+        [Output("linkConfiguration")]
+        public Output<Outputs.LinkConfiguration?> LinkConfiguration { get; private set; } = null!;
+
         [Output("resourceTypes")]
         public Output<ImmutableArray<Pulumi.AwsNative.Oam.LinkResourceType>> ResourceTypes { get; private set; } = null!;
 
@@ -88,6 +91,9 @@ namespace Pulumi.AwsNative.Oam
     {
         [Input("labelTemplate")]
         public Input<string>? LabelTemplate { get; set; }
+
+        [Input("linkConfiguration")]
+        public Input<Inputs.LinkConfigurationArgs>? LinkConfiguration { get; set; }
 
         [Input("resourceTypes", required: true)]
         private InputList<Pulumi.AwsNative.Oam.LinkResourceType>? _resourceTypes;

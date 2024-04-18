@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;Dashboard publish options.&lt;/p&gt;
+    /// </summary>
     [OutputType]
     public sealed class DashboardPublishOptions
     {

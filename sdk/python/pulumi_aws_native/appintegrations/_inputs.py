@@ -21,9 +21,10 @@ __all__ = [
 class ApplicationExternalUrlConfigArgs:
     def __init__(__self__, *,
                  access_url: pulumi.Input[str],
-                 approved_origins: pulumi.Input[Sequence[pulumi.Input[str]]]):
+                 approved_origins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         pulumi.set(__self__, "access_url", access_url)
-        pulumi.set(__self__, "approved_origins", approved_origins)
+        if approved_origins is not None:
+            pulumi.set(__self__, "approved_origins", approved_origins)
 
     @property
     @pulumi.getter(name="accessUrl")
@@ -36,11 +37,11 @@ class ApplicationExternalUrlConfigArgs:
 
     @property
     @pulumi.getter(name="approvedOrigins")
-    def approved_origins(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+    def approved_origins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         return pulumi.get(self, "approved_origins")
 
     @approved_origins.setter
-    def approved_origins(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+    def approved_origins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "approved_origins", value)
 
 

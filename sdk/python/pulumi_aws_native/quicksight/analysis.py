@@ -34,6 +34,10 @@ class AnalysisArgs:
                  validation_strategy: Optional[pulumi.Input['AnalysisValidationStrategyArgs']] = None):
         """
         The set of arguments for constructing a Analysis resource.
+        :param pulumi.Input[Sequence[pulumi.Input['AnalysisErrorArgs']]] errors: <p>Errors associated with the analysis.</p>
+        :param pulumi.Input[str] name: <p>The descriptive name of the analysis.</p>
+        :param pulumi.Input[Sequence[pulumi.Input['AnalysisSheetArgs']]] sheets: <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
+        :param pulumi.Input[str] theme_arn: <p>The ARN of the theme of the analysis.</p>
         """
         pulumi.set(__self__, "analysis_id", analysis_id)
         pulumi.set(__self__, "aws_account_id", aws_account_id)
@@ -90,6 +94,9 @@ class AnalysisArgs:
     @property
     @pulumi.getter
     def errors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisErrorArgs']]]]:
+        """
+        <p>Errors associated with the analysis.</p>
+        """
         return pulumi.get(self, "errors")
 
     @errors.setter
@@ -99,6 +106,9 @@ class AnalysisArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        <p>The descriptive name of the analysis.</p>
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -126,6 +136,9 @@ class AnalysisArgs:
     @property
     @pulumi.getter
     def sheets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisSheetArgs']]]]:
+        """
+        <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
+        """
         return pulumi.get(self, "sheets")
 
     @sheets.setter
@@ -162,6 +175,9 @@ class AnalysisArgs:
     @property
     @pulumi.getter(name="themeArn")
     def theme_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        <p>The ARN of the theme of the analysis.</p>
+        """
         return pulumi.get(self, "theme_arn")
 
     @theme_arn.setter
@@ -202,6 +218,10 @@ class Analysis(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisErrorArgs']]]] errors: <p>Errors associated with the analysis.</p>
+        :param pulumi.Input[str] name: <p>The descriptive name of the analysis.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisSheetArgs']]]] sheets: <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
+        :param pulumi.Input[str] theme_arn: <p>The ARN of the theme of the analysis.</p>
         """
         ...
     @overload
@@ -321,6 +341,9 @@ class Analysis(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        <p>The Amazon Resource Name (ARN) of the analysis.</p>
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -331,11 +354,17 @@ class Analysis(pulumi.CustomResource):
     @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> pulumi.Output[str]:
+        """
+        <p>The time that the analysis was created.</p>
+        """
         return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter(name="dataSetArns")
     def data_set_arns(self) -> pulumi.Output[Sequence[str]]:
+        """
+        <p>The ARNs of the datasets of the analysis.</p>
+        """
         return pulumi.get(self, "data_set_arns")
 
     @property
@@ -346,16 +375,25 @@ class Analysis(pulumi.CustomResource):
     @property
     @pulumi.getter
     def errors(self) -> pulumi.Output[Optional[Sequence['outputs.AnalysisError']]]:
+        """
+        <p>Errors associated with the analysis.</p>
+        """
         return pulumi.get(self, "errors")
 
     @property
     @pulumi.getter(name="lastUpdatedTime")
     def last_updated_time(self) -> pulumi.Output[str]:
+        """
+        <p>The time that the analysis was last updated.</p>
+        """
         return pulumi.get(self, "last_updated_time")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        <p>The descriptive name of the analysis.</p>
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -371,6 +409,9 @@ class Analysis(pulumi.CustomResource):
     @property
     @pulumi.getter
     def sheets(self) -> pulumi.Output[Optional[Sequence['outputs.AnalysisSheet']]]:
+        """
+        <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
+        """
         return pulumi.get(self, "sheets")
 
     @property
@@ -391,6 +432,9 @@ class Analysis(pulumi.CustomResource):
     @property
     @pulumi.getter(name="themeArn")
     def theme_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        <p>The ARN of the theme of the analysis.</p>
+        """
         return pulumi.get(self, "theme_arn")
 
     @property

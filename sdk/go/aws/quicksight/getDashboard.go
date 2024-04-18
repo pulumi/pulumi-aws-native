@@ -29,15 +29,19 @@ type LookupDashboardArgs struct {
 }
 
 type LookupDashboardResult struct {
-	Arn               *string                       `pulumi:"arn"`
-	CreatedTime       *string                       `pulumi:"createdTime"`
-	LastPublishedTime *string                       `pulumi:"lastPublishedTime"`
-	LastUpdatedTime   *string                       `pulumi:"lastUpdatedTime"`
-	LinkEntities      []string                      `pulumi:"linkEntities"`
-	Name              *string                       `pulumi:"name"`
-	Permissions       []DashboardResourcePermission `pulumi:"permissions"`
-	Tags              []aws.Tag                     `pulumi:"tags"`
-	Version           *DashboardVersion             `pulumi:"version"`
+	// <p>The Amazon Resource Name (ARN) of the resource.</p>
+	Arn *string `pulumi:"arn"`
+	// <p>The time that this dashboard was created.</p>
+	CreatedTime *string `pulumi:"createdTime"`
+	// <p>The last time that this dashboard was published.</p>
+	LastPublishedTime *string `pulumi:"lastPublishedTime"`
+	// <p>The last time that this dashboard was updated.</p>
+	LastUpdatedTime *string                       `pulumi:"lastUpdatedTime"`
+	LinkEntities    []string                      `pulumi:"linkEntities"`
+	Name            *string                       `pulumi:"name"`
+	Permissions     []DashboardResourcePermission `pulumi:"permissions"`
+	Tags            []aws.Tag                     `pulumi:"tags"`
+	Version         *DashboardVersion             `pulumi:"version"`
 }
 
 func LookupDashboardOutput(ctx *pulumi.Context, args LookupDashboardOutputArgs, opts ...pulumi.InvokeOption) LookupDashboardResultOutput {
@@ -76,18 +80,22 @@ func (o LookupDashboardResultOutput) ToLookupDashboardResultOutputWithContext(ct
 	return o
 }
 
+// <p>The Amazon Resource Name (ARN) of the resource.</p>
 func (o LookupDashboardResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDashboardResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// <p>The time that this dashboard was created.</p>
 func (o LookupDashboardResultOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDashboardResult) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
+// <p>The last time that this dashboard was published.</p>
 func (o LookupDashboardResultOutput) LastPublishedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDashboardResult) *string { return v.LastPublishedTime }).(pulumi.StringPtrOutput)
 }
 
+// <p>The last time that this dashboard was updated.</p>
 func (o LookupDashboardResultOutput) LastUpdatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDashboardResult) *string { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
 }

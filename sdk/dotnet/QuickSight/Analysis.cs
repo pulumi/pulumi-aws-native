@@ -18,27 +18,45 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("analysisId")]
         public Output<string> AnalysisId { get; private set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;The Amazon Resource Name (ARN) of the analysis.&lt;/p&gt;
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         [Output("awsAccountId")]
         public Output<string> AwsAccountId { get; private set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;The time that the analysis was created.&lt;/p&gt;
+        /// </summary>
         [Output("createdTime")]
         public Output<string> CreatedTime { get; private set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;The ARNs of the datasets of the analysis.&lt;/p&gt;
+        /// </summary>
         [Output("dataSetArns")]
         public Output<ImmutableArray<string>> DataSetArns { get; private set; } = null!;
 
         [Output("definition")]
         public Output<Outputs.AnalysisDefinition?> Definition { get; private set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;Errors associated with the analysis.&lt;/p&gt;
+        /// </summary>
         [Output("errors")]
         public Output<ImmutableArray<Outputs.AnalysisError>> Errors { get; private set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;The time that the analysis was last updated.&lt;/p&gt;
+        /// </summary>
         [Output("lastUpdatedTime")]
         public Output<string> LastUpdatedTime { get; private set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;The descriptive name of the analysis.&lt;/p&gt;
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -48,6 +66,9 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("permissions")]
         public Output<ImmutableArray<Outputs.AnalysisResourcePermission>> Permissions { get; private set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;A list of the associated sheets with the unique identifier and name of each sheet.&lt;/p&gt;
+        /// </summary>
         [Output("sheets")]
         public Output<ImmutableArray<Outputs.AnalysisSheet>> Sheets { get; private set; } = null!;
 
@@ -60,6 +81,9 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;The ARN of the theme of the analysis.&lt;/p&gt;
+        /// </summary>
         [Output("themeArn")]
         public Output<string?> ThemeArn { get; private set; } = null!;
 
@@ -127,12 +151,19 @@ namespace Pulumi.AwsNative.QuickSight
 
         [Input("errors")]
         private InputList<Inputs.AnalysisErrorArgs>? _errors;
+
+        /// <summary>
+        /// &lt;p&gt;Errors associated with the analysis.&lt;/p&gt;
+        /// </summary>
         public InputList<Inputs.AnalysisErrorArgs> Errors
         {
             get => _errors ?? (_errors = new InputList<Inputs.AnalysisErrorArgs>());
             set => _errors = value;
         }
 
+        /// <summary>
+        /// &lt;p&gt;The descriptive name of the analysis.&lt;/p&gt;
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -149,6 +180,10 @@ namespace Pulumi.AwsNative.QuickSight
 
         [Input("sheets")]
         private InputList<Inputs.AnalysisSheetArgs>? _sheets;
+
+        /// <summary>
+        /// &lt;p&gt;A list of the associated sheets with the unique identifier and name of each sheet.&lt;/p&gt;
+        /// </summary>
         public InputList<Inputs.AnalysisSheetArgs> Sheets
         {
             get => _sheets ?? (_sheets = new InputList<Inputs.AnalysisSheetArgs>());
@@ -169,6 +204,9 @@ namespace Pulumi.AwsNative.QuickSight
             set => _tags = value;
         }
 
+        /// <summary>
+        /// &lt;p&gt;The ARN of the theme of the analysis.&lt;/p&gt;
+        /// </summary>
         [Input("themeArn")]
         public Input<string>? ThemeArn { get; set; }
 

@@ -17,13 +17,17 @@ import (
 type Dashboard struct {
 	pulumi.CustomResourceState
 
-	Arn                      pulumi.StringOutput                        `pulumi:"arn"`
-	AwsAccountId             pulumi.StringOutput                        `pulumi:"awsAccountId"`
-	CreatedTime              pulumi.StringOutput                        `pulumi:"createdTime"`
-	DashboardId              pulumi.StringOutput                        `pulumi:"dashboardId"`
-	DashboardPublishOptions  DashboardPublishOptionsPtrOutput           `pulumi:"dashboardPublishOptions"`
-	Definition               DashboardVersionDefinitionPtrOutput        `pulumi:"definition"`
-	LastPublishedTime        pulumi.StringOutput                        `pulumi:"lastPublishedTime"`
+	// <p>The Amazon Resource Name (ARN) of the resource.</p>
+	Arn          pulumi.StringOutput `pulumi:"arn"`
+	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
+	// <p>The time that this dashboard was created.</p>
+	CreatedTime             pulumi.StringOutput                 `pulumi:"createdTime"`
+	DashboardId             pulumi.StringOutput                 `pulumi:"dashboardId"`
+	DashboardPublishOptions DashboardPublishOptionsPtrOutput    `pulumi:"dashboardPublishOptions"`
+	Definition              DashboardVersionDefinitionPtrOutput `pulumi:"definition"`
+	// <p>The last time that this dashboard was published.</p>
+	LastPublishedTime pulumi.StringOutput `pulumi:"lastPublishedTime"`
+	// <p>The last time that this dashboard was updated.</p>
 	LastUpdatedTime          pulumi.StringOutput                        `pulumi:"lastUpdatedTime"`
 	LinkEntities             pulumi.StringArrayOutput                   `pulumi:"linkEntities"`
 	LinkSharingConfiguration DashboardLinkSharingConfigurationPtrOutput `pulumi:"linkSharingConfiguration"`
@@ -160,6 +164,7 @@ func (o DashboardOutput) ToDashboardOutputWithContext(ctx context.Context) Dashb
 	return o
 }
 
+// <p>The Amazon Resource Name (ARN) of the resource.</p>
 func (o DashboardOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -168,6 +173,7 @@ func (o DashboardOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }
 
+// <p>The time that this dashboard was created.</p>
 func (o DashboardOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
 }
@@ -184,10 +190,12 @@ func (o DashboardOutput) Definition() DashboardVersionDefinitionPtrOutput {
 	return o.ApplyT(func(v *Dashboard) DashboardVersionDefinitionPtrOutput { return v.Definition }).(DashboardVersionDefinitionPtrOutput)
 }
 
+// <p>The last time that this dashboard was published.</p>
 func (o DashboardOutput) LastPublishedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.LastPublishedTime }).(pulumi.StringOutput)
 }
 
+// <p>The last time that this dashboard was updated.</p>
 func (o DashboardOutput) LastUpdatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.LastUpdatedTime }).(pulumi.StringOutput)
 }

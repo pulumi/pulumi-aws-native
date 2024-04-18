@@ -25,9 +25,21 @@ export interface GetDashboardArgs {
 }
 
 export interface GetDashboardResult {
+    /**
+     * <p>The Amazon Resource Name (ARN) of the resource.</p>
+     */
     readonly arn?: string;
+    /**
+     * <p>The time that this dashboard was created.</p>
+     */
     readonly createdTime?: string;
+    /**
+     * <p>The last time that this dashboard was published.</p>
+     */
     readonly lastPublishedTime?: string;
+    /**
+     * <p>The last time that this dashboard was updated.</p>
+     */
     readonly lastUpdatedTime?: string;
     readonly linkEntities?: string[];
     readonly name?: string;

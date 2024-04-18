@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardFilterOperationSelectedFieldsConfiguration
     {
+        /// <summary>
+        /// &lt;p&gt;The selected columns of a dataset.&lt;/p&gt;
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardColumnIdentifier> SelectedColumns;
         public readonly Pulumi.AwsNative.QuickSight.DashboardSelectedFieldOptions? SelectedFieldOptions;
         public readonly ImmutableArray<string> SelectedFields;

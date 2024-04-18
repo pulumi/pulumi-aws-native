@@ -139,6 +139,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &TransitGatewayMulticastGroupSource{}
 	case "aws-native:ec2:TransitGatewayPeeringAttachment":
 		r = &TransitGatewayPeeringAttachment{}
+	case "aws-native:ec2:TransitGatewayRoute":
+		r = &TransitGatewayRoute{}
 	case "aws-native:ec2:TransitGatewayRouteTable":
 		r = &TransitGatewayRouteTable{}
 	case "aws-native:ec2:TransitGatewayRouteTableAssociation":

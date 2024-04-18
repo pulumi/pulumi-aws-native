@@ -37,10 +37,19 @@ export class Template extends pulumi.CustomResource {
         return obj['__pulumiType'] === Template.__pulumiType;
     }
 
+    /**
+     * <p>The Amazon Resource Name (ARN) of the template.</p>
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly awsAccountId!: pulumi.Output<string>;
+    /**
+     * <p>Time when this was created.</p>
+     */
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
     public readonly definition!: pulumi.Output<outputs.quicksight.TemplateVersionDefinition | undefined>;
+    /**
+     * <p>Time when this was last updated.</p>
+     */
     public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string | undefined>;
     public readonly permissions!: pulumi.Output<outputs.quicksight.TemplateResourcePermission[] | undefined>;

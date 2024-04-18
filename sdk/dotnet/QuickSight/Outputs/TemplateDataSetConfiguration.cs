@@ -10,11 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;Dataset configuration.&lt;/p&gt;
+    /// </summary>
     [OutputType]
     public sealed class TemplateDataSetConfiguration
     {
+        /// <summary>
+        /// &lt;p&gt;A structure containing the list of column group schemas.&lt;/p&gt;
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateColumnGroupSchema> ColumnGroupSchemaList;
         public readonly Outputs.TemplateDataSetSchema? DataSetSchema;
+        /// <summary>
+        /// &lt;p&gt;Placeholder.&lt;/p&gt;
+        /// </summary>
         public readonly string? Placeholder;
 
         [OutputConstructor]

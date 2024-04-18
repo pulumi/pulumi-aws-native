@@ -100,6 +100,10 @@ export class Namespace extends pulumi.CustomResource {
      */
     public readonly redshiftIdcApplicationArn!: pulumi.Output<string | undefined>;
     /**
+     * The snapshot copy configurations for the namespace.
+     */
+    public readonly snapshotCopyConfigurations!: pulumi.Output<outputs.redshiftserverless.NamespaceSnapshotCopyConfiguration[] | undefined>;
+    /**
      * The list of tags for the namespace.
      */
     public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
@@ -129,6 +133,7 @@ export class Namespace extends pulumi.CustomResource {
             resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
             resourceInputs["namespaceResourcePolicy"] = args ? args.namespaceResourcePolicy : undefined;
             resourceInputs["redshiftIdcApplicationArn"] = args ? args.redshiftIdcApplicationArn : undefined;
+            resourceInputs["snapshotCopyConfigurations"] = args ? args.snapshotCopyConfigurations : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["namespace"] = undefined /*out*/;
         } else {
@@ -147,6 +152,7 @@ export class Namespace extends pulumi.CustomResource {
             resourceInputs["namespaceName"] = undefined /*out*/;
             resourceInputs["namespaceResourcePolicy"] = undefined /*out*/;
             resourceInputs["redshiftIdcApplicationArn"] = undefined /*out*/;
+            resourceInputs["snapshotCopyConfigurations"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -218,6 +224,10 @@ export interface NamespaceArgs {
      * The ARN for the Redshift application that integrates with IAM Identity Center.
      */
     redshiftIdcApplicationArn?: pulumi.Input<string>;
+    /**
+     * The snapshot copy configurations for the namespace.
+     */
+    snapshotCopyConfigurations?: pulumi.Input<pulumi.Input<inputs.redshiftserverless.NamespaceSnapshotCopyConfigurationArgs>[]>;
     /**
      * The list of tags for the namespace.
      */

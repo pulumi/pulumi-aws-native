@@ -10,10 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;The source analysis of the template.&lt;/p&gt;
+    /// </summary>
     [OutputType]
     public sealed class TemplateSourceAnalysis
     {
+        /// <summary>
+        /// &lt;p&gt;The Amazon Resource Name (ARN) of the resource.&lt;/p&gt;
+        /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// &lt;p&gt;A structure containing information about the dataset references used as placeholders
+        ///             in the template.&lt;/p&gt;
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateDataSetReference> DataSetReferences;
 
         [OutputConstructor]

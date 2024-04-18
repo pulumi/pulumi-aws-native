@@ -6131,6 +6131,9 @@ class AnalysisDataSetIdentifierDeclaration(dict):
 
 @pulumi.output_type
 class AnalysisDataSetReference(dict):
+    """
+    <p>Dataset reference.</p>
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6153,17 +6156,28 @@ class AnalysisDataSetReference(dict):
     def __init__(__self__, *,
                  data_set_arn: str,
                  data_set_placeholder: str):
+        """
+        <p>Dataset reference.</p>
+        :param str data_set_arn: <p>Dataset Amazon Resource Name (ARN).</p>
+        :param str data_set_placeholder: <p>Dataset placeholder.</p>
+        """
         pulumi.set(__self__, "data_set_arn", data_set_arn)
         pulumi.set(__self__, "data_set_placeholder", data_set_placeholder)
 
     @property
     @pulumi.getter(name="dataSetArn")
     def data_set_arn(self) -> str:
+        """
+        <p>Dataset Amazon Resource Name (ARN).</p>
+        """
         return pulumi.get(self, "data_set_arn")
 
     @property
     @pulumi.getter(name="dataSetPlaceholder")
     def data_set_placeholder(self) -> str:
+        """
+        <p>Dataset placeholder.</p>
+        """
         return pulumi.get(self, "data_set_placeholder")
 
 
@@ -6460,20 +6474,34 @@ class AnalysisDateTimeHierarchy(dict):
 
 @pulumi.output_type
 class AnalysisDateTimeParameter(dict):
+    """
+    <p>A date-time parameter.</p>
+    """
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
+        """
+        <p>A date-time parameter.</p>
+        :param str name: <p>A display name for the date-time parameter.</p>
+        :param Sequence[str] values: <p>The values for the date-time parameter.</p>
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        <p>A display name for the date-time parameter.</p>
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def values(self) -> Sequence[str]:
+        """
+        <p>The values for the date-time parameter.</p>
+        """
         return pulumi.get(self, "values")
 
 
@@ -6676,20 +6704,34 @@ class AnalysisDecimalDefaultValues(dict):
 
 @pulumi.output_type
 class AnalysisDecimalParameter(dict):
+    """
+    <p>A decimal parameter.</p>
+    """
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[float]):
+        """
+        <p>A decimal parameter.</p>
+        :param str name: <p>A display name for the decimal parameter.</p>
+        :param Sequence[float] values: <p>The values for the decimal parameter.</p>
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        <p>A display name for the decimal parameter.</p>
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def values(self) -> Sequence[float]:
+        """
+        <p>The values for the decimal parameter.</p>
+        """
         return pulumi.get(self, "values")
 
 
@@ -7557,6 +7599,9 @@ class AnalysisEntity(dict):
 
 @pulumi.output_type
 class AnalysisError(dict):
+    """
+    <p>Analysis error.</p>
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7578,6 +7623,11 @@ class AnalysisError(dict):
                  message: Optional[str] = None,
                  type: Optional['AnalysisErrorType'] = None,
                  violated_entities: Optional[Sequence['outputs.AnalysisEntity']] = None):
+        """
+        <p>Analysis error.</p>
+        :param str message: <p>The message associated with the analysis error.</p>
+        :param Sequence['AnalysisEntity'] violated_entities: <p>Lists the violated entities that caused the analysis error</p>
+        """
         if message is not None:
             pulumi.set(__self__, "message", message)
         if type is not None:
@@ -7588,6 +7638,9 @@ class AnalysisError(dict):
     @property
     @pulumi.getter
     def message(self) -> Optional[str]:
+        """
+        <p>The message associated with the analysis error.</p>
+        """
         return pulumi.get(self, "message")
 
     @property
@@ -7598,6 +7651,9 @@ class AnalysisError(dict):
     @property
     @pulumi.getter(name="violatedEntities")
     def violated_entities(self) -> Optional[Sequence['outputs.AnalysisEntity']]:
+        """
+        <p>Lists the violated entities that caused the analysis error</p>
+        """
         return pulumi.get(self, "violated_entities")
 
 
@@ -8798,6 +8854,9 @@ class AnalysisFilterOperationSelectedFieldsConfiguration(dict):
                  selected_columns: Optional[Sequence['outputs.AnalysisColumnIdentifier']] = None,
                  selected_field_options: Optional['AnalysisSelectedFieldOptions'] = None,
                  selected_fields: Optional[Sequence[str]] = None):
+        """
+        :param Sequence['AnalysisColumnIdentifier'] selected_columns: <p>The selected columns of a dataset.</p>
+        """
         if selected_columns is not None:
             pulumi.set(__self__, "selected_columns", selected_columns)
         if selected_field_options is not None:
@@ -8808,6 +8867,9 @@ class AnalysisFilterOperationSelectedFieldsConfiguration(dict):
     @property
     @pulumi.getter(name="selectedColumns")
     def selected_columns(self) -> Optional[Sequence['outputs.AnalysisColumnIdentifier']]:
+        """
+        <p>The selected columns of a dataset.</p>
+        """
         return pulumi.get(self, "selected_columns")
 
     @property
@@ -12058,20 +12120,34 @@ class AnalysisIntegerDefaultValues(dict):
 
 @pulumi.output_type
 class AnalysisIntegerParameter(dict):
+    """
+    <p>An integer parameter.</p>
+    """
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[float]):
+        """
+        <p>An integer parameter.</p>
+        :param str name: <p>The name of the integer parameter.</p>
+        :param Sequence[float] values: <p>The values for the integer parameter.</p>
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        <p>The name of the integer parameter.</p>
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def values(self) -> Sequence[float]:
+        """
+        <p>The values for the integer parameter.</p>
+        """
         return pulumi.get(self, "values")
 
 
@@ -15660,6 +15736,9 @@ class AnalysisParameterTextFieldControl(dict):
 
 @pulumi.output_type
 class AnalysisParameters(dict):
+    """
+    <p>A list of Amazon QuickSight parameters and the list's override values.</p>
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -15688,6 +15767,13 @@ class AnalysisParameters(dict):
                  decimal_parameters: Optional[Sequence['outputs.AnalysisDecimalParameter']] = None,
                  integer_parameters: Optional[Sequence['outputs.AnalysisIntegerParameter']] = None,
                  string_parameters: Optional[Sequence['outputs.AnalysisStringParameter']] = None):
+        """
+        <p>A list of Amazon QuickSight parameters and the list's override values.</p>
+        :param Sequence['AnalysisDateTimeParameter'] date_time_parameters: <p>The parameters that have a data type of date-time.</p>
+        :param Sequence['AnalysisDecimalParameter'] decimal_parameters: <p>The parameters that have a data type of decimal.</p>
+        :param Sequence['AnalysisIntegerParameter'] integer_parameters: <p>The parameters that have a data type of integer.</p>
+        :param Sequence['AnalysisStringParameter'] string_parameters: <p>The parameters that have a data type of string.</p>
+        """
         if date_time_parameters is not None:
             pulumi.set(__self__, "date_time_parameters", date_time_parameters)
         if decimal_parameters is not None:
@@ -15700,21 +15786,33 @@ class AnalysisParameters(dict):
     @property
     @pulumi.getter(name="dateTimeParameters")
     def date_time_parameters(self) -> Optional[Sequence['outputs.AnalysisDateTimeParameter']]:
+        """
+        <p>The parameters that have a data type of date-time.</p>
+        """
         return pulumi.get(self, "date_time_parameters")
 
     @property
     @pulumi.getter(name="decimalParameters")
     def decimal_parameters(self) -> Optional[Sequence['outputs.AnalysisDecimalParameter']]:
+        """
+        <p>The parameters that have a data type of decimal.</p>
+        """
         return pulumi.get(self, "decimal_parameters")
 
     @property
     @pulumi.getter(name="integerParameters")
     def integer_parameters(self) -> Optional[Sequence['outputs.AnalysisIntegerParameter']]:
+        """
+        <p>The parameters that have a data type of integer.</p>
+        """
         return pulumi.get(self, "integer_parameters")
 
     @property
     @pulumi.getter(name="stringParameters")
     def string_parameters(self) -> Optional[Sequence['outputs.AnalysisStringParameter']]:
+        """
+        <p>The parameters that have a data type of string.</p>
+        """
         return pulumi.get(self, "string_parameters")
 
 
@@ -18352,20 +18450,62 @@ class AnalysisRelativeDatesFilter(dict):
 
 @pulumi.output_type
 class AnalysisResourcePermission(dict):
+    """
+    <p>Permission for the resource.</p>
+    """
     def __init__(__self__, *,
                  actions: Sequence[str],
                  principal: str):
+        """
+        <p>Permission for the resource.</p>
+        :param Sequence[str] actions: <p>The IAM action to grant or revoke permissions on.</p>
+        :param str principal: <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+                           following:</p>
+                        <ul>
+                           <li>
+                              <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+                           </li>
+                           <li>
+                              <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+                           </li>
+                           <li>
+                              <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
+                                   ARN. Use this option only to share resources (templates) across Amazon Web Services accounts.
+                                   (This is less common.) </p>
+                           </li>
+                        </ul>
+        """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "principal", principal)
 
     @property
     @pulumi.getter
     def actions(self) -> Sequence[str]:
+        """
+        <p>The IAM action to grant or revoke permissions on.</p>
+        """
         return pulumi.get(self, "actions")
 
     @property
     @pulumi.getter
     def principal(self) -> str:
+        """
+        <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+                    following:</p>
+                 <ul>
+                    <li>
+                       <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+                    </li>
+                    <li>
+                       <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+                    </li>
+                    <li>
+                       <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
+                            ARN. Use this option only to share resources (templates) across Amazon Web Services accounts.
+                            (This is less common.) </p>
+                    </li>
+                 </ul>
+        """
         return pulumi.get(self, "principal")
 
 
@@ -19469,6 +19609,13 @@ class AnalysisShapeConditionalFormat(dict):
 
 @pulumi.output_type
 class AnalysisSheet(dict):
+    """
+    <p>A <i>sheet</i>, which is an object that contains a set of visuals that
+                are viewed together on one page in Amazon QuickSight. Every analysis and dashboard
+                contains at least one sheet. Each sheet contains at least one visualization widget, for
+                example a chart, pivot table, or narrative insight. Sheets can be associated with other
+                components, such as controls, filters, and so on.</p>
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -19489,6 +19636,16 @@ class AnalysisSheet(dict):
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  sheet_id: Optional[str] = None):
+        """
+        <p>A <i>sheet</i>, which is an object that contains a set of visuals that
+                    are viewed together on one page in Amazon QuickSight. Every analysis and dashboard
+                    contains at least one sheet. Each sheet contains at least one visualization widget, for
+                    example a chart, pivot table, or narrative insight. Sheets can be associated with other
+                    components, such as controls, filters, and so on.</p>
+        :param str name: <p>The name of a sheet. This name is displayed on the sheet's tab in the Amazon QuickSight
+                           console.</p>
+        :param str sheet_id: <p>The unique identifier associated with a sheet.</p>
+        """
         if name is not None:
             pulumi.set(__self__, "name", name)
         if sheet_id is not None:
@@ -19497,11 +19654,18 @@ class AnalysisSheet(dict):
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        <p>The name of a sheet. This name is displayed on the sheet's tab in the Amazon QuickSight
+                    console.</p>
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="sheetId")
     def sheet_id(self) -> Optional[str]:
+        """
+        <p>The unique identifier associated with a sheet.</p>
+        """
         return pulumi.get(self, "sheet_id")
 
 
@@ -20022,6 +20186,9 @@ class AnalysisSmallMultiplesOptions(dict):
 
 @pulumi.output_type
 class AnalysisSourceEntity(dict):
+    """
+    <p>The source entity of an analysis.</p>
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -20041,6 +20208,9 @@ class AnalysisSourceEntity(dict):
 
     def __init__(__self__, *,
                  source_template: Optional['outputs.AnalysisSourceTemplate'] = None):
+        """
+        <p>The source entity of an analysis.</p>
+        """
         if source_template is not None:
             pulumi.set(__self__, "source_template", source_template)
 
@@ -20052,6 +20222,9 @@ class AnalysisSourceEntity(dict):
 
 @pulumi.output_type
 class AnalysisSourceTemplate(dict):
+    """
+    <p>The source template of an analysis.</p>
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -20072,17 +20245,28 @@ class AnalysisSourceTemplate(dict):
     def __init__(__self__, *,
                  arn: str,
                  data_set_references: Sequence['outputs.AnalysisDataSetReference']):
+        """
+        <p>The source template of an analysis.</p>
+        :param str arn: <p>The Amazon Resource Name (ARN) of the source template of an analysis.</p>
+        :param Sequence['AnalysisDataSetReference'] data_set_references: <p>The dataset references of the source template of an analysis.</p>
+        """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "data_set_references", data_set_references)
 
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        <p>The Amazon Resource Name (ARN) of the source template of an analysis.</p>
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="dataSetReferences")
     def data_set_references(self) -> Sequence['outputs.AnalysisDataSetReference']:
+        """
+        <p>The dataset references of the source template of an analysis.</p>
+        """
         return pulumi.get(self, "data_set_references")
 
 
@@ -20223,20 +20407,34 @@ class AnalysisStringFormatConfiguration(dict):
 
 @pulumi.output_type
 class AnalysisStringParameter(dict):
+    """
+    <p>A string parameter.</p>
+    """
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
+        """
+        <p>A string parameter.</p>
+        :param str name: <p>A display name for a string parameter.</p>
+        :param Sequence[str] values: <p>The values of a string parameter.</p>
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        <p>A display name for a string parameter.</p>
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def values(self) -> Sequence[str]:
+        """
+        <p>The values of a string parameter.</p>
+        """
         return pulumi.get(self, "values")
 
 
@@ -23017,8 +23215,14 @@ class AnalysisUniqueValuesComputation(dict):
 
 @pulumi.output_type
 class AnalysisValidationStrategy(dict):
+    """
+    <p>The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to <code>LENIENT</code>, validation is skipped for specific errors.</p>
+    """
     def __init__(__self__, *,
                  mode: 'AnalysisValidationStrategyMode'):
+        """
+        <p>The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to <code>LENIENT</code>, validation is skipped for specific errors.</p>
+        """
         pulumi.set(__self__, "mode", mode)
 
     @property
@@ -24250,6 +24454,9 @@ class AnalysisWordCloudVisual(dict):
 
 @pulumi.output_type
 class DashboardAdHocFilteringOption(dict):
+    """
+    <p>An ad hoc (one-time) filtering option.</p>
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -24269,6 +24476,9 @@ class DashboardAdHocFilteringOption(dict):
 
     def __init__(__self__, *,
                  availability_status: Optional['DashboardBehavior'] = None):
+        """
+        <p>An ad hoc (one-time) filtering option.</p>
+        """
         if availability_status is not None:
             pulumi.set(__self__, "availability_status", availability_status)
 
@@ -28836,6 +29046,9 @@ class DashboardDataPathValue(dict):
 
 @pulumi.output_type
 class DashboardDataPointDrillUpDownOption(dict):
+    """
+    <p>The drill down options for data points in a dashbaord.</p>
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -28855,6 +29068,9 @@ class DashboardDataPointDrillUpDownOption(dict):
 
     def __init__(__self__, *,
                  availability_status: Optional['DashboardBehavior'] = None):
+        """
+        <p>The drill down options for data points in a dashbaord.</p>
+        """
         if availability_status is not None:
             pulumi.set(__self__, "availability_status", availability_status)
 
@@ -28866,6 +29082,9 @@ class DashboardDataPointDrillUpDownOption(dict):
 
 @pulumi.output_type
 class DashboardDataPointMenuLabelOption(dict):
+    """
+    <p>The data point menu options of a dashboard.</p>
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -28885,6 +29104,9 @@ class DashboardDataPointMenuLabelOption(dict):
 
     def __init__(__self__, *,
                  availability_status: Optional['DashboardBehavior'] = None):
+        """
+        <p>The data point menu options of a dashboard.</p>
+        """
         if availability_status is not None:
             pulumi.set(__self__, "availability_status", availability_status)
 
@@ -28896,6 +29118,9 @@ class DashboardDataPointMenuLabelOption(dict):
 
 @pulumi.output_type
 class DashboardDataPointTooltipOption(dict):
+    """
+    <p>The data point tooltip options.</p>
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -28915,6 +29140,9 @@ class DashboardDataPointTooltipOption(dict):
 
     def __init__(__self__, *,
                  availability_status: Optional['DashboardBehavior'] = None):
+        """
+        <p>The data point tooltip options.</p>
+        """
         if availability_status is not None:
             pulumi.set(__self__, "availability_status", availability_status)
 
@@ -28962,6 +29190,9 @@ class DashboardDataSetIdentifierDeclaration(dict):
 
 @pulumi.output_type
 class DashboardDataSetReference(dict):
+    """
+    <p>Dataset reference.</p>
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -28984,17 +29215,28 @@ class DashboardDataSetReference(dict):
     def __init__(__self__, *,
                  data_set_arn: str,
                  data_set_placeholder: str):
+        """
+        <p>Dataset reference.</p>
+        :param str data_set_arn: <p>Dataset Amazon Resource Name (ARN).</p>
+        :param str data_set_placeholder: <p>Dataset placeholder.</p>
+        """
         pulumi.set(__self__, "data_set_arn", data_set_arn)
         pulumi.set(__self__, "data_set_placeholder", data_set_placeholder)
 
     @property
     @pulumi.getter(name="dataSetArn")
     def data_set_arn(self) -> str:
+        """
+        <p>Dataset Amazon Resource Name (ARN).</p>
+        """
         return pulumi.get(self, "data_set_arn")
 
     @property
     @pulumi.getter(name="dataSetPlaceholder")
     def data_set_placeholder(self) -> str:
+        """
+        <p>Dataset placeholder.</p>
+        """
         return pulumi.get(self, "data_set_placeholder")
 
 
@@ -29291,20 +29533,34 @@ class DashboardDateTimeHierarchy(dict):
 
 @pulumi.output_type
 class DashboardDateTimeParameter(dict):
+    """
+    <p>A date-time parameter.</p>
+    """
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
+        """
+        <p>A date-time parameter.</p>
+        :param str name: <p>A display name for the date-time parameter.</p>
+        :param Sequence[str] values: <p>The values for the date-time parameter.</p>
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        <p>A display name for the date-time parameter.</p>
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def values(self) -> Sequence[str]:
+        """
+        <p>The values for the date-time parameter.</p>
+        """
         return pulumi.get(self, "values")
 
 
@@ -29507,20 +29763,34 @@ class DashboardDecimalDefaultValues(dict):
 
 @pulumi.output_type
 class DashboardDecimalParameter(dict):
+    """
+    <p>A decimal parameter.</p>
+    """
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[float]):
+        """
+        <p>A decimal parameter.</p>
+        :param str name: <p>A display name for the decimal parameter.</p>
+        :param Sequence[float] values: <p>The values for the decimal parameter.</p>
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        <p>A display name for the decimal parameter.</p>
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def values(self) -> Sequence[float]:
+        """
+        <p>The values for the decimal parameter.</p>
+        """
         return pulumi.get(self, "values")
 
 
@@ -30264,6 +30534,9 @@ class DashboardEntity(dict):
 
 @pulumi.output_type
 class DashboardError(dict):
+    """
+    <p>Dashboard error.</p>
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -30285,6 +30558,11 @@ class DashboardError(dict):
                  message: Optional[str] = None,
                  type: Optional['DashboardErrorType'] = None,
                  violated_entities: Optional[Sequence['outputs.DashboardEntity']] = None):
+        """
+        <p>Dashboard error.</p>
+        :param str message: <p>Message.</p>
+        :param Sequence['DashboardEntity'] violated_entities: <p>Lists the violated entities that caused the dashboard error.</p>
+        """
         if message is not None:
             pulumi.set(__self__, "message", message)
         if type is not None:
@@ -30295,6 +30573,9 @@ class DashboardError(dict):
     @property
     @pulumi.getter
     def message(self) -> Optional[str]:
+        """
+        <p>Message.</p>
+        """
         return pulumi.get(self, "message")
 
     @property
@@ -30305,6 +30586,9 @@ class DashboardError(dict):
     @property
     @pulumi.getter(name="violatedEntities")
     def violated_entities(self) -> Optional[Sequence['outputs.DashboardEntity']]:
+        """
+        <p>Lists the violated entities that caused the dashboard error.</p>
+        """
         return pulumi.get(self, "violated_entities")
 
 
@@ -30383,6 +30667,9 @@ class DashboardExplicitHierarchy(dict):
 
 @pulumi.output_type
 class DashboardExportHiddenFieldsOption(dict):
+    """
+    <p>Determines if hidden fields are included in an exported dashboard.</p>
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -30402,6 +30689,9 @@ class DashboardExportHiddenFieldsOption(dict):
 
     def __init__(__self__, *,
                  availability_status: Optional['DashboardBehavior'] = None):
+        """
+        <p>Determines if hidden fields are included in an exported dashboard.</p>
+        """
         if availability_status is not None:
             pulumi.set(__self__, "availability_status", availability_status)
 
@@ -30413,6 +30703,9 @@ class DashboardExportHiddenFieldsOption(dict):
 
 @pulumi.output_type
 class DashboardExportToCsvOption(dict):
+    """
+    <p>Export to .csv option.</p>
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -30432,6 +30725,9 @@ class DashboardExportToCsvOption(dict):
 
     def __init__(__self__, *,
                  availability_status: Optional['DashboardBehavior'] = None):
+        """
+        <p>Export to .csv option.</p>
+        """
         if availability_status is not None:
             pulumi.set(__self__, "availability_status", availability_status)
 
@@ -30443,6 +30739,9 @@ class DashboardExportToCsvOption(dict):
 
 @pulumi.output_type
 class DashboardExportWithHiddenFieldsOption(dict):
+    """
+    <p>Determines whether or not hidden fields are visible on exported dashbaords.</p>
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -30462,6 +30761,9 @@ class DashboardExportWithHiddenFieldsOption(dict):
 
     def __init__(__self__, *,
                  availability_status: Optional['DashboardBehavior'] = None):
+        """
+        <p>Determines whether or not hidden fields are visible on exported dashbaords.</p>
+        """
         if availability_status is not None:
             pulumi.set(__self__, "availability_status", availability_status)
 
@@ -31595,6 +31897,9 @@ class DashboardFilterOperationSelectedFieldsConfiguration(dict):
                  selected_columns: Optional[Sequence['outputs.DashboardColumnIdentifier']] = None,
                  selected_field_options: Optional['DashboardSelectedFieldOptions'] = None,
                  selected_fields: Optional[Sequence[str]] = None):
+        """
+        :param Sequence['DashboardColumnIdentifier'] selected_columns: <p>The selected columns of a dataset.</p>
+        """
         if selected_columns is not None:
             pulumi.set(__self__, "selected_columns", selected_columns)
         if selected_field_options is not None:
@@ -31605,6 +31910,9 @@ class DashboardFilterOperationSelectedFieldsConfiguration(dict):
     @property
     @pulumi.getter(name="selectedColumns")
     def selected_columns(self) -> Optional[Sequence['outputs.DashboardColumnIdentifier']]:
+        """
+        <p>The selected columns of a dataset.</p>
+        """
         return pulumi.get(self, "selected_columns")
 
     @property
@@ -34855,20 +35163,34 @@ class DashboardIntegerDefaultValues(dict):
 
 @pulumi.output_type
 class DashboardIntegerParameter(dict):
+    """
+    <p>An integer parameter.</p>
+    """
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[float]):
+        """
+        <p>An integer parameter.</p>
+        :param str name: <p>The name of the integer parameter.</p>
+        :param Sequence[float] values: <p>The values for the integer parameter.</p>
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        <p>The name of the integer parameter.</p>
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def values(self) -> Sequence[float]:
+        """
+        <p>The values for the integer parameter.</p>
+        """
         return pulumi.get(self, "values")
 
 
@@ -38470,6 +38792,9 @@ class DashboardParameterTextFieldControl(dict):
 
 @pulumi.output_type
 class DashboardParameters(dict):
+    """
+    <p>A list of Amazon QuickSight parameters and the list's override values.</p>
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -38498,6 +38823,13 @@ class DashboardParameters(dict):
                  decimal_parameters: Optional[Sequence['outputs.DashboardDecimalParameter']] = None,
                  integer_parameters: Optional[Sequence['outputs.DashboardIntegerParameter']] = None,
                  string_parameters: Optional[Sequence['outputs.DashboardStringParameter']] = None):
+        """
+        <p>A list of Amazon QuickSight parameters and the list's override values.</p>
+        :param Sequence['DashboardDateTimeParameter'] date_time_parameters: <p>The parameters that have a data type of date-time.</p>
+        :param Sequence['DashboardDecimalParameter'] decimal_parameters: <p>The parameters that have a data type of decimal.</p>
+        :param Sequence['DashboardIntegerParameter'] integer_parameters: <p>The parameters that have a data type of integer.</p>
+        :param Sequence['DashboardStringParameter'] string_parameters: <p>The parameters that have a data type of string.</p>
+        """
         if date_time_parameters is not None:
             pulumi.set(__self__, "date_time_parameters", date_time_parameters)
         if decimal_parameters is not None:
@@ -38510,21 +38842,33 @@ class DashboardParameters(dict):
     @property
     @pulumi.getter(name="dateTimeParameters")
     def date_time_parameters(self) -> Optional[Sequence['outputs.DashboardDateTimeParameter']]:
+        """
+        <p>The parameters that have a data type of date-time.</p>
+        """
         return pulumi.get(self, "date_time_parameters")
 
     @property
     @pulumi.getter(name="decimalParameters")
     def decimal_parameters(self) -> Optional[Sequence['outputs.DashboardDecimalParameter']]:
+        """
+        <p>The parameters that have a data type of decimal.</p>
+        """
         return pulumi.get(self, "decimal_parameters")
 
     @property
     @pulumi.getter(name="integerParameters")
     def integer_parameters(self) -> Optional[Sequence['outputs.DashboardIntegerParameter']]:
+        """
+        <p>The parameters that have a data type of integer.</p>
+        """
         return pulumi.get(self, "integer_parameters")
 
     @property
     @pulumi.getter(name="stringParameters")
     def string_parameters(self) -> Optional[Sequence['outputs.DashboardStringParameter']]:
+        """
+        <p>The parameters that have a data type of string.</p>
+        """
         return pulumi.get(self, "string_parameters")
 
 
@@ -40243,6 +40587,9 @@ class DashboardProgressBarOptions(dict):
 
 @pulumi.output_type
 class DashboardPublishOptions(dict):
+    """
+    <p>Dashboard publish options.</p>
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -40292,6 +40639,9 @@ class DashboardPublishOptions(dict):
                  visual_axis_sort_option: Optional['outputs.DashboardVisualAxisSortOption'] = None,
                  visual_menu_option: Optional['outputs.DashboardVisualMenuOption'] = None,
                  visual_publish_options: Optional['outputs.DashboardVisualPublishOptions'] = None):
+        """
+        <p>Dashboard publish options.</p>
+        """
         if ad_hoc_filtering_option is not None:
             pulumi.set(__self__, "ad_hoc_filtering_option", ad_hoc_filtering_option)
         if data_point_drill_up_down_option is not None:
@@ -41292,20 +41642,62 @@ class DashboardRelativeDatesFilter(dict):
 
 @pulumi.output_type
 class DashboardResourcePermission(dict):
+    """
+    <p>Permission for the resource.</p>
+    """
     def __init__(__self__, *,
                  actions: Sequence[str],
                  principal: str):
+        """
+        <p>Permission for the resource.</p>
+        :param Sequence[str] actions: <p>The IAM action to grant or revoke permissions on.</p>
+        :param str principal: <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+                           following:</p>
+                        <ul>
+                           <li>
+                              <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+                           </li>
+                           <li>
+                              <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+                           </li>
+                           <li>
+                              <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
+                                   ARN. Use this option only to share resources (templates) across Amazon Web Services accounts.
+                                   (This is less common.) </p>
+                           </li>
+                        </ul>
+        """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "principal", principal)
 
     @property
     @pulumi.getter
     def actions(self) -> Sequence[str]:
+        """
+        <p>The IAM action to grant or revoke permissions on.</p>
+        """
         return pulumi.get(self, "actions")
 
     @property
     @pulumi.getter
     def principal(self) -> str:
+        """
+        <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+                    following:</p>
+                 <ul>
+                    <li>
+                       <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+                    </li>
+                    <li>
+                       <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+                    </li>
+                    <li>
+                       <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
+                            ARN. Use this option only to share resources (templates) across Amazon Web Services accounts.
+                            (This is less common.) </p>
+                    </li>
+                 </ul>
+        """
         return pulumi.get(self, "principal")
 
 
@@ -42409,6 +42801,13 @@ class DashboardShapeConditionalFormat(dict):
 
 @pulumi.output_type
 class DashboardSheet(dict):
+    """
+    <p>A <i>sheet</i>, which is an object that contains a set of visuals that
+                are viewed together on one page in Amazon QuickSight. Every analysis and dashboard
+                contains at least one sheet. Each sheet contains at least one visualization widget, for
+                example a chart, pivot table, or narrative insight. Sheets can be associated with other
+                components, such as controls, filters, and so on.</p>
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -42429,6 +42828,16 @@ class DashboardSheet(dict):
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  sheet_id: Optional[str] = None):
+        """
+        <p>A <i>sheet</i>, which is an object that contains a set of visuals that
+                    are viewed together on one page in Amazon QuickSight. Every analysis and dashboard
+                    contains at least one sheet. Each sheet contains at least one visualization widget, for
+                    example a chart, pivot table, or narrative insight. Sheets can be associated with other
+                    components, such as controls, filters, and so on.</p>
+        :param str name: <p>The name of a sheet. This name is displayed on the sheet's tab in the Amazon QuickSight
+                           console.</p>
+        :param str sheet_id: <p>The unique identifier associated with a sheet.</p>
+        """
         if name is not None:
             pulumi.set(__self__, "name", name)
         if sheet_id is not None:
@@ -42437,11 +42846,18 @@ class DashboardSheet(dict):
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        <p>The name of a sheet. This name is displayed on the sheet's tab in the Amazon QuickSight
+                    console.</p>
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="sheetId")
     def sheet_id(self) -> Optional[str]:
+        """
+        <p>The unique identifier associated with a sheet.</p>
+        """
         return pulumi.get(self, "sheet_id")
 
 
@@ -42527,6 +42943,9 @@ class DashboardSheetControlLayoutConfiguration(dict):
 
 @pulumi.output_type
 class DashboardSheetControlsOption(dict):
+    """
+    <p>Sheet controls option.</p>
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -42546,6 +42965,9 @@ class DashboardSheetControlsOption(dict):
 
     def __init__(__self__, *,
                  visibility_state: Optional['DashboardUiState'] = None):
+        """
+        <p>Sheet controls option.</p>
+        """
         if visibility_state is not None:
             pulumi.set(__self__, "visibility_state", visibility_state)
 
@@ -42725,6 +43147,9 @@ class DashboardSheetElementRenderingRule(dict):
 
 @pulumi.output_type
 class DashboardSheetLayoutElementMaximizationOption(dict):
+    """
+    <p>The sheet layout maximization options of a dashbaord.</p>
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -42744,6 +43169,9 @@ class DashboardSheetLayoutElementMaximizationOption(dict):
 
     def __init__(__self__, *,
                  availability_status: Optional['DashboardBehavior'] = None):
+        """
+        <p>The sheet layout maximization options of a dashbaord.</p>
+        """
         if availability_status is not None:
             pulumi.set(__self__, "availability_status", availability_status)
 
@@ -43022,6 +43450,9 @@ class DashboardSmallMultiplesOptions(dict):
 
 @pulumi.output_type
 class DashboardSourceEntity(dict):
+    """
+    <p>Dashboard source entity.</p>
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -43041,6 +43472,9 @@ class DashboardSourceEntity(dict):
 
     def __init__(__self__, *,
                  source_template: Optional['outputs.DashboardSourceTemplate'] = None):
+        """
+        <p>Dashboard source entity.</p>
+        """
         if source_template is not None:
             pulumi.set(__self__, "source_template", source_template)
 
@@ -43052,6 +43486,9 @@ class DashboardSourceEntity(dict):
 
 @pulumi.output_type
 class DashboardSourceTemplate(dict):
+    """
+    <p>Dashboard source template.</p>
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -43072,17 +43509,28 @@ class DashboardSourceTemplate(dict):
     def __init__(__self__, *,
                  arn: str,
                  data_set_references: Sequence['outputs.DashboardDataSetReference']):
+        """
+        <p>Dashboard source template.</p>
+        :param str arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
+        :param Sequence['DashboardDataSetReference'] data_set_references: <p>Dataset references.</p>
+        """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "data_set_references", data_set_references)
 
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        <p>The Amazon Resource Name (ARN) of the resource.</p>
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="dataSetReferences")
     def data_set_references(self) -> Sequence['outputs.DashboardDataSetReference']:
+        """
+        <p>Dataset references.</p>
+        """
         return pulumi.get(self, "data_set_references")
 
 
@@ -43223,20 +43671,34 @@ class DashboardStringFormatConfiguration(dict):
 
 @pulumi.output_type
 class DashboardStringParameter(dict):
+    """
+    <p>A string parameter.</p>
+    """
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
+        """
+        <p>A string parameter.</p>
+        :param str name: <p>A display name for a string parameter.</p>
+        :param Sequence[str] values: <p>The values of a string parameter.</p>
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        <p>A display name for a string parameter.</p>
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def values(self) -> Sequence[str]:
+        """
+        <p>The values of a string parameter.</p>
+        """
         return pulumi.get(self, "values")
 
 
@@ -46017,8 +46479,14 @@ class DashboardUniqueValuesComputation(dict):
 
 @pulumi.output_type
 class DashboardValidationStrategy(dict):
+    """
+    <p>The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to <code>LENIENT</code>, validation is skipped for specific errors.</p>
+    """
     def __init__(__self__, *,
                  mode: 'DashboardValidationStrategyMode'):
+        """
+        <p>The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to <code>LENIENT</code>, validation is skipped for specific errors.</p>
+        """
         pulumi.set(__self__, "mode", mode)
 
     @property
@@ -46029,6 +46497,9 @@ class DashboardValidationStrategy(dict):
 
 @pulumi.output_type
 class DashboardVersion(dict):
+    """
+    <p>Dashboard version.</p>
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -46065,6 +46536,19 @@ class DashboardVersion(dict):
                  status: Optional['DashboardResourceStatus'] = None,
                  theme_arn: Optional[str] = None,
                  version_number: Optional[float] = None):
+        """
+        <p>Dashboard version.</p>
+        :param str arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
+        :param str created_time: <p>The time that this dashboard version was created.</p>
+        :param Sequence[str] data_set_arns: <p>The Amazon Resource Numbers (ARNs) for the datasets that are associated with this
+                           version of the dashboard.</p>
+        :param str description: <p>Description.</p>
+        :param Sequence['DashboardError'] errors: <p>Errors associated with this dashboard version.</p>
+        :param Sequence['DashboardSheet'] sheets: <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
+        :param str source_entity_arn: <p>Source entity ARN.</p>
+        :param str theme_arn: <p>The ARN of the theme associated with a version of the dashboard.</p>
+        :param float version_number: <p>Version number for this version of the dashboard.</p>
+        """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if created_time is not None:
@@ -46089,36 +46573,58 @@ class DashboardVersion(dict):
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        <p>The Amazon Resource Name (ARN) of the resource.</p>
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> Optional[str]:
+        """
+        <p>The time that this dashboard version was created.</p>
+        """
         return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter(name="dataSetArns")
     def data_set_arns(self) -> Optional[Sequence[str]]:
+        """
+        <p>The Amazon Resource Numbers (ARNs) for the datasets that are associated with this
+                    version of the dashboard.</p>
+        """
         return pulumi.get(self, "data_set_arns")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        <p>Description.</p>
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def errors(self) -> Optional[Sequence['outputs.DashboardError']]:
+        """
+        <p>Errors associated with this dashboard version.</p>
+        """
         return pulumi.get(self, "errors")
 
     @property
     @pulumi.getter
     def sheets(self) -> Optional[Sequence['outputs.DashboardSheet']]:
+        """
+        <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
+        """
         return pulumi.get(self, "sheets")
 
     @property
     @pulumi.getter(name="sourceEntityArn")
     def source_entity_arn(self) -> Optional[str]:
+        """
+        <p>Source entity ARN.</p>
+        """
         return pulumi.get(self, "source_entity_arn")
 
     @property
@@ -46129,11 +46635,17 @@ class DashboardVersion(dict):
     @property
     @pulumi.getter(name="themeArn")
     def theme_arn(self) -> Optional[str]:
+        """
+        <p>The ARN of the theme associated with a version of the dashboard.</p>
+        """
         return pulumi.get(self, "theme_arn")
 
     @property
     @pulumi.getter(name="versionNumber")
     def version_number(self) -> Optional[float]:
+        """
+        <p>Version number for this version of the dashboard.</p>
+        """
         return pulumi.get(self, "version_number")
 
 
@@ -46734,6 +47246,9 @@ class DashboardVisualPalette(dict):
 
 @pulumi.output_type
 class DashboardVisualPublishOptions(dict):
+    """
+    <p>The visual publish options of a visual in a dashboard</p>
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -46753,6 +47268,9 @@ class DashboardVisualPublishOptions(dict):
 
     def __init__(__self__, *,
                  export_hidden_fields_option: Optional['outputs.DashboardExportHiddenFieldsOption'] = None):
+        """
+        <p>The visual publish options of a visual in a dashboard</p>
+        """
         if export_hidden_fields_option is not None:
             pulumi.set(__self__, "export_hidden_fields_option", export_hidden_fields_option)
 
@@ -54133,19 +54651,32 @@ class TemplateColumnConfiguration(dict):
 
 @pulumi.output_type
 class TemplateColumnGroupColumnSchema(dict):
+    """
+    <p>A structure describing the name, data type, and geographic role of the columns.</p>
+    """
     def __init__(__self__, *,
                  name: Optional[str] = None):
+        """
+        <p>A structure describing the name, data type, and geographic role of the columns.</p>
+        :param str name: <p>The name of the column group's column schema.</p>
+        """
         if name is not None:
             pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        <p>The name of the column group's column schema.</p>
+        """
         return pulumi.get(self, "name")
 
 
 @pulumi.output_type
 class TemplateColumnGroupSchema(dict):
+    """
+    <p>The column group schema.</p>
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -54166,6 +54697,11 @@ class TemplateColumnGroupSchema(dict):
     def __init__(__self__, *,
                  column_group_column_schema_list: Optional[Sequence['outputs.TemplateColumnGroupColumnSchema']] = None,
                  name: Optional[str] = None):
+        """
+        <p>The column group schema.</p>
+        :param Sequence['TemplateColumnGroupColumnSchema'] column_group_column_schema_list: <p>A structure containing the list of schemas for column group columns.</p>
+        :param str name: <p>The name of the column group schema.</p>
+        """
         if column_group_column_schema_list is not None:
             pulumi.set(__self__, "column_group_column_schema_list", column_group_column_schema_list)
         if name is not None:
@@ -54174,11 +54710,17 @@ class TemplateColumnGroupSchema(dict):
     @property
     @pulumi.getter(name="columnGroupColumnSchemaList")
     def column_group_column_schema_list(self) -> Optional[Sequence['outputs.TemplateColumnGroupColumnSchema']]:
+        """
+        <p>A structure containing the list of schemas for column group columns.</p>
+        """
         return pulumi.get(self, "column_group_column_schema_list")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        <p>The name of the column group schema.</p>
+        """
         return pulumi.get(self, "name")
 
 
@@ -54272,6 +54814,9 @@ class TemplateColumnIdentifier(dict):
 
 @pulumi.output_type
 class TemplateColumnSchema(dict):
+    """
+    <p>The column schema.</p>
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -54295,6 +54840,12 @@ class TemplateColumnSchema(dict):
                  data_type: Optional[str] = None,
                  geographic_role: Optional[str] = None,
                  name: Optional[str] = None):
+        """
+        <p>The column schema.</p>
+        :param str data_type: <p>The data type of the column schema.</p>
+        :param str geographic_role: <p>The geographic role of the column schema.</p>
+        :param str name: <p>The name of the column schema.</p>
+        """
         if data_type is not None:
             pulumi.set(__self__, "data_type", data_type)
         if geographic_role is not None:
@@ -54305,16 +54856,25 @@ class TemplateColumnSchema(dict):
     @property
     @pulumi.getter(name="dataType")
     def data_type(self) -> Optional[str]:
+        """
+        <p>The data type of the column schema.</p>
+        """
         return pulumi.get(self, "data_type")
 
     @property
     @pulumi.getter(name="geographicRole")
     def geographic_role(self) -> Optional[str]:
+        """
+        <p>The geographic role of the column schema.</p>
+        """
         return pulumi.get(self, "geographic_role")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        <p>The name of the column schema.</p>
+        """
         return pulumi.get(self, "name")
 
 
@@ -56462,6 +57022,9 @@ class TemplateDataPathValue(dict):
 
 @pulumi.output_type
 class TemplateDataSetConfiguration(dict):
+    """
+    <p>Dataset configuration.</p>
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -56485,6 +57048,11 @@ class TemplateDataSetConfiguration(dict):
                  column_group_schema_list: Optional[Sequence['outputs.TemplateColumnGroupSchema']] = None,
                  data_set_schema: Optional['outputs.TemplateDataSetSchema'] = None,
                  placeholder: Optional[str] = None):
+        """
+        <p>Dataset configuration.</p>
+        :param Sequence['TemplateColumnGroupSchema'] column_group_schema_list: <p>A structure containing the list of column group schemas.</p>
+        :param str placeholder: <p>Placeholder.</p>
+        """
         if column_group_schema_list is not None:
             pulumi.set(__self__, "column_group_schema_list", column_group_schema_list)
         if data_set_schema is not None:
@@ -56495,6 +57063,9 @@ class TemplateDataSetConfiguration(dict):
     @property
     @pulumi.getter(name="columnGroupSchemaList")
     def column_group_schema_list(self) -> Optional[Sequence['outputs.TemplateColumnGroupSchema']]:
+        """
+        <p>A structure containing the list of column group schemas.</p>
+        """
         return pulumi.get(self, "column_group_schema_list")
 
     @property
@@ -56505,11 +57076,17 @@ class TemplateDataSetConfiguration(dict):
     @property
     @pulumi.getter
     def placeholder(self) -> Optional[str]:
+        """
+        <p>Placeholder.</p>
+        """
         return pulumi.get(self, "placeholder")
 
 
 @pulumi.output_type
 class TemplateDataSetReference(dict):
+    """
+    <p>Dataset reference.</p>
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -56532,22 +57109,36 @@ class TemplateDataSetReference(dict):
     def __init__(__self__, *,
                  data_set_arn: str,
                  data_set_placeholder: str):
+        """
+        <p>Dataset reference.</p>
+        :param str data_set_arn: <p>Dataset Amazon Resource Name (ARN).</p>
+        :param str data_set_placeholder: <p>Dataset placeholder.</p>
+        """
         pulumi.set(__self__, "data_set_arn", data_set_arn)
         pulumi.set(__self__, "data_set_placeholder", data_set_placeholder)
 
     @property
     @pulumi.getter(name="dataSetArn")
     def data_set_arn(self) -> str:
+        """
+        <p>Dataset Amazon Resource Name (ARN).</p>
+        """
         return pulumi.get(self, "data_set_arn")
 
     @property
     @pulumi.getter(name="dataSetPlaceholder")
     def data_set_placeholder(self) -> str:
+        """
+        <p>Dataset placeholder.</p>
+        """
         return pulumi.get(self, "data_set_placeholder")
 
 
 @pulumi.output_type
 class TemplateDataSetSchema(dict):
+    """
+    <p>Dataset schema.</p>
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -56567,12 +57158,19 @@ class TemplateDataSetSchema(dict):
 
     def __init__(__self__, *,
                  column_schema_list: Optional[Sequence['outputs.TemplateColumnSchema']] = None):
+        """
+        <p>Dataset schema.</p>
+        :param Sequence['TemplateColumnSchema'] column_schema_list: <p>A structure containing the list of column schemas.</p>
+        """
         if column_schema_list is not None:
             pulumi.set(__self__, "column_schema_list", column_schema_list)
 
     @property
     @pulumi.getter(name="columnSchemaList")
     def column_schema_list(self) -> Optional[Sequence['outputs.TemplateColumnSchema']]:
+        """
+        <p>A structure containing the list of column schemas.</p>
+        """
         return pulumi.get(self, "column_schema_list")
 
 
@@ -57804,6 +58402,9 @@ class TemplateEntity(dict):
 
 @pulumi.output_type
 class TemplateError(dict):
+    """
+    <p>List of errors that occurred when the template version creation failed.</p>
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -57825,6 +58426,11 @@ class TemplateError(dict):
                  message: Optional[str] = None,
                  type: Optional['TemplateErrorType'] = None,
                  violated_entities: Optional[Sequence['outputs.TemplateEntity']] = None):
+        """
+        <p>List of errors that occurred when the template version creation failed.</p>
+        :param str message: <p>Description of the error type.</p>
+        :param Sequence['TemplateEntity'] violated_entities: <p>An error path that shows which entities caused the template error.</p>
+        """
         if message is not None:
             pulumi.set(__self__, "message", message)
         if type is not None:
@@ -57835,6 +58441,9 @@ class TemplateError(dict):
     @property
     @pulumi.getter
     def message(self) -> Optional[str]:
+        """
+        <p>Description of the error type.</p>
+        """
         return pulumi.get(self, "message")
 
     @property
@@ -57845,6 +58454,9 @@ class TemplateError(dict):
     @property
     @pulumi.getter(name="violatedEntities")
     def violated_entities(self) -> Optional[Sequence['outputs.TemplateEntity']]:
+        """
+        <p>An error path that shows which entities caused the template error.</p>
+        """
         return pulumi.get(self, "violated_entities")
 
 
@@ -59045,6 +59657,9 @@ class TemplateFilterOperationSelectedFieldsConfiguration(dict):
                  selected_columns: Optional[Sequence['outputs.TemplateColumnIdentifier']] = None,
                  selected_field_options: Optional['TemplateSelectedFieldOptions'] = None,
                  selected_fields: Optional[Sequence[str]] = None):
+        """
+        :param Sequence['TemplateColumnIdentifier'] selected_columns: <p>The selected columns of a dataset.</p>
+        """
         if selected_columns is not None:
             pulumi.set(__self__, "selected_columns", selected_columns)
         if selected_field_options is not None:
@@ -59055,6 +59670,9 @@ class TemplateFilterOperationSelectedFieldsConfiguration(dict):
     @property
     @pulumi.getter(name="selectedColumns")
     def selected_columns(self) -> Optional[Sequence['outputs.TemplateColumnIdentifier']]:
+        """
+        <p>The selected columns of a dataset.</p>
+        """
         return pulumi.get(self, "selected_columns")
 
     @property
@@ -68520,20 +69138,62 @@ class TemplateRelativeDatesFilter(dict):
 
 @pulumi.output_type
 class TemplateResourcePermission(dict):
+    """
+    <p>Permission for the resource.</p>
+    """
     def __init__(__self__, *,
                  actions: Sequence[str],
                  principal: str):
+        """
+        <p>Permission for the resource.</p>
+        :param Sequence[str] actions: <p>The IAM action to grant or revoke permissions on.</p>
+        :param str principal: <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+                           following:</p>
+                        <ul>
+                           <li>
+                              <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+                           </li>
+                           <li>
+                              <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+                           </li>
+                           <li>
+                              <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
+                                   ARN. Use this option only to share resources (templates) across Amazon Web Services accounts.
+                                   (This is less common.) </p>
+                           </li>
+                        </ul>
+        """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "principal", principal)
 
     @property
     @pulumi.getter
     def actions(self) -> Sequence[str]:
+        """
+        <p>The IAM action to grant or revoke permissions on.</p>
+        """
         return pulumi.get(self, "actions")
 
     @property
     @pulumi.getter
     def principal(self) -> str:
+        """
+        <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+                    following:</p>
+                 <ul>
+                    <li>
+                       <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+                    </li>
+                    <li>
+                       <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+                    </li>
+                    <li>
+                       <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
+                            ARN. Use this option only to share resources (templates) across Amazon Web Services accounts.
+                            (This is less common.) </p>
+                    </li>
+                 </ul>
+        """
         return pulumi.get(self, "principal")
 
 
@@ -69637,6 +70297,13 @@ class TemplateShapeConditionalFormat(dict):
 
 @pulumi.output_type
 class TemplateSheet(dict):
+    """
+    <p>A <i>sheet</i>, which is an object that contains a set of visuals that
+                are viewed together on one page in Amazon QuickSight. Every analysis and dashboard
+                contains at least one sheet. Each sheet contains at least one visualization widget, for
+                example a chart, pivot table, or narrative insight. Sheets can be associated with other
+                components, such as controls, filters, and so on.</p>
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -69657,6 +70324,16 @@ class TemplateSheet(dict):
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  sheet_id: Optional[str] = None):
+        """
+        <p>A <i>sheet</i>, which is an object that contains a set of visuals that
+                    are viewed together on one page in Amazon QuickSight. Every analysis and dashboard
+                    contains at least one sheet. Each sheet contains at least one visualization widget, for
+                    example a chart, pivot table, or narrative insight. Sheets can be associated with other
+                    components, such as controls, filters, and so on.</p>
+        :param str name: <p>The name of a sheet. This name is displayed on the sheet's tab in the Amazon QuickSight
+                           console.</p>
+        :param str sheet_id: <p>The unique identifier associated with a sheet.</p>
+        """
         if name is not None:
             pulumi.set(__self__, "name", name)
         if sheet_id is not None:
@@ -69665,11 +70342,18 @@ class TemplateSheet(dict):
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        <p>The name of a sheet. This name is displayed on the sheet's tab in the Amazon QuickSight
+                    console.</p>
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="sheetId")
     def sheet_id(self) -> Optional[str]:
+        """
+        <p>The unique identifier associated with a sheet.</p>
+        """
         return pulumi.get(self, "sheet_id")
 
 
@@ -70190,6 +70874,9 @@ class TemplateSmallMultiplesOptions(dict):
 
 @pulumi.output_type
 class TemplateSourceAnalysis(dict):
+    """
+    <p>The source analysis of the template.</p>
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -70210,22 +70897,38 @@ class TemplateSourceAnalysis(dict):
     def __init__(__self__, *,
                  arn: str,
                  data_set_references: Sequence['outputs.TemplateDataSetReference']):
+        """
+        <p>The source analysis of the template.</p>
+        :param str arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
+        :param Sequence['TemplateDataSetReference'] data_set_references: <p>A structure containing information about the dataset references used as placeholders
+                           in the template.</p>
+        """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "data_set_references", data_set_references)
 
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        <p>The Amazon Resource Name (ARN) of the resource.</p>
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="dataSetReferences")
     def data_set_references(self) -> Sequence['outputs.TemplateDataSetReference']:
+        """
+        <p>A structure containing information about the dataset references used as placeholders
+                    in the template.</p>
+        """
         return pulumi.get(self, "data_set_references")
 
 
 @pulumi.output_type
 class TemplateSourceEntity(dict):
+    """
+    <p>The source entity of the template.</p>
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -70248,6 +70951,9 @@ class TemplateSourceEntity(dict):
     def __init__(__self__, *,
                  source_analysis: Optional['outputs.TemplateSourceAnalysis'] = None,
                  source_template: Optional['outputs.TemplateSourceTemplate'] = None):
+        """
+        <p>The source entity of the template.</p>
+        """
         if source_analysis is not None:
             pulumi.set(__self__, "source_analysis", source_analysis)
         if source_template is not None:
@@ -70266,13 +70972,23 @@ class TemplateSourceEntity(dict):
 
 @pulumi.output_type
 class TemplateSourceTemplate(dict):
+    """
+    <p>The source template of the template.</p>
+    """
     def __init__(__self__, *,
                  arn: str):
+        """
+        <p>The source template of the template.</p>
+        :param str arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
+        """
         pulumi.set(__self__, "arn", arn)
 
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        <p>The Amazon Resource Name (ARN) of the resource.</p>
+        """
         return pulumi.get(self, "arn")
 
 
@@ -73188,8 +73904,14 @@ class TemplateUniqueValuesComputation(dict):
 
 @pulumi.output_type
 class TemplateValidationStrategy(dict):
+    """
+    <p>The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to <code>LENIENT</code>, validation is skipped for specific errors.</p>
+    """
     def __init__(__self__, *,
                  mode: 'TemplateValidationStrategyMode'):
+        """
+        <p>The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to <code>LENIENT</code>, validation is skipped for specific errors.</p>
+        """
         pulumi.set(__self__, "mode", mode)
 
     @property
@@ -73200,6 +73922,9 @@ class TemplateValidationStrategy(dict):
 
 @pulumi.output_type
 class TemplateVersion(dict):
+    """
+    <p>A version of a template.</p>
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -73235,6 +73960,20 @@ class TemplateVersion(dict):
                  status: Optional['TemplateResourceStatus'] = None,
                  theme_arn: Optional[str] = None,
                  version_number: Optional[float] = None):
+        """
+        <p>A version of a template.</p>
+        :param str created_time: <p>The time that this template version was created.</p>
+        :param Sequence['TemplateDataSetConfiguration'] data_set_configurations: <p>Schema of the dataset identified by the placeholder. Any dashboard created from this
+                           template should be bound to new datasets matching the same schema described through this
+                           API operation.</p>
+        :param str description: <p>The description of the template.</p>
+        :param Sequence['TemplateError'] errors: <p>Errors associated with this template version.</p>
+        :param Sequence['TemplateSheet'] sheets: <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
+        :param str source_entity_arn: <p>The Amazon Resource Name (ARN) of an analysis or template that was used to create this
+                           template.</p>
+        :param str theme_arn: <p>The ARN of the theme associated with this version of the template.</p>
+        :param float version_number: <p>The version number of the template version.</p>
+        """
         if created_time is not None:
             pulumi.set(__self__, "created_time", created_time)
         if data_set_configurations is not None:
@@ -73257,31 +73996,52 @@ class TemplateVersion(dict):
     @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> Optional[str]:
+        """
+        <p>The time that this template version was created.</p>
+        """
         return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter(name="dataSetConfigurations")
     def data_set_configurations(self) -> Optional[Sequence['outputs.TemplateDataSetConfiguration']]:
+        """
+        <p>Schema of the dataset identified by the placeholder. Any dashboard created from this
+                    template should be bound to new datasets matching the same schema described through this
+                    API operation.</p>
+        """
         return pulumi.get(self, "data_set_configurations")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        <p>The description of the template.</p>
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def errors(self) -> Optional[Sequence['outputs.TemplateError']]:
+        """
+        <p>Errors associated with this template version.</p>
+        """
         return pulumi.get(self, "errors")
 
     @property
     @pulumi.getter
     def sheets(self) -> Optional[Sequence['outputs.TemplateSheet']]:
+        """
+        <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
+        """
         return pulumi.get(self, "sheets")
 
     @property
     @pulumi.getter(name="sourceEntityArn")
     def source_entity_arn(self) -> Optional[str]:
+        """
+        <p>The Amazon Resource Name (ARN) of an analysis or template that was used to create this
+                    template.</p>
+        """
         return pulumi.get(self, "source_entity_arn")
 
     @property
@@ -73292,11 +74052,17 @@ class TemplateVersion(dict):
     @property
     @pulumi.getter(name="themeArn")
     def theme_arn(self) -> Optional[str]:
+        """
+        <p>The ARN of the theme associated with this version of the template.</p>
+        """
         return pulumi.get(self, "theme_arn")
 
     @property
     @pulumi.getter(name="versionNumber")
     def version_number(self) -> Optional[float]:
+        """
+        <p>The version number of the template version.</p>
+        """
         return pulumi.get(self, "version_number")
 
 

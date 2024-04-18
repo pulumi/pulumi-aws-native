@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;The data point menu options of a dashboard.&lt;/p&gt;
+    /// </summary>
     [OutputType]
     public sealed class DashboardDataPointMenuLabelOption
     {

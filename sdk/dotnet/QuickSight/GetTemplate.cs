@@ -57,8 +57,17 @@ namespace Pulumi.AwsNative.QuickSight
     [OutputType]
     public sealed class GetTemplateResult
     {
+        /// <summary>
+        /// &lt;p&gt;The Amazon Resource Name (ARN) of the template.&lt;/p&gt;
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// &lt;p&gt;Time when this was created.&lt;/p&gt;
+        /// </summary>
         public readonly string? CreatedTime;
+        /// <summary>
+        /// &lt;p&gt;Time when this was last updated.&lt;/p&gt;
+        /// </summary>
         public readonly string? LastUpdatedTime;
         public readonly string? Name;
         public readonly ImmutableArray<Outputs.TemplateResourcePermission> Permissions;

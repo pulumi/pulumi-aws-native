@@ -17,10 +17,13 @@ import (
 type Template struct {
 	pulumi.CustomResourceState
 
-	Arn                pulumi.StringOutput                   `pulumi:"arn"`
-	AwsAccountId       pulumi.StringOutput                   `pulumi:"awsAccountId"`
-	CreatedTime        pulumi.StringOutput                   `pulumi:"createdTime"`
-	Definition         TemplateVersionDefinitionPtrOutput    `pulumi:"definition"`
+	// <p>The Amazon Resource Name (ARN) of the template.</p>
+	Arn          pulumi.StringOutput `pulumi:"arn"`
+	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
+	// <p>Time when this was created.</p>
+	CreatedTime pulumi.StringOutput                `pulumi:"createdTime"`
+	Definition  TemplateVersionDefinitionPtrOutput `pulumi:"definition"`
+	// <p>Time when this was last updated.</p>
 	LastUpdatedTime    pulumi.StringOutput                   `pulumi:"lastUpdatedTime"`
 	Name               pulumi.StringPtrOutput                `pulumi:"name"`
 	Permissions        TemplateResourcePermissionArrayOutput `pulumi:"permissions"`
@@ -144,6 +147,7 @@ func (o TemplateOutput) ToTemplateOutputWithContext(ctx context.Context) Templat
 	return o
 }
 
+// <p>The Amazon Resource Name (ARN) of the template.</p>
 func (o TemplateOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -152,6 +156,7 @@ func (o TemplateOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }
 
+// <p>Time when this was created.</p>
 func (o TemplateOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
 }
@@ -160,6 +165,7 @@ func (o TemplateOutput) Definition() TemplateVersionDefinitionPtrOutput {
 	return o.ApplyT(func(v *Template) TemplateVersionDefinitionPtrOutput { return v.Definition }).(TemplateVersionDefinitionPtrOutput)
 }
 
+// <p>Time when this was last updated.</p>
 func (o TemplateOutput) LastUpdatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.LastUpdatedTime }).(pulumi.StringOutput)
 }

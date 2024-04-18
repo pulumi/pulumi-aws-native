@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;The data point tooltip options.&lt;/p&gt;
+    /// </summary>
     [OutputType]
     public sealed class DashboardDataPointTooltipOption
     {

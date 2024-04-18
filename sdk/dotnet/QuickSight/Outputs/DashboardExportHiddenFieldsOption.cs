@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;Determines if hidden fields are included in an exported dashboard.&lt;/p&gt;
+    /// </summary>
     [OutputType]
     public sealed class DashboardExportHiddenFieldsOption
     {

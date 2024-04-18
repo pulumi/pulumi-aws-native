@@ -11,8 +11,49 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'NamespaceSnapshotCopyConfigurationArgs',
     'WorkgroupConfigParameterArgs',
 ]
+
+@pulumi.input_type
+class NamespaceSnapshotCopyConfigurationArgs:
+    def __init__(__self__, *,
+                 destination_region: pulumi.Input[str],
+                 destination_kms_key_id: Optional[pulumi.Input[str]] = None,
+                 snapshot_retention_period: Optional[pulumi.Input[int]] = None):
+        pulumi.set(__self__, "destination_region", destination_region)
+        if destination_kms_key_id is not None:
+            pulumi.set(__self__, "destination_kms_key_id", destination_kms_key_id)
+        if snapshot_retention_period is not None:
+            pulumi.set(__self__, "snapshot_retention_period", snapshot_retention_period)
+
+    @property
+    @pulumi.getter(name="destinationRegion")
+    def destination_region(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "destination_region")
+
+    @destination_region.setter
+    def destination_region(self, value: pulumi.Input[str]):
+        pulumi.set(self, "destination_region", value)
+
+    @property
+    @pulumi.getter(name="destinationKmsKeyId")
+    def destination_kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "destination_kms_key_id")
+
+    @destination_kms_key_id.setter
+    def destination_kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "destination_kms_key_id", value)
+
+    @property
+    @pulumi.getter(name="snapshotRetentionPeriod")
+    def snapshot_retention_period(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "snapshot_retention_period")
+
+    @snapshot_retention_period.setter
+    def snapshot_retention_period(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "snapshot_retention_period", value)
+
 
 @pulumi.input_type
 class WorkgroupConfigParameterArgs:

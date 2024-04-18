@@ -10,11 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;Analysis error.&lt;/p&gt;
+    /// </summary>
     [OutputType]
     public sealed class AnalysisError
     {
+        /// <summary>
+        /// &lt;p&gt;The message associated with the analysis error.&lt;/p&gt;
+        /// </summary>
         public readonly string? Message;
         public readonly Pulumi.AwsNative.QuickSight.AnalysisErrorType? Type;
+        /// <summary>
+        /// &lt;p&gt;Lists the violated entities that caused the analysis error&lt;/p&gt;
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisEntity> ViolatedEntities;
 
         [OutputConstructor]

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to &lt;code&gt;LENIENT&lt;/code&gt;, validation is skipped for specific errors.&lt;/p&gt;
+    /// </summary>
     [OutputType]
     public sealed class AnalysisValidationStrategy
     {

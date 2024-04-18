@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;Export to .csv option.&lt;/p&gt;
+    /// </summary>
     public sealed class DashboardExportToCsvOptionArgs : global::Pulumi.ResourceArgs
     {
         [Input("availabilityStatus")]

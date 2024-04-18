@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;The sheet layout maximization options of a dashbaord.&lt;/p&gt;
+    /// </summary>
     [OutputType]
     public sealed class DashboardSheetLayoutElementMaximizationOption
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;Dashboard publish options.&lt;/p&gt;
+    /// </summary>
     public sealed class DashboardPublishOptionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("adHocFilteringOption")]

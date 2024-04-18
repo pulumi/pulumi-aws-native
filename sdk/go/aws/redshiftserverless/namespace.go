@@ -48,6 +48,8 @@ type Namespace struct {
 	NamespaceResourcePolicy pulumi.AnyOutput `pulumi:"namespaceResourcePolicy"`
 	// The ARN for the Redshift application that integrates with IAM Identity Center.
 	RedshiftIdcApplicationArn pulumi.StringPtrOutput `pulumi:"redshiftIdcApplicationArn"`
+	// The snapshot copy configurations for the namespace.
+	SnapshotCopyConfigurations NamespaceSnapshotCopyConfigurationArrayOutput `pulumi:"snapshotCopyConfigurations"`
 	// The list of tags for the namespace.
 	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 }
@@ -127,6 +129,8 @@ type namespaceArgs struct {
 	NamespaceResourcePolicy interface{} `pulumi:"namespaceResourcePolicy"`
 	// The ARN for the Redshift application that integrates with IAM Identity Center.
 	RedshiftIdcApplicationArn *string `pulumi:"redshiftIdcApplicationArn"`
+	// The snapshot copy configurations for the namespace.
+	SnapshotCopyConfigurations []NamespaceSnapshotCopyConfiguration `pulumi:"snapshotCopyConfigurations"`
 	// The list of tags for the namespace.
 	Tags []aws.CreateOnlyTag `pulumi:"tags"`
 }
@@ -163,6 +167,8 @@ type NamespaceArgs struct {
 	NamespaceResourcePolicy pulumi.Input
 	// The ARN for the Redshift application that integrates with IAM Identity Center.
 	RedshiftIdcApplicationArn pulumi.StringPtrInput
+	// The snapshot copy configurations for the namespace.
+	SnapshotCopyConfigurations NamespaceSnapshotCopyConfigurationArrayInput
 	// The list of tags for the namespace.
 	Tags aws.CreateOnlyTagArrayInput
 }
@@ -279,6 +285,11 @@ func (o NamespaceOutput) NamespaceResourcePolicy() pulumi.AnyOutput {
 // The ARN for the Redshift application that integrates with IAM Identity Center.
 func (o NamespaceOutput) RedshiftIdcApplicationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringPtrOutput { return v.RedshiftIdcApplicationArn }).(pulumi.StringPtrOutput)
+}
+
+// The snapshot copy configurations for the namespace.
+func (o NamespaceOutput) SnapshotCopyConfigurations() NamespaceSnapshotCopyConfigurationArrayOutput {
+	return o.ApplyT(func(v *Namespace) NamespaceSnapshotCopyConfigurationArrayOutput { return v.SnapshotCopyConfigurations }).(NamespaceSnapshotCopyConfigurationArrayOutput)
 }
 
 // The list of tags for the namespace.

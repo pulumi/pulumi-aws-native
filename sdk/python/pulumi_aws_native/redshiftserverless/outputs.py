@@ -13,6 +13,7 @@ from ._enums import *
 
 __all__ = [
     'Namespace',
+    'NamespaceSnapshotCopyConfiguration',
     'Workgroup',
     'WorkgroupConfigParameter',
     'WorkgroupEndpoint',
@@ -166,6 +167,55 @@ class Namespace(dict):
     @pulumi.getter
     def status(self) -> Optional['NamespaceStatus']:
         return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class NamespaceSnapshotCopyConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationRegion":
+            suggest = "destination_region"
+        elif key == "destinationKmsKeyId":
+            suggest = "destination_kms_key_id"
+        elif key == "snapshotRetentionPeriod":
+            suggest = "snapshot_retention_period"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NamespaceSnapshotCopyConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NamespaceSnapshotCopyConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NamespaceSnapshotCopyConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination_region: str,
+                 destination_kms_key_id: Optional[str] = None,
+                 snapshot_retention_period: Optional[int] = None):
+        pulumi.set(__self__, "destination_region", destination_region)
+        if destination_kms_key_id is not None:
+            pulumi.set(__self__, "destination_kms_key_id", destination_kms_key_id)
+        if snapshot_retention_period is not None:
+            pulumi.set(__self__, "snapshot_retention_period", snapshot_retention_period)
+
+    @property
+    @pulumi.getter(name="destinationRegion")
+    def destination_region(self) -> str:
+        return pulumi.get(self, "destination_region")
+
+    @property
+    @pulumi.getter(name="destinationKmsKeyId")
+    def destination_kms_key_id(self) -> Optional[str]:
+        return pulumi.get(self, "destination_kms_key_id")
+
+    @property
+    @pulumi.getter(name="snapshotRetentionPeriod")
+    def snapshot_retention_period(self) -> Optional[int]:
+        return pulumi.get(self, "snapshot_retention_period")
 
 
 @pulumi.output_type

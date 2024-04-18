@@ -25,8 +25,17 @@ export interface GetTemplateArgs {
 }
 
 export interface GetTemplateResult {
+    /**
+     * <p>The Amazon Resource Name (ARN) of the template.</p>
+     */
     readonly arn?: string;
+    /**
+     * <p>Time when this was created.</p>
+     */
     readonly createdTime?: string;
+    /**
+     * <p>Time when this was last updated.</p>
+     */
     readonly lastUpdatedTime?: string;
     readonly name?: string;
     readonly permissions?: outputs.quicksight.TemplateResourcePermission[];

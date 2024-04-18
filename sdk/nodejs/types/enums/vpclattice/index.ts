@@ -113,7 +113,6 @@ export type TargetGroupHealthCheckConfigProtocol = (typeof TargetGroupHealthChec
 export const TargetGroupHealthCheckConfigProtocolVersion = {
     Http1: "HTTP1",
     Http2: "HTTP2",
-    Grpc: "GRPC",
 } as const;
 
 export type TargetGroupHealthCheckConfigProtocolVersion = (typeof TargetGroupHealthCheckConfigProtocolVersion)[keyof typeof TargetGroupHealthCheckConfigProtocolVersion];

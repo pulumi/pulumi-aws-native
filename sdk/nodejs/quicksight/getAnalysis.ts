@@ -25,15 +25,39 @@ export interface GetAnalysisArgs {
 }
 
 export interface GetAnalysisResult {
+    /**
+     * <p>The Amazon Resource Name (ARN) of the analysis.</p>
+     */
     readonly arn?: string;
+    /**
+     * <p>The time that the analysis was created.</p>
+     */
     readonly createdTime?: string;
+    /**
+     * <p>The ARNs of the datasets of the analysis.</p>
+     */
     readonly dataSetArns?: string[];
+    /**
+     * <p>Errors associated with the analysis.</p>
+     */
     readonly errors?: outputs.quicksight.AnalysisError[];
+    /**
+     * <p>The time that the analysis was last updated.</p>
+     */
     readonly lastUpdatedTime?: string;
+    /**
+     * <p>The descriptive name of the analysis.</p>
+     */
     readonly name?: string;
     readonly permissions?: outputs.quicksight.AnalysisResourcePermission[];
+    /**
+     * <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
+     */
     readonly sheets?: outputs.quicksight.AnalysisSheet[];
     readonly tags?: outputs.Tag[];
+    /**
+     * <p>The ARN of the theme of the analysis.</p>
+     */
     readonly themeArn?: string;
 }
 /**

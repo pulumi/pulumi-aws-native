@@ -10,8 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;A structure describing the name, data type, and geographic role of the columns.&lt;/p&gt;
+    /// </summary>
     public sealed class TemplateColumnGroupColumnSchemaArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// &lt;p&gt;The name of the column group's column schema.&lt;/p&gt;
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

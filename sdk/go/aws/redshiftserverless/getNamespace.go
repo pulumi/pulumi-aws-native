@@ -48,6 +48,8 @@ type LookupNamespaceResult struct {
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RedshiftServerless::Namespace` for more information about the expected schema for this property.
 	NamespaceResourcePolicy interface{} `pulumi:"namespaceResourcePolicy"`
+	// The snapshot copy configurations for the namespace.
+	SnapshotCopyConfigurations []NamespaceSnapshotCopyConfiguration `pulumi:"snapshotCopyConfigurations"`
 }
 
 func LookupNamespaceOutput(ctx *pulumi.Context, args LookupNamespaceOutputArgs, opts ...pulumi.InvokeOption) LookupNamespaceResultOutput {
@@ -131,6 +133,13 @@ func (o LookupNamespaceResultOutput) Namespace() NamespaceTypePtrOutput {
 // Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RedshiftServerless::Namespace` for more information about the expected schema for this property.
 func (o LookupNamespaceResultOutput) NamespaceResourcePolicy() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupNamespaceResult) interface{} { return v.NamespaceResourcePolicy }).(pulumi.AnyOutput)
+}
+
+// The snapshot copy configurations for the namespace.
+func (o LookupNamespaceResultOutput) SnapshotCopyConfigurations() NamespaceSnapshotCopyConfigurationArrayOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) []NamespaceSnapshotCopyConfiguration {
+		return v.SnapshotCopyConfigurations
+	}).(NamespaceSnapshotCopyConfigurationArrayOutput)
 }
 
 func init() {

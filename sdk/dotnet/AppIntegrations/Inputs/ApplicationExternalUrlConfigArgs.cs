@@ -15,7 +15,7 @@ namespace Pulumi.AwsNative.AppIntegrations.Inputs
         [Input("accessUrl", required: true)]
         public Input<string> AccessUrl { get; set; } = null!;
 
-        [Input("approvedOrigins", required: true)]
+        [Input("approvedOrigins")]
         private InputList<string>? _approvedOrigins;
         public InputList<string> ApprovedOrigins
         {

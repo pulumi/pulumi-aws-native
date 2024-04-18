@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;The drill down options for data points in a dashbaord.&lt;/p&gt;
+    /// </summary>
     public sealed class DashboardDataPointDrillUpDownOptionArgs : global::Pulumi.ResourceArgs
     {
         [Input("availabilityStatus")]

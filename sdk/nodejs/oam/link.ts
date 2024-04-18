@@ -40,6 +40,7 @@ export class Link extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public /*out*/ readonly label!: pulumi.Output<string>;
     public readonly labelTemplate!: pulumi.Output<string | undefined>;
+    public readonly linkConfiguration!: pulumi.Output<outputs.oam.LinkConfiguration | undefined>;
     public readonly resourceTypes!: pulumi.Output<enums.oam.LinkResourceType[]>;
     public readonly sinkIdentifier!: pulumi.Output<string>;
     /**
@@ -65,6 +66,7 @@ export class Link extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sinkIdentifier'");
             }
             resourceInputs["labelTemplate"] = args ? args.labelTemplate : undefined;
+            resourceInputs["linkConfiguration"] = args ? args.linkConfiguration : undefined;
             resourceInputs["resourceTypes"] = args ? args.resourceTypes : undefined;
             resourceInputs["sinkIdentifier"] = args ? args.sinkIdentifier : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -74,6 +76,7 @@ export class Link extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["label"] = undefined /*out*/;
             resourceInputs["labelTemplate"] = undefined /*out*/;
+            resourceInputs["linkConfiguration"] = undefined /*out*/;
             resourceInputs["resourceTypes"] = undefined /*out*/;
             resourceInputs["sinkIdentifier"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -90,6 +93,7 @@ export class Link extends pulumi.CustomResource {
  */
 export interface LinkArgs {
     labelTemplate?: pulumi.Input<string>;
+    linkConfiguration?: pulumi.Input<inputs.oam.LinkConfigurationArgs>;
     resourceTypes: pulumi.Input<pulumi.Input<enums.oam.LinkResourceType>[]>;
     sinkIdentifier: pulumi.Input<string>;
     /**

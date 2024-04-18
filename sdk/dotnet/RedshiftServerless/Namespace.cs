@@ -108,6 +108,12 @@ namespace Pulumi.AwsNative.RedshiftServerless
         public Output<string?> RedshiftIdcApplicationArn { get; private set; } = null!;
 
         /// <summary>
+        /// The snapshot copy configurations for the namespace.
+        /// </summary>
+        [Output("snapshotCopyConfigurations")]
+        public Output<ImmutableArray<Outputs.NamespaceSnapshotCopyConfiguration>> SnapshotCopyConfigurations { get; private set; } = null!;
+
+        /// <summary>
         /// The list of tags for the namespace.
         /// </summary>
         [Output("tags")]
@@ -260,6 +266,18 @@ namespace Pulumi.AwsNative.RedshiftServerless
         /// </summary>
         [Input("redshiftIdcApplicationArn")]
         public Input<string>? RedshiftIdcApplicationArn { get; set; }
+
+        [Input("snapshotCopyConfigurations")]
+        private InputList<Inputs.NamespaceSnapshotCopyConfigurationArgs>? _snapshotCopyConfigurations;
+
+        /// <summary>
+        /// The snapshot copy configurations for the namespace.
+        /// </summary>
+        public InputList<Inputs.NamespaceSnapshotCopyConfigurationArgs> SnapshotCopyConfigurations
+        {
+            get => _snapshotCopyConfigurations ?? (_snapshotCopyConfigurations = new InputList<Inputs.NamespaceSnapshotCopyConfigurationArgs>());
+            set => _snapshotCopyConfigurations = value;
+        }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>? _tags;

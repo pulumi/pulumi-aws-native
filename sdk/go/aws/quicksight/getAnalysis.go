@@ -29,16 +29,24 @@ type LookupAnalysisArgs struct {
 }
 
 type LookupAnalysisResult struct {
-	Arn             *string                      `pulumi:"arn"`
-	CreatedTime     *string                      `pulumi:"createdTime"`
-	DataSetArns     []string                     `pulumi:"dataSetArns"`
-	Errors          []AnalysisError              `pulumi:"errors"`
-	LastUpdatedTime *string                      `pulumi:"lastUpdatedTime"`
-	Name            *string                      `pulumi:"name"`
-	Permissions     []AnalysisResourcePermission `pulumi:"permissions"`
-	Sheets          []AnalysisSheet              `pulumi:"sheets"`
-	Tags            []aws.Tag                    `pulumi:"tags"`
-	ThemeArn        *string                      `pulumi:"themeArn"`
+	// <p>The Amazon Resource Name (ARN) of the analysis.</p>
+	Arn *string `pulumi:"arn"`
+	// <p>The time that the analysis was created.</p>
+	CreatedTime *string `pulumi:"createdTime"`
+	// <p>The ARNs of the datasets of the analysis.</p>
+	DataSetArns []string `pulumi:"dataSetArns"`
+	// <p>Errors associated with the analysis.</p>
+	Errors []AnalysisError `pulumi:"errors"`
+	// <p>The time that the analysis was last updated.</p>
+	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
+	// <p>The descriptive name of the analysis.</p>
+	Name        *string                      `pulumi:"name"`
+	Permissions []AnalysisResourcePermission `pulumi:"permissions"`
+	// <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
+	Sheets []AnalysisSheet `pulumi:"sheets"`
+	Tags   []aws.Tag       `pulumi:"tags"`
+	// <p>The ARN of the theme of the analysis.</p>
+	ThemeArn *string `pulumi:"themeArn"`
 }
 
 func LookupAnalysisOutput(ctx *pulumi.Context, args LookupAnalysisOutputArgs, opts ...pulumi.InvokeOption) LookupAnalysisResultOutput {
@@ -77,26 +85,32 @@ func (o LookupAnalysisResultOutput) ToLookupAnalysisResultOutputWithContext(ctx 
 	return o
 }
 
+// <p>The Amazon Resource Name (ARN) of the analysis.</p>
 func (o LookupAnalysisResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAnalysisResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// <p>The time that the analysis was created.</p>
 func (o LookupAnalysisResultOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAnalysisResult) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
+// <p>The ARNs of the datasets of the analysis.</p>
 func (o LookupAnalysisResultOutput) DataSetArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupAnalysisResult) []string { return v.DataSetArns }).(pulumi.StringArrayOutput)
 }
 
+// <p>Errors associated with the analysis.</p>
 func (o LookupAnalysisResultOutput) Errors() AnalysisErrorArrayOutput {
 	return o.ApplyT(func(v LookupAnalysisResult) []AnalysisError { return v.Errors }).(AnalysisErrorArrayOutput)
 }
 
+// <p>The time that the analysis was last updated.</p>
 func (o LookupAnalysisResultOutput) LastUpdatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAnalysisResult) *string { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
 }
 
+// <p>The descriptive name of the analysis.</p>
 func (o LookupAnalysisResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAnalysisResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -105,6 +119,7 @@ func (o LookupAnalysisResultOutput) Permissions() AnalysisResourcePermissionArra
 	return o.ApplyT(func(v LookupAnalysisResult) []AnalysisResourcePermission { return v.Permissions }).(AnalysisResourcePermissionArrayOutput)
 }
 
+// <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
 func (o LookupAnalysisResultOutput) Sheets() AnalysisSheetArrayOutput {
 	return o.ApplyT(func(v LookupAnalysisResult) []AnalysisSheet { return v.Sheets }).(AnalysisSheetArrayOutput)
 }
@@ -113,6 +128,7 @@ func (o LookupAnalysisResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupAnalysisResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// <p>The ARN of the theme of the analysis.</p>
 func (o LookupAnalysisResultOutput) ThemeArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAnalysisResult) *string { return v.ThemeArn }).(pulumi.StringPtrOutput)
 }

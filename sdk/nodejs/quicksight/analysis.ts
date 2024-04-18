@@ -38,20 +38,44 @@ export class Analysis extends pulumi.CustomResource {
     }
 
     public readonly analysisId!: pulumi.Output<string>;
+    /**
+     * <p>The Amazon Resource Name (ARN) of the analysis.</p>
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly awsAccountId!: pulumi.Output<string>;
+    /**
+     * <p>The time that the analysis was created.</p>
+     */
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    /**
+     * <p>The ARNs of the datasets of the analysis.</p>
+     */
     public /*out*/ readonly dataSetArns!: pulumi.Output<string[]>;
     public readonly definition!: pulumi.Output<outputs.quicksight.AnalysisDefinition | undefined>;
+    /**
+     * <p>Errors associated with the analysis.</p>
+     */
     public readonly errors!: pulumi.Output<outputs.quicksight.AnalysisError[] | undefined>;
+    /**
+     * <p>The time that the analysis was last updated.</p>
+     */
     public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
+    /**
+     * <p>The descriptive name of the analysis.</p>
+     */
     public readonly name!: pulumi.Output<string>;
     public readonly parameters!: pulumi.Output<outputs.quicksight.AnalysisParameters | undefined>;
     public readonly permissions!: pulumi.Output<outputs.quicksight.AnalysisResourcePermission[] | undefined>;
+    /**
+     * <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
+     */
     public readonly sheets!: pulumi.Output<outputs.quicksight.AnalysisSheet[] | undefined>;
     public readonly sourceEntity!: pulumi.Output<outputs.quicksight.AnalysisSourceEntity | undefined>;
     public readonly status!: pulumi.Output<enums.quicksight.AnalysisResourceStatus | undefined>;
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * <p>The ARN of the theme of the analysis.</p>
+     */
     public readonly themeArn!: pulumi.Output<string | undefined>;
     public readonly validationStrategy!: pulumi.Output<outputs.quicksight.AnalysisValidationStrategy | undefined>;
 
@@ -122,14 +146,26 @@ export interface AnalysisArgs {
     analysisId: pulumi.Input<string>;
     awsAccountId: pulumi.Input<string>;
     definition?: pulumi.Input<inputs.quicksight.AnalysisDefinitionArgs>;
+    /**
+     * <p>Errors associated with the analysis.</p>
+     */
     errors?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisErrorArgs>[]>;
+    /**
+     * <p>The descriptive name of the analysis.</p>
+     */
     name?: pulumi.Input<string>;
     parameters?: pulumi.Input<inputs.quicksight.AnalysisParametersArgs>;
     permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisResourcePermissionArgs>[]>;
+    /**
+     * <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
+     */
     sheets?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisSheetArgs>[]>;
     sourceEntity?: pulumi.Input<inputs.quicksight.AnalysisSourceEntityArgs>;
     status?: pulumi.Input<enums.quicksight.AnalysisResourceStatus>;
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * <p>The ARN of the theme of the analysis.</p>
+     */
     themeArn?: pulumi.Input<string>;
     validationStrategy?: pulumi.Input<inputs.quicksight.AnalysisValidationStrategyArgs>;
 }

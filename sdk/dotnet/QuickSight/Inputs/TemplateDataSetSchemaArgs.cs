@@ -10,10 +10,17 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;Dataset schema.&lt;/p&gt;
+    /// </summary>
     public sealed class TemplateDataSetSchemaArgs : global::Pulumi.ResourceArgs
     {
         [Input("columnSchemaList")]
         private InputList<Inputs.TemplateColumnSchemaArgs>? _columnSchemaList;
+
+        /// <summary>
+        /// &lt;p&gt;A structure containing the list of column schemas.&lt;/p&gt;
+        /// </summary>
         public InputList<Inputs.TemplateColumnSchemaArgs> ColumnSchemaList
         {
             get => _columnSchemaList ?? (_columnSchemaList = new InputList<Inputs.TemplateColumnSchemaArgs>());

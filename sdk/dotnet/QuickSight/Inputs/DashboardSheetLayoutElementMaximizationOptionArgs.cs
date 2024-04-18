@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;The sheet layout maximization options of a dashbaord.&lt;/p&gt;
+    /// </summary>
     public sealed class DashboardSheetLayoutElementMaximizationOptionArgs : global::Pulumi.ResourceArgs
     {
         [Input("availabilityStatus")]

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;The visual publish options of a visual in a dashboard&lt;/p&gt;
+    /// </summary>
     public sealed class DashboardVisualPublishOptionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("exportHiddenFieldsOption")]

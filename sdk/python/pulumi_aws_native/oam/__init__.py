@@ -10,3 +10,5 @@ from .get_link import *
 from .get_sink import *
 from .link import *
 from .sink import *
+from ._inputs import *
+from . import outputs

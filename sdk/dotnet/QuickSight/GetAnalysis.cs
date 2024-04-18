@@ -57,15 +57,39 @@ namespace Pulumi.AwsNative.QuickSight
     [OutputType]
     public sealed class GetAnalysisResult
     {
+        /// <summary>
+        /// &lt;p&gt;The Amazon Resource Name (ARN) of the analysis.&lt;/p&gt;
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// &lt;p&gt;The time that the analysis was created.&lt;/p&gt;
+        /// </summary>
         public readonly string? CreatedTime;
+        /// <summary>
+        /// &lt;p&gt;The ARNs of the datasets of the analysis.&lt;/p&gt;
+        /// </summary>
         public readonly ImmutableArray<string> DataSetArns;
+        /// <summary>
+        /// &lt;p&gt;Errors associated with the analysis.&lt;/p&gt;
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisError> Errors;
+        /// <summary>
+        /// &lt;p&gt;The time that the analysis was last updated.&lt;/p&gt;
+        /// </summary>
         public readonly string? LastUpdatedTime;
+        /// <summary>
+        /// &lt;p&gt;The descriptive name of the analysis.&lt;/p&gt;
+        /// </summary>
         public readonly string? Name;
         public readonly ImmutableArray<Outputs.AnalysisResourcePermission> Permissions;
+        /// <summary>
+        /// &lt;p&gt;A list of the associated sheets with the unique identifier and name of each sheet.&lt;/p&gt;
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisSheet> Sheets;
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// &lt;p&gt;The ARN of the theme of the analysis.&lt;/p&gt;
+        /// </summary>
         public readonly string? ThemeArn;
 
         [OutputConstructor]

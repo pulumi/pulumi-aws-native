@@ -675,6 +675,11 @@ export type TransitGatewayPeeringAttachment = import("./transitGatewayPeeringAtt
 export const TransitGatewayPeeringAttachment: typeof import("./transitGatewayPeeringAttachment").TransitGatewayPeeringAttachment = null as any;
 utilities.lazyLoad(exports, ["TransitGatewayPeeringAttachment"], () => require("./transitGatewayPeeringAttachment"));
 
+export { TransitGatewayRouteArgs } from "./transitGatewayRoute";
+export type TransitGatewayRoute = import("./transitGatewayRoute").TransitGatewayRoute;
+export const TransitGatewayRoute: typeof import("./transitGatewayRoute").TransitGatewayRoute = null as any;
+utilities.lazyLoad(exports, ["TransitGatewayRoute"], () => require("./transitGatewayRoute"));
+
 export { TransitGatewayRouteTableArgs } from "./transitGatewayRouteTable";
 export type TransitGatewayRouteTable = import("./transitGatewayRouteTable").TransitGatewayRouteTable;
 export const TransitGatewayRouteTable: typeof import("./transitGatewayRouteTable").TransitGatewayRouteTable = null as any;
@@ -906,6 +911,8 @@ const _module = {
                 return new TransitGatewayMulticastGroupSource(name, <any>undefined, { urn })
             case "aws-native:ec2:TransitGatewayPeeringAttachment":
                 return new TransitGatewayPeeringAttachment(name, <any>undefined, { urn })
+            case "aws-native:ec2:TransitGatewayRoute":
+                return new TransitGatewayRoute(name, <any>undefined, { urn })
             case "aws-native:ec2:TransitGatewayRouteTable":
                 return new TransitGatewayRouteTable(name, <any>undefined, { urn })
             case "aws-native:ec2:TransitGatewayRouteTableAssociation":

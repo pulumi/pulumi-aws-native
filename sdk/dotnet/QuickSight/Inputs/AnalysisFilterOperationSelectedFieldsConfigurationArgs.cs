@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("selectedColumns")]
         private InputList<Inputs.AnalysisColumnIdentifierArgs>? _selectedColumns;
+
+        /// <summary>
+        /// &lt;p&gt;The selected columns of a dataset.&lt;/p&gt;
+        /// </summary>
         public InputList<Inputs.AnalysisColumnIdentifierArgs> SelectedColumns
         {
             get => _selectedColumns ?? (_selectedColumns = new InputList<Inputs.AnalysisColumnIdentifierArgs>());

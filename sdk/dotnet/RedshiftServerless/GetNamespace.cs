@@ -95,6 +95,10 @@ namespace Pulumi.AwsNative.RedshiftServerless
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RedshiftServerless::Namespace` for more information about the expected schema for this property.
         /// </summary>
         public readonly object? NamespaceResourcePolicy;
+        /// <summary>
+        /// The snapshot copy configurations for the namespace.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.NamespaceSnapshotCopyConfiguration> SnapshotCopyConfigurations;
 
         [OutputConstructor]
         private GetNamespaceResult(
@@ -114,7 +118,9 @@ namespace Pulumi.AwsNative.RedshiftServerless
 
             Outputs.Namespace? @namespace,
 
-            object? namespaceResourcePolicy)
+            object? namespaceResourcePolicy,
+
+            ImmutableArray<Outputs.NamespaceSnapshotCopyConfiguration> snapshotCopyConfigurations)
         {
             AdminPasswordSecretKmsKeyId = adminPasswordSecretKmsKeyId;
             AdminUsername = adminUsername;
@@ -125,6 +131,7 @@ namespace Pulumi.AwsNative.RedshiftServerless
             LogExports = logExports;
             NamespaceValue = @namespace;
             NamespaceResourcePolicy = namespaceResourcePolicy;
+            SnapshotCopyConfigurations = snapshotCopyConfigurations;
         }
     }
 }

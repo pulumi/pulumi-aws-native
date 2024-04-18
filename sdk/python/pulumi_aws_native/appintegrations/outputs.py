@@ -41,9 +41,10 @@ class ApplicationExternalUrlConfig(dict):
 
     def __init__(__self__, *,
                  access_url: str,
-                 approved_origins: Sequence[str]):
+                 approved_origins: Optional[Sequence[str]] = None):
         pulumi.set(__self__, "access_url", access_url)
-        pulumi.set(__self__, "approved_origins", approved_origins)
+        if approved_origins is not None:
+            pulumi.set(__self__, "approved_origins", approved_origins)
 
     @property
     @pulumi.getter(name="accessUrl")
@@ -52,7 +53,7 @@ class ApplicationExternalUrlConfig(dict):
 
     @property
     @pulumi.getter(name="approvedOrigins")
-    def approved_origins(self) -> Sequence[str]:
+    def approved_origins(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "approved_origins")
 
 

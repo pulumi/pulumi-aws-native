@@ -17,23 +17,31 @@ import (
 type Analysis struct {
 	pulumi.CustomResourceState
 
-	AnalysisId         pulumi.StringOutput                   `pulumi:"analysisId"`
-	Arn                pulumi.StringOutput                   `pulumi:"arn"`
-	AwsAccountId       pulumi.StringOutput                   `pulumi:"awsAccountId"`
-	CreatedTime        pulumi.StringOutput                   `pulumi:"createdTime"`
-	DataSetArns        pulumi.StringArrayOutput              `pulumi:"dataSetArns"`
-	Definition         AnalysisDefinitionPtrOutput           `pulumi:"definition"`
-	Errors             AnalysisErrorArrayOutput              `pulumi:"errors"`
-	LastUpdatedTime    pulumi.StringOutput                   `pulumi:"lastUpdatedTime"`
-	Name               pulumi.StringOutput                   `pulumi:"name"`
-	Parameters         AnalysisParametersPtrOutput           `pulumi:"parameters"`
-	Permissions        AnalysisResourcePermissionArrayOutput `pulumi:"permissions"`
-	Sheets             AnalysisSheetArrayOutput              `pulumi:"sheets"`
-	SourceEntity       AnalysisSourceEntityPtrOutput         `pulumi:"sourceEntity"`
-	Status             AnalysisResourceStatusPtrOutput       `pulumi:"status"`
-	Tags               aws.TagArrayOutput                    `pulumi:"tags"`
-	ThemeArn           pulumi.StringPtrOutput                `pulumi:"themeArn"`
-	ValidationStrategy AnalysisValidationStrategyPtrOutput   `pulumi:"validationStrategy"`
+	AnalysisId pulumi.StringOutput `pulumi:"analysisId"`
+	// <p>The Amazon Resource Name (ARN) of the analysis.</p>
+	Arn          pulumi.StringOutput `pulumi:"arn"`
+	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
+	// <p>The time that the analysis was created.</p>
+	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
+	// <p>The ARNs of the datasets of the analysis.</p>
+	DataSetArns pulumi.StringArrayOutput    `pulumi:"dataSetArns"`
+	Definition  AnalysisDefinitionPtrOutput `pulumi:"definition"`
+	// <p>Errors associated with the analysis.</p>
+	Errors AnalysisErrorArrayOutput `pulumi:"errors"`
+	// <p>The time that the analysis was last updated.</p>
+	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
+	// <p>The descriptive name of the analysis.</p>
+	Name        pulumi.StringOutput                   `pulumi:"name"`
+	Parameters  AnalysisParametersPtrOutput           `pulumi:"parameters"`
+	Permissions AnalysisResourcePermissionArrayOutput `pulumi:"permissions"`
+	// <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
+	Sheets       AnalysisSheetArrayOutput        `pulumi:"sheets"`
+	SourceEntity AnalysisSourceEntityPtrOutput   `pulumi:"sourceEntity"`
+	Status       AnalysisResourceStatusPtrOutput `pulumi:"status"`
+	Tags         aws.TagArrayOutput              `pulumi:"tags"`
+	// <p>The ARN of the theme of the analysis.</p>
+	ThemeArn           pulumi.StringPtrOutput              `pulumi:"themeArn"`
+	ValidationStrategy AnalysisValidationStrategyPtrOutput `pulumi:"validationStrategy"`
 }
 
 // NewAnalysis registers a new resource with the given unique name, arguments, and options.
@@ -87,34 +95,42 @@ func (AnalysisState) ElementType() reflect.Type {
 }
 
 type analysisArgs struct {
-	AnalysisId         string                       `pulumi:"analysisId"`
-	AwsAccountId       string                       `pulumi:"awsAccountId"`
-	Definition         *AnalysisDefinition          `pulumi:"definition"`
-	Errors             []AnalysisError              `pulumi:"errors"`
-	Name               *string                      `pulumi:"name"`
-	Parameters         *AnalysisParameters          `pulumi:"parameters"`
-	Permissions        []AnalysisResourcePermission `pulumi:"permissions"`
-	Sheets             []AnalysisSheet              `pulumi:"sheets"`
-	SourceEntity       *AnalysisSourceEntity        `pulumi:"sourceEntity"`
-	Status             *AnalysisResourceStatus      `pulumi:"status"`
-	Tags               []aws.Tag                    `pulumi:"tags"`
-	ThemeArn           *string                      `pulumi:"themeArn"`
-	ValidationStrategy *AnalysisValidationStrategy  `pulumi:"validationStrategy"`
+	AnalysisId   string              `pulumi:"analysisId"`
+	AwsAccountId string              `pulumi:"awsAccountId"`
+	Definition   *AnalysisDefinition `pulumi:"definition"`
+	// <p>Errors associated with the analysis.</p>
+	Errors []AnalysisError `pulumi:"errors"`
+	// <p>The descriptive name of the analysis.</p>
+	Name        *string                      `pulumi:"name"`
+	Parameters  *AnalysisParameters          `pulumi:"parameters"`
+	Permissions []AnalysisResourcePermission `pulumi:"permissions"`
+	// <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
+	Sheets       []AnalysisSheet         `pulumi:"sheets"`
+	SourceEntity *AnalysisSourceEntity   `pulumi:"sourceEntity"`
+	Status       *AnalysisResourceStatus `pulumi:"status"`
+	Tags         []aws.Tag               `pulumi:"tags"`
+	// <p>The ARN of the theme of the analysis.</p>
+	ThemeArn           *string                     `pulumi:"themeArn"`
+	ValidationStrategy *AnalysisValidationStrategy `pulumi:"validationStrategy"`
 }
 
 // The set of arguments for constructing a Analysis resource.
 type AnalysisArgs struct {
-	AnalysisId         pulumi.StringInput
-	AwsAccountId       pulumi.StringInput
-	Definition         AnalysisDefinitionPtrInput
-	Errors             AnalysisErrorArrayInput
-	Name               pulumi.StringPtrInput
-	Parameters         AnalysisParametersPtrInput
-	Permissions        AnalysisResourcePermissionArrayInput
-	Sheets             AnalysisSheetArrayInput
-	SourceEntity       AnalysisSourceEntityPtrInput
-	Status             AnalysisResourceStatusPtrInput
-	Tags               aws.TagArrayInput
+	AnalysisId   pulumi.StringInput
+	AwsAccountId pulumi.StringInput
+	Definition   AnalysisDefinitionPtrInput
+	// <p>Errors associated with the analysis.</p>
+	Errors AnalysisErrorArrayInput
+	// <p>The descriptive name of the analysis.</p>
+	Name        pulumi.StringPtrInput
+	Parameters  AnalysisParametersPtrInput
+	Permissions AnalysisResourcePermissionArrayInput
+	// <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
+	Sheets       AnalysisSheetArrayInput
+	SourceEntity AnalysisSourceEntityPtrInput
+	Status       AnalysisResourceStatusPtrInput
+	Tags         aws.TagArrayInput
+	// <p>The ARN of the theme of the analysis.</p>
 	ThemeArn           pulumi.StringPtrInput
 	ValidationStrategy AnalysisValidationStrategyPtrInput
 }
@@ -160,6 +176,7 @@ func (o AnalysisOutput) AnalysisId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Analysis) pulumi.StringOutput { return v.AnalysisId }).(pulumi.StringOutput)
 }
 
+// <p>The Amazon Resource Name (ARN) of the analysis.</p>
 func (o AnalysisOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Analysis) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -168,10 +185,12 @@ func (o AnalysisOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Analysis) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }
 
+// <p>The time that the analysis was created.</p>
 func (o AnalysisOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Analysis) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
+// <p>The ARNs of the datasets of the analysis.</p>
 func (o AnalysisOutput) DataSetArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Analysis) pulumi.StringArrayOutput { return v.DataSetArns }).(pulumi.StringArrayOutput)
 }
@@ -180,14 +199,17 @@ func (o AnalysisOutput) Definition() AnalysisDefinitionPtrOutput {
 	return o.ApplyT(func(v *Analysis) AnalysisDefinitionPtrOutput { return v.Definition }).(AnalysisDefinitionPtrOutput)
 }
 
+// <p>Errors associated with the analysis.</p>
 func (o AnalysisOutput) Errors() AnalysisErrorArrayOutput {
 	return o.ApplyT(func(v *Analysis) AnalysisErrorArrayOutput { return v.Errors }).(AnalysisErrorArrayOutput)
 }
 
+// <p>The time that the analysis was last updated.</p>
 func (o AnalysisOutput) LastUpdatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Analysis) pulumi.StringOutput { return v.LastUpdatedTime }).(pulumi.StringOutput)
 }
 
+// <p>The descriptive name of the analysis.</p>
 func (o AnalysisOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Analysis) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -200,6 +222,7 @@ func (o AnalysisOutput) Permissions() AnalysisResourcePermissionArrayOutput {
 	return o.ApplyT(func(v *Analysis) AnalysisResourcePermissionArrayOutput { return v.Permissions }).(AnalysisResourcePermissionArrayOutput)
 }
 
+// <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
 func (o AnalysisOutput) Sheets() AnalysisSheetArrayOutput {
 	return o.ApplyT(func(v *Analysis) AnalysisSheetArrayOutput { return v.Sheets }).(AnalysisSheetArrayOutput)
 }
@@ -216,6 +239,7 @@ func (o AnalysisOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Analysis) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// <p>The ARN of the theme of the analysis.</p>
 func (o AnalysisOutput) ThemeArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Analysis) pulumi.StringPtrOutput { return v.ThemeArn }).(pulumi.StringPtrOutput)
 }

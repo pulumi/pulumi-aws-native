@@ -53,6 +53,7 @@ namespace Pulumi.AwsNative.Oam
     {
         public readonly string? Arn;
         public readonly string? Label;
+        public readonly Outputs.LinkConfiguration? LinkConfiguration;
         public readonly ImmutableArray<Pulumi.AwsNative.Oam.LinkResourceType> ResourceTypes;
         /// <summary>
         /// Tags to apply to the link
@@ -65,12 +66,15 @@ namespace Pulumi.AwsNative.Oam
 
             string? label,
 
+            Outputs.LinkConfiguration? linkConfiguration,
+
             ImmutableArray<Pulumi.AwsNative.Oam.LinkResourceType> resourceTypes,
 
             ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             Label = label;
+            LinkConfiguration = linkConfiguration;
             ResourceTypes = resourceTypes;
             Tags = tags;
         }

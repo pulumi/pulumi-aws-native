@@ -109,7 +109,6 @@ class TargetGroupHealthCheckConfigProtocol(str, Enum):
 class TargetGroupHealthCheckConfigProtocolVersion(str, Enum):
     HTTP1 = "HTTP1"
     HTTP2 = "HTTP2"
-    GRPC = "GRPC"
 
 
 class TargetGroupStatus(str, Enum):

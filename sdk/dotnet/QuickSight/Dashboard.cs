@@ -15,12 +15,18 @@ namespace Pulumi.AwsNative.QuickSight
     [AwsNativeResourceType("aws-native:quicksight:Dashboard")]
     public partial class Dashboard : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// &lt;p&gt;The Amazon Resource Name (ARN) of the resource.&lt;/p&gt;
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         [Output("awsAccountId")]
         public Output<string> AwsAccountId { get; private set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;The time that this dashboard was created.&lt;/p&gt;
+        /// </summary>
         [Output("createdTime")]
         public Output<string> CreatedTime { get; private set; } = null!;
 
@@ -33,9 +39,15 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("definition")]
         public Output<Outputs.DashboardVersionDefinition?> Definition { get; private set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;The last time that this dashboard was published.&lt;/p&gt;
+        /// </summary>
         [Output("lastPublishedTime")]
         public Output<string> LastPublishedTime { get; private set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;The last time that this dashboard was updated.&lt;/p&gt;
+        /// </summary>
         [Output("lastUpdatedTime")]
         public Output<string> LastUpdatedTime { get; private set; } = null!;
 

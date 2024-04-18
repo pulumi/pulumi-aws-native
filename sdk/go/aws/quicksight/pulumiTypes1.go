@@ -11458,6 +11458,7 @@ func (o DashboardDataPathValueArrayOutput) Index(i pulumi.IntInput) DashboardDat
 	}).(DashboardDataPathValueOutput)
 }
 
+// <p>The drill down options for data points in a dashbaord.</p>
 type DashboardDataPointDrillUpDownOption struct {
 	AvailabilityStatus *DashboardBehavior `pulumi:"availabilityStatus"`
 }
@@ -11473,6 +11474,7 @@ type DashboardDataPointDrillUpDownOptionInput interface {
 	ToDashboardDataPointDrillUpDownOptionOutputWithContext(context.Context) DashboardDataPointDrillUpDownOptionOutput
 }
 
+// <p>The drill down options for data points in a dashbaord.</p>
 type DashboardDataPointDrillUpDownOptionArgs struct {
 	AvailabilityStatus DashboardBehaviorPtrInput `pulumi:"availabilityStatus"`
 }
@@ -11530,6 +11532,7 @@ func (i *dashboardDataPointDrillUpDownOptionPtrType) ToDashboardDataPointDrillUp
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardDataPointDrillUpDownOptionPtrOutput)
 }
 
+// <p>The drill down options for data points in a dashbaord.</p>
 type DashboardDataPointDrillUpDownOptionOutput struct{ *pulumi.OutputState }
 
 func (DashboardDataPointDrillUpDownOptionOutput) ElementType() reflect.Type {
@@ -11591,6 +11594,7 @@ func (o DashboardDataPointDrillUpDownOptionPtrOutput) AvailabilityStatus() Dashb
 	}).(DashboardBehaviorPtrOutput)
 }
 
+// <p>The data point menu options of a dashboard.</p>
 type DashboardDataPointMenuLabelOption struct {
 	AvailabilityStatus *DashboardBehavior `pulumi:"availabilityStatus"`
 }
@@ -11606,6 +11610,7 @@ type DashboardDataPointMenuLabelOptionInput interface {
 	ToDashboardDataPointMenuLabelOptionOutputWithContext(context.Context) DashboardDataPointMenuLabelOptionOutput
 }
 
+// <p>The data point menu options of a dashboard.</p>
 type DashboardDataPointMenuLabelOptionArgs struct {
 	AvailabilityStatus DashboardBehaviorPtrInput `pulumi:"availabilityStatus"`
 }
@@ -11663,6 +11668,7 @@ func (i *dashboardDataPointMenuLabelOptionPtrType) ToDashboardDataPointMenuLabel
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardDataPointMenuLabelOptionPtrOutput)
 }
 
+// <p>The data point menu options of a dashboard.</p>
 type DashboardDataPointMenuLabelOptionOutput struct{ *pulumi.OutputState }
 
 func (DashboardDataPointMenuLabelOptionOutput) ElementType() reflect.Type {
@@ -11724,6 +11730,7 @@ func (o DashboardDataPointMenuLabelOptionPtrOutput) AvailabilityStatus() Dashboa
 	}).(DashboardBehaviorPtrOutput)
 }
 
+// <p>The data point tooltip options.</p>
 type DashboardDataPointTooltipOption struct {
 	AvailabilityStatus *DashboardBehavior `pulumi:"availabilityStatus"`
 }
@@ -11739,6 +11746,7 @@ type DashboardDataPointTooltipOptionInput interface {
 	ToDashboardDataPointTooltipOptionOutputWithContext(context.Context) DashboardDataPointTooltipOptionOutput
 }
 
+// <p>The data point tooltip options.</p>
 type DashboardDataPointTooltipOptionArgs struct {
 	AvailabilityStatus DashboardBehaviorPtrInput `pulumi:"availabilityStatus"`
 }
@@ -11796,6 +11804,7 @@ func (i *dashboardDataPointTooltipOptionPtrType) ToDashboardDataPointTooltipOpti
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardDataPointTooltipOptionPtrOutput)
 }
 
+// <p>The data point tooltip options.</p>
 type DashboardDataPointTooltipOptionOutput struct{ *pulumi.OutputState }
 
 func (DashboardDataPointTooltipOptionOutput) ElementType() reflect.Type {
@@ -11957,8 +11966,11 @@ func (o DashboardDataSetIdentifierDeclarationArrayOutput) Index(i pulumi.IntInpu
 	}).(DashboardDataSetIdentifierDeclarationOutput)
 }
 
+// <p>Dataset reference.</p>
 type DashboardDataSetReference struct {
-	DataSetArn         string `pulumi:"dataSetArn"`
+	// <p>Dataset Amazon Resource Name (ARN).</p>
+	DataSetArn string `pulumi:"dataSetArn"`
+	// <p>Dataset placeholder.</p>
 	DataSetPlaceholder string `pulumi:"dataSetPlaceholder"`
 }
 
@@ -11973,8 +11985,11 @@ type DashboardDataSetReferenceInput interface {
 	ToDashboardDataSetReferenceOutputWithContext(context.Context) DashboardDataSetReferenceOutput
 }
 
+// <p>Dataset reference.</p>
 type DashboardDataSetReferenceArgs struct {
-	DataSetArn         pulumi.StringInput `pulumi:"dataSetArn"`
+	// <p>Dataset Amazon Resource Name (ARN).</p>
+	DataSetArn pulumi.StringInput `pulumi:"dataSetArn"`
+	// <p>Dataset placeholder.</p>
 	DataSetPlaceholder pulumi.StringInput `pulumi:"dataSetPlaceholder"`
 }
 
@@ -12015,6 +12030,7 @@ func (i DashboardDataSetReferenceArray) ToDashboardDataSetReferenceArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardDataSetReferenceArrayOutput)
 }
 
+// <p>Dataset reference.</p>
 type DashboardDataSetReferenceOutput struct{ *pulumi.OutputState }
 
 func (DashboardDataSetReferenceOutput) ElementType() reflect.Type {
@@ -12029,10 +12045,12 @@ func (o DashboardDataSetReferenceOutput) ToDashboardDataSetReferenceOutputWithCo
 	return o
 }
 
+// <p>Dataset Amazon Resource Name (ARN).</p>
 func (o DashboardDataSetReferenceOutput) DataSetArn() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardDataSetReference) string { return v.DataSetArn }).(pulumi.StringOutput)
 }
 
+// <p>Dataset placeholder.</p>
 func (o DashboardDataSetReferenceOutput) DataSetPlaceholder() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardDataSetReference) string { return v.DataSetPlaceholder }).(pulumi.StringOutput)
 }
@@ -13041,8 +13059,11 @@ func (o DashboardDateTimeHierarchyPtrOutput) HierarchyId() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// <p>A date-time parameter.</p>
 type DashboardDateTimeParameter struct {
-	Name   string   `pulumi:"name"`
+	// <p>A display name for the date-time parameter.</p>
+	Name string `pulumi:"name"`
+	// <p>The values for the date-time parameter.</p>
 	Values []string `pulumi:"values"`
 }
 
@@ -13057,8 +13078,11 @@ type DashboardDateTimeParameterInput interface {
 	ToDashboardDateTimeParameterOutputWithContext(context.Context) DashboardDateTimeParameterOutput
 }
 
+// <p>A date-time parameter.</p>
 type DashboardDateTimeParameterArgs struct {
-	Name   pulumi.StringInput      `pulumi:"name"`
+	// <p>A display name for the date-time parameter.</p>
+	Name pulumi.StringInput `pulumi:"name"`
+	// <p>The values for the date-time parameter.</p>
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -13099,6 +13123,7 @@ func (i DashboardDateTimeParameterArray) ToDashboardDateTimeParameterArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardDateTimeParameterArrayOutput)
 }
 
+// <p>A date-time parameter.</p>
 type DashboardDateTimeParameterOutput struct{ *pulumi.OutputState }
 
 func (DashboardDateTimeParameterOutput) ElementType() reflect.Type {
@@ -13113,10 +13138,12 @@ func (o DashboardDateTimeParameterOutput) ToDashboardDateTimeParameterOutputWith
 	return o
 }
 
+// <p>A display name for the date-time parameter.</p>
 func (o DashboardDateTimeParameterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardDateTimeParameter) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// <p>The values for the date-time parameter.</p>
 func (o DashboardDateTimeParameterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DashboardDateTimeParameter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -13801,8 +13828,11 @@ func (o DashboardDecimalDefaultValuesPtrOutput) StaticValues() pulumi.Float64Arr
 	}).(pulumi.Float64ArrayOutput)
 }
 
+// <p>A decimal parameter.</p>
 type DashboardDecimalParameter struct {
-	Name   string    `pulumi:"name"`
+	// <p>A display name for the decimal parameter.</p>
+	Name string `pulumi:"name"`
+	// <p>The values for the decimal parameter.</p>
 	Values []float64 `pulumi:"values"`
 }
 
@@ -13817,8 +13847,11 @@ type DashboardDecimalParameterInput interface {
 	ToDashboardDecimalParameterOutputWithContext(context.Context) DashboardDecimalParameterOutput
 }
 
+// <p>A decimal parameter.</p>
 type DashboardDecimalParameterArgs struct {
-	Name   pulumi.StringInput       `pulumi:"name"`
+	// <p>A display name for the decimal parameter.</p>
+	Name pulumi.StringInput `pulumi:"name"`
+	// <p>The values for the decimal parameter.</p>
 	Values pulumi.Float64ArrayInput `pulumi:"values"`
 }
 
@@ -13859,6 +13892,7 @@ func (i DashboardDecimalParameterArray) ToDashboardDecimalParameterArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardDecimalParameterArrayOutput)
 }
 
+// <p>A decimal parameter.</p>
 type DashboardDecimalParameterOutput struct{ *pulumi.OutputState }
 
 func (DashboardDecimalParameterOutput) ElementType() reflect.Type {
@@ -13873,10 +13907,12 @@ func (o DashboardDecimalParameterOutput) ToDashboardDecimalParameterOutputWithCo
 	return o
 }
 
+// <p>A display name for the decimal parameter.</p>
 func (o DashboardDecimalParameterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardDecimalParameter) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// <p>The values for the decimal parameter.</p>
 func (o DashboardDecimalParameterOutput) Values() pulumi.Float64ArrayOutput {
 	return o.ApplyT(func(v DashboardDecimalParameter) []float64 { return v.Values }).(pulumi.Float64ArrayOutput)
 }
@@ -16453,12 +16489,16 @@ func (o DashboardEntityArrayOutput) Index(i pulumi.IntInput) DashboardEntityOutp
 	}).(DashboardEntityOutput)
 }
 
+// <p>Dashboard error.</p>
 type DashboardError struct {
-	Message          *string             `pulumi:"message"`
-	Type             *DashboardErrorType `pulumi:"type"`
-	ViolatedEntities []DashboardEntity   `pulumi:"violatedEntities"`
+	// <p>Message.</p>
+	Message *string             `pulumi:"message"`
+	Type    *DashboardErrorType `pulumi:"type"`
+	// <p>Lists the violated entities that caused the dashboard error.</p>
+	ViolatedEntities []DashboardEntity `pulumi:"violatedEntities"`
 }
 
+// <p>Dashboard error.</p>
 type DashboardErrorOutput struct{ *pulumi.OutputState }
 
 func (DashboardErrorOutput) ElementType() reflect.Type {
@@ -16473,6 +16513,7 @@ func (o DashboardErrorOutput) ToDashboardErrorOutputWithContext(ctx context.Cont
 	return o
 }
 
+// <p>Message.</p>
 func (o DashboardErrorOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardError) *string { return v.Message }).(pulumi.StringPtrOutput)
 }
@@ -16481,6 +16522,7 @@ func (o DashboardErrorOutput) Type() DashboardErrorTypePtrOutput {
 	return o.ApplyT(func(v DashboardError) *DashboardErrorType { return v.Type }).(DashboardErrorTypePtrOutput)
 }
 
+// <p>Lists the violated entities that caused the dashboard error.</p>
 func (o DashboardErrorOutput) ViolatedEntities() DashboardEntityArrayOutput {
 	return o.ApplyT(func(v DashboardError) []DashboardEntity { return v.ViolatedEntities }).(DashboardEntityArrayOutput)
 }
@@ -16831,6 +16873,7 @@ func (o DashboardExplicitHierarchyPtrOutput) HierarchyId() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// <p>Determines if hidden fields are included in an exported dashboard.</p>
 type DashboardExportHiddenFieldsOption struct {
 	AvailabilityStatus *DashboardBehavior `pulumi:"availabilityStatus"`
 }
@@ -16846,6 +16889,7 @@ type DashboardExportHiddenFieldsOptionInput interface {
 	ToDashboardExportHiddenFieldsOptionOutputWithContext(context.Context) DashboardExportHiddenFieldsOptionOutput
 }
 
+// <p>Determines if hidden fields are included in an exported dashboard.</p>
 type DashboardExportHiddenFieldsOptionArgs struct {
 	AvailabilityStatus DashboardBehaviorPtrInput `pulumi:"availabilityStatus"`
 }
@@ -16903,6 +16947,7 @@ func (i *dashboardExportHiddenFieldsOptionPtrType) ToDashboardExportHiddenFields
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardExportHiddenFieldsOptionPtrOutput)
 }
 
+// <p>Determines if hidden fields are included in an exported dashboard.</p>
 type DashboardExportHiddenFieldsOptionOutput struct{ *pulumi.OutputState }
 
 func (DashboardExportHiddenFieldsOptionOutput) ElementType() reflect.Type {
@@ -16964,6 +17009,7 @@ func (o DashboardExportHiddenFieldsOptionPtrOutput) AvailabilityStatus() Dashboa
 	}).(DashboardBehaviorPtrOutput)
 }
 
+// <p>Export to .csv option.</p>
 type DashboardExportToCsvOption struct {
 	AvailabilityStatus *DashboardBehavior `pulumi:"availabilityStatus"`
 }
@@ -16979,6 +17025,7 @@ type DashboardExportToCsvOptionInput interface {
 	ToDashboardExportToCsvOptionOutputWithContext(context.Context) DashboardExportToCsvOptionOutput
 }
 
+// <p>Export to .csv option.</p>
 type DashboardExportToCsvOptionArgs struct {
 	AvailabilityStatus DashboardBehaviorPtrInput `pulumi:"availabilityStatus"`
 }
@@ -17036,6 +17083,7 @@ func (i *dashboardExportToCsvOptionPtrType) ToDashboardExportToCsvOptionPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardExportToCsvOptionPtrOutput)
 }
 
+// <p>Export to .csv option.</p>
 type DashboardExportToCsvOptionOutput struct{ *pulumi.OutputState }
 
 func (DashboardExportToCsvOptionOutput) ElementType() reflect.Type {
@@ -17097,6 +17145,7 @@ func (o DashboardExportToCsvOptionPtrOutput) AvailabilityStatus() DashboardBehav
 	}).(DashboardBehaviorPtrOutput)
 }
 
+// <p>Determines whether or not hidden fields are visible on exported dashbaords.</p>
 type DashboardExportWithHiddenFieldsOption struct {
 	AvailabilityStatus *DashboardBehavior `pulumi:"availabilityStatus"`
 }
@@ -17112,6 +17161,7 @@ type DashboardExportWithHiddenFieldsOptionInput interface {
 	ToDashboardExportWithHiddenFieldsOptionOutputWithContext(context.Context) DashboardExportWithHiddenFieldsOptionOutput
 }
 
+// <p>Determines whether or not hidden fields are visible on exported dashbaords.</p>
 type DashboardExportWithHiddenFieldsOptionArgs struct {
 	AvailabilityStatus DashboardBehaviorPtrInput `pulumi:"availabilityStatus"`
 }
@@ -17169,6 +17219,7 @@ func (i *dashboardExportWithHiddenFieldsOptionPtrType) ToDashboardExportWithHidd
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardExportWithHiddenFieldsOptionPtrOutput)
 }
 
+// <p>Determines whether or not hidden fields are visible on exported dashbaords.</p>
 type DashboardExportWithHiddenFieldsOptionOutput struct{ *pulumi.OutputState }
 
 func (DashboardExportWithHiddenFieldsOptionOutput) ElementType() reflect.Type {
@@ -20458,6 +20509,7 @@ func (o DashboardFilterListControlPtrOutput) Type() DashboardSheetControlListTyp
 }
 
 type DashboardFilterOperationSelectedFieldsConfiguration struct {
+	// <p>The selected columns of a dataset.</p>
 	SelectedColumns      []DashboardColumnIdentifier    `pulumi:"selectedColumns"`
 	SelectedFieldOptions *DashboardSelectedFieldOptions `pulumi:"selectedFieldOptions"`
 	SelectedFields       []string                       `pulumi:"selectedFields"`
@@ -20475,6 +20527,7 @@ type DashboardFilterOperationSelectedFieldsConfigurationInput interface {
 }
 
 type DashboardFilterOperationSelectedFieldsConfigurationArgs struct {
+	// <p>The selected columns of a dataset.</p>
 	SelectedColumns      DashboardColumnIdentifierArrayInput   `pulumi:"selectedColumns"`
 	SelectedFieldOptions DashboardSelectedFieldOptionsPtrInput `pulumi:"selectedFieldOptions"`
 	SelectedFields       pulumi.StringArrayInput               `pulumi:"selectedFields"`
@@ -20557,6 +20610,7 @@ func (o DashboardFilterOperationSelectedFieldsConfigurationOutput) ToDashboardFi
 	}).(DashboardFilterOperationSelectedFieldsConfigurationPtrOutput)
 }
 
+// <p>The selected columns of a dataset.</p>
 func (o DashboardFilterOperationSelectedFieldsConfigurationOutput) SelectedColumns() DashboardColumnIdentifierArrayOutput {
 	return o.ApplyT(func(v DashboardFilterOperationSelectedFieldsConfiguration) []DashboardColumnIdentifier {
 		return v.SelectedColumns
@@ -20597,6 +20651,7 @@ func (o DashboardFilterOperationSelectedFieldsConfigurationPtrOutput) Elem() Das
 	}).(DashboardFilterOperationSelectedFieldsConfigurationOutput)
 }
 
+// <p>The selected columns of a dataset.</p>
 func (o DashboardFilterOperationSelectedFieldsConfigurationPtrOutput) SelectedColumns() DashboardColumnIdentifierArrayOutput {
 	return o.ApplyT(func(v *DashboardFilterOperationSelectedFieldsConfiguration) []DashboardColumnIdentifier {
 		if v == nil {
@@ -31582,8 +31637,11 @@ func (o DashboardIntegerDefaultValuesPtrOutput) StaticValues() pulumi.Float64Arr
 	}).(pulumi.Float64ArrayOutput)
 }
 
+// <p>An integer parameter.</p>
 type DashboardIntegerParameter struct {
-	Name   string    `pulumi:"name"`
+	// <p>The name of the integer parameter.</p>
+	Name string `pulumi:"name"`
+	// <p>The values for the integer parameter.</p>
 	Values []float64 `pulumi:"values"`
 }
 
@@ -31598,8 +31656,11 @@ type DashboardIntegerParameterInput interface {
 	ToDashboardIntegerParameterOutputWithContext(context.Context) DashboardIntegerParameterOutput
 }
 
+// <p>An integer parameter.</p>
 type DashboardIntegerParameterArgs struct {
-	Name   pulumi.StringInput       `pulumi:"name"`
+	// <p>The name of the integer parameter.</p>
+	Name pulumi.StringInput `pulumi:"name"`
+	// <p>The values for the integer parameter.</p>
 	Values pulumi.Float64ArrayInput `pulumi:"values"`
 }
 
@@ -31640,6 +31701,7 @@ func (i DashboardIntegerParameterArray) ToDashboardIntegerParameterArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardIntegerParameterArrayOutput)
 }
 
+// <p>An integer parameter.</p>
 type DashboardIntegerParameterOutput struct{ *pulumi.OutputState }
 
 func (DashboardIntegerParameterOutput) ElementType() reflect.Type {
@@ -31654,10 +31716,12 @@ func (o DashboardIntegerParameterOutput) ToDashboardIntegerParameterOutputWithCo
 	return o
 }
 
+// <p>The name of the integer parameter.</p>
 func (o DashboardIntegerParameterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardIntegerParameter) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// <p>The values for the integer parameter.</p>
 func (o DashboardIntegerParameterOutput) Values() pulumi.Float64ArrayOutput {
 	return o.ApplyT(func(v DashboardIntegerParameter) []float64 { return v.Values }).(pulumi.Float64ArrayOutput)
 }
@@ -43563,11 +43627,16 @@ func (o DashboardParameterTextFieldControlPtrOutput) Title() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// <p>A list of Amazon QuickSight parameters and the list's override values.</p>
 type DashboardParameters struct {
+	// <p>The parameters that have a data type of date-time.</p>
 	DateTimeParameters []DashboardDateTimeParameter `pulumi:"dateTimeParameters"`
-	DecimalParameters  []DashboardDecimalParameter  `pulumi:"decimalParameters"`
-	IntegerParameters  []DashboardIntegerParameter  `pulumi:"integerParameters"`
-	StringParameters   []DashboardStringParameter   `pulumi:"stringParameters"`
+	// <p>The parameters that have a data type of decimal.</p>
+	DecimalParameters []DashboardDecimalParameter `pulumi:"decimalParameters"`
+	// <p>The parameters that have a data type of integer.</p>
+	IntegerParameters []DashboardIntegerParameter `pulumi:"integerParameters"`
+	// <p>The parameters that have a data type of string.</p>
+	StringParameters []DashboardStringParameter `pulumi:"stringParameters"`
 }
 
 // DashboardParametersInput is an input type that accepts DashboardParametersArgs and DashboardParametersOutput values.
@@ -43581,11 +43650,16 @@ type DashboardParametersInput interface {
 	ToDashboardParametersOutputWithContext(context.Context) DashboardParametersOutput
 }
 
+// <p>A list of Amazon QuickSight parameters and the list's override values.</p>
 type DashboardParametersArgs struct {
+	// <p>The parameters that have a data type of date-time.</p>
 	DateTimeParameters DashboardDateTimeParameterArrayInput `pulumi:"dateTimeParameters"`
-	DecimalParameters  DashboardDecimalParameterArrayInput  `pulumi:"decimalParameters"`
-	IntegerParameters  DashboardIntegerParameterArrayInput  `pulumi:"integerParameters"`
-	StringParameters   DashboardStringParameterArrayInput   `pulumi:"stringParameters"`
+	// <p>The parameters that have a data type of decimal.</p>
+	DecimalParameters DashboardDecimalParameterArrayInput `pulumi:"decimalParameters"`
+	// <p>The parameters that have a data type of integer.</p>
+	IntegerParameters DashboardIntegerParameterArrayInput `pulumi:"integerParameters"`
+	// <p>The parameters that have a data type of string.</p>
+	StringParameters DashboardStringParameterArrayInput `pulumi:"stringParameters"`
 }
 
 func (DashboardParametersArgs) ElementType() reflect.Type {
@@ -43641,6 +43715,7 @@ func (i *dashboardParametersPtrType) ToDashboardParametersPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardParametersPtrOutput)
 }
 
+// <p>A list of Amazon QuickSight parameters and the list's override values.</p>
 type DashboardParametersOutput struct{ *pulumi.OutputState }
 
 func (DashboardParametersOutput) ElementType() reflect.Type {
@@ -43665,18 +43740,22 @@ func (o DashboardParametersOutput) ToDashboardParametersPtrOutputWithContext(ctx
 	}).(DashboardParametersPtrOutput)
 }
 
+// <p>The parameters that have a data type of date-time.</p>
 func (o DashboardParametersOutput) DateTimeParameters() DashboardDateTimeParameterArrayOutput {
 	return o.ApplyT(func(v DashboardParameters) []DashboardDateTimeParameter { return v.DateTimeParameters }).(DashboardDateTimeParameterArrayOutput)
 }
 
+// <p>The parameters that have a data type of decimal.</p>
 func (o DashboardParametersOutput) DecimalParameters() DashboardDecimalParameterArrayOutput {
 	return o.ApplyT(func(v DashboardParameters) []DashboardDecimalParameter { return v.DecimalParameters }).(DashboardDecimalParameterArrayOutput)
 }
 
+// <p>The parameters that have a data type of integer.</p>
 func (o DashboardParametersOutput) IntegerParameters() DashboardIntegerParameterArrayOutput {
 	return o.ApplyT(func(v DashboardParameters) []DashboardIntegerParameter { return v.IntegerParameters }).(DashboardIntegerParameterArrayOutput)
 }
 
+// <p>The parameters that have a data type of string.</p>
 func (o DashboardParametersOutput) StringParameters() DashboardStringParameterArrayOutput {
 	return o.ApplyT(func(v DashboardParameters) []DashboardStringParameter { return v.StringParameters }).(DashboardStringParameterArrayOutput)
 }
@@ -43705,6 +43784,7 @@ func (o DashboardParametersPtrOutput) Elem() DashboardParametersOutput {
 	}).(DashboardParametersOutput)
 }
 
+// <p>The parameters that have a data type of date-time.</p>
 func (o DashboardParametersPtrOutput) DateTimeParameters() DashboardDateTimeParameterArrayOutput {
 	return o.ApplyT(func(v *DashboardParameters) []DashboardDateTimeParameter {
 		if v == nil {
@@ -43714,6 +43794,7 @@ func (o DashboardParametersPtrOutput) DateTimeParameters() DashboardDateTimePara
 	}).(DashboardDateTimeParameterArrayOutput)
 }
 
+// <p>The parameters that have a data type of decimal.</p>
 func (o DashboardParametersPtrOutput) DecimalParameters() DashboardDecimalParameterArrayOutput {
 	return o.ApplyT(func(v *DashboardParameters) []DashboardDecimalParameter {
 		if v == nil {
@@ -43723,6 +43804,7 @@ func (o DashboardParametersPtrOutput) DecimalParameters() DashboardDecimalParame
 	}).(DashboardDecimalParameterArrayOutput)
 }
 
+// <p>The parameters that have a data type of integer.</p>
 func (o DashboardParametersPtrOutput) IntegerParameters() DashboardIntegerParameterArrayOutput {
 	return o.ApplyT(func(v *DashboardParameters) []DashboardIntegerParameter {
 		if v == nil {
@@ -43732,6 +43814,7 @@ func (o DashboardParametersPtrOutput) IntegerParameters() DashboardIntegerParame
 	}).(DashboardIntegerParameterArrayOutput)
 }
 
+// <p>The parameters that have a data type of string.</p>
 func (o DashboardParametersPtrOutput) StringParameters() DashboardStringParameterArrayOutput {
 	return o.ApplyT(func(v *DashboardParameters) []DashboardStringParameter {
 		if v == nil {
@@ -49155,6 +49238,7 @@ func (o DashboardProgressBarOptionsPtrOutput) Visibility() DashboardVisibilityPt
 	}).(DashboardVisibilityPtrOutput)
 }
 
+// <p>Dashboard publish options.</p>
 type DashboardPublishOptions struct {
 	AdHocFilteringOption                 *DashboardAdHocFilteringOption                 `pulumi:"adHocFilteringOption"`
 	DataPointDrillUpDownOption           *DashboardDataPointDrillUpDownOption           `pulumi:"dataPointDrillUpDownOption"`
@@ -49180,6 +49264,7 @@ type DashboardPublishOptionsInput interface {
 	ToDashboardPublishOptionsOutputWithContext(context.Context) DashboardPublishOptionsOutput
 }
 
+// <p>Dashboard publish options.</p>
 type DashboardPublishOptionsArgs struct {
 	AdHocFilteringOption                 DashboardAdHocFilteringOptionPtrInput                 `pulumi:"adHocFilteringOption"`
 	DataPointDrillUpDownOption           DashboardDataPointDrillUpDownOptionPtrInput           `pulumi:"dataPointDrillUpDownOption"`
@@ -49247,6 +49332,7 @@ func (i *dashboardPublishOptionsPtrType) ToDashboardPublishOptionsPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardPublishOptionsPtrOutput)
 }
 
+// <p>Dashboard publish options.</p>
 type DashboardPublishOptionsOutput struct{ *pulumi.OutputState }
 
 func (DashboardPublishOptionsOutput) ElementType() reflect.Type {
@@ -52453,9 +52539,26 @@ func (o DashboardRelativeDatesFilterPtrOutput) TimeGranularity() DashboardTimeGr
 	}).(DashboardTimeGranularityPtrOutput)
 }
 
+// <p>Permission for the resource.</p>
 type DashboardResourcePermission struct {
-	Actions   []string `pulumi:"actions"`
-	Principal string   `pulumi:"principal"`
+	// <p>The IAM action to grant or revoke permissions on.</p>
+	Actions []string `pulumi:"actions"`
+	// <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+	//             following:</p>
+	//          <ul>
+	//             <li>
+	//                <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+	//             </li>
+	//             <li>
+	//                <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+	//             </li>
+	//             <li>
+	//                <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
+	//                     ARN. Use this option only to share resources (templates) across Amazon Web Services accounts.
+	//                     (This is less common.) </p>
+	//             </li>
+	//          </ul>
+	Principal string `pulumi:"principal"`
 }
 
 // DashboardResourcePermissionInput is an input type that accepts DashboardResourcePermissionArgs and DashboardResourcePermissionOutput values.
@@ -52469,9 +52572,26 @@ type DashboardResourcePermissionInput interface {
 	ToDashboardResourcePermissionOutputWithContext(context.Context) DashboardResourcePermissionOutput
 }
 
+// <p>Permission for the resource.</p>
 type DashboardResourcePermissionArgs struct {
-	Actions   pulumi.StringArrayInput `pulumi:"actions"`
-	Principal pulumi.StringInput      `pulumi:"principal"`
+	// <p>The IAM action to grant or revoke permissions on.</p>
+	Actions pulumi.StringArrayInput `pulumi:"actions"`
+	// <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+	//             following:</p>
+	//          <ul>
+	//             <li>
+	//                <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+	//             </li>
+	//             <li>
+	//                <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+	//             </li>
+	//             <li>
+	//                <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
+	//                     ARN. Use this option only to share resources (templates) across Amazon Web Services accounts.
+	//                     (This is less common.) </p>
+	//             </li>
+	//          </ul>
+	Principal pulumi.StringInput `pulumi:"principal"`
 }
 
 func (DashboardResourcePermissionArgs) ElementType() reflect.Type {
@@ -52511,6 +52631,7 @@ func (i DashboardResourcePermissionArray) ToDashboardResourcePermissionArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardResourcePermissionArrayOutput)
 }
 
+// <p>Permission for the resource.</p>
 type DashboardResourcePermissionOutput struct{ *pulumi.OutputState }
 
 func (DashboardResourcePermissionOutput) ElementType() reflect.Type {
@@ -52525,10 +52646,27 @@ func (o DashboardResourcePermissionOutput) ToDashboardResourcePermissionOutputWi
 	return o
 }
 
+// <p>The IAM action to grant or revoke permissions on.</p>
 func (o DashboardResourcePermissionOutput) Actions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DashboardResourcePermission) []string { return v.Actions }).(pulumi.StringArrayOutput)
 }
 
+// <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+//
+//	   following:</p>
+//	<ul>
+//	   <li>
+//	      <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+//	   </li>
+//	   <li>
+//	      <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+//	   </li>
+//	   <li>
+//	      <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
+//	           ARN. Use this option only to share resources (templates) across Amazon Web Services accounts.
+//	           (This is less common.) </p>
+//	   </li>
+//	</ul>
 func (o DashboardResourcePermissionOutput) Principal() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardResourcePermission) string { return v.Principal }).(pulumi.StringOutput)
 }
@@ -56634,11 +56772,26 @@ func (o DashboardShapeConditionalFormatPtrOutput) BackgroundColor() DashboardCon
 	}).(DashboardConditionalFormattingColorPtrOutput)
 }
 
+// <p>A <i>sheet</i>, which is an object that contains a set of visuals that
+//
+//	are viewed together on one page in Amazon QuickSight. Every analysis and dashboard
+//	contains at least one sheet. Each sheet contains at least one visualization widget, for
+//	example a chart, pivot table, or narrative insight. Sheets can be associated with other
+//	components, such as controls, filters, and so on.</p>
 type DashboardSheet struct {
-	Name    *string `pulumi:"name"`
+	// <p>The name of a sheet. This name is displayed on the sheet's tab in the Amazon QuickSight
+	//             console.</p>
+	Name *string `pulumi:"name"`
+	// <p>The unique identifier associated with a sheet.</p>
 	SheetId *string `pulumi:"sheetId"`
 }
 
+// <p>A <i>sheet</i>, which is an object that contains a set of visuals that
+//
+//	are viewed together on one page in Amazon QuickSight. Every analysis and dashboard
+//	contains at least one sheet. Each sheet contains at least one visualization widget, for
+//	example a chart, pivot table, or narrative insight. Sheets can be associated with other
+//	components, such as controls, filters, and so on.</p>
 type DashboardSheetOutput struct{ *pulumi.OutputState }
 
 func (DashboardSheetOutput) ElementType() reflect.Type {
@@ -56653,10 +56806,14 @@ func (o DashboardSheetOutput) ToDashboardSheetOutputWithContext(ctx context.Cont
 	return o
 }
 
+// <p>The name of a sheet. This name is displayed on the sheet's tab in the Amazon QuickSight
+//
+//	console.</p>
 func (o DashboardSheetOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardSheet) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// <p>The unique identifier associated with a sheet.</p>
 func (o DashboardSheetOutput) SheetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardSheet) *string { return v.SheetId }).(pulumi.StringPtrOutput)
 }
@@ -56974,6 +57131,7 @@ func (o DashboardSheetControlLayoutConfigurationOutput) GridLayout() DashboardGr
 	}).(DashboardGridLayoutConfigurationPtrOutput)
 }
 
+// <p>Sheet controls option.</p>
 type DashboardSheetControlsOption struct {
 	VisibilityState *DashboardUiState `pulumi:"visibilityState"`
 }
@@ -56989,6 +57147,7 @@ type DashboardSheetControlsOptionInput interface {
 	ToDashboardSheetControlsOptionOutputWithContext(context.Context) DashboardSheetControlsOptionOutput
 }
 
+// <p>Sheet controls option.</p>
 type DashboardSheetControlsOptionArgs struct {
 	VisibilityState DashboardUiStatePtrInput `pulumi:"visibilityState"`
 }
@@ -57046,6 +57205,7 @@ func (i *dashboardSheetControlsOptionPtrType) ToDashboardSheetControlsOptionPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardSheetControlsOptionPtrOutput)
 }
 
+// <p>Sheet controls option.</p>
 type DashboardSheetControlsOptionOutput struct{ *pulumi.OutputState }
 
 func (DashboardSheetControlsOptionOutput) ElementType() reflect.Type {
@@ -57412,6 +57572,7 @@ func (o DashboardSheetElementRenderingRuleArrayOutput) Index(i pulumi.IntInput) 
 	}).(DashboardSheetElementRenderingRuleOutput)
 }
 
+// <p>The sheet layout maximization options of a dashbaord.</p>
 type DashboardSheetLayoutElementMaximizationOption struct {
 	AvailabilityStatus *DashboardBehavior `pulumi:"availabilityStatus"`
 }
@@ -57427,6 +57588,7 @@ type DashboardSheetLayoutElementMaximizationOptionInput interface {
 	ToDashboardSheetLayoutElementMaximizationOptionOutputWithContext(context.Context) DashboardSheetLayoutElementMaximizationOptionOutput
 }
 
+// <p>The sheet layout maximization options of a dashbaord.</p>
 type DashboardSheetLayoutElementMaximizationOptionArgs struct {
 	AvailabilityStatus DashboardBehaviorPtrInput `pulumi:"availabilityStatus"`
 }
@@ -57484,6 +57646,7 @@ func (i *dashboardSheetLayoutElementMaximizationOptionPtrType) ToDashboardSheetL
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardSheetLayoutElementMaximizationOptionPtrOutput)
 }
 
+// <p>The sheet layout maximization options of a dashbaord.</p>
 type DashboardSheetLayoutElementMaximizationOptionOutput struct{ *pulumi.OutputState }
 
 func (DashboardSheetLayoutElementMaximizationOptionOutput) ElementType() reflect.Type {
@@ -58525,6 +58688,7 @@ func (o DashboardSmallMultiplesOptionsPtrOutput) YAxis() DashboardSmallMultiples
 	}).(DashboardSmallMultiplesAxisPropertiesPtrOutput)
 }
 
+// <p>Dashboard source entity.</p>
 type DashboardSourceEntity struct {
 	SourceTemplate *DashboardSourceTemplate `pulumi:"sourceTemplate"`
 }
@@ -58540,6 +58704,7 @@ type DashboardSourceEntityInput interface {
 	ToDashboardSourceEntityOutputWithContext(context.Context) DashboardSourceEntityOutput
 }
 
+// <p>Dashboard source entity.</p>
 type DashboardSourceEntityArgs struct {
 	SourceTemplate DashboardSourceTemplatePtrInput `pulumi:"sourceTemplate"`
 }
@@ -58597,6 +58762,7 @@ func (i *dashboardSourceEntityPtrType) ToDashboardSourceEntityPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardSourceEntityPtrOutput)
 }
 
+// <p>Dashboard source entity.</p>
 type DashboardSourceEntityOutput struct{ *pulumi.OutputState }
 
 func (DashboardSourceEntityOutput) ElementType() reflect.Type {
@@ -58658,8 +58824,11 @@ func (o DashboardSourceEntityPtrOutput) SourceTemplate() DashboardSourceTemplate
 	}).(DashboardSourceTemplatePtrOutput)
 }
 
+// <p>Dashboard source template.</p>
 type DashboardSourceTemplate struct {
-	Arn               string                      `pulumi:"arn"`
+	// <p>The Amazon Resource Name (ARN) of the resource.</p>
+	Arn string `pulumi:"arn"`
+	// <p>Dataset references.</p>
 	DataSetReferences []DashboardDataSetReference `pulumi:"dataSetReferences"`
 }
 
@@ -58674,8 +58843,11 @@ type DashboardSourceTemplateInput interface {
 	ToDashboardSourceTemplateOutputWithContext(context.Context) DashboardSourceTemplateOutput
 }
 
+// <p>Dashboard source template.</p>
 type DashboardSourceTemplateArgs struct {
-	Arn               pulumi.StringInput                  `pulumi:"arn"`
+	// <p>The Amazon Resource Name (ARN) of the resource.</p>
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// <p>Dataset references.</p>
 	DataSetReferences DashboardDataSetReferenceArrayInput `pulumi:"dataSetReferences"`
 }
 
@@ -58732,6 +58904,7 @@ func (i *dashboardSourceTemplatePtrType) ToDashboardSourceTemplatePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardSourceTemplatePtrOutput)
 }
 
+// <p>Dashboard source template.</p>
 type DashboardSourceTemplateOutput struct{ *pulumi.OutputState }
 
 func (DashboardSourceTemplateOutput) ElementType() reflect.Type {
@@ -58756,10 +58929,12 @@ func (o DashboardSourceTemplateOutput) ToDashboardSourceTemplatePtrOutputWithCon
 	}).(DashboardSourceTemplatePtrOutput)
 }
 
+// <p>The Amazon Resource Name (ARN) of the resource.</p>
 func (o DashboardSourceTemplateOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardSourceTemplate) string { return v.Arn }).(pulumi.StringOutput)
 }
 
+// <p>Dataset references.</p>
 func (o DashboardSourceTemplateOutput) DataSetReferences() DashboardDataSetReferenceArrayOutput {
 	return o.ApplyT(func(v DashboardSourceTemplate) []DashboardDataSetReference { return v.DataSetReferences }).(DashboardDataSetReferenceArrayOutput)
 }
@@ -58788,6 +58963,7 @@ func (o DashboardSourceTemplatePtrOutput) Elem() DashboardSourceTemplateOutput {
 	}).(DashboardSourceTemplateOutput)
 }
 
+// <p>The Amazon Resource Name (ARN) of the resource.</p>
 func (o DashboardSourceTemplatePtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardSourceTemplate) *string {
 		if v == nil {
@@ -58797,6 +58973,7 @@ func (o DashboardSourceTemplatePtrOutput) Arn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// <p>Dataset references.</p>
 func (o DashboardSourceTemplatePtrOutput) DataSetReferences() DashboardDataSetReferenceArrayOutput {
 	return o.ApplyT(func(v *DashboardSourceTemplate) []DashboardDataSetReference {
 		if v == nil {
@@ -59300,8 +59477,11 @@ func (o DashboardStringFormatConfigurationPtrOutput) NumericFormatConfiguration(
 	}).(DashboardNumericFormatConfigurationPtrOutput)
 }
 
+// <p>A string parameter.</p>
 type DashboardStringParameter struct {
-	Name   string   `pulumi:"name"`
+	// <p>A display name for a string parameter.</p>
+	Name string `pulumi:"name"`
+	// <p>The values of a string parameter.</p>
 	Values []string `pulumi:"values"`
 }
 
@@ -59316,8 +59496,11 @@ type DashboardStringParameterInput interface {
 	ToDashboardStringParameterOutputWithContext(context.Context) DashboardStringParameterOutput
 }
 
+// <p>A string parameter.</p>
 type DashboardStringParameterArgs struct {
-	Name   pulumi.StringInput      `pulumi:"name"`
+	// <p>A display name for a string parameter.</p>
+	Name pulumi.StringInput `pulumi:"name"`
+	// <p>The values of a string parameter.</p>
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -59358,6 +59541,7 @@ func (i DashboardStringParameterArray) ToDashboardStringParameterArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardStringParameterArrayOutput)
 }
 
+// <p>A string parameter.</p>
 type DashboardStringParameterOutput struct{ *pulumi.OutputState }
 
 func (DashboardStringParameterOutput) ElementType() reflect.Type {
@@ -59372,10 +59556,12 @@ func (o DashboardStringParameterOutput) ToDashboardStringParameterOutputWithCont
 	return o
 }
 
+// <p>A display name for a string parameter.</p>
 func (o DashboardStringParameterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardStringParameter) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// <p>The values of a string parameter.</p>
 func (o DashboardStringParameterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DashboardStringParameter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -64089,8 +64275,13 @@ func (o DashboardTableVisualPtrOutput) VisualId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
+//
+//	resource.</p>
 type DashboardTag struct {
-	Key   string `pulumi:"key"`
+	// <p>Tag key.</p>
+	Key string `pulumi:"key"`
+	// <p>Tag value.</p>
 	Value string `pulumi:"value"`
 }
 
@@ -68638,6 +68829,7 @@ func (o DashboardUniqueValuesComputationPtrOutput) Name() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// <p>The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to <code>LENIENT</code>, validation is skipped for specific errors.</p>
 type DashboardValidationStrategy struct {
 	Mode DashboardValidationStrategyMode `pulumi:"mode"`
 }
@@ -68653,6 +68845,7 @@ type DashboardValidationStrategyInput interface {
 	ToDashboardValidationStrategyOutputWithContext(context.Context) DashboardValidationStrategyOutput
 }
 
+// <p>The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to <code>LENIENT</code>, validation is skipped for specific errors.</p>
 type DashboardValidationStrategyArgs struct {
 	Mode DashboardValidationStrategyModeInput `pulumi:"mode"`
 }
@@ -68710,6 +68903,7 @@ func (i *dashboardValidationStrategyPtrType) ToDashboardValidationStrategyPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardValidationStrategyPtrOutput)
 }
 
+// <p>The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to <code>LENIENT</code>, validation is skipped for specific errors.</p>
 type DashboardValidationStrategyOutput struct{ *pulumi.OutputState }
 
 func (DashboardValidationStrategyOutput) ElementType() reflect.Type {
@@ -68771,19 +68965,31 @@ func (o DashboardValidationStrategyPtrOutput) Mode() DashboardValidationStrategy
 	}).(DashboardValidationStrategyModePtrOutput)
 }
 
+// <p>Dashboard version.</p>
 type DashboardVersion struct {
-	Arn             *string                  `pulumi:"arn"`
-	CreatedTime     *string                  `pulumi:"createdTime"`
-	DataSetArns     []string                 `pulumi:"dataSetArns"`
-	Description     *string                  `pulumi:"description"`
-	Errors          []DashboardError         `pulumi:"errors"`
-	Sheets          []DashboardSheet         `pulumi:"sheets"`
+	// <p>The Amazon Resource Name (ARN) of the resource.</p>
+	Arn *string `pulumi:"arn"`
+	// <p>The time that this dashboard version was created.</p>
+	CreatedTime *string `pulumi:"createdTime"`
+	// <p>The Amazon Resource Numbers (ARNs) for the datasets that are associated with this
+	//             version of the dashboard.</p>
+	DataSetArns []string `pulumi:"dataSetArns"`
+	// <p>Description.</p>
+	Description *string `pulumi:"description"`
+	// <p>Errors associated with this dashboard version.</p>
+	Errors []DashboardError `pulumi:"errors"`
+	// <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
+	Sheets []DashboardSheet `pulumi:"sheets"`
+	// <p>Source entity ARN.</p>
 	SourceEntityArn *string                  `pulumi:"sourceEntityArn"`
 	Status          *DashboardResourceStatus `pulumi:"status"`
-	ThemeArn        *string                  `pulumi:"themeArn"`
-	VersionNumber   *float64                 `pulumi:"versionNumber"`
+	// <p>The ARN of the theme associated with a version of the dashboard.</p>
+	ThemeArn *string `pulumi:"themeArn"`
+	// <p>Version number for this version of the dashboard.</p>
+	VersionNumber *float64 `pulumi:"versionNumber"`
 }
 
+// <p>Dashboard version.</p>
 type DashboardVersionOutput struct{ *pulumi.OutputState }
 
 func (DashboardVersionOutput) ElementType() reflect.Type {
@@ -68798,30 +69004,39 @@ func (o DashboardVersionOutput) ToDashboardVersionOutputWithContext(ctx context.
 	return o
 }
 
+// <p>The Amazon Resource Name (ARN) of the resource.</p>
 func (o DashboardVersionOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardVersion) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// <p>The time that this dashboard version was created.</p>
 func (o DashboardVersionOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardVersion) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
+// <p>The Amazon Resource Numbers (ARNs) for the datasets that are associated with this
+//
+//	version of the dashboard.</p>
 func (o DashboardVersionOutput) DataSetArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DashboardVersion) []string { return v.DataSetArns }).(pulumi.StringArrayOutput)
 }
 
+// <p>Description.</p>
 func (o DashboardVersionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardVersion) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// <p>Errors associated with this dashboard version.</p>
 func (o DashboardVersionOutput) Errors() DashboardErrorArrayOutput {
 	return o.ApplyT(func(v DashboardVersion) []DashboardError { return v.Errors }).(DashboardErrorArrayOutput)
 }
 
+// <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
 func (o DashboardVersionOutput) Sheets() DashboardSheetArrayOutput {
 	return o.ApplyT(func(v DashboardVersion) []DashboardSheet { return v.Sheets }).(DashboardSheetArrayOutput)
 }
 
+// <p>Source entity ARN.</p>
 func (o DashboardVersionOutput) SourceEntityArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardVersion) *string { return v.SourceEntityArn }).(pulumi.StringPtrOutput)
 }
@@ -68830,10 +69045,12 @@ func (o DashboardVersionOutput) Status() DashboardResourceStatusPtrOutput {
 	return o.ApplyT(func(v DashboardVersion) *DashboardResourceStatus { return v.Status }).(DashboardResourceStatusPtrOutput)
 }
 
+// <p>The ARN of the theme associated with a version of the dashboard.</p>
 func (o DashboardVersionOutput) ThemeArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardVersion) *string { return v.ThemeArn }).(pulumi.StringPtrOutput)
 }
 
+// <p>Version number for this version of the dashboard.</p>
 func (o DashboardVersionOutput) VersionNumber() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v DashboardVersion) *float64 { return v.VersionNumber }).(pulumi.Float64PtrOutput)
 }
@@ -68862,6 +69079,7 @@ func (o DashboardVersionPtrOutput) Elem() DashboardVersionOutput {
 	}).(DashboardVersionOutput)
 }
 
+// <p>The Amazon Resource Name (ARN) of the resource.</p>
 func (o DashboardVersionPtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardVersion) *string {
 		if v == nil {
@@ -68871,6 +69089,7 @@ func (o DashboardVersionPtrOutput) Arn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// <p>The time that this dashboard version was created.</p>
 func (o DashboardVersionPtrOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardVersion) *string {
 		if v == nil {
@@ -68880,6 +69099,9 @@ func (o DashboardVersionPtrOutput) CreatedTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// <p>The Amazon Resource Numbers (ARNs) for the datasets that are associated with this
+//
+//	version of the dashboard.</p>
 func (o DashboardVersionPtrOutput) DataSetArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DashboardVersion) []string {
 		if v == nil {
@@ -68889,6 +69111,7 @@ func (o DashboardVersionPtrOutput) DataSetArns() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+// <p>Description.</p>
 func (o DashboardVersionPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardVersion) *string {
 		if v == nil {
@@ -68898,6 +69121,7 @@ func (o DashboardVersionPtrOutput) Description() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// <p>Errors associated with this dashboard version.</p>
 func (o DashboardVersionPtrOutput) Errors() DashboardErrorArrayOutput {
 	return o.ApplyT(func(v *DashboardVersion) []DashboardError {
 		if v == nil {
@@ -68907,6 +69131,7 @@ func (o DashboardVersionPtrOutput) Errors() DashboardErrorArrayOutput {
 	}).(DashboardErrorArrayOutput)
 }
 
+// <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
 func (o DashboardVersionPtrOutput) Sheets() DashboardSheetArrayOutput {
 	return o.ApplyT(func(v *DashboardVersion) []DashboardSheet {
 		if v == nil {
@@ -68916,6 +69141,7 @@ func (o DashboardVersionPtrOutput) Sheets() DashboardSheetArrayOutput {
 	}).(DashboardSheetArrayOutput)
 }
 
+// <p>Source entity ARN.</p>
 func (o DashboardVersionPtrOutput) SourceEntityArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardVersion) *string {
 		if v == nil {
@@ -68934,6 +69160,7 @@ func (o DashboardVersionPtrOutput) Status() DashboardResourceStatusPtrOutput {
 	}).(DashboardResourceStatusPtrOutput)
 }
 
+// <p>The ARN of the theme associated with a version of the dashboard.</p>
 func (o DashboardVersionPtrOutput) ThemeArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardVersion) *string {
 		if v == nil {
@@ -68943,6 +69170,7 @@ func (o DashboardVersionPtrOutput) ThemeArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// <p>Version number for this version of the dashboard.</p>
 func (o DashboardVersionPtrOutput) VersionNumber() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *DashboardVersion) *float64 {
 		if v == nil {
@@ -70201,6 +70429,7 @@ func (o DashboardVisualPalettePtrOutput) ColorMap() DashboardDataPathColorArrayO
 	}).(DashboardDataPathColorArrayOutput)
 }
 
+// <p>The visual publish options of a visual in a dashboard</p>
 type DashboardVisualPublishOptions struct {
 	ExportHiddenFieldsOption *DashboardExportHiddenFieldsOption `pulumi:"exportHiddenFieldsOption"`
 }
@@ -70216,6 +70445,7 @@ type DashboardVisualPublishOptionsInput interface {
 	ToDashboardVisualPublishOptionsOutputWithContext(context.Context) DashboardVisualPublishOptionsOutput
 }
 
+// <p>The visual publish options of a visual in a dashboard</p>
 type DashboardVisualPublishOptionsArgs struct {
 	ExportHiddenFieldsOption DashboardExportHiddenFieldsOptionPtrInput `pulumi:"exportHiddenFieldsOption"`
 }
@@ -70273,6 +70503,7 @@ func (i *dashboardVisualPublishOptionsPtrType) ToDashboardVisualPublishOptionsPt
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardVisualPublishOptionsPtrOutput)
 }
 
+// <p>The visual publish options of a visual in a dashboard</p>
 type DashboardVisualPublishOptionsOutput struct{ *pulumi.OutputState }
 
 func (DashboardVisualPublishOptionsOutput) ElementType() reflect.Type {

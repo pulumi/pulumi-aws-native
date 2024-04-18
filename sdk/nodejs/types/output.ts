@@ -2545,7 +2545,7 @@ export namespace appflow {
 export namespace appintegrations {
     export interface ApplicationExternalUrlConfig {
         accessUrl: string;
-        approvedOrigins: string[];
+        approvedOrigins?: string[];
     }
 
     /**
@@ -30322,6 +30322,18 @@ export namespace nimblestudio {
 
 }
 
+export namespace oam {
+    export interface LinkConfiguration {
+        logGroupConfiguration?: outputs.oam.LinkFilter;
+        metricConfiguration?: outputs.oam.LinkFilter;
+    }
+
+    export interface LinkFilter {
+        filter: string;
+    }
+
+}
+
 export namespace omics {
     export interface AnnotationStoreReferenceItem {
         referenceArn: string;
@@ -32142,8 +32154,17 @@ export namespace quicksight {
         identifier: string;
     }
 
+    /**
+     * <p>Dataset reference.</p>
+     */
     export interface AnalysisDataSetReference {
+        /**
+         * <p>Dataset Amazon Resource Name (ARN).</p>
+         */
         dataSetArn: string;
+        /**
+         * <p>Dataset placeholder.</p>
+         */
         dataSetPlaceholder: string;
     }
 
@@ -32183,8 +32204,17 @@ export namespace quicksight {
         hierarchyId: string;
     }
 
+    /**
+     * <p>A date-time parameter.</p>
+     */
     export interface AnalysisDateTimeParameter {
+        /**
+         * <p>A display name for the date-time parameter.</p>
+         */
         name: string;
+        /**
+         * <p>The values for the date-time parameter.</p>
+         */
         values: string[];
     }
 
@@ -32212,8 +32242,17 @@ export namespace quicksight {
         staticValues?: number[];
     }
 
+    /**
+     * <p>A decimal parameter.</p>
+     */
     export interface AnalysisDecimalParameter {
+        /**
+         * <p>A display name for the decimal parameter.</p>
+         */
         name: string;
+        /**
+         * <p>The values for the decimal parameter.</p>
+         */
         values: number[];
     }
 
@@ -32327,9 +32366,18 @@ export namespace quicksight {
         path?: string;
     }
 
+    /**
+     * <p>Analysis error.</p>
+     */
     export interface AnalysisError {
+        /**
+         * <p>The message associated with the analysis error.</p>
+         */
         message?: string;
         type?: enums.quicksight.AnalysisErrorType;
+        /**
+         * <p>Lists the violated entities that caused the analysis error</p>
+         */
         violatedEntities?: outputs.quicksight.AnalysisEntity[];
     }
 
@@ -32487,6 +32535,9 @@ export namespace quicksight {
     }
 
     export interface AnalysisFilterOperationSelectedFieldsConfiguration {
+        /**
+         * <p>The selected columns of a dataset.</p>
+         */
         selectedColumns?: outputs.quicksight.AnalysisColumnIdentifier[];
         selectedFieldOptions?: enums.quicksight.AnalysisSelectedFieldOptions;
         selectedFields?: string[];
@@ -32940,8 +32991,17 @@ export namespace quicksight {
         staticValues?: number[];
     }
 
+    /**
+     * <p>An integer parameter.</p>
+     */
     export interface AnalysisIntegerParameter {
+        /**
+         * <p>The name of the integer parameter.</p>
+         */
         name: string;
+        /**
+         * <p>The values for the integer parameter.</p>
+         */
         values: number[];
     }
 
@@ -33422,10 +33482,25 @@ export namespace quicksight {
         title: string;
     }
 
+    /**
+     * <p>A list of Amazon QuickSight parameters and the list's override values.</p>
+     */
     export interface AnalysisParameters {
+        /**
+         * <p>The parameters that have a data type of date-time.</p>
+         */
         dateTimeParameters?: outputs.quicksight.AnalysisDateTimeParameter[];
+        /**
+         * <p>The parameters that have a data type of decimal.</p>
+         */
         decimalParameters?: outputs.quicksight.AnalysisDecimalParameter[];
+        /**
+         * <p>The parameters that have a data type of integer.</p>
+         */
         integerParameters?: outputs.quicksight.AnalysisIntegerParameter[];
+        /**
+         * <p>The parameters that have a data type of string.</p>
+         */
         stringParameters?: outputs.quicksight.AnalysisStringParameter[];
     }
 
@@ -33777,8 +33852,31 @@ export namespace quicksight {
         timeGranularity: enums.quicksight.AnalysisTimeGranularity;
     }
 
+    /**
+     * <p>Permission for the resource.</p>
+     */
     export interface AnalysisResourcePermission {
+        /**
+         * <p>The IAM action to grant or revoke permissions on.</p>
+         */
         actions: string[];
+        /**
+         * <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+         *             following:</p>
+         *          <ul>
+         *             <li>
+         *                <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+         *             </li>
+         *             <li>
+         *                <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+         *             </li>
+         *             <li>
+         *                <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
+         *                     ARN. Use this option only to share resources (templates) across Amazon Web Services accounts.
+         *                     (This is less common.) </p>
+         *             </li>
+         *          </ul>
+         */
         principal: string;
     }
 
@@ -33934,8 +34032,22 @@ export namespace quicksight {
         backgroundColor: outputs.quicksight.AnalysisConditionalFormattingColor;
     }
 
+    /**
+     * <p>A <i>sheet</i>, which is an object that contains a set of visuals that
+     *             are viewed together on one page in Amazon QuickSight. Every analysis and dashboard
+     *             contains at least one sheet. Each sheet contains at least one visualization widget, for
+     *             example a chart, pivot table, or narrative insight. Sheets can be associated with other
+     *             components, such as controls, filters, and so on.</p>
+     */
     export interface AnalysisSheet {
+        /**
+         * <p>The name of a sheet. This name is displayed on the sheet's tab in the Amazon QuickSight
+         *             console.</p>
+         */
         name?: string;
+        /**
+         * <p>The unique identifier associated with a sheet.</p>
+         */
         sheetId?: string;
     }
 
@@ -34013,12 +34125,24 @@ export namespace quicksight {
         yAxis?: outputs.quicksight.AnalysisSmallMultiplesAxisProperties;
     }
 
+    /**
+     * <p>The source entity of an analysis.</p>
+     */
     export interface AnalysisSourceEntity {
         sourceTemplate?: outputs.quicksight.AnalysisSourceTemplate;
     }
 
+    /**
+     * <p>The source template of an analysis.</p>
+     */
     export interface AnalysisSourceTemplate {
+        /**
+         * <p>The Amazon Resource Name (ARN) of the source template of an analysis.</p>
+         */
         arn: string;
+        /**
+         * <p>The dataset references of the source template of an analysis.</p>
+         */
         dataSetReferences: outputs.quicksight.AnalysisDataSetReference[];
     }
 
@@ -34051,8 +34175,17 @@ export namespace quicksight {
         numericFormatConfiguration?: outputs.quicksight.AnalysisNumericFormatConfiguration;
     }
 
+    /**
+     * <p>A string parameter.</p>
+     */
     export interface AnalysisStringParameter {
+        /**
+         * <p>A display name for a string parameter.</p>
+         */
         name: string;
+        /**
+         * <p>The values of a string parameter.</p>
+         */
         values: string[];
     }
 
@@ -34422,6 +34555,9 @@ export namespace quicksight {
         name?: string;
     }
 
+    /**
+     * <p>The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to <code>LENIENT</code>, validation is skipped for specific errors.</p>
+     */
     export interface AnalysisValidationStrategy {
         mode: enums.quicksight.AnalysisValidationStrategyMode;
     }
@@ -34577,6 +34713,9 @@ export namespace quicksight {
         visualId: string;
     }
 
+    /**
+     * <p>An ad hoc (one-time) filtering option.</p>
+     */
     export interface DashboardAdHocFilteringOption {
         availabilityStatus?: enums.quicksight.DashboardBehavior;
     }
@@ -35178,14 +35317,23 @@ export namespace quicksight {
         fieldValue?: string;
     }
 
+    /**
+     * <p>The drill down options for data points in a dashbaord.</p>
+     */
     export interface DashboardDataPointDrillUpDownOption {
         availabilityStatus?: enums.quicksight.DashboardBehavior;
     }
 
+    /**
+     * <p>The data point menu options of a dashboard.</p>
+     */
     export interface DashboardDataPointMenuLabelOption {
         availabilityStatus?: enums.quicksight.DashboardBehavior;
     }
 
+    /**
+     * <p>The data point tooltip options.</p>
+     */
     export interface DashboardDataPointTooltipOption {
         availabilityStatus?: enums.quicksight.DashboardBehavior;
     }
@@ -35195,8 +35343,17 @@ export namespace quicksight {
         identifier: string;
     }
 
+    /**
+     * <p>Dataset reference.</p>
+     */
     export interface DashboardDataSetReference {
+        /**
+         * <p>Dataset Amazon Resource Name (ARN).</p>
+         */
         dataSetArn: string;
+        /**
+         * <p>Dataset placeholder.</p>
+         */
         dataSetPlaceholder: string;
     }
 
@@ -35236,8 +35393,17 @@ export namespace quicksight {
         hierarchyId: string;
     }
 
+    /**
+     * <p>A date-time parameter.</p>
+     */
     export interface DashboardDateTimeParameter {
+        /**
+         * <p>A display name for the date-time parameter.</p>
+         */
         name: string;
+        /**
+         * <p>The values for the date-time parameter.</p>
+         */
         values: string[];
     }
 
@@ -35265,8 +35431,17 @@ export namespace quicksight {
         staticValues?: number[];
     }
 
+    /**
+     * <p>A decimal parameter.</p>
+     */
     export interface DashboardDecimalParameter {
+        /**
+         * <p>A display name for the decimal parameter.</p>
+         */
         name: string;
+        /**
+         * <p>The values for the decimal parameter.</p>
+         */
         values: number[];
     }
 
@@ -35365,9 +35540,18 @@ export namespace quicksight {
         path?: string;
     }
 
+    /**
+     * <p>Dashboard error.</p>
+     */
     export interface DashboardError {
+        /**
+         * <p>Message.</p>
+         */
         message?: string;
         type?: enums.quicksight.DashboardErrorType;
+        /**
+         * <p>Lists the violated entities that caused the dashboard error.</p>
+         */
         violatedEntities?: outputs.quicksight.DashboardEntity[];
     }
 
@@ -35383,14 +35567,23 @@ export namespace quicksight {
         hierarchyId: string;
     }
 
+    /**
+     * <p>Determines if hidden fields are included in an exported dashboard.</p>
+     */
     export interface DashboardExportHiddenFieldsOption {
         availabilityStatus?: enums.quicksight.DashboardBehavior;
     }
 
+    /**
+     * <p>Export to .csv option.</p>
+     */
     export interface DashboardExportToCsvOption {
         availabilityStatus?: enums.quicksight.DashboardBehavior;
     }
 
+    /**
+     * <p>Determines whether or not hidden fields are visible on exported dashbaords.</p>
+     */
     export interface DashboardExportWithHiddenFieldsOption {
         availabilityStatus?: enums.quicksight.DashboardBehavior;
     }
@@ -35537,6 +35730,9 @@ export namespace quicksight {
     }
 
     export interface DashboardFilterOperationSelectedFieldsConfiguration {
+        /**
+         * <p>The selected columns of a dataset.</p>
+         */
         selectedColumns?: outputs.quicksight.DashboardColumnIdentifier[];
         selectedFieldOptions?: enums.quicksight.DashboardSelectedFieldOptions;
         selectedFields?: string[];
@@ -35990,8 +36186,17 @@ export namespace quicksight {
         staticValues?: number[];
     }
 
+    /**
+     * <p>An integer parameter.</p>
+     */
     export interface DashboardIntegerParameter {
+        /**
+         * <p>The name of the integer parameter.</p>
+         */
         name: string;
+        /**
+         * <p>The values for the integer parameter.</p>
+         */
         values: number[];
     }
 
@@ -36476,10 +36681,25 @@ export namespace quicksight {
         title: string;
     }
 
+    /**
+     * <p>A list of Amazon QuickSight parameters and the list's override values.</p>
+     */
     export interface DashboardParameters {
+        /**
+         * <p>The parameters that have a data type of date-time.</p>
+         */
         dateTimeParameters?: outputs.quicksight.DashboardDateTimeParameter[];
+        /**
+         * <p>The parameters that have a data type of decimal.</p>
+         */
         decimalParameters?: outputs.quicksight.DashboardDecimalParameter[];
+        /**
+         * <p>The parameters that have a data type of integer.</p>
+         */
         integerParameters?: outputs.quicksight.DashboardIntegerParameter[];
+        /**
+         * <p>The parameters that have a data type of string.</p>
+         */
         stringParameters?: outputs.quicksight.DashboardStringParameter[];
     }
 
@@ -36709,6 +36929,9 @@ export namespace quicksight {
         visibility?: enums.quicksight.DashboardVisibility;
     }
 
+    /**
+     * <p>Dashboard publish options.</p>
+     */
     export interface DashboardPublishOptions {
         adHocFilteringOption?: outputs.quicksight.DashboardAdHocFilteringOption;
         dataPointDrillUpDownOption?: outputs.quicksight.DashboardDataPointDrillUpDownOption;
@@ -36845,8 +37068,31 @@ export namespace quicksight {
         timeGranularity: enums.quicksight.DashboardTimeGranularity;
     }
 
+    /**
+     * <p>Permission for the resource.</p>
+     */
     export interface DashboardResourcePermission {
+        /**
+         * <p>The IAM action to grant or revoke permissions on.</p>
+         */
         actions: string[];
+        /**
+         * <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+         *             following:</p>
+         *          <ul>
+         *             <li>
+         *                <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+         *             </li>
+         *             <li>
+         *                <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+         *             </li>
+         *             <li>
+         *                <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
+         *                     ARN. Use this option only to share resources (templates) across Amazon Web Services accounts.
+         *                     (This is less common.) </p>
+         *             </li>
+         *          </ul>
+         */
         principal: string;
     }
 
@@ -37002,8 +37248,22 @@ export namespace quicksight {
         backgroundColor: outputs.quicksight.DashboardConditionalFormattingColor;
     }
 
+    /**
+     * <p>A <i>sheet</i>, which is an object that contains a set of visuals that
+     *             are viewed together on one page in Amazon QuickSight. Every analysis and dashboard
+     *             contains at least one sheet. Each sheet contains at least one visualization widget, for
+     *             example a chart, pivot table, or narrative insight. Sheets can be associated with other
+     *             components, such as controls, filters, and so on.</p>
+     */
     export interface DashboardSheet {
+        /**
+         * <p>The name of a sheet. This name is displayed on the sheet's tab in the Amazon QuickSight
+         *             console.</p>
+         */
         name?: string;
+        /**
+         * <p>The unique identifier associated with a sheet.</p>
+         */
         sheetId?: string;
     }
 
@@ -37020,6 +37280,9 @@ export namespace quicksight {
         gridLayout?: outputs.quicksight.DashboardGridLayoutConfiguration;
     }
 
+    /**
+     * <p>Sheet controls option.</p>
+     */
     export interface DashboardSheetControlsOption {
         visibilityState?: enums.quicksight.DashboardUiState;
     }
@@ -37047,6 +37310,9 @@ export namespace quicksight {
         expression: string;
     }
 
+    /**
+     * <p>The sheet layout maximization options of a dashbaord.</p>
+     */
     export interface DashboardSheetLayoutElementMaximizationOption {
         availabilityStatus?: enums.quicksight.DashboardBehavior;
     }
@@ -37089,12 +37355,24 @@ export namespace quicksight {
         yAxis?: outputs.quicksight.DashboardSmallMultiplesAxisProperties;
     }
 
+    /**
+     * <p>Dashboard source entity.</p>
+     */
     export interface DashboardSourceEntity {
         sourceTemplate?: outputs.quicksight.DashboardSourceTemplate;
     }
 
+    /**
+     * <p>Dashboard source template.</p>
+     */
     export interface DashboardSourceTemplate {
+        /**
+         * <p>The Amazon Resource Name (ARN) of the resource.</p>
+         */
         arn: string;
+        /**
+         * <p>Dataset references.</p>
+         */
         dataSetReferences: outputs.quicksight.DashboardDataSetReference[];
     }
 
@@ -37127,8 +37405,17 @@ export namespace quicksight {
         numericFormatConfiguration?: outputs.quicksight.DashboardNumericFormatConfiguration;
     }
 
+    /**
+     * <p>A string parameter.</p>
+     */
     export interface DashboardStringParameter {
+        /**
+         * <p>A display name for a string parameter.</p>
+         */
         name: string;
+        /**
+         * <p>The values of a string parameter.</p>
+         */
         values: string[];
     }
 
@@ -37498,20 +37785,54 @@ export namespace quicksight {
         name?: string;
     }
 
+    /**
+     * <p>The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to <code>LENIENT</code>, validation is skipped for specific errors.</p>
+     */
     export interface DashboardValidationStrategy {
         mode: enums.quicksight.DashboardValidationStrategyMode;
     }
 
+    /**
+     * <p>Dashboard version.</p>
+     */
     export interface DashboardVersion {
+        /**
+         * <p>The Amazon Resource Name (ARN) of the resource.</p>
+         */
         arn?: string;
+        /**
+         * <p>The time that this dashboard version was created.</p>
+         */
         createdTime?: string;
+        /**
+         * <p>The Amazon Resource Numbers (ARNs) for the datasets that are associated with this
+         *             version of the dashboard.</p>
+         */
         dataSetArns?: string[];
+        /**
+         * <p>Description.</p>
+         */
         description?: string;
+        /**
+         * <p>Errors associated with this dashboard version.</p>
+         */
         errors?: outputs.quicksight.DashboardError[];
+        /**
+         * <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
+         */
         sheets?: outputs.quicksight.DashboardSheet[];
+        /**
+         * <p>Source entity ARN.</p>
+         */
         sourceEntityArn?: string;
         status?: enums.quicksight.DashboardResourceStatus;
+        /**
+         * <p>The ARN of the theme associated with a version of the dashboard.</p>
+         */
         themeArn?: string;
+        /**
+         * <p>Version number for this version of the dashboard.</p>
+         */
         versionNumber?: number;
     }
 
@@ -37584,6 +37905,9 @@ export namespace quicksight {
         colorMap?: outputs.quicksight.DashboardDataPathColor[];
     }
 
+    /**
+     * <p>The visual publish options of a visual in a dashboard</p>
+     */
     export interface DashboardVisualPublishOptions {
         exportHiddenFieldsOption?: outputs.quicksight.DashboardExportHiddenFieldsOption;
     }
@@ -39119,12 +39443,27 @@ export namespace quicksight {
         role?: enums.quicksight.TemplateColumnRole;
     }
 
+    /**
+     * <p>A structure describing the name, data type, and geographic role of the columns.</p>
+     */
     export interface TemplateColumnGroupColumnSchema {
+        /**
+         * <p>The name of the column group's column schema.</p>
+         */
         name?: string;
     }
 
+    /**
+     * <p>The column group schema.</p>
+     */
     export interface TemplateColumnGroupSchema {
+        /**
+         * <p>A structure containing the list of schemas for column group columns.</p>
+         */
         columnGroupColumnSchemaList?: outputs.quicksight.TemplateColumnGroupColumnSchema[];
+        /**
+         * <p>The name of the column group schema.</p>
+         */
         name?: string;
     }
 
@@ -39139,9 +39478,21 @@ export namespace quicksight {
         dataSetIdentifier: string;
     }
 
+    /**
+     * <p>The column schema.</p>
+     */
     export interface TemplateColumnSchema {
+        /**
+         * <p>The data type of the column schema.</p>
+         */
         dataType?: string;
+        /**
+         * <p>The geographic role of the column schema.</p>
+         */
         geographicRole?: string;
+        /**
+         * <p>The name of the column schema.</p>
+         */
         name?: string;
     }
 
@@ -39420,18 +39771,42 @@ export namespace quicksight {
         fieldValue?: string;
     }
 
+    /**
+     * <p>Dataset configuration.</p>
+     */
     export interface TemplateDataSetConfiguration {
+        /**
+         * <p>A structure containing the list of column group schemas.</p>
+         */
         columnGroupSchemaList?: outputs.quicksight.TemplateColumnGroupSchema[];
         dataSetSchema?: outputs.quicksight.TemplateDataSetSchema;
+        /**
+         * <p>Placeholder.</p>
+         */
         placeholder?: string;
     }
 
+    /**
+     * <p>Dataset reference.</p>
+     */
     export interface TemplateDataSetReference {
+        /**
+         * <p>Dataset Amazon Resource Name (ARN).</p>
+         */
         dataSetArn: string;
+        /**
+         * <p>Dataset placeholder.</p>
+         */
         dataSetPlaceholder: string;
     }
 
+    /**
+     * <p>Dataset schema.</p>
+     */
     export interface TemplateDataSetSchema {
+        /**
+         * <p>A structure containing the list of column schemas.</p>
+         */
         columnSchemaList?: outputs.quicksight.TemplateColumnSchema[];
     }
 
@@ -39590,9 +39965,18 @@ export namespace quicksight {
         path?: string;
     }
 
+    /**
+     * <p>List of errors that occurred when the template version creation failed.</p>
+     */
     export interface TemplateError {
+        /**
+         * <p>Description of the error type.</p>
+         */
         message?: string;
         type?: enums.quicksight.TemplateErrorType;
+        /**
+         * <p>An error path that shows which entities caused the template error.</p>
+         */
         violatedEntities?: outputs.quicksight.TemplateEntity[];
     }
 
@@ -39750,6 +40134,9 @@ export namespace quicksight {
     }
 
     export interface TemplateFilterOperationSelectedFieldsConfiguration {
+        /**
+         * <p>The selected columns of a dataset.</p>
+         */
         selectedColumns?: outputs.quicksight.TemplateColumnIdentifier[];
         selectedFieldOptions?: enums.quicksight.TemplateSelectedFieldOptions;
         selectedFields?: string[];
@@ -41028,8 +41415,31 @@ export namespace quicksight {
         timeGranularity: enums.quicksight.TemplateTimeGranularity;
     }
 
+    /**
+     * <p>Permission for the resource.</p>
+     */
     export interface TemplateResourcePermission {
+        /**
+         * <p>The IAM action to grant or revoke permissions on.</p>
+         */
         actions: string[];
+        /**
+         * <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+         *             following:</p>
+         *          <ul>
+         *             <li>
+         *                <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+         *             </li>
+         *             <li>
+         *                <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+         *             </li>
+         *             <li>
+         *                <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
+         *                     ARN. Use this option only to share resources (templates) across Amazon Web Services accounts.
+         *                     (This is less common.) </p>
+         *             </li>
+         *          </ul>
+         */
         principal: string;
     }
 
@@ -41185,8 +41595,22 @@ export namespace quicksight {
         backgroundColor: outputs.quicksight.TemplateConditionalFormattingColor;
     }
 
+    /**
+     * <p>A <i>sheet</i>, which is an object that contains a set of visuals that
+     *             are viewed together on one page in Amazon QuickSight. Every analysis and dashboard
+     *             contains at least one sheet. Each sheet contains at least one visualization widget, for
+     *             example a chart, pivot table, or narrative insight. Sheets can be associated with other
+     *             components, such as controls, filters, and so on.</p>
+     */
     export interface TemplateSheet {
+        /**
+         * <p>The name of a sheet. This name is displayed on the sheet's tab in the Amazon QuickSight
+         *             console.</p>
+         */
         name?: string;
+        /**
+         * <p>The unique identifier associated with a sheet.</p>
+         */
         sheetId?: string;
     }
 
@@ -41264,17 +41688,36 @@ export namespace quicksight {
         yAxis?: outputs.quicksight.TemplateSmallMultiplesAxisProperties;
     }
 
+    /**
+     * <p>The source analysis of the template.</p>
+     */
     export interface TemplateSourceAnalysis {
+        /**
+         * <p>The Amazon Resource Name (ARN) of the resource.</p>
+         */
         arn: string;
+        /**
+         * <p>A structure containing information about the dataset references used as placeholders
+         *             in the template.</p>
+         */
         dataSetReferences: outputs.quicksight.TemplateDataSetReference[];
     }
 
+    /**
+     * <p>The source entity of the template.</p>
+     */
     export interface TemplateSourceEntity {
         sourceAnalysis?: outputs.quicksight.TemplateSourceAnalysis;
         sourceTemplate?: outputs.quicksight.TemplateSourceTemplate;
     }
 
+    /**
+     * <p>The source template of the template.</p>
+     */
     export interface TemplateSourceTemplate {
+        /**
+         * <p>The Amazon Resource Name (ARN) of the resource.</p>
+         */
         arn: string;
     }
 
@@ -41673,19 +42116,52 @@ export namespace quicksight {
         name?: string;
     }
 
+    /**
+     * <p>The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to <code>LENIENT</code>, validation is skipped for specific errors.</p>
+     */
     export interface TemplateValidationStrategy {
         mode: enums.quicksight.TemplateValidationStrategyMode;
     }
 
+    /**
+     * <p>A version of a template.</p>
+     */
     export interface TemplateVersion {
+        /**
+         * <p>The time that this template version was created.</p>
+         */
         createdTime?: string;
+        /**
+         * <p>Schema of the dataset identified by the placeholder. Any dashboard created from this
+         *             template should be bound to new datasets matching the same schema described through this
+         *             API operation.</p>
+         */
         dataSetConfigurations?: outputs.quicksight.TemplateDataSetConfiguration[];
+        /**
+         * <p>The description of the template.</p>
+         */
         description?: string;
+        /**
+         * <p>Errors associated with this template version.</p>
+         */
         errors?: outputs.quicksight.TemplateError[];
+        /**
+         * <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
+         */
         sheets?: outputs.quicksight.TemplateSheet[];
+        /**
+         * <p>The Amazon Resource Name (ARN) of an analysis or template that was used to create this
+         *             template.</p>
+         */
         sourceEntityArn?: string;
         status?: enums.quicksight.TemplateResourceStatus;
+        /**
+         * <p>The ARN of the theme associated with this version of the template.</p>
+         */
         themeArn?: string;
+        /**
+         * <p>The version number of the template version.</p>
+         */
         versionNumber?: number;
     }
 
@@ -42514,6 +42990,12 @@ export namespace redshiftserverless {
         namespaceId?: string;
         namespaceName?: string;
         status?: enums.redshiftserverless.NamespaceStatus;
+    }
+
+    export interface NamespaceSnapshotCopyConfiguration {
+        destinationKmsKeyId?: string;
+        destinationRegion: string;
+        snapshotRetentionPeriod?: number;
     }
 
     export interface Workgroup {

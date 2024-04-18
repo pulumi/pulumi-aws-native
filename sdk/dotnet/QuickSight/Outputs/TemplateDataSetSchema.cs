@@ -10,9 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;Dataset schema.&lt;/p&gt;
+    /// </summary>
     [OutputType]
     public sealed class TemplateDataSetSchema
     {
+        /// <summary>
+        /// &lt;p&gt;A structure containing the list of column schemas.&lt;/p&gt;
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateColumnSchema> ColumnSchemaList;
 
         [OutputConstructor]

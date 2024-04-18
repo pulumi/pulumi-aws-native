@@ -29,8 +29,11 @@ type LookupTemplateArgs struct {
 }
 
 type LookupTemplateResult struct {
-	Arn             *string                      `pulumi:"arn"`
-	CreatedTime     *string                      `pulumi:"createdTime"`
+	// <p>The Amazon Resource Name (ARN) of the template.</p>
+	Arn *string `pulumi:"arn"`
+	// <p>Time when this was created.</p>
+	CreatedTime *string `pulumi:"createdTime"`
+	// <p>Time when this was last updated.</p>
 	LastUpdatedTime *string                      `pulumi:"lastUpdatedTime"`
 	Name            *string                      `pulumi:"name"`
 	Permissions     []TemplateResourcePermission `pulumi:"permissions"`
@@ -74,14 +77,17 @@ func (o LookupTemplateResultOutput) ToLookupTemplateResultOutputWithContext(ctx 
 	return o
 }
 
+// <p>The Amazon Resource Name (ARN) of the template.</p>
 func (o LookupTemplateResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTemplateResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// <p>Time when this was created.</p>
 func (o LookupTemplateResultOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTemplateResult) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
+// <p>Time when this was last updated.</p>
 func (o LookupTemplateResultOutput) LastUpdatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTemplateResult) *string { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
 }

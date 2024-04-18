@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;The drill down options for data points in a dashbaord.&lt;/p&gt;
+    /// </summary>
     [OutputType]
     public sealed class DashboardDataPointDrillUpDownOption
     {

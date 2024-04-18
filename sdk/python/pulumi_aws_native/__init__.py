@@ -1439,6 +1439,7 @@ _utilities.register(
    "aws-native:ec2:TransitGatewayMulticastGroupMember": "TransitGatewayMulticastGroupMember",
    "aws-native:ec2:TransitGatewayMulticastGroupSource": "TransitGatewayMulticastGroupSource",
    "aws-native:ec2:TransitGatewayPeeringAttachment": "TransitGatewayPeeringAttachment",
+   "aws-native:ec2:TransitGatewayRoute": "TransitGatewayRoute",
    "aws-native:ec2:TransitGatewayRouteTable": "TransitGatewayRouteTable",
    "aws-native:ec2:TransitGatewayRouteTableAssociation": "TransitGatewayRouteTableAssociation",
    "aws-native:ec2:TransitGatewayVpcAttachment": "TransitGatewayVpcAttachment",

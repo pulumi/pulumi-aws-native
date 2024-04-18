@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;Dataset reference.&lt;/p&gt;
+    /// </summary>
     [OutputType]
     public sealed class TemplateDataSetReference
     {
+        /// <summary>
+        /// &lt;p&gt;Dataset Amazon Resource Name (ARN).&lt;/p&gt;
+        /// </summary>
         public readonly string DataSetArn;
+        /// <summary>
+        /// &lt;p&gt;Dataset placeholder.&lt;/p&gt;
+        /// </summary>
         public readonly string DataSetPlaceholder;
 
         [OutputConstructor]

@@ -334,6 +334,9 @@ class Dashboard(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        <p>The Amazon Resource Name (ARN) of the resource.</p>
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -344,6 +347,9 @@ class Dashboard(pulumi.CustomResource):
     @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> pulumi.Output[str]:
+        """
+        <p>The time that this dashboard was created.</p>
+        """
         return pulumi.get(self, "created_time")
 
     @property
@@ -364,11 +370,17 @@ class Dashboard(pulumi.CustomResource):
     @property
     @pulumi.getter(name="lastPublishedTime")
     def last_published_time(self) -> pulumi.Output[str]:
+        """
+        <p>The last time that this dashboard was published.</p>
+        """
         return pulumi.get(self, "last_published_time")
 
     @property
     @pulumi.getter(name="lastUpdatedTime")
     def last_updated_time(self) -> pulumi.Output[str]:
+        """
+        <p>The last time that this dashboard was updated.</p>
+        """
         return pulumi.get(self, "last_updated_time")
 
     @property

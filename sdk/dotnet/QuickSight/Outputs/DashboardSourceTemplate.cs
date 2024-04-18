@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;Dashboard source template.&lt;/p&gt;
+    /// </summary>
     [OutputType]
     public sealed class DashboardSourceTemplate
     {
+        /// <summary>
+        /// &lt;p&gt;The Amazon Resource Name (ARN) of the resource.&lt;/p&gt;
+        /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// &lt;p&gt;Dataset references.&lt;/p&gt;
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardDataSetReference> DataSetReferences;
 
         [OutputConstructor]

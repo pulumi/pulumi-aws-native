@@ -10,8 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;Analysis error.&lt;/p&gt;
+    /// </summary>
     public sealed class AnalysisErrorArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// &lt;p&gt;The message associated with the analysis error.&lt;/p&gt;
+        /// </summary>
         [Input("message")]
         public Input<string>? Message { get; set; }
 
@@ -20,6 +26,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("violatedEntities")]
         private InputList<Inputs.AnalysisEntityArgs>? _violatedEntities;
+
+        /// <summary>
+        /// &lt;p&gt;Lists the violated entities that caused the analysis error&lt;/p&gt;
+        /// </summary>
         public InputList<Inputs.AnalysisEntityArgs> ViolatedEntities
         {
             get => _violatedEntities ?? (_violatedEntities = new InputList<Inputs.AnalysisEntityArgs>());

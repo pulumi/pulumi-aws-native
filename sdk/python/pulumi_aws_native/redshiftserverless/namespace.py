@@ -12,6 +12,7 @@ from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['NamespaceArgs', 'Namespace']
 
@@ -32,6 +33,7 @@ class NamespaceArgs:
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  namespace_resource_policy: Optional[Any] = None,
                  redshift_idc_application_arn: Optional[pulumi.Input[str]] = None,
+                 snapshot_copy_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceSnapshotCopyConfigurationArgs']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a Namespace resource.
@@ -51,6 +53,7 @@ class NamespaceArgs:
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RedshiftServerless::Namespace` for more information about the expected schema for this property.
         :param pulumi.Input[str] redshift_idc_application_arn: The ARN for the Redshift application that integrates with IAM Identity Center.
+        :param pulumi.Input[Sequence[pulumi.Input['NamespaceSnapshotCopyConfigurationArgs']]] snapshot_copy_configurations: The snapshot copy configurations for the namespace.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: The list of tags for the namespace.
         """
         if admin_password_secret_kms_key_id is not None:
@@ -81,6 +84,8 @@ class NamespaceArgs:
             pulumi.set(__self__, "namespace_resource_policy", namespace_resource_policy)
         if redshift_idc_application_arn is not None:
             pulumi.set(__self__, "redshift_idc_application_arn", redshift_idc_application_arn)
+        if snapshot_copy_configurations is not None:
+            pulumi.set(__self__, "snapshot_copy_configurations", snapshot_copy_configurations)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -255,6 +260,18 @@ class NamespaceArgs:
         pulumi.set(self, "redshift_idc_application_arn", value)
 
     @property
+    @pulumi.getter(name="snapshotCopyConfigurations")
+    def snapshot_copy_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceSnapshotCopyConfigurationArgs']]]]:
+        """
+        The snapshot copy configurations for the namespace.
+        """
+        return pulumi.get(self, "snapshot_copy_configurations")
+
+    @snapshot_copy_configurations.setter
+    def snapshot_copy_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceSnapshotCopyConfigurationArgs']]]]):
+        pulumi.set(self, "snapshot_copy_configurations", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
         """
@@ -286,6 +303,7 @@ class Namespace(pulumi.CustomResource):
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  namespace_resource_policy: Optional[Any] = None,
                  redshift_idc_application_arn: Optional[pulumi.Input[str]] = None,
+                 snapshot_copy_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NamespaceSnapshotCopyConfigurationArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
                  __props__=None):
         """
@@ -309,6 +327,7 @@ class Namespace(pulumi.CustomResource):
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RedshiftServerless::Namespace` for more information about the expected schema for this property.
         :param pulumi.Input[str] redshift_idc_application_arn: The ARN for the Redshift application that integrates with IAM Identity Center.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NamespaceSnapshotCopyConfigurationArgs']]]] snapshot_copy_configurations: The snapshot copy configurations for the namespace.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: The list of tags for the namespace.
         """
         ...
@@ -349,6 +368,7 @@ class Namespace(pulumi.CustomResource):
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  namespace_resource_policy: Optional[Any] = None,
                  redshift_idc_application_arn: Optional[pulumi.Input[str]] = None,
+                 snapshot_copy_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NamespaceSnapshotCopyConfigurationArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -373,6 +393,7 @@ class Namespace(pulumi.CustomResource):
             __props__.__dict__["namespace_name"] = namespace_name
             __props__.__dict__["namespace_resource_policy"] = namespace_resource_policy
             __props__.__dict__["redshift_idc_application_arn"] = redshift_idc_application_arn
+            __props__.__dict__["snapshot_copy_configurations"] = snapshot_copy_configurations
             __props__.__dict__["tags"] = tags
             __props__.__dict__["namespace"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["namespaceName", "tags[*]"])
@@ -414,6 +435,7 @@ class Namespace(pulumi.CustomResource):
         __props__.__dict__["namespace_name"] = None
         __props__.__dict__["namespace_resource_policy"] = None
         __props__.__dict__["redshift_idc_application_arn"] = None
+        __props__.__dict__["snapshot_copy_configurations"] = None
         __props__.__dict__["tags"] = None
         return Namespace(resource_name, opts=opts, __props__=__props__)
 
@@ -538,6 +560,14 @@ class Namespace(pulumi.CustomResource):
         The ARN for the Redshift application that integrates with IAM Identity Center.
         """
         return pulumi.get(self, "redshift_idc_application_arn")
+
+    @property
+    @pulumi.getter(name="snapshotCopyConfigurations")
+    def snapshot_copy_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.NamespaceSnapshotCopyConfiguration']]]:
+        """
+        The snapshot copy configurations for the namespace.
+        """
+        return pulumi.get(self, "snapshot_copy_configurations")
 
     @property
     @pulumi.getter

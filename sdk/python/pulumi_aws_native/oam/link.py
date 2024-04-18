@@ -8,7 +8,9 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['LinkArgs', 'Link']
 
@@ -18,6 +20,7 @@ class LinkArgs:
                  resource_types: pulumi.Input[Sequence[pulumi.Input['LinkResourceType']]],
                  sink_identifier: pulumi.Input[str],
                  label_template: Optional[pulumi.Input[str]] = None,
+                 link_configuration: Optional[pulumi.Input['LinkConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Link resource.
@@ -27,6 +30,8 @@ class LinkArgs:
         pulumi.set(__self__, "sink_identifier", sink_identifier)
         if label_template is not None:
             pulumi.set(__self__, "label_template", label_template)
+        if link_configuration is not None:
+            pulumi.set(__self__, "link_configuration", link_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -58,6 +63,15 @@ class LinkArgs:
         pulumi.set(self, "label_template", value)
 
     @property
+    @pulumi.getter(name="linkConfiguration")
+    def link_configuration(self) -> Optional[pulumi.Input['LinkConfigurationArgs']]:
+        return pulumi.get(self, "link_configuration")
+
+    @link_configuration.setter
+    def link_configuration(self, value: Optional[pulumi.Input['LinkConfigurationArgs']]):
+        pulumi.set(self, "link_configuration", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -76,6 +90,7 @@ class Link(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  label_template: Optional[pulumi.Input[str]] = None,
+                 link_configuration: Optional[pulumi.Input[pulumi.InputType['LinkConfigurationArgs']]] = None,
                  resource_types: Optional[pulumi.Input[Sequence[pulumi.Input['LinkResourceType']]]] = None,
                  sink_identifier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -112,6 +127,7 @@ class Link(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  label_template: Optional[pulumi.Input[str]] = None,
+                 link_configuration: Optional[pulumi.Input[pulumi.InputType['LinkConfigurationArgs']]] = None,
                  resource_types: Optional[pulumi.Input[Sequence[pulumi.Input['LinkResourceType']]]] = None,
                  sink_identifier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -125,6 +141,7 @@ class Link(pulumi.CustomResource):
             __props__ = LinkArgs.__new__(LinkArgs)
 
             __props__.__dict__["label_template"] = label_template
+            __props__.__dict__["link_configuration"] = link_configuration
             if resource_types is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_types'")
             __props__.__dict__["resource_types"] = resource_types
@@ -161,6 +178,7 @@ class Link(pulumi.CustomResource):
         __props__.__dict__["arn"] = None
         __props__.__dict__["label"] = None
         __props__.__dict__["label_template"] = None
+        __props__.__dict__["link_configuration"] = None
         __props__.__dict__["resource_types"] = None
         __props__.__dict__["sink_identifier"] = None
         __props__.__dict__["tags"] = None
@@ -180,6 +198,11 @@ class Link(pulumi.CustomResource):
     @pulumi.getter(name="labelTemplate")
     def label_template(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "label_template")
+
+    @property
+    @pulumi.getter(name="linkConfiguration")
+    def link_configuration(self) -> pulumi.Output[Optional['outputs.LinkConfiguration']]:
+        return pulumi.get(self, "link_configuration")
 
     @property
     @pulumi.getter(name="resourceTypes")

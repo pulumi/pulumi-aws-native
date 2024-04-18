@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;Determines if hidden fields are included in an exported dashboard.&lt;/p&gt;
+    /// </summary>
     public sealed class DashboardExportHiddenFieldsOptionArgs : global::Pulumi.ResourceArgs
     {
         [Input("availabilityStatus")]

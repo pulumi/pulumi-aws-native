@@ -25,6 +25,7 @@ export interface GetLinkArgs {
 export interface GetLinkResult {
     readonly arn?: string;
     readonly label?: string;
+    readonly linkConfiguration?: outputs.oam.LinkConfiguration;
     readonly resourceTypes?: enums.oam.LinkResourceType[];
     /**
      * Tags to apply to the link

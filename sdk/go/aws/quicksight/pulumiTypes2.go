@@ -15235,7 +15235,9 @@ func (o TemplateColumnConfigurationArrayOutput) Index(i pulumi.IntInput) Templat
 	}).(TemplateColumnConfigurationOutput)
 }
 
+// <p>A structure describing the name, data type, and geographic role of the columns.</p>
 type TemplateColumnGroupColumnSchema struct {
+	// <p>The name of the column group's column schema.</p>
 	Name *string `pulumi:"name"`
 }
 
@@ -15250,7 +15252,9 @@ type TemplateColumnGroupColumnSchemaInput interface {
 	ToTemplateColumnGroupColumnSchemaOutputWithContext(context.Context) TemplateColumnGroupColumnSchemaOutput
 }
 
+// <p>A structure describing the name, data type, and geographic role of the columns.</p>
 type TemplateColumnGroupColumnSchemaArgs struct {
+	// <p>The name of the column group's column schema.</p>
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -15291,6 +15295,7 @@ func (i TemplateColumnGroupColumnSchemaArray) ToTemplateColumnGroupColumnSchemaA
 	return pulumi.ToOutputWithContext(ctx, i).(TemplateColumnGroupColumnSchemaArrayOutput)
 }
 
+// <p>A structure describing the name, data type, and geographic role of the columns.</p>
 type TemplateColumnGroupColumnSchemaOutput struct{ *pulumi.OutputState }
 
 func (TemplateColumnGroupColumnSchemaOutput) ElementType() reflect.Type {
@@ -15305,6 +15310,7 @@ func (o TemplateColumnGroupColumnSchemaOutput) ToTemplateColumnGroupColumnSchema
 	return o
 }
 
+// <p>The name of the column group's column schema.</p>
 func (o TemplateColumnGroupColumnSchemaOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateColumnGroupColumnSchema) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -15329,9 +15335,12 @@ func (o TemplateColumnGroupColumnSchemaArrayOutput) Index(i pulumi.IntInput) Tem
 	}).(TemplateColumnGroupColumnSchemaOutput)
 }
 
+// <p>The column group schema.</p>
 type TemplateColumnGroupSchema struct {
+	// <p>A structure containing the list of schemas for column group columns.</p>
 	ColumnGroupColumnSchemaList []TemplateColumnGroupColumnSchema `pulumi:"columnGroupColumnSchemaList"`
-	Name                        *string                           `pulumi:"name"`
+	// <p>The name of the column group schema.</p>
+	Name *string `pulumi:"name"`
 }
 
 // TemplateColumnGroupSchemaInput is an input type that accepts TemplateColumnGroupSchemaArgs and TemplateColumnGroupSchemaOutput values.
@@ -15345,9 +15354,12 @@ type TemplateColumnGroupSchemaInput interface {
 	ToTemplateColumnGroupSchemaOutputWithContext(context.Context) TemplateColumnGroupSchemaOutput
 }
 
+// <p>The column group schema.</p>
 type TemplateColumnGroupSchemaArgs struct {
+	// <p>A structure containing the list of schemas for column group columns.</p>
 	ColumnGroupColumnSchemaList TemplateColumnGroupColumnSchemaArrayInput `pulumi:"columnGroupColumnSchemaList"`
-	Name                        pulumi.StringPtrInput                     `pulumi:"name"`
+	// <p>The name of the column group schema.</p>
+	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (TemplateColumnGroupSchemaArgs) ElementType() reflect.Type {
@@ -15387,6 +15399,7 @@ func (i TemplateColumnGroupSchemaArray) ToTemplateColumnGroupSchemaArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(TemplateColumnGroupSchemaArrayOutput)
 }
 
+// <p>The column group schema.</p>
 type TemplateColumnGroupSchemaOutput struct{ *pulumi.OutputState }
 
 func (TemplateColumnGroupSchemaOutput) ElementType() reflect.Type {
@@ -15401,12 +15414,14 @@ func (o TemplateColumnGroupSchemaOutput) ToTemplateColumnGroupSchemaOutputWithCo
 	return o
 }
 
+// <p>A structure containing the list of schemas for column group columns.</p>
 func (o TemplateColumnGroupSchemaOutput) ColumnGroupColumnSchemaList() TemplateColumnGroupColumnSchemaArrayOutput {
 	return o.ApplyT(func(v TemplateColumnGroupSchema) []TemplateColumnGroupColumnSchema {
 		return v.ColumnGroupColumnSchemaList
 	}).(TemplateColumnGroupColumnSchemaArrayOutput)
 }
 
+// <p>The name of the column group schema.</p>
 func (o TemplateColumnGroupSchemaOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateColumnGroupSchema) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -15730,10 +15745,14 @@ func (o TemplateColumnIdentifierArrayOutput) Index(i pulumi.IntInput) TemplateCo
 	}).(TemplateColumnIdentifierOutput)
 }
 
+// <p>The column schema.</p>
 type TemplateColumnSchema struct {
-	DataType       *string `pulumi:"dataType"`
+	// <p>The data type of the column schema.</p>
+	DataType *string `pulumi:"dataType"`
+	// <p>The geographic role of the column schema.</p>
 	GeographicRole *string `pulumi:"geographicRole"`
-	Name           *string `pulumi:"name"`
+	// <p>The name of the column schema.</p>
+	Name *string `pulumi:"name"`
 }
 
 // TemplateColumnSchemaInput is an input type that accepts TemplateColumnSchemaArgs and TemplateColumnSchemaOutput values.
@@ -15747,10 +15766,14 @@ type TemplateColumnSchemaInput interface {
 	ToTemplateColumnSchemaOutputWithContext(context.Context) TemplateColumnSchemaOutput
 }
 
+// <p>The column schema.</p>
 type TemplateColumnSchemaArgs struct {
-	DataType       pulumi.StringPtrInput `pulumi:"dataType"`
+	// <p>The data type of the column schema.</p>
+	DataType pulumi.StringPtrInput `pulumi:"dataType"`
+	// <p>The geographic role of the column schema.</p>
 	GeographicRole pulumi.StringPtrInput `pulumi:"geographicRole"`
-	Name           pulumi.StringPtrInput `pulumi:"name"`
+	// <p>The name of the column schema.</p>
+	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (TemplateColumnSchemaArgs) ElementType() reflect.Type {
@@ -15790,6 +15813,7 @@ func (i TemplateColumnSchemaArray) ToTemplateColumnSchemaArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(TemplateColumnSchemaArrayOutput)
 }
 
+// <p>The column schema.</p>
 type TemplateColumnSchemaOutput struct{ *pulumi.OutputState }
 
 func (TemplateColumnSchemaOutput) ElementType() reflect.Type {
@@ -15804,14 +15828,17 @@ func (o TemplateColumnSchemaOutput) ToTemplateColumnSchemaOutputWithContext(ctx 
 	return o
 }
 
+// <p>The data type of the column schema.</p>
 func (o TemplateColumnSchemaOutput) DataType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateColumnSchema) *string { return v.DataType }).(pulumi.StringPtrOutput)
 }
 
+// <p>The geographic role of the column schema.</p>
 func (o TemplateColumnSchemaOutput) GeographicRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateColumnSchema) *string { return v.GeographicRole }).(pulumi.StringPtrOutput)
 }
 
+// <p>The name of the column schema.</p>
 func (o TemplateColumnSchemaOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateColumnSchema) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -22714,10 +22741,13 @@ func (o TemplateDataPathValueArrayOutput) Index(i pulumi.IntInput) TemplateDataP
 	}).(TemplateDataPathValueOutput)
 }
 
+// <p>Dataset configuration.</p>
 type TemplateDataSetConfiguration struct {
+	// <p>A structure containing the list of column group schemas.</p>
 	ColumnGroupSchemaList []TemplateColumnGroupSchema `pulumi:"columnGroupSchemaList"`
 	DataSetSchema         *TemplateDataSetSchema      `pulumi:"dataSetSchema"`
-	Placeholder           *string                     `pulumi:"placeholder"`
+	// <p>Placeholder.</p>
+	Placeholder *string `pulumi:"placeholder"`
 }
 
 // TemplateDataSetConfigurationInput is an input type that accepts TemplateDataSetConfigurationArgs and TemplateDataSetConfigurationOutput values.
@@ -22731,10 +22761,13 @@ type TemplateDataSetConfigurationInput interface {
 	ToTemplateDataSetConfigurationOutputWithContext(context.Context) TemplateDataSetConfigurationOutput
 }
 
+// <p>Dataset configuration.</p>
 type TemplateDataSetConfigurationArgs struct {
+	// <p>A structure containing the list of column group schemas.</p>
 	ColumnGroupSchemaList TemplateColumnGroupSchemaArrayInput `pulumi:"columnGroupSchemaList"`
 	DataSetSchema         TemplateDataSetSchemaPtrInput       `pulumi:"dataSetSchema"`
-	Placeholder           pulumi.StringPtrInput               `pulumi:"placeholder"`
+	// <p>Placeholder.</p>
+	Placeholder pulumi.StringPtrInput `pulumi:"placeholder"`
 }
 
 func (TemplateDataSetConfigurationArgs) ElementType() reflect.Type {
@@ -22774,6 +22807,7 @@ func (i TemplateDataSetConfigurationArray) ToTemplateDataSetConfigurationArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(TemplateDataSetConfigurationArrayOutput)
 }
 
+// <p>Dataset configuration.</p>
 type TemplateDataSetConfigurationOutput struct{ *pulumi.OutputState }
 
 func (TemplateDataSetConfigurationOutput) ElementType() reflect.Type {
@@ -22788,6 +22822,7 @@ func (o TemplateDataSetConfigurationOutput) ToTemplateDataSetConfigurationOutput
 	return o
 }
 
+// <p>A structure containing the list of column group schemas.</p>
 func (o TemplateDataSetConfigurationOutput) ColumnGroupSchemaList() TemplateColumnGroupSchemaArrayOutput {
 	return o.ApplyT(func(v TemplateDataSetConfiguration) []TemplateColumnGroupSchema { return v.ColumnGroupSchemaList }).(TemplateColumnGroupSchemaArrayOutput)
 }
@@ -22796,6 +22831,7 @@ func (o TemplateDataSetConfigurationOutput) DataSetSchema() TemplateDataSetSchem
 	return o.ApplyT(func(v TemplateDataSetConfiguration) *TemplateDataSetSchema { return v.DataSetSchema }).(TemplateDataSetSchemaPtrOutput)
 }
 
+// <p>Placeholder.</p>
 func (o TemplateDataSetConfigurationOutput) Placeholder() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateDataSetConfiguration) *string { return v.Placeholder }).(pulumi.StringPtrOutput)
 }
@@ -22820,8 +22856,11 @@ func (o TemplateDataSetConfigurationArrayOutput) Index(i pulumi.IntInput) Templa
 	}).(TemplateDataSetConfigurationOutput)
 }
 
+// <p>Dataset reference.</p>
 type TemplateDataSetReference struct {
-	DataSetArn         string `pulumi:"dataSetArn"`
+	// <p>Dataset Amazon Resource Name (ARN).</p>
+	DataSetArn string `pulumi:"dataSetArn"`
+	// <p>Dataset placeholder.</p>
 	DataSetPlaceholder string `pulumi:"dataSetPlaceholder"`
 }
 
@@ -22836,8 +22875,11 @@ type TemplateDataSetReferenceInput interface {
 	ToTemplateDataSetReferenceOutputWithContext(context.Context) TemplateDataSetReferenceOutput
 }
 
+// <p>Dataset reference.</p>
 type TemplateDataSetReferenceArgs struct {
-	DataSetArn         pulumi.StringInput `pulumi:"dataSetArn"`
+	// <p>Dataset Amazon Resource Name (ARN).</p>
+	DataSetArn pulumi.StringInput `pulumi:"dataSetArn"`
+	// <p>Dataset placeholder.</p>
 	DataSetPlaceholder pulumi.StringInput `pulumi:"dataSetPlaceholder"`
 }
 
@@ -22878,6 +22920,7 @@ func (i TemplateDataSetReferenceArray) ToTemplateDataSetReferenceArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(TemplateDataSetReferenceArrayOutput)
 }
 
+// <p>Dataset reference.</p>
 type TemplateDataSetReferenceOutput struct{ *pulumi.OutputState }
 
 func (TemplateDataSetReferenceOutput) ElementType() reflect.Type {
@@ -22892,10 +22935,12 @@ func (o TemplateDataSetReferenceOutput) ToTemplateDataSetReferenceOutputWithCont
 	return o
 }
 
+// <p>Dataset Amazon Resource Name (ARN).</p>
 func (o TemplateDataSetReferenceOutput) DataSetArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TemplateDataSetReference) string { return v.DataSetArn }).(pulumi.StringOutput)
 }
 
+// <p>Dataset placeholder.</p>
 func (o TemplateDataSetReferenceOutput) DataSetPlaceholder() pulumi.StringOutput {
 	return o.ApplyT(func(v TemplateDataSetReference) string { return v.DataSetPlaceholder }).(pulumi.StringOutput)
 }
@@ -22920,7 +22965,9 @@ func (o TemplateDataSetReferenceArrayOutput) Index(i pulumi.IntInput) TemplateDa
 	}).(TemplateDataSetReferenceOutput)
 }
 
+// <p>Dataset schema.</p>
 type TemplateDataSetSchema struct {
+	// <p>A structure containing the list of column schemas.</p>
 	ColumnSchemaList []TemplateColumnSchema `pulumi:"columnSchemaList"`
 }
 
@@ -22935,7 +22982,9 @@ type TemplateDataSetSchemaInput interface {
 	ToTemplateDataSetSchemaOutputWithContext(context.Context) TemplateDataSetSchemaOutput
 }
 
+// <p>Dataset schema.</p>
 type TemplateDataSetSchemaArgs struct {
+	// <p>A structure containing the list of column schemas.</p>
 	ColumnSchemaList TemplateColumnSchemaArrayInput `pulumi:"columnSchemaList"`
 }
 
@@ -22992,6 +23041,7 @@ func (i *templateDataSetSchemaPtrType) ToTemplateDataSetSchemaPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(TemplateDataSetSchemaPtrOutput)
 }
 
+// <p>Dataset schema.</p>
 type TemplateDataSetSchemaOutput struct{ *pulumi.OutputState }
 
 func (TemplateDataSetSchemaOutput) ElementType() reflect.Type {
@@ -23016,6 +23066,7 @@ func (o TemplateDataSetSchemaOutput) ToTemplateDataSetSchemaPtrOutputWithContext
 	}).(TemplateDataSetSchemaPtrOutput)
 }
 
+// <p>A structure containing the list of column schemas.</p>
 func (o TemplateDataSetSchemaOutput) ColumnSchemaList() TemplateColumnSchemaArrayOutput {
 	return o.ApplyT(func(v TemplateDataSetSchema) []TemplateColumnSchema { return v.ColumnSchemaList }).(TemplateColumnSchemaArrayOutput)
 }
@@ -23044,6 +23095,7 @@ func (o TemplateDataSetSchemaPtrOutput) Elem() TemplateDataSetSchemaOutput {
 	}).(TemplateDataSetSchemaOutput)
 }
 
+// <p>A structure containing the list of column schemas.</p>
 func (o TemplateDataSetSchemaPtrOutput) ColumnSchemaList() TemplateColumnSchemaArrayOutput {
 	return o.ApplyT(func(v *TemplateDataSetSchema) []TemplateColumnSchema {
 		if v == nil {
@@ -27245,12 +27297,16 @@ func (o TemplateEntityArrayOutput) Index(i pulumi.IntInput) TemplateEntityOutput
 	}).(TemplateEntityOutput)
 }
 
+// <p>List of errors that occurred when the template version creation failed.</p>
 type TemplateError struct {
-	Message          *string            `pulumi:"message"`
-	Type             *TemplateErrorType `pulumi:"type"`
-	ViolatedEntities []TemplateEntity   `pulumi:"violatedEntities"`
+	// <p>Description of the error type.</p>
+	Message *string            `pulumi:"message"`
+	Type    *TemplateErrorType `pulumi:"type"`
+	// <p>An error path that shows which entities caused the template error.</p>
+	ViolatedEntities []TemplateEntity `pulumi:"violatedEntities"`
 }
 
+// <p>List of errors that occurred when the template version creation failed.</p>
 type TemplateErrorOutput struct{ *pulumi.OutputState }
 
 func (TemplateErrorOutput) ElementType() reflect.Type {
@@ -27265,6 +27321,7 @@ func (o TemplateErrorOutput) ToTemplateErrorOutputWithContext(ctx context.Contex
 	return o
 }
 
+// <p>Description of the error type.</p>
 func (o TemplateErrorOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateError) *string { return v.Message }).(pulumi.StringPtrOutput)
 }
@@ -27273,6 +27330,7 @@ func (o TemplateErrorOutput) Type() TemplateErrorTypePtrOutput {
 	return o.ApplyT(func(v TemplateError) *TemplateErrorType { return v.Type }).(TemplateErrorTypePtrOutput)
 }
 
+// <p>An error path that shows which entities caused the template error.</p>
 func (o TemplateErrorOutput) ViolatedEntities() TemplateEntityArrayOutput {
 	return o.ApplyT(func(v TemplateError) []TemplateEntity { return v.ViolatedEntities }).(TemplateEntityArrayOutput)
 }
@@ -30847,6 +30905,7 @@ func (o TemplateFilterListControlPtrOutput) Type() TemplateSheetControlListTypeP
 }
 
 type TemplateFilterOperationSelectedFieldsConfiguration struct {
+	// <p>The selected columns of a dataset.</p>
 	SelectedColumns      []TemplateColumnIdentifier    `pulumi:"selectedColumns"`
 	SelectedFieldOptions *TemplateSelectedFieldOptions `pulumi:"selectedFieldOptions"`
 	SelectedFields       []string                      `pulumi:"selectedFields"`
@@ -30864,6 +30923,7 @@ type TemplateFilterOperationSelectedFieldsConfigurationInput interface {
 }
 
 type TemplateFilterOperationSelectedFieldsConfigurationArgs struct {
+	// <p>The selected columns of a dataset.</p>
 	SelectedColumns      TemplateColumnIdentifierArrayInput   `pulumi:"selectedColumns"`
 	SelectedFieldOptions TemplateSelectedFieldOptionsPtrInput `pulumi:"selectedFieldOptions"`
 	SelectedFields       pulumi.StringArrayInput              `pulumi:"selectedFields"`
@@ -30946,6 +31006,7 @@ func (o TemplateFilterOperationSelectedFieldsConfigurationOutput) ToTemplateFilt
 	}).(TemplateFilterOperationSelectedFieldsConfigurationPtrOutput)
 }
 
+// <p>The selected columns of a dataset.</p>
 func (o TemplateFilterOperationSelectedFieldsConfigurationOutput) SelectedColumns() TemplateColumnIdentifierArrayOutput {
 	return o.ApplyT(func(v TemplateFilterOperationSelectedFieldsConfiguration) []TemplateColumnIdentifier {
 		return v.SelectedColumns
@@ -30986,6 +31047,7 @@ func (o TemplateFilterOperationSelectedFieldsConfigurationPtrOutput) Elem() Temp
 	}).(TemplateFilterOperationSelectedFieldsConfigurationOutput)
 }
 
+// <p>The selected columns of a dataset.</p>
 func (o TemplateFilterOperationSelectedFieldsConfigurationPtrOutput) SelectedColumns() TemplateColumnIdentifierArrayOutput {
 	return o.ApplyT(func(v *TemplateFilterOperationSelectedFieldsConfiguration) []TemplateColumnIdentifier {
 		if v == nil {
@@ -62102,9 +62164,26 @@ func (o TemplateRelativeDatesFilterPtrOutput) TimeGranularity() TemplateTimeGran
 	}).(TemplateTimeGranularityPtrOutput)
 }
 
+// <p>Permission for the resource.</p>
 type TemplateResourcePermission struct {
-	Actions   []string `pulumi:"actions"`
-	Principal string   `pulumi:"principal"`
+	// <p>The IAM action to grant or revoke permissions on.</p>
+	Actions []string `pulumi:"actions"`
+	// <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+	//             following:</p>
+	//          <ul>
+	//             <li>
+	//                <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+	//             </li>
+	//             <li>
+	//                <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+	//             </li>
+	//             <li>
+	//                <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
+	//                     ARN. Use this option only to share resources (templates) across Amazon Web Services accounts.
+	//                     (This is less common.) </p>
+	//             </li>
+	//          </ul>
+	Principal string `pulumi:"principal"`
 }
 
 // TemplateResourcePermissionInput is an input type that accepts TemplateResourcePermissionArgs and TemplateResourcePermissionOutput values.
@@ -62118,9 +62197,26 @@ type TemplateResourcePermissionInput interface {
 	ToTemplateResourcePermissionOutputWithContext(context.Context) TemplateResourcePermissionOutput
 }
 
+// <p>Permission for the resource.</p>
 type TemplateResourcePermissionArgs struct {
-	Actions   pulumi.StringArrayInput `pulumi:"actions"`
-	Principal pulumi.StringInput      `pulumi:"principal"`
+	// <p>The IAM action to grant or revoke permissions on.</p>
+	Actions pulumi.StringArrayInput `pulumi:"actions"`
+	// <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+	//             following:</p>
+	//          <ul>
+	//             <li>
+	//                <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+	//             </li>
+	//             <li>
+	//                <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+	//             </li>
+	//             <li>
+	//                <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
+	//                     ARN. Use this option only to share resources (templates) across Amazon Web Services accounts.
+	//                     (This is less common.) </p>
+	//             </li>
+	//          </ul>
+	Principal pulumi.StringInput `pulumi:"principal"`
 }
 
 func (TemplateResourcePermissionArgs) ElementType() reflect.Type {
@@ -62160,6 +62256,7 @@ func (i TemplateResourcePermissionArray) ToTemplateResourcePermissionArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(TemplateResourcePermissionArrayOutput)
 }
 
+// <p>Permission for the resource.</p>
 type TemplateResourcePermissionOutput struct{ *pulumi.OutputState }
 
 func (TemplateResourcePermissionOutput) ElementType() reflect.Type {
@@ -62174,10 +62271,27 @@ func (o TemplateResourcePermissionOutput) ToTemplateResourcePermissionOutputWith
 	return o
 }
 
+// <p>The IAM action to grant or revoke permissions on.</p>
 func (o TemplateResourcePermissionOutput) Actions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TemplateResourcePermission) []string { return v.Actions }).(pulumi.StringArrayOutput)
 }
 
+// <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+//
+//	   following:</p>
+//	<ul>
+//	   <li>
+//	      <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+//	   </li>
+//	   <li>
+//	      <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+//	   </li>
+//	   <li>
+//	      <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
+//	           ARN. Use this option only to share resources (templates) across Amazon Web Services accounts.
+//	           (This is less common.) </p>
+//	   </li>
+//	</ul>
 func (o TemplateResourcePermissionOutput) Principal() pulumi.StringOutput {
 	return o.ApplyT(func(v TemplateResourcePermission) string { return v.Principal }).(pulumi.StringOutput)
 }
@@ -66279,11 +66393,26 @@ func (o TemplateShapeConditionalFormatPtrOutput) BackgroundColor() TemplateCondi
 	}).(TemplateConditionalFormattingColorPtrOutput)
 }
 
+// <p>A <i>sheet</i>, which is an object that contains a set of visuals that
+//
+//	are viewed together on one page in Amazon QuickSight. Every analysis and dashboard
+//	contains at least one sheet. Each sheet contains at least one visualization widget, for
+//	example a chart, pivot table, or narrative insight. Sheets can be associated with other
+//	components, such as controls, filters, and so on.</p>
 type TemplateSheet struct {
-	Name    *string `pulumi:"name"`
+	// <p>The name of a sheet. This name is displayed on the sheet's tab in the Amazon QuickSight
+	//             console.</p>
+	Name *string `pulumi:"name"`
+	// <p>The unique identifier associated with a sheet.</p>
 	SheetId *string `pulumi:"sheetId"`
 }
 
+// <p>A <i>sheet</i>, which is an object that contains a set of visuals that
+//
+//	are viewed together on one page in Amazon QuickSight. Every analysis and dashboard
+//	contains at least one sheet. Each sheet contains at least one visualization widget, for
+//	example a chart, pivot table, or narrative insight. Sheets can be associated with other
+//	components, such as controls, filters, and so on.</p>
 type TemplateSheetOutput struct{ *pulumi.OutputState }
 
 func (TemplateSheetOutput) ElementType() reflect.Type {
@@ -66298,10 +66427,14 @@ func (o TemplateSheetOutput) ToTemplateSheetOutputWithContext(ctx context.Contex
 	return o
 }
 
+// <p>The name of a sheet. This name is displayed on the sheet's tab in the Amazon QuickSight
+//
+//	console.</p>
 func (o TemplateSheetOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateSheet) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// <p>The unique identifier associated with a sheet.</p>
 func (o TemplateSheetOutput) SheetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateSheet) *string { return v.SheetId }).(pulumi.StringPtrOutput)
 }
@@ -67900,8 +68033,12 @@ func (o TemplateSmallMultiplesOptionsPtrOutput) YAxis() TemplateSmallMultiplesAx
 	}).(TemplateSmallMultiplesAxisPropertiesPtrOutput)
 }
 
+// <p>The source analysis of the template.</p>
 type TemplateSourceAnalysis struct {
-	Arn               string                     `pulumi:"arn"`
+	// <p>The Amazon Resource Name (ARN) of the resource.</p>
+	Arn string `pulumi:"arn"`
+	// <p>A structure containing information about the dataset references used as placeholders
+	//             in the template.</p>
 	DataSetReferences []TemplateDataSetReference `pulumi:"dataSetReferences"`
 }
 
@@ -67916,8 +68053,12 @@ type TemplateSourceAnalysisInput interface {
 	ToTemplateSourceAnalysisOutputWithContext(context.Context) TemplateSourceAnalysisOutput
 }
 
+// <p>The source analysis of the template.</p>
 type TemplateSourceAnalysisArgs struct {
-	Arn               pulumi.StringInput                 `pulumi:"arn"`
+	// <p>The Amazon Resource Name (ARN) of the resource.</p>
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// <p>A structure containing information about the dataset references used as placeholders
+	//             in the template.</p>
 	DataSetReferences TemplateDataSetReferenceArrayInput `pulumi:"dataSetReferences"`
 }
 
@@ -67974,6 +68115,7 @@ func (i *templateSourceAnalysisPtrType) ToTemplateSourceAnalysisPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(TemplateSourceAnalysisPtrOutput)
 }
 
+// <p>The source analysis of the template.</p>
 type TemplateSourceAnalysisOutput struct{ *pulumi.OutputState }
 
 func (TemplateSourceAnalysisOutput) ElementType() reflect.Type {
@@ -67998,10 +68140,14 @@ func (o TemplateSourceAnalysisOutput) ToTemplateSourceAnalysisPtrOutputWithConte
 	}).(TemplateSourceAnalysisPtrOutput)
 }
 
+// <p>The Amazon Resource Name (ARN) of the resource.</p>
 func (o TemplateSourceAnalysisOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v TemplateSourceAnalysis) string { return v.Arn }).(pulumi.StringOutput)
 }
 
+// <p>A structure containing information about the dataset references used as placeholders
+//
+//	in the template.</p>
 func (o TemplateSourceAnalysisOutput) DataSetReferences() TemplateDataSetReferenceArrayOutput {
 	return o.ApplyT(func(v TemplateSourceAnalysis) []TemplateDataSetReference { return v.DataSetReferences }).(TemplateDataSetReferenceArrayOutput)
 }
@@ -68030,6 +68176,7 @@ func (o TemplateSourceAnalysisPtrOutput) Elem() TemplateSourceAnalysisOutput {
 	}).(TemplateSourceAnalysisOutput)
 }
 
+// <p>The Amazon Resource Name (ARN) of the resource.</p>
 func (o TemplateSourceAnalysisPtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateSourceAnalysis) *string {
 		if v == nil {
@@ -68039,6 +68186,9 @@ func (o TemplateSourceAnalysisPtrOutput) Arn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// <p>A structure containing information about the dataset references used as placeholders
+//
+//	in the template.</p>
 func (o TemplateSourceAnalysisPtrOutput) DataSetReferences() TemplateDataSetReferenceArrayOutput {
 	return o.ApplyT(func(v *TemplateSourceAnalysis) []TemplateDataSetReference {
 		if v == nil {
@@ -68048,6 +68198,7 @@ func (o TemplateSourceAnalysisPtrOutput) DataSetReferences() TemplateDataSetRefe
 	}).(TemplateDataSetReferenceArrayOutput)
 }
 
+// <p>The source entity of the template.</p>
 type TemplateSourceEntity struct {
 	SourceAnalysis *TemplateSourceAnalysis `pulumi:"sourceAnalysis"`
 	SourceTemplate *TemplateSourceTemplate `pulumi:"sourceTemplate"`
@@ -68064,6 +68215,7 @@ type TemplateSourceEntityInput interface {
 	ToTemplateSourceEntityOutputWithContext(context.Context) TemplateSourceEntityOutput
 }
 
+// <p>The source entity of the template.</p>
 type TemplateSourceEntityArgs struct {
 	SourceAnalysis TemplateSourceAnalysisPtrInput `pulumi:"sourceAnalysis"`
 	SourceTemplate TemplateSourceTemplatePtrInput `pulumi:"sourceTemplate"`
@@ -68122,6 +68274,7 @@ func (i *templateSourceEntityPtrType) ToTemplateSourceEntityPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(TemplateSourceEntityPtrOutput)
 }
 
+// <p>The source entity of the template.</p>
 type TemplateSourceEntityOutput struct{ *pulumi.OutputState }
 
 func (TemplateSourceEntityOutput) ElementType() reflect.Type {
@@ -68196,7 +68349,9 @@ func (o TemplateSourceEntityPtrOutput) SourceTemplate() TemplateSourceTemplatePt
 	}).(TemplateSourceTemplatePtrOutput)
 }
 
+// <p>The source template of the template.</p>
 type TemplateSourceTemplate struct {
+	// <p>The Amazon Resource Name (ARN) of the resource.</p>
 	Arn string `pulumi:"arn"`
 }
 
@@ -68211,7 +68366,9 @@ type TemplateSourceTemplateInput interface {
 	ToTemplateSourceTemplateOutputWithContext(context.Context) TemplateSourceTemplateOutput
 }
 
+// <p>The source template of the template.</p>
 type TemplateSourceTemplateArgs struct {
+	// <p>The Amazon Resource Name (ARN) of the resource.</p>
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -68268,6 +68425,7 @@ func (i *templateSourceTemplatePtrType) ToTemplateSourceTemplatePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(TemplateSourceTemplatePtrOutput)
 }
 
+// <p>The source template of the template.</p>
 type TemplateSourceTemplateOutput struct{ *pulumi.OutputState }
 
 func (TemplateSourceTemplateOutput) ElementType() reflect.Type {
@@ -68292,6 +68450,7 @@ func (o TemplateSourceTemplateOutput) ToTemplateSourceTemplatePtrOutputWithConte
 	}).(TemplateSourceTemplatePtrOutput)
 }
 
+// <p>The Amazon Resource Name (ARN) of the resource.</p>
 func (o TemplateSourceTemplateOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v TemplateSourceTemplate) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -68320,6 +68479,7 @@ func (o TemplateSourceTemplatePtrOutput) Elem() TemplateSourceTemplateOutput {
 	}).(TemplateSourceTemplateOutput)
 }
 
+// <p>The Amazon Resource Name (ARN) of the resource.</p>
 func (o TemplateSourceTemplatePtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateSourceTemplate) *string {
 		if v == nil {
@@ -73506,8 +73666,13 @@ func (o TemplateTableVisualPtrOutput) VisualId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
+//
+//	resource.</p>
 type TemplateTag struct {
-	Key   string `pulumi:"key"`
+	// <p>Tag key.</p>
+	Key string `pulumi:"key"`
+	// <p>Tag value.</p>
 	Value string `pulumi:"value"`
 }
 
@@ -78055,6 +78220,7 @@ func (o TemplateUniqueValuesComputationPtrOutput) Name() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// <p>The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to <code>LENIENT</code>, validation is skipped for specific errors.</p>
 type TemplateValidationStrategy struct {
 	Mode TemplateValidationStrategyMode `pulumi:"mode"`
 }
@@ -78070,6 +78236,7 @@ type TemplateValidationStrategyInput interface {
 	ToTemplateValidationStrategyOutputWithContext(context.Context) TemplateValidationStrategyOutput
 }
 
+// <p>The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to <code>LENIENT</code>, validation is skipped for specific errors.</p>
 type TemplateValidationStrategyArgs struct {
 	Mode TemplateValidationStrategyModeInput `pulumi:"mode"`
 }
@@ -78127,6 +78294,7 @@ func (i *templateValidationStrategyPtrType) ToTemplateValidationStrategyPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(TemplateValidationStrategyPtrOutput)
 }
 
+// <p>The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to <code>LENIENT</code>, validation is skipped for specific errors.</p>
 type TemplateValidationStrategyOutput struct{ *pulumi.OutputState }
 
 func (TemplateValidationStrategyOutput) ElementType() reflect.Type {
@@ -78188,18 +78356,31 @@ func (o TemplateValidationStrategyPtrOutput) Mode() TemplateValidationStrategyMo
 	}).(TemplateValidationStrategyModePtrOutput)
 }
 
+// <p>A version of a template.</p>
 type TemplateVersion struct {
-	CreatedTime           *string                        `pulumi:"createdTime"`
+	// <p>The time that this template version was created.</p>
+	CreatedTime *string `pulumi:"createdTime"`
+	// <p>Schema of the dataset identified by the placeholder. Any dashboard created from this
+	//             template should be bound to new datasets matching the same schema described through this
+	//             API operation.</p>
 	DataSetConfigurations []TemplateDataSetConfiguration `pulumi:"dataSetConfigurations"`
-	Description           *string                        `pulumi:"description"`
-	Errors                []TemplateError                `pulumi:"errors"`
-	Sheets                []TemplateSheet                `pulumi:"sheets"`
-	SourceEntityArn       *string                        `pulumi:"sourceEntityArn"`
-	Status                *TemplateResourceStatus        `pulumi:"status"`
-	ThemeArn              *string                        `pulumi:"themeArn"`
-	VersionNumber         *float64                       `pulumi:"versionNumber"`
+	// <p>The description of the template.</p>
+	Description *string `pulumi:"description"`
+	// <p>Errors associated with this template version.</p>
+	Errors []TemplateError `pulumi:"errors"`
+	// <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
+	Sheets []TemplateSheet `pulumi:"sheets"`
+	// <p>The Amazon Resource Name (ARN) of an analysis or template that was used to create this
+	//             template.</p>
+	SourceEntityArn *string                 `pulumi:"sourceEntityArn"`
+	Status          *TemplateResourceStatus `pulumi:"status"`
+	// <p>The ARN of the theme associated with this version of the template.</p>
+	ThemeArn *string `pulumi:"themeArn"`
+	// <p>The version number of the template version.</p>
+	VersionNumber *float64 `pulumi:"versionNumber"`
 }
 
+// <p>A version of a template.</p>
 type TemplateVersionOutput struct{ *pulumi.OutputState }
 
 func (TemplateVersionOutput) ElementType() reflect.Type {
@@ -78214,26 +78395,37 @@ func (o TemplateVersionOutput) ToTemplateVersionOutputWithContext(ctx context.Co
 	return o
 }
 
+// <p>The time that this template version was created.</p>
 func (o TemplateVersionOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateVersion) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
+// <p>Schema of the dataset identified by the placeholder. Any dashboard created from this
+//
+//	template should be bound to new datasets matching the same schema described through this
+//	API operation.</p>
 func (o TemplateVersionOutput) DataSetConfigurations() TemplateDataSetConfigurationArrayOutput {
 	return o.ApplyT(func(v TemplateVersion) []TemplateDataSetConfiguration { return v.DataSetConfigurations }).(TemplateDataSetConfigurationArrayOutput)
 }
 
+// <p>The description of the template.</p>
 func (o TemplateVersionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateVersion) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// <p>Errors associated with this template version.</p>
 func (o TemplateVersionOutput) Errors() TemplateErrorArrayOutput {
 	return o.ApplyT(func(v TemplateVersion) []TemplateError { return v.Errors }).(TemplateErrorArrayOutput)
 }
 
+// <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
 func (o TemplateVersionOutput) Sheets() TemplateSheetArrayOutput {
 	return o.ApplyT(func(v TemplateVersion) []TemplateSheet { return v.Sheets }).(TemplateSheetArrayOutput)
 }
 
+// <p>The Amazon Resource Name (ARN) of an analysis or template that was used to create this
+//
+//	template.</p>
 func (o TemplateVersionOutput) SourceEntityArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateVersion) *string { return v.SourceEntityArn }).(pulumi.StringPtrOutput)
 }
@@ -78242,10 +78434,12 @@ func (o TemplateVersionOutput) Status() TemplateResourceStatusPtrOutput {
 	return o.ApplyT(func(v TemplateVersion) *TemplateResourceStatus { return v.Status }).(TemplateResourceStatusPtrOutput)
 }
 
+// <p>The ARN of the theme associated with this version of the template.</p>
 func (o TemplateVersionOutput) ThemeArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateVersion) *string { return v.ThemeArn }).(pulumi.StringPtrOutput)
 }
 
+// <p>The version number of the template version.</p>
 func (o TemplateVersionOutput) VersionNumber() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v TemplateVersion) *float64 { return v.VersionNumber }).(pulumi.Float64PtrOutput)
 }
@@ -78274,6 +78468,7 @@ func (o TemplateVersionPtrOutput) Elem() TemplateVersionOutput {
 	}).(TemplateVersionOutput)
 }
 
+// <p>The time that this template version was created.</p>
 func (o TemplateVersionPtrOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateVersion) *string {
 		if v == nil {
@@ -78283,6 +78478,10 @@ func (o TemplateVersionPtrOutput) CreatedTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// <p>Schema of the dataset identified by the placeholder. Any dashboard created from this
+//
+//	template should be bound to new datasets matching the same schema described through this
+//	API operation.</p>
 func (o TemplateVersionPtrOutput) DataSetConfigurations() TemplateDataSetConfigurationArrayOutput {
 	return o.ApplyT(func(v *TemplateVersion) []TemplateDataSetConfiguration {
 		if v == nil {
@@ -78292,6 +78491,7 @@ func (o TemplateVersionPtrOutput) DataSetConfigurations() TemplateDataSetConfigu
 	}).(TemplateDataSetConfigurationArrayOutput)
 }
 
+// <p>The description of the template.</p>
 func (o TemplateVersionPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateVersion) *string {
 		if v == nil {
@@ -78301,6 +78501,7 @@ func (o TemplateVersionPtrOutput) Description() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// <p>Errors associated with this template version.</p>
 func (o TemplateVersionPtrOutput) Errors() TemplateErrorArrayOutput {
 	return o.ApplyT(func(v *TemplateVersion) []TemplateError {
 		if v == nil {
@@ -78310,6 +78511,7 @@ func (o TemplateVersionPtrOutput) Errors() TemplateErrorArrayOutput {
 	}).(TemplateErrorArrayOutput)
 }
 
+// <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
 func (o TemplateVersionPtrOutput) Sheets() TemplateSheetArrayOutput {
 	return o.ApplyT(func(v *TemplateVersion) []TemplateSheet {
 		if v == nil {
@@ -78319,6 +78521,9 @@ func (o TemplateVersionPtrOutput) Sheets() TemplateSheetArrayOutput {
 	}).(TemplateSheetArrayOutput)
 }
 
+// <p>The Amazon Resource Name (ARN) of an analysis or template that was used to create this
+//
+//	template.</p>
 func (o TemplateVersionPtrOutput) SourceEntityArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateVersion) *string {
 		if v == nil {
@@ -78337,6 +78542,7 @@ func (o TemplateVersionPtrOutput) Status() TemplateResourceStatusPtrOutput {
 	}).(TemplateResourceStatusPtrOutput)
 }
 
+// <p>The ARN of the theme associated with this version of the template.</p>
 func (o TemplateVersionPtrOutput) ThemeArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateVersion) *string {
 		if v == nil {
@@ -78346,6 +78552,7 @@ func (o TemplateVersionPtrOutput) ThemeArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// <p>The version number of the template version.</p>
 func (o TemplateVersionPtrOutput) VersionNumber() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *TemplateVersion) *float64 {
 		if v == nil {

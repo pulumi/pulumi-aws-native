@@ -10,10 +10,17 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;A list of Amazon QuickSight parameters and the list's override values.&lt;/p&gt;
+    /// </summary>
     public sealed class DashboardParametersArgs : global::Pulumi.ResourceArgs
     {
         [Input("dateTimeParameters")]
         private InputList<Inputs.DashboardDateTimeParameterArgs>? _dateTimeParameters;
+
+        /// <summary>
+        /// &lt;p&gt;The parameters that have a data type of date-time.&lt;/p&gt;
+        /// </summary>
         public InputList<Inputs.DashboardDateTimeParameterArgs> DateTimeParameters
         {
             get => _dateTimeParameters ?? (_dateTimeParameters = new InputList<Inputs.DashboardDateTimeParameterArgs>());
@@ -22,6 +29,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("decimalParameters")]
         private InputList<Inputs.DashboardDecimalParameterArgs>? _decimalParameters;
+
+        /// <summary>
+        /// &lt;p&gt;The parameters that have a data type of decimal.&lt;/p&gt;
+        /// </summary>
         public InputList<Inputs.DashboardDecimalParameterArgs> DecimalParameters
         {
             get => _decimalParameters ?? (_decimalParameters = new InputList<Inputs.DashboardDecimalParameterArgs>());
@@ -30,6 +41,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("integerParameters")]
         private InputList<Inputs.DashboardIntegerParameterArgs>? _integerParameters;
+
+        /// <summary>
+        /// &lt;p&gt;The parameters that have a data type of integer.&lt;/p&gt;
+        /// </summary>
         public InputList<Inputs.DashboardIntegerParameterArgs> IntegerParameters
         {
             get => _integerParameters ?? (_integerParameters = new InputList<Inputs.DashboardIntegerParameterArgs>());
@@ -38,6 +53,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("stringParameters")]
         private InputList<Inputs.DashboardStringParameterArgs>? _stringParameters;
+
+        /// <summary>
+        /// &lt;p&gt;The parameters that have a data type of string.&lt;/p&gt;
+        /// </summary>
         public InputList<Inputs.DashboardStringParameterArgs> StringParameters
         {
             get => _stringParameters ?? (_stringParameters = new InputList<Inputs.DashboardStringParameterArgs>());

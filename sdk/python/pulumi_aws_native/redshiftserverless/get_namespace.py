@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetNamespaceResult:
-    def __init__(__self__, admin_password_secret_kms_key_id=None, admin_username=None, db_name=None, default_iam_role_arn=None, iam_roles=None, kms_key_id=None, log_exports=None, namespace=None, namespace_resource_policy=None):
+    def __init__(__self__, admin_password_secret_kms_key_id=None, admin_username=None, db_name=None, default_iam_role_arn=None, iam_roles=None, kms_key_id=None, log_exports=None, namespace=None, namespace_resource_policy=None, snapshot_copy_configurations=None):
         if admin_password_secret_kms_key_id and not isinstance(admin_password_secret_kms_key_id, str):
             raise TypeError("Expected argument 'admin_password_secret_kms_key_id' to be a str")
         pulumi.set(__self__, "admin_password_secret_kms_key_id", admin_password_secret_kms_key_id)
@@ -48,6 +48,9 @@ class GetNamespaceResult:
         if namespace_resource_policy and not isinstance(namespace_resource_policy, dict):
             raise TypeError("Expected argument 'namespace_resource_policy' to be a dict")
         pulumi.set(__self__, "namespace_resource_policy", namespace_resource_policy)
+        if snapshot_copy_configurations and not isinstance(snapshot_copy_configurations, list):
+            raise TypeError("Expected argument 'snapshot_copy_configurations' to be a list")
+        pulumi.set(__self__, "snapshot_copy_configurations", snapshot_copy_configurations)
 
     @property
     @pulumi.getter(name="adminPasswordSecretKmsKeyId")
@@ -123,6 +126,14 @@ class GetNamespaceResult:
         """
         return pulumi.get(self, "namespace_resource_policy")
 
+    @property
+    @pulumi.getter(name="snapshotCopyConfigurations")
+    def snapshot_copy_configurations(self) -> Optional[Sequence['outputs.NamespaceSnapshotCopyConfiguration']]:
+        """
+        The snapshot copy configurations for the namespace.
+        """
+        return pulumi.get(self, "snapshot_copy_configurations")
+
 
 class AwaitableGetNamespaceResult(GetNamespaceResult):
     # pylint: disable=using-constant-test
@@ -138,7 +149,8 @@ class AwaitableGetNamespaceResult(GetNamespaceResult):
             kms_key_id=self.kms_key_id,
             log_exports=self.log_exports,
             namespace=self.namespace,
-            namespace_resource_policy=self.namespace_resource_policy)
+            namespace_resource_policy=self.namespace_resource_policy,
+            snapshot_copy_configurations=self.snapshot_copy_configurations)
 
 
 def get_namespace(namespace_name: Optional[str] = None,
@@ -163,7 +175,8 @@ def get_namespace(namespace_name: Optional[str] = None,
         kms_key_id=pulumi.get(__ret__, 'kms_key_id'),
         log_exports=pulumi.get(__ret__, 'log_exports'),
         namespace=pulumi.get(__ret__, 'namespace'),
-        namespace_resource_policy=pulumi.get(__ret__, 'namespace_resource_policy'))
+        namespace_resource_policy=pulumi.get(__ret__, 'namespace_resource_policy'),
+        snapshot_copy_configurations=pulumi.get(__ret__, 'snapshot_copy_configurations'))
 
 
 @_utilities.lift_output_func(get_namespace)

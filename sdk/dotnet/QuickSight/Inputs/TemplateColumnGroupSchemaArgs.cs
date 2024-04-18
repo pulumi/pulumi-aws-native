@@ -10,16 +10,26 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;The column group schema.&lt;/p&gt;
+    /// </summary>
     public sealed class TemplateColumnGroupSchemaArgs : global::Pulumi.ResourceArgs
     {
         [Input("columnGroupColumnSchemaList")]
         private InputList<Inputs.TemplateColumnGroupColumnSchemaArgs>? _columnGroupColumnSchemaList;
+
+        /// <summary>
+        /// &lt;p&gt;A structure containing the list of schemas for column group columns.&lt;/p&gt;
+        /// </summary>
         public InputList<Inputs.TemplateColumnGroupColumnSchemaArgs> ColumnGroupColumnSchemaList
         {
             get => _columnGroupColumnSchemaList ?? (_columnGroupColumnSchemaList = new InputList<Inputs.TemplateColumnGroupColumnSchemaArgs>());
             set => _columnGroupColumnSchemaList = value;
         }
 
+        /// <summary>
+        /// &lt;p&gt;The name of the column group schema.&lt;/p&gt;
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

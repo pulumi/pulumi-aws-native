@@ -57,9 +57,21 @@ namespace Pulumi.AwsNative.QuickSight
     [OutputType]
     public sealed class GetDashboardResult
     {
+        /// <summary>
+        /// &lt;p&gt;The Amazon Resource Name (ARN) of the resource.&lt;/p&gt;
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// &lt;p&gt;The time that this dashboard was created.&lt;/p&gt;
+        /// </summary>
         public readonly string? CreatedTime;
+        /// <summary>
+        /// &lt;p&gt;The last time that this dashboard was published.&lt;/p&gt;
+        /// </summary>
         public readonly string? LastPublishedTime;
+        /// <summary>
+        /// &lt;p&gt;The last time that this dashboard was updated.&lt;/p&gt;
+        /// </summary>
         public readonly string? LastUpdatedTime;
         public readonly ImmutableArray<string> LinkEntities;
         public readonly string? Name;

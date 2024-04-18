@@ -10,13 +10,23 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;A decimal parameter.&lt;/p&gt;
+    /// </summary>
     public sealed class DashboardDecimalParameterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// &lt;p&gt;A display name for the decimal parameter.&lt;/p&gt;
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("values", required: true)]
         private InputList<double>? _values;
+
+        /// <summary>
+        /// &lt;p&gt;The values for the decimal parameter.&lt;/p&gt;
+        /// </summary>
         public InputList<double> Values
         {
             get => _values ?? (_values = new InputList<double>());

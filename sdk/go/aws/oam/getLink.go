@@ -27,9 +27,10 @@ type LookupLinkArgs struct {
 }
 
 type LookupLinkResult struct {
-	Arn           *string            `pulumi:"arn"`
-	Label         *string            `pulumi:"label"`
-	ResourceTypes []LinkResourceType `pulumi:"resourceTypes"`
+	Arn               *string            `pulumi:"arn"`
+	Label             *string            `pulumi:"label"`
+	LinkConfiguration *LinkConfiguration `pulumi:"linkConfiguration"`
+	ResourceTypes     []LinkResourceType `pulumi:"resourceTypes"`
 	// Tags to apply to the link
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -75,6 +76,10 @@ func (o LookupLinkResultOutput) Arn() pulumi.StringPtrOutput {
 
 func (o LookupLinkResultOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLinkResult) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupLinkResultOutput) LinkConfiguration() LinkConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupLinkResult) *LinkConfiguration { return v.LinkConfiguration }).(LinkConfigurationPtrOutput)
 }
 
 func (o LookupLinkResultOutput) ResourceTypes() LinkResourceTypeArrayOutput {

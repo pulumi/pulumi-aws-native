@@ -10,11 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;Dataset reference.&lt;/p&gt;
+    /// </summary>
     public sealed class TemplateDataSetReferenceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// &lt;p&gt;Dataset Amazon Resource Name (ARN).&lt;/p&gt;
+        /// </summary>
         [Input("dataSetArn", required: true)]
         public Input<string> DataSetArn { get; set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;Dataset placeholder.&lt;/p&gt;
+        /// </summary>
         [Input("dataSetPlaceholder", required: true)]
         public Input<string> DataSetPlaceholder { get; set; } = null!;
 

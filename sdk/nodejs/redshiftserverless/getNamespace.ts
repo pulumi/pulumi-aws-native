@@ -64,6 +64,10 @@ export interface GetNamespaceResult {
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RedshiftServerless::Namespace` for more information about the expected schema for this property.
      */
     readonly namespaceResourcePolicy?: any;
+    /**
+     * The snapshot copy configurations for the namespace.
+     */
+    readonly snapshotCopyConfigurations?: outputs.redshiftserverless.NamespaceSnapshotCopyConfiguration[];
 }
 /**
  * Definition of AWS::RedshiftServerless::Namespace Resource Type

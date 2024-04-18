@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;An ad hoc (one-time) filtering option.&lt;/p&gt;
+    /// </summary>
     [OutputType]
     public sealed class DashboardAdHocFilteringOption
     {

@@ -16,11 +16,12 @@ import (
 type Link struct {
 	pulumi.CustomResourceState
 
-	Arn            pulumi.StringOutput         `pulumi:"arn"`
-	Label          pulumi.StringOutput         `pulumi:"label"`
-	LabelTemplate  pulumi.StringPtrOutput      `pulumi:"labelTemplate"`
-	ResourceTypes  LinkResourceTypeArrayOutput `pulumi:"resourceTypes"`
-	SinkIdentifier pulumi.StringOutput         `pulumi:"sinkIdentifier"`
+	Arn               pulumi.StringOutput         `pulumi:"arn"`
+	Label             pulumi.StringOutput         `pulumi:"label"`
+	LabelTemplate     pulumi.StringPtrOutput      `pulumi:"labelTemplate"`
+	LinkConfiguration LinkConfigurationPtrOutput  `pulumi:"linkConfiguration"`
+	ResourceTypes     LinkResourceTypeArrayOutput `pulumi:"resourceTypes"`
+	SinkIdentifier    pulumi.StringOutput         `pulumi:"sinkIdentifier"`
 	// Tags to apply to the link
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
@@ -76,18 +77,20 @@ func (LinkState) ElementType() reflect.Type {
 }
 
 type linkArgs struct {
-	LabelTemplate  *string            `pulumi:"labelTemplate"`
-	ResourceTypes  []LinkResourceType `pulumi:"resourceTypes"`
-	SinkIdentifier string             `pulumi:"sinkIdentifier"`
+	LabelTemplate     *string            `pulumi:"labelTemplate"`
+	LinkConfiguration *LinkConfiguration `pulumi:"linkConfiguration"`
+	ResourceTypes     []LinkResourceType `pulumi:"resourceTypes"`
+	SinkIdentifier    string             `pulumi:"sinkIdentifier"`
 	// Tags to apply to the link
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Link resource.
 type LinkArgs struct {
-	LabelTemplate  pulumi.StringPtrInput
-	ResourceTypes  LinkResourceTypeArrayInput
-	SinkIdentifier pulumi.StringInput
+	LabelTemplate     pulumi.StringPtrInput
+	LinkConfiguration LinkConfigurationPtrInput
+	ResourceTypes     LinkResourceTypeArrayInput
+	SinkIdentifier    pulumi.StringInput
 	// Tags to apply to the link
 	Tags pulumi.StringMapInput
 }
@@ -139,6 +142,10 @@ func (o LinkOutput) Label() pulumi.StringOutput {
 
 func (o LinkOutput) LabelTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Link) pulumi.StringPtrOutput { return v.LabelTemplate }).(pulumi.StringPtrOutput)
+}
+
+func (o LinkOutput) LinkConfiguration() LinkConfigurationPtrOutput {
+	return o.ApplyT(func(v *Link) LinkConfigurationPtrOutput { return v.LinkConfiguration }).(LinkConfigurationPtrOutput)
 }
 
 func (o LinkOutput) ResourceTypes() LinkResourceTypeArrayOutput {

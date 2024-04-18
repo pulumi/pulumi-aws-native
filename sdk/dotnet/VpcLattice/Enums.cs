@@ -400,7 +400,6 @@ namespace Pulumi.AwsNative.VpcLattice
 
         public static TargetGroupHealthCheckConfigProtocolVersion Http1 { get; } = new TargetGroupHealthCheckConfigProtocolVersion("HTTP1");
         public static TargetGroupHealthCheckConfigProtocolVersion Http2 { get; } = new TargetGroupHealthCheckConfigProtocolVersion("HTTP2");
-        public static TargetGroupHealthCheckConfigProtocolVersion Grpc { get; } = new TargetGroupHealthCheckConfigProtocolVersion("GRPC");
 
         public static bool operator ==(TargetGroupHealthCheckConfigProtocolVersion left, TargetGroupHealthCheckConfigProtocolVersion right) => left.Equals(right);
         public static bool operator !=(TargetGroupHealthCheckConfigProtocolVersion left, TargetGroupHealthCheckConfigProtocolVersion right) => !left.Equals(right);

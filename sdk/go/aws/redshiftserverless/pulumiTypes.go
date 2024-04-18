@@ -236,6 +236,112 @@ func (o NamespaceTypePtrOutput) Status() NamespaceStatusPtrOutput {
 	}).(NamespaceStatusPtrOutput)
 }
 
+type NamespaceSnapshotCopyConfiguration struct {
+	DestinationKmsKeyId     *string `pulumi:"destinationKmsKeyId"`
+	DestinationRegion       string  `pulumi:"destinationRegion"`
+	SnapshotRetentionPeriod *int    `pulumi:"snapshotRetentionPeriod"`
+}
+
+// NamespaceSnapshotCopyConfigurationInput is an input type that accepts NamespaceSnapshotCopyConfigurationArgs and NamespaceSnapshotCopyConfigurationOutput values.
+// You can construct a concrete instance of `NamespaceSnapshotCopyConfigurationInput` via:
+//
+//	NamespaceSnapshotCopyConfigurationArgs{...}
+type NamespaceSnapshotCopyConfigurationInput interface {
+	pulumi.Input
+
+	ToNamespaceSnapshotCopyConfigurationOutput() NamespaceSnapshotCopyConfigurationOutput
+	ToNamespaceSnapshotCopyConfigurationOutputWithContext(context.Context) NamespaceSnapshotCopyConfigurationOutput
+}
+
+type NamespaceSnapshotCopyConfigurationArgs struct {
+	DestinationKmsKeyId     pulumi.StringPtrInput `pulumi:"destinationKmsKeyId"`
+	DestinationRegion       pulumi.StringInput    `pulumi:"destinationRegion"`
+	SnapshotRetentionPeriod pulumi.IntPtrInput    `pulumi:"snapshotRetentionPeriod"`
+}
+
+func (NamespaceSnapshotCopyConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NamespaceSnapshotCopyConfiguration)(nil)).Elem()
+}
+
+func (i NamespaceSnapshotCopyConfigurationArgs) ToNamespaceSnapshotCopyConfigurationOutput() NamespaceSnapshotCopyConfigurationOutput {
+	return i.ToNamespaceSnapshotCopyConfigurationOutputWithContext(context.Background())
+}
+
+func (i NamespaceSnapshotCopyConfigurationArgs) ToNamespaceSnapshotCopyConfigurationOutputWithContext(ctx context.Context) NamespaceSnapshotCopyConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NamespaceSnapshotCopyConfigurationOutput)
+}
+
+// NamespaceSnapshotCopyConfigurationArrayInput is an input type that accepts NamespaceSnapshotCopyConfigurationArray and NamespaceSnapshotCopyConfigurationArrayOutput values.
+// You can construct a concrete instance of `NamespaceSnapshotCopyConfigurationArrayInput` via:
+//
+//	NamespaceSnapshotCopyConfigurationArray{ NamespaceSnapshotCopyConfigurationArgs{...} }
+type NamespaceSnapshotCopyConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToNamespaceSnapshotCopyConfigurationArrayOutput() NamespaceSnapshotCopyConfigurationArrayOutput
+	ToNamespaceSnapshotCopyConfigurationArrayOutputWithContext(context.Context) NamespaceSnapshotCopyConfigurationArrayOutput
+}
+
+type NamespaceSnapshotCopyConfigurationArray []NamespaceSnapshotCopyConfigurationInput
+
+func (NamespaceSnapshotCopyConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NamespaceSnapshotCopyConfiguration)(nil)).Elem()
+}
+
+func (i NamespaceSnapshotCopyConfigurationArray) ToNamespaceSnapshotCopyConfigurationArrayOutput() NamespaceSnapshotCopyConfigurationArrayOutput {
+	return i.ToNamespaceSnapshotCopyConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i NamespaceSnapshotCopyConfigurationArray) ToNamespaceSnapshotCopyConfigurationArrayOutputWithContext(ctx context.Context) NamespaceSnapshotCopyConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NamespaceSnapshotCopyConfigurationArrayOutput)
+}
+
+type NamespaceSnapshotCopyConfigurationOutput struct{ *pulumi.OutputState }
+
+func (NamespaceSnapshotCopyConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NamespaceSnapshotCopyConfiguration)(nil)).Elem()
+}
+
+func (o NamespaceSnapshotCopyConfigurationOutput) ToNamespaceSnapshotCopyConfigurationOutput() NamespaceSnapshotCopyConfigurationOutput {
+	return o
+}
+
+func (o NamespaceSnapshotCopyConfigurationOutput) ToNamespaceSnapshotCopyConfigurationOutputWithContext(ctx context.Context) NamespaceSnapshotCopyConfigurationOutput {
+	return o
+}
+
+func (o NamespaceSnapshotCopyConfigurationOutput) DestinationKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NamespaceSnapshotCopyConfiguration) *string { return v.DestinationKmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+func (o NamespaceSnapshotCopyConfigurationOutput) DestinationRegion() pulumi.StringOutput {
+	return o.ApplyT(func(v NamespaceSnapshotCopyConfiguration) string { return v.DestinationRegion }).(pulumi.StringOutput)
+}
+
+func (o NamespaceSnapshotCopyConfigurationOutput) SnapshotRetentionPeriod() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NamespaceSnapshotCopyConfiguration) *int { return v.SnapshotRetentionPeriod }).(pulumi.IntPtrOutput)
+}
+
+type NamespaceSnapshotCopyConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (NamespaceSnapshotCopyConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NamespaceSnapshotCopyConfiguration)(nil)).Elem()
+}
+
+func (o NamespaceSnapshotCopyConfigurationArrayOutput) ToNamespaceSnapshotCopyConfigurationArrayOutput() NamespaceSnapshotCopyConfigurationArrayOutput {
+	return o
+}
+
+func (o NamespaceSnapshotCopyConfigurationArrayOutput) ToNamespaceSnapshotCopyConfigurationArrayOutputWithContext(ctx context.Context) NamespaceSnapshotCopyConfigurationArrayOutput {
+	return o
+}
+
+func (o NamespaceSnapshotCopyConfigurationArrayOutput) Index(i pulumi.IntInput) NamespaceSnapshotCopyConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NamespaceSnapshotCopyConfiguration {
+		return vs[0].([]NamespaceSnapshotCopyConfiguration)[vs[1].(int)]
+	}).(NamespaceSnapshotCopyConfigurationOutput)
+}
+
 type NamespaceTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -776,10 +882,14 @@ func (o WorkgroupVpcEndpointArrayOutput) Index(i pulumi.IntInput) WorkgroupVpcEn
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceSnapshotCopyConfigurationInput)(nil)).Elem(), NamespaceSnapshotCopyConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceSnapshotCopyConfigurationArrayInput)(nil)).Elem(), NamespaceSnapshotCopyConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupConfigParameterInput)(nil)).Elem(), WorkgroupConfigParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupConfigParameterArrayInput)(nil)).Elem(), WorkgroupConfigParameterArray{})
 	pulumi.RegisterOutputType(NamespaceTypeOutput{})
 	pulumi.RegisterOutputType(NamespaceTypePtrOutput{})
+	pulumi.RegisterOutputType(NamespaceSnapshotCopyConfigurationOutput{})
+	pulumi.RegisterOutputType(NamespaceSnapshotCopyConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(WorkgroupTypeOutput{})
 	pulumi.RegisterOutputType(WorkgroupTypePtrOutput{})
 	pulumi.RegisterOutputType(WorkgroupConfigParameterOutput{})

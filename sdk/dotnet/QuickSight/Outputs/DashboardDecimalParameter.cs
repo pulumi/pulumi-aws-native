@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;A decimal parameter.&lt;/p&gt;
+    /// </summary>
     [OutputType]
     public sealed class DashboardDecimalParameter
     {
+        /// <summary>
+        /// &lt;p&gt;A display name for the decimal parameter.&lt;/p&gt;
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// &lt;p&gt;The values for the decimal parameter.&lt;/p&gt;
+        /// </summary>
         public readonly ImmutableArray<double> Values;
 
         [OutputConstructor]

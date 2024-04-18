@@ -15261,8 +15261,11 @@ func (o AnalysisDataSetIdentifierDeclarationArrayOutput) Index(i pulumi.IntInput
 	}).(AnalysisDataSetIdentifierDeclarationOutput)
 }
 
+// <p>Dataset reference.</p>
 type AnalysisDataSetReference struct {
-	DataSetArn         string `pulumi:"dataSetArn"`
+	// <p>Dataset Amazon Resource Name (ARN).</p>
+	DataSetArn string `pulumi:"dataSetArn"`
+	// <p>Dataset placeholder.</p>
 	DataSetPlaceholder string `pulumi:"dataSetPlaceholder"`
 }
 
@@ -15277,8 +15280,11 @@ type AnalysisDataSetReferenceInput interface {
 	ToAnalysisDataSetReferenceOutputWithContext(context.Context) AnalysisDataSetReferenceOutput
 }
 
+// <p>Dataset reference.</p>
 type AnalysisDataSetReferenceArgs struct {
-	DataSetArn         pulumi.StringInput `pulumi:"dataSetArn"`
+	// <p>Dataset Amazon Resource Name (ARN).</p>
+	DataSetArn pulumi.StringInput `pulumi:"dataSetArn"`
+	// <p>Dataset placeholder.</p>
 	DataSetPlaceholder pulumi.StringInput `pulumi:"dataSetPlaceholder"`
 }
 
@@ -15319,6 +15325,7 @@ func (i AnalysisDataSetReferenceArray) ToAnalysisDataSetReferenceArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(AnalysisDataSetReferenceArrayOutput)
 }
 
+// <p>Dataset reference.</p>
 type AnalysisDataSetReferenceOutput struct{ *pulumi.OutputState }
 
 func (AnalysisDataSetReferenceOutput) ElementType() reflect.Type {
@@ -15333,10 +15340,12 @@ func (o AnalysisDataSetReferenceOutput) ToAnalysisDataSetReferenceOutputWithCont
 	return o
 }
 
+// <p>Dataset Amazon Resource Name (ARN).</p>
 func (o AnalysisDataSetReferenceOutput) DataSetArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalysisDataSetReference) string { return v.DataSetArn }).(pulumi.StringOutput)
 }
 
+// <p>Dataset placeholder.</p>
 func (o AnalysisDataSetReferenceOutput) DataSetPlaceholder() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalysisDataSetReference) string { return v.DataSetPlaceholder }).(pulumi.StringOutput)
 }
@@ -16343,8 +16352,11 @@ func (o AnalysisDateTimeHierarchyPtrOutput) HierarchyId() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// <p>A date-time parameter.</p>
 type AnalysisDateTimeParameter struct {
-	Name   string   `pulumi:"name"`
+	// <p>A display name for the date-time parameter.</p>
+	Name string `pulumi:"name"`
+	// <p>The values for the date-time parameter.</p>
 	Values []string `pulumi:"values"`
 }
 
@@ -16359,8 +16371,11 @@ type AnalysisDateTimeParameterInput interface {
 	ToAnalysisDateTimeParameterOutputWithContext(context.Context) AnalysisDateTimeParameterOutput
 }
 
+// <p>A date-time parameter.</p>
 type AnalysisDateTimeParameterArgs struct {
-	Name   pulumi.StringInput      `pulumi:"name"`
+	// <p>A display name for the date-time parameter.</p>
+	Name pulumi.StringInput `pulumi:"name"`
+	// <p>The values for the date-time parameter.</p>
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -16401,6 +16416,7 @@ func (i AnalysisDateTimeParameterArray) ToAnalysisDateTimeParameterArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(AnalysisDateTimeParameterArrayOutput)
 }
 
+// <p>A date-time parameter.</p>
 type AnalysisDateTimeParameterOutput struct{ *pulumi.OutputState }
 
 func (AnalysisDateTimeParameterOutput) ElementType() reflect.Type {
@@ -16415,10 +16431,12 @@ func (o AnalysisDateTimeParameterOutput) ToAnalysisDateTimeParameterOutputWithCo
 	return o
 }
 
+// <p>A display name for the date-time parameter.</p>
 func (o AnalysisDateTimeParameterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalysisDateTimeParameter) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// <p>The values for the date-time parameter.</p>
 func (o AnalysisDateTimeParameterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AnalysisDateTimeParameter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -17103,8 +17121,11 @@ func (o AnalysisDecimalDefaultValuesPtrOutput) StaticValues() pulumi.Float64Arra
 	}).(pulumi.Float64ArrayOutput)
 }
 
+// <p>A decimal parameter.</p>
 type AnalysisDecimalParameter struct {
-	Name   string    `pulumi:"name"`
+	// <p>A display name for the decimal parameter.</p>
+	Name string `pulumi:"name"`
+	// <p>The values for the decimal parameter.</p>
 	Values []float64 `pulumi:"values"`
 }
 
@@ -17119,8 +17140,11 @@ type AnalysisDecimalParameterInput interface {
 	ToAnalysisDecimalParameterOutputWithContext(context.Context) AnalysisDecimalParameterOutput
 }
 
+// <p>A decimal parameter.</p>
 type AnalysisDecimalParameterArgs struct {
-	Name   pulumi.StringInput       `pulumi:"name"`
+	// <p>A display name for the decimal parameter.</p>
+	Name pulumi.StringInput `pulumi:"name"`
+	// <p>The values for the decimal parameter.</p>
 	Values pulumi.Float64ArrayInput `pulumi:"values"`
 }
 
@@ -17161,6 +17185,7 @@ func (i AnalysisDecimalParameterArray) ToAnalysisDecimalParameterArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(AnalysisDecimalParameterArrayOutput)
 }
 
+// <p>A decimal parameter.</p>
 type AnalysisDecimalParameterOutput struct{ *pulumi.OutputState }
 
 func (AnalysisDecimalParameterOutput) ElementType() reflect.Type {
@@ -17175,10 +17200,12 @@ func (o AnalysisDecimalParameterOutput) ToAnalysisDecimalParameterOutputWithCont
 	return o
 }
 
+// <p>A display name for the decimal parameter.</p>
 func (o AnalysisDecimalParameterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalysisDecimalParameter) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// <p>The values for the decimal parameter.</p>
 func (o AnalysisDecimalParameterOutput) Values() pulumi.Float64ArrayOutput {
 	return o.ApplyT(func(v AnalysisDecimalParameter) []float64 { return v.Values }).(pulumi.Float64ArrayOutput)
 }
@@ -20178,10 +20205,13 @@ func (o AnalysisEntityArrayOutput) Index(i pulumi.IntInput) AnalysisEntityOutput
 	}).(AnalysisEntityOutput)
 }
 
+// <p>Analysis error.</p>
 type AnalysisError struct {
-	Message          *string            `pulumi:"message"`
-	Type             *AnalysisErrorType `pulumi:"type"`
-	ViolatedEntities []AnalysisEntity   `pulumi:"violatedEntities"`
+	// <p>The message associated with the analysis error.</p>
+	Message *string            `pulumi:"message"`
+	Type    *AnalysisErrorType `pulumi:"type"`
+	// <p>Lists the violated entities that caused the analysis error</p>
+	ViolatedEntities []AnalysisEntity `pulumi:"violatedEntities"`
 }
 
 // AnalysisErrorInput is an input type that accepts AnalysisErrorArgs and AnalysisErrorOutput values.
@@ -20195,10 +20225,13 @@ type AnalysisErrorInput interface {
 	ToAnalysisErrorOutputWithContext(context.Context) AnalysisErrorOutput
 }
 
+// <p>Analysis error.</p>
 type AnalysisErrorArgs struct {
-	Message          pulumi.StringPtrInput     `pulumi:"message"`
-	Type             AnalysisErrorTypePtrInput `pulumi:"type"`
-	ViolatedEntities AnalysisEntityArrayInput  `pulumi:"violatedEntities"`
+	// <p>The message associated with the analysis error.</p>
+	Message pulumi.StringPtrInput     `pulumi:"message"`
+	Type    AnalysisErrorTypePtrInput `pulumi:"type"`
+	// <p>Lists the violated entities that caused the analysis error</p>
+	ViolatedEntities AnalysisEntityArrayInput `pulumi:"violatedEntities"`
 }
 
 func (AnalysisErrorArgs) ElementType() reflect.Type {
@@ -20238,6 +20271,7 @@ func (i AnalysisErrorArray) ToAnalysisErrorArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(AnalysisErrorArrayOutput)
 }
 
+// <p>Analysis error.</p>
 type AnalysisErrorOutput struct{ *pulumi.OutputState }
 
 func (AnalysisErrorOutput) ElementType() reflect.Type {
@@ -20252,6 +20286,7 @@ func (o AnalysisErrorOutput) ToAnalysisErrorOutputWithContext(ctx context.Contex
 	return o
 }
 
+// <p>The message associated with the analysis error.</p>
 func (o AnalysisErrorOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalysisError) *string { return v.Message }).(pulumi.StringPtrOutput)
 }
@@ -20260,6 +20295,7 @@ func (o AnalysisErrorOutput) Type() AnalysisErrorTypePtrOutput {
 	return o.ApplyT(func(v AnalysisError) *AnalysisErrorType { return v.Type }).(AnalysisErrorTypePtrOutput)
 }
 
+// <p>Lists the violated entities that caused the analysis error</p>
 func (o AnalysisErrorOutput) ViolatedEntities() AnalysisEntityArrayOutput {
 	return o.ApplyT(func(v AnalysisError) []AnalysisEntity { return v.ViolatedEntities }).(AnalysisEntityArrayOutput)
 }
@@ -23834,6 +23870,7 @@ func (o AnalysisFilterListControlPtrOutput) Type() AnalysisSheetControlListTypeP
 }
 
 type AnalysisFilterOperationSelectedFieldsConfiguration struct {
+	// <p>The selected columns of a dataset.</p>
 	SelectedColumns      []AnalysisColumnIdentifier    `pulumi:"selectedColumns"`
 	SelectedFieldOptions *AnalysisSelectedFieldOptions `pulumi:"selectedFieldOptions"`
 	SelectedFields       []string                      `pulumi:"selectedFields"`
@@ -23851,6 +23888,7 @@ type AnalysisFilterOperationSelectedFieldsConfigurationInput interface {
 }
 
 type AnalysisFilterOperationSelectedFieldsConfigurationArgs struct {
+	// <p>The selected columns of a dataset.</p>
 	SelectedColumns      AnalysisColumnIdentifierArrayInput   `pulumi:"selectedColumns"`
 	SelectedFieldOptions AnalysisSelectedFieldOptionsPtrInput `pulumi:"selectedFieldOptions"`
 	SelectedFields       pulumi.StringArrayInput              `pulumi:"selectedFields"`
@@ -23933,6 +23971,7 @@ func (o AnalysisFilterOperationSelectedFieldsConfigurationOutput) ToAnalysisFilt
 	}).(AnalysisFilterOperationSelectedFieldsConfigurationPtrOutput)
 }
 
+// <p>The selected columns of a dataset.</p>
 func (o AnalysisFilterOperationSelectedFieldsConfigurationOutput) SelectedColumns() AnalysisColumnIdentifierArrayOutput {
 	return o.ApplyT(func(v AnalysisFilterOperationSelectedFieldsConfiguration) []AnalysisColumnIdentifier {
 		return v.SelectedColumns
@@ -23973,6 +24012,7 @@ func (o AnalysisFilterOperationSelectedFieldsConfigurationPtrOutput) Elem() Anal
 	}).(AnalysisFilterOperationSelectedFieldsConfigurationOutput)
 }
 
+// <p>The selected columns of a dataset.</p>
 func (o AnalysisFilterOperationSelectedFieldsConfigurationPtrOutput) SelectedColumns() AnalysisColumnIdentifierArrayOutput {
 	return o.ApplyT(func(v *AnalysisFilterOperationSelectedFieldsConfiguration) []AnalysisColumnIdentifier {
 		if v == nil {
@@ -34948,8 +34988,11 @@ func (o AnalysisIntegerDefaultValuesPtrOutput) StaticValues() pulumi.Float64Arra
 	}).(pulumi.Float64ArrayOutput)
 }
 
+// <p>An integer parameter.</p>
 type AnalysisIntegerParameter struct {
-	Name   string    `pulumi:"name"`
+	// <p>The name of the integer parameter.</p>
+	Name string `pulumi:"name"`
+	// <p>The values for the integer parameter.</p>
 	Values []float64 `pulumi:"values"`
 }
 
@@ -34964,8 +35007,11 @@ type AnalysisIntegerParameterInput interface {
 	ToAnalysisIntegerParameterOutputWithContext(context.Context) AnalysisIntegerParameterOutput
 }
 
+// <p>An integer parameter.</p>
 type AnalysisIntegerParameterArgs struct {
-	Name   pulumi.StringInput       `pulumi:"name"`
+	// <p>The name of the integer parameter.</p>
+	Name pulumi.StringInput `pulumi:"name"`
+	// <p>The values for the integer parameter.</p>
 	Values pulumi.Float64ArrayInput `pulumi:"values"`
 }
 
@@ -35006,6 +35052,7 @@ func (i AnalysisIntegerParameterArray) ToAnalysisIntegerParameterArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(AnalysisIntegerParameterArrayOutput)
 }
 
+// <p>An integer parameter.</p>
 type AnalysisIntegerParameterOutput struct{ *pulumi.OutputState }
 
 func (AnalysisIntegerParameterOutput) ElementType() reflect.Type {
@@ -35020,10 +35067,12 @@ func (o AnalysisIntegerParameterOutput) ToAnalysisIntegerParameterOutputWithCont
 	return o
 }
 
+// <p>The name of the integer parameter.</p>
 func (o AnalysisIntegerParameterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalysisIntegerParameter) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// <p>The values for the integer parameter.</p>
 func (o AnalysisIntegerParameterOutput) Values() pulumi.Float64ArrayOutput {
 	return o.ApplyT(func(v AnalysisIntegerParameter) []float64 { return v.Values }).(pulumi.Float64ArrayOutput)
 }
@@ -46782,11 +46831,16 @@ func (o AnalysisParameterTextFieldControlPtrOutput) Title() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// <p>A list of Amazon QuickSight parameters and the list's override values.</p>
 type AnalysisParameters struct {
+	// <p>The parameters that have a data type of date-time.</p>
 	DateTimeParameters []AnalysisDateTimeParameter `pulumi:"dateTimeParameters"`
-	DecimalParameters  []AnalysisDecimalParameter  `pulumi:"decimalParameters"`
-	IntegerParameters  []AnalysisIntegerParameter  `pulumi:"integerParameters"`
-	StringParameters   []AnalysisStringParameter   `pulumi:"stringParameters"`
+	// <p>The parameters that have a data type of decimal.</p>
+	DecimalParameters []AnalysisDecimalParameter `pulumi:"decimalParameters"`
+	// <p>The parameters that have a data type of integer.</p>
+	IntegerParameters []AnalysisIntegerParameter `pulumi:"integerParameters"`
+	// <p>The parameters that have a data type of string.</p>
+	StringParameters []AnalysisStringParameter `pulumi:"stringParameters"`
 }
 
 // AnalysisParametersInput is an input type that accepts AnalysisParametersArgs and AnalysisParametersOutput values.
@@ -46800,11 +46854,16 @@ type AnalysisParametersInput interface {
 	ToAnalysisParametersOutputWithContext(context.Context) AnalysisParametersOutput
 }
 
+// <p>A list of Amazon QuickSight parameters and the list's override values.</p>
 type AnalysisParametersArgs struct {
+	// <p>The parameters that have a data type of date-time.</p>
 	DateTimeParameters AnalysisDateTimeParameterArrayInput `pulumi:"dateTimeParameters"`
-	DecimalParameters  AnalysisDecimalParameterArrayInput  `pulumi:"decimalParameters"`
-	IntegerParameters  AnalysisIntegerParameterArrayInput  `pulumi:"integerParameters"`
-	StringParameters   AnalysisStringParameterArrayInput   `pulumi:"stringParameters"`
+	// <p>The parameters that have a data type of decimal.</p>
+	DecimalParameters AnalysisDecimalParameterArrayInput `pulumi:"decimalParameters"`
+	// <p>The parameters that have a data type of integer.</p>
+	IntegerParameters AnalysisIntegerParameterArrayInput `pulumi:"integerParameters"`
+	// <p>The parameters that have a data type of string.</p>
+	StringParameters AnalysisStringParameterArrayInput `pulumi:"stringParameters"`
 }
 
 func (AnalysisParametersArgs) ElementType() reflect.Type {
@@ -46860,6 +46919,7 @@ func (i *analysisParametersPtrType) ToAnalysisParametersPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(AnalysisParametersPtrOutput)
 }
 
+// <p>A list of Amazon QuickSight parameters and the list's override values.</p>
 type AnalysisParametersOutput struct{ *pulumi.OutputState }
 
 func (AnalysisParametersOutput) ElementType() reflect.Type {
@@ -46884,18 +46944,22 @@ func (o AnalysisParametersOutput) ToAnalysisParametersPtrOutputWithContext(ctx c
 	}).(AnalysisParametersPtrOutput)
 }
 
+// <p>The parameters that have a data type of date-time.</p>
 func (o AnalysisParametersOutput) DateTimeParameters() AnalysisDateTimeParameterArrayOutput {
 	return o.ApplyT(func(v AnalysisParameters) []AnalysisDateTimeParameter { return v.DateTimeParameters }).(AnalysisDateTimeParameterArrayOutput)
 }
 
+// <p>The parameters that have a data type of decimal.</p>
 func (o AnalysisParametersOutput) DecimalParameters() AnalysisDecimalParameterArrayOutput {
 	return o.ApplyT(func(v AnalysisParameters) []AnalysisDecimalParameter { return v.DecimalParameters }).(AnalysisDecimalParameterArrayOutput)
 }
 
+// <p>The parameters that have a data type of integer.</p>
 func (o AnalysisParametersOutput) IntegerParameters() AnalysisIntegerParameterArrayOutput {
 	return o.ApplyT(func(v AnalysisParameters) []AnalysisIntegerParameter { return v.IntegerParameters }).(AnalysisIntegerParameterArrayOutput)
 }
 
+// <p>The parameters that have a data type of string.</p>
 func (o AnalysisParametersOutput) StringParameters() AnalysisStringParameterArrayOutput {
 	return o.ApplyT(func(v AnalysisParameters) []AnalysisStringParameter { return v.StringParameters }).(AnalysisStringParameterArrayOutput)
 }
@@ -46924,6 +46988,7 @@ func (o AnalysisParametersPtrOutput) Elem() AnalysisParametersOutput {
 	}).(AnalysisParametersOutput)
 }
 
+// <p>The parameters that have a data type of date-time.</p>
 func (o AnalysisParametersPtrOutput) DateTimeParameters() AnalysisDateTimeParameterArrayOutput {
 	return o.ApplyT(func(v *AnalysisParameters) []AnalysisDateTimeParameter {
 		if v == nil {
@@ -46933,6 +46998,7 @@ func (o AnalysisParametersPtrOutput) DateTimeParameters() AnalysisDateTimeParame
 	}).(AnalysisDateTimeParameterArrayOutput)
 }
 
+// <p>The parameters that have a data type of decimal.</p>
 func (o AnalysisParametersPtrOutput) DecimalParameters() AnalysisDecimalParameterArrayOutput {
 	return o.ApplyT(func(v *AnalysisParameters) []AnalysisDecimalParameter {
 		if v == nil {
@@ -46942,6 +47008,7 @@ func (o AnalysisParametersPtrOutput) DecimalParameters() AnalysisDecimalParamete
 	}).(AnalysisDecimalParameterArrayOutput)
 }
 
+// <p>The parameters that have a data type of integer.</p>
 func (o AnalysisParametersPtrOutput) IntegerParameters() AnalysisIntegerParameterArrayOutput {
 	return o.ApplyT(func(v *AnalysisParameters) []AnalysisIntegerParameter {
 		if v == nil {
@@ -46951,6 +47018,7 @@ func (o AnalysisParametersPtrOutput) IntegerParameters() AnalysisIntegerParamete
 	}).(AnalysisIntegerParameterArrayOutput)
 }
 
+// <p>The parameters that have a data type of string.</p>
 func (o AnalysisParametersPtrOutput) StringParameters() AnalysisStringParameterArrayOutput {
 	return o.ApplyT(func(v *AnalysisParameters) []AnalysisStringParameter {
 		if v == nil {
@@ -55367,9 +55435,26 @@ func (o AnalysisRelativeDatesFilterPtrOutput) TimeGranularity() AnalysisTimeGran
 	}).(AnalysisTimeGranularityPtrOutput)
 }
 
+// <p>Permission for the resource.</p>
 type AnalysisResourcePermission struct {
-	Actions   []string `pulumi:"actions"`
-	Principal string   `pulumi:"principal"`
+	// <p>The IAM action to grant or revoke permissions on.</p>
+	Actions []string `pulumi:"actions"`
+	// <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+	//             following:</p>
+	//          <ul>
+	//             <li>
+	//                <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+	//             </li>
+	//             <li>
+	//                <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+	//             </li>
+	//             <li>
+	//                <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
+	//                     ARN. Use this option only to share resources (templates) across Amazon Web Services accounts.
+	//                     (This is less common.) </p>
+	//             </li>
+	//          </ul>
+	Principal string `pulumi:"principal"`
 }
 
 // AnalysisResourcePermissionInput is an input type that accepts AnalysisResourcePermissionArgs and AnalysisResourcePermissionOutput values.
@@ -55383,9 +55468,26 @@ type AnalysisResourcePermissionInput interface {
 	ToAnalysisResourcePermissionOutputWithContext(context.Context) AnalysisResourcePermissionOutput
 }
 
+// <p>Permission for the resource.</p>
 type AnalysisResourcePermissionArgs struct {
-	Actions   pulumi.StringArrayInput `pulumi:"actions"`
-	Principal pulumi.StringInput      `pulumi:"principal"`
+	// <p>The IAM action to grant or revoke permissions on.</p>
+	Actions pulumi.StringArrayInput `pulumi:"actions"`
+	// <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+	//             following:</p>
+	//          <ul>
+	//             <li>
+	//                <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+	//             </li>
+	//             <li>
+	//                <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+	//             </li>
+	//             <li>
+	//                <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
+	//                     ARN. Use this option only to share resources (templates) across Amazon Web Services accounts.
+	//                     (This is less common.) </p>
+	//             </li>
+	//          </ul>
+	Principal pulumi.StringInput `pulumi:"principal"`
 }
 
 func (AnalysisResourcePermissionArgs) ElementType() reflect.Type {
@@ -55425,6 +55527,7 @@ func (i AnalysisResourcePermissionArray) ToAnalysisResourcePermissionArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(AnalysisResourcePermissionArrayOutput)
 }
 
+// <p>Permission for the resource.</p>
 type AnalysisResourcePermissionOutput struct{ *pulumi.OutputState }
 
 func (AnalysisResourcePermissionOutput) ElementType() reflect.Type {
@@ -55439,10 +55542,27 @@ func (o AnalysisResourcePermissionOutput) ToAnalysisResourcePermissionOutputWith
 	return o
 }
 
+// <p>The IAM action to grant or revoke permissions on.</p>
 func (o AnalysisResourcePermissionOutput) Actions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AnalysisResourcePermission) []string { return v.Actions }).(pulumi.StringArrayOutput)
 }
 
+// <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+//
+//	   following:</p>
+//	<ul>
+//	   <li>
+//	      <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+//	   </li>
+//	   <li>
+//	      <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+//	   </li>
+//	   <li>
+//	      <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
+//	           ARN. Use this option only to share resources (templates) across Amazon Web Services accounts.
+//	           (This is less common.) </p>
+//	   </li>
+//	</ul>
 func (o AnalysisResourcePermissionOutput) Principal() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalysisResourcePermission) string { return v.Principal }).(pulumi.StringOutput)
 }
@@ -59544,8 +59664,17 @@ func (o AnalysisShapeConditionalFormatPtrOutput) BackgroundColor() AnalysisCondi
 	}).(AnalysisConditionalFormattingColorPtrOutput)
 }
 
+// <p>A <i>sheet</i>, which is an object that contains a set of visuals that
+//
+//	are viewed together on one page in Amazon QuickSight. Every analysis and dashboard
+//	contains at least one sheet. Each sheet contains at least one visualization widget, for
+//	example a chart, pivot table, or narrative insight. Sheets can be associated with other
+//	components, such as controls, filters, and so on.</p>
 type AnalysisSheet struct {
-	Name    *string `pulumi:"name"`
+	// <p>The name of a sheet. This name is displayed on the sheet's tab in the Amazon QuickSight
+	//             console.</p>
+	Name *string `pulumi:"name"`
+	// <p>The unique identifier associated with a sheet.</p>
 	SheetId *string `pulumi:"sheetId"`
 }
 
@@ -59560,8 +59689,17 @@ type AnalysisSheetInput interface {
 	ToAnalysisSheetOutputWithContext(context.Context) AnalysisSheetOutput
 }
 
+// <p>A <i>sheet</i>, which is an object that contains a set of visuals that
+//
+//	are viewed together on one page in Amazon QuickSight. Every analysis and dashboard
+//	contains at least one sheet. Each sheet contains at least one visualization widget, for
+//	example a chart, pivot table, or narrative insight. Sheets can be associated with other
+//	components, such as controls, filters, and so on.</p>
 type AnalysisSheetArgs struct {
-	Name    pulumi.StringPtrInput `pulumi:"name"`
+	// <p>The name of a sheet. This name is displayed on the sheet's tab in the Amazon QuickSight
+	//             console.</p>
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// <p>The unique identifier associated with a sheet.</p>
 	SheetId pulumi.StringPtrInput `pulumi:"sheetId"`
 }
 
@@ -59602,6 +59740,12 @@ func (i AnalysisSheetArray) ToAnalysisSheetArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(AnalysisSheetArrayOutput)
 }
 
+// <p>A <i>sheet</i>, which is an object that contains a set of visuals that
+//
+//	are viewed together on one page in Amazon QuickSight. Every analysis and dashboard
+//	contains at least one sheet. Each sheet contains at least one visualization widget, for
+//	example a chart, pivot table, or narrative insight. Sheets can be associated with other
+//	components, such as controls, filters, and so on.</p>
 type AnalysisSheetOutput struct{ *pulumi.OutputState }
 
 func (AnalysisSheetOutput) ElementType() reflect.Type {
@@ -59616,10 +59760,14 @@ func (o AnalysisSheetOutput) ToAnalysisSheetOutputWithContext(ctx context.Contex
 	return o
 }
 
+// <p>The name of a sheet. This name is displayed on the sheet's tab in the Amazon QuickSight
+//
+//	console.</p>
 func (o AnalysisSheetOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalysisSheet) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// <p>The unique identifier associated with a sheet.</p>
 func (o AnalysisSheetOutput) SheetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalysisSheet) *string { return v.SheetId }).(pulumi.StringPtrOutput)
 }
@@ -61218,6 +61366,7 @@ func (o AnalysisSmallMultiplesOptionsPtrOutput) YAxis() AnalysisSmallMultiplesAx
 	}).(AnalysisSmallMultiplesAxisPropertiesPtrOutput)
 }
 
+// <p>The source entity of an analysis.</p>
 type AnalysisSourceEntity struct {
 	SourceTemplate *AnalysisSourceTemplate `pulumi:"sourceTemplate"`
 }
@@ -61233,6 +61382,7 @@ type AnalysisSourceEntityInput interface {
 	ToAnalysisSourceEntityOutputWithContext(context.Context) AnalysisSourceEntityOutput
 }
 
+// <p>The source entity of an analysis.</p>
 type AnalysisSourceEntityArgs struct {
 	SourceTemplate AnalysisSourceTemplatePtrInput `pulumi:"sourceTemplate"`
 }
@@ -61290,6 +61440,7 @@ func (i *analysisSourceEntityPtrType) ToAnalysisSourceEntityPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(AnalysisSourceEntityPtrOutput)
 }
 
+// <p>The source entity of an analysis.</p>
 type AnalysisSourceEntityOutput struct{ *pulumi.OutputState }
 
 func (AnalysisSourceEntityOutput) ElementType() reflect.Type {
@@ -61351,8 +61502,11 @@ func (o AnalysisSourceEntityPtrOutput) SourceTemplate() AnalysisSourceTemplatePt
 	}).(AnalysisSourceTemplatePtrOutput)
 }
 
+// <p>The source template of an analysis.</p>
 type AnalysisSourceTemplate struct {
-	Arn               string                     `pulumi:"arn"`
+	// <p>The Amazon Resource Name (ARN) of the source template of an analysis.</p>
+	Arn string `pulumi:"arn"`
+	// <p>The dataset references of the source template of an analysis.</p>
 	DataSetReferences []AnalysisDataSetReference `pulumi:"dataSetReferences"`
 }
 
@@ -61367,8 +61521,11 @@ type AnalysisSourceTemplateInput interface {
 	ToAnalysisSourceTemplateOutputWithContext(context.Context) AnalysisSourceTemplateOutput
 }
 
+// <p>The source template of an analysis.</p>
 type AnalysisSourceTemplateArgs struct {
-	Arn               pulumi.StringInput                 `pulumi:"arn"`
+	// <p>The Amazon Resource Name (ARN) of the source template of an analysis.</p>
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// <p>The dataset references of the source template of an analysis.</p>
 	DataSetReferences AnalysisDataSetReferenceArrayInput `pulumi:"dataSetReferences"`
 }
 
@@ -61425,6 +61582,7 @@ func (i *analysisSourceTemplatePtrType) ToAnalysisSourceTemplatePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(AnalysisSourceTemplatePtrOutput)
 }
 
+// <p>The source template of an analysis.</p>
 type AnalysisSourceTemplateOutput struct{ *pulumi.OutputState }
 
 func (AnalysisSourceTemplateOutput) ElementType() reflect.Type {
@@ -61449,10 +61607,12 @@ func (o AnalysisSourceTemplateOutput) ToAnalysisSourceTemplatePtrOutputWithConte
 	}).(AnalysisSourceTemplatePtrOutput)
 }
 
+// <p>The Amazon Resource Name (ARN) of the source template of an analysis.</p>
 func (o AnalysisSourceTemplateOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalysisSourceTemplate) string { return v.Arn }).(pulumi.StringOutput)
 }
 
+// <p>The dataset references of the source template of an analysis.</p>
 func (o AnalysisSourceTemplateOutput) DataSetReferences() AnalysisDataSetReferenceArrayOutput {
 	return o.ApplyT(func(v AnalysisSourceTemplate) []AnalysisDataSetReference { return v.DataSetReferences }).(AnalysisDataSetReferenceArrayOutput)
 }
@@ -61481,6 +61641,7 @@ func (o AnalysisSourceTemplatePtrOutput) Elem() AnalysisSourceTemplateOutput {
 	}).(AnalysisSourceTemplateOutput)
 }
 
+// <p>The Amazon Resource Name (ARN) of the source template of an analysis.</p>
 func (o AnalysisSourceTemplatePtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalysisSourceTemplate) *string {
 		if v == nil {
@@ -61490,6 +61651,7 @@ func (o AnalysisSourceTemplatePtrOutput) Arn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// <p>The dataset references of the source template of an analysis.</p>
 func (o AnalysisSourceTemplatePtrOutput) DataSetReferences() AnalysisDataSetReferenceArrayOutput {
 	return o.ApplyT(func(v *AnalysisSourceTemplate) []AnalysisDataSetReference {
 		if v == nil {
@@ -61993,8 +62155,11 @@ func (o AnalysisStringFormatConfigurationPtrOutput) NumericFormatConfiguration()
 	}).(AnalysisNumericFormatConfigurationPtrOutput)
 }
 
+// <p>A string parameter.</p>
 type AnalysisStringParameter struct {
-	Name   string   `pulumi:"name"`
+	// <p>A display name for a string parameter.</p>
+	Name string `pulumi:"name"`
+	// <p>The values of a string parameter.</p>
 	Values []string `pulumi:"values"`
 }
 
@@ -62009,8 +62174,11 @@ type AnalysisStringParameterInput interface {
 	ToAnalysisStringParameterOutputWithContext(context.Context) AnalysisStringParameterOutput
 }
 
+// <p>A string parameter.</p>
 type AnalysisStringParameterArgs struct {
-	Name   pulumi.StringInput      `pulumi:"name"`
+	// <p>A display name for a string parameter.</p>
+	Name pulumi.StringInput `pulumi:"name"`
+	// <p>The values of a string parameter.</p>
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -62051,6 +62219,7 @@ func (i AnalysisStringParameterArray) ToAnalysisStringParameterArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(AnalysisStringParameterArrayOutput)
 }
 
+// <p>A string parameter.</p>
 type AnalysisStringParameterOutput struct{ *pulumi.OutputState }
 
 func (AnalysisStringParameterOutput) ElementType() reflect.Type {
@@ -62065,10 +62234,12 @@ func (o AnalysisStringParameterOutput) ToAnalysisStringParameterOutputWithContex
 	return o
 }
 
+// <p>A display name for a string parameter.</p>
 func (o AnalysisStringParameterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalysisStringParameter) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// <p>The values of a string parameter.</p>
 func (o AnalysisStringParameterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AnalysisStringParameter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -66776,8 +66947,13 @@ func (o AnalysisTableVisualPtrOutput) VisualId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
+//
+//	resource.</p>
 type AnalysisTag struct {
-	Key   string `pulumi:"key"`
+	// <p>Tag key.</p>
+	Key string `pulumi:"key"`
+	// <p>Tag value.</p>
 	Value string `pulumi:"value"`
 }
 
@@ -71325,6 +71501,7 @@ func (o AnalysisUniqueValuesComputationPtrOutput) Name() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// <p>The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to <code>LENIENT</code>, validation is skipped for specific errors.</p>
 type AnalysisValidationStrategy struct {
 	Mode AnalysisValidationStrategyMode `pulumi:"mode"`
 }
@@ -71340,6 +71517,7 @@ type AnalysisValidationStrategyInput interface {
 	ToAnalysisValidationStrategyOutputWithContext(context.Context) AnalysisValidationStrategyOutput
 }
 
+// <p>The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to <code>LENIENT</code>, validation is skipped for specific errors.</p>
 type AnalysisValidationStrategyArgs struct {
 	Mode AnalysisValidationStrategyModeInput `pulumi:"mode"`
 }
@@ -71397,6 +71575,7 @@ func (i *analysisValidationStrategyPtrType) ToAnalysisValidationStrategyPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(AnalysisValidationStrategyPtrOutput)
 }
 
+// <p>The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to <code>LENIENT</code>, validation is skipped for specific errors.</p>
 type AnalysisValidationStrategyOutput struct{ *pulumi.OutputState }
 
 func (AnalysisValidationStrategyOutput) ElementType() reflect.Type {
@@ -74908,6 +75087,7 @@ func (o AnalysisWordCloudVisualPtrOutput) VisualId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// <p>An ad hoc (one-time) filtering option.</p>
 type DashboardAdHocFilteringOption struct {
 	AvailabilityStatus *DashboardBehavior `pulumi:"availabilityStatus"`
 }
@@ -74923,6 +75103,7 @@ type DashboardAdHocFilteringOptionInput interface {
 	ToDashboardAdHocFilteringOptionOutputWithContext(context.Context) DashboardAdHocFilteringOptionOutput
 }
 
+// <p>An ad hoc (one-time) filtering option.</p>
 type DashboardAdHocFilteringOptionArgs struct {
 	AvailabilityStatus DashboardBehaviorPtrInput `pulumi:"availabilityStatus"`
 }
@@ -74980,6 +75161,7 @@ func (i *dashboardAdHocFilteringOptionPtrType) ToDashboardAdHocFilteringOptionPt
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardAdHocFilteringOptionPtrOutput)
 }
 
+// <p>An ad hoc (one-time) filtering option.</p>
 type DashboardAdHocFilteringOptionOutput struct{ *pulumi.OutputState }
 
 func (DashboardAdHocFilteringOptionOutput) ElementType() reflect.Type {

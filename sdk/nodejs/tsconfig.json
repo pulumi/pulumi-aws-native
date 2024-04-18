@@ -764,6 +764,7 @@
         "ec2/transitGatewayMulticastGroupMember.ts",
         "ec2/transitGatewayMulticastGroupSource.ts",
         "ec2/transitGatewayPeeringAttachment.ts",
+        "ec2/transitGatewayRoute.ts",
         "ec2/transitGatewayRouteTable.ts",
         "ec2/transitGatewayRouteTableAssociation.ts",
         "ec2/transitGatewayVpcAttachment.ts",

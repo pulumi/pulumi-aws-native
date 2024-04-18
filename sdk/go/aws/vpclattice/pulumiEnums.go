@@ -1884,7 +1884,6 @@ type TargetGroupHealthCheckConfigProtocolVersion string
 const (
 	TargetGroupHealthCheckConfigProtocolVersionHttp1 = TargetGroupHealthCheckConfigProtocolVersion("HTTP1")
 	TargetGroupHealthCheckConfigProtocolVersionHttp2 = TargetGroupHealthCheckConfigProtocolVersion("HTTP2")
-	TargetGroupHealthCheckConfigProtocolVersionGrpc  = TargetGroupHealthCheckConfigProtocolVersion("GRPC")
 )
 
 func (TargetGroupHealthCheckConfigProtocolVersion) ElementType() reflect.Type {
@@ -2011,7 +2010,6 @@ func (o TargetGroupHealthCheckConfigProtocolVersionPtrOutput) ToStringPtrOutputW
 //
 //	TargetGroupHealthCheckConfigProtocolVersionHttp1
 //	TargetGroupHealthCheckConfigProtocolVersionHttp2
-//	TargetGroupHealthCheckConfigProtocolVersionGrpc
 type TargetGroupHealthCheckConfigProtocolVersionInput interface {
 	pulumi.Input
 

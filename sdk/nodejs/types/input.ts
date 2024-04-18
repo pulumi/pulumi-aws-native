@@ -2620,7 +2620,7 @@ export namespace appflow {
 export namespace appintegrations {
     export interface ApplicationExternalUrlConfigArgs {
         accessUrl: pulumi.Input<string>;
-        approvedOrigins: pulumi.Input<pulumi.Input<string>[]>;
+        approvedOrigins?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     /**
@@ -29862,6 +29862,17 @@ export namespace nimblestudio {
     }
 }
 
+export namespace oam {
+    export interface LinkConfigurationArgs {
+        logGroupConfiguration?: pulumi.Input<inputs.oam.LinkFilterArgs>;
+        metricConfiguration?: pulumi.Input<inputs.oam.LinkFilterArgs>;
+    }
+
+    export interface LinkFilterArgs {
+        filter: pulumi.Input<string>;
+    }
+}
+
 export namespace omics {
     export interface AnnotationStoreReferenceItemArgs {
         referenceArn: pulumi.Input<string>;
@@ -31648,8 +31659,17 @@ export namespace quicksight {
         identifier: pulumi.Input<string>;
     }
 
+    /**
+     * <p>Dataset reference.</p>
+     */
     export interface AnalysisDataSetReferenceArgs {
+        /**
+         * <p>Dataset Amazon Resource Name (ARN).</p>
+         */
         dataSetArn: pulumi.Input<string>;
+        /**
+         * <p>Dataset placeholder.</p>
+         */
         dataSetPlaceholder: pulumi.Input<string>;
     }
 
@@ -31689,8 +31709,17 @@ export namespace quicksight {
         hierarchyId: pulumi.Input<string>;
     }
 
+    /**
+     * <p>A date-time parameter.</p>
+     */
     export interface AnalysisDateTimeParameterArgs {
+        /**
+         * <p>A display name for the date-time parameter.</p>
+         */
         name: pulumi.Input<string>;
+        /**
+         * <p>The values for the date-time parameter.</p>
+         */
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
@@ -31718,8 +31747,17 @@ export namespace quicksight {
         staticValues?: pulumi.Input<pulumi.Input<number>[]>;
     }
 
+    /**
+     * <p>A decimal parameter.</p>
+     */
     export interface AnalysisDecimalParameterArgs {
+        /**
+         * <p>A display name for the decimal parameter.</p>
+         */
         name: pulumi.Input<string>;
+        /**
+         * <p>The values for the decimal parameter.</p>
+         */
         values: pulumi.Input<pulumi.Input<number>[]>;
     }
 
@@ -31833,9 +31871,18 @@ export namespace quicksight {
         path?: pulumi.Input<string>;
     }
 
+    /**
+     * <p>Analysis error.</p>
+     */
     export interface AnalysisErrorArgs {
+        /**
+         * <p>The message associated with the analysis error.</p>
+         */
         message?: pulumi.Input<string>;
         type?: pulumi.Input<enums.quicksight.AnalysisErrorType>;
+        /**
+         * <p>Lists the violated entities that caused the analysis error</p>
+         */
         violatedEntities?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisEntityArgs>[]>;
     }
 
@@ -31993,6 +32040,9 @@ export namespace quicksight {
     }
 
     export interface AnalysisFilterOperationSelectedFieldsConfigurationArgs {
+        /**
+         * <p>The selected columns of a dataset.</p>
+         */
         selectedColumns?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisColumnIdentifierArgs>[]>;
         selectedFieldOptions?: pulumi.Input<enums.quicksight.AnalysisSelectedFieldOptions>;
         selectedFields?: pulumi.Input<pulumi.Input<string>[]>;
@@ -32446,8 +32496,17 @@ export namespace quicksight {
         staticValues?: pulumi.Input<pulumi.Input<number>[]>;
     }
 
+    /**
+     * <p>An integer parameter.</p>
+     */
     export interface AnalysisIntegerParameterArgs {
+        /**
+         * <p>The name of the integer parameter.</p>
+         */
         name: pulumi.Input<string>;
+        /**
+         * <p>The values for the integer parameter.</p>
+         */
         values: pulumi.Input<pulumi.Input<number>[]>;
     }
 
@@ -32928,10 +32987,25 @@ export namespace quicksight {
         title: pulumi.Input<string>;
     }
 
+    /**
+     * <p>A list of Amazon QuickSight parameters and the list's override values.</p>
+     */
     export interface AnalysisParametersArgs {
+        /**
+         * <p>The parameters that have a data type of date-time.</p>
+         */
         dateTimeParameters?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisDateTimeParameterArgs>[]>;
+        /**
+         * <p>The parameters that have a data type of decimal.</p>
+         */
         decimalParameters?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisDecimalParameterArgs>[]>;
+        /**
+         * <p>The parameters that have a data type of integer.</p>
+         */
         integerParameters?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisIntegerParameterArgs>[]>;
+        /**
+         * <p>The parameters that have a data type of string.</p>
+         */
         stringParameters?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisStringParameterArgs>[]>;
     }
 
@@ -33283,8 +33357,31 @@ export namespace quicksight {
         timeGranularity: pulumi.Input<enums.quicksight.AnalysisTimeGranularity>;
     }
 
+    /**
+     * <p>Permission for the resource.</p>
+     */
     export interface AnalysisResourcePermissionArgs {
+        /**
+         * <p>The IAM action to grant or revoke permissions on.</p>
+         */
         actions: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+         *             following:</p>
+         *          <ul>
+         *             <li>
+         *                <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+         *             </li>
+         *             <li>
+         *                <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+         *             </li>
+         *             <li>
+         *                <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
+         *                     ARN. Use this option only to share resources (templates) across Amazon Web Services accounts.
+         *                     (This is less common.) </p>
+         *             </li>
+         *          </ul>
+         */
         principal: pulumi.Input<string>;
     }
 
@@ -33440,8 +33537,22 @@ export namespace quicksight {
         backgroundColor: pulumi.Input<inputs.quicksight.AnalysisConditionalFormattingColorArgs>;
     }
 
+    /**
+     * <p>A <i>sheet</i>, which is an object that contains a set of visuals that
+     *             are viewed together on one page in Amazon QuickSight. Every analysis and dashboard
+     *             contains at least one sheet. Each sheet contains at least one visualization widget, for
+     *             example a chart, pivot table, or narrative insight. Sheets can be associated with other
+     *             components, such as controls, filters, and so on.</p>
+     */
     export interface AnalysisSheetArgs {
+        /**
+         * <p>The name of a sheet. This name is displayed on the sheet's tab in the Amazon QuickSight
+         *             console.</p>
+         */
         name?: pulumi.Input<string>;
+        /**
+         * <p>The unique identifier associated with a sheet.</p>
+         */
         sheetId?: pulumi.Input<string>;
     }
 
@@ -33519,12 +33630,24 @@ export namespace quicksight {
         yAxis?: pulumi.Input<inputs.quicksight.AnalysisSmallMultiplesAxisPropertiesArgs>;
     }
 
+    /**
+     * <p>The source entity of an analysis.</p>
+     */
     export interface AnalysisSourceEntityArgs {
         sourceTemplate?: pulumi.Input<inputs.quicksight.AnalysisSourceTemplateArgs>;
     }
 
+    /**
+     * <p>The source template of an analysis.</p>
+     */
     export interface AnalysisSourceTemplateArgs {
+        /**
+         * <p>The Amazon Resource Name (ARN) of the source template of an analysis.</p>
+         */
         arn: pulumi.Input<string>;
+        /**
+         * <p>The dataset references of the source template of an analysis.</p>
+         */
         dataSetReferences: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisDataSetReferenceArgs>[]>;
     }
 
@@ -33557,8 +33680,17 @@ export namespace quicksight {
         numericFormatConfiguration?: pulumi.Input<inputs.quicksight.AnalysisNumericFormatConfigurationArgs>;
     }
 
+    /**
+     * <p>A string parameter.</p>
+     */
     export interface AnalysisStringParameterArgs {
+        /**
+         * <p>A display name for a string parameter.</p>
+         */
         name: pulumi.Input<string>;
+        /**
+         * <p>The values of a string parameter.</p>
+         */
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
@@ -33928,6 +34060,9 @@ export namespace quicksight {
         name?: pulumi.Input<string>;
     }
 
+    /**
+     * <p>The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to <code>LENIENT</code>, validation is skipped for specific errors.</p>
+     */
     export interface AnalysisValidationStrategyArgs {
         mode: pulumi.Input<enums.quicksight.AnalysisValidationStrategyMode>;
     }
@@ -34083,6 +34218,9 @@ export namespace quicksight {
         visualId: pulumi.Input<string>;
     }
 
+    /**
+     * <p>An ad hoc (one-time) filtering option.</p>
+     */
     export interface DashboardAdHocFilteringOptionArgs {
         availabilityStatus?: pulumi.Input<enums.quicksight.DashboardBehavior>;
     }
@@ -34684,14 +34822,23 @@ export namespace quicksight {
         fieldValue?: pulumi.Input<string>;
     }
 
+    /**
+     * <p>The drill down options for data points in a dashbaord.</p>
+     */
     export interface DashboardDataPointDrillUpDownOptionArgs {
         availabilityStatus?: pulumi.Input<enums.quicksight.DashboardBehavior>;
     }
 
+    /**
+     * <p>The data point menu options of a dashboard.</p>
+     */
     export interface DashboardDataPointMenuLabelOptionArgs {
         availabilityStatus?: pulumi.Input<enums.quicksight.DashboardBehavior>;
     }
 
+    /**
+     * <p>The data point tooltip options.</p>
+     */
     export interface DashboardDataPointTooltipOptionArgs {
         availabilityStatus?: pulumi.Input<enums.quicksight.DashboardBehavior>;
     }
@@ -34701,8 +34848,17 @@ export namespace quicksight {
         identifier: pulumi.Input<string>;
     }
 
+    /**
+     * <p>Dataset reference.</p>
+     */
     export interface DashboardDataSetReferenceArgs {
+        /**
+         * <p>Dataset Amazon Resource Name (ARN).</p>
+         */
         dataSetArn: pulumi.Input<string>;
+        /**
+         * <p>Dataset placeholder.</p>
+         */
         dataSetPlaceholder: pulumi.Input<string>;
     }
 
@@ -34742,8 +34898,17 @@ export namespace quicksight {
         hierarchyId: pulumi.Input<string>;
     }
 
+    /**
+     * <p>A date-time parameter.</p>
+     */
     export interface DashboardDateTimeParameterArgs {
+        /**
+         * <p>A display name for the date-time parameter.</p>
+         */
         name: pulumi.Input<string>;
+        /**
+         * <p>The values for the date-time parameter.</p>
+         */
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
@@ -34771,8 +34936,17 @@ export namespace quicksight {
         staticValues?: pulumi.Input<pulumi.Input<number>[]>;
     }
 
+    /**
+     * <p>A decimal parameter.</p>
+     */
     export interface DashboardDecimalParameterArgs {
+        /**
+         * <p>A display name for the decimal parameter.</p>
+         */
         name: pulumi.Input<string>;
+        /**
+         * <p>The values for the decimal parameter.</p>
+         */
         values: pulumi.Input<pulumi.Input<number>[]>;
     }
 
@@ -34879,14 +35053,23 @@ export namespace quicksight {
         hierarchyId: pulumi.Input<string>;
     }
 
+    /**
+     * <p>Determines if hidden fields are included in an exported dashboard.</p>
+     */
     export interface DashboardExportHiddenFieldsOptionArgs {
         availabilityStatus?: pulumi.Input<enums.quicksight.DashboardBehavior>;
     }
 
+    /**
+     * <p>Export to .csv option.</p>
+     */
     export interface DashboardExportToCsvOptionArgs {
         availabilityStatus?: pulumi.Input<enums.quicksight.DashboardBehavior>;
     }
 
+    /**
+     * <p>Determines whether or not hidden fields are visible on exported dashbaords.</p>
+     */
     export interface DashboardExportWithHiddenFieldsOptionArgs {
         availabilityStatus?: pulumi.Input<enums.quicksight.DashboardBehavior>;
     }
@@ -35033,6 +35216,9 @@ export namespace quicksight {
     }
 
     export interface DashboardFilterOperationSelectedFieldsConfigurationArgs {
+        /**
+         * <p>The selected columns of a dataset.</p>
+         */
         selectedColumns?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardColumnIdentifierArgs>[]>;
         selectedFieldOptions?: pulumi.Input<enums.quicksight.DashboardSelectedFieldOptions>;
         selectedFields?: pulumi.Input<pulumi.Input<string>[]>;
@@ -35486,8 +35672,17 @@ export namespace quicksight {
         staticValues?: pulumi.Input<pulumi.Input<number>[]>;
     }
 
+    /**
+     * <p>An integer parameter.</p>
+     */
     export interface DashboardIntegerParameterArgs {
+        /**
+         * <p>The name of the integer parameter.</p>
+         */
         name: pulumi.Input<string>;
+        /**
+         * <p>The values for the integer parameter.</p>
+         */
         values: pulumi.Input<pulumi.Input<number>[]>;
     }
 
@@ -35972,10 +36167,25 @@ export namespace quicksight {
         title: pulumi.Input<string>;
     }
 
+    /**
+     * <p>A list of Amazon QuickSight parameters and the list's override values.</p>
+     */
     export interface DashboardParametersArgs {
+        /**
+         * <p>The parameters that have a data type of date-time.</p>
+         */
         dateTimeParameters?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardDateTimeParameterArgs>[]>;
+        /**
+         * <p>The parameters that have a data type of decimal.</p>
+         */
         decimalParameters?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardDecimalParameterArgs>[]>;
+        /**
+         * <p>The parameters that have a data type of integer.</p>
+         */
         integerParameters?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardIntegerParameterArgs>[]>;
+        /**
+         * <p>The parameters that have a data type of string.</p>
+         */
         stringParameters?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardStringParameterArgs>[]>;
     }
 
@@ -36205,6 +36415,9 @@ export namespace quicksight {
         visibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
     }
 
+    /**
+     * <p>Dashboard publish options.</p>
+     */
     export interface DashboardPublishOptionsArgs {
         adHocFilteringOption?: pulumi.Input<inputs.quicksight.DashboardAdHocFilteringOptionArgs>;
         dataPointDrillUpDownOption?: pulumi.Input<inputs.quicksight.DashboardDataPointDrillUpDownOptionArgs>;
@@ -36341,8 +36554,31 @@ export namespace quicksight {
         timeGranularity: pulumi.Input<enums.quicksight.DashboardTimeGranularity>;
     }
 
+    /**
+     * <p>Permission for the resource.</p>
+     */
     export interface DashboardResourcePermissionArgs {
+        /**
+         * <p>The IAM action to grant or revoke permissions on.</p>
+         */
         actions: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+         *             following:</p>
+         *          <ul>
+         *             <li>
+         *                <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+         *             </li>
+         *             <li>
+         *                <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+         *             </li>
+         *             <li>
+         *                <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
+         *                     ARN. Use this option only to share resources (templates) across Amazon Web Services accounts.
+         *                     (This is less common.) </p>
+         *             </li>
+         *          </ul>
+         */
         principal: pulumi.Input<string>;
     }
 
@@ -36511,6 +36747,9 @@ export namespace quicksight {
         gridLayout?: pulumi.Input<inputs.quicksight.DashboardGridLayoutConfigurationArgs>;
     }
 
+    /**
+     * <p>Sheet controls option.</p>
+     */
     export interface DashboardSheetControlsOptionArgs {
         visibilityState?: pulumi.Input<enums.quicksight.DashboardUiState>;
     }
@@ -36538,6 +36777,9 @@ export namespace quicksight {
         expression: pulumi.Input<string>;
     }
 
+    /**
+     * <p>The sheet layout maximization options of a dashbaord.</p>
+     */
     export interface DashboardSheetLayoutElementMaximizationOptionArgs {
         availabilityStatus?: pulumi.Input<enums.quicksight.DashboardBehavior>;
     }
@@ -36580,12 +36822,24 @@ export namespace quicksight {
         yAxis?: pulumi.Input<inputs.quicksight.DashboardSmallMultiplesAxisPropertiesArgs>;
     }
 
+    /**
+     * <p>Dashboard source entity.</p>
+     */
     export interface DashboardSourceEntityArgs {
         sourceTemplate?: pulumi.Input<inputs.quicksight.DashboardSourceTemplateArgs>;
     }
 
+    /**
+     * <p>Dashboard source template.</p>
+     */
     export interface DashboardSourceTemplateArgs {
+        /**
+         * <p>The Amazon Resource Name (ARN) of the resource.</p>
+         */
         arn: pulumi.Input<string>;
+        /**
+         * <p>Dataset references.</p>
+         */
         dataSetReferences: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardDataSetReferenceArgs>[]>;
     }
 
@@ -36618,8 +36872,17 @@ export namespace quicksight {
         numericFormatConfiguration?: pulumi.Input<inputs.quicksight.DashboardNumericFormatConfigurationArgs>;
     }
 
+    /**
+     * <p>A string parameter.</p>
+     */
     export interface DashboardStringParameterArgs {
+        /**
+         * <p>A display name for a string parameter.</p>
+         */
         name: pulumi.Input<string>;
+        /**
+         * <p>The values of a string parameter.</p>
+         */
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
@@ -36989,6 +37252,9 @@ export namespace quicksight {
         name?: pulumi.Input<string>;
     }
 
+    /**
+     * <p>The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to <code>LENIENT</code>, validation is skipped for specific errors.</p>
+     */
     export interface DashboardValidationStrategyArgs {
         mode: pulumi.Input<enums.quicksight.DashboardValidationStrategyMode>;
     }
@@ -37062,6 +37328,9 @@ export namespace quicksight {
         colorMap?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardDataPathColorArgs>[]>;
     }
 
+    /**
+     * <p>The visual publish options of a visual in a dashboard</p>
+     */
     export interface DashboardVisualPublishOptionsArgs {
         exportHiddenFieldsOption?: pulumi.Input<inputs.quicksight.DashboardExportHiddenFieldsOptionArgs>;
     }
@@ -38581,12 +38850,27 @@ export namespace quicksight {
         role?: pulumi.Input<enums.quicksight.TemplateColumnRole>;
     }
 
+    /**
+     * <p>A structure describing the name, data type, and geographic role of the columns.</p>
+     */
     export interface TemplateColumnGroupColumnSchemaArgs {
+        /**
+         * <p>The name of the column group's column schema.</p>
+         */
         name?: pulumi.Input<string>;
     }
 
+    /**
+     * <p>The column group schema.</p>
+     */
     export interface TemplateColumnGroupSchemaArgs {
+        /**
+         * <p>A structure containing the list of schemas for column group columns.</p>
+         */
         columnGroupColumnSchemaList?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateColumnGroupColumnSchemaArgs>[]>;
+        /**
+         * <p>The name of the column group schema.</p>
+         */
         name?: pulumi.Input<string>;
     }
 
@@ -38601,9 +38885,21 @@ export namespace quicksight {
         dataSetIdentifier: pulumi.Input<string>;
     }
 
+    /**
+     * <p>The column schema.</p>
+     */
     export interface TemplateColumnSchemaArgs {
+        /**
+         * <p>The data type of the column schema.</p>
+         */
         dataType?: pulumi.Input<string>;
+        /**
+         * <p>The geographic role of the column schema.</p>
+         */
         geographicRole?: pulumi.Input<string>;
+        /**
+         * <p>The name of the column schema.</p>
+         */
         name?: pulumi.Input<string>;
     }
 
@@ -38882,18 +39178,42 @@ export namespace quicksight {
         fieldValue?: pulumi.Input<string>;
     }
 
+    /**
+     * <p>Dataset configuration.</p>
+     */
     export interface TemplateDataSetConfigurationArgs {
+        /**
+         * <p>A structure containing the list of column group schemas.</p>
+         */
         columnGroupSchemaList?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateColumnGroupSchemaArgs>[]>;
         dataSetSchema?: pulumi.Input<inputs.quicksight.TemplateDataSetSchemaArgs>;
+        /**
+         * <p>Placeholder.</p>
+         */
         placeholder?: pulumi.Input<string>;
     }
 
+    /**
+     * <p>Dataset reference.</p>
+     */
     export interface TemplateDataSetReferenceArgs {
+        /**
+         * <p>Dataset Amazon Resource Name (ARN).</p>
+         */
         dataSetArn: pulumi.Input<string>;
+        /**
+         * <p>Dataset placeholder.</p>
+         */
         dataSetPlaceholder: pulumi.Input<string>;
     }
 
+    /**
+     * <p>Dataset schema.</p>
+     */
     export interface TemplateDataSetSchemaArgs {
+        /**
+         * <p>A structure containing the list of column schemas.</p>
+         */
         columnSchemaList?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateColumnSchemaArgs>[]>;
     }
 
@@ -39202,6 +39522,9 @@ export namespace quicksight {
     }
 
     export interface TemplateFilterOperationSelectedFieldsConfigurationArgs {
+        /**
+         * <p>The selected columns of a dataset.</p>
+         */
         selectedColumns?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateColumnIdentifierArgs>[]>;
         selectedFieldOptions?: pulumi.Input<enums.quicksight.TemplateSelectedFieldOptions>;
         selectedFields?: pulumi.Input<pulumi.Input<string>[]>;
@@ -40480,8 +40803,31 @@ export namespace quicksight {
         timeGranularity: pulumi.Input<enums.quicksight.TemplateTimeGranularity>;
     }
 
+    /**
+     * <p>Permission for the resource.</p>
+     */
     export interface TemplateResourcePermissionArgs {
+        /**
+         * <p>The IAM action to grant or revoke permissions on.</p>
+         */
         actions: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+         *             following:</p>
+         *          <ul>
+         *             <li>
+         *                <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+         *             </li>
+         *             <li>
+         *                <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+         *             </li>
+         *             <li>
+         *                <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
+         *                     ARN. Use this option only to share resources (templates) across Amazon Web Services accounts.
+         *                     (This is less common.) </p>
+         *             </li>
+         *          </ul>
+         */
         principal: pulumi.Input<string>;
     }
 
@@ -40711,17 +41057,36 @@ export namespace quicksight {
         yAxis?: pulumi.Input<inputs.quicksight.TemplateSmallMultiplesAxisPropertiesArgs>;
     }
 
+    /**
+     * <p>The source analysis of the template.</p>
+     */
     export interface TemplateSourceAnalysisArgs {
+        /**
+         * <p>The Amazon Resource Name (ARN) of the resource.</p>
+         */
         arn: pulumi.Input<string>;
+        /**
+         * <p>A structure containing information about the dataset references used as placeholders
+         *             in the template.</p>
+         */
         dataSetReferences: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateDataSetReferenceArgs>[]>;
     }
 
+    /**
+     * <p>The source entity of the template.</p>
+     */
     export interface TemplateSourceEntityArgs {
         sourceAnalysis?: pulumi.Input<inputs.quicksight.TemplateSourceAnalysisArgs>;
         sourceTemplate?: pulumi.Input<inputs.quicksight.TemplateSourceTemplateArgs>;
     }
 
+    /**
+     * <p>The source template of the template.</p>
+     */
     export interface TemplateSourceTemplateArgs {
+        /**
+         * <p>The Amazon Resource Name (ARN) of the resource.</p>
+         */
         arn: pulumi.Input<string>;
     }
 
@@ -41120,6 +41485,9 @@ export namespace quicksight {
         name?: pulumi.Input<string>;
     }
 
+    /**
+     * <p>The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to <code>LENIENT</code>, validation is skipped for specific errors.</p>
+     */
     export interface TemplateValidationStrategyArgs {
         mode: pulumi.Input<enums.quicksight.TemplateValidationStrategyMode>;
     }
@@ -41846,6 +42214,12 @@ export namespace redshift {
 }
 
 export namespace redshiftserverless {
+    export interface NamespaceSnapshotCopyConfigurationArgs {
+        destinationKmsKeyId?: pulumi.Input<string>;
+        destinationRegion: pulumi.Input<string>;
+        snapshotRetentionPeriod?: pulumi.Input<number>;
+    }
+
     export interface WorkgroupConfigParameterArgs {
         parameterKey?: pulumi.Input<string>;
         parameterValue?: pulumi.Input<string>;

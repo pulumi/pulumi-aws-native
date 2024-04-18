@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;The source entity of the template.&lt;/p&gt;
+    /// </summary>
     public sealed class TemplateSourceEntityArgs : global::Pulumi.ResourceArgs
     {
         [Input("sourceAnalysis")]

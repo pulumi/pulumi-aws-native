@@ -37,13 +37,25 @@ export class Dashboard extends pulumi.CustomResource {
         return obj['__pulumiType'] === Dashboard.__pulumiType;
     }
 
+    /**
+     * <p>The Amazon Resource Name (ARN) of the resource.</p>
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly awsAccountId!: pulumi.Output<string>;
+    /**
+     * <p>The time that this dashboard was created.</p>
+     */
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
     public readonly dashboardId!: pulumi.Output<string>;
     public readonly dashboardPublishOptions!: pulumi.Output<outputs.quicksight.DashboardPublishOptions | undefined>;
     public readonly definition!: pulumi.Output<outputs.quicksight.DashboardVersionDefinition | undefined>;
+    /**
+     * <p>The last time that this dashboard was published.</p>
+     */
     public /*out*/ readonly lastPublishedTime!: pulumi.Output<string>;
+    /**
+     * <p>The last time that this dashboard was updated.</p>
+     */
     public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
     public readonly linkEntities!: pulumi.Output<string[] | undefined>;
     public readonly linkSharingConfiguration!: pulumi.Output<outputs.quicksight.DashboardLinkSharingConfiguration | undefined>;

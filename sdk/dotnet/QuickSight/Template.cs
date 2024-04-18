@@ -15,18 +15,27 @@ namespace Pulumi.AwsNative.QuickSight
     [AwsNativeResourceType("aws-native:quicksight:Template")]
     public partial class Template : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// &lt;p&gt;The Amazon Resource Name (ARN) of the template.&lt;/p&gt;
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         [Output("awsAccountId")]
         public Output<string> AwsAccountId { get; private set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;Time when this was created.&lt;/p&gt;
+        /// </summary>
         [Output("createdTime")]
         public Output<string> CreatedTime { get; private set; } = null!;
 
         [Output("definition")]
         public Output<Outputs.TemplateVersionDefinition?> Definition { get; private set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;Time when this was last updated.&lt;/p&gt;
+        /// </summary>
         [Output("lastUpdatedTime")]
         public Output<string> LastUpdatedTime { get; private set; } = null!;
 

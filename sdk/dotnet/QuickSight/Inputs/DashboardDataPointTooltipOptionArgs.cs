@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;The data point tooltip options.&lt;/p&gt;
+    /// </summary>
     public sealed class DashboardDataPointTooltipOptionArgs : global::Pulumi.ResourceArgs
     {
         [Input("availabilityStatus")]
