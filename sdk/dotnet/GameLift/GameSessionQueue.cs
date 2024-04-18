@@ -129,8 +129,8 @@ namespace Pulumi.AwsNative.GameLift
     ///     {
     ///         DependsOn =
     ///         {
-    ///             queueResource, 
-    ///             matchmakingRuleSetResource, 
+    ///             queueResource,
+    ///             matchmakingRuleSetResource,
     ///         },
     ///     });
     /// 

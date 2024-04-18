@@ -53,7 +53,7 @@ namespace Pulumi.AwsNative.ApiGateway
     ///     {
     ///         DependsOn =
     ///         {
-    ///             documentationPart, 
+    ///             documentationPart,
     ///         },
     ///     });
     /// 
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.ApiGateway
     ///     {
     ///         DependsOn =
     ///         {
-    ///             documentationPart, 
+    ///             documentationPart,
     ///         },
     ///     });
     /// 

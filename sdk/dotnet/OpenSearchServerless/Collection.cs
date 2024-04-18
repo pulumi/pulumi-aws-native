@@ -39,7 +39,7 @@ namespace Pulumi.AwsNative.OpenSearchServerless
     ///     {
     ///         DependsOn =
     ///         {
-    ///             encryptionPolicy, 
+    ///             encryptionPolicy,
     ///         },
     ///     });
     /// 
@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.OpenSearchServerless
     ///     {
     ///         DependsOn =
     ///         {
-    ///             encryptionPolicy, 
+    ///             encryptionPolicy,
     ///         },
     ///     });
     /// 

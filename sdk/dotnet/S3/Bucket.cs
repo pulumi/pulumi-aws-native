@@ -60,7 +60,7 @@ namespace Pulumi.AwsNative.S3
     ///     {
     ///         DependsOn =
     ///         {
-    ///             s3Bucket, 
+    ///             s3Bucket,
     ///         },
     ///     });
     /// 
@@ -72,7 +72,7 @@ namespace Pulumi.AwsNative.S3
     ///     {
     ///         DependsOn =
     ///         {
-    ///             recordingConfiguration, 
+    ///             recordingConfiguration,
     ///         },
     ///     });
     /// 
@@ -125,7 +125,7 @@ namespace Pulumi.AwsNative.S3
     ///     {
     ///         DependsOn =
     ///         {
-    ///             s3Bucket, 
+    ///             s3Bucket,
     ///         },
     ///     });
     /// 
@@ -137,7 +137,7 @@ namespace Pulumi.AwsNative.S3
     ///     {
     ///         DependsOn =
     ///         {
-    ///             recordingConfiguration, 
+    ///             recordingConfiguration,
     ///         },
     ///     });
     /// 
@@ -499,7 +499,7 @@ namespace Pulumi.AwsNative.S3
     ///     {
     ///         DependsOn =
     ///         {
-    ///             ec2Instance, 
+    ///             ec2Instance,
     ///         },
     ///     });
     /// 
@@ -842,7 +842,7 @@ namespace Pulumi.AwsNative.S3
     ///     {
     ///         DependsOn =
     ///         {
-    ///             ec2Instance, 
+    ///             ec2Instance,
     ///         },
     ///     });
     /// 

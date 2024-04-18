@@ -126,7 +126,7 @@ namespace Pulumi.AwsNative.Acmpca
     ///     {
     ///         DependsOn =
     ///         {
-    ///             rootCAActivation, 
+    ///             rootCAActivation,
     ///         },
     ///     });
     /// 
@@ -201,7 +201,7 @@ namespace Pulumi.AwsNative.Acmpca
     ///     {
     ///         DependsOn =
     ///         {
-    ///             subordinateCAOneActivation, 
+    ///             subordinateCAOneActivation,
     ///         },
     ///     });
     /// 
@@ -254,7 +254,7 @@ namespace Pulumi.AwsNative.Acmpca
     ///     {
     ///         DependsOn =
     ///         {
-    ///             subordinateCATwoActivation, 
+    ///             subordinateCATwoActivation,
     ///         },
     ///     });
     /// 

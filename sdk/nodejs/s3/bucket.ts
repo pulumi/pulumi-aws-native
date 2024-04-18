@@ -350,7 +350,7 @@ import * as utilities from "../utilities";
  *                         commands: [`#!/bin/bash
  * sudo yum update -y
  * needs-restarting -r
- * if [ $? -eq 1 ]
+ * if [ ? -eq 1 ]
  * then
  *         exit 194
  * else

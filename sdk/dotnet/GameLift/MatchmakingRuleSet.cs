@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.GameLift
     ///     {
     ///         DependsOn =
     ///         {
-    ///             matchmakingRuleSetResource, 
+    ///             matchmakingRuleSetResource,
     ///         },
     ///     });
     /// 
