@@ -36,7 +36,7 @@ namespace Pulumi.AwsNative.CloudFormation
     ///     {
     ///         DependsOn =
     ///         {
-    ///             moduleVersion1, 
+    ///             moduleVersion1,
     ///         },
     ///     });
     /// 
@@ -72,7 +72,7 @@ namespace Pulumi.AwsNative.CloudFormation
     ///     {
     ///         DependsOn =
     ///         {
-    ///             moduleVersion1, 
+    ///             moduleVersion1,
     ///         },
     ///     });
     /// 
@@ -146,7 +146,7 @@ namespace Pulumi.AwsNative.CloudFormation
     ///     {
     ///         DependsOn =
     ///         {
-    ///             moduleVersion1, 
+    ///             moduleVersion1,
     ///         },
     ///     });
     /// 
@@ -177,7 +177,7 @@ namespace Pulumi.AwsNative.CloudFormation
     ///     {
     ///         DependsOn =
     ///         {
-    ///             moduleVersion1, 
+    ///             moduleVersion1,
     ///         },
     ///     });
     /// 
