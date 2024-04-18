@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
+import * as enums from "./types/enums";
 import * as utilities from "./utilities";
 
 /**
@@ -56,6 +59,7 @@ export class ExtensionResource extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
+            resourceInputs["autoNaming"] = args ? args.autoNaming : undefined;
             resourceInputs["createOnly"] = args ? args.createOnly : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["tagsProperty"] = args ? args.tagsProperty : undefined;
@@ -75,6 +79,11 @@ export class ExtensionResource extends pulumi.CustomResource {
  * The set of arguments for constructing a ExtensionResource resource.
  */
 export interface ExtensionResourceArgs {
+    /**
+     * Optional auto-naming specification for the resource.
+     * If provided and the name is not specified manually, the provider will automatically generate a name based on the Pulumi resource name and a random suffix.
+     */
+    autoNaming?: pulumi.Input<inputs.AutoNamingArgs>;
     /**
      * Property names as defined by `createOnlyProperties` in the CloudFormation schema. Create-only properties can't be set during updates, so will not be included in patches even if they are also marked as write-only, and will cause an error if attempted to be updated. Therefore any property here should also be included in the `replaceOnChanges` resource option too.
      * In the CloudFormation schema these are fully qualified property paths (e.g. `/properties/AccessToken`) whereas here we only include the top-level property name (e.g. `AccessToken`).

@@ -11,6 +11,7 @@ from . import _utilities
 from ._enums import *
 
 __all__ = [
+    'AutoNamingArgs',
     'CreateOnlyTagArgs',
     'ProviderAssumeRoleArgs',
     'ProviderDefaultTagsArgs',
@@ -18,6 +19,62 @@ __all__ = [
     'ProviderIgnoreTagsArgs',
     'TagArgs',
 ]
+
+@pulumi.input_type
+class AutoNamingArgs:
+    def __init__(__self__, *,
+                 max_length: Optional[pulumi.Input[int]] = None,
+                 min_length: Optional[pulumi.Input[int]] = None,
+                 property_name: Optional[pulumi.Input[str]] = None):
+        """
+        Auto-naming specification for the resource.
+        :param pulumi.Input[int] max_length: The maximum length of the name.
+        :param pulumi.Input[int] min_length: The minimum length of the name.
+        :param pulumi.Input[str] property_name: The name of the property in the Cloud Control payload that is used to set the name of the resource.
+        """
+        if max_length is not None:
+            pulumi.set(__self__, "max_length", max_length)
+        if min_length is not None:
+            pulumi.set(__self__, "min_length", min_length)
+        if property_name is not None:
+            pulumi.set(__self__, "property_name", property_name)
+
+    @property
+    @pulumi.getter(name="maxLength")
+    def max_length(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum length of the name.
+        """
+        return pulumi.get(self, "max_length")
+
+    @max_length.setter
+    def max_length(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_length", value)
+
+    @property
+    @pulumi.getter(name="minLength")
+    def min_length(self) -> Optional[pulumi.Input[int]]:
+        """
+        The minimum length of the name.
+        """
+        return pulumi.get(self, "min_length")
+
+    @min_length.setter
+    def min_length(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "min_length", value)
+
+    @property
+    @pulumi.getter(name="propertyName")
+    def property_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the property in the Cloud Control payload that is used to set the name of the resource.
+        """
+        return pulumi.get(self, "property_name")
+
+    @property_name.setter
+    def property_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "property_name", value)
+
 
 @pulumi.input_type
 class CreateOnlyTagArgs:
