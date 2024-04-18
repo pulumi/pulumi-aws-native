@@ -16,7 +16,7 @@
         },
         "ProtocolVersion" : {
           "type" : "string",
-          "enum" : [ "HTTP1", "HTTP2", "GRPC" ]
+          "enum" : [ "HTTP1", "HTTP2" ]
         },
         "Port" : {
           "type" : "integer",

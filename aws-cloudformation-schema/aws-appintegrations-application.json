@@ -27,7 +27,7 @@
     "ExternalUrlConfig" : {
       "type" : "object",
       "additionalProperties" : false,
-      "required" : [ "AccessUrl", "ApprovedOrigins" ],
+      "required" : [ "AccessUrl" ],
       "properties" : {
         "AccessUrl" : {
           "type" : "string",
@@ -63,7 +63,7 @@
     "Name" : {
       "description" : "The name of the application.",
       "type" : "string",
-      "pattern" : "^[a-zA-Z0-9/\\._\\-]+$",
+      "pattern" : "^[a-zA-Z0-9\\/\\._ \\-]+$",
       "minLength" : 1,
       "maxLength" : 255
     },

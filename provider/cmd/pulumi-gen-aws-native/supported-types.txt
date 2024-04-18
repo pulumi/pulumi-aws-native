@@ -337,6 +337,7 @@ AWS::EC2::TransitGatewayMulticastDomainAssociation
 AWS::EC2::TransitGatewayMulticastGroupMember
 AWS::EC2::TransitGatewayMulticastGroupSource
 AWS::EC2::TransitGatewayPeeringAttachment
+AWS::EC2::TransitGatewayRoute
 AWS::EC2::TransitGatewayRouteTable
 AWS::EC2::TransitGatewayRouteTableAssociation
 AWS::EC2::TransitGatewayVpcAttachment
