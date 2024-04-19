@@ -159,6 +159,7 @@ install_java_sdk::
 install_nodejs_sdk::
 	yarn link --cwd $(WORKING_DIR)/sdk/nodejs/bin
 
+test:: PATH := $(WORKING_DIR)/bin:$(PATH)
 test::
 	cd examples && go test -v -tags=all -timeout 2h
 
