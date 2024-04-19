@@ -227,7 +227,7 @@ def get_data_source(domain_id: Optional[str] = None,
                     id: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataSourceResult:
     """
-    Definition of AWS::DataZone::DataSource Resource Type
+    A data source is used to import technical metadata of assets (data) from the source databases or data warehouses into Amazon DataZone.
 
 
     :param str domain_id: The ID of the Amazon DataZone domain where the data source is created.
@@ -263,7 +263,7 @@ def get_data_source_output(domain_id: Optional[pulumi.Input[str]] = None,
                            id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataSourceResult]:
     """
-    Definition of AWS::DataZone::DataSource Resource Type
+    A data source is used to import technical metadata of assets (data) from the source databases or data warehouses into Amazon DataZone.
 
 
     :param str domain_id: The ID of the Amazon DataZone domain where the data source is created.

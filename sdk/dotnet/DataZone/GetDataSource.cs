@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.DataZone
     public static class GetDataSource
     {
         /// <summary>
-        /// Definition of AWS::DataZone::DataSource Resource Type
+        /// A data source is used to import technical metadata of assets (data) from the source databases or data warehouses into Amazon DataZone. 
         /// </summary>
         public static Task<GetDataSourceResult> InvokeAsync(GetDataSourceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataSourceResult>("aws-native:datazone:getDataSource", args ?? new GetDataSourceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Definition of AWS::DataZone::DataSource Resource Type
+        /// A data source is used to import technical metadata of assets (data) from the source databases or data warehouses into Amazon DataZone. 
         /// </summary>
         public static Output<GetDataSourceResult> Invoke(GetDataSourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataSourceResult>("aws-native:datazone:getDataSource", args ?? new GetDataSourceInvokeArgs(), options.WithDefaults());

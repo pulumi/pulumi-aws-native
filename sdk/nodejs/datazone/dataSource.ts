@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Definition of AWS::DataZone::DataSource Resource Type
+ * A data source is used to import technical metadata of assets (data) from the source databases or data warehouses into Amazon DataZone.
  */
 export class DataSource extends pulumi.CustomResource {
     /**

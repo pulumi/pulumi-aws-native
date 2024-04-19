@@ -883,8 +883,7 @@ func (in *fleetEc2MarketTypePtr) ToFleetEc2MarketTypePtrOutputWithContext(ctx co
 type FleetServiceManagedFleetOperatingSystemFamily string
 
 const (
-	FleetServiceManagedFleetOperatingSystemFamilyWindows = FleetServiceManagedFleetOperatingSystemFamily("WINDOWS")
-	FleetServiceManagedFleetOperatingSystemFamilyLinux   = FleetServiceManagedFleetOperatingSystemFamily("LINUX")
+	FleetServiceManagedFleetOperatingSystemFamilyLinux = FleetServiceManagedFleetOperatingSystemFamily("LINUX")
 )
 
 func (FleetServiceManagedFleetOperatingSystemFamily) ElementType() reflect.Type {
@@ -1009,7 +1008,6 @@ func (o FleetServiceManagedFleetOperatingSystemFamilyPtrOutput) ToStringPtrOutpu
 // FleetServiceManagedFleetOperatingSystemFamilyInput is an input type that accepts values of the FleetServiceManagedFleetOperatingSystemFamily enum
 // A concrete instance of `FleetServiceManagedFleetOperatingSystemFamilyInput` can be one of the following:
 //
-//	FleetServiceManagedFleetOperatingSystemFamilyWindows
 //	FleetServiceManagedFleetOperatingSystemFamilyLinux
 type FleetServiceManagedFleetOperatingSystemFamilyInput interface {
 	pulumi.Input
@@ -2071,8 +2069,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetCustomerManagedFleetOperatingSystemFamilyPtrInput)(nil)).Elem(), FleetCustomerManagedFleetOperatingSystemFamily("WINDOWS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetEc2MarketTypeInput)(nil)).Elem(), FleetEc2MarketType("on-demand"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetEc2MarketTypePtrInput)(nil)).Elem(), FleetEc2MarketType("on-demand"))
-	pulumi.RegisterInputType(reflect.TypeOf((*FleetServiceManagedFleetOperatingSystemFamilyInput)(nil)).Elem(), FleetServiceManagedFleetOperatingSystemFamily("WINDOWS"))
-	pulumi.RegisterInputType(reflect.TypeOf((*FleetServiceManagedFleetOperatingSystemFamilyPtrInput)(nil)).Elem(), FleetServiceManagedFleetOperatingSystemFamily("WINDOWS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetServiceManagedFleetOperatingSystemFamilyInput)(nil)).Elem(), FleetServiceManagedFleetOperatingSystemFamily("LINUX"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetServiceManagedFleetOperatingSystemFamilyPtrInput)(nil)).Elem(), FleetServiceManagedFleetOperatingSystemFamily("LINUX"))
 	pulumi.RegisterInputType(reflect.TypeOf((*QueueDefaultQueueBudgetActionInput)(nil)).Elem(), QueueDefaultQueueBudgetAction("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*QueueDefaultQueueBudgetActionPtrInput)(nil)).Elem(), QueueDefaultQueueBudgetAction("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*QueueEnvironmentEnvironmentTemplateTypeInput)(nil)).Elem(), QueueEnvironmentEnvironmentTemplateType("JSON"))

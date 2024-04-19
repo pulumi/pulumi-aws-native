@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.DataZone.Outputs
     public sealed class DataSourceGlueRunConfigurationInput
     {
         /// <summary>
+        /// Specifies whether to automatically import data quality metrics as part of the data source run.
+        /// </summary>
+        public readonly bool? AutoImportDataQualityResult;
+        /// <summary>
         /// The data access role included in the configuration details of the AWS Glue data source.
         /// </summary>
         public readonly string? DataAccessRole;
@@ -24,10 +28,13 @@ namespace Pulumi.AwsNative.DataZone.Outputs
 
         [OutputConstructor]
         private DataSourceGlueRunConfigurationInput(
+            bool? autoImportDataQualityResult,
+
             string? dataAccessRole,
 
             ImmutableArray<Outputs.DataSourceRelationalFilterConfiguration> relationalFilterConfigurations)
         {
+            AutoImportDataQualityResult = autoImportDataQualityResult;
             DataAccessRole = dataAccessRole;
             RelationalFilterConfigurations = relationalFilterConfigurations;
         }

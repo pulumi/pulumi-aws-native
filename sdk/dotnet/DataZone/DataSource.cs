@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DataZone
 {
     /// <summary>
-    /// Definition of AWS::DataZone::DataSource Resource Type
+    /// A data source is used to import technical metadata of assets (data) from the source databases or data warehouses into Amazon DataZone.
     /// </summary>
     [AwsNativeResourceType("aws-native:datazone:DataSource")]
     public partial class DataSource : global::Pulumi.CustomResource

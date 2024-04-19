@@ -10450,6 +10450,10 @@ export namespace datazone {
 
     export interface DataSourceGlueRunConfigurationInput {
         /**
+         * Specifies whether to automatically import data quality metrics as part of the data source run.
+         */
+        autoImportDataQualityResult?: boolean;
+        /**
          * The data access role included in the configuration details of the AWS Glue data source.
          */
         dataAccessRole?: string;

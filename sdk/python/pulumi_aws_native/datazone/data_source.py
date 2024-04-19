@@ -229,7 +229,7 @@ class DataSource(pulumi.CustomResource):
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Definition of AWS::DataZone::DataSource Resource Type
+        A data source is used to import technical metadata of assets (data) from the source databases or data warehouses into Amazon DataZone.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -253,7 +253,7 @@ class DataSource(pulumi.CustomResource):
                  args: DataSourceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Definition of AWS::DataZone::DataSource Resource Type
+        A data source is used to import technical metadata of assets (data) from the source databases or data warehouses into Amazon DataZone.
 
         :param str resource_name: The name of the resource.
         :param DataSourceArgs args: The arguments to use to populate this resource's properties.

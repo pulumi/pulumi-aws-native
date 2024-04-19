@@ -520,6 +520,8 @@ func (o DataSourceFormInputArrayOutput) Index(i pulumi.IntInput) DataSourceFormI
 }
 
 type DataSourceGlueRunConfigurationInput struct {
+	// Specifies whether to automatically import data quality metrics as part of the data source run.
+	AutoImportDataQualityResult *bool `pulumi:"autoImportDataQualityResult"`
 	// The data access role included in the configuration details of the AWS Glue data source.
 	DataAccessRole *string `pulumi:"dataAccessRole"`
 	// The relational filter configurations included in the configuration details of the AWS Glue data source.
@@ -538,6 +540,8 @@ type DataSourceGlueRunConfigurationInputInput interface {
 }
 
 type DataSourceGlueRunConfigurationInputArgs struct {
+	// Specifies whether to automatically import data quality metrics as part of the data source run.
+	AutoImportDataQualityResult pulumi.BoolPtrInput `pulumi:"autoImportDataQualityResult"`
 	// The data access role included in the configuration details of the AWS Glue data source.
 	DataAccessRole pulumi.StringPtrInput `pulumi:"dataAccessRole"`
 	// The relational filter configurations included in the configuration details of the AWS Glue data source.
@@ -621,6 +625,11 @@ func (o DataSourceGlueRunConfigurationInputOutput) ToDataSourceGlueRunConfigurat
 	}).(DataSourceGlueRunConfigurationInputPtrOutput)
 }
 
+// Specifies whether to automatically import data quality metrics as part of the data source run.
+func (o DataSourceGlueRunConfigurationInputOutput) AutoImportDataQualityResult() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DataSourceGlueRunConfigurationInput) *bool { return v.AutoImportDataQualityResult }).(pulumi.BoolPtrOutput)
+}
+
 // The data access role included in the configuration details of the AWS Glue data source.
 func (o DataSourceGlueRunConfigurationInputOutput) DataAccessRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceGlueRunConfigurationInput) *string { return v.DataAccessRole }).(pulumi.StringPtrOutput)
@@ -655,6 +664,16 @@ func (o DataSourceGlueRunConfigurationInputPtrOutput) Elem() DataSourceGlueRunCo
 		var ret DataSourceGlueRunConfigurationInput
 		return ret
 	}).(DataSourceGlueRunConfigurationInputOutput)
+}
+
+// Specifies whether to automatically import data quality metrics as part of the data source run.
+func (o DataSourceGlueRunConfigurationInputPtrOutput) AutoImportDataQualityResult() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DataSourceGlueRunConfigurationInput) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AutoImportDataQualityResult
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The data access role included in the configuration details of the AWS Glue data source.

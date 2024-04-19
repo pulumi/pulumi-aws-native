@@ -38,7 +38,6 @@ export const FleetEc2MarketType = {
 export type FleetEc2MarketType = (typeof FleetEc2MarketType)[keyof typeof FleetEc2MarketType];
 
 export const FleetServiceManagedFleetOperatingSystemFamily = {
-    Windows: "WINDOWS",
     Linux: "LINUX",
 } as const;
 

@@ -157,7 +157,6 @@ namespace Pulumi.AwsNative.Deadline
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static FleetServiceManagedFleetOperatingSystemFamily Windows { get; } = new FleetServiceManagedFleetOperatingSystemFamily("WINDOWS");
         public static FleetServiceManagedFleetOperatingSystemFamily Linux { get; } = new FleetServiceManagedFleetOperatingSystemFamily("LINUX");
 
         public static bool operator ==(FleetServiceManagedFleetOperatingSystemFamily left, FleetServiceManagedFleetOperatingSystemFamily right) => left.Equals(right);

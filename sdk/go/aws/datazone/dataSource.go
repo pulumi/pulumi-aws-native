@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of AWS::DataZone::DataSource Resource Type
+// A data source is used to import technical metadata of assets (data) from the source databases or data warehouses into Amazon DataZone.
 type DataSource struct {
 	pulumi.CustomResourceState
 

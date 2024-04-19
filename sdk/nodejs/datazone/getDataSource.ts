@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Definition of AWS::DataZone::DataSource Resource Type
+ * A data source is used to import technical metadata of assets (data) from the source databases or data warehouses into Amazon DataZone.
  */
 export function getDataSource(args: GetDataSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetDataSourceResult> {
 
@@ -97,7 +97,7 @@ export interface GetDataSourceResult {
     readonly updatedAt?: string;
 }
 /**
- * Definition of AWS::DataZone::DataSource Resource Type
+ * A data source is used to import technical metadata of assets (data) from the source databases or data warehouses into Amazon DataZone.
  */
 export function getDataSourceOutput(args: GetDataSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataSourceResult> {
     return pulumi.output(args).apply((a: any) => getDataSource(a, opts))

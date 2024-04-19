@@ -47,7 +47,6 @@ class FleetEc2MarketType(str, Enum):
 
 
 class FleetServiceManagedFleetOperatingSystemFamily(str, Enum):
-    WINDOWS = "WINDOWS"
     LINUX = "LINUX"
 
 

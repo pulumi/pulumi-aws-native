@@ -177,12 +177,16 @@ class DataSourceFormInputArgs:
 class DataSourceGlueRunConfigurationInputArgs:
     def __init__(__self__, *,
                  relational_filter_configurations: pulumi.Input[Sequence[pulumi.Input['DataSourceRelationalFilterConfigurationArgs']]],
+                 auto_import_data_quality_result: Optional[pulumi.Input[bool]] = None,
                  data_access_role: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['DataSourceRelationalFilterConfigurationArgs']]] relational_filter_configurations: The relational filter configurations included in the configuration details of the AWS Glue data source.
+        :param pulumi.Input[bool] auto_import_data_quality_result: Specifies whether to automatically import data quality metrics as part of the data source run.
         :param pulumi.Input[str] data_access_role: The data access role included in the configuration details of the AWS Glue data source.
         """
         pulumi.set(__self__, "relational_filter_configurations", relational_filter_configurations)
+        if auto_import_data_quality_result is not None:
+            pulumi.set(__self__, "auto_import_data_quality_result", auto_import_data_quality_result)
         if data_access_role is not None:
             pulumi.set(__self__, "data_access_role", data_access_role)
 
@@ -197,6 +201,18 @@ class DataSourceGlueRunConfigurationInputArgs:
     @relational_filter_configurations.setter
     def relational_filter_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['DataSourceRelationalFilterConfigurationArgs']]]):
         pulumi.set(self, "relational_filter_configurations", value)
+
+    @property
+    @pulumi.getter(name="autoImportDataQualityResult")
+    def auto_import_data_quality_result(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether to automatically import data quality metrics as part of the data source run.
+        """
+        return pulumi.get(self, "auto_import_data_quality_result")
+
+    @auto_import_data_quality_result.setter
+    def auto_import_data_quality_result(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_import_data_quality_result", value)
 
     @property
     @pulumi.getter(name="dataAccessRole")

@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of AWS::DataZone::DataSource Resource Type
+// A data source is used to import technical metadata of assets (data) from the source databases or data warehouses into Amazon DataZone.
 func LookupDataSource(ctx *pulumi.Context, args *LookupDataSourceArgs, opts ...pulumi.InvokeOption) (*LookupDataSourceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDataSourceResult

@@ -13,6 +13,12 @@ namespace Pulumi.AwsNative.DataZone.Inputs
     public sealed class DataSourceGlueRunConfigurationInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Specifies whether to automatically import data quality metrics as part of the data source run.
+        /// </summary>
+        [Input("autoImportDataQualityResult")]
+        public Input<bool>? AutoImportDataQualityResult { get; set; }
+
+        /// <summary>
         /// The data access role included in the configuration details of the AWS Glue data source.
         /// </summary>
         [Input("dataAccessRole")]

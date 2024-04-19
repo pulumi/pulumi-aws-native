@@ -216,6 +216,8 @@ class DataSourceGlueRunConfigurationInput(dict):
         suggest = None
         if key == "relationalFilterConfigurations":
             suggest = "relational_filter_configurations"
+        elif key == "autoImportDataQualityResult":
+            suggest = "auto_import_data_quality_result"
         elif key == "dataAccessRole":
             suggest = "data_access_role"
 
@@ -232,12 +234,16 @@ class DataSourceGlueRunConfigurationInput(dict):
 
     def __init__(__self__, *,
                  relational_filter_configurations: Sequence['outputs.DataSourceRelationalFilterConfiguration'],
+                 auto_import_data_quality_result: Optional[bool] = None,
                  data_access_role: Optional[str] = None):
         """
         :param Sequence['DataSourceRelationalFilterConfiguration'] relational_filter_configurations: The relational filter configurations included in the configuration details of the AWS Glue data source.
+        :param bool auto_import_data_quality_result: Specifies whether to automatically import data quality metrics as part of the data source run.
         :param str data_access_role: The data access role included in the configuration details of the AWS Glue data source.
         """
         pulumi.set(__self__, "relational_filter_configurations", relational_filter_configurations)
+        if auto_import_data_quality_result is not None:
+            pulumi.set(__self__, "auto_import_data_quality_result", auto_import_data_quality_result)
         if data_access_role is not None:
             pulumi.set(__self__, "data_access_role", data_access_role)
 
@@ -248,6 +254,14 @@ class DataSourceGlueRunConfigurationInput(dict):
         The relational filter configurations included in the configuration details of the AWS Glue data source.
         """
         return pulumi.get(self, "relational_filter_configurations")
+
+    @property
+    @pulumi.getter(name="autoImportDataQualityResult")
+    def auto_import_data_quality_result(self) -> Optional[bool]:
+        """
+        Specifies whether to automatically import data quality metrics as part of the data source run.
+        """
+        return pulumi.get(self, "auto_import_data_quality_result")
 
     @property
     @pulumi.getter(name="dataAccessRole")

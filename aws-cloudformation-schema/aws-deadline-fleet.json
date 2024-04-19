@@ -333,7 +333,7 @@
     },
     "ServiceManagedFleetOperatingSystemFamily" : {
       "type" : "string",
-      "enum" : [ "WINDOWS", "LINUX" ]
+      "enum" : [ "LINUX" ]
     },
     "VCpuCountRange" : {
       "type" : "object",
