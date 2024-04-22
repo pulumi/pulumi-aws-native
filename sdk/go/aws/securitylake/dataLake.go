@@ -35,10 +35,6 @@ func NewDataLake(ctx *pulumi.Context,
 		args = &DataLakeArgs{}
 	}
 
-	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
-		"metaStoreManagerRoleArn",
-	})
-	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DataLake
 	err := ctx.RegisterResource("aws-native:securitylake:DataLake", name, args, &resource, opts...)

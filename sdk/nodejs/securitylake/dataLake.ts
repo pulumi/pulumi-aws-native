@@ -82,8 +82,6 @@ export class DataLake extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["metaStoreManagerRoleArn"] };
-        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DataLake.__pulumiType, name, resourceInputs, opts);
     }
 }

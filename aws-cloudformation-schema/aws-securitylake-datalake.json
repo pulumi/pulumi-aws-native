@@ -142,7 +142,6 @@
   },
   "primaryIdentifier" : [ "/properties/Arn" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/S3BucketArn" ],
-  "createOnlyProperties" : [ "/properties/MetaStoreManagerRoleArn" ],
   "writeOnlyProperties" : [ "/properties/MetaStoreManagerRoleArn" ],
   "tagging" : {
     "taggable" : true,
