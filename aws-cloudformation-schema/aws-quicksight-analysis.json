@@ -227,6 +227,9 @@
         },
         "RelativeDateTime" : {
           "$ref" : "#/definitions/FilterRelativeDateTimeControl"
+        },
+        "CrossSheet" : {
+          "$ref" : "#/definitions/FilterCrossSheetControl"
         }
       }
     },
@@ -984,6 +987,21 @@
         }
       }
     },
+    "DefaultFilterDropDownControlOptions" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "Type" : {
+          "$ref" : "#/definitions/SheetControlListType"
+        },
+        "DisplayOptions" : {
+          "$ref" : "#/definitions/DropDownControlDisplayOptions"
+        },
+        "SelectableValues" : {
+          "$ref" : "#/definitions/FilterSelectableValues"
+        }
+      }
+    },
     "GaugeChartFieldWells" : {
       "additionalProperties" : false,
       "type" : "object",
@@ -1584,6 +1602,9 @@
         "SelectAllOptions" : {
           "$ref" : "#/definitions/NumericFilterSelectAllOptions"
         },
+        "DefaultFilterControlConfiguration" : {
+          "$ref" : "#/definitions/DefaultFilterControlConfiguration"
+        },
         "FilterId" : {
           "minLength" : 1,
           "pattern" : "^[\\w\\-]+$",
@@ -1849,6 +1870,9 @@
         },
         "SelectAllOptions" : {
           "$ref" : "#/definitions/NumericFilterSelectAllOptions"
+        },
+        "DefaultFilterControlConfiguration" : {
+          "$ref" : "#/definitions/DefaultFilterControlConfiguration"
         },
         "FilterId" : {
           "minLength" : 1,
@@ -2192,6 +2216,21 @@
       "type" : "string",
       "enum" : [ "CARET_UP", "CARET_DOWN", "PLUS", "MINUS", "ARROW_UP", "ARROW_DOWN", "ARROW_LEFT", "ARROW_UP_LEFT", "ARROW_DOWN_LEFT", "ARROW_RIGHT", "ARROW_UP_RIGHT", "ARROW_DOWN_RIGHT", "FACE_UP", "FACE_DOWN", "FACE_FLAT", "ONE_BAR", "TWO_BAR", "THREE_BAR", "CIRCLE", "TRIANGLE", "SQUARE", "FLAG", "THUMBS_UP", "THUMBS_DOWN", "CHECKMARK", "X" ]
     },
+    "DefaultFilterControlConfiguration" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "ControlOptions" : {
+          "$ref" : "#/definitions/DefaultFilterControlOptions"
+        },
+        "Title" : {
+          "minLength" : 1,
+          "type" : "string",
+          "maxLength" : 2048
+        }
+      },
+      "required" : [ "ControlOptions", "Title" ]
+    },
     "DataBarsOptions" : {
       "additionalProperties" : false,
       "type" : "object",
@@ -2340,6 +2379,9 @@
         },
         "NullOption" : {
           "$ref" : "#/definitions/FilterNullOption"
+        },
+        "DefaultFilterControlConfiguration" : {
+          "$ref" : "#/definitions/DefaultFilterControlConfiguration"
         },
         "FilterId" : {
           "minLength" : 1,
@@ -2593,6 +2635,20 @@
       "type" : "string",
       "enum" : [ "IMAGE", "OTHER_EMBEDDED_CONTENT" ]
     },
+    "DefaultTextAreaControlOptions" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "Delimiter" : {
+          "minLength" : 1,
+          "type" : "string",
+          "maxLength" : 2048
+        },
+        "DisplayOptions" : {
+          "$ref" : "#/definitions/TextAreaControlDisplayOptions"
+        }
+      }
+    },
     "VisualCustomActionTrigger" : {
       "type" : "string",
       "enum" : [ "DATA_POINT_CLICK", "DATA_POINT_MENU" ]
@@ -2761,6 +2817,9 @@
         },
         "NullOption" : {
           "$ref" : "#/definitions/FilterNullOption"
+        },
+        "DefaultFilterControlConfiguration" : {
+          "$ref" : "#/definitions/DefaultFilterControlConfiguration"
         },
         "FilterId" : {
           "minLength" : 1,
@@ -3487,6 +3546,9 @@
         "Column" : {
           "$ref" : "#/definitions/ColumnIdentifier"
         },
+        "DefaultFilterControlConfiguration" : {
+          "$ref" : "#/definitions/DefaultFilterControlConfiguration"
+        },
         "FilterId" : {
           "minLength" : 1,
           "pattern" : "^[\\w\\-]+$",
@@ -3644,6 +3706,15 @@
     "LineChartType" : {
       "type" : "string",
       "enum" : [ "LINE", "AREA", "STACKED_AREA" ]
+    },
+    "DefaultTextFieldControlOptions" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "DisplayOptions" : {
+          "$ref" : "#/definitions/TextFieldControlDisplayOptions"
+        }
+      }
     },
     "TableTotalsPlacement" : {
       "type" : "string",
@@ -3890,6 +3961,28 @@
           "$ref" : "#/definitions/VisualPalette"
         }
       }
+    },
+    "FilterCrossSheetControl" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "FilterControlId" : {
+          "minLength" : 1,
+          "pattern" : "^[\\w\\-]+$",
+          "type" : "string",
+          "maxLength" : 512
+        },
+        "CascadingControlConfiguration" : {
+          "$ref" : "#/definitions/CascadingControlConfiguration"
+        },
+        "SourceFilterId" : {
+          "minLength" : 1,
+          "pattern" : "^[\\w\\-]+$",
+          "type" : "string",
+          "maxLength" : 512
+        }
+      },
+      "required" : [ "FilterControlId", "SourceFilterId" ]
     },
     "TotalAggregationFunction" : {
       "additionalProperties" : false,
@@ -4719,6 +4812,31 @@
     "SpecialValue" : {
       "type" : "string",
       "enum" : [ "EMPTY", "NULL", "OTHER" ]
+    },
+    "DefaultSliderControlOptions" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "Type" : {
+          "$ref" : "#/definitions/SheetControlSliderType"
+        },
+        "StepSize" : {
+          "default" : 0,
+          "type" : "number"
+        },
+        "DisplayOptions" : {
+          "$ref" : "#/definitions/SliderControlDisplayOptions"
+        },
+        "MaximumValue" : {
+          "default" : 0,
+          "type" : "number"
+        },
+        "MinimumValue" : {
+          "default" : 0,
+          "type" : "number"
+        }
+      },
+      "required" : [ "MaximumValue", "MinimumValue", "StepSize" ]
     },
     "ParameterListControl" : {
       "additionalProperties" : false,
@@ -6076,6 +6194,9 @@
           "type" : "string",
           "maxLength" : 2048
         },
+        "DefaultFilterControlConfiguration" : {
+          "$ref" : "#/definitions/DefaultFilterControlConfiguration"
+        },
         "FilterId" : {
           "minLength" : 1,
           "pattern" : "^[\\w\\-]+$",
@@ -6398,6 +6519,9 @@
         "Limit" : {
           "default" : null,
           "type" : "number"
+        },
+        "DefaultFilterControlConfiguration" : {
+          "$ref" : "#/definitions/DefaultFilterControlConfiguration"
         },
         "FilterId" : {
           "minLength" : 1,
@@ -6994,6 +7118,15 @@
             "pattern" : "^#[A-F0-9]{6}$",
             "type" : "string"
           }
+        }
+      }
+    },
+    "DefaultRelativeDateTimeControlOptions" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "DisplayOptions" : {
+          "$ref" : "#/definitions/RelativeDateTimeControlDisplayOptions"
         }
       }
     },
@@ -7907,6 +8040,21 @@
       },
       "required" : [ "Column", "FieldId" ]
     },
+    "DefaultFilterListControlOptions" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "Type" : {
+          "$ref" : "#/definitions/SheetControlListType"
+        },
+        "DisplayOptions" : {
+          "$ref" : "#/definitions/ListControlDisplayOptions"
+        },
+        "SelectableValues" : {
+          "$ref" : "#/definitions/FilterSelectableValues"
+        }
+      }
+    },
     "PrimaryValueDisplayType" : {
       "type" : "string",
       "enum" : [ "HIDDEN", "COMPARISON", "ACTUAL" ]
@@ -8459,6 +8607,18 @@
       },
       "required" : [ "Direction", "SortBy" ]
     },
+    "DefaultDateTimePickerControlOptions" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "Type" : {
+          "$ref" : "#/definitions/SheetControlDateTimePickerType"
+        },
+        "DisplayOptions" : {
+          "$ref" : "#/definitions/DateTimePickerControlDisplayOptions"
+        }
+      }
+    },
     "NumericalMeasureField" : {
       "additionalProperties" : false,
       "type" : "object",
@@ -8857,6 +9017,33 @@
         }
       },
       "required" : [ "NullString" ]
+    },
+    "DefaultFilterControlOptions" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "DefaultSliderOptions" : {
+          "$ref" : "#/definitions/DefaultSliderControlOptions"
+        },
+        "DefaultRelativeDateTimeOptions" : {
+          "$ref" : "#/definitions/DefaultRelativeDateTimeControlOptions"
+        },
+        "DefaultTextFieldOptions" : {
+          "$ref" : "#/definitions/DefaultTextFieldControlOptions"
+        },
+        "DefaultTextAreaOptions" : {
+          "$ref" : "#/definitions/DefaultTextAreaControlOptions"
+        },
+        "DefaultDropdownOptions" : {
+          "$ref" : "#/definitions/DefaultFilterDropDownControlOptions"
+        },
+        "DefaultDateTimePickerOptions" : {
+          "$ref" : "#/definitions/DefaultDateTimePickerControlOptions"
+        },
+        "DefaultListOptions" : {
+          "$ref" : "#/definitions/DefaultFilterListControlOptions"
+        }
+      }
     },
     "ExplicitHierarchy" : {
       "additionalProperties" : false,

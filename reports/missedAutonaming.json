@@ -4723,12 +4723,10 @@
     "cfTypeName": "AWS::EC2::TransitGatewayRouteTableAssociation",
     "properties": {
       "transitGatewayAttachmentId": {
-        "type": "string",
-        "description": "The ID of transit gateway attachment."
+        "type": "string"
       },
       "transitGatewayRouteTableId": {
-        "type": "string",
-        "description": "The ID of transit gateway route table."
+        "type": "string"
       }
     }
   },
@@ -8654,6 +8652,29 @@
       }
     }
   },
+  "aws-native:paymentcryptography:Key": {
+    "cfTypeName": "AWS::PaymentCryptography::Key",
+    "properties": {
+      "enabled": {
+        "type": "boolean"
+      },
+      "exportable": {
+        "type": "boolean"
+      },
+      "keyAttributes": {
+        "$ref": "#/types/aws-native:paymentcryptography:KeyAttributes"
+      },
+      "keyCheckValueAlgorithm": {
+        "$ref": "#/types/aws-native:paymentcryptography:KeyCheckValueAlgorithm"
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        }
+      }
+    }
+  },
   "aws-native:pcaconnectorad:Connector": {
     "cfTypeName": "AWS::PCAConnectorAD::Connector",
     "properties": {
@@ -11269,8 +11290,14 @@
       "displayName": {
         "type": "string"
       },
+      "instanceType": {
+        "$ref": "#/types/aws-native:workspacesweb:PortalInstanceType"
+      },
       "ipAccessSettingsArn": {
         "type": "string"
+      },
+      "maxConcurrentSessions": {
+        "type": "number"
       },
       "networkSettingsArn": {
         "type": "string"

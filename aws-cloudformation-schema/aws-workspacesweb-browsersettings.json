@@ -77,7 +77,6 @@
     }
   },
   "readOnlyProperties" : [ "/properties/AssociatedPortalArns", "/properties/BrowserSettingsArn" ],
-  "writeOnlyProperties" : [ "/properties/AdditionalEncryptionContext", "/properties/CustomerManagedKey" ],
   "createOnlyProperties" : [ "/properties/AdditionalEncryptionContext", "/properties/CustomerManagedKey" ],
   "primaryIdentifier" : [ "/properties/BrowserSettingsArn" ],
   "handlers" : {
