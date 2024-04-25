@@ -14,6 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class TemplateTimeEqualityFilter
     {
         public readonly Outputs.TemplateColumnIdentifier Column;
+        public readonly Outputs.TemplateDefaultFilterControlConfiguration? DefaultFilterControlConfiguration;
         public readonly string FilterId;
         public readonly string? ParameterName;
         public readonly Outputs.TemplateRollingDateConfiguration? RollingDate;
@@ -23,6 +24,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         [OutputConstructor]
         private TemplateTimeEqualityFilter(
             Outputs.TemplateColumnIdentifier column,
+
+            Outputs.TemplateDefaultFilterControlConfiguration? defaultFilterControlConfiguration,
 
             string filterId,
 
@@ -35,6 +38,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             string? value)
         {
             Column = column;
+            DefaultFilterControlConfiguration = defaultFilterControlConfiguration;
             FilterId = filterId;
             ParameterName = parameterName;
             RollingDate = rollingDate;

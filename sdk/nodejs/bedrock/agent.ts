@@ -112,6 +112,7 @@ export class Agent extends pulumi.CustomResource {
      */
     public readonly skipResourceInUseCheckOnDelete!: pulumi.Output<boolean | undefined>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly testAliasTags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Time Stamp.
      */
@@ -141,6 +142,7 @@ export class Agent extends pulumi.CustomResource {
             resourceInputs["promptOverrideConfiguration"] = args ? args.promptOverrideConfiguration : undefined;
             resourceInputs["skipResourceInUseCheckOnDelete"] = args ? args.skipResourceInUseCheckOnDelete : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["testAliasTags"] = args ? args.testAliasTags : undefined;
             resourceInputs["agentArn"] = undefined /*out*/;
             resourceInputs["agentId"] = undefined /*out*/;
             resourceInputs["agentStatus"] = undefined /*out*/;
@@ -172,6 +174,7 @@ export class Agent extends pulumi.CustomResource {
             resourceInputs["recommendedActions"] = undefined /*out*/;
             resourceInputs["skipResourceInUseCheckOnDelete"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["testAliasTags"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -229,4 +232,5 @@ export interface AgentArgs {
      */
     skipResourceInUseCheckOnDelete?: pulumi.Input<boolean>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    testAliasTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

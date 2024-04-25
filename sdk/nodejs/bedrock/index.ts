@@ -35,10 +35,20 @@ export const getDataSource: typeof import("./getDataSource").getDataSource = nul
 export const getDataSourceOutput: typeof import("./getDataSource").getDataSourceOutput = null as any;
 utilities.lazyLoad(exports, ["getDataSource","getDataSourceOutput"], () => require("./getDataSource"));
 
+export { GetGuardrailArgs, GetGuardrailResult, GetGuardrailOutputArgs } from "./getGuardrail";
+export const getGuardrail: typeof import("./getGuardrail").getGuardrail = null as any;
+export const getGuardrailOutput: typeof import("./getGuardrail").getGuardrailOutput = null as any;
+utilities.lazyLoad(exports, ["getGuardrail","getGuardrailOutput"], () => require("./getGuardrail"));
+
 export { GetKnowledgeBaseArgs, GetKnowledgeBaseResult, GetKnowledgeBaseOutputArgs } from "./getKnowledgeBase";
 export const getKnowledgeBase: typeof import("./getKnowledgeBase").getKnowledgeBase = null as any;
 export const getKnowledgeBaseOutput: typeof import("./getKnowledgeBase").getKnowledgeBaseOutput = null as any;
 utilities.lazyLoad(exports, ["getKnowledgeBase","getKnowledgeBaseOutput"], () => require("./getKnowledgeBase"));
+
+export { GuardrailArgs } from "./guardrail";
+export type Guardrail = import("./guardrail").Guardrail;
+export const Guardrail: typeof import("./guardrail").Guardrail = null as any;
+utilities.lazyLoad(exports, ["Guardrail"], () => require("./guardrail"));
 
 export { KnowledgeBaseArgs } from "./knowledgeBase";
 export type KnowledgeBase = import("./knowledgeBase").KnowledgeBase;
@@ -59,6 +69,8 @@ const _module = {
                 return new AgentAlias(name, <any>undefined, { urn })
             case "aws-native:bedrock:DataSource":
                 return new DataSource(name, <any>undefined, { urn })
+            case "aws-native:bedrock:Guardrail":
+                return new Guardrail(name, <any>undefined, { urn })
             case "aws-native:bedrock:KnowledgeBase":
                 return new KnowledgeBase(name, <any>undefined, { urn })
             default:

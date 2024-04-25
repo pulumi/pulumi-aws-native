@@ -95,6 +95,35 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
     }
 
     [EnumType]
+    public readonly struct PortalInstanceType : IEquatable<PortalInstanceType>
+    {
+        private readonly string _value;
+
+        private PortalInstanceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PortalInstanceType StandardRegular { get; } = new PortalInstanceType("standard.regular");
+        public static PortalInstanceType StandardLarge { get; } = new PortalInstanceType("standard.large");
+        public static PortalInstanceType StandardXlarge { get; } = new PortalInstanceType("standard.xlarge");
+
+        public static bool operator ==(PortalInstanceType left, PortalInstanceType right) => left.Equals(right);
+        public static bool operator !=(PortalInstanceType left, PortalInstanceType right) => !left.Equals(right);
+
+        public static explicit operator string(PortalInstanceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PortalInstanceType other && Equals(other);
+        public bool Equals(PortalInstanceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct PortalRendererType : IEquatable<PortalRendererType>
     {
         private readonly string _value;

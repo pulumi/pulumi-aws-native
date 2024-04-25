@@ -45,12 +45,16 @@ class CampaignAgentlessDialerConfigArgs:
 @pulumi.input_type
 class CampaignAnswerMachineDetectionConfigArgs:
     def __init__(__self__, *,
-                 enable_answer_machine_detection: pulumi.Input[bool]):
+                 enable_answer_machine_detection: pulumi.Input[bool],
+                 await_answer_machine_prompt: Optional[pulumi.Input[bool]] = None):
         """
         The configuration used for answering machine detection during outbound calls
         :param pulumi.Input[bool] enable_answer_machine_detection: Flag to decided whether outbound calls should have answering machine detection enabled or not
+        :param pulumi.Input[bool] await_answer_machine_prompt: Enables detection of prompts (e.g., beep after after a voicemail greeting)
         """
         pulumi.set(__self__, "enable_answer_machine_detection", enable_answer_machine_detection)
+        if await_answer_machine_prompt is not None:
+            pulumi.set(__self__, "await_answer_machine_prompt", await_answer_machine_prompt)
 
     @property
     @pulumi.getter(name="enableAnswerMachineDetection")
@@ -63,6 +67,18 @@ class CampaignAnswerMachineDetectionConfigArgs:
     @enable_answer_machine_detection.setter
     def enable_answer_machine_detection(self, value: pulumi.Input[bool]):
         pulumi.set(self, "enable_answer_machine_detection", value)
+
+    @property
+    @pulumi.getter(name="awaitAnswerMachinePrompt")
+    def await_answer_machine_prompt(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables detection of prompts (e.g., beep after after a voicemail greeting)
+        """
+        return pulumi.get(self, "await_answer_machine_prompt")
+
+    @await_answer_machine_prompt.setter
+    def await_answer_machine_prompt(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "await_answer_machine_prompt", value)
 
 
 @pulumi.input_type

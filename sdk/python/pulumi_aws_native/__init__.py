@@ -322,6 +322,8 @@ if typing.TYPE_CHECKING:
     osis = __osis
     import pulumi_aws_native.panorama as __panorama
     panorama = __panorama
+    import pulumi_aws_native.paymentcryptography as __paymentcryptography
+    paymentcryptography = __paymentcryptography
     import pulumi_aws_native.pcaconnectorad as __pcaconnectorad
     pcaconnectorad = __pcaconnectorad
     import pulumi_aws_native.personalize as __personalize
@@ -360,6 +362,8 @@ if typing.TYPE_CHECKING:
     rolesanywhere = __rolesanywhere
     import pulumi_aws_native.route53 as __route53
     route53 = __route53
+    import pulumi_aws_native.route53profiles as __route53profiles
+    route53profiles = __route53profiles
     import pulumi_aws_native.route53recoverycontrol as __route53recoverycontrol
     route53recoverycontrol = __route53recoverycontrol
     import pulumi_aws_native.route53recoveryreadiness as __route53recoveryreadiness
@@ -591,6 +595,7 @@ else:
     organizations = _utilities.lazy_import('pulumi_aws_native.organizations')
     osis = _utilities.lazy_import('pulumi_aws_native.osis')
     panorama = _utilities.lazy_import('pulumi_aws_native.panorama')
+    paymentcryptography = _utilities.lazy_import('pulumi_aws_native.paymentcryptography')
     pcaconnectorad = _utilities.lazy_import('pulumi_aws_native.pcaconnectorad')
     personalize = _utilities.lazy_import('pulumi_aws_native.personalize')
     pinpoint = _utilities.lazy_import('pulumi_aws_native.pinpoint')
@@ -610,6 +615,7 @@ else:
     robomaker = _utilities.lazy_import('pulumi_aws_native.robomaker')
     rolesanywhere = _utilities.lazy_import('pulumi_aws_native.rolesanywhere')
     route53 = _utilities.lazy_import('pulumi_aws_native.route53')
+    route53profiles = _utilities.lazy_import('pulumi_aws_native.route53profiles')
     route53recoverycontrol = _utilities.lazy_import('pulumi_aws_native.route53recoverycontrol')
     route53recoveryreadiness = _utilities.lazy_import('pulumi_aws_native.route53recoveryreadiness')
     route53resolver = _utilities.lazy_import('pulumi_aws_native.route53resolver')
@@ -927,6 +933,7 @@ _utilities.register(
    "aws-native:bedrock:Agent": "Agent",
    "aws-native:bedrock:AgentAlias": "AgentAlias",
    "aws-native:bedrock:DataSource": "DataSource",
+   "aws-native:bedrock:Guardrail": "Guardrail",
    "aws-native:bedrock:KnowledgeBase": "KnowledgeBase"
   }
  },
@@ -2438,6 +2445,15 @@ _utilities.register(
  },
  {
   "pkg": "aws-native",
+  "mod": "paymentcryptography",
+  "fqn": "pulumi_aws_native.paymentcryptography",
+  "classes": {
+   "aws-native:paymentcryptography:Alias": "Alias",
+   "aws-native:paymentcryptography:Key": "Key"
+  }
+ },
+ {
+  "pkg": "aws-native",
   "mod": "pcaconnectorad",
   "fqn": "pulumi_aws_native.pcaconnectorad",
   "classes": {
@@ -2641,6 +2657,16 @@ _utilities.register(
    "aws-native:route53:HealthCheck": "HealthCheck",
    "aws-native:route53:HostedZone": "HostedZone",
    "aws-native:route53:KeySigningKey": "KeySigningKey"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "route53profiles",
+  "fqn": "pulumi_aws_native.route53profiles",
+  "classes": {
+   "aws-native:route53profiles:Profile": "Profile",
+   "aws-native:route53profiles:ProfileAssociation": "ProfileAssociation",
+   "aws-native:route53profiles:ProfileResourceAssociation": "ProfileResourceAssociation"
   }
  },
  {

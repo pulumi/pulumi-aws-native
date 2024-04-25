@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateFilterControlArgs : global::Pulumi.ResourceArgs
     {
+        [Input("crossSheet")]
+        public Input<Inputs.TemplateFilterCrossSheetControlArgs>? CrossSheet { get; set; }
+
         [Input("dateTimePicker")]
         public Input<Inputs.TemplateFilterDateTimePickerControlArgs>? DateTimePicker { get; set; }
 

@@ -155,6 +155,8 @@ func (o CampaignAgentlessDialerConfigPtrOutput) DialingCapacity() pulumi.Float64
 
 // The configuration used for answering machine detection during outbound calls
 type CampaignAnswerMachineDetectionConfig struct {
+	// Enables detection of prompts (e.g., beep after after a voicemail greeting)
+	AwaitAnswerMachinePrompt *bool `pulumi:"awaitAnswerMachinePrompt"`
 	// Flag to decided whether outbound calls should have answering machine detection enabled or not
 	EnableAnswerMachineDetection bool `pulumi:"enableAnswerMachineDetection"`
 }
@@ -172,6 +174,8 @@ type CampaignAnswerMachineDetectionConfigInput interface {
 
 // The configuration used for answering machine detection during outbound calls
 type CampaignAnswerMachineDetectionConfigArgs struct {
+	// Enables detection of prompts (e.g., beep after after a voicemail greeting)
+	AwaitAnswerMachinePrompt pulumi.BoolPtrInput `pulumi:"awaitAnswerMachinePrompt"`
 	// Flag to decided whether outbound calls should have answering machine detection enabled or not
 	EnableAnswerMachineDetection pulumi.BoolInput `pulumi:"enableAnswerMachineDetection"`
 }
@@ -254,6 +258,11 @@ func (o CampaignAnswerMachineDetectionConfigOutput) ToCampaignAnswerMachineDetec
 	}).(CampaignAnswerMachineDetectionConfigPtrOutput)
 }
 
+// Enables detection of prompts (e.g., beep after after a voicemail greeting)
+func (o CampaignAnswerMachineDetectionConfigOutput) AwaitAnswerMachinePrompt() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CampaignAnswerMachineDetectionConfig) *bool { return v.AwaitAnswerMachinePrompt }).(pulumi.BoolPtrOutput)
+}
+
 // Flag to decided whether outbound calls should have answering machine detection enabled or not
 func (o CampaignAnswerMachineDetectionConfigOutput) EnableAnswerMachineDetection() pulumi.BoolOutput {
 	return o.ApplyT(func(v CampaignAnswerMachineDetectionConfig) bool { return v.EnableAnswerMachineDetection }).(pulumi.BoolOutput)
@@ -281,6 +290,16 @@ func (o CampaignAnswerMachineDetectionConfigPtrOutput) Elem() CampaignAnswerMach
 		var ret CampaignAnswerMachineDetectionConfig
 		return ret
 	}).(CampaignAnswerMachineDetectionConfigOutput)
+}
+
+// Enables detection of prompts (e.g., beep after after a voicemail greeting)
+func (o CampaignAnswerMachineDetectionConfigPtrOutput) AwaitAnswerMachinePrompt() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CampaignAnswerMachineDetectionConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AwaitAnswerMachinePrompt
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Flag to decided whether outbound calls should have answering machine detection enabled or not

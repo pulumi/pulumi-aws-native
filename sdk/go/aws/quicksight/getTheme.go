@@ -29,8 +29,11 @@ type LookupThemeArgs struct {
 }
 
 type LookupThemeResult struct {
-	Arn             *string                   `pulumi:"arn"`
-	CreatedTime     *string                   `pulumi:"createdTime"`
+	// <p>The Amazon Resource Name (ARN) of the theme.</p>
+	Arn *string `pulumi:"arn"`
+	// <p>The date and time that the theme was created.</p>
+	CreatedTime *string `pulumi:"createdTime"`
+	// <p>The date and time that the theme was last updated.</p>
 	LastUpdatedTime *string                   `pulumi:"lastUpdatedTime"`
 	Name            *string                   `pulumi:"name"`
 	Permissions     []ThemeResourcePermission `pulumi:"permissions"`
@@ -75,14 +78,17 @@ func (o LookupThemeResultOutput) ToLookupThemeResultOutputWithContext(ctx contex
 	return o
 }
 
+// <p>The Amazon Resource Name (ARN) of the theme.</p>
 func (o LookupThemeResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupThemeResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// <p>The date and time that the theme was created.</p>
 func (o LookupThemeResultOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupThemeResult) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
+// <p>The date and time that the theme was last updated.</p>
 func (o LookupThemeResultOutput) LastUpdatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupThemeResult) *string { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
 }

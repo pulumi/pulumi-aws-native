@@ -15,6 +15,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     {
         public readonly ImmutableArray<Outputs.AnalysisAggregationSortConfiguration> AggregationSortConfigurations;
         public readonly Outputs.AnalysisColumnIdentifier Column;
+        public readonly Outputs.AnalysisDefaultFilterControlConfiguration? DefaultFilterControlConfiguration;
         public readonly string FilterId;
         public readonly double? Limit;
         public readonly string? ParameterName;
@@ -26,6 +27,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Outputs.AnalysisColumnIdentifier column,
 
+            Outputs.AnalysisDefaultFilterControlConfiguration? defaultFilterControlConfiguration,
+
             string filterId,
 
             double? limit,
@@ -36,6 +39,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         {
             AggregationSortConfigurations = aggregationSortConfigurations;
             Column = column;
+            DefaultFilterControlConfiguration = defaultFilterControlConfiguration;
             FilterId = filterId;
             Limit = limit;
             ParameterName = parameterName;

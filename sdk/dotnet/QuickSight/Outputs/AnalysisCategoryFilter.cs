@@ -15,6 +15,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     {
         public readonly Outputs.AnalysisColumnIdentifier Column;
         public readonly Outputs.AnalysisCategoryFilterConfiguration Configuration;
+        public readonly Outputs.AnalysisDefaultFilterControlConfiguration? DefaultFilterControlConfiguration;
         public readonly string FilterId;
 
         [OutputConstructor]
@@ -23,10 +24,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Outputs.AnalysisCategoryFilterConfiguration configuration,
 
+            Outputs.AnalysisDefaultFilterControlConfiguration? defaultFilterControlConfiguration,
+
             string filterId)
         {
             Column = column;
             Configuration = configuration;
+            DefaultFilterControlConfiguration = defaultFilterControlConfiguration;
             FilterId = filterId;
         }
     }

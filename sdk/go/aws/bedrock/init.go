@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AgentAlias{}
 	case "aws-native:bedrock:DataSource":
 		r = &DataSource{}
+	case "aws-native:bedrock:Guardrail":
+		r = &Guardrail{}
 	case "aws-native:bedrock:KnowledgeBase":
 		r = &KnowledgeBase{}
 	default:

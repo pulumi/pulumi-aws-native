@@ -10,9 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;Theme error.&lt;/p&gt;
+    /// </summary>
     [OutputType]
     public sealed class ThemeError
     {
+        /// <summary>
+        /// &lt;p&gt;The error message.&lt;/p&gt;
+        /// </summary>
         public readonly string? Message;
         public readonly Pulumi.AwsNative.QuickSight.ThemeErrorType? Type;
 

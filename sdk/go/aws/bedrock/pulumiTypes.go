@@ -2305,6 +2305,1271 @@ func (o DataSourceVectorIngestionConfigurationPtrOutput) ChunkingConfiguration()
 	}).(DataSourceChunkingConfigurationPtrOutput)
 }
 
+// Content filter config in content policy.
+type GuardrailContentFilterConfig struct {
+	InputStrength  GuardrailFilterStrength    `pulumi:"inputStrength"`
+	OutputStrength GuardrailFilterStrength    `pulumi:"outputStrength"`
+	Type           GuardrailContentFilterType `pulumi:"type"`
+}
+
+// GuardrailContentFilterConfigInput is an input type that accepts GuardrailContentFilterConfigArgs and GuardrailContentFilterConfigOutput values.
+// You can construct a concrete instance of `GuardrailContentFilterConfigInput` via:
+//
+//	GuardrailContentFilterConfigArgs{...}
+type GuardrailContentFilterConfigInput interface {
+	pulumi.Input
+
+	ToGuardrailContentFilterConfigOutput() GuardrailContentFilterConfigOutput
+	ToGuardrailContentFilterConfigOutputWithContext(context.Context) GuardrailContentFilterConfigOutput
+}
+
+// Content filter config in content policy.
+type GuardrailContentFilterConfigArgs struct {
+	InputStrength  GuardrailFilterStrengthInput    `pulumi:"inputStrength"`
+	OutputStrength GuardrailFilterStrengthInput    `pulumi:"outputStrength"`
+	Type           GuardrailContentFilterTypeInput `pulumi:"type"`
+}
+
+func (GuardrailContentFilterConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuardrailContentFilterConfig)(nil)).Elem()
+}
+
+func (i GuardrailContentFilterConfigArgs) ToGuardrailContentFilterConfigOutput() GuardrailContentFilterConfigOutput {
+	return i.ToGuardrailContentFilterConfigOutputWithContext(context.Background())
+}
+
+func (i GuardrailContentFilterConfigArgs) ToGuardrailContentFilterConfigOutputWithContext(ctx context.Context) GuardrailContentFilterConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GuardrailContentFilterConfigOutput)
+}
+
+// GuardrailContentFilterConfigArrayInput is an input type that accepts GuardrailContentFilterConfigArray and GuardrailContentFilterConfigArrayOutput values.
+// You can construct a concrete instance of `GuardrailContentFilterConfigArrayInput` via:
+//
+//	GuardrailContentFilterConfigArray{ GuardrailContentFilterConfigArgs{...} }
+type GuardrailContentFilterConfigArrayInput interface {
+	pulumi.Input
+
+	ToGuardrailContentFilterConfigArrayOutput() GuardrailContentFilterConfigArrayOutput
+	ToGuardrailContentFilterConfigArrayOutputWithContext(context.Context) GuardrailContentFilterConfigArrayOutput
+}
+
+type GuardrailContentFilterConfigArray []GuardrailContentFilterConfigInput
+
+func (GuardrailContentFilterConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GuardrailContentFilterConfig)(nil)).Elem()
+}
+
+func (i GuardrailContentFilterConfigArray) ToGuardrailContentFilterConfigArrayOutput() GuardrailContentFilterConfigArrayOutput {
+	return i.ToGuardrailContentFilterConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GuardrailContentFilterConfigArray) ToGuardrailContentFilterConfigArrayOutputWithContext(ctx context.Context) GuardrailContentFilterConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GuardrailContentFilterConfigArrayOutput)
+}
+
+// Content filter config in content policy.
+type GuardrailContentFilterConfigOutput struct{ *pulumi.OutputState }
+
+func (GuardrailContentFilterConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuardrailContentFilterConfig)(nil)).Elem()
+}
+
+func (o GuardrailContentFilterConfigOutput) ToGuardrailContentFilterConfigOutput() GuardrailContentFilterConfigOutput {
+	return o
+}
+
+func (o GuardrailContentFilterConfigOutput) ToGuardrailContentFilterConfigOutputWithContext(ctx context.Context) GuardrailContentFilterConfigOutput {
+	return o
+}
+
+func (o GuardrailContentFilterConfigOutput) InputStrength() GuardrailFilterStrengthOutput {
+	return o.ApplyT(func(v GuardrailContentFilterConfig) GuardrailFilterStrength { return v.InputStrength }).(GuardrailFilterStrengthOutput)
+}
+
+func (o GuardrailContentFilterConfigOutput) OutputStrength() GuardrailFilterStrengthOutput {
+	return o.ApplyT(func(v GuardrailContentFilterConfig) GuardrailFilterStrength { return v.OutputStrength }).(GuardrailFilterStrengthOutput)
+}
+
+func (o GuardrailContentFilterConfigOutput) Type() GuardrailContentFilterTypeOutput {
+	return o.ApplyT(func(v GuardrailContentFilterConfig) GuardrailContentFilterType { return v.Type }).(GuardrailContentFilterTypeOutput)
+}
+
+type GuardrailContentFilterConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GuardrailContentFilterConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GuardrailContentFilterConfig)(nil)).Elem()
+}
+
+func (o GuardrailContentFilterConfigArrayOutput) ToGuardrailContentFilterConfigArrayOutput() GuardrailContentFilterConfigArrayOutput {
+	return o
+}
+
+func (o GuardrailContentFilterConfigArrayOutput) ToGuardrailContentFilterConfigArrayOutputWithContext(ctx context.Context) GuardrailContentFilterConfigArrayOutput {
+	return o
+}
+
+func (o GuardrailContentFilterConfigArrayOutput) Index(i pulumi.IntInput) GuardrailContentFilterConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GuardrailContentFilterConfig {
+		return vs[0].([]GuardrailContentFilterConfig)[vs[1].(int)]
+	}).(GuardrailContentFilterConfigOutput)
+}
+
+// Content policy config for a guardrail.
+type GuardrailContentPolicyConfig struct {
+	// List of content filter configs in content policy.
+	FiltersConfig []GuardrailContentFilterConfig `pulumi:"filtersConfig"`
+}
+
+// GuardrailContentPolicyConfigInput is an input type that accepts GuardrailContentPolicyConfigArgs and GuardrailContentPolicyConfigOutput values.
+// You can construct a concrete instance of `GuardrailContentPolicyConfigInput` via:
+//
+//	GuardrailContentPolicyConfigArgs{...}
+type GuardrailContentPolicyConfigInput interface {
+	pulumi.Input
+
+	ToGuardrailContentPolicyConfigOutput() GuardrailContentPolicyConfigOutput
+	ToGuardrailContentPolicyConfigOutputWithContext(context.Context) GuardrailContentPolicyConfigOutput
+}
+
+// Content policy config for a guardrail.
+type GuardrailContentPolicyConfigArgs struct {
+	// List of content filter configs in content policy.
+	FiltersConfig GuardrailContentFilterConfigArrayInput `pulumi:"filtersConfig"`
+}
+
+func (GuardrailContentPolicyConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuardrailContentPolicyConfig)(nil)).Elem()
+}
+
+func (i GuardrailContentPolicyConfigArgs) ToGuardrailContentPolicyConfigOutput() GuardrailContentPolicyConfigOutput {
+	return i.ToGuardrailContentPolicyConfigOutputWithContext(context.Background())
+}
+
+func (i GuardrailContentPolicyConfigArgs) ToGuardrailContentPolicyConfigOutputWithContext(ctx context.Context) GuardrailContentPolicyConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GuardrailContentPolicyConfigOutput)
+}
+
+func (i GuardrailContentPolicyConfigArgs) ToGuardrailContentPolicyConfigPtrOutput() GuardrailContentPolicyConfigPtrOutput {
+	return i.ToGuardrailContentPolicyConfigPtrOutputWithContext(context.Background())
+}
+
+func (i GuardrailContentPolicyConfigArgs) ToGuardrailContentPolicyConfigPtrOutputWithContext(ctx context.Context) GuardrailContentPolicyConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GuardrailContentPolicyConfigOutput).ToGuardrailContentPolicyConfigPtrOutputWithContext(ctx)
+}
+
+// GuardrailContentPolicyConfigPtrInput is an input type that accepts GuardrailContentPolicyConfigArgs, GuardrailContentPolicyConfigPtr and GuardrailContentPolicyConfigPtrOutput values.
+// You can construct a concrete instance of `GuardrailContentPolicyConfigPtrInput` via:
+//
+//	        GuardrailContentPolicyConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type GuardrailContentPolicyConfigPtrInput interface {
+	pulumi.Input
+
+	ToGuardrailContentPolicyConfigPtrOutput() GuardrailContentPolicyConfigPtrOutput
+	ToGuardrailContentPolicyConfigPtrOutputWithContext(context.Context) GuardrailContentPolicyConfigPtrOutput
+}
+
+type guardrailContentPolicyConfigPtrType GuardrailContentPolicyConfigArgs
+
+func GuardrailContentPolicyConfigPtr(v *GuardrailContentPolicyConfigArgs) GuardrailContentPolicyConfigPtrInput {
+	return (*guardrailContentPolicyConfigPtrType)(v)
+}
+
+func (*guardrailContentPolicyConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GuardrailContentPolicyConfig)(nil)).Elem()
+}
+
+func (i *guardrailContentPolicyConfigPtrType) ToGuardrailContentPolicyConfigPtrOutput() GuardrailContentPolicyConfigPtrOutput {
+	return i.ToGuardrailContentPolicyConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *guardrailContentPolicyConfigPtrType) ToGuardrailContentPolicyConfigPtrOutputWithContext(ctx context.Context) GuardrailContentPolicyConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GuardrailContentPolicyConfigPtrOutput)
+}
+
+// Content policy config for a guardrail.
+type GuardrailContentPolicyConfigOutput struct{ *pulumi.OutputState }
+
+func (GuardrailContentPolicyConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuardrailContentPolicyConfig)(nil)).Elem()
+}
+
+func (o GuardrailContentPolicyConfigOutput) ToGuardrailContentPolicyConfigOutput() GuardrailContentPolicyConfigOutput {
+	return o
+}
+
+func (o GuardrailContentPolicyConfigOutput) ToGuardrailContentPolicyConfigOutputWithContext(ctx context.Context) GuardrailContentPolicyConfigOutput {
+	return o
+}
+
+func (o GuardrailContentPolicyConfigOutput) ToGuardrailContentPolicyConfigPtrOutput() GuardrailContentPolicyConfigPtrOutput {
+	return o.ToGuardrailContentPolicyConfigPtrOutputWithContext(context.Background())
+}
+
+func (o GuardrailContentPolicyConfigOutput) ToGuardrailContentPolicyConfigPtrOutputWithContext(ctx context.Context) GuardrailContentPolicyConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GuardrailContentPolicyConfig) *GuardrailContentPolicyConfig {
+		return &v
+	}).(GuardrailContentPolicyConfigPtrOutput)
+}
+
+// List of content filter configs in content policy.
+func (o GuardrailContentPolicyConfigOutput) FiltersConfig() GuardrailContentFilterConfigArrayOutput {
+	return o.ApplyT(func(v GuardrailContentPolicyConfig) []GuardrailContentFilterConfig { return v.FiltersConfig }).(GuardrailContentFilterConfigArrayOutput)
+}
+
+type GuardrailContentPolicyConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (GuardrailContentPolicyConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GuardrailContentPolicyConfig)(nil)).Elem()
+}
+
+func (o GuardrailContentPolicyConfigPtrOutput) ToGuardrailContentPolicyConfigPtrOutput() GuardrailContentPolicyConfigPtrOutput {
+	return o
+}
+
+func (o GuardrailContentPolicyConfigPtrOutput) ToGuardrailContentPolicyConfigPtrOutputWithContext(ctx context.Context) GuardrailContentPolicyConfigPtrOutput {
+	return o
+}
+
+func (o GuardrailContentPolicyConfigPtrOutput) Elem() GuardrailContentPolicyConfigOutput {
+	return o.ApplyT(func(v *GuardrailContentPolicyConfig) GuardrailContentPolicyConfig {
+		if v != nil {
+			return *v
+		}
+		var ret GuardrailContentPolicyConfig
+		return ret
+	}).(GuardrailContentPolicyConfigOutput)
+}
+
+// List of content filter configs in content policy.
+func (o GuardrailContentPolicyConfigPtrOutput) FiltersConfig() GuardrailContentFilterConfigArrayOutput {
+	return o.ApplyT(func(v *GuardrailContentPolicyConfig) []GuardrailContentFilterConfig {
+		if v == nil {
+			return nil
+		}
+		return v.FiltersConfig
+	}).(GuardrailContentFilterConfigArrayOutput)
+}
+
+// A managed words config.
+type GuardrailManagedWordsConfig struct {
+	Type GuardrailManagedWordsType `pulumi:"type"`
+}
+
+// GuardrailManagedWordsConfigInput is an input type that accepts GuardrailManagedWordsConfigArgs and GuardrailManagedWordsConfigOutput values.
+// You can construct a concrete instance of `GuardrailManagedWordsConfigInput` via:
+//
+//	GuardrailManagedWordsConfigArgs{...}
+type GuardrailManagedWordsConfigInput interface {
+	pulumi.Input
+
+	ToGuardrailManagedWordsConfigOutput() GuardrailManagedWordsConfigOutput
+	ToGuardrailManagedWordsConfigOutputWithContext(context.Context) GuardrailManagedWordsConfigOutput
+}
+
+// A managed words config.
+type GuardrailManagedWordsConfigArgs struct {
+	Type GuardrailManagedWordsTypeInput `pulumi:"type"`
+}
+
+func (GuardrailManagedWordsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuardrailManagedWordsConfig)(nil)).Elem()
+}
+
+func (i GuardrailManagedWordsConfigArgs) ToGuardrailManagedWordsConfigOutput() GuardrailManagedWordsConfigOutput {
+	return i.ToGuardrailManagedWordsConfigOutputWithContext(context.Background())
+}
+
+func (i GuardrailManagedWordsConfigArgs) ToGuardrailManagedWordsConfigOutputWithContext(ctx context.Context) GuardrailManagedWordsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GuardrailManagedWordsConfigOutput)
+}
+
+// GuardrailManagedWordsConfigArrayInput is an input type that accepts GuardrailManagedWordsConfigArray and GuardrailManagedWordsConfigArrayOutput values.
+// You can construct a concrete instance of `GuardrailManagedWordsConfigArrayInput` via:
+//
+//	GuardrailManagedWordsConfigArray{ GuardrailManagedWordsConfigArgs{...} }
+type GuardrailManagedWordsConfigArrayInput interface {
+	pulumi.Input
+
+	ToGuardrailManagedWordsConfigArrayOutput() GuardrailManagedWordsConfigArrayOutput
+	ToGuardrailManagedWordsConfigArrayOutputWithContext(context.Context) GuardrailManagedWordsConfigArrayOutput
+}
+
+type GuardrailManagedWordsConfigArray []GuardrailManagedWordsConfigInput
+
+func (GuardrailManagedWordsConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GuardrailManagedWordsConfig)(nil)).Elem()
+}
+
+func (i GuardrailManagedWordsConfigArray) ToGuardrailManagedWordsConfigArrayOutput() GuardrailManagedWordsConfigArrayOutput {
+	return i.ToGuardrailManagedWordsConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GuardrailManagedWordsConfigArray) ToGuardrailManagedWordsConfigArrayOutputWithContext(ctx context.Context) GuardrailManagedWordsConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GuardrailManagedWordsConfigArrayOutput)
+}
+
+// A managed words config.
+type GuardrailManagedWordsConfigOutput struct{ *pulumi.OutputState }
+
+func (GuardrailManagedWordsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuardrailManagedWordsConfig)(nil)).Elem()
+}
+
+func (o GuardrailManagedWordsConfigOutput) ToGuardrailManagedWordsConfigOutput() GuardrailManagedWordsConfigOutput {
+	return o
+}
+
+func (o GuardrailManagedWordsConfigOutput) ToGuardrailManagedWordsConfigOutputWithContext(ctx context.Context) GuardrailManagedWordsConfigOutput {
+	return o
+}
+
+func (o GuardrailManagedWordsConfigOutput) Type() GuardrailManagedWordsTypeOutput {
+	return o.ApplyT(func(v GuardrailManagedWordsConfig) GuardrailManagedWordsType { return v.Type }).(GuardrailManagedWordsTypeOutput)
+}
+
+type GuardrailManagedWordsConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GuardrailManagedWordsConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GuardrailManagedWordsConfig)(nil)).Elem()
+}
+
+func (o GuardrailManagedWordsConfigArrayOutput) ToGuardrailManagedWordsConfigArrayOutput() GuardrailManagedWordsConfigArrayOutput {
+	return o
+}
+
+func (o GuardrailManagedWordsConfigArrayOutput) ToGuardrailManagedWordsConfigArrayOutputWithContext(ctx context.Context) GuardrailManagedWordsConfigArrayOutput {
+	return o
+}
+
+func (o GuardrailManagedWordsConfigArrayOutput) Index(i pulumi.IntInput) GuardrailManagedWordsConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GuardrailManagedWordsConfig {
+		return vs[0].([]GuardrailManagedWordsConfig)[vs[1].(int)]
+	}).(GuardrailManagedWordsConfigOutput)
+}
+
+// Pii entity configuration.
+type GuardrailPiiEntityConfig struct {
+	Action GuardrailSensitiveInformationAction `pulumi:"action"`
+	Type   GuardrailPiiEntityType              `pulumi:"type"`
+}
+
+// GuardrailPiiEntityConfigInput is an input type that accepts GuardrailPiiEntityConfigArgs and GuardrailPiiEntityConfigOutput values.
+// You can construct a concrete instance of `GuardrailPiiEntityConfigInput` via:
+//
+//	GuardrailPiiEntityConfigArgs{...}
+type GuardrailPiiEntityConfigInput interface {
+	pulumi.Input
+
+	ToGuardrailPiiEntityConfigOutput() GuardrailPiiEntityConfigOutput
+	ToGuardrailPiiEntityConfigOutputWithContext(context.Context) GuardrailPiiEntityConfigOutput
+}
+
+// Pii entity configuration.
+type GuardrailPiiEntityConfigArgs struct {
+	Action GuardrailSensitiveInformationActionInput `pulumi:"action"`
+	Type   GuardrailPiiEntityTypeInput              `pulumi:"type"`
+}
+
+func (GuardrailPiiEntityConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuardrailPiiEntityConfig)(nil)).Elem()
+}
+
+func (i GuardrailPiiEntityConfigArgs) ToGuardrailPiiEntityConfigOutput() GuardrailPiiEntityConfigOutput {
+	return i.ToGuardrailPiiEntityConfigOutputWithContext(context.Background())
+}
+
+func (i GuardrailPiiEntityConfigArgs) ToGuardrailPiiEntityConfigOutputWithContext(ctx context.Context) GuardrailPiiEntityConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GuardrailPiiEntityConfigOutput)
+}
+
+// GuardrailPiiEntityConfigArrayInput is an input type that accepts GuardrailPiiEntityConfigArray and GuardrailPiiEntityConfigArrayOutput values.
+// You can construct a concrete instance of `GuardrailPiiEntityConfigArrayInput` via:
+//
+//	GuardrailPiiEntityConfigArray{ GuardrailPiiEntityConfigArgs{...} }
+type GuardrailPiiEntityConfigArrayInput interface {
+	pulumi.Input
+
+	ToGuardrailPiiEntityConfigArrayOutput() GuardrailPiiEntityConfigArrayOutput
+	ToGuardrailPiiEntityConfigArrayOutputWithContext(context.Context) GuardrailPiiEntityConfigArrayOutput
+}
+
+type GuardrailPiiEntityConfigArray []GuardrailPiiEntityConfigInput
+
+func (GuardrailPiiEntityConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GuardrailPiiEntityConfig)(nil)).Elem()
+}
+
+func (i GuardrailPiiEntityConfigArray) ToGuardrailPiiEntityConfigArrayOutput() GuardrailPiiEntityConfigArrayOutput {
+	return i.ToGuardrailPiiEntityConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GuardrailPiiEntityConfigArray) ToGuardrailPiiEntityConfigArrayOutputWithContext(ctx context.Context) GuardrailPiiEntityConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GuardrailPiiEntityConfigArrayOutput)
+}
+
+// Pii entity configuration.
+type GuardrailPiiEntityConfigOutput struct{ *pulumi.OutputState }
+
+func (GuardrailPiiEntityConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuardrailPiiEntityConfig)(nil)).Elem()
+}
+
+func (o GuardrailPiiEntityConfigOutput) ToGuardrailPiiEntityConfigOutput() GuardrailPiiEntityConfigOutput {
+	return o
+}
+
+func (o GuardrailPiiEntityConfigOutput) ToGuardrailPiiEntityConfigOutputWithContext(ctx context.Context) GuardrailPiiEntityConfigOutput {
+	return o
+}
+
+func (o GuardrailPiiEntityConfigOutput) Action() GuardrailSensitiveInformationActionOutput {
+	return o.ApplyT(func(v GuardrailPiiEntityConfig) GuardrailSensitiveInformationAction { return v.Action }).(GuardrailSensitiveInformationActionOutput)
+}
+
+func (o GuardrailPiiEntityConfigOutput) Type() GuardrailPiiEntityTypeOutput {
+	return o.ApplyT(func(v GuardrailPiiEntityConfig) GuardrailPiiEntityType { return v.Type }).(GuardrailPiiEntityTypeOutput)
+}
+
+type GuardrailPiiEntityConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GuardrailPiiEntityConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GuardrailPiiEntityConfig)(nil)).Elem()
+}
+
+func (o GuardrailPiiEntityConfigArrayOutput) ToGuardrailPiiEntityConfigArrayOutput() GuardrailPiiEntityConfigArrayOutput {
+	return o
+}
+
+func (o GuardrailPiiEntityConfigArrayOutput) ToGuardrailPiiEntityConfigArrayOutputWithContext(ctx context.Context) GuardrailPiiEntityConfigArrayOutput {
+	return o
+}
+
+func (o GuardrailPiiEntityConfigArrayOutput) Index(i pulumi.IntInput) GuardrailPiiEntityConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GuardrailPiiEntityConfig {
+		return vs[0].([]GuardrailPiiEntityConfig)[vs[1].(int)]
+	}).(GuardrailPiiEntityConfigOutput)
+}
+
+// A regex configuration.
+type GuardrailRegexConfig struct {
+	Action GuardrailSensitiveInformationAction `pulumi:"action"`
+	// The regex description.
+	Description *string `pulumi:"description"`
+	// The regex name.
+	Name string `pulumi:"name"`
+	// The regex pattern.
+	Pattern string `pulumi:"pattern"`
+}
+
+// GuardrailRegexConfigInput is an input type that accepts GuardrailRegexConfigArgs and GuardrailRegexConfigOutput values.
+// You can construct a concrete instance of `GuardrailRegexConfigInput` via:
+//
+//	GuardrailRegexConfigArgs{...}
+type GuardrailRegexConfigInput interface {
+	pulumi.Input
+
+	ToGuardrailRegexConfigOutput() GuardrailRegexConfigOutput
+	ToGuardrailRegexConfigOutputWithContext(context.Context) GuardrailRegexConfigOutput
+}
+
+// A regex configuration.
+type GuardrailRegexConfigArgs struct {
+	Action GuardrailSensitiveInformationActionInput `pulumi:"action"`
+	// The regex description.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The regex name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The regex pattern.
+	Pattern pulumi.StringInput `pulumi:"pattern"`
+}
+
+func (GuardrailRegexConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuardrailRegexConfig)(nil)).Elem()
+}
+
+func (i GuardrailRegexConfigArgs) ToGuardrailRegexConfigOutput() GuardrailRegexConfigOutput {
+	return i.ToGuardrailRegexConfigOutputWithContext(context.Background())
+}
+
+func (i GuardrailRegexConfigArgs) ToGuardrailRegexConfigOutputWithContext(ctx context.Context) GuardrailRegexConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GuardrailRegexConfigOutput)
+}
+
+// GuardrailRegexConfigArrayInput is an input type that accepts GuardrailRegexConfigArray and GuardrailRegexConfigArrayOutput values.
+// You can construct a concrete instance of `GuardrailRegexConfigArrayInput` via:
+//
+//	GuardrailRegexConfigArray{ GuardrailRegexConfigArgs{...} }
+type GuardrailRegexConfigArrayInput interface {
+	pulumi.Input
+
+	ToGuardrailRegexConfigArrayOutput() GuardrailRegexConfigArrayOutput
+	ToGuardrailRegexConfigArrayOutputWithContext(context.Context) GuardrailRegexConfigArrayOutput
+}
+
+type GuardrailRegexConfigArray []GuardrailRegexConfigInput
+
+func (GuardrailRegexConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GuardrailRegexConfig)(nil)).Elem()
+}
+
+func (i GuardrailRegexConfigArray) ToGuardrailRegexConfigArrayOutput() GuardrailRegexConfigArrayOutput {
+	return i.ToGuardrailRegexConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GuardrailRegexConfigArray) ToGuardrailRegexConfigArrayOutputWithContext(ctx context.Context) GuardrailRegexConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GuardrailRegexConfigArrayOutput)
+}
+
+// A regex configuration.
+type GuardrailRegexConfigOutput struct{ *pulumi.OutputState }
+
+func (GuardrailRegexConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuardrailRegexConfig)(nil)).Elem()
+}
+
+func (o GuardrailRegexConfigOutput) ToGuardrailRegexConfigOutput() GuardrailRegexConfigOutput {
+	return o
+}
+
+func (o GuardrailRegexConfigOutput) ToGuardrailRegexConfigOutputWithContext(ctx context.Context) GuardrailRegexConfigOutput {
+	return o
+}
+
+func (o GuardrailRegexConfigOutput) Action() GuardrailSensitiveInformationActionOutput {
+	return o.ApplyT(func(v GuardrailRegexConfig) GuardrailSensitiveInformationAction { return v.Action }).(GuardrailSensitiveInformationActionOutput)
+}
+
+// The regex description.
+func (o GuardrailRegexConfigOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GuardrailRegexConfig) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The regex name.
+func (o GuardrailRegexConfigOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GuardrailRegexConfig) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The regex pattern.
+func (o GuardrailRegexConfigOutput) Pattern() pulumi.StringOutput {
+	return o.ApplyT(func(v GuardrailRegexConfig) string { return v.Pattern }).(pulumi.StringOutput)
+}
+
+type GuardrailRegexConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GuardrailRegexConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GuardrailRegexConfig)(nil)).Elem()
+}
+
+func (o GuardrailRegexConfigArrayOutput) ToGuardrailRegexConfigArrayOutput() GuardrailRegexConfigArrayOutput {
+	return o
+}
+
+func (o GuardrailRegexConfigArrayOutput) ToGuardrailRegexConfigArrayOutputWithContext(ctx context.Context) GuardrailRegexConfigArrayOutput {
+	return o
+}
+
+func (o GuardrailRegexConfigArrayOutput) Index(i pulumi.IntInput) GuardrailRegexConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GuardrailRegexConfig {
+		return vs[0].([]GuardrailRegexConfig)[vs[1].(int)]
+	}).(GuardrailRegexConfigOutput)
+}
+
+// Sensitive information policy config for a guardrail.
+type GuardrailSensitiveInformationPolicyConfig struct {
+	// List of entities.
+	PiiEntitiesConfig []GuardrailPiiEntityConfig `pulumi:"piiEntitiesConfig"`
+	// List of regex.
+	RegexesConfig []GuardrailRegexConfig `pulumi:"regexesConfig"`
+}
+
+// GuardrailSensitiveInformationPolicyConfigInput is an input type that accepts GuardrailSensitiveInformationPolicyConfigArgs and GuardrailSensitiveInformationPolicyConfigOutput values.
+// You can construct a concrete instance of `GuardrailSensitiveInformationPolicyConfigInput` via:
+//
+//	GuardrailSensitiveInformationPolicyConfigArgs{...}
+type GuardrailSensitiveInformationPolicyConfigInput interface {
+	pulumi.Input
+
+	ToGuardrailSensitiveInformationPolicyConfigOutput() GuardrailSensitiveInformationPolicyConfigOutput
+	ToGuardrailSensitiveInformationPolicyConfigOutputWithContext(context.Context) GuardrailSensitiveInformationPolicyConfigOutput
+}
+
+// Sensitive information policy config for a guardrail.
+type GuardrailSensitiveInformationPolicyConfigArgs struct {
+	// List of entities.
+	PiiEntitiesConfig GuardrailPiiEntityConfigArrayInput `pulumi:"piiEntitiesConfig"`
+	// List of regex.
+	RegexesConfig GuardrailRegexConfigArrayInput `pulumi:"regexesConfig"`
+}
+
+func (GuardrailSensitiveInformationPolicyConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuardrailSensitiveInformationPolicyConfig)(nil)).Elem()
+}
+
+func (i GuardrailSensitiveInformationPolicyConfigArgs) ToGuardrailSensitiveInformationPolicyConfigOutput() GuardrailSensitiveInformationPolicyConfigOutput {
+	return i.ToGuardrailSensitiveInformationPolicyConfigOutputWithContext(context.Background())
+}
+
+func (i GuardrailSensitiveInformationPolicyConfigArgs) ToGuardrailSensitiveInformationPolicyConfigOutputWithContext(ctx context.Context) GuardrailSensitiveInformationPolicyConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GuardrailSensitiveInformationPolicyConfigOutput)
+}
+
+func (i GuardrailSensitiveInformationPolicyConfigArgs) ToGuardrailSensitiveInformationPolicyConfigPtrOutput() GuardrailSensitiveInformationPolicyConfigPtrOutput {
+	return i.ToGuardrailSensitiveInformationPolicyConfigPtrOutputWithContext(context.Background())
+}
+
+func (i GuardrailSensitiveInformationPolicyConfigArgs) ToGuardrailSensitiveInformationPolicyConfigPtrOutputWithContext(ctx context.Context) GuardrailSensitiveInformationPolicyConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GuardrailSensitiveInformationPolicyConfigOutput).ToGuardrailSensitiveInformationPolicyConfigPtrOutputWithContext(ctx)
+}
+
+// GuardrailSensitiveInformationPolicyConfigPtrInput is an input type that accepts GuardrailSensitiveInformationPolicyConfigArgs, GuardrailSensitiveInformationPolicyConfigPtr and GuardrailSensitiveInformationPolicyConfigPtrOutput values.
+// You can construct a concrete instance of `GuardrailSensitiveInformationPolicyConfigPtrInput` via:
+//
+//	        GuardrailSensitiveInformationPolicyConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type GuardrailSensitiveInformationPolicyConfigPtrInput interface {
+	pulumi.Input
+
+	ToGuardrailSensitiveInformationPolicyConfigPtrOutput() GuardrailSensitiveInformationPolicyConfigPtrOutput
+	ToGuardrailSensitiveInformationPolicyConfigPtrOutputWithContext(context.Context) GuardrailSensitiveInformationPolicyConfigPtrOutput
+}
+
+type guardrailSensitiveInformationPolicyConfigPtrType GuardrailSensitiveInformationPolicyConfigArgs
+
+func GuardrailSensitiveInformationPolicyConfigPtr(v *GuardrailSensitiveInformationPolicyConfigArgs) GuardrailSensitiveInformationPolicyConfigPtrInput {
+	return (*guardrailSensitiveInformationPolicyConfigPtrType)(v)
+}
+
+func (*guardrailSensitiveInformationPolicyConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GuardrailSensitiveInformationPolicyConfig)(nil)).Elem()
+}
+
+func (i *guardrailSensitiveInformationPolicyConfigPtrType) ToGuardrailSensitiveInformationPolicyConfigPtrOutput() GuardrailSensitiveInformationPolicyConfigPtrOutput {
+	return i.ToGuardrailSensitiveInformationPolicyConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *guardrailSensitiveInformationPolicyConfigPtrType) ToGuardrailSensitiveInformationPolicyConfigPtrOutputWithContext(ctx context.Context) GuardrailSensitiveInformationPolicyConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GuardrailSensitiveInformationPolicyConfigPtrOutput)
+}
+
+// Sensitive information policy config for a guardrail.
+type GuardrailSensitiveInformationPolicyConfigOutput struct{ *pulumi.OutputState }
+
+func (GuardrailSensitiveInformationPolicyConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuardrailSensitiveInformationPolicyConfig)(nil)).Elem()
+}
+
+func (o GuardrailSensitiveInformationPolicyConfigOutput) ToGuardrailSensitiveInformationPolicyConfigOutput() GuardrailSensitiveInformationPolicyConfigOutput {
+	return o
+}
+
+func (o GuardrailSensitiveInformationPolicyConfigOutput) ToGuardrailSensitiveInformationPolicyConfigOutputWithContext(ctx context.Context) GuardrailSensitiveInformationPolicyConfigOutput {
+	return o
+}
+
+func (o GuardrailSensitiveInformationPolicyConfigOutput) ToGuardrailSensitiveInformationPolicyConfigPtrOutput() GuardrailSensitiveInformationPolicyConfigPtrOutput {
+	return o.ToGuardrailSensitiveInformationPolicyConfigPtrOutputWithContext(context.Background())
+}
+
+func (o GuardrailSensitiveInformationPolicyConfigOutput) ToGuardrailSensitiveInformationPolicyConfigPtrOutputWithContext(ctx context.Context) GuardrailSensitiveInformationPolicyConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GuardrailSensitiveInformationPolicyConfig) *GuardrailSensitiveInformationPolicyConfig {
+		return &v
+	}).(GuardrailSensitiveInformationPolicyConfigPtrOutput)
+}
+
+// List of entities.
+func (o GuardrailSensitiveInformationPolicyConfigOutput) PiiEntitiesConfig() GuardrailPiiEntityConfigArrayOutput {
+	return o.ApplyT(func(v GuardrailSensitiveInformationPolicyConfig) []GuardrailPiiEntityConfig {
+		return v.PiiEntitiesConfig
+	}).(GuardrailPiiEntityConfigArrayOutput)
+}
+
+// List of regex.
+func (o GuardrailSensitiveInformationPolicyConfigOutput) RegexesConfig() GuardrailRegexConfigArrayOutput {
+	return o.ApplyT(func(v GuardrailSensitiveInformationPolicyConfig) []GuardrailRegexConfig { return v.RegexesConfig }).(GuardrailRegexConfigArrayOutput)
+}
+
+type GuardrailSensitiveInformationPolicyConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (GuardrailSensitiveInformationPolicyConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GuardrailSensitiveInformationPolicyConfig)(nil)).Elem()
+}
+
+func (o GuardrailSensitiveInformationPolicyConfigPtrOutput) ToGuardrailSensitiveInformationPolicyConfigPtrOutput() GuardrailSensitiveInformationPolicyConfigPtrOutput {
+	return o
+}
+
+func (o GuardrailSensitiveInformationPolicyConfigPtrOutput) ToGuardrailSensitiveInformationPolicyConfigPtrOutputWithContext(ctx context.Context) GuardrailSensitiveInformationPolicyConfigPtrOutput {
+	return o
+}
+
+func (o GuardrailSensitiveInformationPolicyConfigPtrOutput) Elem() GuardrailSensitiveInformationPolicyConfigOutput {
+	return o.ApplyT(func(v *GuardrailSensitiveInformationPolicyConfig) GuardrailSensitiveInformationPolicyConfig {
+		if v != nil {
+			return *v
+		}
+		var ret GuardrailSensitiveInformationPolicyConfig
+		return ret
+	}).(GuardrailSensitiveInformationPolicyConfigOutput)
+}
+
+// List of entities.
+func (o GuardrailSensitiveInformationPolicyConfigPtrOutput) PiiEntitiesConfig() GuardrailPiiEntityConfigArrayOutput {
+	return o.ApplyT(func(v *GuardrailSensitiveInformationPolicyConfig) []GuardrailPiiEntityConfig {
+		if v == nil {
+			return nil
+		}
+		return v.PiiEntitiesConfig
+	}).(GuardrailPiiEntityConfigArrayOutput)
+}
+
+// List of regex.
+func (o GuardrailSensitiveInformationPolicyConfigPtrOutput) RegexesConfig() GuardrailRegexConfigArrayOutput {
+	return o.ApplyT(func(v *GuardrailSensitiveInformationPolicyConfig) []GuardrailRegexConfig {
+		if v == nil {
+			return nil
+		}
+		return v.RegexesConfig
+	}).(GuardrailRegexConfigArrayOutput)
+}
+
+// Definition of the key/value pair for a tag
+type GuardrailTag struct {
+	// Tag Key
+	Key string `pulumi:"key"`
+	// Tag Value
+	Value string `pulumi:"value"`
+}
+
+// Topic config in topic policy.
+type GuardrailTopicConfig struct {
+	// Definition of topic in topic policy
+	Definition string `pulumi:"definition"`
+	// List of text examples
+	Examples []string `pulumi:"examples"`
+	// Name of topic in topic policy
+	Name string             `pulumi:"name"`
+	Type GuardrailTopicType `pulumi:"type"`
+}
+
+// GuardrailTopicConfigInput is an input type that accepts GuardrailTopicConfigArgs and GuardrailTopicConfigOutput values.
+// You can construct a concrete instance of `GuardrailTopicConfigInput` via:
+//
+//	GuardrailTopicConfigArgs{...}
+type GuardrailTopicConfigInput interface {
+	pulumi.Input
+
+	ToGuardrailTopicConfigOutput() GuardrailTopicConfigOutput
+	ToGuardrailTopicConfigOutputWithContext(context.Context) GuardrailTopicConfigOutput
+}
+
+// Topic config in topic policy.
+type GuardrailTopicConfigArgs struct {
+	// Definition of topic in topic policy
+	Definition pulumi.StringInput `pulumi:"definition"`
+	// List of text examples
+	Examples pulumi.StringArrayInput `pulumi:"examples"`
+	// Name of topic in topic policy
+	Name pulumi.StringInput      `pulumi:"name"`
+	Type GuardrailTopicTypeInput `pulumi:"type"`
+}
+
+func (GuardrailTopicConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuardrailTopicConfig)(nil)).Elem()
+}
+
+func (i GuardrailTopicConfigArgs) ToGuardrailTopicConfigOutput() GuardrailTopicConfigOutput {
+	return i.ToGuardrailTopicConfigOutputWithContext(context.Background())
+}
+
+func (i GuardrailTopicConfigArgs) ToGuardrailTopicConfigOutputWithContext(ctx context.Context) GuardrailTopicConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GuardrailTopicConfigOutput)
+}
+
+// GuardrailTopicConfigArrayInput is an input type that accepts GuardrailTopicConfigArray and GuardrailTopicConfigArrayOutput values.
+// You can construct a concrete instance of `GuardrailTopicConfigArrayInput` via:
+//
+//	GuardrailTopicConfigArray{ GuardrailTopicConfigArgs{...} }
+type GuardrailTopicConfigArrayInput interface {
+	pulumi.Input
+
+	ToGuardrailTopicConfigArrayOutput() GuardrailTopicConfigArrayOutput
+	ToGuardrailTopicConfigArrayOutputWithContext(context.Context) GuardrailTopicConfigArrayOutput
+}
+
+type GuardrailTopicConfigArray []GuardrailTopicConfigInput
+
+func (GuardrailTopicConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GuardrailTopicConfig)(nil)).Elem()
+}
+
+func (i GuardrailTopicConfigArray) ToGuardrailTopicConfigArrayOutput() GuardrailTopicConfigArrayOutput {
+	return i.ToGuardrailTopicConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GuardrailTopicConfigArray) ToGuardrailTopicConfigArrayOutputWithContext(ctx context.Context) GuardrailTopicConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GuardrailTopicConfigArrayOutput)
+}
+
+// Topic config in topic policy.
+type GuardrailTopicConfigOutput struct{ *pulumi.OutputState }
+
+func (GuardrailTopicConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuardrailTopicConfig)(nil)).Elem()
+}
+
+func (o GuardrailTopicConfigOutput) ToGuardrailTopicConfigOutput() GuardrailTopicConfigOutput {
+	return o
+}
+
+func (o GuardrailTopicConfigOutput) ToGuardrailTopicConfigOutputWithContext(ctx context.Context) GuardrailTopicConfigOutput {
+	return o
+}
+
+// Definition of topic in topic policy
+func (o GuardrailTopicConfigOutput) Definition() pulumi.StringOutput {
+	return o.ApplyT(func(v GuardrailTopicConfig) string { return v.Definition }).(pulumi.StringOutput)
+}
+
+// List of text examples
+func (o GuardrailTopicConfigOutput) Examples() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GuardrailTopicConfig) []string { return v.Examples }).(pulumi.StringArrayOutput)
+}
+
+// Name of topic in topic policy
+func (o GuardrailTopicConfigOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GuardrailTopicConfig) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GuardrailTopicConfigOutput) Type() GuardrailTopicTypeOutput {
+	return o.ApplyT(func(v GuardrailTopicConfig) GuardrailTopicType { return v.Type }).(GuardrailTopicTypeOutput)
+}
+
+type GuardrailTopicConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GuardrailTopicConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GuardrailTopicConfig)(nil)).Elem()
+}
+
+func (o GuardrailTopicConfigArrayOutput) ToGuardrailTopicConfigArrayOutput() GuardrailTopicConfigArrayOutput {
+	return o
+}
+
+func (o GuardrailTopicConfigArrayOutput) ToGuardrailTopicConfigArrayOutputWithContext(ctx context.Context) GuardrailTopicConfigArrayOutput {
+	return o
+}
+
+func (o GuardrailTopicConfigArrayOutput) Index(i pulumi.IntInput) GuardrailTopicConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GuardrailTopicConfig {
+		return vs[0].([]GuardrailTopicConfig)[vs[1].(int)]
+	}).(GuardrailTopicConfigOutput)
+}
+
+// Topic policy config for a guardrail.
+type GuardrailTopicPolicyConfig struct {
+	// List of topic configs in topic policy.
+	TopicsConfig []GuardrailTopicConfig `pulumi:"topicsConfig"`
+}
+
+// GuardrailTopicPolicyConfigInput is an input type that accepts GuardrailTopicPolicyConfigArgs and GuardrailTopicPolicyConfigOutput values.
+// You can construct a concrete instance of `GuardrailTopicPolicyConfigInput` via:
+//
+//	GuardrailTopicPolicyConfigArgs{...}
+type GuardrailTopicPolicyConfigInput interface {
+	pulumi.Input
+
+	ToGuardrailTopicPolicyConfigOutput() GuardrailTopicPolicyConfigOutput
+	ToGuardrailTopicPolicyConfigOutputWithContext(context.Context) GuardrailTopicPolicyConfigOutput
+}
+
+// Topic policy config for a guardrail.
+type GuardrailTopicPolicyConfigArgs struct {
+	// List of topic configs in topic policy.
+	TopicsConfig GuardrailTopicConfigArrayInput `pulumi:"topicsConfig"`
+}
+
+func (GuardrailTopicPolicyConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuardrailTopicPolicyConfig)(nil)).Elem()
+}
+
+func (i GuardrailTopicPolicyConfigArgs) ToGuardrailTopicPolicyConfigOutput() GuardrailTopicPolicyConfigOutput {
+	return i.ToGuardrailTopicPolicyConfigOutputWithContext(context.Background())
+}
+
+func (i GuardrailTopicPolicyConfigArgs) ToGuardrailTopicPolicyConfigOutputWithContext(ctx context.Context) GuardrailTopicPolicyConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GuardrailTopicPolicyConfigOutput)
+}
+
+func (i GuardrailTopicPolicyConfigArgs) ToGuardrailTopicPolicyConfigPtrOutput() GuardrailTopicPolicyConfigPtrOutput {
+	return i.ToGuardrailTopicPolicyConfigPtrOutputWithContext(context.Background())
+}
+
+func (i GuardrailTopicPolicyConfigArgs) ToGuardrailTopicPolicyConfigPtrOutputWithContext(ctx context.Context) GuardrailTopicPolicyConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GuardrailTopicPolicyConfigOutput).ToGuardrailTopicPolicyConfigPtrOutputWithContext(ctx)
+}
+
+// GuardrailTopicPolicyConfigPtrInput is an input type that accepts GuardrailTopicPolicyConfigArgs, GuardrailTopicPolicyConfigPtr and GuardrailTopicPolicyConfigPtrOutput values.
+// You can construct a concrete instance of `GuardrailTopicPolicyConfigPtrInput` via:
+//
+//	        GuardrailTopicPolicyConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type GuardrailTopicPolicyConfigPtrInput interface {
+	pulumi.Input
+
+	ToGuardrailTopicPolicyConfigPtrOutput() GuardrailTopicPolicyConfigPtrOutput
+	ToGuardrailTopicPolicyConfigPtrOutputWithContext(context.Context) GuardrailTopicPolicyConfigPtrOutput
+}
+
+type guardrailTopicPolicyConfigPtrType GuardrailTopicPolicyConfigArgs
+
+func GuardrailTopicPolicyConfigPtr(v *GuardrailTopicPolicyConfigArgs) GuardrailTopicPolicyConfigPtrInput {
+	return (*guardrailTopicPolicyConfigPtrType)(v)
+}
+
+func (*guardrailTopicPolicyConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GuardrailTopicPolicyConfig)(nil)).Elem()
+}
+
+func (i *guardrailTopicPolicyConfigPtrType) ToGuardrailTopicPolicyConfigPtrOutput() GuardrailTopicPolicyConfigPtrOutput {
+	return i.ToGuardrailTopicPolicyConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *guardrailTopicPolicyConfigPtrType) ToGuardrailTopicPolicyConfigPtrOutputWithContext(ctx context.Context) GuardrailTopicPolicyConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GuardrailTopicPolicyConfigPtrOutput)
+}
+
+// Topic policy config for a guardrail.
+type GuardrailTopicPolicyConfigOutput struct{ *pulumi.OutputState }
+
+func (GuardrailTopicPolicyConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuardrailTopicPolicyConfig)(nil)).Elem()
+}
+
+func (o GuardrailTopicPolicyConfigOutput) ToGuardrailTopicPolicyConfigOutput() GuardrailTopicPolicyConfigOutput {
+	return o
+}
+
+func (o GuardrailTopicPolicyConfigOutput) ToGuardrailTopicPolicyConfigOutputWithContext(ctx context.Context) GuardrailTopicPolicyConfigOutput {
+	return o
+}
+
+func (o GuardrailTopicPolicyConfigOutput) ToGuardrailTopicPolicyConfigPtrOutput() GuardrailTopicPolicyConfigPtrOutput {
+	return o.ToGuardrailTopicPolicyConfigPtrOutputWithContext(context.Background())
+}
+
+func (o GuardrailTopicPolicyConfigOutput) ToGuardrailTopicPolicyConfigPtrOutputWithContext(ctx context.Context) GuardrailTopicPolicyConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GuardrailTopicPolicyConfig) *GuardrailTopicPolicyConfig {
+		return &v
+	}).(GuardrailTopicPolicyConfigPtrOutput)
+}
+
+// List of topic configs in topic policy.
+func (o GuardrailTopicPolicyConfigOutput) TopicsConfig() GuardrailTopicConfigArrayOutput {
+	return o.ApplyT(func(v GuardrailTopicPolicyConfig) []GuardrailTopicConfig { return v.TopicsConfig }).(GuardrailTopicConfigArrayOutput)
+}
+
+type GuardrailTopicPolicyConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (GuardrailTopicPolicyConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GuardrailTopicPolicyConfig)(nil)).Elem()
+}
+
+func (o GuardrailTopicPolicyConfigPtrOutput) ToGuardrailTopicPolicyConfigPtrOutput() GuardrailTopicPolicyConfigPtrOutput {
+	return o
+}
+
+func (o GuardrailTopicPolicyConfigPtrOutput) ToGuardrailTopicPolicyConfigPtrOutputWithContext(ctx context.Context) GuardrailTopicPolicyConfigPtrOutput {
+	return o
+}
+
+func (o GuardrailTopicPolicyConfigPtrOutput) Elem() GuardrailTopicPolicyConfigOutput {
+	return o.ApplyT(func(v *GuardrailTopicPolicyConfig) GuardrailTopicPolicyConfig {
+		if v != nil {
+			return *v
+		}
+		var ret GuardrailTopicPolicyConfig
+		return ret
+	}).(GuardrailTopicPolicyConfigOutput)
+}
+
+// List of topic configs in topic policy.
+func (o GuardrailTopicPolicyConfigPtrOutput) TopicsConfig() GuardrailTopicConfigArrayOutput {
+	return o.ApplyT(func(v *GuardrailTopicPolicyConfig) []GuardrailTopicConfig {
+		if v == nil {
+			return nil
+		}
+		return v.TopicsConfig
+	}).(GuardrailTopicConfigArrayOutput)
+}
+
+// A custom word config.
+type GuardrailWordConfig struct {
+	// The custom word text.
+	Text string `pulumi:"text"`
+}
+
+// GuardrailWordConfigInput is an input type that accepts GuardrailWordConfigArgs and GuardrailWordConfigOutput values.
+// You can construct a concrete instance of `GuardrailWordConfigInput` via:
+//
+//	GuardrailWordConfigArgs{...}
+type GuardrailWordConfigInput interface {
+	pulumi.Input
+
+	ToGuardrailWordConfigOutput() GuardrailWordConfigOutput
+	ToGuardrailWordConfigOutputWithContext(context.Context) GuardrailWordConfigOutput
+}
+
+// A custom word config.
+type GuardrailWordConfigArgs struct {
+	// The custom word text.
+	Text pulumi.StringInput `pulumi:"text"`
+}
+
+func (GuardrailWordConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuardrailWordConfig)(nil)).Elem()
+}
+
+func (i GuardrailWordConfigArgs) ToGuardrailWordConfigOutput() GuardrailWordConfigOutput {
+	return i.ToGuardrailWordConfigOutputWithContext(context.Background())
+}
+
+func (i GuardrailWordConfigArgs) ToGuardrailWordConfigOutputWithContext(ctx context.Context) GuardrailWordConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GuardrailWordConfigOutput)
+}
+
+// GuardrailWordConfigArrayInput is an input type that accepts GuardrailWordConfigArray and GuardrailWordConfigArrayOutput values.
+// You can construct a concrete instance of `GuardrailWordConfigArrayInput` via:
+//
+//	GuardrailWordConfigArray{ GuardrailWordConfigArgs{...} }
+type GuardrailWordConfigArrayInput interface {
+	pulumi.Input
+
+	ToGuardrailWordConfigArrayOutput() GuardrailWordConfigArrayOutput
+	ToGuardrailWordConfigArrayOutputWithContext(context.Context) GuardrailWordConfigArrayOutput
+}
+
+type GuardrailWordConfigArray []GuardrailWordConfigInput
+
+func (GuardrailWordConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GuardrailWordConfig)(nil)).Elem()
+}
+
+func (i GuardrailWordConfigArray) ToGuardrailWordConfigArrayOutput() GuardrailWordConfigArrayOutput {
+	return i.ToGuardrailWordConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GuardrailWordConfigArray) ToGuardrailWordConfigArrayOutputWithContext(ctx context.Context) GuardrailWordConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GuardrailWordConfigArrayOutput)
+}
+
+// A custom word config.
+type GuardrailWordConfigOutput struct{ *pulumi.OutputState }
+
+func (GuardrailWordConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuardrailWordConfig)(nil)).Elem()
+}
+
+func (o GuardrailWordConfigOutput) ToGuardrailWordConfigOutput() GuardrailWordConfigOutput {
+	return o
+}
+
+func (o GuardrailWordConfigOutput) ToGuardrailWordConfigOutputWithContext(ctx context.Context) GuardrailWordConfigOutput {
+	return o
+}
+
+// The custom word text.
+func (o GuardrailWordConfigOutput) Text() pulumi.StringOutput {
+	return o.ApplyT(func(v GuardrailWordConfig) string { return v.Text }).(pulumi.StringOutput)
+}
+
+type GuardrailWordConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GuardrailWordConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GuardrailWordConfig)(nil)).Elem()
+}
+
+func (o GuardrailWordConfigArrayOutput) ToGuardrailWordConfigArrayOutput() GuardrailWordConfigArrayOutput {
+	return o
+}
+
+func (o GuardrailWordConfigArrayOutput) ToGuardrailWordConfigArrayOutputWithContext(ctx context.Context) GuardrailWordConfigArrayOutput {
+	return o
+}
+
+func (o GuardrailWordConfigArrayOutput) Index(i pulumi.IntInput) GuardrailWordConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GuardrailWordConfig {
+		return vs[0].([]GuardrailWordConfig)[vs[1].(int)]
+	}).(GuardrailWordConfigOutput)
+}
+
+// Word policy config for a guardrail.
+type GuardrailWordPolicyConfig struct {
+	// A config for the list of managed words.
+	ManagedWordListsConfig []GuardrailManagedWordsConfig `pulumi:"managedWordListsConfig"`
+	// List of custom word configs.
+	WordsConfig []GuardrailWordConfig `pulumi:"wordsConfig"`
+}
+
+// GuardrailWordPolicyConfigInput is an input type that accepts GuardrailWordPolicyConfigArgs and GuardrailWordPolicyConfigOutput values.
+// You can construct a concrete instance of `GuardrailWordPolicyConfigInput` via:
+//
+//	GuardrailWordPolicyConfigArgs{...}
+type GuardrailWordPolicyConfigInput interface {
+	pulumi.Input
+
+	ToGuardrailWordPolicyConfigOutput() GuardrailWordPolicyConfigOutput
+	ToGuardrailWordPolicyConfigOutputWithContext(context.Context) GuardrailWordPolicyConfigOutput
+}
+
+// Word policy config for a guardrail.
+type GuardrailWordPolicyConfigArgs struct {
+	// A config for the list of managed words.
+	ManagedWordListsConfig GuardrailManagedWordsConfigArrayInput `pulumi:"managedWordListsConfig"`
+	// List of custom word configs.
+	WordsConfig GuardrailWordConfigArrayInput `pulumi:"wordsConfig"`
+}
+
+func (GuardrailWordPolicyConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuardrailWordPolicyConfig)(nil)).Elem()
+}
+
+func (i GuardrailWordPolicyConfigArgs) ToGuardrailWordPolicyConfigOutput() GuardrailWordPolicyConfigOutput {
+	return i.ToGuardrailWordPolicyConfigOutputWithContext(context.Background())
+}
+
+func (i GuardrailWordPolicyConfigArgs) ToGuardrailWordPolicyConfigOutputWithContext(ctx context.Context) GuardrailWordPolicyConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GuardrailWordPolicyConfigOutput)
+}
+
+func (i GuardrailWordPolicyConfigArgs) ToGuardrailWordPolicyConfigPtrOutput() GuardrailWordPolicyConfigPtrOutput {
+	return i.ToGuardrailWordPolicyConfigPtrOutputWithContext(context.Background())
+}
+
+func (i GuardrailWordPolicyConfigArgs) ToGuardrailWordPolicyConfigPtrOutputWithContext(ctx context.Context) GuardrailWordPolicyConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GuardrailWordPolicyConfigOutput).ToGuardrailWordPolicyConfigPtrOutputWithContext(ctx)
+}
+
+// GuardrailWordPolicyConfigPtrInput is an input type that accepts GuardrailWordPolicyConfigArgs, GuardrailWordPolicyConfigPtr and GuardrailWordPolicyConfigPtrOutput values.
+// You can construct a concrete instance of `GuardrailWordPolicyConfigPtrInput` via:
+//
+//	        GuardrailWordPolicyConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type GuardrailWordPolicyConfigPtrInput interface {
+	pulumi.Input
+
+	ToGuardrailWordPolicyConfigPtrOutput() GuardrailWordPolicyConfigPtrOutput
+	ToGuardrailWordPolicyConfigPtrOutputWithContext(context.Context) GuardrailWordPolicyConfigPtrOutput
+}
+
+type guardrailWordPolicyConfigPtrType GuardrailWordPolicyConfigArgs
+
+func GuardrailWordPolicyConfigPtr(v *GuardrailWordPolicyConfigArgs) GuardrailWordPolicyConfigPtrInput {
+	return (*guardrailWordPolicyConfigPtrType)(v)
+}
+
+func (*guardrailWordPolicyConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GuardrailWordPolicyConfig)(nil)).Elem()
+}
+
+func (i *guardrailWordPolicyConfigPtrType) ToGuardrailWordPolicyConfigPtrOutput() GuardrailWordPolicyConfigPtrOutput {
+	return i.ToGuardrailWordPolicyConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *guardrailWordPolicyConfigPtrType) ToGuardrailWordPolicyConfigPtrOutputWithContext(ctx context.Context) GuardrailWordPolicyConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GuardrailWordPolicyConfigPtrOutput)
+}
+
+// Word policy config for a guardrail.
+type GuardrailWordPolicyConfigOutput struct{ *pulumi.OutputState }
+
+func (GuardrailWordPolicyConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuardrailWordPolicyConfig)(nil)).Elem()
+}
+
+func (o GuardrailWordPolicyConfigOutput) ToGuardrailWordPolicyConfigOutput() GuardrailWordPolicyConfigOutput {
+	return o
+}
+
+func (o GuardrailWordPolicyConfigOutput) ToGuardrailWordPolicyConfigOutputWithContext(ctx context.Context) GuardrailWordPolicyConfigOutput {
+	return o
+}
+
+func (o GuardrailWordPolicyConfigOutput) ToGuardrailWordPolicyConfigPtrOutput() GuardrailWordPolicyConfigPtrOutput {
+	return o.ToGuardrailWordPolicyConfigPtrOutputWithContext(context.Background())
+}
+
+func (o GuardrailWordPolicyConfigOutput) ToGuardrailWordPolicyConfigPtrOutputWithContext(ctx context.Context) GuardrailWordPolicyConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GuardrailWordPolicyConfig) *GuardrailWordPolicyConfig {
+		return &v
+	}).(GuardrailWordPolicyConfigPtrOutput)
+}
+
+// A config for the list of managed words.
+func (o GuardrailWordPolicyConfigOutput) ManagedWordListsConfig() GuardrailManagedWordsConfigArrayOutput {
+	return o.ApplyT(func(v GuardrailWordPolicyConfig) []GuardrailManagedWordsConfig { return v.ManagedWordListsConfig }).(GuardrailManagedWordsConfigArrayOutput)
+}
+
+// List of custom word configs.
+func (o GuardrailWordPolicyConfigOutput) WordsConfig() GuardrailWordConfigArrayOutput {
+	return o.ApplyT(func(v GuardrailWordPolicyConfig) []GuardrailWordConfig { return v.WordsConfig }).(GuardrailWordConfigArrayOutput)
+}
+
+type GuardrailWordPolicyConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (GuardrailWordPolicyConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GuardrailWordPolicyConfig)(nil)).Elem()
+}
+
+func (o GuardrailWordPolicyConfigPtrOutput) ToGuardrailWordPolicyConfigPtrOutput() GuardrailWordPolicyConfigPtrOutput {
+	return o
+}
+
+func (o GuardrailWordPolicyConfigPtrOutput) ToGuardrailWordPolicyConfigPtrOutputWithContext(ctx context.Context) GuardrailWordPolicyConfigPtrOutput {
+	return o
+}
+
+func (o GuardrailWordPolicyConfigPtrOutput) Elem() GuardrailWordPolicyConfigOutput {
+	return o.ApplyT(func(v *GuardrailWordPolicyConfig) GuardrailWordPolicyConfig {
+		if v != nil {
+			return *v
+		}
+		var ret GuardrailWordPolicyConfig
+		return ret
+	}).(GuardrailWordPolicyConfigOutput)
+}
+
+// A config for the list of managed words.
+func (o GuardrailWordPolicyConfigPtrOutput) ManagedWordListsConfig() GuardrailManagedWordsConfigArrayOutput {
+	return o.ApplyT(func(v *GuardrailWordPolicyConfig) []GuardrailManagedWordsConfig {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedWordListsConfig
+	}).(GuardrailManagedWordsConfigArrayOutput)
+}
+
+// List of custom word configs.
+func (o GuardrailWordPolicyConfigPtrOutput) WordsConfig() GuardrailWordConfigArrayOutput {
+	return o.ApplyT(func(v *GuardrailWordPolicyConfig) []GuardrailWordConfig {
+		if v == nil {
+			return nil
+		}
+		return v.WordsConfig
+	}).(GuardrailWordConfigArrayOutput)
+}
+
 // Contains details about the embeddings model used for the knowledge base.
 type KnowledgeBaseConfiguration struct {
 	Type                             KnowledgeBaseType                             `pulumi:"type"`
@@ -3640,6 +4905,26 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceServerSideEncryptionConfigurationPtrInput)(nil)).Elem(), DataSourceServerSideEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceVectorIngestionConfigurationInput)(nil)).Elem(), DataSourceVectorIngestionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceVectorIngestionConfigurationPtrInput)(nil)).Elem(), DataSourceVectorIngestionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailContentFilterConfigInput)(nil)).Elem(), GuardrailContentFilterConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailContentFilterConfigArrayInput)(nil)).Elem(), GuardrailContentFilterConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailContentPolicyConfigInput)(nil)).Elem(), GuardrailContentPolicyConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailContentPolicyConfigPtrInput)(nil)).Elem(), GuardrailContentPolicyConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailManagedWordsConfigInput)(nil)).Elem(), GuardrailManagedWordsConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailManagedWordsConfigArrayInput)(nil)).Elem(), GuardrailManagedWordsConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailPiiEntityConfigInput)(nil)).Elem(), GuardrailPiiEntityConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailPiiEntityConfigArrayInput)(nil)).Elem(), GuardrailPiiEntityConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailRegexConfigInput)(nil)).Elem(), GuardrailRegexConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailRegexConfigArrayInput)(nil)).Elem(), GuardrailRegexConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailSensitiveInformationPolicyConfigInput)(nil)).Elem(), GuardrailSensitiveInformationPolicyConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailSensitiveInformationPolicyConfigPtrInput)(nil)).Elem(), GuardrailSensitiveInformationPolicyConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailTopicConfigInput)(nil)).Elem(), GuardrailTopicConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailTopicConfigArrayInput)(nil)).Elem(), GuardrailTopicConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailTopicPolicyConfigInput)(nil)).Elem(), GuardrailTopicPolicyConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailTopicPolicyConfigPtrInput)(nil)).Elem(), GuardrailTopicPolicyConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailWordConfigInput)(nil)).Elem(), GuardrailWordConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailWordConfigArrayInput)(nil)).Elem(), GuardrailWordConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailWordPolicyConfigInput)(nil)).Elem(), GuardrailWordPolicyConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailWordPolicyConfigPtrInput)(nil)).Elem(), GuardrailWordPolicyConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseConfigurationInput)(nil)).Elem(), KnowledgeBaseConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseOpenSearchServerlessConfigurationInput)(nil)).Elem(), KnowledgeBaseOpenSearchServerlessConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseOpenSearchServerlessConfigurationPtrInput)(nil)).Elem(), KnowledgeBaseOpenSearchServerlessConfigurationArgs{})
@@ -3689,6 +4974,26 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceServerSideEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceVectorIngestionConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceVectorIngestionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(GuardrailContentFilterConfigOutput{})
+	pulumi.RegisterOutputType(GuardrailContentFilterConfigArrayOutput{})
+	pulumi.RegisterOutputType(GuardrailContentPolicyConfigOutput{})
+	pulumi.RegisterOutputType(GuardrailContentPolicyConfigPtrOutput{})
+	pulumi.RegisterOutputType(GuardrailManagedWordsConfigOutput{})
+	pulumi.RegisterOutputType(GuardrailManagedWordsConfigArrayOutput{})
+	pulumi.RegisterOutputType(GuardrailPiiEntityConfigOutput{})
+	pulumi.RegisterOutputType(GuardrailPiiEntityConfigArrayOutput{})
+	pulumi.RegisterOutputType(GuardrailRegexConfigOutput{})
+	pulumi.RegisterOutputType(GuardrailRegexConfigArrayOutput{})
+	pulumi.RegisterOutputType(GuardrailSensitiveInformationPolicyConfigOutput{})
+	pulumi.RegisterOutputType(GuardrailSensitiveInformationPolicyConfigPtrOutput{})
+	pulumi.RegisterOutputType(GuardrailTopicConfigOutput{})
+	pulumi.RegisterOutputType(GuardrailTopicConfigArrayOutput{})
+	pulumi.RegisterOutputType(GuardrailTopicPolicyConfigOutput{})
+	pulumi.RegisterOutputType(GuardrailTopicPolicyConfigPtrOutput{})
+	pulumi.RegisterOutputType(GuardrailWordConfigOutput{})
+	pulumi.RegisterOutputType(GuardrailWordConfigArrayOutput{})
+	pulumi.RegisterOutputType(GuardrailWordPolicyConfigOutput{})
+	pulumi.RegisterOutputType(GuardrailWordPolicyConfigPtrOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseConfigurationOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseOpenSearchServerlessConfigurationOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseOpenSearchServerlessConfigurationPtrOutput{})

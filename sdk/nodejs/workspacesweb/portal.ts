@@ -44,7 +44,9 @@ export class Portal extends pulumi.CustomResource {
     public /*out*/ readonly creationDate!: pulumi.Output<string>;
     public readonly customerManagedKey!: pulumi.Output<string | undefined>;
     public readonly displayName!: pulumi.Output<string | undefined>;
+    public readonly instanceType!: pulumi.Output<enums.workspacesweb.PortalInstanceType | undefined>;
     public readonly ipAccessSettingsArn!: pulumi.Output<string | undefined>;
+    public readonly maxConcurrentSessions!: pulumi.Output<number | undefined>;
     public readonly networkSettingsArn!: pulumi.Output<string | undefined>;
     public /*out*/ readonly portalArn!: pulumi.Output<string>;
     public /*out*/ readonly portalEndpoint!: pulumi.Output<string>;
@@ -73,7 +75,9 @@ export class Portal extends pulumi.CustomResource {
             resourceInputs["browserSettingsArn"] = args ? args.browserSettingsArn : undefined;
             resourceInputs["customerManagedKey"] = args ? args.customerManagedKey : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["instanceType"] = args ? args.instanceType : undefined;
             resourceInputs["ipAccessSettingsArn"] = args ? args.ipAccessSettingsArn : undefined;
+            resourceInputs["maxConcurrentSessions"] = args ? args.maxConcurrentSessions : undefined;
             resourceInputs["networkSettingsArn"] = args ? args.networkSettingsArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["trustStoreArn"] = args ? args.trustStoreArn : undefined;
@@ -95,7 +99,9 @@ export class Portal extends pulumi.CustomResource {
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["customerManagedKey"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["instanceType"] = undefined /*out*/;
             resourceInputs["ipAccessSettingsArn"] = undefined /*out*/;
+            resourceInputs["maxConcurrentSessions"] = undefined /*out*/;
             resourceInputs["networkSettingsArn"] = undefined /*out*/;
             resourceInputs["portalArn"] = undefined /*out*/;
             resourceInputs["portalEndpoint"] = undefined /*out*/;
@@ -124,7 +130,9 @@ export interface PortalArgs {
     browserSettingsArn?: pulumi.Input<string>;
     customerManagedKey?: pulumi.Input<string>;
     displayName?: pulumi.Input<string>;
+    instanceType?: pulumi.Input<enums.workspacesweb.PortalInstanceType>;
     ipAccessSettingsArn?: pulumi.Input<string>;
+    maxConcurrentSessions?: pulumi.Input<number>;
     networkSettingsArn?: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     trustStoreArn?: pulumi.Input<string>;

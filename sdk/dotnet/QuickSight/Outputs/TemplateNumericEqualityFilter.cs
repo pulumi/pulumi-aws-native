@@ -15,6 +15,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     {
         public readonly Outputs.TemplateAggregationFunction? AggregationFunction;
         public readonly Outputs.TemplateColumnIdentifier Column;
+        public readonly Outputs.TemplateDefaultFilterControlConfiguration? DefaultFilterControlConfiguration;
         public readonly string FilterId;
         public readonly Pulumi.AwsNative.QuickSight.TemplateNumericEqualityMatchOperator MatchOperator;
         public readonly Pulumi.AwsNative.QuickSight.TemplateFilterNullOption NullOption;
@@ -27,6 +28,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             Outputs.TemplateAggregationFunction? aggregationFunction,
 
             Outputs.TemplateColumnIdentifier column,
+
+            Outputs.TemplateDefaultFilterControlConfiguration? defaultFilterControlConfiguration,
 
             string filterId,
 
@@ -42,6 +45,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         {
             AggregationFunction = aggregationFunction;
             Column = column;
+            DefaultFilterControlConfiguration = defaultFilterControlConfiguration;
             FilterId = filterId;
             MatchOperator = matchOperator;
             NullOption = nullOption;

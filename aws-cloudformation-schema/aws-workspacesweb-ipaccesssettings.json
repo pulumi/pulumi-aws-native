@@ -115,7 +115,6 @@
   },
   "required" : [ "IpRules" ],
   "readOnlyProperties" : [ "/properties/AssociatedPortalArns", "/properties/CreationDate", "/properties/IpAccessSettingsArn" ],
-  "writeOnlyProperties" : [ "/properties/AdditionalEncryptionContext", "/properties/CustomerManagedKey" ],
   "createOnlyProperties" : [ "/properties/AdditionalEncryptionContext", "/properties/CustomerManagedKey" ],
   "primaryIdentifier" : [ "/properties/IpAccessSettingsArn" ],
   "handlers" : {

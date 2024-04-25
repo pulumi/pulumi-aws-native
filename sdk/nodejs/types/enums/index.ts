@@ -110,6 +110,7 @@ import * as omics from "./omics";
 import * as opensearchserverless from "./opensearchserverless";
 import * as organizations from "./organizations";
 import * as panorama from "./panorama";
+import * as paymentcryptography from "./paymentcryptography";
 import * as pcaconnectorad from "./pcaconnectorad";
 import * as personalize from "./personalize";
 import * as pinpoint from "./pinpoint";
@@ -267,6 +268,7 @@ export {
     opensearchserverless,
     organizations,
     panorama,
+    paymentcryptography,
     pcaconnectorad,
     personalize,
     pinpoint,

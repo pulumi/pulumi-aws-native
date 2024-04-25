@@ -155,7 +155,6 @@
   },
   "required" : [ "CopyAllowed", "DownloadAllowed", "PasteAllowed", "PrintAllowed", "UploadAllowed" ],
   "readOnlyProperties" : [ "/properties/AssociatedPortalArns", "/properties/UserSettingsArn" ],
-  "writeOnlyProperties" : [ "/properties/AdditionalEncryptionContext", "/properties/CustomerManagedKey" ],
   "createOnlyProperties" : [ "/properties/AdditionalEncryptionContext", "/properties/CustomerManagedKey" ],
   "primaryIdentifier" : [ "/properties/UserSettingsArn" ],
   "handlers" : {

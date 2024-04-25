@@ -124,6 +124,7 @@ namespace Pulumi.AwsNative.Bedrock
         /// </summary>
         public readonly ImmutableArray<string> RecommendedActions;
         public readonly ImmutableDictionary<string, string>? Tags;
+        public readonly ImmutableDictionary<string, string>? TestAliasTags;
         /// <summary>
         /// Time Stamp.
         /// </summary>
@@ -169,6 +170,8 @@ namespace Pulumi.AwsNative.Bedrock
 
             ImmutableDictionary<string, string>? tags,
 
+            ImmutableDictionary<string, string>? testAliasTags,
+
             string? updatedAt)
         {
             ActionGroups = actionGroups;
@@ -190,6 +193,7 @@ namespace Pulumi.AwsNative.Bedrock
             PromptOverrideConfiguration = promptOverrideConfiguration;
             RecommendedActions = recommendedActions;
             Tags = tags;
+            TestAliasTags = testAliasTags;
             UpdatedAt = updatedAt;
         }
     }

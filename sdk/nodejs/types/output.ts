@@ -5474,6 +5474,126 @@ export namespace bedrock {
     }
 
     /**
+     * Content filter config in content policy.
+     */
+    export interface GuardrailContentFilterConfig {
+        inputStrength: enums.bedrock.GuardrailFilterStrength;
+        outputStrength: enums.bedrock.GuardrailFilterStrength;
+        type: enums.bedrock.GuardrailContentFilterType;
+    }
+
+    /**
+     * Content policy config for a guardrail.
+     */
+    export interface GuardrailContentPolicyConfig {
+        /**
+         * List of content filter configs in content policy.
+         */
+        filtersConfig: outputs.bedrock.GuardrailContentFilterConfig[];
+    }
+
+    /**
+     * A managed words config.
+     */
+    export interface GuardrailManagedWordsConfig {
+        type: enums.bedrock.GuardrailManagedWordsType;
+    }
+
+    /**
+     * Pii entity configuration.
+     */
+    export interface GuardrailPiiEntityConfig {
+        action: enums.bedrock.GuardrailSensitiveInformationAction;
+        type: enums.bedrock.GuardrailPiiEntityType;
+    }
+
+    /**
+     * A regex configuration.
+     */
+    export interface GuardrailRegexConfig {
+        action: enums.bedrock.GuardrailSensitiveInformationAction;
+        /**
+         * The regex description.
+         */
+        description?: string;
+        /**
+         * The regex name.
+         */
+        name: string;
+        /**
+         * The regex pattern.
+         */
+        pattern: string;
+    }
+
+    /**
+     * Sensitive information policy config for a guardrail.
+     */
+    export interface GuardrailSensitiveInformationPolicyConfig {
+        /**
+         * List of entities.
+         */
+        piiEntitiesConfig?: outputs.bedrock.GuardrailPiiEntityConfig[];
+        /**
+         * List of regex.
+         */
+        regexesConfig?: outputs.bedrock.GuardrailRegexConfig[];
+    }
+
+    /**
+     * Topic config in topic policy.
+     */
+    export interface GuardrailTopicConfig {
+        /**
+         * Definition of topic in topic policy
+         */
+        definition: string;
+        /**
+         * List of text examples
+         */
+        examples?: string[];
+        /**
+         * Name of topic in topic policy
+         */
+        name: string;
+        type: enums.bedrock.GuardrailTopicType;
+    }
+
+    /**
+     * Topic policy config for a guardrail.
+     */
+    export interface GuardrailTopicPolicyConfig {
+        /**
+         * List of topic configs in topic policy.
+         */
+        topicsConfig: outputs.bedrock.GuardrailTopicConfig[];
+    }
+
+    /**
+     * A custom word config.
+     */
+    export interface GuardrailWordConfig {
+        /**
+         * The custom word text.
+         */
+        text: string;
+    }
+
+    /**
+     * Word policy config for a guardrail.
+     */
+    export interface GuardrailWordPolicyConfig {
+        /**
+         * A config for the list of managed words.
+         */
+        managedWordListsConfig?: outputs.bedrock.GuardrailManagedWordsConfig[];
+        /**
+         * List of custom word configs.
+         */
+        wordsConfig?: outputs.bedrock.GuardrailWordConfig[];
+    }
+
+    /**
      * Contains details about the embeddings model used for the knowledge base.
      */
     export interface KnowledgeBaseConfiguration {
@@ -8906,6 +9026,10 @@ export namespace connectcampaigns {
      * The configuration used for answering machine detection during outbound calls
      */
     export interface CampaignAnswerMachineDetectionConfig {
+        /**
+         * Enables detection of prompts (e.g., beep after after a voicemail greeting)
+         */
+        awaitAnswerMachinePrompt?: boolean;
         /**
          * Flag to decided whether outbound calls should have answering machine detection enabled or not
          */
@@ -13931,6 +14055,7 @@ export namespace ecs {
          * The details of the execute command configuration.
          */
         executeCommandConfiguration?: outputs.ecs.ClusterExecuteCommandConfiguration;
+        managedStorageConfiguration?: outputs.ecs.ClusterManagedStorageConfiguration;
     }
 
     /**
@@ -13980,6 +14105,11 @@ export namespace ecs {
          * An optional folder in the S3 bucket to place logs in.
          */
         s3KeyPrefix?: string;
+    }
+
+    export interface ClusterManagedStorageConfiguration {
+        fargateEphemeralStorageKmsKeyId?: string;
+        kmsKeyId?: string;
     }
 
     /**
@@ -24862,7 +24992,7 @@ export namespace lambda {
         /**
          * The second version, and the percentage of traffic that's routed to it.
          */
-        additionalVersionWeights: outputs.lambda.AliasVersionWeight[];
+        additionalVersionWeights?: outputs.lambda.AliasVersionWeight[];
     }
 
     /**
@@ -30655,6 +30785,28 @@ export namespace panorama {
 
 }
 
+export namespace paymentcryptography {
+    export interface KeyAttributes {
+        keyAlgorithm: enums.paymentcryptography.KeyAlgorithm;
+        keyClass: enums.paymentcryptography.KeyClass;
+        keyModesOfUse: outputs.paymentcryptography.KeyModesOfUse;
+        keyUsage: enums.paymentcryptography.KeyUsage;
+    }
+
+    export interface KeyModesOfUse {
+        decrypt?: boolean;
+        deriveKey?: boolean;
+        encrypt?: boolean;
+        generate?: boolean;
+        noRestrictions?: boolean;
+        sign?: boolean;
+        unwrap?: boolean;
+        verify?: boolean;
+        wrap?: boolean;
+    }
+
+}
+
 export namespace pcaconnectorad {
     export interface ConnectorVpcInformation {
         securityGroupIds: string[];
@@ -31827,6 +31979,7 @@ export namespace quicksight {
     export interface AnalysisCategoryFilter {
         column: outputs.quicksight.AnalysisColumnIdentifier;
         configuration: outputs.quicksight.AnalysisCategoryFilterConfiguration;
+        defaultFilterControlConfiguration?: outputs.quicksight.AnalysisDefaultFilterControlConfiguration;
         filterId: string;
     }
 
@@ -32277,6 +32430,38 @@ export namespace quicksight {
         valueWhenUnsetOption?: enums.quicksight.AnalysisValueWhenUnsetOption;
     }
 
+    export interface AnalysisDefaultDateTimePickerControlOptions {
+        displayOptions?: outputs.quicksight.AnalysisDateTimePickerControlDisplayOptions;
+        type?: enums.quicksight.AnalysisSheetControlDateTimePickerType;
+    }
+
+    export interface AnalysisDefaultFilterControlConfiguration {
+        controlOptions: outputs.quicksight.AnalysisDefaultFilterControlOptions;
+        title: string;
+    }
+
+    export interface AnalysisDefaultFilterControlOptions {
+        defaultDateTimePickerOptions?: outputs.quicksight.AnalysisDefaultDateTimePickerControlOptions;
+        defaultDropdownOptions?: outputs.quicksight.AnalysisDefaultFilterDropDownControlOptions;
+        defaultListOptions?: outputs.quicksight.AnalysisDefaultFilterListControlOptions;
+        defaultRelativeDateTimeOptions?: outputs.quicksight.AnalysisDefaultRelativeDateTimeControlOptions;
+        defaultSliderOptions?: outputs.quicksight.AnalysisDefaultSliderControlOptions;
+        defaultTextAreaOptions?: outputs.quicksight.AnalysisDefaultTextAreaControlOptions;
+        defaultTextFieldOptions?: outputs.quicksight.AnalysisDefaultTextFieldControlOptions;
+    }
+
+    export interface AnalysisDefaultFilterDropDownControlOptions {
+        displayOptions?: outputs.quicksight.AnalysisDropDownControlDisplayOptions;
+        selectableValues?: outputs.quicksight.AnalysisFilterSelectableValues;
+        type?: enums.quicksight.AnalysisSheetControlListType;
+    }
+
+    export interface AnalysisDefaultFilterListControlOptions {
+        displayOptions?: outputs.quicksight.AnalysisListControlDisplayOptions;
+        selectableValues?: outputs.quicksight.AnalysisFilterSelectableValues;
+        type?: enums.quicksight.AnalysisSheetControlListType;
+    }
+
     export interface AnalysisDefaultFreeFormLayoutConfiguration {
         canvasSizeOptions: outputs.quicksight.AnalysisFreeFormLayoutCanvasSizeOptions;
     }
@@ -32300,8 +32485,29 @@ export namespace quicksight {
         sectionBased?: outputs.quicksight.AnalysisDefaultSectionBasedLayoutConfiguration;
     }
 
+    export interface AnalysisDefaultRelativeDateTimeControlOptions {
+        displayOptions?: outputs.quicksight.AnalysisRelativeDateTimeControlDisplayOptions;
+    }
+
     export interface AnalysisDefaultSectionBasedLayoutConfiguration {
         canvasSizeOptions: outputs.quicksight.AnalysisSectionBasedLayoutCanvasSizeOptions;
+    }
+
+    export interface AnalysisDefaultSliderControlOptions {
+        displayOptions?: outputs.quicksight.AnalysisSliderControlDisplayOptions;
+        maximumValue: number;
+        minimumValue: number;
+        stepSize: number;
+        type?: enums.quicksight.AnalysisSheetControlSliderType;
+    }
+
+    export interface AnalysisDefaultTextAreaControlOptions {
+        delimiter?: string;
+        displayOptions?: outputs.quicksight.AnalysisTextAreaControlDisplayOptions;
+    }
+
+    export interface AnalysisDefaultTextFieldControlOptions {
+        displayOptions?: outputs.quicksight.AnalysisTextFieldControlDisplayOptions;
     }
 
     export interface AnalysisDefaults {
@@ -32486,6 +32692,7 @@ export namespace quicksight {
     }
 
     export interface AnalysisFilterControl {
+        crossSheet?: outputs.quicksight.AnalysisFilterCrossSheetControl;
         dateTimePicker?: outputs.quicksight.AnalysisFilterDateTimePickerControl;
         dropdown?: outputs.quicksight.AnalysisFilterDropDownControl;
         list?: outputs.quicksight.AnalysisFilterListControl;
@@ -32493,6 +32700,12 @@ export namespace quicksight {
         slider?: outputs.quicksight.AnalysisFilterSliderControl;
         textArea?: outputs.quicksight.AnalysisFilterTextAreaControl;
         textField?: outputs.quicksight.AnalysisFilterTextFieldControl;
+    }
+
+    export interface AnalysisFilterCrossSheetControl {
+        cascadingControlConfiguration?: outputs.quicksight.AnalysisCascadingControlConfiguration;
+        filterControlId: string;
+        sourceFilterId: string;
     }
 
     export interface AnalysisFilterDateTimePickerControl {
@@ -33329,6 +33542,7 @@ export namespace quicksight {
     export interface AnalysisNumericEqualityFilter {
         aggregationFunction?: outputs.quicksight.AnalysisAggregationFunction;
         column: outputs.quicksight.AnalysisColumnIdentifier;
+        defaultFilterControlConfiguration?: outputs.quicksight.AnalysisDefaultFilterControlConfiguration;
         filterId: string;
         matchOperator: enums.quicksight.AnalysisNumericEqualityMatchOperator;
         nullOption: enums.quicksight.AnalysisFilterNullOption;
@@ -33346,6 +33560,7 @@ export namespace quicksight {
     export interface AnalysisNumericRangeFilter {
         aggregationFunction?: outputs.quicksight.AnalysisAggregationFunction;
         column: outputs.quicksight.AnalysisColumnIdentifier;
+        defaultFilterControlConfiguration?: outputs.quicksight.AnalysisDefaultFilterControlConfiguration;
         filterId: string;
         includeMaximum?: boolean;
         includeMinimum?: boolean;
@@ -33846,6 +34061,7 @@ export namespace quicksight {
     export interface AnalysisRelativeDatesFilter {
         anchorDateConfiguration: outputs.quicksight.AnalysisAnchorDateConfiguration;
         column: outputs.quicksight.AnalysisColumnIdentifier;
+        defaultFilterControlConfiguration?: outputs.quicksight.AnalysisDefaultFilterControlConfiguration;
         excludePeriodConfiguration?: outputs.quicksight.AnalysisExcludePeriodConfiguration;
         filterId: string;
         minimumGranularity?: enums.quicksight.AnalysisTimeGranularity;
@@ -34411,6 +34627,7 @@ export namespace quicksight {
 
     export interface AnalysisTimeEqualityFilter {
         column: outputs.quicksight.AnalysisColumnIdentifier;
+        defaultFilterControlConfiguration?: outputs.quicksight.AnalysisDefaultFilterControlConfiguration;
         filterId: string;
         parameterName?: string;
         rollingDate?: outputs.quicksight.AnalysisRollingDateConfiguration;
@@ -34427,6 +34644,7 @@ export namespace quicksight {
 
     export interface AnalysisTimeRangeFilter {
         column: outputs.quicksight.AnalysisColumnIdentifier;
+        defaultFilterControlConfiguration?: outputs.quicksight.AnalysisDefaultFilterControlConfiguration;
         excludePeriodConfiguration?: outputs.quicksight.AnalysisExcludePeriodConfiguration;
         filterId: string;
         includeMaximum?: boolean;
@@ -34457,6 +34675,7 @@ export namespace quicksight {
     export interface AnalysisTopBottomFilter {
         aggregationSortConfigurations: outputs.quicksight.AnalysisAggregationSortConfiguration[];
         column: outputs.quicksight.AnalysisColumnIdentifier;
+        defaultFilterControlConfiguration?: outputs.quicksight.AnalysisDefaultFilterControlConfiguration;
         filterId: string;
         limit?: number;
         parameterName?: string;
@@ -34995,6 +35214,7 @@ export namespace quicksight {
     export interface DashboardCategoryFilter {
         column: outputs.quicksight.DashboardColumnIdentifier;
         configuration: outputs.quicksight.DashboardCategoryFilterConfiguration;
+        defaultFilterControlConfiguration?: outputs.quicksight.DashboardDefaultFilterControlConfiguration;
         filterId: string;
     }
 
@@ -35466,6 +35686,38 @@ export namespace quicksight {
         valueWhenUnsetOption?: enums.quicksight.DashboardValueWhenUnsetOption;
     }
 
+    export interface DashboardDefaultDateTimePickerControlOptions {
+        displayOptions?: outputs.quicksight.DashboardDateTimePickerControlDisplayOptions;
+        type?: enums.quicksight.DashboardSheetControlDateTimePickerType;
+    }
+
+    export interface DashboardDefaultFilterControlConfiguration {
+        controlOptions: outputs.quicksight.DashboardDefaultFilterControlOptions;
+        title: string;
+    }
+
+    export interface DashboardDefaultFilterControlOptions {
+        defaultDateTimePickerOptions?: outputs.quicksight.DashboardDefaultDateTimePickerControlOptions;
+        defaultDropdownOptions?: outputs.quicksight.DashboardDefaultFilterDropDownControlOptions;
+        defaultListOptions?: outputs.quicksight.DashboardDefaultFilterListControlOptions;
+        defaultRelativeDateTimeOptions?: outputs.quicksight.DashboardDefaultRelativeDateTimeControlOptions;
+        defaultSliderOptions?: outputs.quicksight.DashboardDefaultSliderControlOptions;
+        defaultTextAreaOptions?: outputs.quicksight.DashboardDefaultTextAreaControlOptions;
+        defaultTextFieldOptions?: outputs.quicksight.DashboardDefaultTextFieldControlOptions;
+    }
+
+    export interface DashboardDefaultFilterDropDownControlOptions {
+        displayOptions?: outputs.quicksight.DashboardDropDownControlDisplayOptions;
+        selectableValues?: outputs.quicksight.DashboardFilterSelectableValues;
+        type?: enums.quicksight.DashboardSheetControlListType;
+    }
+
+    export interface DashboardDefaultFilterListControlOptions {
+        displayOptions?: outputs.quicksight.DashboardListControlDisplayOptions;
+        selectableValues?: outputs.quicksight.DashboardFilterSelectableValues;
+        type?: enums.quicksight.DashboardSheetControlListType;
+    }
+
     export interface DashboardDefaultFreeFormLayoutConfiguration {
         canvasSizeOptions: outputs.quicksight.DashboardFreeFormLayoutCanvasSizeOptions;
     }
@@ -35489,8 +35741,29 @@ export namespace quicksight {
         sectionBased?: outputs.quicksight.DashboardDefaultSectionBasedLayoutConfiguration;
     }
 
+    export interface DashboardDefaultRelativeDateTimeControlOptions {
+        displayOptions?: outputs.quicksight.DashboardRelativeDateTimeControlDisplayOptions;
+    }
+
     export interface DashboardDefaultSectionBasedLayoutConfiguration {
         canvasSizeOptions: outputs.quicksight.DashboardSectionBasedLayoutCanvasSizeOptions;
+    }
+
+    export interface DashboardDefaultSliderControlOptions {
+        displayOptions?: outputs.quicksight.DashboardSliderControlDisplayOptions;
+        maximumValue: number;
+        minimumValue: number;
+        stepSize: number;
+        type?: enums.quicksight.DashboardSheetControlSliderType;
+    }
+
+    export interface DashboardDefaultTextAreaControlOptions {
+        delimiter?: string;
+        displayOptions?: outputs.quicksight.DashboardTextAreaControlDisplayOptions;
+    }
+
+    export interface DashboardDefaultTextFieldControlOptions {
+        displayOptions?: outputs.quicksight.DashboardTextFieldControlDisplayOptions;
     }
 
     export interface DashboardDestinationParameterValueConfiguration {
@@ -35681,6 +35954,7 @@ export namespace quicksight {
     }
 
     export interface DashboardFilterControl {
+        crossSheet?: outputs.quicksight.DashboardFilterCrossSheetControl;
         dateTimePicker?: outputs.quicksight.DashboardFilterDateTimePickerControl;
         dropdown?: outputs.quicksight.DashboardFilterDropDownControl;
         list?: outputs.quicksight.DashboardFilterListControl;
@@ -35688,6 +35962,12 @@ export namespace quicksight {
         slider?: outputs.quicksight.DashboardFilterSliderControl;
         textArea?: outputs.quicksight.DashboardFilterTextAreaControl;
         textField?: outputs.quicksight.DashboardFilterTextFieldControl;
+    }
+
+    export interface DashboardFilterCrossSheetControl {
+        cascadingControlConfiguration?: outputs.quicksight.DashboardCascadingControlConfiguration;
+        filterControlId: string;
+        sourceFilterId: string;
     }
 
     export interface DashboardFilterDateTimePickerControl {
@@ -36528,6 +36808,7 @@ export namespace quicksight {
     export interface DashboardNumericEqualityFilter {
         aggregationFunction?: outputs.quicksight.DashboardAggregationFunction;
         column: outputs.quicksight.DashboardColumnIdentifier;
+        defaultFilterControlConfiguration?: outputs.quicksight.DashboardDefaultFilterControlConfiguration;
         filterId: string;
         matchOperator: enums.quicksight.DashboardNumericEqualityMatchOperator;
         nullOption: enums.quicksight.DashboardFilterNullOption;
@@ -36545,6 +36826,7 @@ export namespace quicksight {
     export interface DashboardNumericRangeFilter {
         aggregationFunction?: outputs.quicksight.DashboardAggregationFunction;
         column: outputs.quicksight.DashboardColumnIdentifier;
+        defaultFilterControlConfiguration?: outputs.quicksight.DashboardDefaultFilterControlConfiguration;
         filterId: string;
         includeMaximum?: boolean;
         includeMinimum?: boolean;
@@ -37062,6 +37344,7 @@ export namespace quicksight {
     export interface DashboardRelativeDatesFilter {
         anchorDateConfiguration: outputs.quicksight.DashboardAnchorDateConfiguration;
         column: outputs.quicksight.DashboardColumnIdentifier;
+        defaultFilterControlConfiguration?: outputs.quicksight.DashboardDefaultFilterControlConfiguration;
         excludePeriodConfiguration?: outputs.quicksight.DashboardExcludePeriodConfiguration;
         filterId: string;
         minimumGranularity?: enums.quicksight.DashboardTimeGranularity;
@@ -37641,6 +37924,7 @@ export namespace quicksight {
 
     export interface DashboardTimeEqualityFilter {
         column: outputs.quicksight.DashboardColumnIdentifier;
+        defaultFilterControlConfiguration?: outputs.quicksight.DashboardDefaultFilterControlConfiguration;
         filterId: string;
         parameterName?: string;
         rollingDate?: outputs.quicksight.DashboardRollingDateConfiguration;
@@ -37657,6 +37941,7 @@ export namespace quicksight {
 
     export interface DashboardTimeRangeFilter {
         column: outputs.quicksight.DashboardColumnIdentifier;
+        defaultFilterControlConfiguration?: outputs.quicksight.DashboardDefaultFilterControlConfiguration;
         excludePeriodConfiguration?: outputs.quicksight.DashboardExcludePeriodConfiguration;
         filterId: string;
         includeMaximum?: boolean;
@@ -37687,6 +37972,7 @@ export namespace quicksight {
     export interface DashboardTopBottomFilter {
         aggregationSortConfigurations: outputs.quicksight.DashboardAggregationSortConfiguration[];
         column: outputs.quicksight.DashboardColumnIdentifier;
+        defaultFilterControlConfiguration?: outputs.quicksight.DashboardDefaultFilterControlConfiguration;
         filterId: string;
         limit?: number;
         parameterName?: string;
@@ -39407,6 +39693,7 @@ export namespace quicksight {
     export interface TemplateCategoryFilter {
         column: outputs.quicksight.TemplateColumnIdentifier;
         configuration: outputs.quicksight.TemplateCategoryFilterConfiguration;
+        defaultFilterControlConfiguration?: outputs.quicksight.TemplateDefaultFilterControlConfiguration;
         filterId: string;
     }
 
@@ -39891,6 +40178,38 @@ export namespace quicksight {
         valueWhenUnsetOption?: enums.quicksight.TemplateValueWhenUnsetOption;
     }
 
+    export interface TemplateDefaultDateTimePickerControlOptions {
+        displayOptions?: outputs.quicksight.TemplateDateTimePickerControlDisplayOptions;
+        type?: enums.quicksight.TemplateSheetControlDateTimePickerType;
+    }
+
+    export interface TemplateDefaultFilterControlConfiguration {
+        controlOptions: outputs.quicksight.TemplateDefaultFilterControlOptions;
+        title: string;
+    }
+
+    export interface TemplateDefaultFilterControlOptions {
+        defaultDateTimePickerOptions?: outputs.quicksight.TemplateDefaultDateTimePickerControlOptions;
+        defaultDropdownOptions?: outputs.quicksight.TemplateDefaultFilterDropDownControlOptions;
+        defaultListOptions?: outputs.quicksight.TemplateDefaultFilterListControlOptions;
+        defaultRelativeDateTimeOptions?: outputs.quicksight.TemplateDefaultRelativeDateTimeControlOptions;
+        defaultSliderOptions?: outputs.quicksight.TemplateDefaultSliderControlOptions;
+        defaultTextAreaOptions?: outputs.quicksight.TemplateDefaultTextAreaControlOptions;
+        defaultTextFieldOptions?: outputs.quicksight.TemplateDefaultTextFieldControlOptions;
+    }
+
+    export interface TemplateDefaultFilterDropDownControlOptions {
+        displayOptions?: outputs.quicksight.TemplateDropDownControlDisplayOptions;
+        selectableValues?: outputs.quicksight.TemplateFilterSelectableValues;
+        type?: enums.quicksight.TemplateSheetControlListType;
+    }
+
+    export interface TemplateDefaultFilterListControlOptions {
+        displayOptions?: outputs.quicksight.TemplateListControlDisplayOptions;
+        selectableValues?: outputs.quicksight.TemplateFilterSelectableValues;
+        type?: enums.quicksight.TemplateSheetControlListType;
+    }
+
     export interface TemplateDefaultFreeFormLayoutConfiguration {
         canvasSizeOptions: outputs.quicksight.TemplateFreeFormLayoutCanvasSizeOptions;
     }
@@ -39914,8 +40233,29 @@ export namespace quicksight {
         sectionBased?: outputs.quicksight.TemplateDefaultSectionBasedLayoutConfiguration;
     }
 
+    export interface TemplateDefaultRelativeDateTimeControlOptions {
+        displayOptions?: outputs.quicksight.TemplateRelativeDateTimeControlDisplayOptions;
+    }
+
     export interface TemplateDefaultSectionBasedLayoutConfiguration {
         canvasSizeOptions: outputs.quicksight.TemplateSectionBasedLayoutCanvasSizeOptions;
+    }
+
+    export interface TemplateDefaultSliderControlOptions {
+        displayOptions?: outputs.quicksight.TemplateSliderControlDisplayOptions;
+        maximumValue: number;
+        minimumValue: number;
+        stepSize: number;
+        type?: enums.quicksight.TemplateSheetControlSliderType;
+    }
+
+    export interface TemplateDefaultTextAreaControlOptions {
+        delimiter?: string;
+        displayOptions?: outputs.quicksight.TemplateTextAreaControlDisplayOptions;
+    }
+
+    export interface TemplateDefaultTextFieldControlOptions {
+        displayOptions?: outputs.quicksight.TemplateTextFieldControlDisplayOptions;
     }
 
     export interface TemplateDestinationParameterValueConfiguration {
@@ -40085,6 +40425,7 @@ export namespace quicksight {
     }
 
     export interface TemplateFilterControl {
+        crossSheet?: outputs.quicksight.TemplateFilterCrossSheetControl;
         dateTimePicker?: outputs.quicksight.TemplateFilterDateTimePickerControl;
         dropdown?: outputs.quicksight.TemplateFilterDropDownControl;
         list?: outputs.quicksight.TemplateFilterListControl;
@@ -40092,6 +40433,12 @@ export namespace quicksight {
         slider?: outputs.quicksight.TemplateFilterSliderControl;
         textArea?: outputs.quicksight.TemplateFilterTextAreaControl;
         textField?: outputs.quicksight.TemplateFilterTextFieldControl;
+    }
+
+    export interface TemplateFilterCrossSheetControl {
+        cascadingControlConfiguration?: outputs.quicksight.TemplateCascadingControlConfiguration;
+        filterControlId: string;
+        sourceFilterId: string;
     }
 
     export interface TemplateFilterDateTimePickerControl {
@@ -40914,6 +41261,7 @@ export namespace quicksight {
     export interface TemplateNumericEqualityFilter {
         aggregationFunction?: outputs.quicksight.TemplateAggregationFunction;
         column: outputs.quicksight.TemplateColumnIdentifier;
+        defaultFilterControlConfiguration?: outputs.quicksight.TemplateDefaultFilterControlConfiguration;
         filterId: string;
         matchOperator: enums.quicksight.TemplateNumericEqualityMatchOperator;
         nullOption: enums.quicksight.TemplateFilterNullOption;
@@ -40931,6 +41279,7 @@ export namespace quicksight {
     export interface TemplateNumericRangeFilter {
         aggregationFunction?: outputs.quicksight.TemplateAggregationFunction;
         column: outputs.quicksight.TemplateColumnIdentifier;
+        defaultFilterControlConfiguration?: outputs.quicksight.TemplateDefaultFilterControlConfiguration;
         filterId: string;
         includeMaximum?: boolean;
         includeMinimum?: boolean;
@@ -41409,6 +41758,7 @@ export namespace quicksight {
     export interface TemplateRelativeDatesFilter {
         anchorDateConfiguration: outputs.quicksight.TemplateAnchorDateConfiguration;
         column: outputs.quicksight.TemplateColumnIdentifier;
+        defaultFilterControlConfiguration?: outputs.quicksight.TemplateDefaultFilterControlConfiguration;
         excludePeriodConfiguration?: outputs.quicksight.TemplateExcludePeriodConfiguration;
         filterId: string;
         minimumGranularity?: enums.quicksight.TemplateTimeGranularity;
@@ -41972,6 +42322,7 @@ export namespace quicksight {
 
     export interface TemplateTimeEqualityFilter {
         column: outputs.quicksight.TemplateColumnIdentifier;
+        defaultFilterControlConfiguration?: outputs.quicksight.TemplateDefaultFilterControlConfiguration;
         filterId: string;
         parameterName?: string;
         rollingDate?: outputs.quicksight.TemplateRollingDateConfiguration;
@@ -41988,6 +42339,7 @@ export namespace quicksight {
 
     export interface TemplateTimeRangeFilter {
         column: outputs.quicksight.TemplateColumnIdentifier;
+        defaultFilterControlConfiguration?: outputs.quicksight.TemplateDefaultFilterControlConfiguration;
         excludePeriodConfiguration?: outputs.quicksight.TemplateExcludePeriodConfiguration;
         filterId: string;
         includeMaximum?: boolean;
@@ -42018,6 +42370,7 @@ export namespace quicksight {
     export interface TemplateTopBottomFilter {
         aggregationSortConfigurations: outputs.quicksight.TemplateAggregationSortConfiguration[];
         column: outputs.quicksight.TemplateColumnIdentifier;
+        defaultFilterControlConfiguration?: outputs.quicksight.TemplateDefaultFilterControlConfiguration;
         filterId: string;
         limit?: number;
         parameterName?: string;
@@ -42331,10 +42684,20 @@ export namespace quicksight {
         visualId: string;
     }
 
+    /**
+     * <p>The display options for tile borders for visuals.</p>
+     */
     export interface ThemeBorderStyle {
+        /**
+         * <p>The option to enable display of borders for visuals.</p>
+         */
         show?: boolean;
     }
 
+    /**
+     * <p>The theme configuration. This configuration contains all of the display properties for
+     *             a theme.</p>
+     */
     export interface ThemeConfiguration {
         dataColorPalette?: outputs.quicksight.ThemeDataColorPalette;
         sheet?: outputs.quicksight.ThemeSheetStyle;
@@ -42342,13 +42705,34 @@ export namespace quicksight {
         uiColorPalette?: outputs.quicksight.ThemeUiColorPalette;
     }
 
+    /**
+     * <p>The theme colors that are used for data colors in charts. The colors description is a
+     *             hexadecimal color code that consists of six alphanumerical characters, prefixed with
+     *                 <code>#</code>, for example #37BFF5. </p>
+     */
     export interface ThemeDataColorPalette {
+        /**
+         * <p>The hexadecimal codes for the colors.</p>
+         */
         colors?: string[];
+        /**
+         * <p>The hexadecimal code of a color that applies to charts where a lack of data is
+         *             highlighted.</p>
+         */
         emptyFillColor?: string;
+        /**
+         * <p>The minimum and maximum hexadecimal codes that describe a color gradient. </p>
+         */
         minMaxGradient?: string[];
     }
 
+    /**
+     * <p>Theme error.</p>
+     */
     export interface ThemeError {
+        /**
+         * <p>The error message.</p>
+         */
         message?: string;
         type?: enums.quicksight.ThemeErrorType;
     }
@@ -42357,29 +42741,74 @@ export namespace quicksight {
         fontFamily?: string;
     }
 
+    /**
+     * <p>The display options for gutter spacing between tiles on a sheet.</p>
+     */
     export interface ThemeGutterStyle {
+        /**
+         * <p>This Boolean value controls whether to display a gutter space between sheet tiles.
+         *         </p>
+         */
         show?: boolean;
     }
 
+    /**
+     * <p>The display options for margins around the outside edge of sheets.</p>
+     */
     export interface ThemeMarginStyle {
+        /**
+         * <p>This Boolean value controls whether to display sheet margins.</p>
+         */
         show?: boolean;
     }
 
+    /**
+     * <p>Permission for the resource.</p>
+     */
     export interface ThemeResourcePermission {
+        /**
+         * <p>The IAM action to grant or revoke permissions on.</p>
+         */
         actions: string[];
+        /**
+         * <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+         *             following:</p>
+         *          <ul>
+         *             <li>
+         *                <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+         *             </li>
+         *             <li>
+         *                <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+         *             </li>
+         *             <li>
+         *                <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
+         *                     ARN. Use this option only to share resources (templates) across Amazon Web Services accounts.
+         *                     (This is less common.) </p>
+         *             </li>
+         *          </ul>
+         */
         principal: string;
     }
 
+    /**
+     * <p>The theme display options for sheets. </p>
+     */
     export interface ThemeSheetStyle {
         tile?: outputs.quicksight.ThemeTileStyle;
         tileLayout?: outputs.quicksight.ThemeTileLayoutStyle;
     }
 
+    /**
+     * <p>The display options for the layout of tiles on a sheet.</p>
+     */
     export interface ThemeTileLayoutStyle {
         gutter?: outputs.quicksight.ThemeGutterStyle;
         margin?: outputs.quicksight.ThemeMarginStyle;
     }
 
+    /**
+     * <p>Display options related to tiles on a sheet.</p>
+     */
     export interface ThemeTileStyle {
         border?: outputs.quicksight.ThemeBorderStyle;
     }
@@ -42388,33 +42817,120 @@ export namespace quicksight {
         fontFamilies?: outputs.quicksight.ThemeFont[];
     }
 
+    /**
+     * <p>The theme colors that apply to UI and to charts, excluding data colors. The colors
+     *             description is a hexadecimal color code that consists of six alphanumerical characters,
+     *             prefixed with <code>#</code>, for example #37BFF5. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html">Using Themes in Amazon QuickSight</a> in the <i>Amazon QuickSight User
+     *                 Guide.</i>
+     *          </p>
+     */
     export interface ThemeUiColorPalette {
+        /**
+         * <p>This color is that applies to selected states and buttons.</p>
+         */
         accent?: string;
+        /**
+         * <p>The foreground color that applies to any text or other elements that appear over the
+         *             accent color.</p>
+         */
         accentForeground?: string;
+        /**
+         * <p>The color that applies to error messages.</p>
+         */
         danger?: string;
+        /**
+         * <p>The foreground color that applies to any text or other elements that appear over the
+         *             error color.</p>
+         */
         dangerForeground?: string;
+        /**
+         * <p>The color that applies to the names of fields that are identified as
+         *             dimensions.</p>
+         */
         dimension?: string;
+        /**
+         * <p>The foreground color that applies to any text or other elements that appear over the
+         *             dimension color.</p>
+         */
         dimensionForeground?: string;
+        /**
+         * <p>The color that applies to the names of fields that are identified as measures.</p>
+         */
         measure?: string;
+        /**
+         * <p>The foreground color that applies to any text or other elements that appear over the
+         *             measure color.</p>
+         */
         measureForeground?: string;
+        /**
+         * <p>The background color that applies to visuals and other high emphasis UI.</p>
+         */
         primaryBackground?: string;
+        /**
+         * <p>The color of text and other foreground elements that appear over the primary
+         *             background regions, such as grid lines, borders, table banding, icons, and so on.</p>
+         */
         primaryForeground?: string;
+        /**
+         * <p>The background color that applies to the sheet background and sheet controls.</p>
+         */
         secondaryBackground?: string;
+        /**
+         * <p>The foreground color that applies to any sheet title, sheet control text, or UI that
+         *             appears over the secondary background.</p>
+         */
         secondaryForeground?: string;
+        /**
+         * <p>The color that applies to success messages, for example the check mark for a
+         *             successful download.</p>
+         */
         success?: string;
+        /**
+         * <p>The foreground color that applies to any text or other elements that appear over the
+         *             success color.</p>
+         */
         successForeground?: string;
+        /**
+         * <p>This color that applies to warning and informational messages.</p>
+         */
         warning?: string;
+        /**
+         * <p>The foreground color that applies to any text or other elements that appear over the
+         *             warning color.</p>
+         */
         warningForeground?: string;
     }
 
+    /**
+     * <p>A version of a theme.</p>
+     */
     export interface ThemeVersion {
+        /**
+         * <p>The Amazon Resource Name (ARN) of the resource.</p>
+         */
         arn?: string;
+        /**
+         * <p>The Amazon QuickSight-defined ID of the theme that a custom theme inherits from. All
+         *             themes initially inherit from a default Amazon QuickSight theme.</p>
+         */
         baseThemeId?: string;
         configuration?: outputs.quicksight.ThemeConfiguration;
+        /**
+         * <p>The date and time that this theme version was created.</p>
+         */
         createdTime?: string;
+        /**
+         * <p>The description of the theme.</p>
+         */
         description?: string;
+        /**
+         * <p>Errors associated with the theme.</p>
+         */
         errors?: outputs.quicksight.ThemeError[];
         status?: enums.quicksight.ThemeResourceStatus;
+        /**
+         * <p>The version number of the theme.</p>
+         */
         versionNumber?: number;
     }
 
@@ -43534,6 +44050,9 @@ export namespace route53 {
         vpcRegion: string;
     }
 
+}
+
+export namespace route53profiles {
 }
 
 export namespace route53recoverycontrol {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;Display options related to tiles on a sheet.&lt;/p&gt;
+    /// </summary>
     public sealed class ThemeTileStyleArgs : global::Pulumi.ResourceArgs
     {
         [Input("border")]

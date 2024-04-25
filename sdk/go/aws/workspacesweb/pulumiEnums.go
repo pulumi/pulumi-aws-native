@@ -437,6 +437,173 @@ func (o PortalBrowserTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
+type PortalInstanceType string
+
+const (
+	PortalInstanceTypeStandardRegular = PortalInstanceType("standard.regular")
+	PortalInstanceTypeStandardLarge   = PortalInstanceType("standard.large")
+	PortalInstanceTypeStandardXlarge  = PortalInstanceType("standard.xlarge")
+)
+
+func (PortalInstanceType) ElementType() reflect.Type {
+	return reflect.TypeOf((*PortalInstanceType)(nil)).Elem()
+}
+
+func (e PortalInstanceType) ToPortalInstanceTypeOutput() PortalInstanceTypeOutput {
+	return pulumi.ToOutput(e).(PortalInstanceTypeOutput)
+}
+
+func (e PortalInstanceType) ToPortalInstanceTypeOutputWithContext(ctx context.Context) PortalInstanceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PortalInstanceTypeOutput)
+}
+
+func (e PortalInstanceType) ToPortalInstanceTypePtrOutput() PortalInstanceTypePtrOutput {
+	return e.ToPortalInstanceTypePtrOutputWithContext(context.Background())
+}
+
+func (e PortalInstanceType) ToPortalInstanceTypePtrOutputWithContext(ctx context.Context) PortalInstanceTypePtrOutput {
+	return PortalInstanceType(e).ToPortalInstanceTypeOutputWithContext(ctx).ToPortalInstanceTypePtrOutputWithContext(ctx)
+}
+
+func (e PortalInstanceType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PortalInstanceType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PortalInstanceType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PortalInstanceType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PortalInstanceTypeOutput struct{ *pulumi.OutputState }
+
+func (PortalInstanceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PortalInstanceType)(nil)).Elem()
+}
+
+func (o PortalInstanceTypeOutput) ToPortalInstanceTypeOutput() PortalInstanceTypeOutput {
+	return o
+}
+
+func (o PortalInstanceTypeOutput) ToPortalInstanceTypeOutputWithContext(ctx context.Context) PortalInstanceTypeOutput {
+	return o
+}
+
+func (o PortalInstanceTypeOutput) ToPortalInstanceTypePtrOutput() PortalInstanceTypePtrOutput {
+	return o.ToPortalInstanceTypePtrOutputWithContext(context.Background())
+}
+
+func (o PortalInstanceTypeOutput) ToPortalInstanceTypePtrOutputWithContext(ctx context.Context) PortalInstanceTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PortalInstanceType) *PortalInstanceType {
+		return &v
+	}).(PortalInstanceTypePtrOutput)
+}
+
+func (o PortalInstanceTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PortalInstanceTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PortalInstanceType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PortalInstanceTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PortalInstanceTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PortalInstanceType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PortalInstanceTypePtrOutput struct{ *pulumi.OutputState }
+
+func (PortalInstanceTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PortalInstanceType)(nil)).Elem()
+}
+
+func (o PortalInstanceTypePtrOutput) ToPortalInstanceTypePtrOutput() PortalInstanceTypePtrOutput {
+	return o
+}
+
+func (o PortalInstanceTypePtrOutput) ToPortalInstanceTypePtrOutputWithContext(ctx context.Context) PortalInstanceTypePtrOutput {
+	return o
+}
+
+func (o PortalInstanceTypePtrOutput) Elem() PortalInstanceTypeOutput {
+	return o.ApplyT(func(v *PortalInstanceType) PortalInstanceType {
+		if v != nil {
+			return *v
+		}
+		var ret PortalInstanceType
+		return ret
+	}).(PortalInstanceTypeOutput)
+}
+
+func (o PortalInstanceTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PortalInstanceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PortalInstanceType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PortalInstanceTypeInput is an input type that accepts values of the PortalInstanceType enum
+// A concrete instance of `PortalInstanceTypeInput` can be one of the following:
+//
+//	PortalInstanceTypeStandardRegular
+//	PortalInstanceTypeStandardLarge
+//	PortalInstanceTypeStandardXlarge
+type PortalInstanceTypeInput interface {
+	pulumi.Input
+
+	ToPortalInstanceTypeOutput() PortalInstanceTypeOutput
+	ToPortalInstanceTypeOutputWithContext(context.Context) PortalInstanceTypeOutput
+}
+
+var portalInstanceTypePtrType = reflect.TypeOf((**PortalInstanceType)(nil)).Elem()
+
+type PortalInstanceTypePtrInput interface {
+	pulumi.Input
+
+	ToPortalInstanceTypePtrOutput() PortalInstanceTypePtrOutput
+	ToPortalInstanceTypePtrOutputWithContext(context.Context) PortalInstanceTypePtrOutput
+}
+
+type portalInstanceTypePtr string
+
+func PortalInstanceTypePtr(v string) PortalInstanceTypePtrInput {
+	return (*portalInstanceTypePtr)(&v)
+}
+
+func (*portalInstanceTypePtr) ElementType() reflect.Type {
+	return portalInstanceTypePtrType
+}
+
+func (in *portalInstanceTypePtr) ToPortalInstanceTypePtrOutput() PortalInstanceTypePtrOutput {
+	return pulumi.ToOutput(in).(PortalInstanceTypePtrOutput)
+}
+
+func (in *portalInstanceTypePtr) ToPortalInstanceTypePtrOutputWithContext(ctx context.Context) PortalInstanceTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PortalInstanceTypePtrOutput)
+}
+
 type PortalRendererType string
 
 const (
@@ -787,6 +954,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityProviderTypePtrInput)(nil)).Elem(), IdentityProviderType("SAML"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PortalAuthenticationTypeInput)(nil)).Elem(), PortalAuthenticationType("Standard"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PortalAuthenticationTypePtrInput)(nil)).Elem(), PortalAuthenticationType("Standard"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PortalInstanceTypeInput)(nil)).Elem(), PortalInstanceType("standard.regular"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PortalInstanceTypePtrInput)(nil)).Elem(), PortalInstanceType("standard.regular"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsEnabledTypeInput)(nil)).Elem(), UserSettingsEnabledType("Disabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsEnabledTypePtrInput)(nil)).Elem(), UserSettingsEnabledType("Disabled"))
 	pulumi.RegisterOutputType(IdentityProviderTypeOutput{})
@@ -795,6 +964,8 @@ func init() {
 	pulumi.RegisterOutputType(PortalAuthenticationTypePtrOutput{})
 	pulumi.RegisterOutputType(PortalBrowserTypeOutput{})
 	pulumi.RegisterOutputType(PortalBrowserTypePtrOutput{})
+	pulumi.RegisterOutputType(PortalInstanceTypeOutput{})
+	pulumi.RegisterOutputType(PortalInstanceTypePtrOutput{})
 	pulumi.RegisterOutputType(PortalRendererTypeOutput{})
 	pulumi.RegisterOutputType(PortalRendererTypePtrOutput{})
 	pulumi.RegisterOutputType(PortalStatusOutput{})

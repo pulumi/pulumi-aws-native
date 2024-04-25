@@ -111,16 +111,17 @@ class AliasRoutingConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 additional_version_weights: Sequence['outputs.AliasVersionWeight']):
+                 additional_version_weights: Optional[Sequence['outputs.AliasVersionWeight']] = None):
         """
         The traffic-shifting configuration of a Lambda function alias.
         :param Sequence['AliasVersionWeight'] additional_version_weights: The second version, and the percentage of traffic that's routed to it.
         """
-        pulumi.set(__self__, "additional_version_weights", additional_version_weights)
+        if additional_version_weights is not None:
+            pulumi.set(__self__, "additional_version_weights", additional_version_weights)
 
     @property
     @pulumi.getter(name="additionalVersionWeights")
-    def additional_version_weights(self) -> Sequence['outputs.AliasVersionWeight']:
+    def additional_version_weights(self) -> Optional[Sequence['outputs.AliasVersionWeight']]:
         """
         The second version, and the percentage of traffic that's routed to it.
         """

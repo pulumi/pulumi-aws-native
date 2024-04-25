@@ -15,6 +15,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     {
         public readonly Outputs.TemplateAnchorDateConfiguration AnchorDateConfiguration;
         public readonly Outputs.TemplateColumnIdentifier Column;
+        public readonly Outputs.TemplateDefaultFilterControlConfiguration? DefaultFilterControlConfiguration;
         public readonly Outputs.TemplateExcludePeriodConfiguration? ExcludePeriodConfiguration;
         public readonly string FilterId;
         public readonly Pulumi.AwsNative.QuickSight.TemplateTimeGranularity? MinimumGranularity;
@@ -29,6 +30,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             Outputs.TemplateAnchorDateConfiguration anchorDateConfiguration,
 
             Outputs.TemplateColumnIdentifier column,
+
+            Outputs.TemplateDefaultFilterControlConfiguration? defaultFilterControlConfiguration,
 
             Outputs.TemplateExcludePeriodConfiguration? excludePeriodConfiguration,
 
@@ -48,6 +51,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         {
             AnchorDateConfiguration = anchorDateConfiguration;
             Column = column;
+            DefaultFilterControlConfiguration = defaultFilterControlConfiguration;
             ExcludePeriodConfiguration = excludePeriodConfiguration;
             FilterId = filterId;
             MinimumGranularity = minimumGranularity;

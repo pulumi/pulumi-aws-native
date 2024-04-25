@@ -13,6 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateFilterControl
     {
+        public readonly Outputs.TemplateFilterCrossSheetControl? CrossSheet;
         public readonly Outputs.TemplateFilterDateTimePickerControl? DateTimePicker;
         public readonly Outputs.TemplateFilterDropDownControl? Dropdown;
         public readonly Outputs.TemplateFilterListControl? List;
@@ -23,6 +24,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
         [OutputConstructor]
         private TemplateFilterControl(
+            Outputs.TemplateFilterCrossSheetControl? crossSheet,
+
             Outputs.TemplateFilterDateTimePickerControl? dateTimePicker,
 
             Outputs.TemplateFilterDropDownControl? dropdown,
@@ -37,6 +40,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Outputs.TemplateFilterTextFieldControl? textField)
         {
+            CrossSheet = crossSheet;
             DateTimePicker = dateTimePicker;
             Dropdown = dropdown;
             List = list;

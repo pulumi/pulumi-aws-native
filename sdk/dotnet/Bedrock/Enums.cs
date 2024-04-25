@@ -358,6 +358,260 @@ namespace Pulumi.AwsNative.Bedrock
     }
 
     /// <summary>
+    /// Type of filter in content policy
+    /// </summary>
+    [EnumType]
+    public readonly struct GuardrailContentFilterType : IEquatable<GuardrailContentFilterType>
+    {
+        private readonly string _value;
+
+        private GuardrailContentFilterType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GuardrailContentFilterType Sexual { get; } = new GuardrailContentFilterType("SEXUAL");
+        public static GuardrailContentFilterType Violence { get; } = new GuardrailContentFilterType("VIOLENCE");
+        public static GuardrailContentFilterType Hate { get; } = new GuardrailContentFilterType("HATE");
+        public static GuardrailContentFilterType Insults { get; } = new GuardrailContentFilterType("INSULTS");
+        public static GuardrailContentFilterType Misconduct { get; } = new GuardrailContentFilterType("MISCONDUCT");
+        public static GuardrailContentFilterType PromptAttack { get; } = new GuardrailContentFilterType("PROMPT_ATTACK");
+
+        public static bool operator ==(GuardrailContentFilterType left, GuardrailContentFilterType right) => left.Equals(right);
+        public static bool operator !=(GuardrailContentFilterType left, GuardrailContentFilterType right) => !left.Equals(right);
+
+        public static explicit operator string(GuardrailContentFilterType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GuardrailContentFilterType other && Equals(other);
+        public bool Equals(GuardrailContentFilterType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Strength for filters
+    /// </summary>
+    [EnumType]
+    public readonly struct GuardrailFilterStrength : IEquatable<GuardrailFilterStrength>
+    {
+        private readonly string _value;
+
+        private GuardrailFilterStrength(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GuardrailFilterStrength None { get; } = new GuardrailFilterStrength("NONE");
+        public static GuardrailFilterStrength Low { get; } = new GuardrailFilterStrength("LOW");
+        public static GuardrailFilterStrength Medium { get; } = new GuardrailFilterStrength("MEDIUM");
+        public static GuardrailFilterStrength High { get; } = new GuardrailFilterStrength("HIGH");
+
+        public static bool operator ==(GuardrailFilterStrength left, GuardrailFilterStrength right) => left.Equals(right);
+        public static bool operator !=(GuardrailFilterStrength left, GuardrailFilterStrength right) => !left.Equals(right);
+
+        public static explicit operator string(GuardrailFilterStrength value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GuardrailFilterStrength other && Equals(other);
+        public bool Equals(GuardrailFilterStrength other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Options for managed words.
+    /// </summary>
+    [EnumType]
+    public readonly struct GuardrailManagedWordsType : IEquatable<GuardrailManagedWordsType>
+    {
+        private readonly string _value;
+
+        private GuardrailManagedWordsType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GuardrailManagedWordsType Profanity { get; } = new GuardrailManagedWordsType("PROFANITY");
+
+        public static bool operator ==(GuardrailManagedWordsType left, GuardrailManagedWordsType right) => left.Equals(right);
+        public static bool operator !=(GuardrailManagedWordsType left, GuardrailManagedWordsType right) => !left.Equals(right);
+
+        public static explicit operator string(GuardrailManagedWordsType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GuardrailManagedWordsType other && Equals(other);
+        public bool Equals(GuardrailManagedWordsType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The currently supported PII entities
+    /// </summary>
+    [EnumType]
+    public readonly struct GuardrailPiiEntityType : IEquatable<GuardrailPiiEntityType>
+    {
+        private readonly string _value;
+
+        private GuardrailPiiEntityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GuardrailPiiEntityType Address { get; } = new GuardrailPiiEntityType("ADDRESS");
+        public static GuardrailPiiEntityType Age { get; } = new GuardrailPiiEntityType("AGE");
+        public static GuardrailPiiEntityType AwsAccessKey { get; } = new GuardrailPiiEntityType("AWS_ACCESS_KEY");
+        public static GuardrailPiiEntityType AwsSecretKey { get; } = new GuardrailPiiEntityType("AWS_SECRET_KEY");
+        public static GuardrailPiiEntityType CaHealthNumber { get; } = new GuardrailPiiEntityType("CA_HEALTH_NUMBER");
+        public static GuardrailPiiEntityType CaSocialInsuranceNumber { get; } = new GuardrailPiiEntityType("CA_SOCIAL_INSURANCE_NUMBER");
+        public static GuardrailPiiEntityType CreditDebitCardCvv { get; } = new GuardrailPiiEntityType("CREDIT_DEBIT_CARD_CVV");
+        public static GuardrailPiiEntityType CreditDebitCardExpiry { get; } = new GuardrailPiiEntityType("CREDIT_DEBIT_CARD_EXPIRY");
+        public static GuardrailPiiEntityType CreditDebitCardNumber { get; } = new GuardrailPiiEntityType("CREDIT_DEBIT_CARD_NUMBER");
+        public static GuardrailPiiEntityType DriverId { get; } = new GuardrailPiiEntityType("DRIVER_ID");
+        public static GuardrailPiiEntityType Email { get; } = new GuardrailPiiEntityType("EMAIL");
+        public static GuardrailPiiEntityType InternationalBankAccountNumber { get; } = new GuardrailPiiEntityType("INTERNATIONAL_BANK_ACCOUNT_NUMBER");
+        public static GuardrailPiiEntityType IpAddress { get; } = new GuardrailPiiEntityType("IP_ADDRESS");
+        public static GuardrailPiiEntityType LicensePlate { get; } = new GuardrailPiiEntityType("LICENSE_PLATE");
+        public static GuardrailPiiEntityType MacAddress { get; } = new GuardrailPiiEntityType("MAC_ADDRESS");
+        public static GuardrailPiiEntityType Name { get; } = new GuardrailPiiEntityType("NAME");
+        public static GuardrailPiiEntityType Password { get; } = new GuardrailPiiEntityType("PASSWORD");
+        public static GuardrailPiiEntityType Phone { get; } = new GuardrailPiiEntityType("PHONE");
+        public static GuardrailPiiEntityType Pin { get; } = new GuardrailPiiEntityType("PIN");
+        public static GuardrailPiiEntityType SwiftCode { get; } = new GuardrailPiiEntityType("SWIFT_CODE");
+        public static GuardrailPiiEntityType UkNationalHealthServiceNumber { get; } = new GuardrailPiiEntityType("UK_NATIONAL_HEALTH_SERVICE_NUMBER");
+        public static GuardrailPiiEntityType UkNationalInsuranceNumber { get; } = new GuardrailPiiEntityType("UK_NATIONAL_INSURANCE_NUMBER");
+        public static GuardrailPiiEntityType UkUniqueTaxpayerReferenceNumber { get; } = new GuardrailPiiEntityType("UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER");
+        public static GuardrailPiiEntityType Url { get; } = new GuardrailPiiEntityType("URL");
+        public static GuardrailPiiEntityType Username { get; } = new GuardrailPiiEntityType("USERNAME");
+        public static GuardrailPiiEntityType UsBankAccountNumber { get; } = new GuardrailPiiEntityType("US_BANK_ACCOUNT_NUMBER");
+        public static GuardrailPiiEntityType UsBankRoutingNumber { get; } = new GuardrailPiiEntityType("US_BANK_ROUTING_NUMBER");
+        public static GuardrailPiiEntityType UsIndividualTaxIdentificationNumber { get; } = new GuardrailPiiEntityType("US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER");
+        public static GuardrailPiiEntityType UsPassportNumber { get; } = new GuardrailPiiEntityType("US_PASSPORT_NUMBER");
+        public static GuardrailPiiEntityType UsSocialSecurityNumber { get; } = new GuardrailPiiEntityType("US_SOCIAL_SECURITY_NUMBER");
+        public static GuardrailPiiEntityType VehicleIdentificationNumber { get; } = new GuardrailPiiEntityType("VEHICLE_IDENTIFICATION_NUMBER");
+
+        public static bool operator ==(GuardrailPiiEntityType left, GuardrailPiiEntityType right) => left.Equals(right);
+        public static bool operator !=(GuardrailPiiEntityType left, GuardrailPiiEntityType right) => !left.Equals(right);
+
+        public static explicit operator string(GuardrailPiiEntityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GuardrailPiiEntityType other && Equals(other);
+        public bool Equals(GuardrailPiiEntityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Options for sensitive information action.
+    /// </summary>
+    [EnumType]
+    public readonly struct GuardrailSensitiveInformationAction : IEquatable<GuardrailSensitiveInformationAction>
+    {
+        private readonly string _value;
+
+        private GuardrailSensitiveInformationAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GuardrailSensitiveInformationAction Block { get; } = new GuardrailSensitiveInformationAction("BLOCK");
+        public static GuardrailSensitiveInformationAction Anonymize { get; } = new GuardrailSensitiveInformationAction("ANONYMIZE");
+
+        public static bool operator ==(GuardrailSensitiveInformationAction left, GuardrailSensitiveInformationAction right) => left.Equals(right);
+        public static bool operator !=(GuardrailSensitiveInformationAction left, GuardrailSensitiveInformationAction right) => !left.Equals(right);
+
+        public static explicit operator string(GuardrailSensitiveInformationAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GuardrailSensitiveInformationAction other && Equals(other);
+        public bool Equals(GuardrailSensitiveInformationAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Status of the guardrail
+    /// </summary>
+    [EnumType]
+    public readonly struct GuardrailStatus : IEquatable<GuardrailStatus>
+    {
+        private readonly string _value;
+
+        private GuardrailStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GuardrailStatus Creating { get; } = new GuardrailStatus("CREATING");
+        public static GuardrailStatus Updating { get; } = new GuardrailStatus("UPDATING");
+        public static GuardrailStatus Versioning { get; } = new GuardrailStatus("VERSIONING");
+        public static GuardrailStatus Ready { get; } = new GuardrailStatus("READY");
+        public static GuardrailStatus Failed { get; } = new GuardrailStatus("FAILED");
+        public static GuardrailStatus Deleting { get; } = new GuardrailStatus("DELETING");
+
+        public static bool operator ==(GuardrailStatus left, GuardrailStatus right) => left.Equals(right);
+        public static bool operator !=(GuardrailStatus left, GuardrailStatus right) => !left.Equals(right);
+
+        public static explicit operator string(GuardrailStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GuardrailStatus other && Equals(other);
+        public bool Equals(GuardrailStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of topic in a policy
+    /// </summary>
+    [EnumType]
+    public readonly struct GuardrailTopicType : IEquatable<GuardrailTopicType>
+    {
+        private readonly string _value;
+
+        private GuardrailTopicType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GuardrailTopicType Deny { get; } = new GuardrailTopicType("DENY");
+
+        public static bool operator ==(GuardrailTopicType left, GuardrailTopicType right) => left.Equals(right);
+        public static bool operator !=(GuardrailTopicType left, GuardrailTopicType right) => !left.Equals(right);
+
+        public static explicit operator string(GuardrailTopicType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GuardrailTopicType other && Equals(other);
+        public bool Equals(GuardrailTopicType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The status of a knowledge base.
     /// </summary>
     [EnumType]

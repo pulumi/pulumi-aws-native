@@ -240,6 +240,9 @@ class Theme(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        <p>The Amazon Resource Name (ARN) of the theme.</p>
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -260,11 +263,17 @@ class Theme(pulumi.CustomResource):
     @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> pulumi.Output[str]:
+        """
+        <p>The date and time that the theme was created.</p>
+        """
         return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter(name="lastUpdatedTime")
     def last_updated_time(self) -> pulumi.Output[str]:
+        """
+        <p>The date and time that the theme was last updated.</p>
+        """
         return pulumi.get(self, "last_updated_time")
 
     @property

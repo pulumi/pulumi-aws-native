@@ -54,6 +54,7 @@ type Agent struct {
 	// Specifies whether to allow deleting agent while it is in use.
 	SkipResourceInUseCheckOnDelete pulumi.BoolPtrOutput   `pulumi:"skipResourceInUseCheckOnDelete"`
 	Tags                           pulumi.StringMapOutput `pulumi:"tags"`
+	TestAliasTags                  pulumi.StringMapOutput `pulumi:"testAliasTags"`
 	// Time Stamp.
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
 }
@@ -122,6 +123,7 @@ type agentArgs struct {
 	// Specifies whether to allow deleting agent while it is in use.
 	SkipResourceInUseCheckOnDelete *bool             `pulumi:"skipResourceInUseCheckOnDelete"`
 	Tags                           map[string]string `pulumi:"tags"`
+	TestAliasTags                  map[string]string `pulumi:"testAliasTags"`
 }
 
 // The set of arguments for constructing a Agent resource.
@@ -150,6 +152,7 @@ type AgentArgs struct {
 	// Specifies whether to allow deleting agent while it is in use.
 	SkipResourceInUseCheckOnDelete pulumi.BoolPtrInput
 	Tags                           pulumi.StringMapInput
+	TestAliasTags                  pulumi.StringMapInput
 }
 
 func (AgentArgs) ElementType() reflect.Type {
@@ -289,6 +292,10 @@ func (o AgentOutput) SkipResourceInUseCheckOnDelete() pulumi.BoolPtrOutput {
 
 func (o AgentOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Agent) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func (o AgentOutput) TestAliasTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Agent) pulumi.StringMapOutput { return v.TestAliasTags }).(pulumi.StringMapOutput)
 }
 
 // Time Stamp.

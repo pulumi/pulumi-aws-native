@@ -15,6 +15,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     {
         public readonly Outputs.AnalysisAggregationFunction? AggregationFunction;
         public readonly Outputs.AnalysisColumnIdentifier Column;
+        public readonly Outputs.AnalysisDefaultFilterControlConfiguration? DefaultFilterControlConfiguration;
         public readonly string FilterId;
         public readonly bool? IncludeMaximum;
         public readonly bool? IncludeMinimum;
@@ -28,6 +29,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             Outputs.AnalysisAggregationFunction? aggregationFunction,
 
             Outputs.AnalysisColumnIdentifier column,
+
+            Outputs.AnalysisDefaultFilterControlConfiguration? defaultFilterControlConfiguration,
 
             string filterId,
 
@@ -45,6 +48,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         {
             AggregationFunction = aggregationFunction;
             Column = column;
+            DefaultFilterControlConfiguration = defaultFilterControlConfiguration;
             FilterId = filterId;
             IncludeMaximum = includeMaximum;
             IncludeMinimum = includeMinimum;

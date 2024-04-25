@@ -125,12 +125,21 @@ __all__ = [
     'AnalysisDecimalParameterDeclaration',
     'AnalysisDecimalPlacesConfiguration',
     'AnalysisDecimalValueWhenUnsetConfiguration',
+    'AnalysisDefaultDateTimePickerControlOptions',
+    'AnalysisDefaultFilterControlConfiguration',
+    'AnalysisDefaultFilterControlOptions',
+    'AnalysisDefaultFilterDropDownControlOptions',
+    'AnalysisDefaultFilterListControlOptions',
     'AnalysisDefaultFreeFormLayoutConfiguration',
     'AnalysisDefaultGridLayoutConfiguration',
     'AnalysisDefaultInteractiveLayoutConfiguration',
     'AnalysisDefaultNewSheetConfiguration',
     'AnalysisDefaultPaginatedLayoutConfiguration',
+    'AnalysisDefaultRelativeDateTimeControlOptions',
     'AnalysisDefaultSectionBasedLayoutConfiguration',
+    'AnalysisDefaultSliderControlOptions',
+    'AnalysisDefaultTextAreaControlOptions',
+    'AnalysisDefaultTextFieldControlOptions',
     'AnalysisDefaults',
     'AnalysisDefinition',
     'AnalysisDestinationParameterValueConfiguration',
@@ -161,6 +170,7 @@ __all__ = [
     'AnalysisFilledMapVisual',
     'AnalysisFilter',
     'AnalysisFilterControl',
+    'AnalysisFilterCrossSheetControl',
     'AnalysisFilterDateTimePickerControl',
     'AnalysisFilterDropDownControl',
     'AnalysisFilterGroup',
@@ -603,12 +613,21 @@ __all__ = [
     'DashboardDecimalParameterDeclaration',
     'DashboardDecimalPlacesConfiguration',
     'DashboardDecimalValueWhenUnsetConfiguration',
+    'DashboardDefaultDateTimePickerControlOptions',
+    'DashboardDefaultFilterControlConfiguration',
+    'DashboardDefaultFilterControlOptions',
+    'DashboardDefaultFilterDropDownControlOptions',
+    'DashboardDefaultFilterListControlOptions',
     'DashboardDefaultFreeFormLayoutConfiguration',
     'DashboardDefaultGridLayoutConfiguration',
     'DashboardDefaultInteractiveLayoutConfiguration',
     'DashboardDefaultNewSheetConfiguration',
     'DashboardDefaultPaginatedLayoutConfiguration',
+    'DashboardDefaultRelativeDateTimeControlOptions',
     'DashboardDefaultSectionBasedLayoutConfiguration',
+    'DashboardDefaultSliderControlOptions',
+    'DashboardDefaultTextAreaControlOptions',
+    'DashboardDefaultTextFieldControlOptions',
     'DashboardDestinationParameterValueConfiguration',
     'DashboardDimensionField',
     'DashboardDonutCenterOptions',
@@ -640,6 +659,7 @@ __all__ = [
     'DashboardFilledMapVisual',
     'DashboardFilter',
     'DashboardFilterControl',
+    'DashboardFilterCrossSheetControl',
     'DashboardFilterDateTimePickerControl',
     'DashboardFilterDropDownControl',
     'DashboardFilterGroup',
@@ -1166,12 +1186,21 @@ __all__ = [
     'TemplateDecimalParameterDeclaration',
     'TemplateDecimalPlacesConfiguration',
     'TemplateDecimalValueWhenUnsetConfiguration',
+    'TemplateDefaultDateTimePickerControlOptions',
+    'TemplateDefaultFilterControlConfiguration',
+    'TemplateDefaultFilterControlOptions',
+    'TemplateDefaultFilterDropDownControlOptions',
+    'TemplateDefaultFilterListControlOptions',
     'TemplateDefaultFreeFormLayoutConfiguration',
     'TemplateDefaultGridLayoutConfiguration',
     'TemplateDefaultInteractiveLayoutConfiguration',
     'TemplateDefaultNewSheetConfiguration',
     'TemplateDefaultPaginatedLayoutConfiguration',
+    'TemplateDefaultRelativeDateTimeControlOptions',
     'TemplateDefaultSectionBasedLayoutConfiguration',
+    'TemplateDefaultSliderControlOptions',
+    'TemplateDefaultTextAreaControlOptions',
+    'TemplateDefaultTextFieldControlOptions',
     'TemplateDestinationParameterValueConfiguration',
     'TemplateDimensionField',
     'TemplateDonutCenterOptions',
@@ -1200,6 +1229,7 @@ __all__ = [
     'TemplateFilledMapVisual',
     'TemplateFilter',
     'TemplateFilterControl',
+    'TemplateFilterCrossSheetControl',
     'TemplateFilterDateTimePickerControl',
     'TemplateFilterDropDownControl',
     'TemplateFilterGroup',
@@ -3538,6 +3568,8 @@ class AnalysisCategoryFilter(dict):
         suggest = None
         if key == "filterId":
             suggest = "filter_id"
+        elif key == "defaultFilterControlConfiguration":
+            suggest = "default_filter_control_configuration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AnalysisCategoryFilter. Access the value via the '{suggest}' property getter instead.")
@@ -3553,10 +3585,13 @@ class AnalysisCategoryFilter(dict):
     def __init__(__self__, *,
                  column: 'outputs.AnalysisColumnIdentifier',
                  configuration: 'outputs.AnalysisCategoryFilterConfiguration',
-                 filter_id: str):
+                 filter_id: str,
+                 default_filter_control_configuration: Optional['outputs.AnalysisDefaultFilterControlConfiguration'] = None):
         pulumi.set(__self__, "column", column)
         pulumi.set(__self__, "configuration", configuration)
         pulumi.set(__self__, "filter_id", filter_id)
+        if default_filter_control_configuration is not None:
+            pulumi.set(__self__, "default_filter_control_configuration", default_filter_control_configuration)
 
     @property
     @pulumi.getter
@@ -3572,6 +3607,11 @@ class AnalysisCategoryFilter(dict):
     @pulumi.getter(name="filterId")
     def filter_id(self) -> str:
         return pulumi.get(self, "filter_id")
+
+    @property
+    @pulumi.getter(name="defaultFilterControlConfiguration")
+    def default_filter_control_configuration(self) -> Optional['outputs.AnalysisDefaultFilterControlConfiguration']:
+        return pulumi.get(self, "default_filter_control_configuration")
 
 
 @pulumi.output_type
@@ -6871,6 +6911,266 @@ class AnalysisDecimalValueWhenUnsetConfiguration(dict):
 
 
 @pulumi.output_type
+class AnalysisDefaultDateTimePickerControlOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayOptions":
+            suggest = "display_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalysisDefaultDateTimePickerControlOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalysisDefaultDateTimePickerControlOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalysisDefaultDateTimePickerControlOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 display_options: Optional['outputs.AnalysisDateTimePickerControlDisplayOptions'] = None,
+                 type: Optional['AnalysisSheetControlDateTimePickerType'] = None):
+        if display_options is not None:
+            pulumi.set(__self__, "display_options", display_options)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="displayOptions")
+    def display_options(self) -> Optional['outputs.AnalysisDateTimePickerControlDisplayOptions']:
+        return pulumi.get(self, "display_options")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional['AnalysisSheetControlDateTimePickerType']:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class AnalysisDefaultFilterControlConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "controlOptions":
+            suggest = "control_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalysisDefaultFilterControlConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalysisDefaultFilterControlConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalysisDefaultFilterControlConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 control_options: 'outputs.AnalysisDefaultFilterControlOptions',
+                 title: str):
+        pulumi.set(__self__, "control_options", control_options)
+        pulumi.set(__self__, "title", title)
+
+    @property
+    @pulumi.getter(name="controlOptions")
+    def control_options(self) -> 'outputs.AnalysisDefaultFilterControlOptions':
+        return pulumi.get(self, "control_options")
+
+    @property
+    @pulumi.getter
+    def title(self) -> str:
+        return pulumi.get(self, "title")
+
+
+@pulumi.output_type
+class AnalysisDefaultFilterControlOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultDateTimePickerOptions":
+            suggest = "default_date_time_picker_options"
+        elif key == "defaultDropdownOptions":
+            suggest = "default_dropdown_options"
+        elif key == "defaultListOptions":
+            suggest = "default_list_options"
+        elif key == "defaultRelativeDateTimeOptions":
+            suggest = "default_relative_date_time_options"
+        elif key == "defaultSliderOptions":
+            suggest = "default_slider_options"
+        elif key == "defaultTextAreaOptions":
+            suggest = "default_text_area_options"
+        elif key == "defaultTextFieldOptions":
+            suggest = "default_text_field_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalysisDefaultFilterControlOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalysisDefaultFilterControlOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalysisDefaultFilterControlOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 default_date_time_picker_options: Optional['outputs.AnalysisDefaultDateTimePickerControlOptions'] = None,
+                 default_dropdown_options: Optional['outputs.AnalysisDefaultFilterDropDownControlOptions'] = None,
+                 default_list_options: Optional['outputs.AnalysisDefaultFilterListControlOptions'] = None,
+                 default_relative_date_time_options: Optional['outputs.AnalysisDefaultRelativeDateTimeControlOptions'] = None,
+                 default_slider_options: Optional['outputs.AnalysisDefaultSliderControlOptions'] = None,
+                 default_text_area_options: Optional['outputs.AnalysisDefaultTextAreaControlOptions'] = None,
+                 default_text_field_options: Optional['outputs.AnalysisDefaultTextFieldControlOptions'] = None):
+        if default_date_time_picker_options is not None:
+            pulumi.set(__self__, "default_date_time_picker_options", default_date_time_picker_options)
+        if default_dropdown_options is not None:
+            pulumi.set(__self__, "default_dropdown_options", default_dropdown_options)
+        if default_list_options is not None:
+            pulumi.set(__self__, "default_list_options", default_list_options)
+        if default_relative_date_time_options is not None:
+            pulumi.set(__self__, "default_relative_date_time_options", default_relative_date_time_options)
+        if default_slider_options is not None:
+            pulumi.set(__self__, "default_slider_options", default_slider_options)
+        if default_text_area_options is not None:
+            pulumi.set(__self__, "default_text_area_options", default_text_area_options)
+        if default_text_field_options is not None:
+            pulumi.set(__self__, "default_text_field_options", default_text_field_options)
+
+    @property
+    @pulumi.getter(name="defaultDateTimePickerOptions")
+    def default_date_time_picker_options(self) -> Optional['outputs.AnalysisDefaultDateTimePickerControlOptions']:
+        return pulumi.get(self, "default_date_time_picker_options")
+
+    @property
+    @pulumi.getter(name="defaultDropdownOptions")
+    def default_dropdown_options(self) -> Optional['outputs.AnalysisDefaultFilterDropDownControlOptions']:
+        return pulumi.get(self, "default_dropdown_options")
+
+    @property
+    @pulumi.getter(name="defaultListOptions")
+    def default_list_options(self) -> Optional['outputs.AnalysisDefaultFilterListControlOptions']:
+        return pulumi.get(self, "default_list_options")
+
+    @property
+    @pulumi.getter(name="defaultRelativeDateTimeOptions")
+    def default_relative_date_time_options(self) -> Optional['outputs.AnalysisDefaultRelativeDateTimeControlOptions']:
+        return pulumi.get(self, "default_relative_date_time_options")
+
+    @property
+    @pulumi.getter(name="defaultSliderOptions")
+    def default_slider_options(self) -> Optional['outputs.AnalysisDefaultSliderControlOptions']:
+        return pulumi.get(self, "default_slider_options")
+
+    @property
+    @pulumi.getter(name="defaultTextAreaOptions")
+    def default_text_area_options(self) -> Optional['outputs.AnalysisDefaultTextAreaControlOptions']:
+        return pulumi.get(self, "default_text_area_options")
+
+    @property
+    @pulumi.getter(name="defaultTextFieldOptions")
+    def default_text_field_options(self) -> Optional['outputs.AnalysisDefaultTextFieldControlOptions']:
+        return pulumi.get(self, "default_text_field_options")
+
+
+@pulumi.output_type
+class AnalysisDefaultFilterDropDownControlOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayOptions":
+            suggest = "display_options"
+        elif key == "selectableValues":
+            suggest = "selectable_values"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalysisDefaultFilterDropDownControlOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalysisDefaultFilterDropDownControlOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalysisDefaultFilterDropDownControlOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 display_options: Optional['outputs.AnalysisDropDownControlDisplayOptions'] = None,
+                 selectable_values: Optional['outputs.AnalysisFilterSelectableValues'] = None,
+                 type: Optional['AnalysisSheetControlListType'] = None):
+        if display_options is not None:
+            pulumi.set(__self__, "display_options", display_options)
+        if selectable_values is not None:
+            pulumi.set(__self__, "selectable_values", selectable_values)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="displayOptions")
+    def display_options(self) -> Optional['outputs.AnalysisDropDownControlDisplayOptions']:
+        return pulumi.get(self, "display_options")
+
+    @property
+    @pulumi.getter(name="selectableValues")
+    def selectable_values(self) -> Optional['outputs.AnalysisFilterSelectableValues']:
+        return pulumi.get(self, "selectable_values")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional['AnalysisSheetControlListType']:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class AnalysisDefaultFilterListControlOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayOptions":
+            suggest = "display_options"
+        elif key == "selectableValues":
+            suggest = "selectable_values"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalysisDefaultFilterListControlOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalysisDefaultFilterListControlOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalysisDefaultFilterListControlOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 display_options: Optional['outputs.AnalysisListControlDisplayOptions'] = None,
+                 selectable_values: Optional['outputs.AnalysisFilterSelectableValues'] = None,
+                 type: Optional['AnalysisSheetControlListType'] = None):
+        if display_options is not None:
+            pulumi.set(__self__, "display_options", display_options)
+        if selectable_values is not None:
+            pulumi.set(__self__, "selectable_values", selectable_values)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="displayOptions")
+    def display_options(self) -> Optional['outputs.AnalysisListControlDisplayOptions']:
+        return pulumi.get(self, "display_options")
+
+    @property
+    @pulumi.getter(name="selectableValues")
+    def selectable_values(self) -> Optional['outputs.AnalysisFilterSelectableValues']:
+        return pulumi.get(self, "selectable_values")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional['AnalysisSheetControlListType']:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class AnalysisDefaultFreeFormLayoutConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -7047,6 +7347,36 @@ class AnalysisDefaultPaginatedLayoutConfiguration(dict):
 
 
 @pulumi.output_type
+class AnalysisDefaultRelativeDateTimeControlOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayOptions":
+            suggest = "display_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalysisDefaultRelativeDateTimeControlOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalysisDefaultRelativeDateTimeControlOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalysisDefaultRelativeDateTimeControlOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 display_options: Optional['outputs.AnalysisRelativeDateTimeControlDisplayOptions'] = None):
+        if display_options is not None:
+            pulumi.set(__self__, "display_options", display_options)
+
+    @property
+    @pulumi.getter(name="displayOptions")
+    def display_options(self) -> Optional['outputs.AnalysisRelativeDateTimeControlDisplayOptions']:
+        return pulumi.get(self, "display_options")
+
+
+@pulumi.output_type
 class AnalysisDefaultSectionBasedLayoutConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -7073,6 +7403,139 @@ class AnalysisDefaultSectionBasedLayoutConfiguration(dict):
     @pulumi.getter(name="canvasSizeOptions")
     def canvas_size_options(self) -> 'outputs.AnalysisSectionBasedLayoutCanvasSizeOptions':
         return pulumi.get(self, "canvas_size_options")
+
+
+@pulumi.output_type
+class AnalysisDefaultSliderControlOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maximumValue":
+            suggest = "maximum_value"
+        elif key == "minimumValue":
+            suggest = "minimum_value"
+        elif key == "stepSize":
+            suggest = "step_size"
+        elif key == "displayOptions":
+            suggest = "display_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalysisDefaultSliderControlOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalysisDefaultSliderControlOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalysisDefaultSliderControlOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 maximum_value: float,
+                 minimum_value: float,
+                 step_size: float,
+                 display_options: Optional['outputs.AnalysisSliderControlDisplayOptions'] = None,
+                 type: Optional['AnalysisSheetControlSliderType'] = None):
+        pulumi.set(__self__, "maximum_value", maximum_value)
+        pulumi.set(__self__, "minimum_value", minimum_value)
+        pulumi.set(__self__, "step_size", step_size)
+        if display_options is not None:
+            pulumi.set(__self__, "display_options", display_options)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="maximumValue")
+    def maximum_value(self) -> float:
+        return pulumi.get(self, "maximum_value")
+
+    @property
+    @pulumi.getter(name="minimumValue")
+    def minimum_value(self) -> float:
+        return pulumi.get(self, "minimum_value")
+
+    @property
+    @pulumi.getter(name="stepSize")
+    def step_size(self) -> float:
+        return pulumi.get(self, "step_size")
+
+    @property
+    @pulumi.getter(name="displayOptions")
+    def display_options(self) -> Optional['outputs.AnalysisSliderControlDisplayOptions']:
+        return pulumi.get(self, "display_options")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional['AnalysisSheetControlSliderType']:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class AnalysisDefaultTextAreaControlOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayOptions":
+            suggest = "display_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalysisDefaultTextAreaControlOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalysisDefaultTextAreaControlOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalysisDefaultTextAreaControlOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 delimiter: Optional[str] = None,
+                 display_options: Optional['outputs.AnalysisTextAreaControlDisplayOptions'] = None):
+        if delimiter is not None:
+            pulumi.set(__self__, "delimiter", delimiter)
+        if display_options is not None:
+            pulumi.set(__self__, "display_options", display_options)
+
+    @property
+    @pulumi.getter
+    def delimiter(self) -> Optional[str]:
+        return pulumi.get(self, "delimiter")
+
+    @property
+    @pulumi.getter(name="displayOptions")
+    def display_options(self) -> Optional['outputs.AnalysisTextAreaControlDisplayOptions']:
+        return pulumi.get(self, "display_options")
+
+
+@pulumi.output_type
+class AnalysisDefaultTextFieldControlOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayOptions":
+            suggest = "display_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalysisDefaultTextFieldControlOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalysisDefaultTextFieldControlOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalysisDefaultTextFieldControlOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 display_options: Optional['outputs.AnalysisTextFieldControlDisplayOptions'] = None):
+        if display_options is not None:
+            pulumi.set(__self__, "display_options", display_options)
+
+    @property
+    @pulumi.getter(name="displayOptions")
+    def display_options(self) -> Optional['outputs.AnalysisTextFieldControlDisplayOptions']:
+        return pulumi.get(self, "display_options")
 
 
 @pulumi.output_type
@@ -8398,7 +8861,9 @@ class AnalysisFilterControl(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dateTimePicker":
+        if key == "crossSheet":
+            suggest = "cross_sheet"
+        elif key == "dateTimePicker":
             suggest = "date_time_picker"
         elif key == "relativeDateTime":
             suggest = "relative_date_time"
@@ -8419,6 +8884,7 @@ class AnalysisFilterControl(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 cross_sheet: Optional['outputs.AnalysisFilterCrossSheetControl'] = None,
                  date_time_picker: Optional['outputs.AnalysisFilterDateTimePickerControl'] = None,
                  dropdown: Optional['outputs.AnalysisFilterDropDownControl'] = None,
                  list: Optional['outputs.AnalysisFilterListControl'] = None,
@@ -8426,6 +8892,8 @@ class AnalysisFilterControl(dict):
                  slider: Optional['outputs.AnalysisFilterSliderControl'] = None,
                  text_area: Optional['outputs.AnalysisFilterTextAreaControl'] = None,
                  text_field: Optional['outputs.AnalysisFilterTextFieldControl'] = None):
+        if cross_sheet is not None:
+            pulumi.set(__self__, "cross_sheet", cross_sheet)
         if date_time_picker is not None:
             pulumi.set(__self__, "date_time_picker", date_time_picker)
         if dropdown is not None:
@@ -8440,6 +8908,11 @@ class AnalysisFilterControl(dict):
             pulumi.set(__self__, "text_area", text_area)
         if text_field is not None:
             pulumi.set(__self__, "text_field", text_field)
+
+    @property
+    @pulumi.getter(name="crossSheet")
+    def cross_sheet(self) -> Optional['outputs.AnalysisFilterCrossSheetControl']:
+        return pulumi.get(self, "cross_sheet")
 
     @property
     @pulumi.getter(name="dateTimePicker")
@@ -8475,6 +8948,54 @@ class AnalysisFilterControl(dict):
     @pulumi.getter(name="textField")
     def text_field(self) -> Optional['outputs.AnalysisFilterTextFieldControl']:
         return pulumi.get(self, "text_field")
+
+
+@pulumi.output_type
+class AnalysisFilterCrossSheetControl(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filterControlId":
+            suggest = "filter_control_id"
+        elif key == "sourceFilterId":
+            suggest = "source_filter_id"
+        elif key == "cascadingControlConfiguration":
+            suggest = "cascading_control_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalysisFilterCrossSheetControl. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalysisFilterCrossSheetControl.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalysisFilterCrossSheetControl.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 filter_control_id: str,
+                 source_filter_id: str,
+                 cascading_control_configuration: Optional['outputs.AnalysisCascadingControlConfiguration'] = None):
+        pulumi.set(__self__, "filter_control_id", filter_control_id)
+        pulumi.set(__self__, "source_filter_id", source_filter_id)
+        if cascading_control_configuration is not None:
+            pulumi.set(__self__, "cascading_control_configuration", cascading_control_configuration)
+
+    @property
+    @pulumi.getter(name="filterControlId")
+    def filter_control_id(self) -> str:
+        return pulumi.get(self, "filter_control_id")
+
+    @property
+    @pulumi.getter(name="sourceFilterId")
+    def source_filter_id(self) -> str:
+        return pulumi.get(self, "source_filter_id")
+
+    @property
+    @pulumi.getter(name="cascadingControlConfiguration")
+    def cascading_control_configuration(self) -> Optional['outputs.AnalysisCascadingControlConfiguration']:
+        return pulumi.get(self, "cascading_control_configuration")
 
 
 @pulumi.output_type
@@ -14473,6 +14994,8 @@ class AnalysisNumericEqualityFilter(dict):
             suggest = "null_option"
         elif key == "aggregationFunction":
             suggest = "aggregation_function"
+        elif key == "defaultFilterControlConfiguration":
+            suggest = "default_filter_control_configuration"
         elif key == "parameterName":
             suggest = "parameter_name"
         elif key == "selectAllOptions":
@@ -14495,6 +15018,7 @@ class AnalysisNumericEqualityFilter(dict):
                  match_operator: 'AnalysisNumericEqualityMatchOperator',
                  null_option: 'AnalysisFilterNullOption',
                  aggregation_function: Optional['outputs.AnalysisAggregationFunction'] = None,
+                 default_filter_control_configuration: Optional['outputs.AnalysisDefaultFilterControlConfiguration'] = None,
                  parameter_name: Optional[str] = None,
                  select_all_options: Optional['AnalysisNumericFilterSelectAllOptions'] = None,
                  value: Optional[float] = None):
@@ -14504,6 +15028,8 @@ class AnalysisNumericEqualityFilter(dict):
         pulumi.set(__self__, "null_option", null_option)
         if aggregation_function is not None:
             pulumi.set(__self__, "aggregation_function", aggregation_function)
+        if default_filter_control_configuration is not None:
+            pulumi.set(__self__, "default_filter_control_configuration", default_filter_control_configuration)
         if parameter_name is not None:
             pulumi.set(__self__, "parameter_name", parameter_name)
         if select_all_options is not None:
@@ -14535,6 +15061,11 @@ class AnalysisNumericEqualityFilter(dict):
     @pulumi.getter(name="aggregationFunction")
     def aggregation_function(self) -> Optional['outputs.AnalysisAggregationFunction']:
         return pulumi.get(self, "aggregation_function")
+
+    @property
+    @pulumi.getter(name="defaultFilterControlConfiguration")
+    def default_filter_control_configuration(self) -> Optional['outputs.AnalysisDefaultFilterControlConfiguration']:
+        return pulumi.get(self, "default_filter_control_configuration")
 
     @property
     @pulumi.getter(name="parameterName")
@@ -14613,6 +15144,8 @@ class AnalysisNumericRangeFilter(dict):
             suggest = "null_option"
         elif key == "aggregationFunction":
             suggest = "aggregation_function"
+        elif key == "defaultFilterControlConfiguration":
+            suggest = "default_filter_control_configuration"
         elif key == "includeMaximum":
             suggest = "include_maximum"
         elif key == "includeMinimum":
@@ -14640,6 +15173,7 @@ class AnalysisNumericRangeFilter(dict):
                  filter_id: str,
                  null_option: 'AnalysisFilterNullOption',
                  aggregation_function: Optional['outputs.AnalysisAggregationFunction'] = None,
+                 default_filter_control_configuration: Optional['outputs.AnalysisDefaultFilterControlConfiguration'] = None,
                  include_maximum: Optional[bool] = None,
                  include_minimum: Optional[bool] = None,
                  range_maximum: Optional['outputs.AnalysisNumericRangeFilterValue'] = None,
@@ -14650,6 +15184,8 @@ class AnalysisNumericRangeFilter(dict):
         pulumi.set(__self__, "null_option", null_option)
         if aggregation_function is not None:
             pulumi.set(__self__, "aggregation_function", aggregation_function)
+        if default_filter_control_configuration is not None:
+            pulumi.set(__self__, "default_filter_control_configuration", default_filter_control_configuration)
         if include_maximum is not None:
             pulumi.set(__self__, "include_maximum", include_maximum)
         if include_minimum is not None:
@@ -14680,6 +15216,11 @@ class AnalysisNumericRangeFilter(dict):
     @pulumi.getter(name="aggregationFunction")
     def aggregation_function(self) -> Optional['outputs.AnalysisAggregationFunction']:
         return pulumi.get(self, "aggregation_function")
+
+    @property
+    @pulumi.getter(name="defaultFilterControlConfiguration")
+    def default_filter_control_configuration(self) -> Optional['outputs.AnalysisDefaultFilterControlConfiguration']:
+        return pulumi.get(self, "default_filter_control_configuration")
 
     @property
     @pulumi.getter(name="includeMaximum")
@@ -18351,6 +18892,8 @@ class AnalysisRelativeDatesFilter(dict):
             suggest = "relative_date_type"
         elif key == "timeGranularity":
             suggest = "time_granularity"
+        elif key == "defaultFilterControlConfiguration":
+            suggest = "default_filter_control_configuration"
         elif key == "excludePeriodConfiguration":
             suggest = "exclude_period_configuration"
         elif key == "minimumGranularity":
@@ -18378,6 +18921,7 @@ class AnalysisRelativeDatesFilter(dict):
                  null_option: 'AnalysisFilterNullOption',
                  relative_date_type: 'AnalysisRelativeDateType',
                  time_granularity: 'AnalysisTimeGranularity',
+                 default_filter_control_configuration: Optional['outputs.AnalysisDefaultFilterControlConfiguration'] = None,
                  exclude_period_configuration: Optional['outputs.AnalysisExcludePeriodConfiguration'] = None,
                  minimum_granularity: Optional['AnalysisTimeGranularity'] = None,
                  parameter_name: Optional[str] = None,
@@ -18388,6 +18932,8 @@ class AnalysisRelativeDatesFilter(dict):
         pulumi.set(__self__, "null_option", null_option)
         pulumi.set(__self__, "relative_date_type", relative_date_type)
         pulumi.set(__self__, "time_granularity", time_granularity)
+        if default_filter_control_configuration is not None:
+            pulumi.set(__self__, "default_filter_control_configuration", default_filter_control_configuration)
         if exclude_period_configuration is not None:
             pulumi.set(__self__, "exclude_period_configuration", exclude_period_configuration)
         if minimum_granularity is not None:
@@ -18426,6 +18972,11 @@ class AnalysisRelativeDatesFilter(dict):
     @pulumi.getter(name="timeGranularity")
     def time_granularity(self) -> 'AnalysisTimeGranularity':
         return pulumi.get(self, "time_granularity")
+
+    @property
+    @pulumi.getter(name="defaultFilterControlConfiguration")
+    def default_filter_control_configuration(self) -> Optional['outputs.AnalysisDefaultFilterControlConfiguration']:
+        return pulumi.get(self, "default_filter_control_configuration")
 
     @property
     @pulumi.getter(name="excludePeriodConfiguration")
@@ -22045,6 +22596,8 @@ class AnalysisTimeEqualityFilter(dict):
         suggest = None
         if key == "filterId":
             suggest = "filter_id"
+        elif key == "defaultFilterControlConfiguration":
+            suggest = "default_filter_control_configuration"
         elif key == "parameterName":
             suggest = "parameter_name"
         elif key == "rollingDate":
@@ -22066,12 +22619,15 @@ class AnalysisTimeEqualityFilter(dict):
     def __init__(__self__, *,
                  column: 'outputs.AnalysisColumnIdentifier',
                  filter_id: str,
+                 default_filter_control_configuration: Optional['outputs.AnalysisDefaultFilterControlConfiguration'] = None,
                  parameter_name: Optional[str] = None,
                  rolling_date: Optional['outputs.AnalysisRollingDateConfiguration'] = None,
                  time_granularity: Optional['AnalysisTimeGranularity'] = None,
                  value: Optional[str] = None):
         pulumi.set(__self__, "column", column)
         pulumi.set(__self__, "filter_id", filter_id)
+        if default_filter_control_configuration is not None:
+            pulumi.set(__self__, "default_filter_control_configuration", default_filter_control_configuration)
         if parameter_name is not None:
             pulumi.set(__self__, "parameter_name", parameter_name)
         if rolling_date is not None:
@@ -22090,6 +22646,11 @@ class AnalysisTimeEqualityFilter(dict):
     @pulumi.getter(name="filterId")
     def filter_id(self) -> str:
         return pulumi.get(self, "filter_id")
+
+    @property
+    @pulumi.getter(name="defaultFilterControlConfiguration")
+    def default_filter_control_configuration(self) -> Optional['outputs.AnalysisDefaultFilterControlConfiguration']:
+        return pulumi.get(self, "default_filter_control_configuration")
 
     @property
     @pulumi.getter(name="parameterName")
@@ -22175,6 +22736,8 @@ class AnalysisTimeRangeFilter(dict):
             suggest = "filter_id"
         elif key == "nullOption":
             suggest = "null_option"
+        elif key == "defaultFilterControlConfiguration":
+            suggest = "default_filter_control_configuration"
         elif key == "excludePeriodConfiguration":
             suggest = "exclude_period_configuration"
         elif key == "includeMaximum":
@@ -22203,6 +22766,7 @@ class AnalysisTimeRangeFilter(dict):
                  column: 'outputs.AnalysisColumnIdentifier',
                  filter_id: str,
                  null_option: 'AnalysisFilterNullOption',
+                 default_filter_control_configuration: Optional['outputs.AnalysisDefaultFilterControlConfiguration'] = None,
                  exclude_period_configuration: Optional['outputs.AnalysisExcludePeriodConfiguration'] = None,
                  include_maximum: Optional[bool] = None,
                  include_minimum: Optional[bool] = None,
@@ -22212,6 +22776,8 @@ class AnalysisTimeRangeFilter(dict):
         pulumi.set(__self__, "column", column)
         pulumi.set(__self__, "filter_id", filter_id)
         pulumi.set(__self__, "null_option", null_option)
+        if default_filter_control_configuration is not None:
+            pulumi.set(__self__, "default_filter_control_configuration", default_filter_control_configuration)
         if exclude_period_configuration is not None:
             pulumi.set(__self__, "exclude_period_configuration", exclude_period_configuration)
         if include_maximum is not None:
@@ -22239,6 +22805,11 @@ class AnalysisTimeRangeFilter(dict):
     @pulumi.getter(name="nullOption")
     def null_option(self) -> 'AnalysisFilterNullOption':
         return pulumi.get(self, "null_option")
+
+    @property
+    @pulumi.getter(name="defaultFilterControlConfiguration")
+    def default_filter_control_configuration(self) -> Optional['outputs.AnalysisDefaultFilterControlConfiguration']:
+        return pulumi.get(self, "default_filter_control_configuration")
 
     @property
     @pulumi.getter(name="excludePeriodConfiguration")
@@ -22418,6 +22989,8 @@ class AnalysisTopBottomFilter(dict):
             suggest = "aggregation_sort_configurations"
         elif key == "filterId":
             suggest = "filter_id"
+        elif key == "defaultFilterControlConfiguration":
+            suggest = "default_filter_control_configuration"
         elif key == "parameterName":
             suggest = "parameter_name"
         elif key == "timeGranularity":
@@ -22438,12 +23011,15 @@ class AnalysisTopBottomFilter(dict):
                  aggregation_sort_configurations: Sequence['outputs.AnalysisAggregationSortConfiguration'],
                  column: 'outputs.AnalysisColumnIdentifier',
                  filter_id: str,
+                 default_filter_control_configuration: Optional['outputs.AnalysisDefaultFilterControlConfiguration'] = None,
                  limit: Optional[float] = None,
                  parameter_name: Optional[str] = None,
                  time_granularity: Optional['AnalysisTimeGranularity'] = None):
         pulumi.set(__self__, "aggregation_sort_configurations", aggregation_sort_configurations)
         pulumi.set(__self__, "column", column)
         pulumi.set(__self__, "filter_id", filter_id)
+        if default_filter_control_configuration is not None:
+            pulumi.set(__self__, "default_filter_control_configuration", default_filter_control_configuration)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
         if parameter_name is not None:
@@ -22465,6 +23041,11 @@ class AnalysisTopBottomFilter(dict):
     @pulumi.getter(name="filterId")
     def filter_id(self) -> str:
         return pulumi.get(self, "filter_id")
+
+    @property
+    @pulumi.getter(name="defaultFilterControlConfiguration")
+    def default_filter_control_configuration(self) -> Optional['outputs.AnalysisDefaultFilterControlConfiguration']:
+        return pulumi.get(self, "default_filter_control_configuration")
 
     @property
     @pulumi.getter
@@ -26489,6 +27070,8 @@ class DashboardCategoryFilter(dict):
         suggest = None
         if key == "filterId":
             suggest = "filter_id"
+        elif key == "defaultFilterControlConfiguration":
+            suggest = "default_filter_control_configuration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DashboardCategoryFilter. Access the value via the '{suggest}' property getter instead.")
@@ -26504,10 +27087,13 @@ class DashboardCategoryFilter(dict):
     def __init__(__self__, *,
                  column: 'outputs.DashboardColumnIdentifier',
                  configuration: 'outputs.DashboardCategoryFilterConfiguration',
-                 filter_id: str):
+                 filter_id: str,
+                 default_filter_control_configuration: Optional['outputs.DashboardDefaultFilterControlConfiguration'] = None):
         pulumi.set(__self__, "column", column)
         pulumi.set(__self__, "configuration", configuration)
         pulumi.set(__self__, "filter_id", filter_id)
+        if default_filter_control_configuration is not None:
+            pulumi.set(__self__, "default_filter_control_configuration", default_filter_control_configuration)
 
     @property
     @pulumi.getter
@@ -26523,6 +27109,11 @@ class DashboardCategoryFilter(dict):
     @pulumi.getter(name="filterId")
     def filter_id(self) -> str:
         return pulumi.get(self, "filter_id")
+
+    @property
+    @pulumi.getter(name="defaultFilterControlConfiguration")
+    def default_filter_control_configuration(self) -> Optional['outputs.DashboardDefaultFilterControlConfiguration']:
+        return pulumi.get(self, "default_filter_control_configuration")
 
 
 @pulumi.output_type
@@ -29930,6 +30521,266 @@ class DashboardDecimalValueWhenUnsetConfiguration(dict):
 
 
 @pulumi.output_type
+class DashboardDefaultDateTimePickerControlOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayOptions":
+            suggest = "display_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardDefaultDateTimePickerControlOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardDefaultDateTimePickerControlOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardDefaultDateTimePickerControlOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 display_options: Optional['outputs.DashboardDateTimePickerControlDisplayOptions'] = None,
+                 type: Optional['DashboardSheetControlDateTimePickerType'] = None):
+        if display_options is not None:
+            pulumi.set(__self__, "display_options", display_options)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="displayOptions")
+    def display_options(self) -> Optional['outputs.DashboardDateTimePickerControlDisplayOptions']:
+        return pulumi.get(self, "display_options")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional['DashboardSheetControlDateTimePickerType']:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class DashboardDefaultFilterControlConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "controlOptions":
+            suggest = "control_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardDefaultFilterControlConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardDefaultFilterControlConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardDefaultFilterControlConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 control_options: 'outputs.DashboardDefaultFilterControlOptions',
+                 title: str):
+        pulumi.set(__self__, "control_options", control_options)
+        pulumi.set(__self__, "title", title)
+
+    @property
+    @pulumi.getter(name="controlOptions")
+    def control_options(self) -> 'outputs.DashboardDefaultFilterControlOptions':
+        return pulumi.get(self, "control_options")
+
+    @property
+    @pulumi.getter
+    def title(self) -> str:
+        return pulumi.get(self, "title")
+
+
+@pulumi.output_type
+class DashboardDefaultFilterControlOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultDateTimePickerOptions":
+            suggest = "default_date_time_picker_options"
+        elif key == "defaultDropdownOptions":
+            suggest = "default_dropdown_options"
+        elif key == "defaultListOptions":
+            suggest = "default_list_options"
+        elif key == "defaultRelativeDateTimeOptions":
+            suggest = "default_relative_date_time_options"
+        elif key == "defaultSliderOptions":
+            suggest = "default_slider_options"
+        elif key == "defaultTextAreaOptions":
+            suggest = "default_text_area_options"
+        elif key == "defaultTextFieldOptions":
+            suggest = "default_text_field_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardDefaultFilterControlOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardDefaultFilterControlOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardDefaultFilterControlOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 default_date_time_picker_options: Optional['outputs.DashboardDefaultDateTimePickerControlOptions'] = None,
+                 default_dropdown_options: Optional['outputs.DashboardDefaultFilterDropDownControlOptions'] = None,
+                 default_list_options: Optional['outputs.DashboardDefaultFilterListControlOptions'] = None,
+                 default_relative_date_time_options: Optional['outputs.DashboardDefaultRelativeDateTimeControlOptions'] = None,
+                 default_slider_options: Optional['outputs.DashboardDefaultSliderControlOptions'] = None,
+                 default_text_area_options: Optional['outputs.DashboardDefaultTextAreaControlOptions'] = None,
+                 default_text_field_options: Optional['outputs.DashboardDefaultTextFieldControlOptions'] = None):
+        if default_date_time_picker_options is not None:
+            pulumi.set(__self__, "default_date_time_picker_options", default_date_time_picker_options)
+        if default_dropdown_options is not None:
+            pulumi.set(__self__, "default_dropdown_options", default_dropdown_options)
+        if default_list_options is not None:
+            pulumi.set(__self__, "default_list_options", default_list_options)
+        if default_relative_date_time_options is not None:
+            pulumi.set(__self__, "default_relative_date_time_options", default_relative_date_time_options)
+        if default_slider_options is not None:
+            pulumi.set(__self__, "default_slider_options", default_slider_options)
+        if default_text_area_options is not None:
+            pulumi.set(__self__, "default_text_area_options", default_text_area_options)
+        if default_text_field_options is not None:
+            pulumi.set(__self__, "default_text_field_options", default_text_field_options)
+
+    @property
+    @pulumi.getter(name="defaultDateTimePickerOptions")
+    def default_date_time_picker_options(self) -> Optional['outputs.DashboardDefaultDateTimePickerControlOptions']:
+        return pulumi.get(self, "default_date_time_picker_options")
+
+    @property
+    @pulumi.getter(name="defaultDropdownOptions")
+    def default_dropdown_options(self) -> Optional['outputs.DashboardDefaultFilterDropDownControlOptions']:
+        return pulumi.get(self, "default_dropdown_options")
+
+    @property
+    @pulumi.getter(name="defaultListOptions")
+    def default_list_options(self) -> Optional['outputs.DashboardDefaultFilterListControlOptions']:
+        return pulumi.get(self, "default_list_options")
+
+    @property
+    @pulumi.getter(name="defaultRelativeDateTimeOptions")
+    def default_relative_date_time_options(self) -> Optional['outputs.DashboardDefaultRelativeDateTimeControlOptions']:
+        return pulumi.get(self, "default_relative_date_time_options")
+
+    @property
+    @pulumi.getter(name="defaultSliderOptions")
+    def default_slider_options(self) -> Optional['outputs.DashboardDefaultSliderControlOptions']:
+        return pulumi.get(self, "default_slider_options")
+
+    @property
+    @pulumi.getter(name="defaultTextAreaOptions")
+    def default_text_area_options(self) -> Optional['outputs.DashboardDefaultTextAreaControlOptions']:
+        return pulumi.get(self, "default_text_area_options")
+
+    @property
+    @pulumi.getter(name="defaultTextFieldOptions")
+    def default_text_field_options(self) -> Optional['outputs.DashboardDefaultTextFieldControlOptions']:
+        return pulumi.get(self, "default_text_field_options")
+
+
+@pulumi.output_type
+class DashboardDefaultFilterDropDownControlOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayOptions":
+            suggest = "display_options"
+        elif key == "selectableValues":
+            suggest = "selectable_values"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardDefaultFilterDropDownControlOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardDefaultFilterDropDownControlOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardDefaultFilterDropDownControlOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 display_options: Optional['outputs.DashboardDropDownControlDisplayOptions'] = None,
+                 selectable_values: Optional['outputs.DashboardFilterSelectableValues'] = None,
+                 type: Optional['DashboardSheetControlListType'] = None):
+        if display_options is not None:
+            pulumi.set(__self__, "display_options", display_options)
+        if selectable_values is not None:
+            pulumi.set(__self__, "selectable_values", selectable_values)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="displayOptions")
+    def display_options(self) -> Optional['outputs.DashboardDropDownControlDisplayOptions']:
+        return pulumi.get(self, "display_options")
+
+    @property
+    @pulumi.getter(name="selectableValues")
+    def selectable_values(self) -> Optional['outputs.DashboardFilterSelectableValues']:
+        return pulumi.get(self, "selectable_values")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional['DashboardSheetControlListType']:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class DashboardDefaultFilterListControlOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayOptions":
+            suggest = "display_options"
+        elif key == "selectableValues":
+            suggest = "selectable_values"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardDefaultFilterListControlOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardDefaultFilterListControlOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardDefaultFilterListControlOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 display_options: Optional['outputs.DashboardListControlDisplayOptions'] = None,
+                 selectable_values: Optional['outputs.DashboardFilterSelectableValues'] = None,
+                 type: Optional['DashboardSheetControlListType'] = None):
+        if display_options is not None:
+            pulumi.set(__self__, "display_options", display_options)
+        if selectable_values is not None:
+            pulumi.set(__self__, "selectable_values", selectable_values)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="displayOptions")
+    def display_options(self) -> Optional['outputs.DashboardListControlDisplayOptions']:
+        return pulumi.get(self, "display_options")
+
+    @property
+    @pulumi.getter(name="selectableValues")
+    def selectable_values(self) -> Optional['outputs.DashboardFilterSelectableValues']:
+        return pulumi.get(self, "selectable_values")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional['DashboardSheetControlListType']:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class DashboardDefaultFreeFormLayoutConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -30106,6 +30957,36 @@ class DashboardDefaultPaginatedLayoutConfiguration(dict):
 
 
 @pulumi.output_type
+class DashboardDefaultRelativeDateTimeControlOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayOptions":
+            suggest = "display_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardDefaultRelativeDateTimeControlOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardDefaultRelativeDateTimeControlOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardDefaultRelativeDateTimeControlOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 display_options: Optional['outputs.DashboardRelativeDateTimeControlDisplayOptions'] = None):
+        if display_options is not None:
+            pulumi.set(__self__, "display_options", display_options)
+
+    @property
+    @pulumi.getter(name="displayOptions")
+    def display_options(self) -> Optional['outputs.DashboardRelativeDateTimeControlDisplayOptions']:
+        return pulumi.get(self, "display_options")
+
+
+@pulumi.output_type
 class DashboardDefaultSectionBasedLayoutConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -30132,6 +31013,139 @@ class DashboardDefaultSectionBasedLayoutConfiguration(dict):
     @pulumi.getter(name="canvasSizeOptions")
     def canvas_size_options(self) -> 'outputs.DashboardSectionBasedLayoutCanvasSizeOptions':
         return pulumi.get(self, "canvas_size_options")
+
+
+@pulumi.output_type
+class DashboardDefaultSliderControlOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maximumValue":
+            suggest = "maximum_value"
+        elif key == "minimumValue":
+            suggest = "minimum_value"
+        elif key == "stepSize":
+            suggest = "step_size"
+        elif key == "displayOptions":
+            suggest = "display_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardDefaultSliderControlOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardDefaultSliderControlOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardDefaultSliderControlOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 maximum_value: float,
+                 minimum_value: float,
+                 step_size: float,
+                 display_options: Optional['outputs.DashboardSliderControlDisplayOptions'] = None,
+                 type: Optional['DashboardSheetControlSliderType'] = None):
+        pulumi.set(__self__, "maximum_value", maximum_value)
+        pulumi.set(__self__, "minimum_value", minimum_value)
+        pulumi.set(__self__, "step_size", step_size)
+        if display_options is not None:
+            pulumi.set(__self__, "display_options", display_options)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="maximumValue")
+    def maximum_value(self) -> float:
+        return pulumi.get(self, "maximum_value")
+
+    @property
+    @pulumi.getter(name="minimumValue")
+    def minimum_value(self) -> float:
+        return pulumi.get(self, "minimum_value")
+
+    @property
+    @pulumi.getter(name="stepSize")
+    def step_size(self) -> float:
+        return pulumi.get(self, "step_size")
+
+    @property
+    @pulumi.getter(name="displayOptions")
+    def display_options(self) -> Optional['outputs.DashboardSliderControlDisplayOptions']:
+        return pulumi.get(self, "display_options")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional['DashboardSheetControlSliderType']:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class DashboardDefaultTextAreaControlOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayOptions":
+            suggest = "display_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardDefaultTextAreaControlOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardDefaultTextAreaControlOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardDefaultTextAreaControlOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 delimiter: Optional[str] = None,
+                 display_options: Optional['outputs.DashboardTextAreaControlDisplayOptions'] = None):
+        if delimiter is not None:
+            pulumi.set(__self__, "delimiter", delimiter)
+        if display_options is not None:
+            pulumi.set(__self__, "display_options", display_options)
+
+    @property
+    @pulumi.getter
+    def delimiter(self) -> Optional[str]:
+        return pulumi.get(self, "delimiter")
+
+    @property
+    @pulumi.getter(name="displayOptions")
+    def display_options(self) -> Optional['outputs.DashboardTextAreaControlDisplayOptions']:
+        return pulumi.get(self, "display_options")
+
+
+@pulumi.output_type
+class DashboardDefaultTextFieldControlOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayOptions":
+            suggest = "display_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardDefaultTextFieldControlOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardDefaultTextFieldControlOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardDefaultTextFieldControlOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 display_options: Optional['outputs.DashboardTextFieldControlDisplayOptions'] = None):
+        if display_options is not None:
+            pulumi.set(__self__, "display_options", display_options)
+
+    @property
+    @pulumi.getter(name="displayOptions")
+    def display_options(self) -> Optional['outputs.DashboardTextFieldControlDisplayOptions']:
+        return pulumi.get(self, "display_options")
 
 
 @pulumi.output_type
@@ -31441,7 +32455,9 @@ class DashboardFilterControl(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dateTimePicker":
+        if key == "crossSheet":
+            suggest = "cross_sheet"
+        elif key == "dateTimePicker":
             suggest = "date_time_picker"
         elif key == "relativeDateTime":
             suggest = "relative_date_time"
@@ -31462,6 +32478,7 @@ class DashboardFilterControl(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 cross_sheet: Optional['outputs.DashboardFilterCrossSheetControl'] = None,
                  date_time_picker: Optional['outputs.DashboardFilterDateTimePickerControl'] = None,
                  dropdown: Optional['outputs.DashboardFilterDropDownControl'] = None,
                  list: Optional['outputs.DashboardFilterListControl'] = None,
@@ -31469,6 +32486,8 @@ class DashboardFilterControl(dict):
                  slider: Optional['outputs.DashboardFilterSliderControl'] = None,
                  text_area: Optional['outputs.DashboardFilterTextAreaControl'] = None,
                  text_field: Optional['outputs.DashboardFilterTextFieldControl'] = None):
+        if cross_sheet is not None:
+            pulumi.set(__self__, "cross_sheet", cross_sheet)
         if date_time_picker is not None:
             pulumi.set(__self__, "date_time_picker", date_time_picker)
         if dropdown is not None:
@@ -31483,6 +32502,11 @@ class DashboardFilterControl(dict):
             pulumi.set(__self__, "text_area", text_area)
         if text_field is not None:
             pulumi.set(__self__, "text_field", text_field)
+
+    @property
+    @pulumi.getter(name="crossSheet")
+    def cross_sheet(self) -> Optional['outputs.DashboardFilterCrossSheetControl']:
+        return pulumi.get(self, "cross_sheet")
 
     @property
     @pulumi.getter(name="dateTimePicker")
@@ -31518,6 +32542,54 @@ class DashboardFilterControl(dict):
     @pulumi.getter(name="textField")
     def text_field(self) -> Optional['outputs.DashboardFilterTextFieldControl']:
         return pulumi.get(self, "text_field")
+
+
+@pulumi.output_type
+class DashboardFilterCrossSheetControl(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filterControlId":
+            suggest = "filter_control_id"
+        elif key == "sourceFilterId":
+            suggest = "source_filter_id"
+        elif key == "cascadingControlConfiguration":
+            suggest = "cascading_control_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardFilterCrossSheetControl. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardFilterCrossSheetControl.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardFilterCrossSheetControl.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 filter_control_id: str,
+                 source_filter_id: str,
+                 cascading_control_configuration: Optional['outputs.DashboardCascadingControlConfiguration'] = None):
+        pulumi.set(__self__, "filter_control_id", filter_control_id)
+        pulumi.set(__self__, "source_filter_id", source_filter_id)
+        if cascading_control_configuration is not None:
+            pulumi.set(__self__, "cascading_control_configuration", cascading_control_configuration)
+
+    @property
+    @pulumi.getter(name="filterControlId")
+    def filter_control_id(self) -> str:
+        return pulumi.get(self, "filter_control_id")
+
+    @property
+    @pulumi.getter(name="sourceFilterId")
+    def source_filter_id(self) -> str:
+        return pulumi.get(self, "source_filter_id")
+
+    @property
+    @pulumi.getter(name="cascadingControlConfiguration")
+    def cascading_control_configuration(self) -> Optional['outputs.DashboardCascadingControlConfiguration']:
+        return pulumi.get(self, "cascading_control_configuration")
 
 
 @pulumi.output_type
@@ -37529,6 +38601,8 @@ class DashboardNumericEqualityFilter(dict):
             suggest = "null_option"
         elif key == "aggregationFunction":
             suggest = "aggregation_function"
+        elif key == "defaultFilterControlConfiguration":
+            suggest = "default_filter_control_configuration"
         elif key == "parameterName":
             suggest = "parameter_name"
         elif key == "selectAllOptions":
@@ -37551,6 +38625,7 @@ class DashboardNumericEqualityFilter(dict):
                  match_operator: 'DashboardNumericEqualityMatchOperator',
                  null_option: 'DashboardFilterNullOption',
                  aggregation_function: Optional['outputs.DashboardAggregationFunction'] = None,
+                 default_filter_control_configuration: Optional['outputs.DashboardDefaultFilterControlConfiguration'] = None,
                  parameter_name: Optional[str] = None,
                  select_all_options: Optional['DashboardNumericFilterSelectAllOptions'] = None,
                  value: Optional[float] = None):
@@ -37560,6 +38635,8 @@ class DashboardNumericEqualityFilter(dict):
         pulumi.set(__self__, "null_option", null_option)
         if aggregation_function is not None:
             pulumi.set(__self__, "aggregation_function", aggregation_function)
+        if default_filter_control_configuration is not None:
+            pulumi.set(__self__, "default_filter_control_configuration", default_filter_control_configuration)
         if parameter_name is not None:
             pulumi.set(__self__, "parameter_name", parameter_name)
         if select_all_options is not None:
@@ -37591,6 +38668,11 @@ class DashboardNumericEqualityFilter(dict):
     @pulumi.getter(name="aggregationFunction")
     def aggregation_function(self) -> Optional['outputs.DashboardAggregationFunction']:
         return pulumi.get(self, "aggregation_function")
+
+    @property
+    @pulumi.getter(name="defaultFilterControlConfiguration")
+    def default_filter_control_configuration(self) -> Optional['outputs.DashboardDefaultFilterControlConfiguration']:
+        return pulumi.get(self, "default_filter_control_configuration")
 
     @property
     @pulumi.getter(name="parameterName")
@@ -37669,6 +38751,8 @@ class DashboardNumericRangeFilter(dict):
             suggest = "null_option"
         elif key == "aggregationFunction":
             suggest = "aggregation_function"
+        elif key == "defaultFilterControlConfiguration":
+            suggest = "default_filter_control_configuration"
         elif key == "includeMaximum":
             suggest = "include_maximum"
         elif key == "includeMinimum":
@@ -37696,6 +38780,7 @@ class DashboardNumericRangeFilter(dict):
                  filter_id: str,
                  null_option: 'DashboardFilterNullOption',
                  aggregation_function: Optional['outputs.DashboardAggregationFunction'] = None,
+                 default_filter_control_configuration: Optional['outputs.DashboardDefaultFilterControlConfiguration'] = None,
                  include_maximum: Optional[bool] = None,
                  include_minimum: Optional[bool] = None,
                  range_maximum: Optional['outputs.DashboardNumericRangeFilterValue'] = None,
@@ -37706,6 +38791,8 @@ class DashboardNumericRangeFilter(dict):
         pulumi.set(__self__, "null_option", null_option)
         if aggregation_function is not None:
             pulumi.set(__self__, "aggregation_function", aggregation_function)
+        if default_filter_control_configuration is not None:
+            pulumi.set(__self__, "default_filter_control_configuration", default_filter_control_configuration)
         if include_maximum is not None:
             pulumi.set(__self__, "include_maximum", include_maximum)
         if include_minimum is not None:
@@ -37736,6 +38823,11 @@ class DashboardNumericRangeFilter(dict):
     @pulumi.getter(name="aggregationFunction")
     def aggregation_function(self) -> Optional['outputs.DashboardAggregationFunction']:
         return pulumi.get(self, "aggregation_function")
+
+    @property
+    @pulumi.getter(name="defaultFilterControlConfiguration")
+    def default_filter_control_configuration(self) -> Optional['outputs.DashboardDefaultFilterControlConfiguration']:
+        return pulumi.get(self, "default_filter_control_configuration")
 
     @property
     @pulumi.getter(name="includeMaximum")
@@ -41543,6 +42635,8 @@ class DashboardRelativeDatesFilter(dict):
             suggest = "relative_date_type"
         elif key == "timeGranularity":
             suggest = "time_granularity"
+        elif key == "defaultFilterControlConfiguration":
+            suggest = "default_filter_control_configuration"
         elif key == "excludePeriodConfiguration":
             suggest = "exclude_period_configuration"
         elif key == "minimumGranularity":
@@ -41570,6 +42664,7 @@ class DashboardRelativeDatesFilter(dict):
                  null_option: 'DashboardFilterNullOption',
                  relative_date_type: 'DashboardRelativeDateType',
                  time_granularity: 'DashboardTimeGranularity',
+                 default_filter_control_configuration: Optional['outputs.DashboardDefaultFilterControlConfiguration'] = None,
                  exclude_period_configuration: Optional['outputs.DashboardExcludePeriodConfiguration'] = None,
                  minimum_granularity: Optional['DashboardTimeGranularity'] = None,
                  parameter_name: Optional[str] = None,
@@ -41580,6 +42675,8 @@ class DashboardRelativeDatesFilter(dict):
         pulumi.set(__self__, "null_option", null_option)
         pulumi.set(__self__, "relative_date_type", relative_date_type)
         pulumi.set(__self__, "time_granularity", time_granularity)
+        if default_filter_control_configuration is not None:
+            pulumi.set(__self__, "default_filter_control_configuration", default_filter_control_configuration)
         if exclude_period_configuration is not None:
             pulumi.set(__self__, "exclude_period_configuration", exclude_period_configuration)
         if minimum_granularity is not None:
@@ -41618,6 +42715,11 @@ class DashboardRelativeDatesFilter(dict):
     @pulumi.getter(name="timeGranularity")
     def time_granularity(self) -> 'DashboardTimeGranularity':
         return pulumi.get(self, "time_granularity")
+
+    @property
+    @pulumi.getter(name="defaultFilterControlConfiguration")
+    def default_filter_control_configuration(self) -> Optional['outputs.DashboardDefaultFilterControlConfiguration']:
+        return pulumi.get(self, "default_filter_control_configuration")
 
     @property
     @pulumi.getter(name="excludePeriodConfiguration")
@@ -45309,6 +46411,8 @@ class DashboardTimeEqualityFilter(dict):
         suggest = None
         if key == "filterId":
             suggest = "filter_id"
+        elif key == "defaultFilterControlConfiguration":
+            suggest = "default_filter_control_configuration"
         elif key == "parameterName":
             suggest = "parameter_name"
         elif key == "rollingDate":
@@ -45330,12 +46434,15 @@ class DashboardTimeEqualityFilter(dict):
     def __init__(__self__, *,
                  column: 'outputs.DashboardColumnIdentifier',
                  filter_id: str,
+                 default_filter_control_configuration: Optional['outputs.DashboardDefaultFilterControlConfiguration'] = None,
                  parameter_name: Optional[str] = None,
                  rolling_date: Optional['outputs.DashboardRollingDateConfiguration'] = None,
                  time_granularity: Optional['DashboardTimeGranularity'] = None,
                  value: Optional[str] = None):
         pulumi.set(__self__, "column", column)
         pulumi.set(__self__, "filter_id", filter_id)
+        if default_filter_control_configuration is not None:
+            pulumi.set(__self__, "default_filter_control_configuration", default_filter_control_configuration)
         if parameter_name is not None:
             pulumi.set(__self__, "parameter_name", parameter_name)
         if rolling_date is not None:
@@ -45354,6 +46461,11 @@ class DashboardTimeEqualityFilter(dict):
     @pulumi.getter(name="filterId")
     def filter_id(self) -> str:
         return pulumi.get(self, "filter_id")
+
+    @property
+    @pulumi.getter(name="defaultFilterControlConfiguration")
+    def default_filter_control_configuration(self) -> Optional['outputs.DashboardDefaultFilterControlConfiguration']:
+        return pulumi.get(self, "default_filter_control_configuration")
 
     @property
     @pulumi.getter(name="parameterName")
@@ -45439,6 +46551,8 @@ class DashboardTimeRangeFilter(dict):
             suggest = "filter_id"
         elif key == "nullOption":
             suggest = "null_option"
+        elif key == "defaultFilterControlConfiguration":
+            suggest = "default_filter_control_configuration"
         elif key == "excludePeriodConfiguration":
             suggest = "exclude_period_configuration"
         elif key == "includeMaximum":
@@ -45467,6 +46581,7 @@ class DashboardTimeRangeFilter(dict):
                  column: 'outputs.DashboardColumnIdentifier',
                  filter_id: str,
                  null_option: 'DashboardFilterNullOption',
+                 default_filter_control_configuration: Optional['outputs.DashboardDefaultFilterControlConfiguration'] = None,
                  exclude_period_configuration: Optional['outputs.DashboardExcludePeriodConfiguration'] = None,
                  include_maximum: Optional[bool] = None,
                  include_minimum: Optional[bool] = None,
@@ -45476,6 +46591,8 @@ class DashboardTimeRangeFilter(dict):
         pulumi.set(__self__, "column", column)
         pulumi.set(__self__, "filter_id", filter_id)
         pulumi.set(__self__, "null_option", null_option)
+        if default_filter_control_configuration is not None:
+            pulumi.set(__self__, "default_filter_control_configuration", default_filter_control_configuration)
         if exclude_period_configuration is not None:
             pulumi.set(__self__, "exclude_period_configuration", exclude_period_configuration)
         if include_maximum is not None:
@@ -45503,6 +46620,11 @@ class DashboardTimeRangeFilter(dict):
     @pulumi.getter(name="nullOption")
     def null_option(self) -> 'DashboardFilterNullOption':
         return pulumi.get(self, "null_option")
+
+    @property
+    @pulumi.getter(name="defaultFilterControlConfiguration")
+    def default_filter_control_configuration(self) -> Optional['outputs.DashboardDefaultFilterControlConfiguration']:
+        return pulumi.get(self, "default_filter_control_configuration")
 
     @property
     @pulumi.getter(name="excludePeriodConfiguration")
@@ -45682,6 +46804,8 @@ class DashboardTopBottomFilter(dict):
             suggest = "aggregation_sort_configurations"
         elif key == "filterId":
             suggest = "filter_id"
+        elif key == "defaultFilterControlConfiguration":
+            suggest = "default_filter_control_configuration"
         elif key == "parameterName":
             suggest = "parameter_name"
         elif key == "timeGranularity":
@@ -45702,12 +46826,15 @@ class DashboardTopBottomFilter(dict):
                  aggregation_sort_configurations: Sequence['outputs.DashboardAggregationSortConfiguration'],
                  column: 'outputs.DashboardColumnIdentifier',
                  filter_id: str,
+                 default_filter_control_configuration: Optional['outputs.DashboardDefaultFilterControlConfiguration'] = None,
                  limit: Optional[float] = None,
                  parameter_name: Optional[str] = None,
                  time_granularity: Optional['DashboardTimeGranularity'] = None):
         pulumi.set(__self__, "aggregation_sort_configurations", aggregation_sort_configurations)
         pulumi.set(__self__, "column", column)
         pulumi.set(__self__, "filter_id", filter_id)
+        if default_filter_control_configuration is not None:
+            pulumi.set(__self__, "default_filter_control_configuration", default_filter_control_configuration)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
         if parameter_name is not None:
@@ -45729,6 +46856,11 @@ class DashboardTopBottomFilter(dict):
     @pulumi.getter(name="filterId")
     def filter_id(self) -> str:
         return pulumi.get(self, "filter_id")
+
+    @property
+    @pulumi.getter(name="defaultFilterControlConfiguration")
+    def default_filter_control_configuration(self) -> Optional['outputs.DashboardDefaultFilterControlConfiguration']:
+        return pulumi.get(self, "default_filter_control_configuration")
 
     @property
     @pulumi.getter
@@ -54324,6 +55456,8 @@ class TemplateCategoryFilter(dict):
         suggest = None
         if key == "filterId":
             suggest = "filter_id"
+        elif key == "defaultFilterControlConfiguration":
+            suggest = "default_filter_control_configuration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in TemplateCategoryFilter. Access the value via the '{suggest}' property getter instead.")
@@ -54339,10 +55473,13 @@ class TemplateCategoryFilter(dict):
     def __init__(__self__, *,
                  column: 'outputs.TemplateColumnIdentifier',
                  configuration: 'outputs.TemplateCategoryFilterConfiguration',
-                 filter_id: str):
+                 filter_id: str,
+                 default_filter_control_configuration: Optional['outputs.TemplateDefaultFilterControlConfiguration'] = None):
         pulumi.set(__self__, "column", column)
         pulumi.set(__self__, "configuration", configuration)
         pulumi.set(__self__, "filter_id", filter_id)
+        if default_filter_control_configuration is not None:
+            pulumi.set(__self__, "default_filter_control_configuration", default_filter_control_configuration)
 
     @property
     @pulumi.getter
@@ -54358,6 +55495,11 @@ class TemplateCategoryFilter(dict):
     @pulumi.getter(name="filterId")
     def filter_id(self) -> str:
         return pulumi.get(self, "filter_id")
+
+    @property
+    @pulumi.getter(name="defaultFilterControlConfiguration")
+    def default_filter_control_configuration(self) -> Optional['outputs.TemplateDefaultFilterControlConfiguration']:
+        return pulumi.get(self, "default_filter_control_configuration")
 
 
 @pulumi.output_type
@@ -57798,6 +58940,266 @@ class TemplateDecimalValueWhenUnsetConfiguration(dict):
 
 
 @pulumi.output_type
+class TemplateDefaultDateTimePickerControlOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayOptions":
+            suggest = "display_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateDefaultDateTimePickerControlOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateDefaultDateTimePickerControlOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateDefaultDateTimePickerControlOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 display_options: Optional['outputs.TemplateDateTimePickerControlDisplayOptions'] = None,
+                 type: Optional['TemplateSheetControlDateTimePickerType'] = None):
+        if display_options is not None:
+            pulumi.set(__self__, "display_options", display_options)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="displayOptions")
+    def display_options(self) -> Optional['outputs.TemplateDateTimePickerControlDisplayOptions']:
+        return pulumi.get(self, "display_options")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional['TemplateSheetControlDateTimePickerType']:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class TemplateDefaultFilterControlConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "controlOptions":
+            suggest = "control_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateDefaultFilterControlConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateDefaultFilterControlConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateDefaultFilterControlConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 control_options: 'outputs.TemplateDefaultFilterControlOptions',
+                 title: str):
+        pulumi.set(__self__, "control_options", control_options)
+        pulumi.set(__self__, "title", title)
+
+    @property
+    @pulumi.getter(name="controlOptions")
+    def control_options(self) -> 'outputs.TemplateDefaultFilterControlOptions':
+        return pulumi.get(self, "control_options")
+
+    @property
+    @pulumi.getter
+    def title(self) -> str:
+        return pulumi.get(self, "title")
+
+
+@pulumi.output_type
+class TemplateDefaultFilterControlOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultDateTimePickerOptions":
+            suggest = "default_date_time_picker_options"
+        elif key == "defaultDropdownOptions":
+            suggest = "default_dropdown_options"
+        elif key == "defaultListOptions":
+            suggest = "default_list_options"
+        elif key == "defaultRelativeDateTimeOptions":
+            suggest = "default_relative_date_time_options"
+        elif key == "defaultSliderOptions":
+            suggest = "default_slider_options"
+        elif key == "defaultTextAreaOptions":
+            suggest = "default_text_area_options"
+        elif key == "defaultTextFieldOptions":
+            suggest = "default_text_field_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateDefaultFilterControlOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateDefaultFilterControlOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateDefaultFilterControlOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 default_date_time_picker_options: Optional['outputs.TemplateDefaultDateTimePickerControlOptions'] = None,
+                 default_dropdown_options: Optional['outputs.TemplateDefaultFilterDropDownControlOptions'] = None,
+                 default_list_options: Optional['outputs.TemplateDefaultFilterListControlOptions'] = None,
+                 default_relative_date_time_options: Optional['outputs.TemplateDefaultRelativeDateTimeControlOptions'] = None,
+                 default_slider_options: Optional['outputs.TemplateDefaultSliderControlOptions'] = None,
+                 default_text_area_options: Optional['outputs.TemplateDefaultTextAreaControlOptions'] = None,
+                 default_text_field_options: Optional['outputs.TemplateDefaultTextFieldControlOptions'] = None):
+        if default_date_time_picker_options is not None:
+            pulumi.set(__self__, "default_date_time_picker_options", default_date_time_picker_options)
+        if default_dropdown_options is not None:
+            pulumi.set(__self__, "default_dropdown_options", default_dropdown_options)
+        if default_list_options is not None:
+            pulumi.set(__self__, "default_list_options", default_list_options)
+        if default_relative_date_time_options is not None:
+            pulumi.set(__self__, "default_relative_date_time_options", default_relative_date_time_options)
+        if default_slider_options is not None:
+            pulumi.set(__self__, "default_slider_options", default_slider_options)
+        if default_text_area_options is not None:
+            pulumi.set(__self__, "default_text_area_options", default_text_area_options)
+        if default_text_field_options is not None:
+            pulumi.set(__self__, "default_text_field_options", default_text_field_options)
+
+    @property
+    @pulumi.getter(name="defaultDateTimePickerOptions")
+    def default_date_time_picker_options(self) -> Optional['outputs.TemplateDefaultDateTimePickerControlOptions']:
+        return pulumi.get(self, "default_date_time_picker_options")
+
+    @property
+    @pulumi.getter(name="defaultDropdownOptions")
+    def default_dropdown_options(self) -> Optional['outputs.TemplateDefaultFilterDropDownControlOptions']:
+        return pulumi.get(self, "default_dropdown_options")
+
+    @property
+    @pulumi.getter(name="defaultListOptions")
+    def default_list_options(self) -> Optional['outputs.TemplateDefaultFilterListControlOptions']:
+        return pulumi.get(self, "default_list_options")
+
+    @property
+    @pulumi.getter(name="defaultRelativeDateTimeOptions")
+    def default_relative_date_time_options(self) -> Optional['outputs.TemplateDefaultRelativeDateTimeControlOptions']:
+        return pulumi.get(self, "default_relative_date_time_options")
+
+    @property
+    @pulumi.getter(name="defaultSliderOptions")
+    def default_slider_options(self) -> Optional['outputs.TemplateDefaultSliderControlOptions']:
+        return pulumi.get(self, "default_slider_options")
+
+    @property
+    @pulumi.getter(name="defaultTextAreaOptions")
+    def default_text_area_options(self) -> Optional['outputs.TemplateDefaultTextAreaControlOptions']:
+        return pulumi.get(self, "default_text_area_options")
+
+    @property
+    @pulumi.getter(name="defaultTextFieldOptions")
+    def default_text_field_options(self) -> Optional['outputs.TemplateDefaultTextFieldControlOptions']:
+        return pulumi.get(self, "default_text_field_options")
+
+
+@pulumi.output_type
+class TemplateDefaultFilterDropDownControlOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayOptions":
+            suggest = "display_options"
+        elif key == "selectableValues":
+            suggest = "selectable_values"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateDefaultFilterDropDownControlOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateDefaultFilterDropDownControlOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateDefaultFilterDropDownControlOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 display_options: Optional['outputs.TemplateDropDownControlDisplayOptions'] = None,
+                 selectable_values: Optional['outputs.TemplateFilterSelectableValues'] = None,
+                 type: Optional['TemplateSheetControlListType'] = None):
+        if display_options is not None:
+            pulumi.set(__self__, "display_options", display_options)
+        if selectable_values is not None:
+            pulumi.set(__self__, "selectable_values", selectable_values)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="displayOptions")
+    def display_options(self) -> Optional['outputs.TemplateDropDownControlDisplayOptions']:
+        return pulumi.get(self, "display_options")
+
+    @property
+    @pulumi.getter(name="selectableValues")
+    def selectable_values(self) -> Optional['outputs.TemplateFilterSelectableValues']:
+        return pulumi.get(self, "selectable_values")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional['TemplateSheetControlListType']:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class TemplateDefaultFilterListControlOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayOptions":
+            suggest = "display_options"
+        elif key == "selectableValues":
+            suggest = "selectable_values"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateDefaultFilterListControlOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateDefaultFilterListControlOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateDefaultFilterListControlOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 display_options: Optional['outputs.TemplateListControlDisplayOptions'] = None,
+                 selectable_values: Optional['outputs.TemplateFilterSelectableValues'] = None,
+                 type: Optional['TemplateSheetControlListType'] = None):
+        if display_options is not None:
+            pulumi.set(__self__, "display_options", display_options)
+        if selectable_values is not None:
+            pulumi.set(__self__, "selectable_values", selectable_values)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="displayOptions")
+    def display_options(self) -> Optional['outputs.TemplateListControlDisplayOptions']:
+        return pulumi.get(self, "display_options")
+
+    @property
+    @pulumi.getter(name="selectableValues")
+    def selectable_values(self) -> Optional['outputs.TemplateFilterSelectableValues']:
+        return pulumi.get(self, "selectable_values")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional['TemplateSheetControlListType']:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class TemplateDefaultFreeFormLayoutConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -57974,6 +59376,36 @@ class TemplateDefaultPaginatedLayoutConfiguration(dict):
 
 
 @pulumi.output_type
+class TemplateDefaultRelativeDateTimeControlOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayOptions":
+            suggest = "display_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateDefaultRelativeDateTimeControlOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateDefaultRelativeDateTimeControlOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateDefaultRelativeDateTimeControlOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 display_options: Optional['outputs.TemplateRelativeDateTimeControlDisplayOptions'] = None):
+        if display_options is not None:
+            pulumi.set(__self__, "display_options", display_options)
+
+    @property
+    @pulumi.getter(name="displayOptions")
+    def display_options(self) -> Optional['outputs.TemplateRelativeDateTimeControlDisplayOptions']:
+        return pulumi.get(self, "display_options")
+
+
+@pulumi.output_type
 class TemplateDefaultSectionBasedLayoutConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -58000,6 +59432,139 @@ class TemplateDefaultSectionBasedLayoutConfiguration(dict):
     @pulumi.getter(name="canvasSizeOptions")
     def canvas_size_options(self) -> 'outputs.TemplateSectionBasedLayoutCanvasSizeOptions':
         return pulumi.get(self, "canvas_size_options")
+
+
+@pulumi.output_type
+class TemplateDefaultSliderControlOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maximumValue":
+            suggest = "maximum_value"
+        elif key == "minimumValue":
+            suggest = "minimum_value"
+        elif key == "stepSize":
+            suggest = "step_size"
+        elif key == "displayOptions":
+            suggest = "display_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateDefaultSliderControlOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateDefaultSliderControlOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateDefaultSliderControlOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 maximum_value: float,
+                 minimum_value: float,
+                 step_size: float,
+                 display_options: Optional['outputs.TemplateSliderControlDisplayOptions'] = None,
+                 type: Optional['TemplateSheetControlSliderType'] = None):
+        pulumi.set(__self__, "maximum_value", maximum_value)
+        pulumi.set(__self__, "minimum_value", minimum_value)
+        pulumi.set(__self__, "step_size", step_size)
+        if display_options is not None:
+            pulumi.set(__self__, "display_options", display_options)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="maximumValue")
+    def maximum_value(self) -> float:
+        return pulumi.get(self, "maximum_value")
+
+    @property
+    @pulumi.getter(name="minimumValue")
+    def minimum_value(self) -> float:
+        return pulumi.get(self, "minimum_value")
+
+    @property
+    @pulumi.getter(name="stepSize")
+    def step_size(self) -> float:
+        return pulumi.get(self, "step_size")
+
+    @property
+    @pulumi.getter(name="displayOptions")
+    def display_options(self) -> Optional['outputs.TemplateSliderControlDisplayOptions']:
+        return pulumi.get(self, "display_options")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional['TemplateSheetControlSliderType']:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class TemplateDefaultTextAreaControlOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayOptions":
+            suggest = "display_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateDefaultTextAreaControlOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateDefaultTextAreaControlOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateDefaultTextAreaControlOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 delimiter: Optional[str] = None,
+                 display_options: Optional['outputs.TemplateTextAreaControlDisplayOptions'] = None):
+        if delimiter is not None:
+            pulumi.set(__self__, "delimiter", delimiter)
+        if display_options is not None:
+            pulumi.set(__self__, "display_options", display_options)
+
+    @property
+    @pulumi.getter
+    def delimiter(self) -> Optional[str]:
+        return pulumi.get(self, "delimiter")
+
+    @property
+    @pulumi.getter(name="displayOptions")
+    def display_options(self) -> Optional['outputs.TemplateTextAreaControlDisplayOptions']:
+        return pulumi.get(self, "display_options")
+
+
+@pulumi.output_type
+class TemplateDefaultTextFieldControlOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayOptions":
+            suggest = "display_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateDefaultTextFieldControlOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateDefaultTextFieldControlOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateDefaultTextFieldControlOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 display_options: Optional['outputs.TemplateTextFieldControlDisplayOptions'] = None):
+        if display_options is not None:
+            pulumi.set(__self__, "display_options", display_options)
+
+    @property
+    @pulumi.getter(name="displayOptions")
+    def display_options(self) -> Optional['outputs.TemplateTextFieldControlDisplayOptions']:
+        return pulumi.get(self, "display_options")
 
 
 @pulumi.output_type
@@ -59201,7 +60766,9 @@ class TemplateFilterControl(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dateTimePicker":
+        if key == "crossSheet":
+            suggest = "cross_sheet"
+        elif key == "dateTimePicker":
             suggest = "date_time_picker"
         elif key == "relativeDateTime":
             suggest = "relative_date_time"
@@ -59222,6 +60789,7 @@ class TemplateFilterControl(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 cross_sheet: Optional['outputs.TemplateFilterCrossSheetControl'] = None,
                  date_time_picker: Optional['outputs.TemplateFilterDateTimePickerControl'] = None,
                  dropdown: Optional['outputs.TemplateFilterDropDownControl'] = None,
                  list: Optional['outputs.TemplateFilterListControl'] = None,
@@ -59229,6 +60797,8 @@ class TemplateFilterControl(dict):
                  slider: Optional['outputs.TemplateFilterSliderControl'] = None,
                  text_area: Optional['outputs.TemplateFilterTextAreaControl'] = None,
                  text_field: Optional['outputs.TemplateFilterTextFieldControl'] = None):
+        if cross_sheet is not None:
+            pulumi.set(__self__, "cross_sheet", cross_sheet)
         if date_time_picker is not None:
             pulumi.set(__self__, "date_time_picker", date_time_picker)
         if dropdown is not None:
@@ -59243,6 +60813,11 @@ class TemplateFilterControl(dict):
             pulumi.set(__self__, "text_area", text_area)
         if text_field is not None:
             pulumi.set(__self__, "text_field", text_field)
+
+    @property
+    @pulumi.getter(name="crossSheet")
+    def cross_sheet(self) -> Optional['outputs.TemplateFilterCrossSheetControl']:
+        return pulumi.get(self, "cross_sheet")
 
     @property
     @pulumi.getter(name="dateTimePicker")
@@ -59278,6 +60853,54 @@ class TemplateFilterControl(dict):
     @pulumi.getter(name="textField")
     def text_field(self) -> Optional['outputs.TemplateFilterTextFieldControl']:
         return pulumi.get(self, "text_field")
+
+
+@pulumi.output_type
+class TemplateFilterCrossSheetControl(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filterControlId":
+            suggest = "filter_control_id"
+        elif key == "sourceFilterId":
+            suggest = "source_filter_id"
+        elif key == "cascadingControlConfiguration":
+            suggest = "cascading_control_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateFilterCrossSheetControl. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateFilterCrossSheetControl.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateFilterCrossSheetControl.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 filter_control_id: str,
+                 source_filter_id: str,
+                 cascading_control_configuration: Optional['outputs.TemplateCascadingControlConfiguration'] = None):
+        pulumi.set(__self__, "filter_control_id", filter_control_id)
+        pulumi.set(__self__, "source_filter_id", source_filter_id)
+        if cascading_control_configuration is not None:
+            pulumi.set(__self__, "cascading_control_configuration", cascading_control_configuration)
+
+    @property
+    @pulumi.getter(name="filterControlId")
+    def filter_control_id(self) -> str:
+        return pulumi.get(self, "filter_control_id")
+
+    @property
+    @pulumi.getter(name="sourceFilterId")
+    def source_filter_id(self) -> str:
+        return pulumi.get(self, "source_filter_id")
+
+    @property
+    @pulumi.getter(name="cascadingControlConfiguration")
+    def cascading_control_configuration(self) -> Optional['outputs.TemplateCascadingControlConfiguration']:
+        return pulumi.get(self, "cascading_control_configuration")
 
 
 @pulumi.output_type
@@ -65243,6 +66866,8 @@ class TemplateNumericEqualityFilter(dict):
             suggest = "null_option"
         elif key == "aggregationFunction":
             suggest = "aggregation_function"
+        elif key == "defaultFilterControlConfiguration":
+            suggest = "default_filter_control_configuration"
         elif key == "parameterName":
             suggest = "parameter_name"
         elif key == "selectAllOptions":
@@ -65265,6 +66890,7 @@ class TemplateNumericEqualityFilter(dict):
                  match_operator: 'TemplateNumericEqualityMatchOperator',
                  null_option: 'TemplateFilterNullOption',
                  aggregation_function: Optional['outputs.TemplateAggregationFunction'] = None,
+                 default_filter_control_configuration: Optional['outputs.TemplateDefaultFilterControlConfiguration'] = None,
                  parameter_name: Optional[str] = None,
                  select_all_options: Optional['TemplateNumericFilterSelectAllOptions'] = None,
                  value: Optional[float] = None):
@@ -65274,6 +66900,8 @@ class TemplateNumericEqualityFilter(dict):
         pulumi.set(__self__, "null_option", null_option)
         if aggregation_function is not None:
             pulumi.set(__self__, "aggregation_function", aggregation_function)
+        if default_filter_control_configuration is not None:
+            pulumi.set(__self__, "default_filter_control_configuration", default_filter_control_configuration)
         if parameter_name is not None:
             pulumi.set(__self__, "parameter_name", parameter_name)
         if select_all_options is not None:
@@ -65305,6 +66933,11 @@ class TemplateNumericEqualityFilter(dict):
     @pulumi.getter(name="aggregationFunction")
     def aggregation_function(self) -> Optional['outputs.TemplateAggregationFunction']:
         return pulumi.get(self, "aggregation_function")
+
+    @property
+    @pulumi.getter(name="defaultFilterControlConfiguration")
+    def default_filter_control_configuration(self) -> Optional['outputs.TemplateDefaultFilterControlConfiguration']:
+        return pulumi.get(self, "default_filter_control_configuration")
 
     @property
     @pulumi.getter(name="parameterName")
@@ -65383,6 +67016,8 @@ class TemplateNumericRangeFilter(dict):
             suggest = "null_option"
         elif key == "aggregationFunction":
             suggest = "aggregation_function"
+        elif key == "defaultFilterControlConfiguration":
+            suggest = "default_filter_control_configuration"
         elif key == "includeMaximum":
             suggest = "include_maximum"
         elif key == "includeMinimum":
@@ -65410,6 +67045,7 @@ class TemplateNumericRangeFilter(dict):
                  filter_id: str,
                  null_option: 'TemplateFilterNullOption',
                  aggregation_function: Optional['outputs.TemplateAggregationFunction'] = None,
+                 default_filter_control_configuration: Optional['outputs.TemplateDefaultFilterControlConfiguration'] = None,
                  include_maximum: Optional[bool] = None,
                  include_minimum: Optional[bool] = None,
                  range_maximum: Optional['outputs.TemplateNumericRangeFilterValue'] = None,
@@ -65420,6 +67056,8 @@ class TemplateNumericRangeFilter(dict):
         pulumi.set(__self__, "null_option", null_option)
         if aggregation_function is not None:
             pulumi.set(__self__, "aggregation_function", aggregation_function)
+        if default_filter_control_configuration is not None:
+            pulumi.set(__self__, "default_filter_control_configuration", default_filter_control_configuration)
         if include_maximum is not None:
             pulumi.set(__self__, "include_maximum", include_maximum)
         if include_minimum is not None:
@@ -65450,6 +67088,11 @@ class TemplateNumericRangeFilter(dict):
     @pulumi.getter(name="aggregationFunction")
     def aggregation_function(self) -> Optional['outputs.TemplateAggregationFunction']:
         return pulumi.get(self, "aggregation_function")
+
+    @property
+    @pulumi.getter(name="defaultFilterControlConfiguration")
+    def default_filter_control_configuration(self) -> Optional['outputs.TemplateDefaultFilterControlConfiguration']:
+        return pulumi.get(self, "default_filter_control_configuration")
 
     @property
     @pulumi.getter(name="includeMaximum")
@@ -69039,6 +70682,8 @@ class TemplateRelativeDatesFilter(dict):
             suggest = "relative_date_type"
         elif key == "timeGranularity":
             suggest = "time_granularity"
+        elif key == "defaultFilterControlConfiguration":
+            suggest = "default_filter_control_configuration"
         elif key == "excludePeriodConfiguration":
             suggest = "exclude_period_configuration"
         elif key == "minimumGranularity":
@@ -69066,6 +70711,7 @@ class TemplateRelativeDatesFilter(dict):
                  null_option: 'TemplateFilterNullOption',
                  relative_date_type: 'TemplateRelativeDateType',
                  time_granularity: 'TemplateTimeGranularity',
+                 default_filter_control_configuration: Optional['outputs.TemplateDefaultFilterControlConfiguration'] = None,
                  exclude_period_configuration: Optional['outputs.TemplateExcludePeriodConfiguration'] = None,
                  minimum_granularity: Optional['TemplateTimeGranularity'] = None,
                  parameter_name: Optional[str] = None,
@@ -69076,6 +70722,8 @@ class TemplateRelativeDatesFilter(dict):
         pulumi.set(__self__, "null_option", null_option)
         pulumi.set(__self__, "relative_date_type", relative_date_type)
         pulumi.set(__self__, "time_granularity", time_granularity)
+        if default_filter_control_configuration is not None:
+            pulumi.set(__self__, "default_filter_control_configuration", default_filter_control_configuration)
         if exclude_period_configuration is not None:
             pulumi.set(__self__, "exclude_period_configuration", exclude_period_configuration)
         if minimum_granularity is not None:
@@ -69114,6 +70762,11 @@ class TemplateRelativeDatesFilter(dict):
     @pulumi.getter(name="timeGranularity")
     def time_granularity(self) -> 'TemplateTimeGranularity':
         return pulumi.get(self, "time_granularity")
+
+    @property
+    @pulumi.getter(name="defaultFilterControlConfiguration")
+    def default_filter_control_configuration(self) -> Optional['outputs.TemplateDefaultFilterControlConfiguration']:
+        return pulumi.get(self, "default_filter_control_configuration")
 
     @property
     @pulumi.getter(name="excludePeriodConfiguration")
@@ -72734,6 +74387,8 @@ class TemplateTimeEqualityFilter(dict):
         suggest = None
         if key == "filterId":
             suggest = "filter_id"
+        elif key == "defaultFilterControlConfiguration":
+            suggest = "default_filter_control_configuration"
         elif key == "parameterName":
             suggest = "parameter_name"
         elif key == "rollingDate":
@@ -72755,12 +74410,15 @@ class TemplateTimeEqualityFilter(dict):
     def __init__(__self__, *,
                  column: 'outputs.TemplateColumnIdentifier',
                  filter_id: str,
+                 default_filter_control_configuration: Optional['outputs.TemplateDefaultFilterControlConfiguration'] = None,
                  parameter_name: Optional[str] = None,
                  rolling_date: Optional['outputs.TemplateRollingDateConfiguration'] = None,
                  time_granularity: Optional['TemplateTimeGranularity'] = None,
                  value: Optional[str] = None):
         pulumi.set(__self__, "column", column)
         pulumi.set(__self__, "filter_id", filter_id)
+        if default_filter_control_configuration is not None:
+            pulumi.set(__self__, "default_filter_control_configuration", default_filter_control_configuration)
         if parameter_name is not None:
             pulumi.set(__self__, "parameter_name", parameter_name)
         if rolling_date is not None:
@@ -72779,6 +74437,11 @@ class TemplateTimeEqualityFilter(dict):
     @pulumi.getter(name="filterId")
     def filter_id(self) -> str:
         return pulumi.get(self, "filter_id")
+
+    @property
+    @pulumi.getter(name="defaultFilterControlConfiguration")
+    def default_filter_control_configuration(self) -> Optional['outputs.TemplateDefaultFilterControlConfiguration']:
+        return pulumi.get(self, "default_filter_control_configuration")
 
     @property
     @pulumi.getter(name="parameterName")
@@ -72864,6 +74527,8 @@ class TemplateTimeRangeFilter(dict):
             suggest = "filter_id"
         elif key == "nullOption":
             suggest = "null_option"
+        elif key == "defaultFilterControlConfiguration":
+            suggest = "default_filter_control_configuration"
         elif key == "excludePeriodConfiguration":
             suggest = "exclude_period_configuration"
         elif key == "includeMaximum":
@@ -72892,6 +74557,7 @@ class TemplateTimeRangeFilter(dict):
                  column: 'outputs.TemplateColumnIdentifier',
                  filter_id: str,
                  null_option: 'TemplateFilterNullOption',
+                 default_filter_control_configuration: Optional['outputs.TemplateDefaultFilterControlConfiguration'] = None,
                  exclude_period_configuration: Optional['outputs.TemplateExcludePeriodConfiguration'] = None,
                  include_maximum: Optional[bool] = None,
                  include_minimum: Optional[bool] = None,
@@ -72901,6 +74567,8 @@ class TemplateTimeRangeFilter(dict):
         pulumi.set(__self__, "column", column)
         pulumi.set(__self__, "filter_id", filter_id)
         pulumi.set(__self__, "null_option", null_option)
+        if default_filter_control_configuration is not None:
+            pulumi.set(__self__, "default_filter_control_configuration", default_filter_control_configuration)
         if exclude_period_configuration is not None:
             pulumi.set(__self__, "exclude_period_configuration", exclude_period_configuration)
         if include_maximum is not None:
@@ -72928,6 +74596,11 @@ class TemplateTimeRangeFilter(dict):
     @pulumi.getter(name="nullOption")
     def null_option(self) -> 'TemplateFilterNullOption':
         return pulumi.get(self, "null_option")
+
+    @property
+    @pulumi.getter(name="defaultFilterControlConfiguration")
+    def default_filter_control_configuration(self) -> Optional['outputs.TemplateDefaultFilterControlConfiguration']:
+        return pulumi.get(self, "default_filter_control_configuration")
 
     @property
     @pulumi.getter(name="excludePeriodConfiguration")
@@ -73107,6 +74780,8 @@ class TemplateTopBottomFilter(dict):
             suggest = "aggregation_sort_configurations"
         elif key == "filterId":
             suggest = "filter_id"
+        elif key == "defaultFilterControlConfiguration":
+            suggest = "default_filter_control_configuration"
         elif key == "parameterName":
             suggest = "parameter_name"
         elif key == "timeGranularity":
@@ -73127,12 +74802,15 @@ class TemplateTopBottomFilter(dict):
                  aggregation_sort_configurations: Sequence['outputs.TemplateAggregationSortConfiguration'],
                  column: 'outputs.TemplateColumnIdentifier',
                  filter_id: str,
+                 default_filter_control_configuration: Optional['outputs.TemplateDefaultFilterControlConfiguration'] = None,
                  limit: Optional[float] = None,
                  parameter_name: Optional[str] = None,
                  time_granularity: Optional['TemplateTimeGranularity'] = None):
         pulumi.set(__self__, "aggregation_sort_configurations", aggregation_sort_configurations)
         pulumi.set(__self__, "column", column)
         pulumi.set(__self__, "filter_id", filter_id)
+        if default_filter_control_configuration is not None:
+            pulumi.set(__self__, "default_filter_control_configuration", default_filter_control_configuration)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
         if parameter_name is not None:
@@ -73154,6 +74832,11 @@ class TemplateTopBottomFilter(dict):
     @pulumi.getter(name="filterId")
     def filter_id(self) -> str:
         return pulumi.get(self, "filter_id")
+
+    @property
+    @pulumi.getter(name="defaultFilterControlConfiguration")
+    def default_filter_control_configuration(self) -> Optional['outputs.TemplateDefaultFilterControlConfiguration']:
+        return pulumi.get(self, "default_filter_control_configuration")
 
     @property
     @pulumi.getter
@@ -75384,19 +77067,33 @@ class TemplateWordCloudVisual(dict):
 
 @pulumi.output_type
 class ThemeBorderStyle(dict):
+    """
+    <p>The display options for tile borders for visuals.</p>
+    """
     def __init__(__self__, *,
                  show: Optional[bool] = None):
+        """
+        <p>The display options for tile borders for visuals.</p>
+        :param bool show: <p>The option to enable display of borders for visuals.</p>
+        """
         if show is not None:
             pulumi.set(__self__, "show", show)
 
     @property
     @pulumi.getter
     def show(self) -> Optional[bool]:
+        """
+        <p>The option to enable display of borders for visuals.</p>
+        """
         return pulumi.get(self, "show")
 
 
 @pulumi.output_type
 class ThemeConfiguration(dict):
+    """
+    <p>The theme configuration. This configuration contains all of the display properties for
+                a theme.</p>
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -75421,6 +77118,10 @@ class ThemeConfiguration(dict):
                  sheet: Optional['outputs.ThemeSheetStyle'] = None,
                  typography: Optional['outputs.ThemeTypography'] = None,
                  ui_color_palette: Optional['outputs.ThemeUiColorPalette'] = None):
+        """
+        <p>The theme configuration. This configuration contains all of the display properties for
+                    a theme.</p>
+        """
         if data_color_palette is not None:
             pulumi.set(__self__, "data_color_palette", data_color_palette)
         if sheet is not None:
@@ -75453,6 +77154,11 @@ class ThemeConfiguration(dict):
 
 @pulumi.output_type
 class ThemeDataColorPalette(dict):
+    """
+    <p>The theme colors that are used for data colors in charts. The colors description is a
+                hexadecimal color code that consists of six alphanumerical characters, prefixed with
+                    <code>#</code>, for example #37BFF5. </p>
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -75476,6 +77182,15 @@ class ThemeDataColorPalette(dict):
                  colors: Optional[Sequence[str]] = None,
                  empty_fill_color: Optional[str] = None,
                  min_max_gradient: Optional[Sequence[str]] = None):
+        """
+        <p>The theme colors that are used for data colors in charts. The colors description is a
+                    hexadecimal color code that consists of six alphanumerical characters, prefixed with
+                        <code>#</code>, for example #37BFF5. </p>
+        :param Sequence[str] colors: <p>The hexadecimal codes for the colors.</p>
+        :param str empty_fill_color: <p>The hexadecimal code of a color that applies to charts where a lack of data is
+                           highlighted.</p>
+        :param Sequence[str] min_max_gradient: <p>The minimum and maximum hexadecimal codes that describe a color gradient. </p>
+        """
         if colors is not None:
             pulumi.set(__self__, "colors", colors)
         if empty_fill_color is not None:
@@ -75486,24 +77201,41 @@ class ThemeDataColorPalette(dict):
     @property
     @pulumi.getter
     def colors(self) -> Optional[Sequence[str]]:
+        """
+        <p>The hexadecimal codes for the colors.</p>
+        """
         return pulumi.get(self, "colors")
 
     @property
     @pulumi.getter(name="emptyFillColor")
     def empty_fill_color(self) -> Optional[str]:
+        """
+        <p>The hexadecimal code of a color that applies to charts where a lack of data is
+                    highlighted.</p>
+        """
         return pulumi.get(self, "empty_fill_color")
 
     @property
     @pulumi.getter(name="minMaxGradient")
     def min_max_gradient(self) -> Optional[Sequence[str]]:
+        """
+        <p>The minimum and maximum hexadecimal codes that describe a color gradient. </p>
+        """
         return pulumi.get(self, "min_max_gradient")
 
 
 @pulumi.output_type
 class ThemeError(dict):
+    """
+    <p>Theme error.</p>
+    """
     def __init__(__self__, *,
                  message: Optional[str] = None,
                  type: Optional['ThemeErrorType'] = None):
+        """
+        <p>Theme error.</p>
+        :param str message: <p>The error message.</p>
+        """
         if message is not None:
             pulumi.set(__self__, "message", message)
         if type is not None:
@@ -75512,6 +77244,9 @@ class ThemeError(dict):
     @property
     @pulumi.getter
     def message(self) -> Optional[str]:
+        """
+        <p>The error message.</p>
+        """
         return pulumi.get(self, "message")
 
     @property
@@ -75552,51 +77287,118 @@ class ThemeFont(dict):
 
 @pulumi.output_type
 class ThemeGutterStyle(dict):
+    """
+    <p>The display options for gutter spacing between tiles on a sheet.</p>
+    """
     def __init__(__self__, *,
                  show: Optional[bool] = None):
+        """
+        <p>The display options for gutter spacing between tiles on a sheet.</p>
+        :param bool show: <p>This Boolean value controls whether to display a gutter space between sheet tiles.
+                       </p>
+        """
         if show is not None:
             pulumi.set(__self__, "show", show)
 
     @property
     @pulumi.getter
     def show(self) -> Optional[bool]:
+        """
+        <p>This Boolean value controls whether to display a gutter space between sheet tiles.
+                </p>
+        """
         return pulumi.get(self, "show")
 
 
 @pulumi.output_type
 class ThemeMarginStyle(dict):
+    """
+    <p>The display options for margins around the outside edge of sheets.</p>
+    """
     def __init__(__self__, *,
                  show: Optional[bool] = None):
+        """
+        <p>The display options for margins around the outside edge of sheets.</p>
+        :param bool show: <p>This Boolean value controls whether to display sheet margins.</p>
+        """
         if show is not None:
             pulumi.set(__self__, "show", show)
 
     @property
     @pulumi.getter
     def show(self) -> Optional[bool]:
+        """
+        <p>This Boolean value controls whether to display sheet margins.</p>
+        """
         return pulumi.get(self, "show")
 
 
 @pulumi.output_type
 class ThemeResourcePermission(dict):
+    """
+    <p>Permission for the resource.</p>
+    """
     def __init__(__self__, *,
                  actions: Sequence[str],
                  principal: str):
+        """
+        <p>Permission for the resource.</p>
+        :param Sequence[str] actions: <p>The IAM action to grant or revoke permissions on.</p>
+        :param str principal: <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+                           following:</p>
+                        <ul>
+                           <li>
+                              <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+                           </li>
+                           <li>
+                              <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+                           </li>
+                           <li>
+                              <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
+                                   ARN. Use this option only to share resources (templates) across Amazon Web Services accounts.
+                                   (This is less common.) </p>
+                           </li>
+                        </ul>
+        """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "principal", principal)
 
     @property
     @pulumi.getter
     def actions(self) -> Sequence[str]:
+        """
+        <p>The IAM action to grant or revoke permissions on.</p>
+        """
         return pulumi.get(self, "actions")
 
     @property
     @pulumi.getter
     def principal(self) -> str:
+        """
+        <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+                    following:</p>
+                 <ul>
+                    <li>
+                       <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+                    </li>
+                    <li>
+                       <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+                    </li>
+                    <li>
+                       <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
+                            ARN. Use this option only to share resources (templates) across Amazon Web Services accounts.
+                            (This is less common.) </p>
+                    </li>
+                 </ul>
+        """
         return pulumi.get(self, "principal")
 
 
 @pulumi.output_type
 class ThemeSheetStyle(dict):
+    """
+    <p>The theme display options for sheets. </p>
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -75617,6 +77419,9 @@ class ThemeSheetStyle(dict):
     def __init__(__self__, *,
                  tile: Optional['outputs.ThemeTileStyle'] = None,
                  tile_layout: Optional['outputs.ThemeTileLayoutStyle'] = None):
+        """
+        <p>The theme display options for sheets. </p>
+        """
         if tile is not None:
             pulumi.set(__self__, "tile", tile)
         if tile_layout is not None:
@@ -75635,9 +77440,15 @@ class ThemeSheetStyle(dict):
 
 @pulumi.output_type
 class ThemeTileLayoutStyle(dict):
+    """
+    <p>The display options for the layout of tiles on a sheet.</p>
+    """
     def __init__(__self__, *,
                  gutter: Optional['outputs.ThemeGutterStyle'] = None,
                  margin: Optional['outputs.ThemeMarginStyle'] = None):
+        """
+        <p>The display options for the layout of tiles on a sheet.</p>
+        """
         if gutter is not None:
             pulumi.set(__self__, "gutter", gutter)
         if margin is not None:
@@ -75656,8 +77467,14 @@ class ThemeTileLayoutStyle(dict):
 
 @pulumi.output_type
 class ThemeTileStyle(dict):
+    """
+    <p>Display options related to tiles on a sheet.</p>
+    """
     def __init__(__self__, *,
                  border: Optional['outputs.ThemeBorderStyle'] = None):
+        """
+        <p>Display options related to tiles on a sheet.</p>
+        """
         if border is not None:
             pulumi.set(__self__, "border", border)
 
@@ -75699,6 +77516,13 @@ class ThemeTypography(dict):
 
 @pulumi.output_type
 class ThemeUiColorPalette(dict):
+    """
+    <p>The theme colors that apply to UI and to charts, excluding data colors. The colors
+                description is a hexadecimal color code that consists of six alphanumerical characters,
+                prefixed with <code>#</code>, for example #37BFF5. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html">Using Themes in Amazon QuickSight</a> in the <i>Amazon QuickSight User
+                    Guide.</i>
+             </p>
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -75751,6 +77575,39 @@ class ThemeUiColorPalette(dict):
                  success_foreground: Optional[str] = None,
                  warning: Optional[str] = None,
                  warning_foreground: Optional[str] = None):
+        """
+        <p>The theme colors that apply to UI and to charts, excluding data colors. The colors
+                    description is a hexadecimal color code that consists of six alphanumerical characters,
+                    prefixed with <code>#</code>, for example #37BFF5. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html">Using Themes in Amazon QuickSight</a> in the <i>Amazon QuickSight User
+                        Guide.</i>
+                 </p>
+        :param str accent: <p>This color is that applies to selected states and buttons.</p>
+        :param str accent_foreground: <p>The foreground color that applies to any text or other elements that appear over the
+                           accent color.</p>
+        :param str danger: <p>The color that applies to error messages.</p>
+        :param str danger_foreground: <p>The foreground color that applies to any text or other elements that appear over the
+                           error color.</p>
+        :param str dimension: <p>The color that applies to the names of fields that are identified as
+                           dimensions.</p>
+        :param str dimension_foreground: <p>The foreground color that applies to any text or other elements that appear over the
+                           dimension color.</p>
+        :param str measure: <p>The color that applies to the names of fields that are identified as measures.</p>
+        :param str measure_foreground: <p>The foreground color that applies to any text or other elements that appear over the
+                           measure color.</p>
+        :param str primary_background: <p>The background color that applies to visuals and other high emphasis UI.</p>
+        :param str primary_foreground: <p>The color of text and other foreground elements that appear over the primary
+                           background regions, such as grid lines, borders, table banding, icons, and so on.</p>
+        :param str secondary_background: <p>The background color that applies to the sheet background and sheet controls.</p>
+        :param str secondary_foreground: <p>The foreground color that applies to any sheet title, sheet control text, or UI that
+                           appears over the secondary background.</p>
+        :param str success: <p>The color that applies to success messages, for example the check mark for a
+                           successful download.</p>
+        :param str success_foreground: <p>The foreground color that applies to any text or other elements that appear over the
+                           success color.</p>
+        :param str warning: <p>This color that applies to warning and informational messages.</p>
+        :param str warning_foreground: <p>The foreground color that applies to any text or other elements that appear over the
+                           warning color.</p>
+        """
         if accent is not None:
             pulumi.set(__self__, "accent", accent)
         if accent_foreground is not None:
@@ -75787,86 +77644,147 @@ class ThemeUiColorPalette(dict):
     @property
     @pulumi.getter
     def accent(self) -> Optional[str]:
+        """
+        <p>This color is that applies to selected states and buttons.</p>
+        """
         return pulumi.get(self, "accent")
 
     @property
     @pulumi.getter(name="accentForeground")
     def accent_foreground(self) -> Optional[str]:
+        """
+        <p>The foreground color that applies to any text or other elements that appear over the
+                    accent color.</p>
+        """
         return pulumi.get(self, "accent_foreground")
 
     @property
     @pulumi.getter
     def danger(self) -> Optional[str]:
+        """
+        <p>The color that applies to error messages.</p>
+        """
         return pulumi.get(self, "danger")
 
     @property
     @pulumi.getter(name="dangerForeground")
     def danger_foreground(self) -> Optional[str]:
+        """
+        <p>The foreground color that applies to any text or other elements that appear over the
+                    error color.</p>
+        """
         return pulumi.get(self, "danger_foreground")
 
     @property
     @pulumi.getter
     def dimension(self) -> Optional[str]:
+        """
+        <p>The color that applies to the names of fields that are identified as
+                    dimensions.</p>
+        """
         return pulumi.get(self, "dimension")
 
     @property
     @pulumi.getter(name="dimensionForeground")
     def dimension_foreground(self) -> Optional[str]:
+        """
+        <p>The foreground color that applies to any text or other elements that appear over the
+                    dimension color.</p>
+        """
         return pulumi.get(self, "dimension_foreground")
 
     @property
     @pulumi.getter
     def measure(self) -> Optional[str]:
+        """
+        <p>The color that applies to the names of fields that are identified as measures.</p>
+        """
         return pulumi.get(self, "measure")
 
     @property
     @pulumi.getter(name="measureForeground")
     def measure_foreground(self) -> Optional[str]:
+        """
+        <p>The foreground color that applies to any text or other elements that appear over the
+                    measure color.</p>
+        """
         return pulumi.get(self, "measure_foreground")
 
     @property
     @pulumi.getter(name="primaryBackground")
     def primary_background(self) -> Optional[str]:
+        """
+        <p>The background color that applies to visuals and other high emphasis UI.</p>
+        """
         return pulumi.get(self, "primary_background")
 
     @property
     @pulumi.getter(name="primaryForeground")
     def primary_foreground(self) -> Optional[str]:
+        """
+        <p>The color of text and other foreground elements that appear over the primary
+                    background regions, such as grid lines, borders, table banding, icons, and so on.</p>
+        """
         return pulumi.get(self, "primary_foreground")
 
     @property
     @pulumi.getter(name="secondaryBackground")
     def secondary_background(self) -> Optional[str]:
+        """
+        <p>The background color that applies to the sheet background and sheet controls.</p>
+        """
         return pulumi.get(self, "secondary_background")
 
     @property
     @pulumi.getter(name="secondaryForeground")
     def secondary_foreground(self) -> Optional[str]:
+        """
+        <p>The foreground color that applies to any sheet title, sheet control text, or UI that
+                    appears over the secondary background.</p>
+        """
         return pulumi.get(self, "secondary_foreground")
 
     @property
     @pulumi.getter
     def success(self) -> Optional[str]:
+        """
+        <p>The color that applies to success messages, for example the check mark for a
+                    successful download.</p>
+        """
         return pulumi.get(self, "success")
 
     @property
     @pulumi.getter(name="successForeground")
     def success_foreground(self) -> Optional[str]:
+        """
+        <p>The foreground color that applies to any text or other elements that appear over the
+                    success color.</p>
+        """
         return pulumi.get(self, "success_foreground")
 
     @property
     @pulumi.getter
     def warning(self) -> Optional[str]:
+        """
+        <p>This color that applies to warning and informational messages.</p>
+        """
         return pulumi.get(self, "warning")
 
     @property
     @pulumi.getter(name="warningForeground")
     def warning_foreground(self) -> Optional[str]:
+        """
+        <p>The foreground color that applies to any text or other elements that appear over the
+                    warning color.</p>
+        """
         return pulumi.get(self, "warning_foreground")
 
 
 @pulumi.output_type
 class ThemeVersion(dict):
+    """
+    <p>A version of a theme.</p>
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -75897,6 +77815,16 @@ class ThemeVersion(dict):
                  errors: Optional[Sequence['outputs.ThemeError']] = None,
                  status: Optional['ThemeResourceStatus'] = None,
                  version_number: Optional[float] = None):
+        """
+        <p>A version of a theme.</p>
+        :param str arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
+        :param str base_theme_id: <p>The Amazon QuickSight-defined ID of the theme that a custom theme inherits from. All
+                           themes initially inherit from a default Amazon QuickSight theme.</p>
+        :param str created_time: <p>The date and time that this theme version was created.</p>
+        :param str description: <p>The description of the theme.</p>
+        :param Sequence['ThemeError'] errors: <p>Errors associated with the theme.</p>
+        :param float version_number: <p>The version number of the theme.</p>
+        """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if base_theme_id is not None:
@@ -75917,11 +77845,18 @@ class ThemeVersion(dict):
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        <p>The Amazon Resource Name (ARN) of the resource.</p>
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="baseThemeId")
     def base_theme_id(self) -> Optional[str]:
+        """
+        <p>The Amazon QuickSight-defined ID of the theme that a custom theme inherits from. All
+                    themes initially inherit from a default Amazon QuickSight theme.</p>
+        """
         return pulumi.get(self, "base_theme_id")
 
     @property
@@ -75932,16 +77867,25 @@ class ThemeVersion(dict):
     @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> Optional[str]:
+        """
+        <p>The date and time that this theme version was created.</p>
+        """
         return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        <p>The description of the theme.</p>
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def errors(self) -> Optional[Sequence['outputs.ThemeError']]:
+        """
+        <p>Errors associated with the theme.</p>
+        """
         return pulumi.get(self, "errors")
 
     @property
@@ -75952,6 +77896,9 @@ class ThemeVersion(dict):
     @property
     @pulumi.getter(name="versionNumber")
     def version_number(self) -> Optional[float]:
+        """
+        <p>The version number of the theme.</p>
+        """
         return pulumi.get(self, "version_number")
 
 

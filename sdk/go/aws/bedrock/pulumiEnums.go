@@ -1620,6 +1620,1163 @@ func (in *dataSourceTypePtr) ToDataSourceTypePtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(DataSourceTypePtrOutput)
 }
 
+// Type of filter in content policy
+type GuardrailContentFilterType string
+
+const (
+	GuardrailContentFilterTypeSexual       = GuardrailContentFilterType("SEXUAL")
+	GuardrailContentFilterTypeViolence     = GuardrailContentFilterType("VIOLENCE")
+	GuardrailContentFilterTypeHate         = GuardrailContentFilterType("HATE")
+	GuardrailContentFilterTypeInsults      = GuardrailContentFilterType("INSULTS")
+	GuardrailContentFilterTypeMisconduct   = GuardrailContentFilterType("MISCONDUCT")
+	GuardrailContentFilterTypePromptAttack = GuardrailContentFilterType("PROMPT_ATTACK")
+)
+
+func (GuardrailContentFilterType) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuardrailContentFilterType)(nil)).Elem()
+}
+
+func (e GuardrailContentFilterType) ToGuardrailContentFilterTypeOutput() GuardrailContentFilterTypeOutput {
+	return pulumi.ToOutput(e).(GuardrailContentFilterTypeOutput)
+}
+
+func (e GuardrailContentFilterType) ToGuardrailContentFilterTypeOutputWithContext(ctx context.Context) GuardrailContentFilterTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(GuardrailContentFilterTypeOutput)
+}
+
+func (e GuardrailContentFilterType) ToGuardrailContentFilterTypePtrOutput() GuardrailContentFilterTypePtrOutput {
+	return e.ToGuardrailContentFilterTypePtrOutputWithContext(context.Background())
+}
+
+func (e GuardrailContentFilterType) ToGuardrailContentFilterTypePtrOutputWithContext(ctx context.Context) GuardrailContentFilterTypePtrOutput {
+	return GuardrailContentFilterType(e).ToGuardrailContentFilterTypeOutputWithContext(ctx).ToGuardrailContentFilterTypePtrOutputWithContext(ctx)
+}
+
+func (e GuardrailContentFilterType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GuardrailContentFilterType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GuardrailContentFilterType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e GuardrailContentFilterType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type GuardrailContentFilterTypeOutput struct{ *pulumi.OutputState }
+
+func (GuardrailContentFilterTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuardrailContentFilterType)(nil)).Elem()
+}
+
+func (o GuardrailContentFilterTypeOutput) ToGuardrailContentFilterTypeOutput() GuardrailContentFilterTypeOutput {
+	return o
+}
+
+func (o GuardrailContentFilterTypeOutput) ToGuardrailContentFilterTypeOutputWithContext(ctx context.Context) GuardrailContentFilterTypeOutput {
+	return o
+}
+
+func (o GuardrailContentFilterTypeOutput) ToGuardrailContentFilterTypePtrOutput() GuardrailContentFilterTypePtrOutput {
+	return o.ToGuardrailContentFilterTypePtrOutputWithContext(context.Background())
+}
+
+func (o GuardrailContentFilterTypeOutput) ToGuardrailContentFilterTypePtrOutputWithContext(ctx context.Context) GuardrailContentFilterTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GuardrailContentFilterType) *GuardrailContentFilterType {
+		return &v
+	}).(GuardrailContentFilterTypePtrOutput)
+}
+
+func (o GuardrailContentFilterTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o GuardrailContentFilterTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GuardrailContentFilterType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o GuardrailContentFilterTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GuardrailContentFilterTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GuardrailContentFilterType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type GuardrailContentFilterTypePtrOutput struct{ *pulumi.OutputState }
+
+func (GuardrailContentFilterTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GuardrailContentFilterType)(nil)).Elem()
+}
+
+func (o GuardrailContentFilterTypePtrOutput) ToGuardrailContentFilterTypePtrOutput() GuardrailContentFilterTypePtrOutput {
+	return o
+}
+
+func (o GuardrailContentFilterTypePtrOutput) ToGuardrailContentFilterTypePtrOutputWithContext(ctx context.Context) GuardrailContentFilterTypePtrOutput {
+	return o
+}
+
+func (o GuardrailContentFilterTypePtrOutput) Elem() GuardrailContentFilterTypeOutput {
+	return o.ApplyT(func(v *GuardrailContentFilterType) GuardrailContentFilterType {
+		if v != nil {
+			return *v
+		}
+		var ret GuardrailContentFilterType
+		return ret
+	}).(GuardrailContentFilterTypeOutput)
+}
+
+func (o GuardrailContentFilterTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GuardrailContentFilterTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *GuardrailContentFilterType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// GuardrailContentFilterTypeInput is an input type that accepts values of the GuardrailContentFilterType enum
+// A concrete instance of `GuardrailContentFilterTypeInput` can be one of the following:
+//
+//	GuardrailContentFilterTypeSexual
+//	GuardrailContentFilterTypeViolence
+//	GuardrailContentFilterTypeHate
+//	GuardrailContentFilterTypeInsults
+//	GuardrailContentFilterTypeMisconduct
+//	GuardrailContentFilterTypePromptAttack
+type GuardrailContentFilterTypeInput interface {
+	pulumi.Input
+
+	ToGuardrailContentFilterTypeOutput() GuardrailContentFilterTypeOutput
+	ToGuardrailContentFilterTypeOutputWithContext(context.Context) GuardrailContentFilterTypeOutput
+}
+
+var guardrailContentFilterTypePtrType = reflect.TypeOf((**GuardrailContentFilterType)(nil)).Elem()
+
+type GuardrailContentFilterTypePtrInput interface {
+	pulumi.Input
+
+	ToGuardrailContentFilterTypePtrOutput() GuardrailContentFilterTypePtrOutput
+	ToGuardrailContentFilterTypePtrOutputWithContext(context.Context) GuardrailContentFilterTypePtrOutput
+}
+
+type guardrailContentFilterTypePtr string
+
+func GuardrailContentFilterTypePtr(v string) GuardrailContentFilterTypePtrInput {
+	return (*guardrailContentFilterTypePtr)(&v)
+}
+
+func (*guardrailContentFilterTypePtr) ElementType() reflect.Type {
+	return guardrailContentFilterTypePtrType
+}
+
+func (in *guardrailContentFilterTypePtr) ToGuardrailContentFilterTypePtrOutput() GuardrailContentFilterTypePtrOutput {
+	return pulumi.ToOutput(in).(GuardrailContentFilterTypePtrOutput)
+}
+
+func (in *guardrailContentFilterTypePtr) ToGuardrailContentFilterTypePtrOutputWithContext(ctx context.Context) GuardrailContentFilterTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(GuardrailContentFilterTypePtrOutput)
+}
+
+// Strength for filters
+type GuardrailFilterStrength string
+
+const (
+	GuardrailFilterStrengthNone   = GuardrailFilterStrength("NONE")
+	GuardrailFilterStrengthLow    = GuardrailFilterStrength("LOW")
+	GuardrailFilterStrengthMedium = GuardrailFilterStrength("MEDIUM")
+	GuardrailFilterStrengthHigh   = GuardrailFilterStrength("HIGH")
+)
+
+func (GuardrailFilterStrength) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuardrailFilterStrength)(nil)).Elem()
+}
+
+func (e GuardrailFilterStrength) ToGuardrailFilterStrengthOutput() GuardrailFilterStrengthOutput {
+	return pulumi.ToOutput(e).(GuardrailFilterStrengthOutput)
+}
+
+func (e GuardrailFilterStrength) ToGuardrailFilterStrengthOutputWithContext(ctx context.Context) GuardrailFilterStrengthOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(GuardrailFilterStrengthOutput)
+}
+
+func (e GuardrailFilterStrength) ToGuardrailFilterStrengthPtrOutput() GuardrailFilterStrengthPtrOutput {
+	return e.ToGuardrailFilterStrengthPtrOutputWithContext(context.Background())
+}
+
+func (e GuardrailFilterStrength) ToGuardrailFilterStrengthPtrOutputWithContext(ctx context.Context) GuardrailFilterStrengthPtrOutput {
+	return GuardrailFilterStrength(e).ToGuardrailFilterStrengthOutputWithContext(ctx).ToGuardrailFilterStrengthPtrOutputWithContext(ctx)
+}
+
+func (e GuardrailFilterStrength) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GuardrailFilterStrength) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GuardrailFilterStrength) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e GuardrailFilterStrength) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type GuardrailFilterStrengthOutput struct{ *pulumi.OutputState }
+
+func (GuardrailFilterStrengthOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuardrailFilterStrength)(nil)).Elem()
+}
+
+func (o GuardrailFilterStrengthOutput) ToGuardrailFilterStrengthOutput() GuardrailFilterStrengthOutput {
+	return o
+}
+
+func (o GuardrailFilterStrengthOutput) ToGuardrailFilterStrengthOutputWithContext(ctx context.Context) GuardrailFilterStrengthOutput {
+	return o
+}
+
+func (o GuardrailFilterStrengthOutput) ToGuardrailFilterStrengthPtrOutput() GuardrailFilterStrengthPtrOutput {
+	return o.ToGuardrailFilterStrengthPtrOutputWithContext(context.Background())
+}
+
+func (o GuardrailFilterStrengthOutput) ToGuardrailFilterStrengthPtrOutputWithContext(ctx context.Context) GuardrailFilterStrengthPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GuardrailFilterStrength) *GuardrailFilterStrength {
+		return &v
+	}).(GuardrailFilterStrengthPtrOutput)
+}
+
+func (o GuardrailFilterStrengthOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o GuardrailFilterStrengthOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GuardrailFilterStrength) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o GuardrailFilterStrengthOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GuardrailFilterStrengthOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GuardrailFilterStrength) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type GuardrailFilterStrengthPtrOutput struct{ *pulumi.OutputState }
+
+func (GuardrailFilterStrengthPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GuardrailFilterStrength)(nil)).Elem()
+}
+
+func (o GuardrailFilterStrengthPtrOutput) ToGuardrailFilterStrengthPtrOutput() GuardrailFilterStrengthPtrOutput {
+	return o
+}
+
+func (o GuardrailFilterStrengthPtrOutput) ToGuardrailFilterStrengthPtrOutputWithContext(ctx context.Context) GuardrailFilterStrengthPtrOutput {
+	return o
+}
+
+func (o GuardrailFilterStrengthPtrOutput) Elem() GuardrailFilterStrengthOutput {
+	return o.ApplyT(func(v *GuardrailFilterStrength) GuardrailFilterStrength {
+		if v != nil {
+			return *v
+		}
+		var ret GuardrailFilterStrength
+		return ret
+	}).(GuardrailFilterStrengthOutput)
+}
+
+func (o GuardrailFilterStrengthPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GuardrailFilterStrengthPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *GuardrailFilterStrength) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// GuardrailFilterStrengthInput is an input type that accepts values of the GuardrailFilterStrength enum
+// A concrete instance of `GuardrailFilterStrengthInput` can be one of the following:
+//
+//	GuardrailFilterStrengthNone
+//	GuardrailFilterStrengthLow
+//	GuardrailFilterStrengthMedium
+//	GuardrailFilterStrengthHigh
+type GuardrailFilterStrengthInput interface {
+	pulumi.Input
+
+	ToGuardrailFilterStrengthOutput() GuardrailFilterStrengthOutput
+	ToGuardrailFilterStrengthOutputWithContext(context.Context) GuardrailFilterStrengthOutput
+}
+
+var guardrailFilterStrengthPtrType = reflect.TypeOf((**GuardrailFilterStrength)(nil)).Elem()
+
+type GuardrailFilterStrengthPtrInput interface {
+	pulumi.Input
+
+	ToGuardrailFilterStrengthPtrOutput() GuardrailFilterStrengthPtrOutput
+	ToGuardrailFilterStrengthPtrOutputWithContext(context.Context) GuardrailFilterStrengthPtrOutput
+}
+
+type guardrailFilterStrengthPtr string
+
+func GuardrailFilterStrengthPtr(v string) GuardrailFilterStrengthPtrInput {
+	return (*guardrailFilterStrengthPtr)(&v)
+}
+
+func (*guardrailFilterStrengthPtr) ElementType() reflect.Type {
+	return guardrailFilterStrengthPtrType
+}
+
+func (in *guardrailFilterStrengthPtr) ToGuardrailFilterStrengthPtrOutput() GuardrailFilterStrengthPtrOutput {
+	return pulumi.ToOutput(in).(GuardrailFilterStrengthPtrOutput)
+}
+
+func (in *guardrailFilterStrengthPtr) ToGuardrailFilterStrengthPtrOutputWithContext(ctx context.Context) GuardrailFilterStrengthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(GuardrailFilterStrengthPtrOutput)
+}
+
+// Options for managed words.
+type GuardrailManagedWordsType string
+
+const (
+	GuardrailManagedWordsTypeProfanity = GuardrailManagedWordsType("PROFANITY")
+)
+
+func (GuardrailManagedWordsType) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuardrailManagedWordsType)(nil)).Elem()
+}
+
+func (e GuardrailManagedWordsType) ToGuardrailManagedWordsTypeOutput() GuardrailManagedWordsTypeOutput {
+	return pulumi.ToOutput(e).(GuardrailManagedWordsTypeOutput)
+}
+
+func (e GuardrailManagedWordsType) ToGuardrailManagedWordsTypeOutputWithContext(ctx context.Context) GuardrailManagedWordsTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(GuardrailManagedWordsTypeOutput)
+}
+
+func (e GuardrailManagedWordsType) ToGuardrailManagedWordsTypePtrOutput() GuardrailManagedWordsTypePtrOutput {
+	return e.ToGuardrailManagedWordsTypePtrOutputWithContext(context.Background())
+}
+
+func (e GuardrailManagedWordsType) ToGuardrailManagedWordsTypePtrOutputWithContext(ctx context.Context) GuardrailManagedWordsTypePtrOutput {
+	return GuardrailManagedWordsType(e).ToGuardrailManagedWordsTypeOutputWithContext(ctx).ToGuardrailManagedWordsTypePtrOutputWithContext(ctx)
+}
+
+func (e GuardrailManagedWordsType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GuardrailManagedWordsType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GuardrailManagedWordsType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e GuardrailManagedWordsType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type GuardrailManagedWordsTypeOutput struct{ *pulumi.OutputState }
+
+func (GuardrailManagedWordsTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuardrailManagedWordsType)(nil)).Elem()
+}
+
+func (o GuardrailManagedWordsTypeOutput) ToGuardrailManagedWordsTypeOutput() GuardrailManagedWordsTypeOutput {
+	return o
+}
+
+func (o GuardrailManagedWordsTypeOutput) ToGuardrailManagedWordsTypeOutputWithContext(ctx context.Context) GuardrailManagedWordsTypeOutput {
+	return o
+}
+
+func (o GuardrailManagedWordsTypeOutput) ToGuardrailManagedWordsTypePtrOutput() GuardrailManagedWordsTypePtrOutput {
+	return o.ToGuardrailManagedWordsTypePtrOutputWithContext(context.Background())
+}
+
+func (o GuardrailManagedWordsTypeOutput) ToGuardrailManagedWordsTypePtrOutputWithContext(ctx context.Context) GuardrailManagedWordsTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GuardrailManagedWordsType) *GuardrailManagedWordsType {
+		return &v
+	}).(GuardrailManagedWordsTypePtrOutput)
+}
+
+func (o GuardrailManagedWordsTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o GuardrailManagedWordsTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GuardrailManagedWordsType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o GuardrailManagedWordsTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GuardrailManagedWordsTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GuardrailManagedWordsType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type GuardrailManagedWordsTypePtrOutput struct{ *pulumi.OutputState }
+
+func (GuardrailManagedWordsTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GuardrailManagedWordsType)(nil)).Elem()
+}
+
+func (o GuardrailManagedWordsTypePtrOutput) ToGuardrailManagedWordsTypePtrOutput() GuardrailManagedWordsTypePtrOutput {
+	return o
+}
+
+func (o GuardrailManagedWordsTypePtrOutput) ToGuardrailManagedWordsTypePtrOutputWithContext(ctx context.Context) GuardrailManagedWordsTypePtrOutput {
+	return o
+}
+
+func (o GuardrailManagedWordsTypePtrOutput) Elem() GuardrailManagedWordsTypeOutput {
+	return o.ApplyT(func(v *GuardrailManagedWordsType) GuardrailManagedWordsType {
+		if v != nil {
+			return *v
+		}
+		var ret GuardrailManagedWordsType
+		return ret
+	}).(GuardrailManagedWordsTypeOutput)
+}
+
+func (o GuardrailManagedWordsTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GuardrailManagedWordsTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *GuardrailManagedWordsType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// GuardrailManagedWordsTypeInput is an input type that accepts values of the GuardrailManagedWordsType enum
+// A concrete instance of `GuardrailManagedWordsTypeInput` can be one of the following:
+//
+//	GuardrailManagedWordsTypeProfanity
+type GuardrailManagedWordsTypeInput interface {
+	pulumi.Input
+
+	ToGuardrailManagedWordsTypeOutput() GuardrailManagedWordsTypeOutput
+	ToGuardrailManagedWordsTypeOutputWithContext(context.Context) GuardrailManagedWordsTypeOutput
+}
+
+var guardrailManagedWordsTypePtrType = reflect.TypeOf((**GuardrailManagedWordsType)(nil)).Elem()
+
+type GuardrailManagedWordsTypePtrInput interface {
+	pulumi.Input
+
+	ToGuardrailManagedWordsTypePtrOutput() GuardrailManagedWordsTypePtrOutput
+	ToGuardrailManagedWordsTypePtrOutputWithContext(context.Context) GuardrailManagedWordsTypePtrOutput
+}
+
+type guardrailManagedWordsTypePtr string
+
+func GuardrailManagedWordsTypePtr(v string) GuardrailManagedWordsTypePtrInput {
+	return (*guardrailManagedWordsTypePtr)(&v)
+}
+
+func (*guardrailManagedWordsTypePtr) ElementType() reflect.Type {
+	return guardrailManagedWordsTypePtrType
+}
+
+func (in *guardrailManagedWordsTypePtr) ToGuardrailManagedWordsTypePtrOutput() GuardrailManagedWordsTypePtrOutput {
+	return pulumi.ToOutput(in).(GuardrailManagedWordsTypePtrOutput)
+}
+
+func (in *guardrailManagedWordsTypePtr) ToGuardrailManagedWordsTypePtrOutputWithContext(ctx context.Context) GuardrailManagedWordsTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(GuardrailManagedWordsTypePtrOutput)
+}
+
+// The currently supported PII entities
+type GuardrailPiiEntityType string
+
+const (
+	GuardrailPiiEntityTypeAddress                             = GuardrailPiiEntityType("ADDRESS")
+	GuardrailPiiEntityTypeAge                                 = GuardrailPiiEntityType("AGE")
+	GuardrailPiiEntityTypeAwsAccessKey                        = GuardrailPiiEntityType("AWS_ACCESS_KEY")
+	GuardrailPiiEntityTypeAwsSecretKey                        = GuardrailPiiEntityType("AWS_SECRET_KEY")
+	GuardrailPiiEntityTypeCaHealthNumber                      = GuardrailPiiEntityType("CA_HEALTH_NUMBER")
+	GuardrailPiiEntityTypeCaSocialInsuranceNumber             = GuardrailPiiEntityType("CA_SOCIAL_INSURANCE_NUMBER")
+	GuardrailPiiEntityTypeCreditDebitCardCvv                  = GuardrailPiiEntityType("CREDIT_DEBIT_CARD_CVV")
+	GuardrailPiiEntityTypeCreditDebitCardExpiry               = GuardrailPiiEntityType("CREDIT_DEBIT_CARD_EXPIRY")
+	GuardrailPiiEntityTypeCreditDebitCardNumber               = GuardrailPiiEntityType("CREDIT_DEBIT_CARD_NUMBER")
+	GuardrailPiiEntityTypeDriverId                            = GuardrailPiiEntityType("DRIVER_ID")
+	GuardrailPiiEntityTypeEmail                               = GuardrailPiiEntityType("EMAIL")
+	GuardrailPiiEntityTypeInternationalBankAccountNumber      = GuardrailPiiEntityType("INTERNATIONAL_BANK_ACCOUNT_NUMBER")
+	GuardrailPiiEntityTypeIpAddress                           = GuardrailPiiEntityType("IP_ADDRESS")
+	GuardrailPiiEntityTypeLicensePlate                        = GuardrailPiiEntityType("LICENSE_PLATE")
+	GuardrailPiiEntityTypeMacAddress                          = GuardrailPiiEntityType("MAC_ADDRESS")
+	GuardrailPiiEntityTypeName                                = GuardrailPiiEntityType("NAME")
+	GuardrailPiiEntityTypePassword                            = GuardrailPiiEntityType("PASSWORD")
+	GuardrailPiiEntityTypePhone                               = GuardrailPiiEntityType("PHONE")
+	GuardrailPiiEntityTypePin                                 = GuardrailPiiEntityType("PIN")
+	GuardrailPiiEntityTypeSwiftCode                           = GuardrailPiiEntityType("SWIFT_CODE")
+	GuardrailPiiEntityTypeUkNationalHealthServiceNumber       = GuardrailPiiEntityType("UK_NATIONAL_HEALTH_SERVICE_NUMBER")
+	GuardrailPiiEntityTypeUkNationalInsuranceNumber           = GuardrailPiiEntityType("UK_NATIONAL_INSURANCE_NUMBER")
+	GuardrailPiiEntityTypeUkUniqueTaxpayerReferenceNumber     = GuardrailPiiEntityType("UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER")
+	GuardrailPiiEntityTypeUrl                                 = GuardrailPiiEntityType("URL")
+	GuardrailPiiEntityTypeUsername                            = GuardrailPiiEntityType("USERNAME")
+	GuardrailPiiEntityTypeUsBankAccountNumber                 = GuardrailPiiEntityType("US_BANK_ACCOUNT_NUMBER")
+	GuardrailPiiEntityTypeUsBankRoutingNumber                 = GuardrailPiiEntityType("US_BANK_ROUTING_NUMBER")
+	GuardrailPiiEntityTypeUsIndividualTaxIdentificationNumber = GuardrailPiiEntityType("US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER")
+	GuardrailPiiEntityTypeUsPassportNumber                    = GuardrailPiiEntityType("US_PASSPORT_NUMBER")
+	GuardrailPiiEntityTypeUsSocialSecurityNumber              = GuardrailPiiEntityType("US_SOCIAL_SECURITY_NUMBER")
+	GuardrailPiiEntityTypeVehicleIdentificationNumber         = GuardrailPiiEntityType("VEHICLE_IDENTIFICATION_NUMBER")
+)
+
+func (GuardrailPiiEntityType) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuardrailPiiEntityType)(nil)).Elem()
+}
+
+func (e GuardrailPiiEntityType) ToGuardrailPiiEntityTypeOutput() GuardrailPiiEntityTypeOutput {
+	return pulumi.ToOutput(e).(GuardrailPiiEntityTypeOutput)
+}
+
+func (e GuardrailPiiEntityType) ToGuardrailPiiEntityTypeOutputWithContext(ctx context.Context) GuardrailPiiEntityTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(GuardrailPiiEntityTypeOutput)
+}
+
+func (e GuardrailPiiEntityType) ToGuardrailPiiEntityTypePtrOutput() GuardrailPiiEntityTypePtrOutput {
+	return e.ToGuardrailPiiEntityTypePtrOutputWithContext(context.Background())
+}
+
+func (e GuardrailPiiEntityType) ToGuardrailPiiEntityTypePtrOutputWithContext(ctx context.Context) GuardrailPiiEntityTypePtrOutput {
+	return GuardrailPiiEntityType(e).ToGuardrailPiiEntityTypeOutputWithContext(ctx).ToGuardrailPiiEntityTypePtrOutputWithContext(ctx)
+}
+
+func (e GuardrailPiiEntityType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GuardrailPiiEntityType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GuardrailPiiEntityType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e GuardrailPiiEntityType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type GuardrailPiiEntityTypeOutput struct{ *pulumi.OutputState }
+
+func (GuardrailPiiEntityTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuardrailPiiEntityType)(nil)).Elem()
+}
+
+func (o GuardrailPiiEntityTypeOutput) ToGuardrailPiiEntityTypeOutput() GuardrailPiiEntityTypeOutput {
+	return o
+}
+
+func (o GuardrailPiiEntityTypeOutput) ToGuardrailPiiEntityTypeOutputWithContext(ctx context.Context) GuardrailPiiEntityTypeOutput {
+	return o
+}
+
+func (o GuardrailPiiEntityTypeOutput) ToGuardrailPiiEntityTypePtrOutput() GuardrailPiiEntityTypePtrOutput {
+	return o.ToGuardrailPiiEntityTypePtrOutputWithContext(context.Background())
+}
+
+func (o GuardrailPiiEntityTypeOutput) ToGuardrailPiiEntityTypePtrOutputWithContext(ctx context.Context) GuardrailPiiEntityTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GuardrailPiiEntityType) *GuardrailPiiEntityType {
+		return &v
+	}).(GuardrailPiiEntityTypePtrOutput)
+}
+
+func (o GuardrailPiiEntityTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o GuardrailPiiEntityTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GuardrailPiiEntityType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o GuardrailPiiEntityTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GuardrailPiiEntityTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GuardrailPiiEntityType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type GuardrailPiiEntityTypePtrOutput struct{ *pulumi.OutputState }
+
+func (GuardrailPiiEntityTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GuardrailPiiEntityType)(nil)).Elem()
+}
+
+func (o GuardrailPiiEntityTypePtrOutput) ToGuardrailPiiEntityTypePtrOutput() GuardrailPiiEntityTypePtrOutput {
+	return o
+}
+
+func (o GuardrailPiiEntityTypePtrOutput) ToGuardrailPiiEntityTypePtrOutputWithContext(ctx context.Context) GuardrailPiiEntityTypePtrOutput {
+	return o
+}
+
+func (o GuardrailPiiEntityTypePtrOutput) Elem() GuardrailPiiEntityTypeOutput {
+	return o.ApplyT(func(v *GuardrailPiiEntityType) GuardrailPiiEntityType {
+		if v != nil {
+			return *v
+		}
+		var ret GuardrailPiiEntityType
+		return ret
+	}).(GuardrailPiiEntityTypeOutput)
+}
+
+func (o GuardrailPiiEntityTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GuardrailPiiEntityTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *GuardrailPiiEntityType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// GuardrailPiiEntityTypeInput is an input type that accepts values of the GuardrailPiiEntityType enum
+// A concrete instance of `GuardrailPiiEntityTypeInput` can be one of the following:
+//
+//	GuardrailPiiEntityTypeAddress
+//	GuardrailPiiEntityTypeAge
+//	GuardrailPiiEntityTypeAwsAccessKey
+//	GuardrailPiiEntityTypeAwsSecretKey
+//	GuardrailPiiEntityTypeCaHealthNumber
+//	GuardrailPiiEntityTypeCaSocialInsuranceNumber
+//	GuardrailPiiEntityTypeCreditDebitCardCvv
+//	GuardrailPiiEntityTypeCreditDebitCardExpiry
+//	GuardrailPiiEntityTypeCreditDebitCardNumber
+//	GuardrailPiiEntityTypeDriverId
+//	GuardrailPiiEntityTypeEmail
+//	GuardrailPiiEntityTypeInternationalBankAccountNumber
+//	GuardrailPiiEntityTypeIpAddress
+//	GuardrailPiiEntityTypeLicensePlate
+//	GuardrailPiiEntityTypeMacAddress
+//	GuardrailPiiEntityTypeName
+//	GuardrailPiiEntityTypePassword
+//	GuardrailPiiEntityTypePhone
+//	GuardrailPiiEntityTypePin
+//	GuardrailPiiEntityTypeSwiftCode
+//	GuardrailPiiEntityTypeUkNationalHealthServiceNumber
+//	GuardrailPiiEntityTypeUkNationalInsuranceNumber
+//	GuardrailPiiEntityTypeUkUniqueTaxpayerReferenceNumber
+//	GuardrailPiiEntityTypeUrl
+//	GuardrailPiiEntityTypeUsername
+//	GuardrailPiiEntityTypeUsBankAccountNumber
+//	GuardrailPiiEntityTypeUsBankRoutingNumber
+//	GuardrailPiiEntityTypeUsIndividualTaxIdentificationNumber
+//	GuardrailPiiEntityTypeUsPassportNumber
+//	GuardrailPiiEntityTypeUsSocialSecurityNumber
+//	GuardrailPiiEntityTypeVehicleIdentificationNumber
+type GuardrailPiiEntityTypeInput interface {
+	pulumi.Input
+
+	ToGuardrailPiiEntityTypeOutput() GuardrailPiiEntityTypeOutput
+	ToGuardrailPiiEntityTypeOutputWithContext(context.Context) GuardrailPiiEntityTypeOutput
+}
+
+var guardrailPiiEntityTypePtrType = reflect.TypeOf((**GuardrailPiiEntityType)(nil)).Elem()
+
+type GuardrailPiiEntityTypePtrInput interface {
+	pulumi.Input
+
+	ToGuardrailPiiEntityTypePtrOutput() GuardrailPiiEntityTypePtrOutput
+	ToGuardrailPiiEntityTypePtrOutputWithContext(context.Context) GuardrailPiiEntityTypePtrOutput
+}
+
+type guardrailPiiEntityTypePtr string
+
+func GuardrailPiiEntityTypePtr(v string) GuardrailPiiEntityTypePtrInput {
+	return (*guardrailPiiEntityTypePtr)(&v)
+}
+
+func (*guardrailPiiEntityTypePtr) ElementType() reflect.Type {
+	return guardrailPiiEntityTypePtrType
+}
+
+func (in *guardrailPiiEntityTypePtr) ToGuardrailPiiEntityTypePtrOutput() GuardrailPiiEntityTypePtrOutput {
+	return pulumi.ToOutput(in).(GuardrailPiiEntityTypePtrOutput)
+}
+
+func (in *guardrailPiiEntityTypePtr) ToGuardrailPiiEntityTypePtrOutputWithContext(ctx context.Context) GuardrailPiiEntityTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(GuardrailPiiEntityTypePtrOutput)
+}
+
+// Options for sensitive information action.
+type GuardrailSensitiveInformationAction string
+
+const (
+	GuardrailSensitiveInformationActionBlock     = GuardrailSensitiveInformationAction("BLOCK")
+	GuardrailSensitiveInformationActionAnonymize = GuardrailSensitiveInformationAction("ANONYMIZE")
+)
+
+func (GuardrailSensitiveInformationAction) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuardrailSensitiveInformationAction)(nil)).Elem()
+}
+
+func (e GuardrailSensitiveInformationAction) ToGuardrailSensitiveInformationActionOutput() GuardrailSensitiveInformationActionOutput {
+	return pulumi.ToOutput(e).(GuardrailSensitiveInformationActionOutput)
+}
+
+func (e GuardrailSensitiveInformationAction) ToGuardrailSensitiveInformationActionOutputWithContext(ctx context.Context) GuardrailSensitiveInformationActionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(GuardrailSensitiveInformationActionOutput)
+}
+
+func (e GuardrailSensitiveInformationAction) ToGuardrailSensitiveInformationActionPtrOutput() GuardrailSensitiveInformationActionPtrOutput {
+	return e.ToGuardrailSensitiveInformationActionPtrOutputWithContext(context.Background())
+}
+
+func (e GuardrailSensitiveInformationAction) ToGuardrailSensitiveInformationActionPtrOutputWithContext(ctx context.Context) GuardrailSensitiveInformationActionPtrOutput {
+	return GuardrailSensitiveInformationAction(e).ToGuardrailSensitiveInformationActionOutputWithContext(ctx).ToGuardrailSensitiveInformationActionPtrOutputWithContext(ctx)
+}
+
+func (e GuardrailSensitiveInformationAction) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GuardrailSensitiveInformationAction) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GuardrailSensitiveInformationAction) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e GuardrailSensitiveInformationAction) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type GuardrailSensitiveInformationActionOutput struct{ *pulumi.OutputState }
+
+func (GuardrailSensitiveInformationActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuardrailSensitiveInformationAction)(nil)).Elem()
+}
+
+func (o GuardrailSensitiveInformationActionOutput) ToGuardrailSensitiveInformationActionOutput() GuardrailSensitiveInformationActionOutput {
+	return o
+}
+
+func (o GuardrailSensitiveInformationActionOutput) ToGuardrailSensitiveInformationActionOutputWithContext(ctx context.Context) GuardrailSensitiveInformationActionOutput {
+	return o
+}
+
+func (o GuardrailSensitiveInformationActionOutput) ToGuardrailSensitiveInformationActionPtrOutput() GuardrailSensitiveInformationActionPtrOutput {
+	return o.ToGuardrailSensitiveInformationActionPtrOutputWithContext(context.Background())
+}
+
+func (o GuardrailSensitiveInformationActionOutput) ToGuardrailSensitiveInformationActionPtrOutputWithContext(ctx context.Context) GuardrailSensitiveInformationActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GuardrailSensitiveInformationAction) *GuardrailSensitiveInformationAction {
+		return &v
+	}).(GuardrailSensitiveInformationActionPtrOutput)
+}
+
+func (o GuardrailSensitiveInformationActionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o GuardrailSensitiveInformationActionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GuardrailSensitiveInformationAction) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o GuardrailSensitiveInformationActionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GuardrailSensitiveInformationActionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GuardrailSensitiveInformationAction) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type GuardrailSensitiveInformationActionPtrOutput struct{ *pulumi.OutputState }
+
+func (GuardrailSensitiveInformationActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GuardrailSensitiveInformationAction)(nil)).Elem()
+}
+
+func (o GuardrailSensitiveInformationActionPtrOutput) ToGuardrailSensitiveInformationActionPtrOutput() GuardrailSensitiveInformationActionPtrOutput {
+	return o
+}
+
+func (o GuardrailSensitiveInformationActionPtrOutput) ToGuardrailSensitiveInformationActionPtrOutputWithContext(ctx context.Context) GuardrailSensitiveInformationActionPtrOutput {
+	return o
+}
+
+func (o GuardrailSensitiveInformationActionPtrOutput) Elem() GuardrailSensitiveInformationActionOutput {
+	return o.ApplyT(func(v *GuardrailSensitiveInformationAction) GuardrailSensitiveInformationAction {
+		if v != nil {
+			return *v
+		}
+		var ret GuardrailSensitiveInformationAction
+		return ret
+	}).(GuardrailSensitiveInformationActionOutput)
+}
+
+func (o GuardrailSensitiveInformationActionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GuardrailSensitiveInformationActionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *GuardrailSensitiveInformationAction) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// GuardrailSensitiveInformationActionInput is an input type that accepts values of the GuardrailSensitiveInformationAction enum
+// A concrete instance of `GuardrailSensitiveInformationActionInput` can be one of the following:
+//
+//	GuardrailSensitiveInformationActionBlock
+//	GuardrailSensitiveInformationActionAnonymize
+type GuardrailSensitiveInformationActionInput interface {
+	pulumi.Input
+
+	ToGuardrailSensitiveInformationActionOutput() GuardrailSensitiveInformationActionOutput
+	ToGuardrailSensitiveInformationActionOutputWithContext(context.Context) GuardrailSensitiveInformationActionOutput
+}
+
+var guardrailSensitiveInformationActionPtrType = reflect.TypeOf((**GuardrailSensitiveInformationAction)(nil)).Elem()
+
+type GuardrailSensitiveInformationActionPtrInput interface {
+	pulumi.Input
+
+	ToGuardrailSensitiveInformationActionPtrOutput() GuardrailSensitiveInformationActionPtrOutput
+	ToGuardrailSensitiveInformationActionPtrOutputWithContext(context.Context) GuardrailSensitiveInformationActionPtrOutput
+}
+
+type guardrailSensitiveInformationActionPtr string
+
+func GuardrailSensitiveInformationActionPtr(v string) GuardrailSensitiveInformationActionPtrInput {
+	return (*guardrailSensitiveInformationActionPtr)(&v)
+}
+
+func (*guardrailSensitiveInformationActionPtr) ElementType() reflect.Type {
+	return guardrailSensitiveInformationActionPtrType
+}
+
+func (in *guardrailSensitiveInformationActionPtr) ToGuardrailSensitiveInformationActionPtrOutput() GuardrailSensitiveInformationActionPtrOutput {
+	return pulumi.ToOutput(in).(GuardrailSensitiveInformationActionPtrOutput)
+}
+
+func (in *guardrailSensitiveInformationActionPtr) ToGuardrailSensitiveInformationActionPtrOutputWithContext(ctx context.Context) GuardrailSensitiveInformationActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(GuardrailSensitiveInformationActionPtrOutput)
+}
+
+// Status of the guardrail
+type GuardrailStatus string
+
+const (
+	GuardrailStatusCreating   = GuardrailStatus("CREATING")
+	GuardrailStatusUpdating   = GuardrailStatus("UPDATING")
+	GuardrailStatusVersioning = GuardrailStatus("VERSIONING")
+	GuardrailStatusReady      = GuardrailStatus("READY")
+	GuardrailStatusFailed     = GuardrailStatus("FAILED")
+	GuardrailStatusDeleting   = GuardrailStatus("DELETING")
+)
+
+type GuardrailStatusOutput struct{ *pulumi.OutputState }
+
+func (GuardrailStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuardrailStatus)(nil)).Elem()
+}
+
+func (o GuardrailStatusOutput) ToGuardrailStatusOutput() GuardrailStatusOutput {
+	return o
+}
+
+func (o GuardrailStatusOutput) ToGuardrailStatusOutputWithContext(ctx context.Context) GuardrailStatusOutput {
+	return o
+}
+
+func (o GuardrailStatusOutput) ToGuardrailStatusPtrOutput() GuardrailStatusPtrOutput {
+	return o.ToGuardrailStatusPtrOutputWithContext(context.Background())
+}
+
+func (o GuardrailStatusOutput) ToGuardrailStatusPtrOutputWithContext(ctx context.Context) GuardrailStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GuardrailStatus) *GuardrailStatus {
+		return &v
+	}).(GuardrailStatusPtrOutput)
+}
+
+func (o GuardrailStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o GuardrailStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GuardrailStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o GuardrailStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GuardrailStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GuardrailStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type GuardrailStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (GuardrailStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GuardrailStatus)(nil)).Elem()
+}
+
+func (o GuardrailStatusPtrOutput) ToGuardrailStatusPtrOutput() GuardrailStatusPtrOutput {
+	return o
+}
+
+func (o GuardrailStatusPtrOutput) ToGuardrailStatusPtrOutputWithContext(ctx context.Context) GuardrailStatusPtrOutput {
+	return o
+}
+
+func (o GuardrailStatusPtrOutput) Elem() GuardrailStatusOutput {
+	return o.ApplyT(func(v *GuardrailStatus) GuardrailStatus {
+		if v != nil {
+			return *v
+		}
+		var ret GuardrailStatus
+		return ret
+	}).(GuardrailStatusOutput)
+}
+
+func (o GuardrailStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GuardrailStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *GuardrailStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of topic in a policy
+type GuardrailTopicType string
+
+const (
+	GuardrailTopicTypeDeny = GuardrailTopicType("DENY")
+)
+
+func (GuardrailTopicType) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuardrailTopicType)(nil)).Elem()
+}
+
+func (e GuardrailTopicType) ToGuardrailTopicTypeOutput() GuardrailTopicTypeOutput {
+	return pulumi.ToOutput(e).(GuardrailTopicTypeOutput)
+}
+
+func (e GuardrailTopicType) ToGuardrailTopicTypeOutputWithContext(ctx context.Context) GuardrailTopicTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(GuardrailTopicTypeOutput)
+}
+
+func (e GuardrailTopicType) ToGuardrailTopicTypePtrOutput() GuardrailTopicTypePtrOutput {
+	return e.ToGuardrailTopicTypePtrOutputWithContext(context.Background())
+}
+
+func (e GuardrailTopicType) ToGuardrailTopicTypePtrOutputWithContext(ctx context.Context) GuardrailTopicTypePtrOutput {
+	return GuardrailTopicType(e).ToGuardrailTopicTypeOutputWithContext(ctx).ToGuardrailTopicTypePtrOutputWithContext(ctx)
+}
+
+func (e GuardrailTopicType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GuardrailTopicType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GuardrailTopicType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e GuardrailTopicType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type GuardrailTopicTypeOutput struct{ *pulumi.OutputState }
+
+func (GuardrailTopicTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuardrailTopicType)(nil)).Elem()
+}
+
+func (o GuardrailTopicTypeOutput) ToGuardrailTopicTypeOutput() GuardrailTopicTypeOutput {
+	return o
+}
+
+func (o GuardrailTopicTypeOutput) ToGuardrailTopicTypeOutputWithContext(ctx context.Context) GuardrailTopicTypeOutput {
+	return o
+}
+
+func (o GuardrailTopicTypeOutput) ToGuardrailTopicTypePtrOutput() GuardrailTopicTypePtrOutput {
+	return o.ToGuardrailTopicTypePtrOutputWithContext(context.Background())
+}
+
+func (o GuardrailTopicTypeOutput) ToGuardrailTopicTypePtrOutputWithContext(ctx context.Context) GuardrailTopicTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GuardrailTopicType) *GuardrailTopicType {
+		return &v
+	}).(GuardrailTopicTypePtrOutput)
+}
+
+func (o GuardrailTopicTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o GuardrailTopicTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GuardrailTopicType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o GuardrailTopicTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GuardrailTopicTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GuardrailTopicType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type GuardrailTopicTypePtrOutput struct{ *pulumi.OutputState }
+
+func (GuardrailTopicTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GuardrailTopicType)(nil)).Elem()
+}
+
+func (o GuardrailTopicTypePtrOutput) ToGuardrailTopicTypePtrOutput() GuardrailTopicTypePtrOutput {
+	return o
+}
+
+func (o GuardrailTopicTypePtrOutput) ToGuardrailTopicTypePtrOutputWithContext(ctx context.Context) GuardrailTopicTypePtrOutput {
+	return o
+}
+
+func (o GuardrailTopicTypePtrOutput) Elem() GuardrailTopicTypeOutput {
+	return o.ApplyT(func(v *GuardrailTopicType) GuardrailTopicType {
+		if v != nil {
+			return *v
+		}
+		var ret GuardrailTopicType
+		return ret
+	}).(GuardrailTopicTypeOutput)
+}
+
+func (o GuardrailTopicTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GuardrailTopicTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *GuardrailTopicType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// GuardrailTopicTypeInput is an input type that accepts values of the GuardrailTopicType enum
+// A concrete instance of `GuardrailTopicTypeInput` can be one of the following:
+//
+//	GuardrailTopicTypeDeny
+type GuardrailTopicTypeInput interface {
+	pulumi.Input
+
+	ToGuardrailTopicTypeOutput() GuardrailTopicTypeOutput
+	ToGuardrailTopicTypeOutputWithContext(context.Context) GuardrailTopicTypeOutput
+}
+
+var guardrailTopicTypePtrType = reflect.TypeOf((**GuardrailTopicType)(nil)).Elem()
+
+type GuardrailTopicTypePtrInput interface {
+	pulumi.Input
+
+	ToGuardrailTopicTypePtrOutput() GuardrailTopicTypePtrOutput
+	ToGuardrailTopicTypePtrOutputWithContext(context.Context) GuardrailTopicTypePtrOutput
+}
+
+type guardrailTopicTypePtr string
+
+func GuardrailTopicTypePtr(v string) GuardrailTopicTypePtrInput {
+	return (*guardrailTopicTypePtr)(&v)
+}
+
+func (*guardrailTopicTypePtr) ElementType() reflect.Type {
+	return guardrailTopicTypePtrType
+}
+
+func (in *guardrailTopicTypePtr) ToGuardrailTopicTypePtrOutput() GuardrailTopicTypePtrOutput {
+	return pulumi.ToOutput(in).(GuardrailTopicTypePtrOutput)
+}
+
+func (in *guardrailTopicTypePtr) ToGuardrailTopicTypePtrOutputWithContext(ctx context.Context) GuardrailTopicTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(GuardrailTopicTypePtrOutput)
+}
+
 // The status of a knowledge base.
 type KnowledgeBaseStatus string
 
@@ -2063,6 +3220,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceChunkingStrategyPtrInput)(nil)).Elem(), DataSourceChunkingStrategy("FIXED_SIZE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceTypeInput)(nil)).Elem(), DataSourceType("S3"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceTypePtrInput)(nil)).Elem(), DataSourceType("S3"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailContentFilterTypeInput)(nil)).Elem(), GuardrailContentFilterType("SEXUAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailContentFilterTypePtrInput)(nil)).Elem(), GuardrailContentFilterType("SEXUAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailFilterStrengthInput)(nil)).Elem(), GuardrailFilterStrength("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailFilterStrengthPtrInput)(nil)).Elem(), GuardrailFilterStrength("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailManagedWordsTypeInput)(nil)).Elem(), GuardrailManagedWordsType("PROFANITY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailManagedWordsTypePtrInput)(nil)).Elem(), GuardrailManagedWordsType("PROFANITY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailPiiEntityTypeInput)(nil)).Elem(), GuardrailPiiEntityType("ADDRESS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailPiiEntityTypePtrInput)(nil)).Elem(), GuardrailPiiEntityType("ADDRESS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailSensitiveInformationActionInput)(nil)).Elem(), GuardrailSensitiveInformationAction("BLOCK"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailSensitiveInformationActionPtrInput)(nil)).Elem(), GuardrailSensitiveInformationAction("BLOCK"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailTopicTypeInput)(nil)).Elem(), GuardrailTopicType("DENY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailTopicTypePtrInput)(nil)).Elem(), GuardrailTopicType("DENY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseStorageTypeInput)(nil)).Elem(), KnowledgeBaseStorageType("OPENSEARCH_SERVERLESS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseStorageTypePtrInput)(nil)).Elem(), KnowledgeBaseStorageType("OPENSEARCH_SERVERLESS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseTypeInput)(nil)).Elem(), KnowledgeBaseType("VECTOR"))
@@ -2089,6 +3258,20 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceStatusPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceTypeOutput{})
 	pulumi.RegisterOutputType(DataSourceTypePtrOutput{})
+	pulumi.RegisterOutputType(GuardrailContentFilterTypeOutput{})
+	pulumi.RegisterOutputType(GuardrailContentFilterTypePtrOutput{})
+	pulumi.RegisterOutputType(GuardrailFilterStrengthOutput{})
+	pulumi.RegisterOutputType(GuardrailFilterStrengthPtrOutput{})
+	pulumi.RegisterOutputType(GuardrailManagedWordsTypeOutput{})
+	pulumi.RegisterOutputType(GuardrailManagedWordsTypePtrOutput{})
+	pulumi.RegisterOutputType(GuardrailPiiEntityTypeOutput{})
+	pulumi.RegisterOutputType(GuardrailPiiEntityTypePtrOutput{})
+	pulumi.RegisterOutputType(GuardrailSensitiveInformationActionOutput{})
+	pulumi.RegisterOutputType(GuardrailSensitiveInformationActionPtrOutput{})
+	pulumi.RegisterOutputType(GuardrailStatusOutput{})
+	pulumi.RegisterOutputType(GuardrailStatusPtrOutput{})
+	pulumi.RegisterOutputType(GuardrailTopicTypeOutput{})
+	pulumi.RegisterOutputType(GuardrailTopicTypePtrOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseStatusOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseStatusPtrOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseStorageTypeOutput{})

@@ -13,6 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardFilterControl
     {
+        public readonly Outputs.DashboardFilterCrossSheetControl? CrossSheet;
         public readonly Outputs.DashboardFilterDateTimePickerControl? DateTimePicker;
         public readonly Outputs.DashboardFilterDropDownControl? Dropdown;
         public readonly Outputs.DashboardFilterListControl? List;
@@ -23,6 +24,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
         [OutputConstructor]
         private DashboardFilterControl(
+            Outputs.DashboardFilterCrossSheetControl? crossSheet,
+
             Outputs.DashboardFilterDateTimePickerControl? dateTimePicker,
 
             Outputs.DashboardFilterDropDownControl? dropdown,
@@ -37,6 +40,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Outputs.DashboardFilterTextFieldControl? textField)
         {
+            CrossSheet = crossSheet;
             DateTimePicker = dateTimePicker;
             Dropdown = dropdown;
             List = list;

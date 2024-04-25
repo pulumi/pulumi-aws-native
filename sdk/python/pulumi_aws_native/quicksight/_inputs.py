@@ -124,12 +124,21 @@ __all__ = [
     'AnalysisDecimalParameterArgs',
     'AnalysisDecimalPlacesConfigurationArgs',
     'AnalysisDecimalValueWhenUnsetConfigurationArgs',
+    'AnalysisDefaultDateTimePickerControlOptionsArgs',
+    'AnalysisDefaultFilterControlConfigurationArgs',
+    'AnalysisDefaultFilterControlOptionsArgs',
+    'AnalysisDefaultFilterDropDownControlOptionsArgs',
+    'AnalysisDefaultFilterListControlOptionsArgs',
     'AnalysisDefaultFreeFormLayoutConfigurationArgs',
     'AnalysisDefaultGridLayoutConfigurationArgs',
     'AnalysisDefaultInteractiveLayoutConfigurationArgs',
     'AnalysisDefaultNewSheetConfigurationArgs',
     'AnalysisDefaultPaginatedLayoutConfigurationArgs',
+    'AnalysisDefaultRelativeDateTimeControlOptionsArgs',
     'AnalysisDefaultSectionBasedLayoutConfigurationArgs',
+    'AnalysisDefaultSliderControlOptionsArgs',
+    'AnalysisDefaultTextAreaControlOptionsArgs',
+    'AnalysisDefaultTextFieldControlOptionsArgs',
     'AnalysisDefaultsArgs',
     'AnalysisDefinitionArgs',
     'AnalysisDestinationParameterValueConfigurationArgs',
@@ -159,6 +168,7 @@ __all__ = [
     'AnalysisFilledMapSortConfigurationArgs',
     'AnalysisFilledMapVisualArgs',
     'AnalysisFilterControlArgs',
+    'AnalysisFilterCrossSheetControlArgs',
     'AnalysisFilterDateTimePickerControlArgs',
     'AnalysisFilterDropDownControlArgs',
     'AnalysisFilterGroupArgs',
@@ -602,12 +612,21 @@ __all__ = [
     'DashboardDecimalParameterArgs',
     'DashboardDecimalPlacesConfigurationArgs',
     'DashboardDecimalValueWhenUnsetConfigurationArgs',
+    'DashboardDefaultDateTimePickerControlOptionsArgs',
+    'DashboardDefaultFilterControlConfigurationArgs',
+    'DashboardDefaultFilterControlOptionsArgs',
+    'DashboardDefaultFilterDropDownControlOptionsArgs',
+    'DashboardDefaultFilterListControlOptionsArgs',
     'DashboardDefaultFreeFormLayoutConfigurationArgs',
     'DashboardDefaultGridLayoutConfigurationArgs',
     'DashboardDefaultInteractiveLayoutConfigurationArgs',
     'DashboardDefaultNewSheetConfigurationArgs',
     'DashboardDefaultPaginatedLayoutConfigurationArgs',
+    'DashboardDefaultRelativeDateTimeControlOptionsArgs',
     'DashboardDefaultSectionBasedLayoutConfigurationArgs',
+    'DashboardDefaultSliderControlOptionsArgs',
+    'DashboardDefaultTextAreaControlOptionsArgs',
+    'DashboardDefaultTextFieldControlOptionsArgs',
     'DashboardDestinationParameterValueConfigurationArgs',
     'DashboardDimensionFieldArgs',
     'DashboardDonutCenterOptionsArgs',
@@ -636,6 +655,7 @@ __all__ = [
     'DashboardFilledMapSortConfigurationArgs',
     'DashboardFilledMapVisualArgs',
     'DashboardFilterControlArgs',
+    'DashboardFilterCrossSheetControlArgs',
     'DashboardFilterDateTimePickerControlArgs',
     'DashboardFilterDropDownControlArgs',
     'DashboardFilterGroupArgs',
@@ -1160,12 +1180,21 @@ __all__ = [
     'TemplateDecimalParameterDeclarationArgs',
     'TemplateDecimalPlacesConfigurationArgs',
     'TemplateDecimalValueWhenUnsetConfigurationArgs',
+    'TemplateDefaultDateTimePickerControlOptionsArgs',
+    'TemplateDefaultFilterControlConfigurationArgs',
+    'TemplateDefaultFilterControlOptionsArgs',
+    'TemplateDefaultFilterDropDownControlOptionsArgs',
+    'TemplateDefaultFilterListControlOptionsArgs',
     'TemplateDefaultFreeFormLayoutConfigurationArgs',
     'TemplateDefaultGridLayoutConfigurationArgs',
     'TemplateDefaultInteractiveLayoutConfigurationArgs',
     'TemplateDefaultNewSheetConfigurationArgs',
     'TemplateDefaultPaginatedLayoutConfigurationArgs',
+    'TemplateDefaultRelativeDateTimeControlOptionsArgs',
     'TemplateDefaultSectionBasedLayoutConfigurationArgs',
+    'TemplateDefaultSliderControlOptionsArgs',
+    'TemplateDefaultTextAreaControlOptionsArgs',
+    'TemplateDefaultTextFieldControlOptionsArgs',
     'TemplateDestinationParameterValueConfigurationArgs',
     'TemplateDimensionFieldArgs',
     'TemplateDonutCenterOptionsArgs',
@@ -1191,6 +1220,7 @@ __all__ = [
     'TemplateFilledMapSortConfigurationArgs',
     'TemplateFilledMapVisualArgs',
     'TemplateFilterControlArgs',
+    'TemplateFilterCrossSheetControlArgs',
     'TemplateFilterDateTimePickerControlArgs',
     'TemplateFilterDropDownControlArgs',
     'TemplateFilterGroupArgs',
@@ -3356,10 +3386,13 @@ class AnalysisCategoryFilterArgs:
     def __init__(__self__, *,
                  column: pulumi.Input['AnalysisColumnIdentifierArgs'],
                  configuration: pulumi.Input['AnalysisCategoryFilterConfigurationArgs'],
-                 filter_id: pulumi.Input[str]):
+                 filter_id: pulumi.Input[str],
+                 default_filter_control_configuration: Optional[pulumi.Input['AnalysisDefaultFilterControlConfigurationArgs']] = None):
         pulumi.set(__self__, "column", column)
         pulumi.set(__self__, "configuration", configuration)
         pulumi.set(__self__, "filter_id", filter_id)
+        if default_filter_control_configuration is not None:
+            pulumi.set(__self__, "default_filter_control_configuration", default_filter_control_configuration)
 
     @property
     @pulumi.getter
@@ -3387,6 +3420,15 @@ class AnalysisCategoryFilterArgs:
     @filter_id.setter
     def filter_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "filter_id", value)
+
+    @property
+    @pulumi.getter(name="defaultFilterControlConfiguration")
+    def default_filter_control_configuration(self) -> Optional[pulumi.Input['AnalysisDefaultFilterControlConfigurationArgs']]:
+        return pulumi.get(self, "default_filter_control_configuration")
+
+    @default_filter_control_configuration.setter
+    def default_filter_control_configuration(self, value: Optional[pulumi.Input['AnalysisDefaultFilterControlConfigurationArgs']]):
+        pulumi.set(self, "default_filter_control_configuration", value)
 
 
 @pulumi.input_type
@@ -6259,6 +6301,233 @@ class AnalysisDecimalValueWhenUnsetConfigurationArgs:
 
 
 @pulumi.input_type
+class AnalysisDefaultDateTimePickerControlOptionsArgs:
+    def __init__(__self__, *,
+                 display_options: Optional[pulumi.Input['AnalysisDateTimePickerControlDisplayOptionsArgs']] = None,
+                 type: Optional[pulumi.Input['AnalysisSheetControlDateTimePickerType']] = None):
+        if display_options is not None:
+            pulumi.set(__self__, "display_options", display_options)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="displayOptions")
+    def display_options(self) -> Optional[pulumi.Input['AnalysisDateTimePickerControlDisplayOptionsArgs']]:
+        return pulumi.get(self, "display_options")
+
+    @display_options.setter
+    def display_options(self, value: Optional[pulumi.Input['AnalysisDateTimePickerControlDisplayOptionsArgs']]):
+        pulumi.set(self, "display_options", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['AnalysisSheetControlDateTimePickerType']]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['AnalysisSheetControlDateTimePickerType']]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class AnalysisDefaultFilterControlConfigurationArgs:
+    def __init__(__self__, *,
+                 control_options: pulumi.Input['AnalysisDefaultFilterControlOptionsArgs'],
+                 title: pulumi.Input[str]):
+        pulumi.set(__self__, "control_options", control_options)
+        pulumi.set(__self__, "title", title)
+
+    @property
+    @pulumi.getter(name="controlOptions")
+    def control_options(self) -> pulumi.Input['AnalysisDefaultFilterControlOptionsArgs']:
+        return pulumi.get(self, "control_options")
+
+    @control_options.setter
+    def control_options(self, value: pulumi.Input['AnalysisDefaultFilterControlOptionsArgs']):
+        pulumi.set(self, "control_options", value)
+
+    @property
+    @pulumi.getter
+    def title(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: pulumi.Input[str]):
+        pulumi.set(self, "title", value)
+
+
+@pulumi.input_type
+class AnalysisDefaultFilterControlOptionsArgs:
+    def __init__(__self__, *,
+                 default_date_time_picker_options: Optional[pulumi.Input['AnalysisDefaultDateTimePickerControlOptionsArgs']] = None,
+                 default_dropdown_options: Optional[pulumi.Input['AnalysisDefaultFilterDropDownControlOptionsArgs']] = None,
+                 default_list_options: Optional[pulumi.Input['AnalysisDefaultFilterListControlOptionsArgs']] = None,
+                 default_relative_date_time_options: Optional[pulumi.Input['AnalysisDefaultRelativeDateTimeControlOptionsArgs']] = None,
+                 default_slider_options: Optional[pulumi.Input['AnalysisDefaultSliderControlOptionsArgs']] = None,
+                 default_text_area_options: Optional[pulumi.Input['AnalysisDefaultTextAreaControlOptionsArgs']] = None,
+                 default_text_field_options: Optional[pulumi.Input['AnalysisDefaultTextFieldControlOptionsArgs']] = None):
+        if default_date_time_picker_options is not None:
+            pulumi.set(__self__, "default_date_time_picker_options", default_date_time_picker_options)
+        if default_dropdown_options is not None:
+            pulumi.set(__self__, "default_dropdown_options", default_dropdown_options)
+        if default_list_options is not None:
+            pulumi.set(__self__, "default_list_options", default_list_options)
+        if default_relative_date_time_options is not None:
+            pulumi.set(__self__, "default_relative_date_time_options", default_relative_date_time_options)
+        if default_slider_options is not None:
+            pulumi.set(__self__, "default_slider_options", default_slider_options)
+        if default_text_area_options is not None:
+            pulumi.set(__self__, "default_text_area_options", default_text_area_options)
+        if default_text_field_options is not None:
+            pulumi.set(__self__, "default_text_field_options", default_text_field_options)
+
+    @property
+    @pulumi.getter(name="defaultDateTimePickerOptions")
+    def default_date_time_picker_options(self) -> Optional[pulumi.Input['AnalysisDefaultDateTimePickerControlOptionsArgs']]:
+        return pulumi.get(self, "default_date_time_picker_options")
+
+    @default_date_time_picker_options.setter
+    def default_date_time_picker_options(self, value: Optional[pulumi.Input['AnalysisDefaultDateTimePickerControlOptionsArgs']]):
+        pulumi.set(self, "default_date_time_picker_options", value)
+
+    @property
+    @pulumi.getter(name="defaultDropdownOptions")
+    def default_dropdown_options(self) -> Optional[pulumi.Input['AnalysisDefaultFilterDropDownControlOptionsArgs']]:
+        return pulumi.get(self, "default_dropdown_options")
+
+    @default_dropdown_options.setter
+    def default_dropdown_options(self, value: Optional[pulumi.Input['AnalysisDefaultFilterDropDownControlOptionsArgs']]):
+        pulumi.set(self, "default_dropdown_options", value)
+
+    @property
+    @pulumi.getter(name="defaultListOptions")
+    def default_list_options(self) -> Optional[pulumi.Input['AnalysisDefaultFilterListControlOptionsArgs']]:
+        return pulumi.get(self, "default_list_options")
+
+    @default_list_options.setter
+    def default_list_options(self, value: Optional[pulumi.Input['AnalysisDefaultFilterListControlOptionsArgs']]):
+        pulumi.set(self, "default_list_options", value)
+
+    @property
+    @pulumi.getter(name="defaultRelativeDateTimeOptions")
+    def default_relative_date_time_options(self) -> Optional[pulumi.Input['AnalysisDefaultRelativeDateTimeControlOptionsArgs']]:
+        return pulumi.get(self, "default_relative_date_time_options")
+
+    @default_relative_date_time_options.setter
+    def default_relative_date_time_options(self, value: Optional[pulumi.Input['AnalysisDefaultRelativeDateTimeControlOptionsArgs']]):
+        pulumi.set(self, "default_relative_date_time_options", value)
+
+    @property
+    @pulumi.getter(name="defaultSliderOptions")
+    def default_slider_options(self) -> Optional[pulumi.Input['AnalysisDefaultSliderControlOptionsArgs']]:
+        return pulumi.get(self, "default_slider_options")
+
+    @default_slider_options.setter
+    def default_slider_options(self, value: Optional[pulumi.Input['AnalysisDefaultSliderControlOptionsArgs']]):
+        pulumi.set(self, "default_slider_options", value)
+
+    @property
+    @pulumi.getter(name="defaultTextAreaOptions")
+    def default_text_area_options(self) -> Optional[pulumi.Input['AnalysisDefaultTextAreaControlOptionsArgs']]:
+        return pulumi.get(self, "default_text_area_options")
+
+    @default_text_area_options.setter
+    def default_text_area_options(self, value: Optional[pulumi.Input['AnalysisDefaultTextAreaControlOptionsArgs']]):
+        pulumi.set(self, "default_text_area_options", value)
+
+    @property
+    @pulumi.getter(name="defaultTextFieldOptions")
+    def default_text_field_options(self) -> Optional[pulumi.Input['AnalysisDefaultTextFieldControlOptionsArgs']]:
+        return pulumi.get(self, "default_text_field_options")
+
+    @default_text_field_options.setter
+    def default_text_field_options(self, value: Optional[pulumi.Input['AnalysisDefaultTextFieldControlOptionsArgs']]):
+        pulumi.set(self, "default_text_field_options", value)
+
+
+@pulumi.input_type
+class AnalysisDefaultFilterDropDownControlOptionsArgs:
+    def __init__(__self__, *,
+                 display_options: Optional[pulumi.Input['AnalysisDropDownControlDisplayOptionsArgs']] = None,
+                 selectable_values: Optional[pulumi.Input['AnalysisFilterSelectableValuesArgs']] = None,
+                 type: Optional[pulumi.Input['AnalysisSheetControlListType']] = None):
+        if display_options is not None:
+            pulumi.set(__self__, "display_options", display_options)
+        if selectable_values is not None:
+            pulumi.set(__self__, "selectable_values", selectable_values)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="displayOptions")
+    def display_options(self) -> Optional[pulumi.Input['AnalysisDropDownControlDisplayOptionsArgs']]:
+        return pulumi.get(self, "display_options")
+
+    @display_options.setter
+    def display_options(self, value: Optional[pulumi.Input['AnalysisDropDownControlDisplayOptionsArgs']]):
+        pulumi.set(self, "display_options", value)
+
+    @property
+    @pulumi.getter(name="selectableValues")
+    def selectable_values(self) -> Optional[pulumi.Input['AnalysisFilterSelectableValuesArgs']]:
+        return pulumi.get(self, "selectable_values")
+
+    @selectable_values.setter
+    def selectable_values(self, value: Optional[pulumi.Input['AnalysisFilterSelectableValuesArgs']]):
+        pulumi.set(self, "selectable_values", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['AnalysisSheetControlListType']]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['AnalysisSheetControlListType']]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class AnalysisDefaultFilterListControlOptionsArgs:
+    def __init__(__self__, *,
+                 display_options: Optional[pulumi.Input['AnalysisListControlDisplayOptionsArgs']] = None,
+                 selectable_values: Optional[pulumi.Input['AnalysisFilterSelectableValuesArgs']] = None,
+                 type: Optional[pulumi.Input['AnalysisSheetControlListType']] = None):
+        if display_options is not None:
+            pulumi.set(__self__, "display_options", display_options)
+        if selectable_values is not None:
+            pulumi.set(__self__, "selectable_values", selectable_values)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="displayOptions")
+    def display_options(self) -> Optional[pulumi.Input['AnalysisListControlDisplayOptionsArgs']]:
+        return pulumi.get(self, "display_options")
+
+    @display_options.setter
+    def display_options(self, value: Optional[pulumi.Input['AnalysisListControlDisplayOptionsArgs']]):
+        pulumi.set(self, "display_options", value)
+
+    @property
+    @pulumi.getter(name="selectableValues")
+    def selectable_values(self) -> Optional[pulumi.Input['AnalysisFilterSelectableValuesArgs']]:
+        return pulumi.get(self, "selectable_values")
+
+    @selectable_values.setter
+    def selectable_values(self, value: Optional[pulumi.Input['AnalysisFilterSelectableValuesArgs']]):
+        pulumi.set(self, "selectable_values", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['AnalysisSheetControlListType']]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['AnalysisSheetControlListType']]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
 class AnalysisDefaultFreeFormLayoutConfigurationArgs:
     def __init__(__self__, *,
                  canvas_size_options: pulumi.Input['AnalysisFreeFormLayoutCanvasSizeOptionsArgs']):
@@ -6378,6 +6647,23 @@ class AnalysisDefaultPaginatedLayoutConfigurationArgs:
 
 
 @pulumi.input_type
+class AnalysisDefaultRelativeDateTimeControlOptionsArgs:
+    def __init__(__self__, *,
+                 display_options: Optional[pulumi.Input['AnalysisRelativeDateTimeControlDisplayOptionsArgs']] = None):
+        if display_options is not None:
+            pulumi.set(__self__, "display_options", display_options)
+
+    @property
+    @pulumi.getter(name="displayOptions")
+    def display_options(self) -> Optional[pulumi.Input['AnalysisRelativeDateTimeControlDisplayOptionsArgs']]:
+        return pulumi.get(self, "display_options")
+
+    @display_options.setter
+    def display_options(self, value: Optional[pulumi.Input['AnalysisRelativeDateTimeControlDisplayOptionsArgs']]):
+        pulumi.set(self, "display_options", value)
+
+
+@pulumi.input_type
 class AnalysisDefaultSectionBasedLayoutConfigurationArgs:
     def __init__(__self__, *,
                  canvas_size_options: pulumi.Input['AnalysisSectionBasedLayoutCanvasSizeOptionsArgs']):
@@ -6391,6 +6677,114 @@ class AnalysisDefaultSectionBasedLayoutConfigurationArgs:
     @canvas_size_options.setter
     def canvas_size_options(self, value: pulumi.Input['AnalysisSectionBasedLayoutCanvasSizeOptionsArgs']):
         pulumi.set(self, "canvas_size_options", value)
+
+
+@pulumi.input_type
+class AnalysisDefaultSliderControlOptionsArgs:
+    def __init__(__self__, *,
+                 maximum_value: pulumi.Input[float],
+                 minimum_value: pulumi.Input[float],
+                 step_size: pulumi.Input[float],
+                 display_options: Optional[pulumi.Input['AnalysisSliderControlDisplayOptionsArgs']] = None,
+                 type: Optional[pulumi.Input['AnalysisSheetControlSliderType']] = None):
+        pulumi.set(__self__, "maximum_value", maximum_value)
+        pulumi.set(__self__, "minimum_value", minimum_value)
+        pulumi.set(__self__, "step_size", step_size)
+        if display_options is not None:
+            pulumi.set(__self__, "display_options", display_options)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="maximumValue")
+    def maximum_value(self) -> pulumi.Input[float]:
+        return pulumi.get(self, "maximum_value")
+
+    @maximum_value.setter
+    def maximum_value(self, value: pulumi.Input[float]):
+        pulumi.set(self, "maximum_value", value)
+
+    @property
+    @pulumi.getter(name="minimumValue")
+    def minimum_value(self) -> pulumi.Input[float]:
+        return pulumi.get(self, "minimum_value")
+
+    @minimum_value.setter
+    def minimum_value(self, value: pulumi.Input[float]):
+        pulumi.set(self, "minimum_value", value)
+
+    @property
+    @pulumi.getter(name="stepSize")
+    def step_size(self) -> pulumi.Input[float]:
+        return pulumi.get(self, "step_size")
+
+    @step_size.setter
+    def step_size(self, value: pulumi.Input[float]):
+        pulumi.set(self, "step_size", value)
+
+    @property
+    @pulumi.getter(name="displayOptions")
+    def display_options(self) -> Optional[pulumi.Input['AnalysisSliderControlDisplayOptionsArgs']]:
+        return pulumi.get(self, "display_options")
+
+    @display_options.setter
+    def display_options(self, value: Optional[pulumi.Input['AnalysisSliderControlDisplayOptionsArgs']]):
+        pulumi.set(self, "display_options", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['AnalysisSheetControlSliderType']]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['AnalysisSheetControlSliderType']]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class AnalysisDefaultTextAreaControlOptionsArgs:
+    def __init__(__self__, *,
+                 delimiter: Optional[pulumi.Input[str]] = None,
+                 display_options: Optional[pulumi.Input['AnalysisTextAreaControlDisplayOptionsArgs']] = None):
+        if delimiter is not None:
+            pulumi.set(__self__, "delimiter", delimiter)
+        if display_options is not None:
+            pulumi.set(__self__, "display_options", display_options)
+
+    @property
+    @pulumi.getter
+    def delimiter(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "delimiter")
+
+    @delimiter.setter
+    def delimiter(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "delimiter", value)
+
+    @property
+    @pulumi.getter(name="displayOptions")
+    def display_options(self) -> Optional[pulumi.Input['AnalysisTextAreaControlDisplayOptionsArgs']]:
+        return pulumi.get(self, "display_options")
+
+    @display_options.setter
+    def display_options(self, value: Optional[pulumi.Input['AnalysisTextAreaControlDisplayOptionsArgs']]):
+        pulumi.set(self, "display_options", value)
+
+
+@pulumi.input_type
+class AnalysisDefaultTextFieldControlOptionsArgs:
+    def __init__(__self__, *,
+                 display_options: Optional[pulumi.Input['AnalysisTextFieldControlDisplayOptionsArgs']] = None):
+        if display_options is not None:
+            pulumi.set(__self__, "display_options", display_options)
+
+    @property
+    @pulumi.getter(name="displayOptions")
+    def display_options(self) -> Optional[pulumi.Input['AnalysisTextFieldControlDisplayOptionsArgs']]:
+        return pulumi.get(self, "display_options")
+
+    @display_options.setter
+    def display_options(self, value: Optional[pulumi.Input['AnalysisTextFieldControlDisplayOptionsArgs']]):
+        pulumi.set(self, "display_options", value)
 
 
 @pulumi.input_type
@@ -7465,6 +7859,7 @@ class AnalysisFilledMapVisualArgs:
 @pulumi.input_type
 class AnalysisFilterControlArgs:
     def __init__(__self__, *,
+                 cross_sheet: Optional[pulumi.Input['AnalysisFilterCrossSheetControlArgs']] = None,
                  date_time_picker: Optional[pulumi.Input['AnalysisFilterDateTimePickerControlArgs']] = None,
                  dropdown: Optional[pulumi.Input['AnalysisFilterDropDownControlArgs']] = None,
                  list: Optional[pulumi.Input['AnalysisFilterListControlArgs']] = None,
@@ -7472,6 +7867,8 @@ class AnalysisFilterControlArgs:
                  slider: Optional[pulumi.Input['AnalysisFilterSliderControlArgs']] = None,
                  text_area: Optional[pulumi.Input['AnalysisFilterTextAreaControlArgs']] = None,
                  text_field: Optional[pulumi.Input['AnalysisFilterTextFieldControlArgs']] = None):
+        if cross_sheet is not None:
+            pulumi.set(__self__, "cross_sheet", cross_sheet)
         if date_time_picker is not None:
             pulumi.set(__self__, "date_time_picker", date_time_picker)
         if dropdown is not None:
@@ -7486,6 +7883,15 @@ class AnalysisFilterControlArgs:
             pulumi.set(__self__, "text_area", text_area)
         if text_field is not None:
             pulumi.set(__self__, "text_field", text_field)
+
+    @property
+    @pulumi.getter(name="crossSheet")
+    def cross_sheet(self) -> Optional[pulumi.Input['AnalysisFilterCrossSheetControlArgs']]:
+        return pulumi.get(self, "cross_sheet")
+
+    @cross_sheet.setter
+    def cross_sheet(self, value: Optional[pulumi.Input['AnalysisFilterCrossSheetControlArgs']]):
+        pulumi.set(self, "cross_sheet", value)
 
     @property
     @pulumi.getter(name="dateTimePicker")
@@ -7549,6 +7955,45 @@ class AnalysisFilterControlArgs:
     @text_field.setter
     def text_field(self, value: Optional[pulumi.Input['AnalysisFilterTextFieldControlArgs']]):
         pulumi.set(self, "text_field", value)
+
+
+@pulumi.input_type
+class AnalysisFilterCrossSheetControlArgs:
+    def __init__(__self__, *,
+                 filter_control_id: pulumi.Input[str],
+                 source_filter_id: pulumi.Input[str],
+                 cascading_control_configuration: Optional[pulumi.Input['AnalysisCascadingControlConfigurationArgs']] = None):
+        pulumi.set(__self__, "filter_control_id", filter_control_id)
+        pulumi.set(__self__, "source_filter_id", source_filter_id)
+        if cascading_control_configuration is not None:
+            pulumi.set(__self__, "cascading_control_configuration", cascading_control_configuration)
+
+    @property
+    @pulumi.getter(name="filterControlId")
+    def filter_control_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "filter_control_id")
+
+    @filter_control_id.setter
+    def filter_control_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "filter_control_id", value)
+
+    @property
+    @pulumi.getter(name="sourceFilterId")
+    def source_filter_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "source_filter_id")
+
+    @source_filter_id.setter
+    def source_filter_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source_filter_id", value)
+
+    @property
+    @pulumi.getter(name="cascadingControlConfiguration")
+    def cascading_control_configuration(self) -> Optional[pulumi.Input['AnalysisCascadingControlConfigurationArgs']]:
+        return pulumi.get(self, "cascading_control_configuration")
+
+    @cascading_control_configuration.setter
+    def cascading_control_configuration(self, value: Optional[pulumi.Input['AnalysisCascadingControlConfigurationArgs']]):
+        pulumi.set(self, "cascading_control_configuration", value)
 
 
 @pulumi.input_type
@@ -13230,6 +13675,7 @@ class AnalysisNumericEqualityFilterArgs:
                  match_operator: pulumi.Input['AnalysisNumericEqualityMatchOperator'],
                  null_option: pulumi.Input['AnalysisFilterNullOption'],
                  aggregation_function: Optional[pulumi.Input['AnalysisAggregationFunctionArgs']] = None,
+                 default_filter_control_configuration: Optional[pulumi.Input['AnalysisDefaultFilterControlConfigurationArgs']] = None,
                  parameter_name: Optional[pulumi.Input[str]] = None,
                  select_all_options: Optional[pulumi.Input['AnalysisNumericFilterSelectAllOptions']] = None,
                  value: Optional[pulumi.Input[float]] = None):
@@ -13239,6 +13685,8 @@ class AnalysisNumericEqualityFilterArgs:
         pulumi.set(__self__, "null_option", null_option)
         if aggregation_function is not None:
             pulumi.set(__self__, "aggregation_function", aggregation_function)
+        if default_filter_control_configuration is not None:
+            pulumi.set(__self__, "default_filter_control_configuration", default_filter_control_configuration)
         if parameter_name is not None:
             pulumi.set(__self__, "parameter_name", parameter_name)
         if select_all_options is not None:
@@ -13290,6 +13738,15 @@ class AnalysisNumericEqualityFilterArgs:
     @aggregation_function.setter
     def aggregation_function(self, value: Optional[pulumi.Input['AnalysisAggregationFunctionArgs']]):
         pulumi.set(self, "aggregation_function", value)
+
+    @property
+    @pulumi.getter(name="defaultFilterControlConfiguration")
+    def default_filter_control_configuration(self) -> Optional[pulumi.Input['AnalysisDefaultFilterControlConfigurationArgs']]:
+        return pulumi.get(self, "default_filter_control_configuration")
+
+    @default_filter_control_configuration.setter
+    def default_filter_control_configuration(self, value: Optional[pulumi.Input['AnalysisDefaultFilterControlConfigurationArgs']]):
+        pulumi.set(self, "default_filter_control_configuration", value)
 
     @property
     @pulumi.getter(name="parameterName")
@@ -13396,6 +13853,7 @@ class AnalysisNumericRangeFilterArgs:
                  filter_id: pulumi.Input[str],
                  null_option: pulumi.Input['AnalysisFilterNullOption'],
                  aggregation_function: Optional[pulumi.Input['AnalysisAggregationFunctionArgs']] = None,
+                 default_filter_control_configuration: Optional[pulumi.Input['AnalysisDefaultFilterControlConfigurationArgs']] = None,
                  include_maximum: Optional[pulumi.Input[bool]] = None,
                  include_minimum: Optional[pulumi.Input[bool]] = None,
                  range_maximum: Optional[pulumi.Input['AnalysisNumericRangeFilterValueArgs']] = None,
@@ -13406,6 +13864,8 @@ class AnalysisNumericRangeFilterArgs:
         pulumi.set(__self__, "null_option", null_option)
         if aggregation_function is not None:
             pulumi.set(__self__, "aggregation_function", aggregation_function)
+        if default_filter_control_configuration is not None:
+            pulumi.set(__self__, "default_filter_control_configuration", default_filter_control_configuration)
         if include_maximum is not None:
             pulumi.set(__self__, "include_maximum", include_maximum)
         if include_minimum is not None:
@@ -13452,6 +13912,15 @@ class AnalysisNumericRangeFilterArgs:
     @aggregation_function.setter
     def aggregation_function(self, value: Optional[pulumi.Input['AnalysisAggregationFunctionArgs']]):
         pulumi.set(self, "aggregation_function", value)
+
+    @property
+    @pulumi.getter(name="defaultFilterControlConfiguration")
+    def default_filter_control_configuration(self) -> Optional[pulumi.Input['AnalysisDefaultFilterControlConfigurationArgs']]:
+        return pulumi.get(self, "default_filter_control_configuration")
+
+    @default_filter_control_configuration.setter
+    def default_filter_control_configuration(self, value: Optional[pulumi.Input['AnalysisDefaultFilterControlConfigurationArgs']]):
+        pulumi.set(self, "default_filter_control_configuration", value)
 
     @property
     @pulumi.getter(name="includeMaximum")
@@ -16868,6 +17337,7 @@ class AnalysisRelativeDatesFilterArgs:
                  null_option: pulumi.Input['AnalysisFilterNullOption'],
                  relative_date_type: pulumi.Input['AnalysisRelativeDateType'],
                  time_granularity: pulumi.Input['AnalysisTimeGranularity'],
+                 default_filter_control_configuration: Optional[pulumi.Input['AnalysisDefaultFilterControlConfigurationArgs']] = None,
                  exclude_period_configuration: Optional[pulumi.Input['AnalysisExcludePeriodConfigurationArgs']] = None,
                  minimum_granularity: Optional[pulumi.Input['AnalysisTimeGranularity']] = None,
                  parameter_name: Optional[pulumi.Input[str]] = None,
@@ -16878,6 +17348,8 @@ class AnalysisRelativeDatesFilterArgs:
         pulumi.set(__self__, "null_option", null_option)
         pulumi.set(__self__, "relative_date_type", relative_date_type)
         pulumi.set(__self__, "time_granularity", time_granularity)
+        if default_filter_control_configuration is not None:
+            pulumi.set(__self__, "default_filter_control_configuration", default_filter_control_configuration)
         if exclude_period_configuration is not None:
             pulumi.set(__self__, "exclude_period_configuration", exclude_period_configuration)
         if minimum_granularity is not None:
@@ -16940,6 +17412,15 @@ class AnalysisRelativeDatesFilterArgs:
     @time_granularity.setter
     def time_granularity(self, value: pulumi.Input['AnalysisTimeGranularity']):
         pulumi.set(self, "time_granularity", value)
+
+    @property
+    @pulumi.getter(name="defaultFilterControlConfiguration")
+    def default_filter_control_configuration(self) -> Optional[pulumi.Input['AnalysisDefaultFilterControlConfigurationArgs']]:
+        return pulumi.get(self, "default_filter_control_configuration")
+
+    @default_filter_control_configuration.setter
+    def default_filter_control_configuration(self, value: Optional[pulumi.Input['AnalysisDefaultFilterControlConfigurationArgs']]):
+        pulumi.set(self, "default_filter_control_configuration", value)
 
     @property
     @pulumi.getter(name="excludePeriodConfiguration")
@@ -20212,12 +20693,15 @@ class AnalysisTimeEqualityFilterArgs:
     def __init__(__self__, *,
                  column: pulumi.Input['AnalysisColumnIdentifierArgs'],
                  filter_id: pulumi.Input[str],
+                 default_filter_control_configuration: Optional[pulumi.Input['AnalysisDefaultFilterControlConfigurationArgs']] = None,
                  parameter_name: Optional[pulumi.Input[str]] = None,
                  rolling_date: Optional[pulumi.Input['AnalysisRollingDateConfigurationArgs']] = None,
                  time_granularity: Optional[pulumi.Input['AnalysisTimeGranularity']] = None,
                  value: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "column", column)
         pulumi.set(__self__, "filter_id", filter_id)
+        if default_filter_control_configuration is not None:
+            pulumi.set(__self__, "default_filter_control_configuration", default_filter_control_configuration)
         if parameter_name is not None:
             pulumi.set(__self__, "parameter_name", parameter_name)
         if rolling_date is not None:
@@ -20244,6 +20728,15 @@ class AnalysisTimeEqualityFilterArgs:
     @filter_id.setter
     def filter_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "filter_id", value)
+
+    @property
+    @pulumi.getter(name="defaultFilterControlConfiguration")
+    def default_filter_control_configuration(self) -> Optional[pulumi.Input['AnalysisDefaultFilterControlConfigurationArgs']]:
+        return pulumi.get(self, "default_filter_control_configuration")
+
+    @default_filter_control_configuration.setter
+    def default_filter_control_configuration(self, value: Optional[pulumi.Input['AnalysisDefaultFilterControlConfigurationArgs']]):
+        pulumi.set(self, "default_filter_control_configuration", value)
 
     @property
     @pulumi.getter(name="parameterName")
@@ -20378,6 +20871,7 @@ class AnalysisTimeRangeFilterArgs:
                  column: pulumi.Input['AnalysisColumnIdentifierArgs'],
                  filter_id: pulumi.Input[str],
                  null_option: pulumi.Input['AnalysisFilterNullOption'],
+                 default_filter_control_configuration: Optional[pulumi.Input['AnalysisDefaultFilterControlConfigurationArgs']] = None,
                  exclude_period_configuration: Optional[pulumi.Input['AnalysisExcludePeriodConfigurationArgs']] = None,
                  include_maximum: Optional[pulumi.Input[bool]] = None,
                  include_minimum: Optional[pulumi.Input[bool]] = None,
@@ -20387,6 +20881,8 @@ class AnalysisTimeRangeFilterArgs:
         pulumi.set(__self__, "column", column)
         pulumi.set(__self__, "filter_id", filter_id)
         pulumi.set(__self__, "null_option", null_option)
+        if default_filter_control_configuration is not None:
+            pulumi.set(__self__, "default_filter_control_configuration", default_filter_control_configuration)
         if exclude_period_configuration is not None:
             pulumi.set(__self__, "exclude_period_configuration", exclude_period_configuration)
         if include_maximum is not None:
@@ -20426,6 +20922,15 @@ class AnalysisTimeRangeFilterArgs:
     @null_option.setter
     def null_option(self, value: pulumi.Input['AnalysisFilterNullOption']):
         pulumi.set(self, "null_option", value)
+
+    @property
+    @pulumi.getter(name="defaultFilterControlConfiguration")
+    def default_filter_control_configuration(self) -> Optional[pulumi.Input['AnalysisDefaultFilterControlConfigurationArgs']]:
+        return pulumi.get(self, "default_filter_control_configuration")
+
+    @default_filter_control_configuration.setter
+    def default_filter_control_configuration(self, value: Optional[pulumi.Input['AnalysisDefaultFilterControlConfigurationArgs']]):
+        pulumi.set(self, "default_filter_control_configuration", value)
 
     @property
     @pulumi.getter(name="excludePeriodConfiguration")
@@ -20558,12 +21063,15 @@ class AnalysisTopBottomFilterArgs:
                  aggregation_sort_configurations: pulumi.Input[Sequence[pulumi.Input['AnalysisAggregationSortConfigurationArgs']]],
                  column: pulumi.Input['AnalysisColumnIdentifierArgs'],
                  filter_id: pulumi.Input[str],
+                 default_filter_control_configuration: Optional[pulumi.Input['AnalysisDefaultFilterControlConfigurationArgs']] = None,
                  limit: Optional[pulumi.Input[float]] = None,
                  parameter_name: Optional[pulumi.Input[str]] = None,
                  time_granularity: Optional[pulumi.Input['AnalysisTimeGranularity']] = None):
         pulumi.set(__self__, "aggregation_sort_configurations", aggregation_sort_configurations)
         pulumi.set(__self__, "column", column)
         pulumi.set(__self__, "filter_id", filter_id)
+        if default_filter_control_configuration is not None:
+            pulumi.set(__self__, "default_filter_control_configuration", default_filter_control_configuration)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
         if parameter_name is not None:
@@ -20597,6 +21105,15 @@ class AnalysisTopBottomFilterArgs:
     @filter_id.setter
     def filter_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "filter_id", value)
+
+    @property
+    @pulumi.getter(name="defaultFilterControlConfiguration")
+    def default_filter_control_configuration(self) -> Optional[pulumi.Input['AnalysisDefaultFilterControlConfigurationArgs']]:
+        return pulumi.get(self, "default_filter_control_configuration")
+
+    @default_filter_control_configuration.setter
+    def default_filter_control_configuration(self, value: Optional[pulumi.Input['AnalysisDefaultFilterControlConfigurationArgs']]):
+        pulumi.set(self, "default_filter_control_configuration", value)
 
     @property
     @pulumi.getter
@@ -24341,10 +24858,13 @@ class DashboardCategoryFilterArgs:
     def __init__(__self__, *,
                  column: pulumi.Input['DashboardColumnIdentifierArgs'],
                  configuration: pulumi.Input['DashboardCategoryFilterConfigurationArgs'],
-                 filter_id: pulumi.Input[str]):
+                 filter_id: pulumi.Input[str],
+                 default_filter_control_configuration: Optional[pulumi.Input['DashboardDefaultFilterControlConfigurationArgs']] = None):
         pulumi.set(__self__, "column", column)
         pulumi.set(__self__, "configuration", configuration)
         pulumi.set(__self__, "filter_id", filter_id)
+        if default_filter_control_configuration is not None:
+            pulumi.set(__self__, "default_filter_control_configuration", default_filter_control_configuration)
 
     @property
     @pulumi.getter
@@ -24372,6 +24892,15 @@ class DashboardCategoryFilterArgs:
     @filter_id.setter
     def filter_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "filter_id", value)
+
+    @property
+    @pulumi.getter(name="defaultFilterControlConfiguration")
+    def default_filter_control_configuration(self) -> Optional[pulumi.Input['DashboardDefaultFilterControlConfigurationArgs']]:
+        return pulumi.get(self, "default_filter_control_configuration")
+
+    @default_filter_control_configuration.setter
+    def default_filter_control_configuration(self, value: Optional[pulumi.Input['DashboardDefaultFilterControlConfigurationArgs']]):
+        pulumi.set(self, "default_filter_control_configuration", value)
 
 
 @pulumi.input_type
@@ -27304,6 +27833,233 @@ class DashboardDecimalValueWhenUnsetConfigurationArgs:
 
 
 @pulumi.input_type
+class DashboardDefaultDateTimePickerControlOptionsArgs:
+    def __init__(__self__, *,
+                 display_options: Optional[pulumi.Input['DashboardDateTimePickerControlDisplayOptionsArgs']] = None,
+                 type: Optional[pulumi.Input['DashboardSheetControlDateTimePickerType']] = None):
+        if display_options is not None:
+            pulumi.set(__self__, "display_options", display_options)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="displayOptions")
+    def display_options(self) -> Optional[pulumi.Input['DashboardDateTimePickerControlDisplayOptionsArgs']]:
+        return pulumi.get(self, "display_options")
+
+    @display_options.setter
+    def display_options(self, value: Optional[pulumi.Input['DashboardDateTimePickerControlDisplayOptionsArgs']]):
+        pulumi.set(self, "display_options", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['DashboardSheetControlDateTimePickerType']]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['DashboardSheetControlDateTimePickerType']]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class DashboardDefaultFilterControlConfigurationArgs:
+    def __init__(__self__, *,
+                 control_options: pulumi.Input['DashboardDefaultFilterControlOptionsArgs'],
+                 title: pulumi.Input[str]):
+        pulumi.set(__self__, "control_options", control_options)
+        pulumi.set(__self__, "title", title)
+
+    @property
+    @pulumi.getter(name="controlOptions")
+    def control_options(self) -> pulumi.Input['DashboardDefaultFilterControlOptionsArgs']:
+        return pulumi.get(self, "control_options")
+
+    @control_options.setter
+    def control_options(self, value: pulumi.Input['DashboardDefaultFilterControlOptionsArgs']):
+        pulumi.set(self, "control_options", value)
+
+    @property
+    @pulumi.getter
+    def title(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: pulumi.Input[str]):
+        pulumi.set(self, "title", value)
+
+
+@pulumi.input_type
+class DashboardDefaultFilterControlOptionsArgs:
+    def __init__(__self__, *,
+                 default_date_time_picker_options: Optional[pulumi.Input['DashboardDefaultDateTimePickerControlOptionsArgs']] = None,
+                 default_dropdown_options: Optional[pulumi.Input['DashboardDefaultFilterDropDownControlOptionsArgs']] = None,
+                 default_list_options: Optional[pulumi.Input['DashboardDefaultFilterListControlOptionsArgs']] = None,
+                 default_relative_date_time_options: Optional[pulumi.Input['DashboardDefaultRelativeDateTimeControlOptionsArgs']] = None,
+                 default_slider_options: Optional[pulumi.Input['DashboardDefaultSliderControlOptionsArgs']] = None,
+                 default_text_area_options: Optional[pulumi.Input['DashboardDefaultTextAreaControlOptionsArgs']] = None,
+                 default_text_field_options: Optional[pulumi.Input['DashboardDefaultTextFieldControlOptionsArgs']] = None):
+        if default_date_time_picker_options is not None:
+            pulumi.set(__self__, "default_date_time_picker_options", default_date_time_picker_options)
+        if default_dropdown_options is not None:
+            pulumi.set(__self__, "default_dropdown_options", default_dropdown_options)
+        if default_list_options is not None:
+            pulumi.set(__self__, "default_list_options", default_list_options)
+        if default_relative_date_time_options is not None:
+            pulumi.set(__self__, "default_relative_date_time_options", default_relative_date_time_options)
+        if default_slider_options is not None:
+            pulumi.set(__self__, "default_slider_options", default_slider_options)
+        if default_text_area_options is not None:
+            pulumi.set(__self__, "default_text_area_options", default_text_area_options)
+        if default_text_field_options is not None:
+            pulumi.set(__self__, "default_text_field_options", default_text_field_options)
+
+    @property
+    @pulumi.getter(name="defaultDateTimePickerOptions")
+    def default_date_time_picker_options(self) -> Optional[pulumi.Input['DashboardDefaultDateTimePickerControlOptionsArgs']]:
+        return pulumi.get(self, "default_date_time_picker_options")
+
+    @default_date_time_picker_options.setter
+    def default_date_time_picker_options(self, value: Optional[pulumi.Input['DashboardDefaultDateTimePickerControlOptionsArgs']]):
+        pulumi.set(self, "default_date_time_picker_options", value)
+
+    @property
+    @pulumi.getter(name="defaultDropdownOptions")
+    def default_dropdown_options(self) -> Optional[pulumi.Input['DashboardDefaultFilterDropDownControlOptionsArgs']]:
+        return pulumi.get(self, "default_dropdown_options")
+
+    @default_dropdown_options.setter
+    def default_dropdown_options(self, value: Optional[pulumi.Input['DashboardDefaultFilterDropDownControlOptionsArgs']]):
+        pulumi.set(self, "default_dropdown_options", value)
+
+    @property
+    @pulumi.getter(name="defaultListOptions")
+    def default_list_options(self) -> Optional[pulumi.Input['DashboardDefaultFilterListControlOptionsArgs']]:
+        return pulumi.get(self, "default_list_options")
+
+    @default_list_options.setter
+    def default_list_options(self, value: Optional[pulumi.Input['DashboardDefaultFilterListControlOptionsArgs']]):
+        pulumi.set(self, "default_list_options", value)
+
+    @property
+    @pulumi.getter(name="defaultRelativeDateTimeOptions")
+    def default_relative_date_time_options(self) -> Optional[pulumi.Input['DashboardDefaultRelativeDateTimeControlOptionsArgs']]:
+        return pulumi.get(self, "default_relative_date_time_options")
+
+    @default_relative_date_time_options.setter
+    def default_relative_date_time_options(self, value: Optional[pulumi.Input['DashboardDefaultRelativeDateTimeControlOptionsArgs']]):
+        pulumi.set(self, "default_relative_date_time_options", value)
+
+    @property
+    @pulumi.getter(name="defaultSliderOptions")
+    def default_slider_options(self) -> Optional[pulumi.Input['DashboardDefaultSliderControlOptionsArgs']]:
+        return pulumi.get(self, "default_slider_options")
+
+    @default_slider_options.setter
+    def default_slider_options(self, value: Optional[pulumi.Input['DashboardDefaultSliderControlOptionsArgs']]):
+        pulumi.set(self, "default_slider_options", value)
+
+    @property
+    @pulumi.getter(name="defaultTextAreaOptions")
+    def default_text_area_options(self) -> Optional[pulumi.Input['DashboardDefaultTextAreaControlOptionsArgs']]:
+        return pulumi.get(self, "default_text_area_options")
+
+    @default_text_area_options.setter
+    def default_text_area_options(self, value: Optional[pulumi.Input['DashboardDefaultTextAreaControlOptionsArgs']]):
+        pulumi.set(self, "default_text_area_options", value)
+
+    @property
+    @pulumi.getter(name="defaultTextFieldOptions")
+    def default_text_field_options(self) -> Optional[pulumi.Input['DashboardDefaultTextFieldControlOptionsArgs']]:
+        return pulumi.get(self, "default_text_field_options")
+
+    @default_text_field_options.setter
+    def default_text_field_options(self, value: Optional[pulumi.Input['DashboardDefaultTextFieldControlOptionsArgs']]):
+        pulumi.set(self, "default_text_field_options", value)
+
+
+@pulumi.input_type
+class DashboardDefaultFilterDropDownControlOptionsArgs:
+    def __init__(__self__, *,
+                 display_options: Optional[pulumi.Input['DashboardDropDownControlDisplayOptionsArgs']] = None,
+                 selectable_values: Optional[pulumi.Input['DashboardFilterSelectableValuesArgs']] = None,
+                 type: Optional[pulumi.Input['DashboardSheetControlListType']] = None):
+        if display_options is not None:
+            pulumi.set(__self__, "display_options", display_options)
+        if selectable_values is not None:
+            pulumi.set(__self__, "selectable_values", selectable_values)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="displayOptions")
+    def display_options(self) -> Optional[pulumi.Input['DashboardDropDownControlDisplayOptionsArgs']]:
+        return pulumi.get(self, "display_options")
+
+    @display_options.setter
+    def display_options(self, value: Optional[pulumi.Input['DashboardDropDownControlDisplayOptionsArgs']]):
+        pulumi.set(self, "display_options", value)
+
+    @property
+    @pulumi.getter(name="selectableValues")
+    def selectable_values(self) -> Optional[pulumi.Input['DashboardFilterSelectableValuesArgs']]:
+        return pulumi.get(self, "selectable_values")
+
+    @selectable_values.setter
+    def selectable_values(self, value: Optional[pulumi.Input['DashboardFilterSelectableValuesArgs']]):
+        pulumi.set(self, "selectable_values", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['DashboardSheetControlListType']]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['DashboardSheetControlListType']]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class DashboardDefaultFilterListControlOptionsArgs:
+    def __init__(__self__, *,
+                 display_options: Optional[pulumi.Input['DashboardListControlDisplayOptionsArgs']] = None,
+                 selectable_values: Optional[pulumi.Input['DashboardFilterSelectableValuesArgs']] = None,
+                 type: Optional[pulumi.Input['DashboardSheetControlListType']] = None):
+        if display_options is not None:
+            pulumi.set(__self__, "display_options", display_options)
+        if selectable_values is not None:
+            pulumi.set(__self__, "selectable_values", selectable_values)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="displayOptions")
+    def display_options(self) -> Optional[pulumi.Input['DashboardListControlDisplayOptionsArgs']]:
+        return pulumi.get(self, "display_options")
+
+    @display_options.setter
+    def display_options(self, value: Optional[pulumi.Input['DashboardListControlDisplayOptionsArgs']]):
+        pulumi.set(self, "display_options", value)
+
+    @property
+    @pulumi.getter(name="selectableValues")
+    def selectable_values(self) -> Optional[pulumi.Input['DashboardFilterSelectableValuesArgs']]:
+        return pulumi.get(self, "selectable_values")
+
+    @selectable_values.setter
+    def selectable_values(self, value: Optional[pulumi.Input['DashboardFilterSelectableValuesArgs']]):
+        pulumi.set(self, "selectable_values", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['DashboardSheetControlListType']]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['DashboardSheetControlListType']]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
 class DashboardDefaultFreeFormLayoutConfigurationArgs:
     def __init__(__self__, *,
                  canvas_size_options: pulumi.Input['DashboardFreeFormLayoutCanvasSizeOptionsArgs']):
@@ -27423,6 +28179,23 @@ class DashboardDefaultPaginatedLayoutConfigurationArgs:
 
 
 @pulumi.input_type
+class DashboardDefaultRelativeDateTimeControlOptionsArgs:
+    def __init__(__self__, *,
+                 display_options: Optional[pulumi.Input['DashboardRelativeDateTimeControlDisplayOptionsArgs']] = None):
+        if display_options is not None:
+            pulumi.set(__self__, "display_options", display_options)
+
+    @property
+    @pulumi.getter(name="displayOptions")
+    def display_options(self) -> Optional[pulumi.Input['DashboardRelativeDateTimeControlDisplayOptionsArgs']]:
+        return pulumi.get(self, "display_options")
+
+    @display_options.setter
+    def display_options(self, value: Optional[pulumi.Input['DashboardRelativeDateTimeControlDisplayOptionsArgs']]):
+        pulumi.set(self, "display_options", value)
+
+
+@pulumi.input_type
 class DashboardDefaultSectionBasedLayoutConfigurationArgs:
     def __init__(__self__, *,
                  canvas_size_options: pulumi.Input['DashboardSectionBasedLayoutCanvasSizeOptionsArgs']):
@@ -27436,6 +28209,114 @@ class DashboardDefaultSectionBasedLayoutConfigurationArgs:
     @canvas_size_options.setter
     def canvas_size_options(self, value: pulumi.Input['DashboardSectionBasedLayoutCanvasSizeOptionsArgs']):
         pulumi.set(self, "canvas_size_options", value)
+
+
+@pulumi.input_type
+class DashboardDefaultSliderControlOptionsArgs:
+    def __init__(__self__, *,
+                 maximum_value: pulumi.Input[float],
+                 minimum_value: pulumi.Input[float],
+                 step_size: pulumi.Input[float],
+                 display_options: Optional[pulumi.Input['DashboardSliderControlDisplayOptionsArgs']] = None,
+                 type: Optional[pulumi.Input['DashboardSheetControlSliderType']] = None):
+        pulumi.set(__self__, "maximum_value", maximum_value)
+        pulumi.set(__self__, "minimum_value", minimum_value)
+        pulumi.set(__self__, "step_size", step_size)
+        if display_options is not None:
+            pulumi.set(__self__, "display_options", display_options)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="maximumValue")
+    def maximum_value(self) -> pulumi.Input[float]:
+        return pulumi.get(self, "maximum_value")
+
+    @maximum_value.setter
+    def maximum_value(self, value: pulumi.Input[float]):
+        pulumi.set(self, "maximum_value", value)
+
+    @property
+    @pulumi.getter(name="minimumValue")
+    def minimum_value(self) -> pulumi.Input[float]:
+        return pulumi.get(self, "minimum_value")
+
+    @minimum_value.setter
+    def minimum_value(self, value: pulumi.Input[float]):
+        pulumi.set(self, "minimum_value", value)
+
+    @property
+    @pulumi.getter(name="stepSize")
+    def step_size(self) -> pulumi.Input[float]:
+        return pulumi.get(self, "step_size")
+
+    @step_size.setter
+    def step_size(self, value: pulumi.Input[float]):
+        pulumi.set(self, "step_size", value)
+
+    @property
+    @pulumi.getter(name="displayOptions")
+    def display_options(self) -> Optional[pulumi.Input['DashboardSliderControlDisplayOptionsArgs']]:
+        return pulumi.get(self, "display_options")
+
+    @display_options.setter
+    def display_options(self, value: Optional[pulumi.Input['DashboardSliderControlDisplayOptionsArgs']]):
+        pulumi.set(self, "display_options", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['DashboardSheetControlSliderType']]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['DashboardSheetControlSliderType']]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class DashboardDefaultTextAreaControlOptionsArgs:
+    def __init__(__self__, *,
+                 delimiter: Optional[pulumi.Input[str]] = None,
+                 display_options: Optional[pulumi.Input['DashboardTextAreaControlDisplayOptionsArgs']] = None):
+        if delimiter is not None:
+            pulumi.set(__self__, "delimiter", delimiter)
+        if display_options is not None:
+            pulumi.set(__self__, "display_options", display_options)
+
+    @property
+    @pulumi.getter
+    def delimiter(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "delimiter")
+
+    @delimiter.setter
+    def delimiter(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "delimiter", value)
+
+    @property
+    @pulumi.getter(name="displayOptions")
+    def display_options(self) -> Optional[pulumi.Input['DashboardTextAreaControlDisplayOptionsArgs']]:
+        return pulumi.get(self, "display_options")
+
+    @display_options.setter
+    def display_options(self, value: Optional[pulumi.Input['DashboardTextAreaControlDisplayOptionsArgs']]):
+        pulumi.set(self, "display_options", value)
+
+
+@pulumi.input_type
+class DashboardDefaultTextFieldControlOptionsArgs:
+    def __init__(__self__, *,
+                 display_options: Optional[pulumi.Input['DashboardTextFieldControlDisplayOptionsArgs']] = None):
+        if display_options is not None:
+            pulumi.set(__self__, "display_options", display_options)
+
+    @property
+    @pulumi.getter(name="displayOptions")
+    def display_options(self) -> Optional[pulumi.Input['DashboardTextFieldControlDisplayOptionsArgs']]:
+        return pulumi.get(self, "display_options")
+
+    @display_options.setter
+    def display_options(self, value: Optional[pulumi.Input['DashboardTextFieldControlDisplayOptionsArgs']]):
+        pulumi.set(self, "display_options", value)
 
 
 @pulumi.input_type
@@ -28385,6 +29266,7 @@ class DashboardFilledMapVisualArgs:
 @pulumi.input_type
 class DashboardFilterControlArgs:
     def __init__(__self__, *,
+                 cross_sheet: Optional[pulumi.Input['DashboardFilterCrossSheetControlArgs']] = None,
                  date_time_picker: Optional[pulumi.Input['DashboardFilterDateTimePickerControlArgs']] = None,
                  dropdown: Optional[pulumi.Input['DashboardFilterDropDownControlArgs']] = None,
                  list: Optional[pulumi.Input['DashboardFilterListControlArgs']] = None,
@@ -28392,6 +29274,8 @@ class DashboardFilterControlArgs:
                  slider: Optional[pulumi.Input['DashboardFilterSliderControlArgs']] = None,
                  text_area: Optional[pulumi.Input['DashboardFilterTextAreaControlArgs']] = None,
                  text_field: Optional[pulumi.Input['DashboardFilterTextFieldControlArgs']] = None):
+        if cross_sheet is not None:
+            pulumi.set(__self__, "cross_sheet", cross_sheet)
         if date_time_picker is not None:
             pulumi.set(__self__, "date_time_picker", date_time_picker)
         if dropdown is not None:
@@ -28406,6 +29290,15 @@ class DashboardFilterControlArgs:
             pulumi.set(__self__, "text_area", text_area)
         if text_field is not None:
             pulumi.set(__self__, "text_field", text_field)
+
+    @property
+    @pulumi.getter(name="crossSheet")
+    def cross_sheet(self) -> Optional[pulumi.Input['DashboardFilterCrossSheetControlArgs']]:
+        return pulumi.get(self, "cross_sheet")
+
+    @cross_sheet.setter
+    def cross_sheet(self, value: Optional[pulumi.Input['DashboardFilterCrossSheetControlArgs']]):
+        pulumi.set(self, "cross_sheet", value)
 
     @property
     @pulumi.getter(name="dateTimePicker")
@@ -28469,6 +29362,45 @@ class DashboardFilterControlArgs:
     @text_field.setter
     def text_field(self, value: Optional[pulumi.Input['DashboardFilterTextFieldControlArgs']]):
         pulumi.set(self, "text_field", value)
+
+
+@pulumi.input_type
+class DashboardFilterCrossSheetControlArgs:
+    def __init__(__self__, *,
+                 filter_control_id: pulumi.Input[str],
+                 source_filter_id: pulumi.Input[str],
+                 cascading_control_configuration: Optional[pulumi.Input['DashboardCascadingControlConfigurationArgs']] = None):
+        pulumi.set(__self__, "filter_control_id", filter_control_id)
+        pulumi.set(__self__, "source_filter_id", source_filter_id)
+        if cascading_control_configuration is not None:
+            pulumi.set(__self__, "cascading_control_configuration", cascading_control_configuration)
+
+    @property
+    @pulumi.getter(name="filterControlId")
+    def filter_control_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "filter_control_id")
+
+    @filter_control_id.setter
+    def filter_control_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "filter_control_id", value)
+
+    @property
+    @pulumi.getter(name="sourceFilterId")
+    def source_filter_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "source_filter_id")
+
+    @source_filter_id.setter
+    def source_filter_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source_filter_id", value)
+
+    @property
+    @pulumi.getter(name="cascadingControlConfiguration")
+    def cascading_control_configuration(self) -> Optional[pulumi.Input['DashboardCascadingControlConfigurationArgs']]:
+        return pulumi.get(self, "cascading_control_configuration")
+
+    @cascading_control_configuration.setter
+    def cascading_control_configuration(self, value: Optional[pulumi.Input['DashboardCascadingControlConfigurationArgs']]):
+        pulumi.set(self, "cascading_control_configuration", value)
 
 
 @pulumi.input_type
@@ -34167,6 +35099,7 @@ class DashboardNumericEqualityFilterArgs:
                  match_operator: pulumi.Input['DashboardNumericEqualityMatchOperator'],
                  null_option: pulumi.Input['DashboardFilterNullOption'],
                  aggregation_function: Optional[pulumi.Input['DashboardAggregationFunctionArgs']] = None,
+                 default_filter_control_configuration: Optional[pulumi.Input['DashboardDefaultFilterControlConfigurationArgs']] = None,
                  parameter_name: Optional[pulumi.Input[str]] = None,
                  select_all_options: Optional[pulumi.Input['DashboardNumericFilterSelectAllOptions']] = None,
                  value: Optional[pulumi.Input[float]] = None):
@@ -34176,6 +35109,8 @@ class DashboardNumericEqualityFilterArgs:
         pulumi.set(__self__, "null_option", null_option)
         if aggregation_function is not None:
             pulumi.set(__self__, "aggregation_function", aggregation_function)
+        if default_filter_control_configuration is not None:
+            pulumi.set(__self__, "default_filter_control_configuration", default_filter_control_configuration)
         if parameter_name is not None:
             pulumi.set(__self__, "parameter_name", parameter_name)
         if select_all_options is not None:
@@ -34227,6 +35162,15 @@ class DashboardNumericEqualityFilterArgs:
     @aggregation_function.setter
     def aggregation_function(self, value: Optional[pulumi.Input['DashboardAggregationFunctionArgs']]):
         pulumi.set(self, "aggregation_function", value)
+
+    @property
+    @pulumi.getter(name="defaultFilterControlConfiguration")
+    def default_filter_control_configuration(self) -> Optional[pulumi.Input['DashboardDefaultFilterControlConfigurationArgs']]:
+        return pulumi.get(self, "default_filter_control_configuration")
+
+    @default_filter_control_configuration.setter
+    def default_filter_control_configuration(self, value: Optional[pulumi.Input['DashboardDefaultFilterControlConfigurationArgs']]):
+        pulumi.set(self, "default_filter_control_configuration", value)
 
     @property
     @pulumi.getter(name="parameterName")
@@ -34333,6 +35277,7 @@ class DashboardNumericRangeFilterArgs:
                  filter_id: pulumi.Input[str],
                  null_option: pulumi.Input['DashboardFilterNullOption'],
                  aggregation_function: Optional[pulumi.Input['DashboardAggregationFunctionArgs']] = None,
+                 default_filter_control_configuration: Optional[pulumi.Input['DashboardDefaultFilterControlConfigurationArgs']] = None,
                  include_maximum: Optional[pulumi.Input[bool]] = None,
                  include_minimum: Optional[pulumi.Input[bool]] = None,
                  range_maximum: Optional[pulumi.Input['DashboardNumericRangeFilterValueArgs']] = None,
@@ -34343,6 +35288,8 @@ class DashboardNumericRangeFilterArgs:
         pulumi.set(__self__, "null_option", null_option)
         if aggregation_function is not None:
             pulumi.set(__self__, "aggregation_function", aggregation_function)
+        if default_filter_control_configuration is not None:
+            pulumi.set(__self__, "default_filter_control_configuration", default_filter_control_configuration)
         if include_maximum is not None:
             pulumi.set(__self__, "include_maximum", include_maximum)
         if include_minimum is not None:
@@ -34389,6 +35336,15 @@ class DashboardNumericRangeFilterArgs:
     @aggregation_function.setter
     def aggregation_function(self, value: Optional[pulumi.Input['DashboardAggregationFunctionArgs']]):
         pulumi.set(self, "aggregation_function", value)
+
+    @property
+    @pulumi.getter(name="defaultFilterControlConfiguration")
+    def default_filter_control_configuration(self) -> Optional[pulumi.Input['DashboardDefaultFilterControlConfigurationArgs']]:
+        return pulumi.get(self, "default_filter_control_configuration")
+
+    @default_filter_control_configuration.setter
+    def default_filter_control_configuration(self, value: Optional[pulumi.Input['DashboardDefaultFilterControlConfigurationArgs']]):
+        pulumi.set(self, "default_filter_control_configuration", value)
 
     @property
     @pulumi.getter(name="includeMaximum")
@@ -37945,6 +38901,7 @@ class DashboardRelativeDatesFilterArgs:
                  null_option: pulumi.Input['DashboardFilterNullOption'],
                  relative_date_type: pulumi.Input['DashboardRelativeDateType'],
                  time_granularity: pulumi.Input['DashboardTimeGranularity'],
+                 default_filter_control_configuration: Optional[pulumi.Input['DashboardDefaultFilterControlConfigurationArgs']] = None,
                  exclude_period_configuration: Optional[pulumi.Input['DashboardExcludePeriodConfigurationArgs']] = None,
                  minimum_granularity: Optional[pulumi.Input['DashboardTimeGranularity']] = None,
                  parameter_name: Optional[pulumi.Input[str]] = None,
@@ -37955,6 +38912,8 @@ class DashboardRelativeDatesFilterArgs:
         pulumi.set(__self__, "null_option", null_option)
         pulumi.set(__self__, "relative_date_type", relative_date_type)
         pulumi.set(__self__, "time_granularity", time_granularity)
+        if default_filter_control_configuration is not None:
+            pulumi.set(__self__, "default_filter_control_configuration", default_filter_control_configuration)
         if exclude_period_configuration is not None:
             pulumi.set(__self__, "exclude_period_configuration", exclude_period_configuration)
         if minimum_granularity is not None:
@@ -38017,6 +38976,15 @@ class DashboardRelativeDatesFilterArgs:
     @time_granularity.setter
     def time_granularity(self, value: pulumi.Input['DashboardTimeGranularity']):
         pulumi.set(self, "time_granularity", value)
+
+    @property
+    @pulumi.getter(name="defaultFilterControlConfiguration")
+    def default_filter_control_configuration(self) -> Optional[pulumi.Input['DashboardDefaultFilterControlConfigurationArgs']]:
+        return pulumi.get(self, "default_filter_control_configuration")
+
+    @default_filter_control_configuration.setter
+    def default_filter_control_configuration(self, value: Optional[pulumi.Input['DashboardDefaultFilterControlConfigurationArgs']]):
+        pulumi.set(self, "default_filter_control_configuration", value)
 
     @property
     @pulumi.getter(name="excludePeriodConfiguration")
@@ -41283,12 +42251,15 @@ class DashboardTimeEqualityFilterArgs:
     def __init__(__self__, *,
                  column: pulumi.Input['DashboardColumnIdentifierArgs'],
                  filter_id: pulumi.Input[str],
+                 default_filter_control_configuration: Optional[pulumi.Input['DashboardDefaultFilterControlConfigurationArgs']] = None,
                  parameter_name: Optional[pulumi.Input[str]] = None,
                  rolling_date: Optional[pulumi.Input['DashboardRollingDateConfigurationArgs']] = None,
                  time_granularity: Optional[pulumi.Input['DashboardTimeGranularity']] = None,
                  value: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "column", column)
         pulumi.set(__self__, "filter_id", filter_id)
+        if default_filter_control_configuration is not None:
+            pulumi.set(__self__, "default_filter_control_configuration", default_filter_control_configuration)
         if parameter_name is not None:
             pulumi.set(__self__, "parameter_name", parameter_name)
         if rolling_date is not None:
@@ -41315,6 +42286,15 @@ class DashboardTimeEqualityFilterArgs:
     @filter_id.setter
     def filter_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "filter_id", value)
+
+    @property
+    @pulumi.getter(name="defaultFilterControlConfiguration")
+    def default_filter_control_configuration(self) -> Optional[pulumi.Input['DashboardDefaultFilterControlConfigurationArgs']]:
+        return pulumi.get(self, "default_filter_control_configuration")
+
+    @default_filter_control_configuration.setter
+    def default_filter_control_configuration(self, value: Optional[pulumi.Input['DashboardDefaultFilterControlConfigurationArgs']]):
+        pulumi.set(self, "default_filter_control_configuration", value)
 
     @property
     @pulumi.getter(name="parameterName")
@@ -41449,6 +42429,7 @@ class DashboardTimeRangeFilterArgs:
                  column: pulumi.Input['DashboardColumnIdentifierArgs'],
                  filter_id: pulumi.Input[str],
                  null_option: pulumi.Input['DashboardFilterNullOption'],
+                 default_filter_control_configuration: Optional[pulumi.Input['DashboardDefaultFilterControlConfigurationArgs']] = None,
                  exclude_period_configuration: Optional[pulumi.Input['DashboardExcludePeriodConfigurationArgs']] = None,
                  include_maximum: Optional[pulumi.Input[bool]] = None,
                  include_minimum: Optional[pulumi.Input[bool]] = None,
@@ -41458,6 +42439,8 @@ class DashboardTimeRangeFilterArgs:
         pulumi.set(__self__, "column", column)
         pulumi.set(__self__, "filter_id", filter_id)
         pulumi.set(__self__, "null_option", null_option)
+        if default_filter_control_configuration is not None:
+            pulumi.set(__self__, "default_filter_control_configuration", default_filter_control_configuration)
         if exclude_period_configuration is not None:
             pulumi.set(__self__, "exclude_period_configuration", exclude_period_configuration)
         if include_maximum is not None:
@@ -41497,6 +42480,15 @@ class DashboardTimeRangeFilterArgs:
     @null_option.setter
     def null_option(self, value: pulumi.Input['DashboardFilterNullOption']):
         pulumi.set(self, "null_option", value)
+
+    @property
+    @pulumi.getter(name="defaultFilterControlConfiguration")
+    def default_filter_control_configuration(self) -> Optional[pulumi.Input['DashboardDefaultFilterControlConfigurationArgs']]:
+        return pulumi.get(self, "default_filter_control_configuration")
+
+    @default_filter_control_configuration.setter
+    def default_filter_control_configuration(self, value: Optional[pulumi.Input['DashboardDefaultFilterControlConfigurationArgs']]):
+        pulumi.set(self, "default_filter_control_configuration", value)
 
     @property
     @pulumi.getter(name="excludePeriodConfiguration")
@@ -41629,12 +42621,15 @@ class DashboardTopBottomFilterArgs:
                  aggregation_sort_configurations: pulumi.Input[Sequence[pulumi.Input['DashboardAggregationSortConfigurationArgs']]],
                  column: pulumi.Input['DashboardColumnIdentifierArgs'],
                  filter_id: pulumi.Input[str],
+                 default_filter_control_configuration: Optional[pulumi.Input['DashboardDefaultFilterControlConfigurationArgs']] = None,
                  limit: Optional[pulumi.Input[float]] = None,
                  parameter_name: Optional[pulumi.Input[str]] = None,
                  time_granularity: Optional[pulumi.Input['DashboardTimeGranularity']] = None):
         pulumi.set(__self__, "aggregation_sort_configurations", aggregation_sort_configurations)
         pulumi.set(__self__, "column", column)
         pulumi.set(__self__, "filter_id", filter_id)
+        if default_filter_control_configuration is not None:
+            pulumi.set(__self__, "default_filter_control_configuration", default_filter_control_configuration)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
         if parameter_name is not None:
@@ -41668,6 +42663,15 @@ class DashboardTopBottomFilterArgs:
     @filter_id.setter
     def filter_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "filter_id", value)
+
+    @property
+    @pulumi.getter(name="defaultFilterControlConfiguration")
+    def default_filter_control_configuration(self) -> Optional[pulumi.Input['DashboardDefaultFilterControlConfigurationArgs']]:
+        return pulumi.get(self, "default_filter_control_configuration")
+
+    @default_filter_control_configuration.setter
+    def default_filter_control_configuration(self, value: Optional[pulumi.Input['DashboardDefaultFilterControlConfigurationArgs']]):
+        pulumi.set(self, "default_filter_control_configuration", value)
 
     @property
     @pulumi.getter
@@ -49317,10 +50321,13 @@ class TemplateCategoryFilterArgs:
     def __init__(__self__, *,
                  column: pulumi.Input['TemplateColumnIdentifierArgs'],
                  configuration: pulumi.Input['TemplateCategoryFilterConfigurationArgs'],
-                 filter_id: pulumi.Input[str]):
+                 filter_id: pulumi.Input[str],
+                 default_filter_control_configuration: Optional[pulumi.Input['TemplateDefaultFilterControlConfigurationArgs']] = None):
         pulumi.set(__self__, "column", column)
         pulumi.set(__self__, "configuration", configuration)
         pulumi.set(__self__, "filter_id", filter_id)
+        if default_filter_control_configuration is not None:
+            pulumi.set(__self__, "default_filter_control_configuration", default_filter_control_configuration)
 
     @property
     @pulumi.getter
@@ -49348,6 +50355,15 @@ class TemplateCategoryFilterArgs:
     @filter_id.setter
     def filter_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "filter_id", value)
+
+    @property
+    @pulumi.getter(name="defaultFilterControlConfiguration")
+    def default_filter_control_configuration(self) -> Optional[pulumi.Input['TemplateDefaultFilterControlConfigurationArgs']]:
+        return pulumi.get(self, "default_filter_control_configuration")
+
+    @default_filter_control_configuration.setter
+    def default_filter_control_configuration(self, value: Optional[pulumi.Input['TemplateDefaultFilterControlConfigurationArgs']]):
+        pulumi.set(self, "default_filter_control_configuration", value)
 
 
 @pulumi.input_type
@@ -52313,6 +53329,233 @@ class TemplateDecimalValueWhenUnsetConfigurationArgs:
 
 
 @pulumi.input_type
+class TemplateDefaultDateTimePickerControlOptionsArgs:
+    def __init__(__self__, *,
+                 display_options: Optional[pulumi.Input['TemplateDateTimePickerControlDisplayOptionsArgs']] = None,
+                 type: Optional[pulumi.Input['TemplateSheetControlDateTimePickerType']] = None):
+        if display_options is not None:
+            pulumi.set(__self__, "display_options", display_options)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="displayOptions")
+    def display_options(self) -> Optional[pulumi.Input['TemplateDateTimePickerControlDisplayOptionsArgs']]:
+        return pulumi.get(self, "display_options")
+
+    @display_options.setter
+    def display_options(self, value: Optional[pulumi.Input['TemplateDateTimePickerControlDisplayOptionsArgs']]):
+        pulumi.set(self, "display_options", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['TemplateSheetControlDateTimePickerType']]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['TemplateSheetControlDateTimePickerType']]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class TemplateDefaultFilterControlConfigurationArgs:
+    def __init__(__self__, *,
+                 control_options: pulumi.Input['TemplateDefaultFilterControlOptionsArgs'],
+                 title: pulumi.Input[str]):
+        pulumi.set(__self__, "control_options", control_options)
+        pulumi.set(__self__, "title", title)
+
+    @property
+    @pulumi.getter(name="controlOptions")
+    def control_options(self) -> pulumi.Input['TemplateDefaultFilterControlOptionsArgs']:
+        return pulumi.get(self, "control_options")
+
+    @control_options.setter
+    def control_options(self, value: pulumi.Input['TemplateDefaultFilterControlOptionsArgs']):
+        pulumi.set(self, "control_options", value)
+
+    @property
+    @pulumi.getter
+    def title(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: pulumi.Input[str]):
+        pulumi.set(self, "title", value)
+
+
+@pulumi.input_type
+class TemplateDefaultFilterControlOptionsArgs:
+    def __init__(__self__, *,
+                 default_date_time_picker_options: Optional[pulumi.Input['TemplateDefaultDateTimePickerControlOptionsArgs']] = None,
+                 default_dropdown_options: Optional[pulumi.Input['TemplateDefaultFilterDropDownControlOptionsArgs']] = None,
+                 default_list_options: Optional[pulumi.Input['TemplateDefaultFilterListControlOptionsArgs']] = None,
+                 default_relative_date_time_options: Optional[pulumi.Input['TemplateDefaultRelativeDateTimeControlOptionsArgs']] = None,
+                 default_slider_options: Optional[pulumi.Input['TemplateDefaultSliderControlOptionsArgs']] = None,
+                 default_text_area_options: Optional[pulumi.Input['TemplateDefaultTextAreaControlOptionsArgs']] = None,
+                 default_text_field_options: Optional[pulumi.Input['TemplateDefaultTextFieldControlOptionsArgs']] = None):
+        if default_date_time_picker_options is not None:
+            pulumi.set(__self__, "default_date_time_picker_options", default_date_time_picker_options)
+        if default_dropdown_options is not None:
+            pulumi.set(__self__, "default_dropdown_options", default_dropdown_options)
+        if default_list_options is not None:
+            pulumi.set(__self__, "default_list_options", default_list_options)
+        if default_relative_date_time_options is not None:
+            pulumi.set(__self__, "default_relative_date_time_options", default_relative_date_time_options)
+        if default_slider_options is not None:
+            pulumi.set(__self__, "default_slider_options", default_slider_options)
+        if default_text_area_options is not None:
+            pulumi.set(__self__, "default_text_area_options", default_text_area_options)
+        if default_text_field_options is not None:
+            pulumi.set(__self__, "default_text_field_options", default_text_field_options)
+
+    @property
+    @pulumi.getter(name="defaultDateTimePickerOptions")
+    def default_date_time_picker_options(self) -> Optional[pulumi.Input['TemplateDefaultDateTimePickerControlOptionsArgs']]:
+        return pulumi.get(self, "default_date_time_picker_options")
+
+    @default_date_time_picker_options.setter
+    def default_date_time_picker_options(self, value: Optional[pulumi.Input['TemplateDefaultDateTimePickerControlOptionsArgs']]):
+        pulumi.set(self, "default_date_time_picker_options", value)
+
+    @property
+    @pulumi.getter(name="defaultDropdownOptions")
+    def default_dropdown_options(self) -> Optional[pulumi.Input['TemplateDefaultFilterDropDownControlOptionsArgs']]:
+        return pulumi.get(self, "default_dropdown_options")
+
+    @default_dropdown_options.setter
+    def default_dropdown_options(self, value: Optional[pulumi.Input['TemplateDefaultFilterDropDownControlOptionsArgs']]):
+        pulumi.set(self, "default_dropdown_options", value)
+
+    @property
+    @pulumi.getter(name="defaultListOptions")
+    def default_list_options(self) -> Optional[pulumi.Input['TemplateDefaultFilterListControlOptionsArgs']]:
+        return pulumi.get(self, "default_list_options")
+
+    @default_list_options.setter
+    def default_list_options(self, value: Optional[pulumi.Input['TemplateDefaultFilterListControlOptionsArgs']]):
+        pulumi.set(self, "default_list_options", value)
+
+    @property
+    @pulumi.getter(name="defaultRelativeDateTimeOptions")
+    def default_relative_date_time_options(self) -> Optional[pulumi.Input['TemplateDefaultRelativeDateTimeControlOptionsArgs']]:
+        return pulumi.get(self, "default_relative_date_time_options")
+
+    @default_relative_date_time_options.setter
+    def default_relative_date_time_options(self, value: Optional[pulumi.Input['TemplateDefaultRelativeDateTimeControlOptionsArgs']]):
+        pulumi.set(self, "default_relative_date_time_options", value)
+
+    @property
+    @pulumi.getter(name="defaultSliderOptions")
+    def default_slider_options(self) -> Optional[pulumi.Input['TemplateDefaultSliderControlOptionsArgs']]:
+        return pulumi.get(self, "default_slider_options")
+
+    @default_slider_options.setter
+    def default_slider_options(self, value: Optional[pulumi.Input['TemplateDefaultSliderControlOptionsArgs']]):
+        pulumi.set(self, "default_slider_options", value)
+
+    @property
+    @pulumi.getter(name="defaultTextAreaOptions")
+    def default_text_area_options(self) -> Optional[pulumi.Input['TemplateDefaultTextAreaControlOptionsArgs']]:
+        return pulumi.get(self, "default_text_area_options")
+
+    @default_text_area_options.setter
+    def default_text_area_options(self, value: Optional[pulumi.Input['TemplateDefaultTextAreaControlOptionsArgs']]):
+        pulumi.set(self, "default_text_area_options", value)
+
+    @property
+    @pulumi.getter(name="defaultTextFieldOptions")
+    def default_text_field_options(self) -> Optional[pulumi.Input['TemplateDefaultTextFieldControlOptionsArgs']]:
+        return pulumi.get(self, "default_text_field_options")
+
+    @default_text_field_options.setter
+    def default_text_field_options(self, value: Optional[pulumi.Input['TemplateDefaultTextFieldControlOptionsArgs']]):
+        pulumi.set(self, "default_text_field_options", value)
+
+
+@pulumi.input_type
+class TemplateDefaultFilterDropDownControlOptionsArgs:
+    def __init__(__self__, *,
+                 display_options: Optional[pulumi.Input['TemplateDropDownControlDisplayOptionsArgs']] = None,
+                 selectable_values: Optional[pulumi.Input['TemplateFilterSelectableValuesArgs']] = None,
+                 type: Optional[pulumi.Input['TemplateSheetControlListType']] = None):
+        if display_options is not None:
+            pulumi.set(__self__, "display_options", display_options)
+        if selectable_values is not None:
+            pulumi.set(__self__, "selectable_values", selectable_values)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="displayOptions")
+    def display_options(self) -> Optional[pulumi.Input['TemplateDropDownControlDisplayOptionsArgs']]:
+        return pulumi.get(self, "display_options")
+
+    @display_options.setter
+    def display_options(self, value: Optional[pulumi.Input['TemplateDropDownControlDisplayOptionsArgs']]):
+        pulumi.set(self, "display_options", value)
+
+    @property
+    @pulumi.getter(name="selectableValues")
+    def selectable_values(self) -> Optional[pulumi.Input['TemplateFilterSelectableValuesArgs']]:
+        return pulumi.get(self, "selectable_values")
+
+    @selectable_values.setter
+    def selectable_values(self, value: Optional[pulumi.Input['TemplateFilterSelectableValuesArgs']]):
+        pulumi.set(self, "selectable_values", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['TemplateSheetControlListType']]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['TemplateSheetControlListType']]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class TemplateDefaultFilterListControlOptionsArgs:
+    def __init__(__self__, *,
+                 display_options: Optional[pulumi.Input['TemplateListControlDisplayOptionsArgs']] = None,
+                 selectable_values: Optional[pulumi.Input['TemplateFilterSelectableValuesArgs']] = None,
+                 type: Optional[pulumi.Input['TemplateSheetControlListType']] = None):
+        if display_options is not None:
+            pulumi.set(__self__, "display_options", display_options)
+        if selectable_values is not None:
+            pulumi.set(__self__, "selectable_values", selectable_values)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="displayOptions")
+    def display_options(self) -> Optional[pulumi.Input['TemplateListControlDisplayOptionsArgs']]:
+        return pulumi.get(self, "display_options")
+
+    @display_options.setter
+    def display_options(self, value: Optional[pulumi.Input['TemplateListControlDisplayOptionsArgs']]):
+        pulumi.set(self, "display_options", value)
+
+    @property
+    @pulumi.getter(name="selectableValues")
+    def selectable_values(self) -> Optional[pulumi.Input['TemplateFilterSelectableValuesArgs']]:
+        return pulumi.get(self, "selectable_values")
+
+    @selectable_values.setter
+    def selectable_values(self, value: Optional[pulumi.Input['TemplateFilterSelectableValuesArgs']]):
+        pulumi.set(self, "selectable_values", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['TemplateSheetControlListType']]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['TemplateSheetControlListType']]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
 class TemplateDefaultFreeFormLayoutConfigurationArgs:
     def __init__(__self__, *,
                  canvas_size_options: pulumi.Input['TemplateFreeFormLayoutCanvasSizeOptionsArgs']):
@@ -52432,6 +53675,23 @@ class TemplateDefaultPaginatedLayoutConfigurationArgs:
 
 
 @pulumi.input_type
+class TemplateDefaultRelativeDateTimeControlOptionsArgs:
+    def __init__(__self__, *,
+                 display_options: Optional[pulumi.Input['TemplateRelativeDateTimeControlDisplayOptionsArgs']] = None):
+        if display_options is not None:
+            pulumi.set(__self__, "display_options", display_options)
+
+    @property
+    @pulumi.getter(name="displayOptions")
+    def display_options(self) -> Optional[pulumi.Input['TemplateRelativeDateTimeControlDisplayOptionsArgs']]:
+        return pulumi.get(self, "display_options")
+
+    @display_options.setter
+    def display_options(self, value: Optional[pulumi.Input['TemplateRelativeDateTimeControlDisplayOptionsArgs']]):
+        pulumi.set(self, "display_options", value)
+
+
+@pulumi.input_type
 class TemplateDefaultSectionBasedLayoutConfigurationArgs:
     def __init__(__self__, *,
                  canvas_size_options: pulumi.Input['TemplateSectionBasedLayoutCanvasSizeOptionsArgs']):
@@ -52445,6 +53705,114 @@ class TemplateDefaultSectionBasedLayoutConfigurationArgs:
     @canvas_size_options.setter
     def canvas_size_options(self, value: pulumi.Input['TemplateSectionBasedLayoutCanvasSizeOptionsArgs']):
         pulumi.set(self, "canvas_size_options", value)
+
+
+@pulumi.input_type
+class TemplateDefaultSliderControlOptionsArgs:
+    def __init__(__self__, *,
+                 maximum_value: pulumi.Input[float],
+                 minimum_value: pulumi.Input[float],
+                 step_size: pulumi.Input[float],
+                 display_options: Optional[pulumi.Input['TemplateSliderControlDisplayOptionsArgs']] = None,
+                 type: Optional[pulumi.Input['TemplateSheetControlSliderType']] = None):
+        pulumi.set(__self__, "maximum_value", maximum_value)
+        pulumi.set(__self__, "minimum_value", minimum_value)
+        pulumi.set(__self__, "step_size", step_size)
+        if display_options is not None:
+            pulumi.set(__self__, "display_options", display_options)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="maximumValue")
+    def maximum_value(self) -> pulumi.Input[float]:
+        return pulumi.get(self, "maximum_value")
+
+    @maximum_value.setter
+    def maximum_value(self, value: pulumi.Input[float]):
+        pulumi.set(self, "maximum_value", value)
+
+    @property
+    @pulumi.getter(name="minimumValue")
+    def minimum_value(self) -> pulumi.Input[float]:
+        return pulumi.get(self, "minimum_value")
+
+    @minimum_value.setter
+    def minimum_value(self, value: pulumi.Input[float]):
+        pulumi.set(self, "minimum_value", value)
+
+    @property
+    @pulumi.getter(name="stepSize")
+    def step_size(self) -> pulumi.Input[float]:
+        return pulumi.get(self, "step_size")
+
+    @step_size.setter
+    def step_size(self, value: pulumi.Input[float]):
+        pulumi.set(self, "step_size", value)
+
+    @property
+    @pulumi.getter(name="displayOptions")
+    def display_options(self) -> Optional[pulumi.Input['TemplateSliderControlDisplayOptionsArgs']]:
+        return pulumi.get(self, "display_options")
+
+    @display_options.setter
+    def display_options(self, value: Optional[pulumi.Input['TemplateSliderControlDisplayOptionsArgs']]):
+        pulumi.set(self, "display_options", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['TemplateSheetControlSliderType']]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['TemplateSheetControlSliderType']]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class TemplateDefaultTextAreaControlOptionsArgs:
+    def __init__(__self__, *,
+                 delimiter: Optional[pulumi.Input[str]] = None,
+                 display_options: Optional[pulumi.Input['TemplateTextAreaControlDisplayOptionsArgs']] = None):
+        if delimiter is not None:
+            pulumi.set(__self__, "delimiter", delimiter)
+        if display_options is not None:
+            pulumi.set(__self__, "display_options", display_options)
+
+    @property
+    @pulumi.getter
+    def delimiter(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "delimiter")
+
+    @delimiter.setter
+    def delimiter(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "delimiter", value)
+
+    @property
+    @pulumi.getter(name="displayOptions")
+    def display_options(self) -> Optional[pulumi.Input['TemplateTextAreaControlDisplayOptionsArgs']]:
+        return pulumi.get(self, "display_options")
+
+    @display_options.setter
+    def display_options(self, value: Optional[pulumi.Input['TemplateTextAreaControlDisplayOptionsArgs']]):
+        pulumi.set(self, "display_options", value)
+
+
+@pulumi.input_type
+class TemplateDefaultTextFieldControlOptionsArgs:
+    def __init__(__self__, *,
+                 display_options: Optional[pulumi.Input['TemplateTextFieldControlDisplayOptionsArgs']] = None):
+        if display_options is not None:
+            pulumi.set(__self__, "display_options", display_options)
+
+    @property
+    @pulumi.getter(name="displayOptions")
+    def display_options(self) -> Optional[pulumi.Input['TemplateTextFieldControlDisplayOptionsArgs']]:
+        return pulumi.get(self, "display_options")
+
+    @display_options.setter
+    def display_options(self, value: Optional[pulumi.Input['TemplateTextFieldControlDisplayOptionsArgs']]):
+        pulumi.set(self, "display_options", value)
 
 
 @pulumi.input_type
@@ -53334,6 +54702,7 @@ class TemplateFilledMapVisualArgs:
 @pulumi.input_type
 class TemplateFilterControlArgs:
     def __init__(__self__, *,
+                 cross_sheet: Optional[pulumi.Input['TemplateFilterCrossSheetControlArgs']] = None,
                  date_time_picker: Optional[pulumi.Input['TemplateFilterDateTimePickerControlArgs']] = None,
                  dropdown: Optional[pulumi.Input['TemplateFilterDropDownControlArgs']] = None,
                  list: Optional[pulumi.Input['TemplateFilterListControlArgs']] = None,
@@ -53341,6 +54710,8 @@ class TemplateFilterControlArgs:
                  slider: Optional[pulumi.Input['TemplateFilterSliderControlArgs']] = None,
                  text_area: Optional[pulumi.Input['TemplateFilterTextAreaControlArgs']] = None,
                  text_field: Optional[pulumi.Input['TemplateFilterTextFieldControlArgs']] = None):
+        if cross_sheet is not None:
+            pulumi.set(__self__, "cross_sheet", cross_sheet)
         if date_time_picker is not None:
             pulumi.set(__self__, "date_time_picker", date_time_picker)
         if dropdown is not None:
@@ -53355,6 +54726,15 @@ class TemplateFilterControlArgs:
             pulumi.set(__self__, "text_area", text_area)
         if text_field is not None:
             pulumi.set(__self__, "text_field", text_field)
+
+    @property
+    @pulumi.getter(name="crossSheet")
+    def cross_sheet(self) -> Optional[pulumi.Input['TemplateFilterCrossSheetControlArgs']]:
+        return pulumi.get(self, "cross_sheet")
+
+    @cross_sheet.setter
+    def cross_sheet(self, value: Optional[pulumi.Input['TemplateFilterCrossSheetControlArgs']]):
+        pulumi.set(self, "cross_sheet", value)
 
     @property
     @pulumi.getter(name="dateTimePicker")
@@ -53418,6 +54798,45 @@ class TemplateFilterControlArgs:
     @text_field.setter
     def text_field(self, value: Optional[pulumi.Input['TemplateFilterTextFieldControlArgs']]):
         pulumi.set(self, "text_field", value)
+
+
+@pulumi.input_type
+class TemplateFilterCrossSheetControlArgs:
+    def __init__(__self__, *,
+                 filter_control_id: pulumi.Input[str],
+                 source_filter_id: pulumi.Input[str],
+                 cascading_control_configuration: Optional[pulumi.Input['TemplateCascadingControlConfigurationArgs']] = None):
+        pulumi.set(__self__, "filter_control_id", filter_control_id)
+        pulumi.set(__self__, "source_filter_id", source_filter_id)
+        if cascading_control_configuration is not None:
+            pulumi.set(__self__, "cascading_control_configuration", cascading_control_configuration)
+
+    @property
+    @pulumi.getter(name="filterControlId")
+    def filter_control_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "filter_control_id")
+
+    @filter_control_id.setter
+    def filter_control_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "filter_control_id", value)
+
+    @property
+    @pulumi.getter(name="sourceFilterId")
+    def source_filter_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "source_filter_id")
+
+    @source_filter_id.setter
+    def source_filter_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source_filter_id", value)
+
+    @property
+    @pulumi.getter(name="cascadingControlConfiguration")
+    def cascading_control_configuration(self) -> Optional[pulumi.Input['TemplateCascadingControlConfigurationArgs']]:
+        return pulumi.get(self, "cascading_control_configuration")
+
+    @cascading_control_configuration.setter
+    def cascading_control_configuration(self, value: Optional[pulumi.Input['TemplateCascadingControlConfigurationArgs']]):
+        pulumi.set(self, "cascading_control_configuration", value)
 
 
 @pulumi.input_type
@@ -59061,6 +60480,7 @@ class TemplateNumericEqualityFilterArgs:
                  match_operator: pulumi.Input['TemplateNumericEqualityMatchOperator'],
                  null_option: pulumi.Input['TemplateFilterNullOption'],
                  aggregation_function: Optional[pulumi.Input['TemplateAggregationFunctionArgs']] = None,
+                 default_filter_control_configuration: Optional[pulumi.Input['TemplateDefaultFilterControlConfigurationArgs']] = None,
                  parameter_name: Optional[pulumi.Input[str]] = None,
                  select_all_options: Optional[pulumi.Input['TemplateNumericFilterSelectAllOptions']] = None,
                  value: Optional[pulumi.Input[float]] = None):
@@ -59070,6 +60490,8 @@ class TemplateNumericEqualityFilterArgs:
         pulumi.set(__self__, "null_option", null_option)
         if aggregation_function is not None:
             pulumi.set(__self__, "aggregation_function", aggregation_function)
+        if default_filter_control_configuration is not None:
+            pulumi.set(__self__, "default_filter_control_configuration", default_filter_control_configuration)
         if parameter_name is not None:
             pulumi.set(__self__, "parameter_name", parameter_name)
         if select_all_options is not None:
@@ -59121,6 +60543,15 @@ class TemplateNumericEqualityFilterArgs:
     @aggregation_function.setter
     def aggregation_function(self, value: Optional[pulumi.Input['TemplateAggregationFunctionArgs']]):
         pulumi.set(self, "aggregation_function", value)
+
+    @property
+    @pulumi.getter(name="defaultFilterControlConfiguration")
+    def default_filter_control_configuration(self) -> Optional[pulumi.Input['TemplateDefaultFilterControlConfigurationArgs']]:
+        return pulumi.get(self, "default_filter_control_configuration")
+
+    @default_filter_control_configuration.setter
+    def default_filter_control_configuration(self, value: Optional[pulumi.Input['TemplateDefaultFilterControlConfigurationArgs']]):
+        pulumi.set(self, "default_filter_control_configuration", value)
 
     @property
     @pulumi.getter(name="parameterName")
@@ -59227,6 +60658,7 @@ class TemplateNumericRangeFilterArgs:
                  filter_id: pulumi.Input[str],
                  null_option: pulumi.Input['TemplateFilterNullOption'],
                  aggregation_function: Optional[pulumi.Input['TemplateAggregationFunctionArgs']] = None,
+                 default_filter_control_configuration: Optional[pulumi.Input['TemplateDefaultFilterControlConfigurationArgs']] = None,
                  include_maximum: Optional[pulumi.Input[bool]] = None,
                  include_minimum: Optional[pulumi.Input[bool]] = None,
                  range_maximum: Optional[pulumi.Input['TemplateNumericRangeFilterValueArgs']] = None,
@@ -59237,6 +60669,8 @@ class TemplateNumericRangeFilterArgs:
         pulumi.set(__self__, "null_option", null_option)
         if aggregation_function is not None:
             pulumi.set(__self__, "aggregation_function", aggregation_function)
+        if default_filter_control_configuration is not None:
+            pulumi.set(__self__, "default_filter_control_configuration", default_filter_control_configuration)
         if include_maximum is not None:
             pulumi.set(__self__, "include_maximum", include_maximum)
         if include_minimum is not None:
@@ -59283,6 +60717,15 @@ class TemplateNumericRangeFilterArgs:
     @aggregation_function.setter
     def aggregation_function(self, value: Optional[pulumi.Input['TemplateAggregationFunctionArgs']]):
         pulumi.set(self, "aggregation_function", value)
+
+    @property
+    @pulumi.getter(name="defaultFilterControlConfiguration")
+    def default_filter_control_configuration(self) -> Optional[pulumi.Input['TemplateDefaultFilterControlConfigurationArgs']]:
+        return pulumi.get(self, "default_filter_control_configuration")
+
+    @default_filter_control_configuration.setter
+    def default_filter_control_configuration(self, value: Optional[pulumi.Input['TemplateDefaultFilterControlConfigurationArgs']]):
+        pulumi.set(self, "default_filter_control_configuration", value)
 
     @property
     @pulumi.getter(name="includeMaximum")
@@ -62627,6 +64070,7 @@ class TemplateRelativeDatesFilterArgs:
                  null_option: pulumi.Input['TemplateFilterNullOption'],
                  relative_date_type: pulumi.Input['TemplateRelativeDateType'],
                  time_granularity: pulumi.Input['TemplateTimeGranularity'],
+                 default_filter_control_configuration: Optional[pulumi.Input['TemplateDefaultFilterControlConfigurationArgs']] = None,
                  exclude_period_configuration: Optional[pulumi.Input['TemplateExcludePeriodConfigurationArgs']] = None,
                  minimum_granularity: Optional[pulumi.Input['TemplateTimeGranularity']] = None,
                  parameter_name: Optional[pulumi.Input[str]] = None,
@@ -62637,6 +64081,8 @@ class TemplateRelativeDatesFilterArgs:
         pulumi.set(__self__, "null_option", null_option)
         pulumi.set(__self__, "relative_date_type", relative_date_type)
         pulumi.set(__self__, "time_granularity", time_granularity)
+        if default_filter_control_configuration is not None:
+            pulumi.set(__self__, "default_filter_control_configuration", default_filter_control_configuration)
         if exclude_period_configuration is not None:
             pulumi.set(__self__, "exclude_period_configuration", exclude_period_configuration)
         if minimum_granularity is not None:
@@ -62699,6 +64145,15 @@ class TemplateRelativeDatesFilterArgs:
     @time_granularity.setter
     def time_granularity(self, value: pulumi.Input['TemplateTimeGranularity']):
         pulumi.set(self, "time_granularity", value)
+
+    @property
+    @pulumi.getter(name="defaultFilterControlConfiguration")
+    def default_filter_control_configuration(self) -> Optional[pulumi.Input['TemplateDefaultFilterControlConfigurationArgs']]:
+        return pulumi.get(self, "default_filter_control_configuration")
+
+    @default_filter_control_configuration.setter
+    def default_filter_control_configuration(self, value: Optional[pulumi.Input['TemplateDefaultFilterControlConfigurationArgs']]):
+        pulumi.set(self, "default_filter_control_configuration", value)
 
     @property
     @pulumi.getter(name="excludePeriodConfiguration")
@@ -65924,12 +67379,15 @@ class TemplateTimeEqualityFilterArgs:
     def __init__(__self__, *,
                  column: pulumi.Input['TemplateColumnIdentifierArgs'],
                  filter_id: pulumi.Input[str],
+                 default_filter_control_configuration: Optional[pulumi.Input['TemplateDefaultFilterControlConfigurationArgs']] = None,
                  parameter_name: Optional[pulumi.Input[str]] = None,
                  rolling_date: Optional[pulumi.Input['TemplateRollingDateConfigurationArgs']] = None,
                  time_granularity: Optional[pulumi.Input['TemplateTimeGranularity']] = None,
                  value: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "column", column)
         pulumi.set(__self__, "filter_id", filter_id)
+        if default_filter_control_configuration is not None:
+            pulumi.set(__self__, "default_filter_control_configuration", default_filter_control_configuration)
         if parameter_name is not None:
             pulumi.set(__self__, "parameter_name", parameter_name)
         if rolling_date is not None:
@@ -65956,6 +67414,15 @@ class TemplateTimeEqualityFilterArgs:
     @filter_id.setter
     def filter_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "filter_id", value)
+
+    @property
+    @pulumi.getter(name="defaultFilterControlConfiguration")
+    def default_filter_control_configuration(self) -> Optional[pulumi.Input['TemplateDefaultFilterControlConfigurationArgs']]:
+        return pulumi.get(self, "default_filter_control_configuration")
+
+    @default_filter_control_configuration.setter
+    def default_filter_control_configuration(self, value: Optional[pulumi.Input['TemplateDefaultFilterControlConfigurationArgs']]):
+        pulumi.set(self, "default_filter_control_configuration", value)
 
     @property
     @pulumi.getter(name="parameterName")
@@ -66090,6 +67557,7 @@ class TemplateTimeRangeFilterArgs:
                  column: pulumi.Input['TemplateColumnIdentifierArgs'],
                  filter_id: pulumi.Input[str],
                  null_option: pulumi.Input['TemplateFilterNullOption'],
+                 default_filter_control_configuration: Optional[pulumi.Input['TemplateDefaultFilterControlConfigurationArgs']] = None,
                  exclude_period_configuration: Optional[pulumi.Input['TemplateExcludePeriodConfigurationArgs']] = None,
                  include_maximum: Optional[pulumi.Input[bool]] = None,
                  include_minimum: Optional[pulumi.Input[bool]] = None,
@@ -66099,6 +67567,8 @@ class TemplateTimeRangeFilterArgs:
         pulumi.set(__self__, "column", column)
         pulumi.set(__self__, "filter_id", filter_id)
         pulumi.set(__self__, "null_option", null_option)
+        if default_filter_control_configuration is not None:
+            pulumi.set(__self__, "default_filter_control_configuration", default_filter_control_configuration)
         if exclude_period_configuration is not None:
             pulumi.set(__self__, "exclude_period_configuration", exclude_period_configuration)
         if include_maximum is not None:
@@ -66138,6 +67608,15 @@ class TemplateTimeRangeFilterArgs:
     @null_option.setter
     def null_option(self, value: pulumi.Input['TemplateFilterNullOption']):
         pulumi.set(self, "null_option", value)
+
+    @property
+    @pulumi.getter(name="defaultFilterControlConfiguration")
+    def default_filter_control_configuration(self) -> Optional[pulumi.Input['TemplateDefaultFilterControlConfigurationArgs']]:
+        return pulumi.get(self, "default_filter_control_configuration")
+
+    @default_filter_control_configuration.setter
+    def default_filter_control_configuration(self, value: Optional[pulumi.Input['TemplateDefaultFilterControlConfigurationArgs']]):
+        pulumi.set(self, "default_filter_control_configuration", value)
 
     @property
     @pulumi.getter(name="excludePeriodConfiguration")
@@ -66270,12 +67749,15 @@ class TemplateTopBottomFilterArgs:
                  aggregation_sort_configurations: pulumi.Input[Sequence[pulumi.Input['TemplateAggregationSortConfigurationArgs']]],
                  column: pulumi.Input['TemplateColumnIdentifierArgs'],
                  filter_id: pulumi.Input[str],
+                 default_filter_control_configuration: Optional[pulumi.Input['TemplateDefaultFilterControlConfigurationArgs']] = None,
                  limit: Optional[pulumi.Input[float]] = None,
                  parameter_name: Optional[pulumi.Input[str]] = None,
                  time_granularity: Optional[pulumi.Input['TemplateTimeGranularity']] = None):
         pulumi.set(__self__, "aggregation_sort_configurations", aggregation_sort_configurations)
         pulumi.set(__self__, "column", column)
         pulumi.set(__self__, "filter_id", filter_id)
+        if default_filter_control_configuration is not None:
+            pulumi.set(__self__, "default_filter_control_configuration", default_filter_control_configuration)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
         if parameter_name is not None:
@@ -66309,6 +67791,15 @@ class TemplateTopBottomFilterArgs:
     @filter_id.setter
     def filter_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "filter_id", value)
+
+    @property
+    @pulumi.getter(name="defaultFilterControlConfiguration")
+    def default_filter_control_configuration(self) -> Optional[pulumi.Input['TemplateDefaultFilterControlConfigurationArgs']]:
+        return pulumi.get(self, "default_filter_control_configuration")
+
+    @default_filter_control_configuration.setter
+    def default_filter_control_configuration(self, value: Optional[pulumi.Input['TemplateDefaultFilterControlConfigurationArgs']]):
+        pulumi.set(self, "default_filter_control_configuration", value)
 
     @property
     @pulumi.getter
@@ -68318,12 +69809,19 @@ class TemplateWordCloudVisualArgs:
 class ThemeBorderStyleArgs:
     def __init__(__self__, *,
                  show: Optional[pulumi.Input[bool]] = None):
+        """
+        <p>The display options for tile borders for visuals.</p>
+        :param pulumi.Input[bool] show: <p>The option to enable display of borders for visuals.</p>
+        """
         if show is not None:
             pulumi.set(__self__, "show", show)
 
     @property
     @pulumi.getter
     def show(self) -> Optional[pulumi.Input[bool]]:
+        """
+        <p>The option to enable display of borders for visuals.</p>
+        """
         return pulumi.get(self, "show")
 
     @show.setter
@@ -68338,6 +69836,10 @@ class ThemeConfigurationArgs:
                  sheet: Optional[pulumi.Input['ThemeSheetStyleArgs']] = None,
                  typography: Optional[pulumi.Input['ThemeTypographyArgs']] = None,
                  ui_color_palette: Optional[pulumi.Input['ThemeUiColorPaletteArgs']] = None):
+        """
+        <p>The theme configuration. This configuration contains all of the display properties for
+                    a theme.</p>
+        """
         if data_color_palette is not None:
             pulumi.set(__self__, "data_color_palette", data_color_palette)
         if sheet is not None:
@@ -68390,6 +69892,15 @@ class ThemeDataColorPaletteArgs:
                  colors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  empty_fill_color: Optional[pulumi.Input[str]] = None,
                  min_max_gradient: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        <p>The theme colors that are used for data colors in charts. The colors description is a
+                    hexadecimal color code that consists of six alphanumerical characters, prefixed with
+                        <code>#</code>, for example #37BFF5. </p>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] colors: <p>The hexadecimal codes for the colors.</p>
+        :param pulumi.Input[str] empty_fill_color: <p>The hexadecimal code of a color that applies to charts where a lack of data is
+                           highlighted.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] min_max_gradient: <p>The minimum and maximum hexadecimal codes that describe a color gradient. </p>
+        """
         if colors is not None:
             pulumi.set(__self__, "colors", colors)
         if empty_fill_color is not None:
@@ -68400,6 +69911,9 @@ class ThemeDataColorPaletteArgs:
     @property
     @pulumi.getter
     def colors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        <p>The hexadecimal codes for the colors.</p>
+        """
         return pulumi.get(self, "colors")
 
     @colors.setter
@@ -68409,6 +69923,10 @@ class ThemeDataColorPaletteArgs:
     @property
     @pulumi.getter(name="emptyFillColor")
     def empty_fill_color(self) -> Optional[pulumi.Input[str]]:
+        """
+        <p>The hexadecimal code of a color that applies to charts where a lack of data is
+                    highlighted.</p>
+        """
         return pulumi.get(self, "empty_fill_color")
 
     @empty_fill_color.setter
@@ -68418,6 +69936,9 @@ class ThemeDataColorPaletteArgs:
     @property
     @pulumi.getter(name="minMaxGradient")
     def min_max_gradient(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        <p>The minimum and maximum hexadecimal codes that describe a color gradient. </p>
+        """
         return pulumi.get(self, "min_max_gradient")
 
     @min_max_gradient.setter
@@ -68446,12 +69967,21 @@ class ThemeFontArgs:
 class ThemeGutterStyleArgs:
     def __init__(__self__, *,
                  show: Optional[pulumi.Input[bool]] = None):
+        """
+        <p>The display options for gutter spacing between tiles on a sheet.</p>
+        :param pulumi.Input[bool] show: <p>This Boolean value controls whether to display a gutter space between sheet tiles.
+                       </p>
+        """
         if show is not None:
             pulumi.set(__self__, "show", show)
 
     @property
     @pulumi.getter
     def show(self) -> Optional[pulumi.Input[bool]]:
+        """
+        <p>This Boolean value controls whether to display a gutter space between sheet tiles.
+                </p>
+        """
         return pulumi.get(self, "show")
 
     @show.setter
@@ -68463,12 +69993,19 @@ class ThemeGutterStyleArgs:
 class ThemeMarginStyleArgs:
     def __init__(__self__, *,
                  show: Optional[pulumi.Input[bool]] = None):
+        """
+        <p>The display options for margins around the outside edge of sheets.</p>
+        :param pulumi.Input[bool] show: <p>This Boolean value controls whether to display sheet margins.</p>
+        """
         if show is not None:
             pulumi.set(__self__, "show", show)
 
     @property
     @pulumi.getter
     def show(self) -> Optional[pulumi.Input[bool]]:
+        """
+        <p>This Boolean value controls whether to display sheet margins.</p>
+        """
         return pulumi.get(self, "show")
 
     @show.setter
@@ -68481,12 +70018,34 @@ class ThemeResourcePermissionArgs:
     def __init__(__self__, *,
                  actions: pulumi.Input[Sequence[pulumi.Input[str]]],
                  principal: pulumi.Input[str]):
+        """
+        <p>Permission for the resource.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] actions: <p>The IAM action to grant or revoke permissions on.</p>
+        :param pulumi.Input[str] principal: <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+                           following:</p>
+                        <ul>
+                           <li>
+                              <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+                           </li>
+                           <li>
+                              <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+                           </li>
+                           <li>
+                              <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
+                                   ARN. Use this option only to share resources (templates) across Amazon Web Services accounts.
+                                   (This is less common.) </p>
+                           </li>
+                        </ul>
+        """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "principal", principal)
 
     @property
     @pulumi.getter
     def actions(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        <p>The IAM action to grant or revoke permissions on.</p>
+        """
         return pulumi.get(self, "actions")
 
     @actions.setter
@@ -68496,6 +70055,23 @@ class ThemeResourcePermissionArgs:
     @property
     @pulumi.getter
     def principal(self) -> pulumi.Input[str]:
+        """
+        <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+                    following:</p>
+                 <ul>
+                    <li>
+                       <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+                    </li>
+                    <li>
+                       <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+                    </li>
+                    <li>
+                       <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
+                            ARN. Use this option only to share resources (templates) across Amazon Web Services accounts.
+                            (This is less common.) </p>
+                    </li>
+                 </ul>
+        """
         return pulumi.get(self, "principal")
 
     @principal.setter
@@ -68508,6 +70084,9 @@ class ThemeSheetStyleArgs:
     def __init__(__self__, *,
                  tile: Optional[pulumi.Input['ThemeTileStyleArgs']] = None,
                  tile_layout: Optional[pulumi.Input['ThemeTileLayoutStyleArgs']] = None):
+        """
+        <p>The theme display options for sheets. </p>
+        """
         if tile is not None:
             pulumi.set(__self__, "tile", tile)
         if tile_layout is not None:
@@ -68537,6 +70116,9 @@ class ThemeTileLayoutStyleArgs:
     def __init__(__self__, *,
                  gutter: Optional[pulumi.Input['ThemeGutterStyleArgs']] = None,
                  margin: Optional[pulumi.Input['ThemeMarginStyleArgs']] = None):
+        """
+        <p>The display options for the layout of tiles on a sheet.</p>
+        """
         if gutter is not None:
             pulumi.set(__self__, "gutter", gutter)
         if margin is not None:
@@ -68565,6 +70147,9 @@ class ThemeTileLayoutStyleArgs:
 class ThemeTileStyleArgs:
     def __init__(__self__, *,
                  border: Optional[pulumi.Input['ThemeBorderStyleArgs']] = None):
+        """
+        <p>Display options related to tiles on a sheet.</p>
+        """
         if border is not None:
             pulumi.set(__self__, "border", border)
 
@@ -68614,6 +70199,39 @@ class ThemeUiColorPaletteArgs:
                  success_foreground: Optional[pulumi.Input[str]] = None,
                  warning: Optional[pulumi.Input[str]] = None,
                  warning_foreground: Optional[pulumi.Input[str]] = None):
+        """
+        <p>The theme colors that apply to UI and to charts, excluding data colors. The colors
+                    description is a hexadecimal color code that consists of six alphanumerical characters,
+                    prefixed with <code>#</code>, for example #37BFF5. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html">Using Themes in Amazon QuickSight</a> in the <i>Amazon QuickSight User
+                        Guide.</i>
+                 </p>
+        :param pulumi.Input[str] accent: <p>This color is that applies to selected states and buttons.</p>
+        :param pulumi.Input[str] accent_foreground: <p>The foreground color that applies to any text or other elements that appear over the
+                           accent color.</p>
+        :param pulumi.Input[str] danger: <p>The color that applies to error messages.</p>
+        :param pulumi.Input[str] danger_foreground: <p>The foreground color that applies to any text or other elements that appear over the
+                           error color.</p>
+        :param pulumi.Input[str] dimension: <p>The color that applies to the names of fields that are identified as
+                           dimensions.</p>
+        :param pulumi.Input[str] dimension_foreground: <p>The foreground color that applies to any text or other elements that appear over the
+                           dimension color.</p>
+        :param pulumi.Input[str] measure: <p>The color that applies to the names of fields that are identified as measures.</p>
+        :param pulumi.Input[str] measure_foreground: <p>The foreground color that applies to any text or other elements that appear over the
+                           measure color.</p>
+        :param pulumi.Input[str] primary_background: <p>The background color that applies to visuals and other high emphasis UI.</p>
+        :param pulumi.Input[str] primary_foreground: <p>The color of text and other foreground elements that appear over the primary
+                           background regions, such as grid lines, borders, table banding, icons, and so on.</p>
+        :param pulumi.Input[str] secondary_background: <p>The background color that applies to the sheet background and sheet controls.</p>
+        :param pulumi.Input[str] secondary_foreground: <p>The foreground color that applies to any sheet title, sheet control text, or UI that
+                           appears over the secondary background.</p>
+        :param pulumi.Input[str] success: <p>The color that applies to success messages, for example the check mark for a
+                           successful download.</p>
+        :param pulumi.Input[str] success_foreground: <p>The foreground color that applies to any text or other elements that appear over the
+                           success color.</p>
+        :param pulumi.Input[str] warning: <p>This color that applies to warning and informational messages.</p>
+        :param pulumi.Input[str] warning_foreground: <p>The foreground color that applies to any text or other elements that appear over the
+                           warning color.</p>
+        """
         if accent is not None:
             pulumi.set(__self__, "accent", accent)
         if accent_foreground is not None:
@@ -68650,6 +70268,9 @@ class ThemeUiColorPaletteArgs:
     @property
     @pulumi.getter
     def accent(self) -> Optional[pulumi.Input[str]]:
+        """
+        <p>This color is that applies to selected states and buttons.</p>
+        """
         return pulumi.get(self, "accent")
 
     @accent.setter
@@ -68659,6 +70280,10 @@ class ThemeUiColorPaletteArgs:
     @property
     @pulumi.getter(name="accentForeground")
     def accent_foreground(self) -> Optional[pulumi.Input[str]]:
+        """
+        <p>The foreground color that applies to any text or other elements that appear over the
+                    accent color.</p>
+        """
         return pulumi.get(self, "accent_foreground")
 
     @accent_foreground.setter
@@ -68668,6 +70293,9 @@ class ThemeUiColorPaletteArgs:
     @property
     @pulumi.getter
     def danger(self) -> Optional[pulumi.Input[str]]:
+        """
+        <p>The color that applies to error messages.</p>
+        """
         return pulumi.get(self, "danger")
 
     @danger.setter
@@ -68677,6 +70305,10 @@ class ThemeUiColorPaletteArgs:
     @property
     @pulumi.getter(name="dangerForeground")
     def danger_foreground(self) -> Optional[pulumi.Input[str]]:
+        """
+        <p>The foreground color that applies to any text or other elements that appear over the
+                    error color.</p>
+        """
         return pulumi.get(self, "danger_foreground")
 
     @danger_foreground.setter
@@ -68686,6 +70318,10 @@ class ThemeUiColorPaletteArgs:
     @property
     @pulumi.getter
     def dimension(self) -> Optional[pulumi.Input[str]]:
+        """
+        <p>The color that applies to the names of fields that are identified as
+                    dimensions.</p>
+        """
         return pulumi.get(self, "dimension")
 
     @dimension.setter
@@ -68695,6 +70331,10 @@ class ThemeUiColorPaletteArgs:
     @property
     @pulumi.getter(name="dimensionForeground")
     def dimension_foreground(self) -> Optional[pulumi.Input[str]]:
+        """
+        <p>The foreground color that applies to any text or other elements that appear over the
+                    dimension color.</p>
+        """
         return pulumi.get(self, "dimension_foreground")
 
     @dimension_foreground.setter
@@ -68704,6 +70344,9 @@ class ThemeUiColorPaletteArgs:
     @property
     @pulumi.getter
     def measure(self) -> Optional[pulumi.Input[str]]:
+        """
+        <p>The color that applies to the names of fields that are identified as measures.</p>
+        """
         return pulumi.get(self, "measure")
 
     @measure.setter
@@ -68713,6 +70356,10 @@ class ThemeUiColorPaletteArgs:
     @property
     @pulumi.getter(name="measureForeground")
     def measure_foreground(self) -> Optional[pulumi.Input[str]]:
+        """
+        <p>The foreground color that applies to any text or other elements that appear over the
+                    measure color.</p>
+        """
         return pulumi.get(self, "measure_foreground")
 
     @measure_foreground.setter
@@ -68722,6 +70369,9 @@ class ThemeUiColorPaletteArgs:
     @property
     @pulumi.getter(name="primaryBackground")
     def primary_background(self) -> Optional[pulumi.Input[str]]:
+        """
+        <p>The background color that applies to visuals and other high emphasis UI.</p>
+        """
         return pulumi.get(self, "primary_background")
 
     @primary_background.setter
@@ -68731,6 +70381,10 @@ class ThemeUiColorPaletteArgs:
     @property
     @pulumi.getter(name="primaryForeground")
     def primary_foreground(self) -> Optional[pulumi.Input[str]]:
+        """
+        <p>The color of text and other foreground elements that appear over the primary
+                    background regions, such as grid lines, borders, table banding, icons, and so on.</p>
+        """
         return pulumi.get(self, "primary_foreground")
 
     @primary_foreground.setter
@@ -68740,6 +70394,9 @@ class ThemeUiColorPaletteArgs:
     @property
     @pulumi.getter(name="secondaryBackground")
     def secondary_background(self) -> Optional[pulumi.Input[str]]:
+        """
+        <p>The background color that applies to the sheet background and sheet controls.</p>
+        """
         return pulumi.get(self, "secondary_background")
 
     @secondary_background.setter
@@ -68749,6 +70406,10 @@ class ThemeUiColorPaletteArgs:
     @property
     @pulumi.getter(name="secondaryForeground")
     def secondary_foreground(self) -> Optional[pulumi.Input[str]]:
+        """
+        <p>The foreground color that applies to any sheet title, sheet control text, or UI that
+                    appears over the secondary background.</p>
+        """
         return pulumi.get(self, "secondary_foreground")
 
     @secondary_foreground.setter
@@ -68758,6 +70419,10 @@ class ThemeUiColorPaletteArgs:
     @property
     @pulumi.getter
     def success(self) -> Optional[pulumi.Input[str]]:
+        """
+        <p>The color that applies to success messages, for example the check mark for a
+                    successful download.</p>
+        """
         return pulumi.get(self, "success")
 
     @success.setter
@@ -68767,6 +70432,10 @@ class ThemeUiColorPaletteArgs:
     @property
     @pulumi.getter(name="successForeground")
     def success_foreground(self) -> Optional[pulumi.Input[str]]:
+        """
+        <p>The foreground color that applies to any text or other elements that appear over the
+                    success color.</p>
+        """
         return pulumi.get(self, "success_foreground")
 
     @success_foreground.setter
@@ -68776,6 +70445,9 @@ class ThemeUiColorPaletteArgs:
     @property
     @pulumi.getter
     def warning(self) -> Optional[pulumi.Input[str]]:
+        """
+        <p>This color that applies to warning and informational messages.</p>
+        """
         return pulumi.get(self, "warning")
 
     @warning.setter
@@ -68785,6 +70457,10 @@ class ThemeUiColorPaletteArgs:
     @property
     @pulumi.getter(name="warningForeground")
     def warning_foreground(self) -> Optional[pulumi.Input[str]]:
+        """
+        <p>The foreground color that applies to any text or other elements that appear over the
+                    warning color.</p>
+        """
         return pulumi.get(self, "warning_foreground")
 
     @warning_foreground.setter

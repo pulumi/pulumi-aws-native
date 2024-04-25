@@ -23,6 +23,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("column", required: true)]
         public Input<Inputs.AnalysisColumnIdentifierArgs> Column { get; set; } = null!;
 
+        [Input("defaultFilterControlConfiguration")]
+        public Input<Inputs.AnalysisDefaultFilterControlConfigurationArgs>? DefaultFilterControlConfiguration { get; set; }
+
         [Input("filterId", required: true)]
         public Input<string> FilterId { get; set; } = null!;
 

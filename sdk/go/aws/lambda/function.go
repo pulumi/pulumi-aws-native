@@ -137,8 +137,8 @@ import (
 //				FunctionVersion: newVersion.Version,
 //				Name:            pulumi.String("BLUE"),
 //				RoutingConfig: &lambda.AliasRoutingConfigurationArgs{
-//					AdditionalVersionWeights: []lambda.AliasVersionWeightArgs{
-//						{
+//					AdditionalVersionWeights: lambda.AliasVersionWeightArray{
+//						&lambda.AliasVersionWeightArgs{
 //							FunctionVersion: version.Version,
 //							FunctionWeight:  pulumi.Float64(0.5),
 //						},

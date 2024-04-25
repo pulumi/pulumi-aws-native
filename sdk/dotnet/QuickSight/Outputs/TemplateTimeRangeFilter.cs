@@ -14,6 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class TemplateTimeRangeFilter
     {
         public readonly Outputs.TemplateColumnIdentifier Column;
+        public readonly Outputs.TemplateDefaultFilterControlConfiguration? DefaultFilterControlConfiguration;
         public readonly Outputs.TemplateExcludePeriodConfiguration? ExcludePeriodConfiguration;
         public readonly string FilterId;
         public readonly bool? IncludeMaximum;
@@ -26,6 +27,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         [OutputConstructor]
         private TemplateTimeRangeFilter(
             Outputs.TemplateColumnIdentifier column,
+
+            Outputs.TemplateDefaultFilterControlConfiguration? defaultFilterControlConfiguration,
 
             Outputs.TemplateExcludePeriodConfiguration? excludePeriodConfiguration,
 
@@ -44,6 +47,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             Pulumi.AwsNative.QuickSight.TemplateTimeGranularity? timeGranularity)
         {
             Column = column;
+            DefaultFilterControlConfiguration = defaultFilterControlConfiguration;
             ExcludePeriodConfiguration = excludePeriodConfiguration;
             FilterId = filterId;
             IncludeMaximum = includeMaximum;

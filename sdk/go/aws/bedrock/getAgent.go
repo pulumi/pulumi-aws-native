@@ -63,6 +63,7 @@ type LookupAgentResult struct {
 	// The recommended actions users can take to resolve an error in failureReasons.
 	RecommendedActions []string          `pulumi:"recommendedActions"`
 	Tags               map[string]string `pulumi:"tags"`
+	TestAliasTags      map[string]string `pulumi:"testAliasTags"`
 	// Time Stamp.
 	UpdatedAt *string `pulumi:"updatedAt"`
 }
@@ -193,6 +194,10 @@ func (o LookupAgentResultOutput) RecommendedActions() pulumi.StringArrayOutput {
 
 func (o LookupAgentResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupAgentResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func (o LookupAgentResultOutput) TestAliasTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupAgentResult) map[string]string { return v.TestAliasTags }).(pulumi.StringMapOutput)
 }
 
 // Time Stamp.

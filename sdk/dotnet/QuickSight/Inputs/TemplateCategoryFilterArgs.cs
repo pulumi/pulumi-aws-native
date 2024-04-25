@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("configuration", required: true)]
         public Input<Inputs.TemplateCategoryFilterConfigurationArgs> Configuration { get; set; } = null!;
 
+        [Input("defaultFilterControlConfiguration")]
+        public Input<Inputs.TemplateDefaultFilterControlConfigurationArgs>? DefaultFilterControlConfiguration { get; set; }
+
         [Input("filterId", required: true)]
         public Input<string> FilterId { get; set; } = null!;
 

@@ -215,6 +215,7 @@ import * as opsworkscm from "./opsworkscm";
 import * as organizations from "./organizations";
 import * as osis from "./osis";
 import * as panorama from "./panorama";
+import * as paymentcryptography from "./paymentcryptography";
 import * as pcaconnectorad from "./pcaconnectorad";
 import * as personalize from "./personalize";
 import * as pinpoint from "./pinpoint";
@@ -234,6 +235,7 @@ import * as resourcegroups from "./resourcegroups";
 import * as robomaker from "./robomaker";
 import * as rolesanywhere from "./rolesanywhere";
 import * as route53 from "./route53";
+import * as route53profiles from "./route53profiles";
 import * as route53recoverycontrol from "./route53recoverycontrol";
 import * as route53recoveryreadiness from "./route53recoveryreadiness";
 import * as route53resolver from "./route53resolver";
@@ -427,6 +429,7 @@ export {
     organizations,
     osis,
     panorama,
+    paymentcryptography,
     pcaconnectorad,
     personalize,
     pinpoint,
@@ -446,6 +449,7 @@ export {
     robomaker,
     rolesanywhere,
     route53,
+    route53profiles,
     route53recoverycontrol,
     route53recoveryreadiness,
     route53resolver,

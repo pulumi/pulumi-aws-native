@@ -14,6 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class AnalysisTimeEqualityFilter
     {
         public readonly Outputs.AnalysisColumnIdentifier Column;
+        public readonly Outputs.AnalysisDefaultFilterControlConfiguration? DefaultFilterControlConfiguration;
         public readonly string FilterId;
         public readonly string? ParameterName;
         public readonly Outputs.AnalysisRollingDateConfiguration? RollingDate;
@@ -23,6 +24,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         [OutputConstructor]
         private AnalysisTimeEqualityFilter(
             Outputs.AnalysisColumnIdentifier column,
+
+            Outputs.AnalysisDefaultFilterControlConfiguration? defaultFilterControlConfiguration,
 
             string filterId,
 
@@ -35,6 +38,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             string? value)
         {
             Column = column;
+            DefaultFilterControlConfiguration = defaultFilterControlConfiguration;
             FilterId = filterId;
             ParameterName = parameterName;
             RollingDate = rollingDate;

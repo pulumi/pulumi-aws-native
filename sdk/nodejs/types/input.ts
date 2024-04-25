@@ -5540,6 +5540,126 @@ export namespace bedrock {
     }
 
     /**
+     * Content filter config in content policy.
+     */
+    export interface GuardrailContentFilterConfigArgs {
+        inputStrength: pulumi.Input<enums.bedrock.GuardrailFilterStrength>;
+        outputStrength: pulumi.Input<enums.bedrock.GuardrailFilterStrength>;
+        type: pulumi.Input<enums.bedrock.GuardrailContentFilterType>;
+    }
+
+    /**
+     * Content policy config for a guardrail.
+     */
+    export interface GuardrailContentPolicyConfigArgs {
+        /**
+         * List of content filter configs in content policy.
+         */
+        filtersConfig: pulumi.Input<pulumi.Input<inputs.bedrock.GuardrailContentFilterConfigArgs>[]>;
+    }
+
+    /**
+     * A managed words config.
+     */
+    export interface GuardrailManagedWordsConfigArgs {
+        type: pulumi.Input<enums.bedrock.GuardrailManagedWordsType>;
+    }
+
+    /**
+     * Pii entity configuration.
+     */
+    export interface GuardrailPiiEntityConfigArgs {
+        action: pulumi.Input<enums.bedrock.GuardrailSensitiveInformationAction>;
+        type: pulumi.Input<enums.bedrock.GuardrailPiiEntityType>;
+    }
+
+    /**
+     * A regex configuration.
+     */
+    export interface GuardrailRegexConfigArgs {
+        action: pulumi.Input<enums.bedrock.GuardrailSensitiveInformationAction>;
+        /**
+         * The regex description.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * The regex name.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The regex pattern.
+         */
+        pattern: pulumi.Input<string>;
+    }
+
+    /**
+     * Sensitive information policy config for a guardrail.
+     */
+    export interface GuardrailSensitiveInformationPolicyConfigArgs {
+        /**
+         * List of entities.
+         */
+        piiEntitiesConfig?: pulumi.Input<pulumi.Input<inputs.bedrock.GuardrailPiiEntityConfigArgs>[]>;
+        /**
+         * List of regex.
+         */
+        regexesConfig?: pulumi.Input<pulumi.Input<inputs.bedrock.GuardrailRegexConfigArgs>[]>;
+    }
+
+    /**
+     * Topic config in topic policy.
+     */
+    export interface GuardrailTopicConfigArgs {
+        /**
+         * Definition of topic in topic policy
+         */
+        definition: pulumi.Input<string>;
+        /**
+         * List of text examples
+         */
+        examples?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Name of topic in topic policy
+         */
+        name: pulumi.Input<string>;
+        type: pulumi.Input<enums.bedrock.GuardrailTopicType>;
+    }
+
+    /**
+     * Topic policy config for a guardrail.
+     */
+    export interface GuardrailTopicPolicyConfigArgs {
+        /**
+         * List of topic configs in topic policy.
+         */
+        topicsConfig: pulumi.Input<pulumi.Input<inputs.bedrock.GuardrailTopicConfigArgs>[]>;
+    }
+
+    /**
+     * A custom word config.
+     */
+    export interface GuardrailWordConfigArgs {
+        /**
+         * The custom word text.
+         */
+        text: pulumi.Input<string>;
+    }
+
+    /**
+     * Word policy config for a guardrail.
+     */
+    export interface GuardrailWordPolicyConfigArgs {
+        /**
+         * A config for the list of managed words.
+         */
+        managedWordListsConfig?: pulumi.Input<pulumi.Input<inputs.bedrock.GuardrailManagedWordsConfigArgs>[]>;
+        /**
+         * List of custom word configs.
+         */
+        wordsConfig?: pulumi.Input<pulumi.Input<inputs.bedrock.GuardrailWordConfigArgs>[]>;
+    }
+
+    /**
      * Contains details about the embeddings model used for the knowledge base.
      */
     export interface KnowledgeBaseConfigurationArgs {
@@ -8861,6 +8981,10 @@ export namespace connectcampaigns {
      * The configuration used for answering machine detection during outbound calls
      */
     export interface CampaignAnswerMachineDetectionConfigArgs {
+        /**
+         * Enables detection of prompts (e.g., beep after after a voicemail greeting)
+         */
+        awaitAnswerMachinePrompt?: pulumi.Input<boolean>;
         /**
          * Flag to decided whether outbound calls should have answering machine detection enabled or not
          */
@@ -13676,6 +13800,7 @@ export namespace ecs {
          * The details of the execute command configuration.
          */
         executeCommandConfiguration?: pulumi.Input<inputs.ecs.ClusterExecuteCommandConfigurationArgs>;
+        managedStorageConfiguration?: pulumi.Input<inputs.ecs.ClusterManagedStorageConfigurationArgs>;
     }
 
     /**
@@ -13725,6 +13850,11 @@ export namespace ecs {
          * An optional folder in the S3 bucket to place logs in.
          */
         s3KeyPrefix?: pulumi.Input<string>;
+    }
+
+    export interface ClusterManagedStorageConfigurationArgs {
+        fargateEphemeralStorageKmsKeyId?: pulumi.Input<string>;
+        kmsKeyId?: pulumi.Input<string>;
     }
 
     /**
@@ -24533,7 +24663,7 @@ export namespace lambda {
         /**
          * The second version, and the percentage of traffic that's routed to it.
          */
-        additionalVersionWeights: pulumi.Input<pulumi.Input<inputs.lambda.AliasVersionWeightArgs>[]>;
+        additionalVersionWeights?: pulumi.Input<pulumi.Input<inputs.lambda.AliasVersionWeightArgs>[]>;
     }
 
     /**
@@ -30182,6 +30312,28 @@ export namespace panorama {
 
 }
 
+export namespace paymentcryptography {
+    export interface KeyAttributesArgs {
+        keyAlgorithm: pulumi.Input<enums.paymentcryptography.KeyAlgorithm>;
+        keyClass: pulumi.Input<enums.paymentcryptography.KeyClass>;
+        keyModesOfUse: pulumi.Input<inputs.paymentcryptography.KeyModesOfUseArgs>;
+        keyUsage: pulumi.Input<enums.paymentcryptography.KeyUsage>;
+    }
+
+    export interface KeyModesOfUseArgs {
+        decrypt?: pulumi.Input<boolean>;
+        deriveKey?: pulumi.Input<boolean>;
+        encrypt?: pulumi.Input<boolean>;
+        generate?: pulumi.Input<boolean>;
+        noRestrictions?: pulumi.Input<boolean>;
+        sign?: pulumi.Input<boolean>;
+        unwrap?: pulumi.Input<boolean>;
+        verify?: pulumi.Input<boolean>;
+        wrap?: pulumi.Input<boolean>;
+    }
+
+}
+
 export namespace pcaconnectorad {
     export interface ConnectorVpcInformationArgs {
         securityGroupIds: pulumi.Input<pulumi.Input<string>[]>;
@@ -31350,6 +31502,7 @@ export namespace quicksight {
     export interface AnalysisCategoryFilterArgs {
         column: pulumi.Input<inputs.quicksight.AnalysisColumnIdentifierArgs>;
         configuration: pulumi.Input<inputs.quicksight.AnalysisCategoryFilterConfigurationArgs>;
+        defaultFilterControlConfiguration?: pulumi.Input<inputs.quicksight.AnalysisDefaultFilterControlConfigurationArgs>;
         filterId: pulumi.Input<string>;
     }
 
@@ -31800,6 +31953,38 @@ export namespace quicksight {
         valueWhenUnsetOption?: pulumi.Input<enums.quicksight.AnalysisValueWhenUnsetOption>;
     }
 
+    export interface AnalysisDefaultDateTimePickerControlOptionsArgs {
+        displayOptions?: pulumi.Input<inputs.quicksight.AnalysisDateTimePickerControlDisplayOptionsArgs>;
+        type?: pulumi.Input<enums.quicksight.AnalysisSheetControlDateTimePickerType>;
+    }
+
+    export interface AnalysisDefaultFilterControlConfigurationArgs {
+        controlOptions: pulumi.Input<inputs.quicksight.AnalysisDefaultFilterControlOptionsArgs>;
+        title: pulumi.Input<string>;
+    }
+
+    export interface AnalysisDefaultFilterControlOptionsArgs {
+        defaultDateTimePickerOptions?: pulumi.Input<inputs.quicksight.AnalysisDefaultDateTimePickerControlOptionsArgs>;
+        defaultDropdownOptions?: pulumi.Input<inputs.quicksight.AnalysisDefaultFilterDropDownControlOptionsArgs>;
+        defaultListOptions?: pulumi.Input<inputs.quicksight.AnalysisDefaultFilterListControlOptionsArgs>;
+        defaultRelativeDateTimeOptions?: pulumi.Input<inputs.quicksight.AnalysisDefaultRelativeDateTimeControlOptionsArgs>;
+        defaultSliderOptions?: pulumi.Input<inputs.quicksight.AnalysisDefaultSliderControlOptionsArgs>;
+        defaultTextAreaOptions?: pulumi.Input<inputs.quicksight.AnalysisDefaultTextAreaControlOptionsArgs>;
+        defaultTextFieldOptions?: pulumi.Input<inputs.quicksight.AnalysisDefaultTextFieldControlOptionsArgs>;
+    }
+
+    export interface AnalysisDefaultFilterDropDownControlOptionsArgs {
+        displayOptions?: pulumi.Input<inputs.quicksight.AnalysisDropDownControlDisplayOptionsArgs>;
+        selectableValues?: pulumi.Input<inputs.quicksight.AnalysisFilterSelectableValuesArgs>;
+        type?: pulumi.Input<enums.quicksight.AnalysisSheetControlListType>;
+    }
+
+    export interface AnalysisDefaultFilterListControlOptionsArgs {
+        displayOptions?: pulumi.Input<inputs.quicksight.AnalysisListControlDisplayOptionsArgs>;
+        selectableValues?: pulumi.Input<inputs.quicksight.AnalysisFilterSelectableValuesArgs>;
+        type?: pulumi.Input<enums.quicksight.AnalysisSheetControlListType>;
+    }
+
     export interface AnalysisDefaultFreeFormLayoutConfigurationArgs {
         canvasSizeOptions: pulumi.Input<inputs.quicksight.AnalysisFreeFormLayoutCanvasSizeOptionsArgs>;
     }
@@ -31823,8 +32008,29 @@ export namespace quicksight {
         sectionBased?: pulumi.Input<inputs.quicksight.AnalysisDefaultSectionBasedLayoutConfigurationArgs>;
     }
 
+    export interface AnalysisDefaultRelativeDateTimeControlOptionsArgs {
+        displayOptions?: pulumi.Input<inputs.quicksight.AnalysisRelativeDateTimeControlDisplayOptionsArgs>;
+    }
+
     export interface AnalysisDefaultSectionBasedLayoutConfigurationArgs {
         canvasSizeOptions: pulumi.Input<inputs.quicksight.AnalysisSectionBasedLayoutCanvasSizeOptionsArgs>;
+    }
+
+    export interface AnalysisDefaultSliderControlOptionsArgs {
+        displayOptions?: pulumi.Input<inputs.quicksight.AnalysisSliderControlDisplayOptionsArgs>;
+        maximumValue: pulumi.Input<number>;
+        minimumValue: pulumi.Input<number>;
+        stepSize: pulumi.Input<number>;
+        type?: pulumi.Input<enums.quicksight.AnalysisSheetControlSliderType>;
+    }
+
+    export interface AnalysisDefaultTextAreaControlOptionsArgs {
+        delimiter?: pulumi.Input<string>;
+        displayOptions?: pulumi.Input<inputs.quicksight.AnalysisTextAreaControlDisplayOptionsArgs>;
+    }
+
+    export interface AnalysisDefaultTextFieldControlOptionsArgs {
+        displayOptions?: pulumi.Input<inputs.quicksight.AnalysisTextFieldControlDisplayOptionsArgs>;
     }
 
     export interface AnalysisDefaultsArgs {
@@ -32009,6 +32215,7 @@ export namespace quicksight {
     }
 
     export interface AnalysisFilterControlArgs {
+        crossSheet?: pulumi.Input<inputs.quicksight.AnalysisFilterCrossSheetControlArgs>;
         dateTimePicker?: pulumi.Input<inputs.quicksight.AnalysisFilterDateTimePickerControlArgs>;
         dropdown?: pulumi.Input<inputs.quicksight.AnalysisFilterDropDownControlArgs>;
         list?: pulumi.Input<inputs.quicksight.AnalysisFilterListControlArgs>;
@@ -32016,6 +32223,12 @@ export namespace quicksight {
         slider?: pulumi.Input<inputs.quicksight.AnalysisFilterSliderControlArgs>;
         textArea?: pulumi.Input<inputs.quicksight.AnalysisFilterTextAreaControlArgs>;
         textField?: pulumi.Input<inputs.quicksight.AnalysisFilterTextFieldControlArgs>;
+    }
+
+    export interface AnalysisFilterCrossSheetControlArgs {
+        cascadingControlConfiguration?: pulumi.Input<inputs.quicksight.AnalysisCascadingControlConfigurationArgs>;
+        filterControlId: pulumi.Input<string>;
+        sourceFilterId: pulumi.Input<string>;
     }
 
     export interface AnalysisFilterDateTimePickerControlArgs {
@@ -32852,6 +33065,7 @@ export namespace quicksight {
     export interface AnalysisNumericEqualityFilterArgs {
         aggregationFunction?: pulumi.Input<inputs.quicksight.AnalysisAggregationFunctionArgs>;
         column: pulumi.Input<inputs.quicksight.AnalysisColumnIdentifierArgs>;
+        defaultFilterControlConfiguration?: pulumi.Input<inputs.quicksight.AnalysisDefaultFilterControlConfigurationArgs>;
         filterId: pulumi.Input<string>;
         matchOperator: pulumi.Input<enums.quicksight.AnalysisNumericEqualityMatchOperator>;
         nullOption: pulumi.Input<enums.quicksight.AnalysisFilterNullOption>;
@@ -32869,6 +33083,7 @@ export namespace quicksight {
     export interface AnalysisNumericRangeFilterArgs {
         aggregationFunction?: pulumi.Input<inputs.quicksight.AnalysisAggregationFunctionArgs>;
         column: pulumi.Input<inputs.quicksight.AnalysisColumnIdentifierArgs>;
+        defaultFilterControlConfiguration?: pulumi.Input<inputs.quicksight.AnalysisDefaultFilterControlConfigurationArgs>;
         filterId: pulumi.Input<string>;
         includeMaximum?: pulumi.Input<boolean>;
         includeMinimum?: pulumi.Input<boolean>;
@@ -33369,6 +33584,7 @@ export namespace quicksight {
     export interface AnalysisRelativeDatesFilterArgs {
         anchorDateConfiguration: pulumi.Input<inputs.quicksight.AnalysisAnchorDateConfigurationArgs>;
         column: pulumi.Input<inputs.quicksight.AnalysisColumnIdentifierArgs>;
+        defaultFilterControlConfiguration?: pulumi.Input<inputs.quicksight.AnalysisDefaultFilterControlConfigurationArgs>;
         excludePeriodConfiguration?: pulumi.Input<inputs.quicksight.AnalysisExcludePeriodConfigurationArgs>;
         filterId: pulumi.Input<string>;
         minimumGranularity?: pulumi.Input<enums.quicksight.AnalysisTimeGranularity>;
@@ -33934,6 +34150,7 @@ export namespace quicksight {
 
     export interface AnalysisTimeEqualityFilterArgs {
         column: pulumi.Input<inputs.quicksight.AnalysisColumnIdentifierArgs>;
+        defaultFilterControlConfiguration?: pulumi.Input<inputs.quicksight.AnalysisDefaultFilterControlConfigurationArgs>;
         filterId: pulumi.Input<string>;
         parameterName?: pulumi.Input<string>;
         rollingDate?: pulumi.Input<inputs.quicksight.AnalysisRollingDateConfigurationArgs>;
@@ -33950,6 +34167,7 @@ export namespace quicksight {
 
     export interface AnalysisTimeRangeFilterArgs {
         column: pulumi.Input<inputs.quicksight.AnalysisColumnIdentifierArgs>;
+        defaultFilterControlConfiguration?: pulumi.Input<inputs.quicksight.AnalysisDefaultFilterControlConfigurationArgs>;
         excludePeriodConfiguration?: pulumi.Input<inputs.quicksight.AnalysisExcludePeriodConfigurationArgs>;
         filterId: pulumi.Input<string>;
         includeMaximum?: pulumi.Input<boolean>;
@@ -33980,6 +34198,7 @@ export namespace quicksight {
     export interface AnalysisTopBottomFilterArgs {
         aggregationSortConfigurations: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisAggregationSortConfigurationArgs>[]>;
         column: pulumi.Input<inputs.quicksight.AnalysisColumnIdentifierArgs>;
+        defaultFilterControlConfiguration?: pulumi.Input<inputs.quicksight.AnalysisDefaultFilterControlConfigurationArgs>;
         filterId: pulumi.Input<string>;
         limit?: pulumi.Input<number>;
         parameterName?: pulumi.Input<string>;
@@ -34518,6 +34737,7 @@ export namespace quicksight {
     export interface DashboardCategoryFilterArgs {
         column: pulumi.Input<inputs.quicksight.DashboardColumnIdentifierArgs>;
         configuration: pulumi.Input<inputs.quicksight.DashboardCategoryFilterConfigurationArgs>;
+        defaultFilterControlConfiguration?: pulumi.Input<inputs.quicksight.DashboardDefaultFilterControlConfigurationArgs>;
         filterId: pulumi.Input<string>;
     }
 
@@ -34989,6 +35209,38 @@ export namespace quicksight {
         valueWhenUnsetOption?: pulumi.Input<enums.quicksight.DashboardValueWhenUnsetOption>;
     }
 
+    export interface DashboardDefaultDateTimePickerControlOptionsArgs {
+        displayOptions?: pulumi.Input<inputs.quicksight.DashboardDateTimePickerControlDisplayOptionsArgs>;
+        type?: pulumi.Input<enums.quicksight.DashboardSheetControlDateTimePickerType>;
+    }
+
+    export interface DashboardDefaultFilterControlConfigurationArgs {
+        controlOptions: pulumi.Input<inputs.quicksight.DashboardDefaultFilterControlOptionsArgs>;
+        title: pulumi.Input<string>;
+    }
+
+    export interface DashboardDefaultFilterControlOptionsArgs {
+        defaultDateTimePickerOptions?: pulumi.Input<inputs.quicksight.DashboardDefaultDateTimePickerControlOptionsArgs>;
+        defaultDropdownOptions?: pulumi.Input<inputs.quicksight.DashboardDefaultFilterDropDownControlOptionsArgs>;
+        defaultListOptions?: pulumi.Input<inputs.quicksight.DashboardDefaultFilterListControlOptionsArgs>;
+        defaultRelativeDateTimeOptions?: pulumi.Input<inputs.quicksight.DashboardDefaultRelativeDateTimeControlOptionsArgs>;
+        defaultSliderOptions?: pulumi.Input<inputs.quicksight.DashboardDefaultSliderControlOptionsArgs>;
+        defaultTextAreaOptions?: pulumi.Input<inputs.quicksight.DashboardDefaultTextAreaControlOptionsArgs>;
+        defaultTextFieldOptions?: pulumi.Input<inputs.quicksight.DashboardDefaultTextFieldControlOptionsArgs>;
+    }
+
+    export interface DashboardDefaultFilterDropDownControlOptionsArgs {
+        displayOptions?: pulumi.Input<inputs.quicksight.DashboardDropDownControlDisplayOptionsArgs>;
+        selectableValues?: pulumi.Input<inputs.quicksight.DashboardFilterSelectableValuesArgs>;
+        type?: pulumi.Input<enums.quicksight.DashboardSheetControlListType>;
+    }
+
+    export interface DashboardDefaultFilterListControlOptionsArgs {
+        displayOptions?: pulumi.Input<inputs.quicksight.DashboardListControlDisplayOptionsArgs>;
+        selectableValues?: pulumi.Input<inputs.quicksight.DashboardFilterSelectableValuesArgs>;
+        type?: pulumi.Input<enums.quicksight.DashboardSheetControlListType>;
+    }
+
     export interface DashboardDefaultFreeFormLayoutConfigurationArgs {
         canvasSizeOptions: pulumi.Input<inputs.quicksight.DashboardFreeFormLayoutCanvasSizeOptionsArgs>;
     }
@@ -35012,8 +35264,29 @@ export namespace quicksight {
         sectionBased?: pulumi.Input<inputs.quicksight.DashboardDefaultSectionBasedLayoutConfigurationArgs>;
     }
 
+    export interface DashboardDefaultRelativeDateTimeControlOptionsArgs {
+        displayOptions?: pulumi.Input<inputs.quicksight.DashboardRelativeDateTimeControlDisplayOptionsArgs>;
+    }
+
     export interface DashboardDefaultSectionBasedLayoutConfigurationArgs {
         canvasSizeOptions: pulumi.Input<inputs.quicksight.DashboardSectionBasedLayoutCanvasSizeOptionsArgs>;
+    }
+
+    export interface DashboardDefaultSliderControlOptionsArgs {
+        displayOptions?: pulumi.Input<inputs.quicksight.DashboardSliderControlDisplayOptionsArgs>;
+        maximumValue: pulumi.Input<number>;
+        minimumValue: pulumi.Input<number>;
+        stepSize: pulumi.Input<number>;
+        type?: pulumi.Input<enums.quicksight.DashboardSheetControlSliderType>;
+    }
+
+    export interface DashboardDefaultTextAreaControlOptionsArgs {
+        delimiter?: pulumi.Input<string>;
+        displayOptions?: pulumi.Input<inputs.quicksight.DashboardTextAreaControlDisplayOptionsArgs>;
+    }
+
+    export interface DashboardDefaultTextFieldControlOptionsArgs {
+        displayOptions?: pulumi.Input<inputs.quicksight.DashboardTextFieldControlDisplayOptionsArgs>;
     }
 
     export interface DashboardDestinationParameterValueConfigurationArgs {
@@ -35185,6 +35458,7 @@ export namespace quicksight {
     }
 
     export interface DashboardFilterControlArgs {
+        crossSheet?: pulumi.Input<inputs.quicksight.DashboardFilterCrossSheetControlArgs>;
         dateTimePicker?: pulumi.Input<inputs.quicksight.DashboardFilterDateTimePickerControlArgs>;
         dropdown?: pulumi.Input<inputs.quicksight.DashboardFilterDropDownControlArgs>;
         list?: pulumi.Input<inputs.quicksight.DashboardFilterListControlArgs>;
@@ -35192,6 +35466,12 @@ export namespace quicksight {
         slider?: pulumi.Input<inputs.quicksight.DashboardFilterSliderControlArgs>;
         textArea?: pulumi.Input<inputs.quicksight.DashboardFilterTextAreaControlArgs>;
         textField?: pulumi.Input<inputs.quicksight.DashboardFilterTextFieldControlArgs>;
+    }
+
+    export interface DashboardFilterCrossSheetControlArgs {
+        cascadingControlConfiguration?: pulumi.Input<inputs.quicksight.DashboardCascadingControlConfigurationArgs>;
+        filterControlId: pulumi.Input<string>;
+        sourceFilterId: pulumi.Input<string>;
     }
 
     export interface DashboardFilterDateTimePickerControlArgs {
@@ -36032,6 +36312,7 @@ export namespace quicksight {
     export interface DashboardNumericEqualityFilterArgs {
         aggregationFunction?: pulumi.Input<inputs.quicksight.DashboardAggregationFunctionArgs>;
         column: pulumi.Input<inputs.quicksight.DashboardColumnIdentifierArgs>;
+        defaultFilterControlConfiguration?: pulumi.Input<inputs.quicksight.DashboardDefaultFilterControlConfigurationArgs>;
         filterId: pulumi.Input<string>;
         matchOperator: pulumi.Input<enums.quicksight.DashboardNumericEqualityMatchOperator>;
         nullOption: pulumi.Input<enums.quicksight.DashboardFilterNullOption>;
@@ -36049,6 +36330,7 @@ export namespace quicksight {
     export interface DashboardNumericRangeFilterArgs {
         aggregationFunction?: pulumi.Input<inputs.quicksight.DashboardAggregationFunctionArgs>;
         column: pulumi.Input<inputs.quicksight.DashboardColumnIdentifierArgs>;
+        defaultFilterControlConfiguration?: pulumi.Input<inputs.quicksight.DashboardDefaultFilterControlConfigurationArgs>;
         filterId: pulumi.Input<string>;
         includeMaximum?: pulumi.Input<boolean>;
         includeMinimum?: pulumi.Input<boolean>;
@@ -36566,6 +36848,7 @@ export namespace quicksight {
     export interface DashboardRelativeDatesFilterArgs {
         anchorDateConfiguration: pulumi.Input<inputs.quicksight.DashboardAnchorDateConfigurationArgs>;
         column: pulumi.Input<inputs.quicksight.DashboardColumnIdentifierArgs>;
+        defaultFilterControlConfiguration?: pulumi.Input<inputs.quicksight.DashboardDefaultFilterControlConfigurationArgs>;
         excludePeriodConfiguration?: pulumi.Input<inputs.quicksight.DashboardExcludePeriodConfigurationArgs>;
         filterId: pulumi.Input<string>;
         minimumGranularity?: pulumi.Input<enums.quicksight.DashboardTimeGranularity>;
@@ -37126,6 +37409,7 @@ export namespace quicksight {
 
     export interface DashboardTimeEqualityFilterArgs {
         column: pulumi.Input<inputs.quicksight.DashboardColumnIdentifierArgs>;
+        defaultFilterControlConfiguration?: pulumi.Input<inputs.quicksight.DashboardDefaultFilterControlConfigurationArgs>;
         filterId: pulumi.Input<string>;
         parameterName?: pulumi.Input<string>;
         rollingDate?: pulumi.Input<inputs.quicksight.DashboardRollingDateConfigurationArgs>;
@@ -37142,6 +37426,7 @@ export namespace quicksight {
 
     export interface DashboardTimeRangeFilterArgs {
         column: pulumi.Input<inputs.quicksight.DashboardColumnIdentifierArgs>;
+        defaultFilterControlConfiguration?: pulumi.Input<inputs.quicksight.DashboardDefaultFilterControlConfigurationArgs>;
         excludePeriodConfiguration?: pulumi.Input<inputs.quicksight.DashboardExcludePeriodConfigurationArgs>;
         filterId: pulumi.Input<string>;
         includeMaximum?: pulumi.Input<boolean>;
@@ -37172,6 +37457,7 @@ export namespace quicksight {
     export interface DashboardTopBottomFilterArgs {
         aggregationSortConfigurations: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardAggregationSortConfigurationArgs>[]>;
         column: pulumi.Input<inputs.quicksight.DashboardColumnIdentifierArgs>;
+        defaultFilterControlConfiguration?: pulumi.Input<inputs.quicksight.DashboardDefaultFilterControlConfigurationArgs>;
         filterId: pulumi.Input<string>;
         limit?: pulumi.Input<number>;
         parameterName?: pulumi.Input<string>;
@@ -38832,6 +39118,7 @@ export namespace quicksight {
     export interface TemplateCategoryFilterArgs {
         column: pulumi.Input<inputs.quicksight.TemplateColumnIdentifierArgs>;
         configuration: pulumi.Input<inputs.quicksight.TemplateCategoryFilterConfigurationArgs>;
+        defaultFilterControlConfiguration?: pulumi.Input<inputs.quicksight.TemplateDefaultFilterControlConfigurationArgs>;
         filterId: pulumi.Input<string>;
     }
 
@@ -39316,6 +39603,38 @@ export namespace quicksight {
         valueWhenUnsetOption?: pulumi.Input<enums.quicksight.TemplateValueWhenUnsetOption>;
     }
 
+    export interface TemplateDefaultDateTimePickerControlOptionsArgs {
+        displayOptions?: pulumi.Input<inputs.quicksight.TemplateDateTimePickerControlDisplayOptionsArgs>;
+        type?: pulumi.Input<enums.quicksight.TemplateSheetControlDateTimePickerType>;
+    }
+
+    export interface TemplateDefaultFilterControlConfigurationArgs {
+        controlOptions: pulumi.Input<inputs.quicksight.TemplateDefaultFilterControlOptionsArgs>;
+        title: pulumi.Input<string>;
+    }
+
+    export interface TemplateDefaultFilterControlOptionsArgs {
+        defaultDateTimePickerOptions?: pulumi.Input<inputs.quicksight.TemplateDefaultDateTimePickerControlOptionsArgs>;
+        defaultDropdownOptions?: pulumi.Input<inputs.quicksight.TemplateDefaultFilterDropDownControlOptionsArgs>;
+        defaultListOptions?: pulumi.Input<inputs.quicksight.TemplateDefaultFilterListControlOptionsArgs>;
+        defaultRelativeDateTimeOptions?: pulumi.Input<inputs.quicksight.TemplateDefaultRelativeDateTimeControlOptionsArgs>;
+        defaultSliderOptions?: pulumi.Input<inputs.quicksight.TemplateDefaultSliderControlOptionsArgs>;
+        defaultTextAreaOptions?: pulumi.Input<inputs.quicksight.TemplateDefaultTextAreaControlOptionsArgs>;
+        defaultTextFieldOptions?: pulumi.Input<inputs.quicksight.TemplateDefaultTextFieldControlOptionsArgs>;
+    }
+
+    export interface TemplateDefaultFilterDropDownControlOptionsArgs {
+        displayOptions?: pulumi.Input<inputs.quicksight.TemplateDropDownControlDisplayOptionsArgs>;
+        selectableValues?: pulumi.Input<inputs.quicksight.TemplateFilterSelectableValuesArgs>;
+        type?: pulumi.Input<enums.quicksight.TemplateSheetControlListType>;
+    }
+
+    export interface TemplateDefaultFilterListControlOptionsArgs {
+        displayOptions?: pulumi.Input<inputs.quicksight.TemplateListControlDisplayOptionsArgs>;
+        selectableValues?: pulumi.Input<inputs.quicksight.TemplateFilterSelectableValuesArgs>;
+        type?: pulumi.Input<enums.quicksight.TemplateSheetControlListType>;
+    }
+
     export interface TemplateDefaultFreeFormLayoutConfigurationArgs {
         canvasSizeOptions: pulumi.Input<inputs.quicksight.TemplateFreeFormLayoutCanvasSizeOptionsArgs>;
     }
@@ -39339,8 +39658,29 @@ export namespace quicksight {
         sectionBased?: pulumi.Input<inputs.quicksight.TemplateDefaultSectionBasedLayoutConfigurationArgs>;
     }
 
+    export interface TemplateDefaultRelativeDateTimeControlOptionsArgs {
+        displayOptions?: pulumi.Input<inputs.quicksight.TemplateRelativeDateTimeControlDisplayOptionsArgs>;
+    }
+
     export interface TemplateDefaultSectionBasedLayoutConfigurationArgs {
         canvasSizeOptions: pulumi.Input<inputs.quicksight.TemplateSectionBasedLayoutCanvasSizeOptionsArgs>;
+    }
+
+    export interface TemplateDefaultSliderControlOptionsArgs {
+        displayOptions?: pulumi.Input<inputs.quicksight.TemplateSliderControlDisplayOptionsArgs>;
+        maximumValue: pulumi.Input<number>;
+        minimumValue: pulumi.Input<number>;
+        stepSize: pulumi.Input<number>;
+        type?: pulumi.Input<enums.quicksight.TemplateSheetControlSliderType>;
+    }
+
+    export interface TemplateDefaultTextAreaControlOptionsArgs {
+        delimiter?: pulumi.Input<string>;
+        displayOptions?: pulumi.Input<inputs.quicksight.TemplateTextAreaControlDisplayOptionsArgs>;
+    }
+
+    export interface TemplateDefaultTextFieldControlOptionsArgs {
+        displayOptions?: pulumi.Input<inputs.quicksight.TemplateTextFieldControlDisplayOptionsArgs>;
     }
 
     export interface TemplateDestinationParameterValueConfigurationArgs {
@@ -39491,6 +39831,7 @@ export namespace quicksight {
     }
 
     export interface TemplateFilterControlArgs {
+        crossSheet?: pulumi.Input<inputs.quicksight.TemplateFilterCrossSheetControlArgs>;
         dateTimePicker?: pulumi.Input<inputs.quicksight.TemplateFilterDateTimePickerControlArgs>;
         dropdown?: pulumi.Input<inputs.quicksight.TemplateFilterDropDownControlArgs>;
         list?: pulumi.Input<inputs.quicksight.TemplateFilterListControlArgs>;
@@ -39498,6 +39839,12 @@ export namespace quicksight {
         slider?: pulumi.Input<inputs.quicksight.TemplateFilterSliderControlArgs>;
         textArea?: pulumi.Input<inputs.quicksight.TemplateFilterTextAreaControlArgs>;
         textField?: pulumi.Input<inputs.quicksight.TemplateFilterTextFieldControlArgs>;
+    }
+
+    export interface TemplateFilterCrossSheetControlArgs {
+        cascadingControlConfiguration?: pulumi.Input<inputs.quicksight.TemplateCascadingControlConfigurationArgs>;
+        filterControlId: pulumi.Input<string>;
+        sourceFilterId: pulumi.Input<string>;
     }
 
     export interface TemplateFilterDateTimePickerControlArgs {
@@ -40320,6 +40667,7 @@ export namespace quicksight {
     export interface TemplateNumericEqualityFilterArgs {
         aggregationFunction?: pulumi.Input<inputs.quicksight.TemplateAggregationFunctionArgs>;
         column: pulumi.Input<inputs.quicksight.TemplateColumnIdentifierArgs>;
+        defaultFilterControlConfiguration?: pulumi.Input<inputs.quicksight.TemplateDefaultFilterControlConfigurationArgs>;
         filterId: pulumi.Input<string>;
         matchOperator: pulumi.Input<enums.quicksight.TemplateNumericEqualityMatchOperator>;
         nullOption: pulumi.Input<enums.quicksight.TemplateFilterNullOption>;
@@ -40337,6 +40685,7 @@ export namespace quicksight {
     export interface TemplateNumericRangeFilterArgs {
         aggregationFunction?: pulumi.Input<inputs.quicksight.TemplateAggregationFunctionArgs>;
         column: pulumi.Input<inputs.quicksight.TemplateColumnIdentifierArgs>;
+        defaultFilterControlConfiguration?: pulumi.Input<inputs.quicksight.TemplateDefaultFilterControlConfigurationArgs>;
         filterId: pulumi.Input<string>;
         includeMaximum?: pulumi.Input<boolean>;
         includeMinimum?: pulumi.Input<boolean>;
@@ -40815,6 +41164,7 @@ export namespace quicksight {
     export interface TemplateRelativeDatesFilterArgs {
         anchorDateConfiguration: pulumi.Input<inputs.quicksight.TemplateAnchorDateConfigurationArgs>;
         column: pulumi.Input<inputs.quicksight.TemplateColumnIdentifierArgs>;
+        defaultFilterControlConfiguration?: pulumi.Input<inputs.quicksight.TemplateDefaultFilterControlConfigurationArgs>;
         excludePeriodConfiguration?: pulumi.Input<inputs.quicksight.TemplateExcludePeriodConfigurationArgs>;
         filterId: pulumi.Input<string>;
         minimumGranularity?: pulumi.Input<enums.quicksight.TemplateTimeGranularity>;
@@ -41359,6 +41709,7 @@ export namespace quicksight {
 
     export interface TemplateTimeEqualityFilterArgs {
         column: pulumi.Input<inputs.quicksight.TemplateColumnIdentifierArgs>;
+        defaultFilterControlConfiguration?: pulumi.Input<inputs.quicksight.TemplateDefaultFilterControlConfigurationArgs>;
         filterId: pulumi.Input<string>;
         parameterName?: pulumi.Input<string>;
         rollingDate?: pulumi.Input<inputs.quicksight.TemplateRollingDateConfigurationArgs>;
@@ -41375,6 +41726,7 @@ export namespace quicksight {
 
     export interface TemplateTimeRangeFilterArgs {
         column: pulumi.Input<inputs.quicksight.TemplateColumnIdentifierArgs>;
+        defaultFilterControlConfiguration?: pulumi.Input<inputs.quicksight.TemplateDefaultFilterControlConfigurationArgs>;
         excludePeriodConfiguration?: pulumi.Input<inputs.quicksight.TemplateExcludePeriodConfigurationArgs>;
         filterId: pulumi.Input<string>;
         includeMaximum?: pulumi.Input<boolean>;
@@ -41405,6 +41757,7 @@ export namespace quicksight {
     export interface TemplateTopBottomFilterArgs {
         aggregationSortConfigurations: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateAggregationSortConfigurationArgs>[]>;
         column: pulumi.Input<inputs.quicksight.TemplateColumnIdentifierArgs>;
+        defaultFilterControlConfiguration?: pulumi.Input<inputs.quicksight.TemplateDefaultFilterControlConfigurationArgs>;
         filterId: pulumi.Input<string>;
         limit?: pulumi.Input<number>;
         parameterName?: pulumi.Input<string>;
@@ -41676,10 +42029,20 @@ export namespace quicksight {
         visualId: pulumi.Input<string>;
     }
 
+    /**
+     * <p>The display options for tile borders for visuals.</p>
+     */
     export interface ThemeBorderStyleArgs {
+        /**
+         * <p>The option to enable display of borders for visuals.</p>
+         */
         show?: pulumi.Input<boolean>;
     }
 
+    /**
+     * <p>The theme configuration. This configuration contains all of the display properties for
+     *             a theme.</p>
+     */
     export interface ThemeConfigurationArgs {
         dataColorPalette?: pulumi.Input<inputs.quicksight.ThemeDataColorPaletteArgs>;
         sheet?: pulumi.Input<inputs.quicksight.ThemeSheetStyleArgs>;
@@ -41687,9 +42050,24 @@ export namespace quicksight {
         uiColorPalette?: pulumi.Input<inputs.quicksight.ThemeUiColorPaletteArgs>;
     }
 
+    /**
+     * <p>The theme colors that are used for data colors in charts. The colors description is a
+     *             hexadecimal color code that consists of six alphanumerical characters, prefixed with
+     *                 <code>#</code>, for example #37BFF5. </p>
+     */
     export interface ThemeDataColorPaletteArgs {
+        /**
+         * <p>The hexadecimal codes for the colors.</p>
+         */
         colors?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * <p>The hexadecimal code of a color that applies to charts where a lack of data is
+         *             highlighted.</p>
+         */
         emptyFillColor?: pulumi.Input<string>;
+        /**
+         * <p>The minimum and maximum hexadecimal codes that describe a color gradient. </p>
+         */
         minMaxGradient?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
@@ -41697,29 +42075,74 @@ export namespace quicksight {
         fontFamily?: pulumi.Input<string>;
     }
 
+    /**
+     * <p>The display options for gutter spacing between tiles on a sheet.</p>
+     */
     export interface ThemeGutterStyleArgs {
+        /**
+         * <p>This Boolean value controls whether to display a gutter space between sheet tiles.
+         *         </p>
+         */
         show?: pulumi.Input<boolean>;
     }
 
+    /**
+     * <p>The display options for margins around the outside edge of sheets.</p>
+     */
     export interface ThemeMarginStyleArgs {
+        /**
+         * <p>This Boolean value controls whether to display sheet margins.</p>
+         */
         show?: pulumi.Input<boolean>;
     }
 
+    /**
+     * <p>Permission for the resource.</p>
+     */
     export interface ThemeResourcePermissionArgs {
+        /**
+         * <p>The IAM action to grant or revoke permissions on.</p>
+         */
         actions: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+         *             following:</p>
+         *          <ul>
+         *             <li>
+         *                <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+         *             </li>
+         *             <li>
+         *                <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+         *             </li>
+         *             <li>
+         *                <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
+         *                     ARN. Use this option only to share resources (templates) across Amazon Web Services accounts.
+         *                     (This is less common.) </p>
+         *             </li>
+         *          </ul>
+         */
         principal: pulumi.Input<string>;
     }
 
+    /**
+     * <p>The theme display options for sheets. </p>
+     */
     export interface ThemeSheetStyleArgs {
         tile?: pulumi.Input<inputs.quicksight.ThemeTileStyleArgs>;
         tileLayout?: pulumi.Input<inputs.quicksight.ThemeTileLayoutStyleArgs>;
     }
 
+    /**
+     * <p>The display options for the layout of tiles on a sheet.</p>
+     */
     export interface ThemeTileLayoutStyleArgs {
         gutter?: pulumi.Input<inputs.quicksight.ThemeGutterStyleArgs>;
         margin?: pulumi.Input<inputs.quicksight.ThemeMarginStyleArgs>;
     }
 
+    /**
+     * <p>Display options related to tiles on a sheet.</p>
+     */
     export interface ThemeTileStyleArgs {
         border?: pulumi.Input<inputs.quicksight.ThemeBorderStyleArgs>;
     }
@@ -41728,22 +42151,87 @@ export namespace quicksight {
         fontFamilies?: pulumi.Input<pulumi.Input<inputs.quicksight.ThemeFontArgs>[]>;
     }
 
+    /**
+     * <p>The theme colors that apply to UI and to charts, excluding data colors. The colors
+     *             description is a hexadecimal color code that consists of six alphanumerical characters,
+     *             prefixed with <code>#</code>, for example #37BFF5. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html">Using Themes in Amazon QuickSight</a> in the <i>Amazon QuickSight User
+     *                 Guide.</i>
+     *          </p>
+     */
     export interface ThemeUiColorPaletteArgs {
+        /**
+         * <p>This color is that applies to selected states and buttons.</p>
+         */
         accent?: pulumi.Input<string>;
+        /**
+         * <p>The foreground color that applies to any text or other elements that appear over the
+         *             accent color.</p>
+         */
         accentForeground?: pulumi.Input<string>;
+        /**
+         * <p>The color that applies to error messages.</p>
+         */
         danger?: pulumi.Input<string>;
+        /**
+         * <p>The foreground color that applies to any text or other elements that appear over the
+         *             error color.</p>
+         */
         dangerForeground?: pulumi.Input<string>;
+        /**
+         * <p>The color that applies to the names of fields that are identified as
+         *             dimensions.</p>
+         */
         dimension?: pulumi.Input<string>;
+        /**
+         * <p>The foreground color that applies to any text or other elements that appear over the
+         *             dimension color.</p>
+         */
         dimensionForeground?: pulumi.Input<string>;
+        /**
+         * <p>The color that applies to the names of fields that are identified as measures.</p>
+         */
         measure?: pulumi.Input<string>;
+        /**
+         * <p>The foreground color that applies to any text or other elements that appear over the
+         *             measure color.</p>
+         */
         measureForeground?: pulumi.Input<string>;
+        /**
+         * <p>The background color that applies to visuals and other high emphasis UI.</p>
+         */
         primaryBackground?: pulumi.Input<string>;
+        /**
+         * <p>The color of text and other foreground elements that appear over the primary
+         *             background regions, such as grid lines, borders, table banding, icons, and so on.</p>
+         */
         primaryForeground?: pulumi.Input<string>;
+        /**
+         * <p>The background color that applies to the sheet background and sheet controls.</p>
+         */
         secondaryBackground?: pulumi.Input<string>;
+        /**
+         * <p>The foreground color that applies to any sheet title, sheet control text, or UI that
+         *             appears over the secondary background.</p>
+         */
         secondaryForeground?: pulumi.Input<string>;
+        /**
+         * <p>The color that applies to success messages, for example the check mark for a
+         *             successful download.</p>
+         */
         success?: pulumi.Input<string>;
+        /**
+         * <p>The foreground color that applies to any text or other elements that appear over the
+         *             success color.</p>
+         */
         successForeground?: pulumi.Input<string>;
+        /**
+         * <p>This color that applies to warning and informational messages.</p>
+         */
         warning?: pulumi.Input<string>;
+        /**
+         * <p>The foreground color that applies to any text or other elements that appear over the
+         *             warning color.</p>
+         */
         warningForeground?: pulumi.Input<string>;
     }
 
@@ -42732,6 +43220,9 @@ export namespace route53 {
          */
         vpcRegion: pulumi.Input<string>;
     }
+}
+
+export namespace route53profiles {
 }
 
 export namespace route53recoverycontrol {

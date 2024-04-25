@@ -29,7 +29,8 @@ class AgentArgs:
                  knowledge_bases: Optional[pulumi.Input[Sequence[pulumi.Input['AgentKnowledgeBaseArgs']]]] = None,
                  prompt_override_configuration: Optional[pulumi.Input['AgentPromptOverrideConfigurationArgs']] = None,
                  skip_resource_in_use_check_on_delete: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 test_alias_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Agent resource.
         :param pulumi.Input[Sequence[pulumi.Input['AgentActionGroupArgs']]] action_groups: List of ActionGroups
@@ -70,6 +71,8 @@ class AgentArgs:
             pulumi.set(__self__, "skip_resource_in_use_check_on_delete", skip_resource_in_use_check_on_delete)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if test_alias_tags is not None:
+            pulumi.set(__self__, "test_alias_tags", test_alias_tags)
 
     @property
     @pulumi.getter(name="actionGroups")
@@ -221,6 +224,15 @@ class AgentArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="testAliasTags")
+    def test_alias_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "test_alias_tags")
+
+    @test_alias_tags.setter
+    def test_alias_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "test_alias_tags", value)
+
 
 class Agent(pulumi.CustomResource):
     @overload
@@ -240,6 +252,7 @@ class Agent(pulumi.CustomResource):
                  prompt_override_configuration: Optional[pulumi.Input[pulumi.InputType['AgentPromptOverrideConfigurationArgs']]] = None,
                  skip_resource_in_use_check_on_delete: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 test_alias_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Definition of AWS::Bedrock::Agent Resource Type
@@ -295,6 +308,7 @@ class Agent(pulumi.CustomResource):
                  prompt_override_configuration: Optional[pulumi.Input[pulumi.InputType['AgentPromptOverrideConfigurationArgs']]] = None,
                  skip_resource_in_use_check_on_delete: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 test_alias_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -317,6 +331,7 @@ class Agent(pulumi.CustomResource):
             __props__.__dict__["prompt_override_configuration"] = prompt_override_configuration
             __props__.__dict__["skip_resource_in_use_check_on_delete"] = skip_resource_in_use_check_on_delete
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["test_alias_tags"] = test_alias_tags
             __props__.__dict__["agent_arn"] = None
             __props__.__dict__["agent_id"] = None
             __props__.__dict__["agent_status"] = None
@@ -369,6 +384,7 @@ class Agent(pulumi.CustomResource):
         __props__.__dict__["recommended_actions"] = None
         __props__.__dict__["skip_resource_in_use_check_on_delete"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["test_alias_tags"] = None
         __props__.__dict__["updated_at"] = None
         return Agent(resource_name, opts=opts, __props__=__props__)
 
@@ -530,6 +546,11 @@ class Agent(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="testAliasTags")
+    def test_alias_tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        return pulumi.get(self, "test_alias_tags")
 
     @property
     @pulumi.getter(name="updatedAt")

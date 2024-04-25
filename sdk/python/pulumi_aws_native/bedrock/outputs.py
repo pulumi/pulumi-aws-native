@@ -29,6 +29,16 @@ __all__ = [
     'DataSourceS3DataSourceConfiguration',
     'DataSourceServerSideEncryptionConfiguration',
     'DataSourceVectorIngestionConfiguration',
+    'GuardrailContentFilterConfig',
+    'GuardrailContentPolicyConfig',
+    'GuardrailManagedWordsConfig',
+    'GuardrailPiiEntityConfig',
+    'GuardrailRegexConfig',
+    'GuardrailSensitiveInformationPolicyConfig',
+    'GuardrailTopicConfig',
+    'GuardrailTopicPolicyConfig',
+    'GuardrailWordConfig',
+    'GuardrailWordPolicyConfig',
     'KnowledgeBaseConfiguration',
     'KnowledgeBaseOpenSearchServerlessConfiguration',
     'KnowledgeBaseOpenSearchServerlessFieldMapping',
@@ -944,6 +954,412 @@ class DataSourceVectorIngestionConfiguration(dict):
     @pulumi.getter(name="chunkingConfiguration")
     def chunking_configuration(self) -> Optional['outputs.DataSourceChunkingConfiguration']:
         return pulumi.get(self, "chunking_configuration")
+
+
+@pulumi.output_type
+class GuardrailContentFilterConfig(dict):
+    """
+    Content filter config in content policy.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inputStrength":
+            suggest = "input_strength"
+        elif key == "outputStrength":
+            suggest = "output_strength"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GuardrailContentFilterConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GuardrailContentFilterConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GuardrailContentFilterConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 input_strength: 'GuardrailFilterStrength',
+                 output_strength: 'GuardrailFilterStrength',
+                 type: 'GuardrailContentFilterType'):
+        """
+        Content filter config in content policy.
+        """
+        pulumi.set(__self__, "input_strength", input_strength)
+        pulumi.set(__self__, "output_strength", output_strength)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="inputStrength")
+    def input_strength(self) -> 'GuardrailFilterStrength':
+        return pulumi.get(self, "input_strength")
+
+    @property
+    @pulumi.getter(name="outputStrength")
+    def output_strength(self) -> 'GuardrailFilterStrength':
+        return pulumi.get(self, "output_strength")
+
+    @property
+    @pulumi.getter
+    def type(self) -> 'GuardrailContentFilterType':
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GuardrailContentPolicyConfig(dict):
+    """
+    Content policy config for a guardrail.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filtersConfig":
+            suggest = "filters_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GuardrailContentPolicyConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GuardrailContentPolicyConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GuardrailContentPolicyConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 filters_config: Sequence['outputs.GuardrailContentFilterConfig']):
+        """
+        Content policy config for a guardrail.
+        :param Sequence['GuardrailContentFilterConfig'] filters_config: List of content filter configs in content policy.
+        """
+        pulumi.set(__self__, "filters_config", filters_config)
+
+    @property
+    @pulumi.getter(name="filtersConfig")
+    def filters_config(self) -> Sequence['outputs.GuardrailContentFilterConfig']:
+        """
+        List of content filter configs in content policy.
+        """
+        return pulumi.get(self, "filters_config")
+
+
+@pulumi.output_type
+class GuardrailManagedWordsConfig(dict):
+    """
+    A managed words config.
+    """
+    def __init__(__self__, *,
+                 type: 'GuardrailManagedWordsType'):
+        """
+        A managed words config.
+        """
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> 'GuardrailManagedWordsType':
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GuardrailPiiEntityConfig(dict):
+    """
+    Pii entity configuration.
+    """
+    def __init__(__self__, *,
+                 action: 'GuardrailSensitiveInformationAction',
+                 type: 'GuardrailPiiEntityType'):
+        """
+        Pii entity configuration.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def action(self) -> 'GuardrailSensitiveInformationAction':
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def type(self) -> 'GuardrailPiiEntityType':
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GuardrailRegexConfig(dict):
+    """
+    A regex configuration.
+    """
+    def __init__(__self__, *,
+                 action: 'GuardrailSensitiveInformationAction',
+                 name: str,
+                 pattern: str,
+                 description: Optional[str] = None):
+        """
+        A regex configuration.
+        :param str name: The regex name.
+        :param str pattern: The regex pattern.
+        :param str description: The regex description.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "pattern", pattern)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter
+    def action(self) -> 'GuardrailSensitiveInformationAction':
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The regex name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def pattern(self) -> str:
+        """
+        The regex pattern.
+        """
+        return pulumi.get(self, "pattern")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The regex description.
+        """
+        return pulumi.get(self, "description")
+
+
+@pulumi.output_type
+class GuardrailSensitiveInformationPolicyConfig(dict):
+    """
+    Sensitive information policy config for a guardrail.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "piiEntitiesConfig":
+            suggest = "pii_entities_config"
+        elif key == "regexesConfig":
+            suggest = "regexes_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GuardrailSensitiveInformationPolicyConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GuardrailSensitiveInformationPolicyConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GuardrailSensitiveInformationPolicyConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 pii_entities_config: Optional[Sequence['outputs.GuardrailPiiEntityConfig']] = None,
+                 regexes_config: Optional[Sequence['outputs.GuardrailRegexConfig']] = None):
+        """
+        Sensitive information policy config for a guardrail.
+        :param Sequence['GuardrailPiiEntityConfig'] pii_entities_config: List of entities.
+        :param Sequence['GuardrailRegexConfig'] regexes_config: List of regex.
+        """
+        if pii_entities_config is not None:
+            pulumi.set(__self__, "pii_entities_config", pii_entities_config)
+        if regexes_config is not None:
+            pulumi.set(__self__, "regexes_config", regexes_config)
+
+    @property
+    @pulumi.getter(name="piiEntitiesConfig")
+    def pii_entities_config(self) -> Optional[Sequence['outputs.GuardrailPiiEntityConfig']]:
+        """
+        List of entities.
+        """
+        return pulumi.get(self, "pii_entities_config")
+
+    @property
+    @pulumi.getter(name="regexesConfig")
+    def regexes_config(self) -> Optional[Sequence['outputs.GuardrailRegexConfig']]:
+        """
+        List of regex.
+        """
+        return pulumi.get(self, "regexes_config")
+
+
+@pulumi.output_type
+class GuardrailTopicConfig(dict):
+    """
+    Topic config in topic policy.
+    """
+    def __init__(__self__, *,
+                 definition: str,
+                 name: str,
+                 type: 'GuardrailTopicType',
+                 examples: Optional[Sequence[str]] = None):
+        """
+        Topic config in topic policy.
+        :param str definition: Definition of topic in topic policy
+        :param str name: Name of topic in topic policy
+        :param Sequence[str] examples: List of text examples
+        """
+        pulumi.set(__self__, "definition", definition)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if examples is not None:
+            pulumi.set(__self__, "examples", examples)
+
+    @property
+    @pulumi.getter
+    def definition(self) -> str:
+        """
+        Definition of topic in topic policy
+        """
+        return pulumi.get(self, "definition")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of topic in topic policy
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> 'GuardrailTopicType':
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def examples(self) -> Optional[Sequence[str]]:
+        """
+        List of text examples
+        """
+        return pulumi.get(self, "examples")
+
+
+@pulumi.output_type
+class GuardrailTopicPolicyConfig(dict):
+    """
+    Topic policy config for a guardrail.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "topicsConfig":
+            suggest = "topics_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GuardrailTopicPolicyConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GuardrailTopicPolicyConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GuardrailTopicPolicyConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 topics_config: Sequence['outputs.GuardrailTopicConfig']):
+        """
+        Topic policy config for a guardrail.
+        :param Sequence['GuardrailTopicConfig'] topics_config: List of topic configs in topic policy.
+        """
+        pulumi.set(__self__, "topics_config", topics_config)
+
+    @property
+    @pulumi.getter(name="topicsConfig")
+    def topics_config(self) -> Sequence['outputs.GuardrailTopicConfig']:
+        """
+        List of topic configs in topic policy.
+        """
+        return pulumi.get(self, "topics_config")
+
+
+@pulumi.output_type
+class GuardrailWordConfig(dict):
+    """
+    A custom word config.
+    """
+    def __init__(__self__, *,
+                 text: str):
+        """
+        A custom word config.
+        :param str text: The custom word text.
+        """
+        pulumi.set(__self__, "text", text)
+
+    @property
+    @pulumi.getter
+    def text(self) -> str:
+        """
+        The custom word text.
+        """
+        return pulumi.get(self, "text")
+
+
+@pulumi.output_type
+class GuardrailWordPolicyConfig(dict):
+    """
+    Word policy config for a guardrail.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "managedWordListsConfig":
+            suggest = "managed_word_lists_config"
+        elif key == "wordsConfig":
+            suggest = "words_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GuardrailWordPolicyConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GuardrailWordPolicyConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GuardrailWordPolicyConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 managed_word_lists_config: Optional[Sequence['outputs.GuardrailManagedWordsConfig']] = None,
+                 words_config: Optional[Sequence['outputs.GuardrailWordConfig']] = None):
+        """
+        Word policy config for a guardrail.
+        :param Sequence['GuardrailManagedWordsConfig'] managed_word_lists_config: A config for the list of managed words.
+        :param Sequence['GuardrailWordConfig'] words_config: List of custom word configs.
+        """
+        if managed_word_lists_config is not None:
+            pulumi.set(__self__, "managed_word_lists_config", managed_word_lists_config)
+        if words_config is not None:
+            pulumi.set(__self__, "words_config", words_config)
+
+    @property
+    @pulumi.getter(name="managedWordListsConfig")
+    def managed_word_lists_config(self) -> Optional[Sequence['outputs.GuardrailManagedWordsConfig']]:
+        """
+        A config for the list of managed words.
+        """
+        return pulumi.get(self, "managed_word_lists_config")
+
+    @property
+    @pulumi.getter(name="wordsConfig")
+    def words_config(self) -> Optional[Sequence['outputs.GuardrailWordConfig']]:
+        """
+        List of custom word configs.
+        """
+        return pulumi.get(self, "words_config")
 
 
 @pulumi.output_type

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;The display options for the layout of tiles on a sheet.&lt;/p&gt;
+    /// </summary>
     public sealed class ThemeTileLayoutStyleArgs : global::Pulumi.ResourceArgs
     {
         [Input("gutter")]

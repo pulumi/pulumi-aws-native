@@ -8,6 +8,7 @@ __all__ = [
     'IdentityProviderType',
     'PortalAuthenticationType',
     'PortalBrowserType',
+    'PortalInstanceType',
     'PortalRendererType',
     'PortalStatus',
     'UserSettingsEnabledType',
@@ -30,6 +31,12 @@ class PortalAuthenticationType(str, Enum):
 
 class PortalBrowserType(str, Enum):
     CHROME = "Chrome"
+
+
+class PortalInstanceType(str, Enum):
+    STANDARD_REGULAR = "standard.regular"
+    STANDARD_LARGE = "standard.large"
+    STANDARD_XLARGE = "standard.xlarge"
 
 
 class PortalRendererType(str, Enum):

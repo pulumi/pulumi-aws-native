@@ -17,13 +17,21 @@ namespace Pulumi.AwsNative.ConnectCampaigns.Outputs
     public sealed class CampaignAnswerMachineDetectionConfig
     {
         /// <summary>
+        /// Enables detection of prompts (e.g., beep after after a voicemail greeting)
+        /// </summary>
+        public readonly bool? AwaitAnswerMachinePrompt;
+        /// <summary>
         /// Flag to decided whether outbound calls should have answering machine detection enabled or not
         /// </summary>
         public readonly bool EnableAnswerMachineDetection;
 
         [OutputConstructor]
-        private CampaignAnswerMachineDetectionConfig(bool enableAnswerMachineDetection)
+        private CampaignAnswerMachineDetectionConfig(
+            bool? awaitAnswerMachinePrompt,
+
+            bool enableAnswerMachineDetection)
         {
+            AwaitAnswerMachinePrompt = awaitAnswerMachinePrompt;
             EnableAnswerMachineDetection = enableAnswerMachineDetection;
         }
     }

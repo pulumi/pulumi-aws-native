@@ -27,6 +27,16 @@ __all__ = [
     'DataSourceS3DataSourceConfigurationArgs',
     'DataSourceServerSideEncryptionConfigurationArgs',
     'DataSourceVectorIngestionConfigurationArgs',
+    'GuardrailContentFilterConfigArgs',
+    'GuardrailContentPolicyConfigArgs',
+    'GuardrailManagedWordsConfigArgs',
+    'GuardrailPiiEntityConfigArgs',
+    'GuardrailRegexConfigArgs',
+    'GuardrailSensitiveInformationPolicyConfigArgs',
+    'GuardrailTopicConfigArgs',
+    'GuardrailTopicPolicyConfigArgs',
+    'GuardrailWordConfigArgs',
+    'GuardrailWordPolicyConfigArgs',
     'KnowledgeBaseConfigurationArgs',
     'KnowledgeBaseOpenSearchServerlessConfigurationArgs',
     'KnowledgeBaseOpenSearchServerlessFieldMappingArgs',
@@ -709,6 +719,375 @@ class DataSourceVectorIngestionConfigurationArgs:
     @chunking_configuration.setter
     def chunking_configuration(self, value: Optional[pulumi.Input['DataSourceChunkingConfigurationArgs']]):
         pulumi.set(self, "chunking_configuration", value)
+
+
+@pulumi.input_type
+class GuardrailContentFilterConfigArgs:
+    def __init__(__self__, *,
+                 input_strength: pulumi.Input['GuardrailFilterStrength'],
+                 output_strength: pulumi.Input['GuardrailFilterStrength'],
+                 type: pulumi.Input['GuardrailContentFilterType']):
+        """
+        Content filter config in content policy.
+        """
+        pulumi.set(__self__, "input_strength", input_strength)
+        pulumi.set(__self__, "output_strength", output_strength)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="inputStrength")
+    def input_strength(self) -> pulumi.Input['GuardrailFilterStrength']:
+        return pulumi.get(self, "input_strength")
+
+    @input_strength.setter
+    def input_strength(self, value: pulumi.Input['GuardrailFilterStrength']):
+        pulumi.set(self, "input_strength", value)
+
+    @property
+    @pulumi.getter(name="outputStrength")
+    def output_strength(self) -> pulumi.Input['GuardrailFilterStrength']:
+        return pulumi.get(self, "output_strength")
+
+    @output_strength.setter
+    def output_strength(self, value: pulumi.Input['GuardrailFilterStrength']):
+        pulumi.set(self, "output_strength", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['GuardrailContentFilterType']:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['GuardrailContentFilterType']):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class GuardrailContentPolicyConfigArgs:
+    def __init__(__self__, *,
+                 filters_config: pulumi.Input[Sequence[pulumi.Input['GuardrailContentFilterConfigArgs']]]):
+        """
+        Content policy config for a guardrail.
+        :param pulumi.Input[Sequence[pulumi.Input['GuardrailContentFilterConfigArgs']]] filters_config: List of content filter configs in content policy.
+        """
+        pulumi.set(__self__, "filters_config", filters_config)
+
+    @property
+    @pulumi.getter(name="filtersConfig")
+    def filters_config(self) -> pulumi.Input[Sequence[pulumi.Input['GuardrailContentFilterConfigArgs']]]:
+        """
+        List of content filter configs in content policy.
+        """
+        return pulumi.get(self, "filters_config")
+
+    @filters_config.setter
+    def filters_config(self, value: pulumi.Input[Sequence[pulumi.Input['GuardrailContentFilterConfigArgs']]]):
+        pulumi.set(self, "filters_config", value)
+
+
+@pulumi.input_type
+class GuardrailManagedWordsConfigArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input['GuardrailManagedWordsType']):
+        """
+        A managed words config.
+        """
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['GuardrailManagedWordsType']:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['GuardrailManagedWordsType']):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class GuardrailPiiEntityConfigArgs:
+    def __init__(__self__, *,
+                 action: pulumi.Input['GuardrailSensitiveInformationAction'],
+                 type: pulumi.Input['GuardrailPiiEntityType']):
+        """
+        Pii entity configuration.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def action(self) -> pulumi.Input['GuardrailSensitiveInformationAction']:
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: pulumi.Input['GuardrailSensitiveInformationAction']):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['GuardrailPiiEntityType']:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['GuardrailPiiEntityType']):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class GuardrailRegexConfigArgs:
+    def __init__(__self__, *,
+                 action: pulumi.Input['GuardrailSensitiveInformationAction'],
+                 name: pulumi.Input[str],
+                 pattern: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None):
+        """
+        A regex configuration.
+        :param pulumi.Input[str] name: The regex name.
+        :param pulumi.Input[str] pattern: The regex pattern.
+        :param pulumi.Input[str] description: The regex description.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "pattern", pattern)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter
+    def action(self) -> pulumi.Input['GuardrailSensitiveInformationAction']:
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: pulumi.Input['GuardrailSensitiveInformationAction']):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The regex name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def pattern(self) -> pulumi.Input[str]:
+        """
+        The regex pattern.
+        """
+        return pulumi.get(self, "pattern")
+
+    @pattern.setter
+    def pattern(self, value: pulumi.Input[str]):
+        pulumi.set(self, "pattern", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The regex description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+
+@pulumi.input_type
+class GuardrailSensitiveInformationPolicyConfigArgs:
+    def __init__(__self__, *,
+                 pii_entities_config: Optional[pulumi.Input[Sequence[pulumi.Input['GuardrailPiiEntityConfigArgs']]]] = None,
+                 regexes_config: Optional[pulumi.Input[Sequence[pulumi.Input['GuardrailRegexConfigArgs']]]] = None):
+        """
+        Sensitive information policy config for a guardrail.
+        :param pulumi.Input[Sequence[pulumi.Input['GuardrailPiiEntityConfigArgs']]] pii_entities_config: List of entities.
+        :param pulumi.Input[Sequence[pulumi.Input['GuardrailRegexConfigArgs']]] regexes_config: List of regex.
+        """
+        if pii_entities_config is not None:
+            pulumi.set(__self__, "pii_entities_config", pii_entities_config)
+        if regexes_config is not None:
+            pulumi.set(__self__, "regexes_config", regexes_config)
+
+    @property
+    @pulumi.getter(name="piiEntitiesConfig")
+    def pii_entities_config(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GuardrailPiiEntityConfigArgs']]]]:
+        """
+        List of entities.
+        """
+        return pulumi.get(self, "pii_entities_config")
+
+    @pii_entities_config.setter
+    def pii_entities_config(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GuardrailPiiEntityConfigArgs']]]]):
+        pulumi.set(self, "pii_entities_config", value)
+
+    @property
+    @pulumi.getter(name="regexesConfig")
+    def regexes_config(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GuardrailRegexConfigArgs']]]]:
+        """
+        List of regex.
+        """
+        return pulumi.get(self, "regexes_config")
+
+    @regexes_config.setter
+    def regexes_config(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GuardrailRegexConfigArgs']]]]):
+        pulumi.set(self, "regexes_config", value)
+
+
+@pulumi.input_type
+class GuardrailTopicConfigArgs:
+    def __init__(__self__, *,
+                 definition: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 type: pulumi.Input['GuardrailTopicType'],
+                 examples: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Topic config in topic policy.
+        :param pulumi.Input[str] definition: Definition of topic in topic policy
+        :param pulumi.Input[str] name: Name of topic in topic policy
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] examples: List of text examples
+        """
+        pulumi.set(__self__, "definition", definition)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if examples is not None:
+            pulumi.set(__self__, "examples", examples)
+
+    @property
+    @pulumi.getter
+    def definition(self) -> pulumi.Input[str]:
+        """
+        Definition of topic in topic policy
+        """
+        return pulumi.get(self, "definition")
+
+    @definition.setter
+    def definition(self, value: pulumi.Input[str]):
+        pulumi.set(self, "definition", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of topic in topic policy
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['GuardrailTopicType']:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['GuardrailTopicType']):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def examples(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of text examples
+        """
+        return pulumi.get(self, "examples")
+
+    @examples.setter
+    def examples(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "examples", value)
+
+
+@pulumi.input_type
+class GuardrailTopicPolicyConfigArgs:
+    def __init__(__self__, *,
+                 topics_config: pulumi.Input[Sequence[pulumi.Input['GuardrailTopicConfigArgs']]]):
+        """
+        Topic policy config for a guardrail.
+        :param pulumi.Input[Sequence[pulumi.Input['GuardrailTopicConfigArgs']]] topics_config: List of topic configs in topic policy.
+        """
+        pulumi.set(__self__, "topics_config", topics_config)
+
+    @property
+    @pulumi.getter(name="topicsConfig")
+    def topics_config(self) -> pulumi.Input[Sequence[pulumi.Input['GuardrailTopicConfigArgs']]]:
+        """
+        List of topic configs in topic policy.
+        """
+        return pulumi.get(self, "topics_config")
+
+    @topics_config.setter
+    def topics_config(self, value: pulumi.Input[Sequence[pulumi.Input['GuardrailTopicConfigArgs']]]):
+        pulumi.set(self, "topics_config", value)
+
+
+@pulumi.input_type
+class GuardrailWordConfigArgs:
+    def __init__(__self__, *,
+                 text: pulumi.Input[str]):
+        """
+        A custom word config.
+        :param pulumi.Input[str] text: The custom word text.
+        """
+        pulumi.set(__self__, "text", text)
+
+    @property
+    @pulumi.getter
+    def text(self) -> pulumi.Input[str]:
+        """
+        The custom word text.
+        """
+        return pulumi.get(self, "text")
+
+    @text.setter
+    def text(self, value: pulumi.Input[str]):
+        pulumi.set(self, "text", value)
+
+
+@pulumi.input_type
+class GuardrailWordPolicyConfigArgs:
+    def __init__(__self__, *,
+                 managed_word_lists_config: Optional[pulumi.Input[Sequence[pulumi.Input['GuardrailManagedWordsConfigArgs']]]] = None,
+                 words_config: Optional[pulumi.Input[Sequence[pulumi.Input['GuardrailWordConfigArgs']]]] = None):
+        """
+        Word policy config for a guardrail.
+        :param pulumi.Input[Sequence[pulumi.Input['GuardrailManagedWordsConfigArgs']]] managed_word_lists_config: A config for the list of managed words.
+        :param pulumi.Input[Sequence[pulumi.Input['GuardrailWordConfigArgs']]] words_config: List of custom word configs.
+        """
+        if managed_word_lists_config is not None:
+            pulumi.set(__self__, "managed_word_lists_config", managed_word_lists_config)
+        if words_config is not None:
+            pulumi.set(__self__, "words_config", words_config)
+
+    @property
+    @pulumi.getter(name="managedWordListsConfig")
+    def managed_word_lists_config(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GuardrailManagedWordsConfigArgs']]]]:
+        """
+        A config for the list of managed words.
+        """
+        return pulumi.get(self, "managed_word_lists_config")
+
+    @managed_word_lists_config.setter
+    def managed_word_lists_config(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GuardrailManagedWordsConfigArgs']]]]):
+        pulumi.set(self, "managed_word_lists_config", value)
+
+    @property
+    @pulumi.getter(name="wordsConfig")
+    def words_config(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GuardrailWordConfigArgs']]]]:
+        """
+        List of custom word configs.
+        """
+        return pulumi.get(self, "words_config")
+
+    @words_config.setter
+    def words_config(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GuardrailWordConfigArgs']]]]):
+        pulumi.set(self, "words_config", value)
 
 
 @pulumi.input_type

@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         [Input("executeCommandConfiguration")]
         public Input<Inputs.ClusterExecuteCommandConfigurationArgs>? ExecuteCommandConfiguration { get; set; }
 
+        [Input("managedStorageConfiguration")]
+        public Input<Inputs.ClusterManagedStorageConfigurationArgs>? ManagedStorageConfiguration { get; set; }
+
         public ClusterConfigurationArgs()
         {
         }

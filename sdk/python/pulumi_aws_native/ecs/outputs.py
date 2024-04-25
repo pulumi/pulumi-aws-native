@@ -19,6 +19,7 @@ __all__ = [
     'ClusterConfiguration',
     'ClusterExecuteCommandConfiguration',
     'ClusterExecuteCommandLogConfiguration',
+    'ClusterManagedStorageConfiguration',
     'ClusterServiceConnectDefaults',
     'ClusterSettings',
     'ServiceAwsVpcConfiguration',
@@ -339,6 +340,8 @@ class ClusterConfiguration(dict):
         suggest = None
         if key == "executeCommandConfiguration":
             suggest = "execute_command_configuration"
+        elif key == "managedStorageConfiguration":
+            suggest = "managed_storage_configuration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ClusterConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -352,13 +355,16 @@ class ClusterConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 execute_command_configuration: Optional['outputs.ClusterExecuteCommandConfiguration'] = None):
+                 execute_command_configuration: Optional['outputs.ClusterExecuteCommandConfiguration'] = None,
+                 managed_storage_configuration: Optional['outputs.ClusterManagedStorageConfiguration'] = None):
         """
         The execute command configuration for the cluster.
         :param 'ClusterExecuteCommandConfiguration' execute_command_configuration: The details of the execute command configuration.
         """
         if execute_command_configuration is not None:
             pulumi.set(__self__, "execute_command_configuration", execute_command_configuration)
+        if managed_storage_configuration is not None:
+            pulumi.set(__self__, "managed_storage_configuration", managed_storage_configuration)
 
     @property
     @pulumi.getter(name="executeCommandConfiguration")
@@ -367,6 +373,11 @@ class ClusterConfiguration(dict):
         The details of the execute command configuration.
         """
         return pulumi.get(self, "execute_command_configuration")
+
+    @property
+    @pulumi.getter(name="managedStorageConfiguration")
+    def managed_storage_configuration(self) -> Optional['outputs.ClusterManagedStorageConfiguration']:
+        return pulumi.get(self, "managed_storage_configuration")
 
 
 @pulumi.output_type
@@ -539,6 +550,46 @@ class ClusterExecuteCommandLogConfiguration(dict):
         An optional folder in the S3 bucket to place logs in.
         """
         return pulumi.get(self, "s3_key_prefix")
+
+
+@pulumi.output_type
+class ClusterManagedStorageConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fargateEphemeralStorageKmsKeyId":
+            suggest = "fargate_ephemeral_storage_kms_key_id"
+        elif key == "kmsKeyId":
+            suggest = "kms_key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterManagedStorageConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterManagedStorageConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterManagedStorageConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fargate_ephemeral_storage_kms_key_id: Optional[str] = None,
+                 kms_key_id: Optional[str] = None):
+        if fargate_ephemeral_storage_kms_key_id is not None:
+            pulumi.set(__self__, "fargate_ephemeral_storage_kms_key_id", fargate_ephemeral_storage_kms_key_id)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+
+    @property
+    @pulumi.getter(name="fargateEphemeralStorageKmsKeyId")
+    def fargate_ephemeral_storage_kms_key_id(self) -> Optional[str]:
+        return pulumi.get(self, "fargate_ephemeral_storage_kms_key_id")
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[str]:
+        return pulumi.get(self, "kms_key_id")
 
 
 @pulumi.output_type

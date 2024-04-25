@@ -26,6 +26,14 @@ export const PortalBrowserType = {
 
 export type PortalBrowserType = (typeof PortalBrowserType)[keyof typeof PortalBrowserType];
 
+export const PortalInstanceType = {
+    StandardRegular: "standard.regular",
+    StandardLarge: "standard.large",
+    StandardXlarge: "standard.xlarge",
+} as const;
+
+export type PortalInstanceType = (typeof PortalInstanceType)[keyof typeof PortalInstanceType];
+
 export const PortalRendererType = {
     AppStream: "AppStream",
 } as const;

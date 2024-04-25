@@ -132,6 +132,9 @@ namespace Pulumi.AwsNative.Bedrock
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        [Output("testAliasTags")]
+        public Output<ImmutableDictionary<string, string>?> TestAliasTags { get; private set; } = null!;
+
         /// <summary>
         /// Time Stamp.
         /// </summary>
@@ -270,6 +273,14 @@ namespace Pulumi.AwsNative.Bedrock
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("testAliasTags")]
+        private InputMap<string>? _testAliasTags;
+        public InputMap<string> TestAliasTags
+        {
+            get => _testAliasTags ?? (_testAliasTags = new InputMap<string>());
+            set => _testAliasTags = value;
         }
 
         public AgentArgs()

@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetPortalResult:
-    def __init__(__self__, authentication_type=None, browser_settings_arn=None, browser_type=None, creation_date=None, display_name=None, ip_access_settings_arn=None, network_settings_arn=None, portal_arn=None, portal_endpoint=None, portal_status=None, renderer_type=None, service_provider_saml_metadata=None, status_reason=None, tags=None, trust_store_arn=None, user_access_logging_settings_arn=None, user_settings_arn=None):
+    def __init__(__self__, authentication_type=None, browser_settings_arn=None, browser_type=None, creation_date=None, display_name=None, instance_type=None, ip_access_settings_arn=None, max_concurrent_sessions=None, network_settings_arn=None, portal_arn=None, portal_endpoint=None, portal_status=None, renderer_type=None, service_provider_saml_metadata=None, status_reason=None, tags=None, trust_store_arn=None, user_access_logging_settings_arn=None, user_settings_arn=None):
         if authentication_type and not isinstance(authentication_type, str):
             raise TypeError("Expected argument 'authentication_type' to be a str")
         pulumi.set(__self__, "authentication_type", authentication_type)
@@ -36,9 +36,15 @@ class GetPortalResult:
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
+        if instance_type and not isinstance(instance_type, str):
+            raise TypeError("Expected argument 'instance_type' to be a str")
+        pulumi.set(__self__, "instance_type", instance_type)
         if ip_access_settings_arn and not isinstance(ip_access_settings_arn, str):
             raise TypeError("Expected argument 'ip_access_settings_arn' to be a str")
         pulumi.set(__self__, "ip_access_settings_arn", ip_access_settings_arn)
+        if max_concurrent_sessions and not isinstance(max_concurrent_sessions, float):
+            raise TypeError("Expected argument 'max_concurrent_sessions' to be a float")
+        pulumi.set(__self__, "max_concurrent_sessions", max_concurrent_sessions)
         if network_settings_arn and not isinstance(network_settings_arn, str):
             raise TypeError("Expected argument 'network_settings_arn' to be a str")
         pulumi.set(__self__, "network_settings_arn", network_settings_arn)
@@ -99,9 +105,19 @@ class GetPortalResult:
         return pulumi.get(self, "display_name")
 
     @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> Optional['PortalInstanceType']:
+        return pulumi.get(self, "instance_type")
+
+    @property
     @pulumi.getter(name="ipAccessSettingsArn")
     def ip_access_settings_arn(self) -> Optional[str]:
         return pulumi.get(self, "ip_access_settings_arn")
+
+    @property
+    @pulumi.getter(name="maxConcurrentSessions")
+    def max_concurrent_sessions(self) -> Optional[float]:
+        return pulumi.get(self, "max_concurrent_sessions")
 
     @property
     @pulumi.getter(name="networkSettingsArn")
@@ -170,7 +186,9 @@ class AwaitableGetPortalResult(GetPortalResult):
             browser_type=self.browser_type,
             creation_date=self.creation_date,
             display_name=self.display_name,
+            instance_type=self.instance_type,
             ip_access_settings_arn=self.ip_access_settings_arn,
+            max_concurrent_sessions=self.max_concurrent_sessions,
             network_settings_arn=self.network_settings_arn,
             portal_arn=self.portal_arn,
             portal_endpoint=self.portal_endpoint,
@@ -200,7 +218,9 @@ def get_portal(portal_arn: Optional[str] = None,
         browser_type=pulumi.get(__ret__, 'browser_type'),
         creation_date=pulumi.get(__ret__, 'creation_date'),
         display_name=pulumi.get(__ret__, 'display_name'),
+        instance_type=pulumi.get(__ret__, 'instance_type'),
         ip_access_settings_arn=pulumi.get(__ret__, 'ip_access_settings_arn'),
+        max_concurrent_sessions=pulumi.get(__ret__, 'max_concurrent_sessions'),
         network_settings_arn=pulumi.get(__ret__, 'network_settings_arn'),
         portal_arn=pulumi.get(__ret__, 'portal_arn'),
         portal_endpoint=pulumi.get(__ret__, 'portal_endpoint'),

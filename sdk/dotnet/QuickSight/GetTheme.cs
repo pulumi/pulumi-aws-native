@@ -57,8 +57,17 @@ namespace Pulumi.AwsNative.QuickSight
     [OutputType]
     public sealed class GetThemeResult
     {
+        /// <summary>
+        /// &lt;p&gt;The Amazon Resource Name (ARN) of the theme.&lt;/p&gt;
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// &lt;p&gt;The date and time that the theme was created.&lt;/p&gt;
+        /// </summary>
         public readonly string? CreatedTime;
+        /// <summary>
+        /// &lt;p&gt;The date and time that the theme was last updated.&lt;/p&gt;
+        /// </summary>
         public readonly string? LastUpdatedTime;
         public readonly string? Name;
         public readonly ImmutableArray<Outputs.ThemeResourcePermission> Permissions;

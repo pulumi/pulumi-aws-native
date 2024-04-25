@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.ConnectCampaigns.Inputs
     public sealed class CampaignAnswerMachineDetectionConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Enables detection of prompts (e.g., beep after after a voicemail greeting)
+        /// </summary>
+        [Input("awaitAnswerMachinePrompt")]
+        public Input<bool>? AwaitAnswerMachinePrompt { get; set; }
+
+        /// <summary>
         /// Flag to decided whether outbound calls should have answering machine detection enabled or not
         /// </summary>
         [Input("enableAnswerMachineDetection", required: true)]

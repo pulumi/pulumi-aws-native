@@ -33,7 +33,9 @@ type LookupPortalResult struct {
 	BrowserType                  *PortalBrowserType        `pulumi:"browserType"`
 	CreationDate                 *string                   `pulumi:"creationDate"`
 	DisplayName                  *string                   `pulumi:"displayName"`
+	InstanceType                 *PortalInstanceType       `pulumi:"instanceType"`
 	IpAccessSettingsArn          *string                   `pulumi:"ipAccessSettingsArn"`
+	MaxConcurrentSessions        *float64                  `pulumi:"maxConcurrentSessions"`
 	NetworkSettingsArn           *string                   `pulumi:"networkSettingsArn"`
 	PortalArn                    *string                   `pulumi:"portalArn"`
 	PortalEndpoint               *string                   `pulumi:"portalEndpoint"`
@@ -102,8 +104,16 @@ func (o LookupPortalResultOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPortalResult) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
+func (o LookupPortalResultOutput) InstanceType() PortalInstanceTypePtrOutput {
+	return o.ApplyT(func(v LookupPortalResult) *PortalInstanceType { return v.InstanceType }).(PortalInstanceTypePtrOutput)
+}
+
 func (o LookupPortalResultOutput) IpAccessSettingsArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPortalResult) *string { return v.IpAccessSettingsArn }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupPortalResultOutput) MaxConcurrentSessions() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v LookupPortalResult) *float64 { return v.MaxConcurrentSessions }).(pulumi.Float64PtrOutput)
 }
 
 func (o LookupPortalResultOutput) NetworkSettingsArn() pulumi.StringPtrOutput {

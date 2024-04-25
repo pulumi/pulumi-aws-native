@@ -15,7 +15,7 @@ namespace Pulumi.AwsNative.Lambda.Inputs
     /// </summary>
     public sealed class AliasRoutingConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        [Input("additionalVersionWeights", required: true)]
+        [Input("additionalVersionWeights")]
         private InputList<Inputs.AliasVersionWeightArgs>? _additionalVersionWeights;
 
         /// <summary>

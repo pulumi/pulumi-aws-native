@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetAgentResult:
-    def __init__(__self__, action_groups=None, agent_arn=None, agent_id=None, agent_name=None, agent_resource_role_arn=None, agent_status=None, agent_version=None, created_at=None, customer_encryption_key_arn=None, description=None, failure_reasons=None, foundation_model=None, idle_session_ttl_in_seconds=None, instruction=None, knowledge_bases=None, prepared_at=None, prompt_override_configuration=None, recommended_actions=None, tags=None, updated_at=None):
+    def __init__(__self__, action_groups=None, agent_arn=None, agent_id=None, agent_name=None, agent_resource_role_arn=None, agent_status=None, agent_version=None, created_at=None, customer_encryption_key_arn=None, description=None, failure_reasons=None, foundation_model=None, idle_session_ttl_in_seconds=None, instruction=None, knowledge_bases=None, prepared_at=None, prompt_override_configuration=None, recommended_actions=None, tags=None, test_alias_tags=None, updated_at=None):
         if action_groups and not isinstance(action_groups, list):
             raise TypeError("Expected argument 'action_groups' to be a list")
         pulumi.set(__self__, "action_groups", action_groups)
@@ -78,6 +78,9 @@ class GetAgentResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if test_alias_tags and not isinstance(test_alias_tags, dict):
+            raise TypeError("Expected argument 'test_alias_tags' to be a dict")
+        pulumi.set(__self__, "test_alias_tags", test_alias_tags)
         if updated_at and not isinstance(updated_at, str):
             raise TypeError("Expected argument 'updated_at' to be a str")
         pulumi.set(__self__, "updated_at", updated_at)
@@ -226,6 +229,11 @@ class GetAgentResult:
         return pulumi.get(self, "tags")
 
     @property
+    @pulumi.getter(name="testAliasTags")
+    def test_alias_tags(self) -> Optional[Mapping[str, str]]:
+        return pulumi.get(self, "test_alias_tags")
+
+    @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> Optional[str]:
         """
@@ -259,6 +267,7 @@ class AwaitableGetAgentResult(GetAgentResult):
             prompt_override_configuration=self.prompt_override_configuration,
             recommended_actions=self.recommended_actions,
             tags=self.tags,
+            test_alias_tags=self.test_alias_tags,
             updated_at=self.updated_at)
 
 
@@ -295,6 +304,7 @@ def get_agent(agent_id: Optional[str] = None,
         prompt_override_configuration=pulumi.get(__ret__, 'prompt_override_configuration'),
         recommended_actions=pulumi.get(__ret__, 'recommended_actions'),
         tags=pulumi.get(__ret__, 'tags'),
+        test_alias_tags=pulumi.get(__ret__, 'test_alias_tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
 
 

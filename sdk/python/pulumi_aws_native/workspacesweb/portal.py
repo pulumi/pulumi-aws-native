@@ -22,7 +22,9 @@ class PortalArgs:
                  browser_settings_arn: Optional[pulumi.Input[str]] = None,
                  customer_managed_key: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
+                 instance_type: Optional[pulumi.Input['PortalInstanceType']] = None,
                  ip_access_settings_arn: Optional[pulumi.Input[str]] = None,
+                 max_concurrent_sessions: Optional[pulumi.Input[float]] = None,
                  network_settings_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  trust_store_arn: Optional[pulumi.Input[str]] = None,
@@ -41,8 +43,12 @@ class PortalArgs:
             pulumi.set(__self__, "customer_managed_key", customer_managed_key)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
+        if instance_type is not None:
+            pulumi.set(__self__, "instance_type", instance_type)
         if ip_access_settings_arn is not None:
             pulumi.set(__self__, "ip_access_settings_arn", ip_access_settings_arn)
+        if max_concurrent_sessions is not None:
+            pulumi.set(__self__, "max_concurrent_sessions", max_concurrent_sessions)
         if network_settings_arn is not None:
             pulumi.set(__self__, "network_settings_arn", network_settings_arn)
         if tags is not None:
@@ -100,6 +106,15 @@ class PortalArgs:
         pulumi.set(self, "display_name", value)
 
     @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> Optional[pulumi.Input['PortalInstanceType']]:
+        return pulumi.get(self, "instance_type")
+
+    @instance_type.setter
+    def instance_type(self, value: Optional[pulumi.Input['PortalInstanceType']]):
+        pulumi.set(self, "instance_type", value)
+
+    @property
     @pulumi.getter(name="ipAccessSettingsArn")
     def ip_access_settings_arn(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "ip_access_settings_arn")
@@ -107,6 +122,15 @@ class PortalArgs:
     @ip_access_settings_arn.setter
     def ip_access_settings_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ip_access_settings_arn", value)
+
+    @property
+    @pulumi.getter(name="maxConcurrentSessions")
+    def max_concurrent_sessions(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "max_concurrent_sessions")
+
+    @max_concurrent_sessions.setter
+    def max_concurrent_sessions(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "max_concurrent_sessions", value)
 
     @property
     @pulumi.getter(name="networkSettingsArn")
@@ -164,7 +188,9 @@ class Portal(pulumi.CustomResource):
                  browser_settings_arn: Optional[pulumi.Input[str]] = None,
                  customer_managed_key: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
+                 instance_type: Optional[pulumi.Input['PortalInstanceType']] = None,
                  ip_access_settings_arn: Optional[pulumi.Input[str]] = None,
+                 max_concurrent_sessions: Optional[pulumi.Input[float]] = None,
                  network_settings_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  trust_store_arn: Optional[pulumi.Input[str]] = None,
@@ -206,7 +232,9 @@ class Portal(pulumi.CustomResource):
                  browser_settings_arn: Optional[pulumi.Input[str]] = None,
                  customer_managed_key: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
+                 instance_type: Optional[pulumi.Input['PortalInstanceType']] = None,
                  ip_access_settings_arn: Optional[pulumi.Input[str]] = None,
+                 max_concurrent_sessions: Optional[pulumi.Input[float]] = None,
                  network_settings_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  trust_store_arn: Optional[pulumi.Input[str]] = None,
@@ -226,7 +254,9 @@ class Portal(pulumi.CustomResource):
             __props__.__dict__["browser_settings_arn"] = browser_settings_arn
             __props__.__dict__["customer_managed_key"] = customer_managed_key
             __props__.__dict__["display_name"] = display_name
+            __props__.__dict__["instance_type"] = instance_type
             __props__.__dict__["ip_access_settings_arn"] = ip_access_settings_arn
+            __props__.__dict__["max_concurrent_sessions"] = max_concurrent_sessions
             __props__.__dict__["network_settings_arn"] = network_settings_arn
             __props__.__dict__["tags"] = tags
             __props__.__dict__["trust_store_arn"] = trust_store_arn
@@ -271,7 +301,9 @@ class Portal(pulumi.CustomResource):
         __props__.__dict__["creation_date"] = None
         __props__.__dict__["customer_managed_key"] = None
         __props__.__dict__["display_name"] = None
+        __props__.__dict__["instance_type"] = None
         __props__.__dict__["ip_access_settings_arn"] = None
+        __props__.__dict__["max_concurrent_sessions"] = None
         __props__.__dict__["network_settings_arn"] = None
         __props__.__dict__["portal_arn"] = None
         __props__.__dict__["portal_endpoint"] = None
@@ -321,9 +353,19 @@ class Portal(pulumi.CustomResource):
         return pulumi.get(self, "display_name")
 
     @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> pulumi.Output[Optional['PortalInstanceType']]:
+        return pulumi.get(self, "instance_type")
+
+    @property
     @pulumi.getter(name="ipAccessSettingsArn")
     def ip_access_settings_arn(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "ip_access_settings_arn")
+
+    @property
+    @pulumi.getter(name="maxConcurrentSessions")
+    def max_concurrent_sessions(self) -> pulumi.Output[Optional[float]]:
+        return pulumi.get(self, "max_concurrent_sessions")
 
     @property
     @pulumi.getter(name="networkSettingsArn")

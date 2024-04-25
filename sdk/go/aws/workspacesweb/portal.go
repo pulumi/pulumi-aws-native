@@ -23,7 +23,9 @@ type Portal struct {
 	CreationDate                 pulumi.StringOutput               `pulumi:"creationDate"`
 	CustomerManagedKey           pulumi.StringPtrOutput            `pulumi:"customerManagedKey"`
 	DisplayName                  pulumi.StringPtrOutput            `pulumi:"displayName"`
+	InstanceType                 PortalInstanceTypePtrOutput       `pulumi:"instanceType"`
 	IpAccessSettingsArn          pulumi.StringPtrOutput            `pulumi:"ipAccessSettingsArn"`
+	MaxConcurrentSessions        pulumi.Float64PtrOutput           `pulumi:"maxConcurrentSessions"`
 	NetworkSettingsArn           pulumi.StringPtrOutput            `pulumi:"networkSettingsArn"`
 	PortalArn                    pulumi.StringOutput               `pulumi:"portalArn"`
 	PortalEndpoint               pulumi.StringOutput               `pulumi:"portalEndpoint"`
@@ -87,7 +89,9 @@ type portalArgs struct {
 	BrowserSettingsArn           *string                   `pulumi:"browserSettingsArn"`
 	CustomerManagedKey           *string                   `pulumi:"customerManagedKey"`
 	DisplayName                  *string                   `pulumi:"displayName"`
+	InstanceType                 *PortalInstanceType       `pulumi:"instanceType"`
 	IpAccessSettingsArn          *string                   `pulumi:"ipAccessSettingsArn"`
+	MaxConcurrentSessions        *float64                  `pulumi:"maxConcurrentSessions"`
 	NetworkSettingsArn           *string                   `pulumi:"networkSettingsArn"`
 	Tags                         []aws.Tag                 `pulumi:"tags"`
 	TrustStoreArn                *string                   `pulumi:"trustStoreArn"`
@@ -102,7 +106,9 @@ type PortalArgs struct {
 	BrowserSettingsArn           pulumi.StringPtrInput
 	CustomerManagedKey           pulumi.StringPtrInput
 	DisplayName                  pulumi.StringPtrInput
+	InstanceType                 PortalInstanceTypePtrInput
 	IpAccessSettingsArn          pulumi.StringPtrInput
+	MaxConcurrentSessions        pulumi.Float64PtrInput
 	NetworkSettingsArn           pulumi.StringPtrInput
 	Tags                         aws.TagArrayInput
 	TrustStoreArn                pulumi.StringPtrInput
@@ -175,8 +181,16 @@ func (o PortalOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Portal) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
+func (o PortalOutput) InstanceType() PortalInstanceTypePtrOutput {
+	return o.ApplyT(func(v *Portal) PortalInstanceTypePtrOutput { return v.InstanceType }).(PortalInstanceTypePtrOutput)
+}
+
 func (o PortalOutput) IpAccessSettingsArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Portal) pulumi.StringPtrOutput { return v.IpAccessSettingsArn }).(pulumi.StringPtrOutput)
+}
+
+func (o PortalOutput) MaxConcurrentSessions() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *Portal) pulumi.Float64PtrOutput { return v.MaxConcurrentSessions }).(pulumi.Float64PtrOutput)
 }
 
 func (o PortalOutput) NetworkSettingsArn() pulumi.StringPtrOutput {

@@ -37,11 +37,20 @@ export class Theme extends pulumi.CustomResource {
         return obj['__pulumiType'] === Theme.__pulumiType;
     }
 
+    /**
+     * <p>The Amazon Resource Name (ARN) of the theme.</p>
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly awsAccountId!: pulumi.Output<string>;
     public readonly baseThemeId!: pulumi.Output<string>;
     public readonly configuration!: pulumi.Output<outputs.quicksight.ThemeConfiguration>;
+    /**
+     * <p>The date and time that the theme was created.</p>
+     */
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    /**
+     * <p>The date and time that the theme was last updated.</p>
+     */
     public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string>;
     public readonly permissions!: pulumi.Output<outputs.quicksight.ThemeResourcePermission[] | undefined>;

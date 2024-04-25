@@ -25,8 +25,17 @@ export interface GetThemeArgs {
 }
 
 export interface GetThemeResult {
+    /**
+     * <p>The Amazon Resource Name (ARN) of the theme.</p>
+     */
     readonly arn?: string;
+    /**
+     * <p>The date and time that the theme was created.</p>
+     */
     readonly createdTime?: string;
+    /**
+     * <p>The date and time that the theme was last updated.</p>
+     */
     readonly lastUpdatedTime?: string;
     readonly name?: string;
     readonly permissions?: outputs.quicksight.ThemeResourcePermission[];

@@ -36,8 +36,14 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         [Output("displayName")]
         public Output<string?> DisplayName { get; private set; } = null!;
 
+        [Output("instanceType")]
+        public Output<Pulumi.AwsNative.WorkSpacesWeb.PortalInstanceType?> InstanceType { get; private set; } = null!;
+
         [Output("ipAccessSettingsArn")]
         public Output<string?> IpAccessSettingsArn { get; private set; } = null!;
+
+        [Output("maxConcurrentSessions")]
+        public Output<double?> MaxConcurrentSessions { get; private set; } = null!;
 
         [Output("networkSettingsArn")]
         public Output<string?> NetworkSettingsArn { get; private set; } = null!;
@@ -142,8 +148,14 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
 
+        [Input("instanceType")]
+        public Input<Pulumi.AwsNative.WorkSpacesWeb.PortalInstanceType>? InstanceType { get; set; }
+
         [Input("ipAccessSettingsArn")]
         public Input<string>? IpAccessSettingsArn { get; set; }
+
+        [Input("maxConcurrentSessions")]
+        public Input<double>? MaxConcurrentSessions { get; set; }
 
         [Input("networkSettingsArn")]
         public Input<string>? NetworkSettingsArn { get; set; }

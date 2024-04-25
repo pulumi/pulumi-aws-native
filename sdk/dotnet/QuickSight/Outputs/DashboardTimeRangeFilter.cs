@@ -14,6 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class DashboardTimeRangeFilter
     {
         public readonly Outputs.DashboardColumnIdentifier Column;
+        public readonly Outputs.DashboardDefaultFilterControlConfiguration? DefaultFilterControlConfiguration;
         public readonly Outputs.DashboardExcludePeriodConfiguration? ExcludePeriodConfiguration;
         public readonly string FilterId;
         public readonly bool? IncludeMaximum;
@@ -26,6 +27,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         [OutputConstructor]
         private DashboardTimeRangeFilter(
             Outputs.DashboardColumnIdentifier column,
+
+            Outputs.DashboardDefaultFilterControlConfiguration? defaultFilterControlConfiguration,
 
             Outputs.DashboardExcludePeriodConfiguration? excludePeriodConfiguration,
 
@@ -44,6 +47,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             Pulumi.AwsNative.QuickSight.DashboardTimeGranularity? timeGranularity)
         {
             Column = column;
+            DefaultFilterControlConfiguration = defaultFilterControlConfiguration;
             ExcludePeriodConfiguration = excludePeriodConfiguration;
             FilterId = filterId;
             IncludeMaximum = includeMaximum;

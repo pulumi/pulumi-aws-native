@@ -28,7 +28,9 @@ export interface GetPortalResult {
     readonly browserType?: enums.workspacesweb.PortalBrowserType;
     readonly creationDate?: string;
     readonly displayName?: string;
+    readonly instanceType?: enums.workspacesweb.PortalInstanceType;
     readonly ipAccessSettingsArn?: string;
+    readonly maxConcurrentSessions?: number;
     readonly networkSettingsArn?: string;
     readonly portalArn?: string;
     readonly portalEndpoint?: string;

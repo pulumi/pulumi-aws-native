@@ -121,6 +121,113 @@ export const DataSourceType = {
  */
 export type DataSourceType = (typeof DataSourceType)[keyof typeof DataSourceType];
 
+export const GuardrailContentFilterType = {
+    Sexual: "SEXUAL",
+    Violence: "VIOLENCE",
+    Hate: "HATE",
+    Insults: "INSULTS",
+    Misconduct: "MISCONDUCT",
+    PromptAttack: "PROMPT_ATTACK",
+} as const;
+
+/**
+ * Type of filter in content policy
+ */
+export type GuardrailContentFilterType = (typeof GuardrailContentFilterType)[keyof typeof GuardrailContentFilterType];
+
+export const GuardrailFilterStrength = {
+    None: "NONE",
+    Low: "LOW",
+    Medium: "MEDIUM",
+    High: "HIGH",
+} as const;
+
+/**
+ * Strength for filters
+ */
+export type GuardrailFilterStrength = (typeof GuardrailFilterStrength)[keyof typeof GuardrailFilterStrength];
+
+export const GuardrailManagedWordsType = {
+    Profanity: "PROFANITY",
+} as const;
+
+/**
+ * Options for managed words.
+ */
+export type GuardrailManagedWordsType = (typeof GuardrailManagedWordsType)[keyof typeof GuardrailManagedWordsType];
+
+export const GuardrailPiiEntityType = {
+    Address: "ADDRESS",
+    Age: "AGE",
+    AwsAccessKey: "AWS_ACCESS_KEY",
+    AwsSecretKey: "AWS_SECRET_KEY",
+    CaHealthNumber: "CA_HEALTH_NUMBER",
+    CaSocialInsuranceNumber: "CA_SOCIAL_INSURANCE_NUMBER",
+    CreditDebitCardCvv: "CREDIT_DEBIT_CARD_CVV",
+    CreditDebitCardExpiry: "CREDIT_DEBIT_CARD_EXPIRY",
+    CreditDebitCardNumber: "CREDIT_DEBIT_CARD_NUMBER",
+    DriverId: "DRIVER_ID",
+    Email: "EMAIL",
+    InternationalBankAccountNumber: "INTERNATIONAL_BANK_ACCOUNT_NUMBER",
+    IpAddress: "IP_ADDRESS",
+    LicensePlate: "LICENSE_PLATE",
+    MacAddress: "MAC_ADDRESS",
+    Name: "NAME",
+    Password: "PASSWORD",
+    Phone: "PHONE",
+    Pin: "PIN",
+    SwiftCode: "SWIFT_CODE",
+    UkNationalHealthServiceNumber: "UK_NATIONAL_HEALTH_SERVICE_NUMBER",
+    UkNationalInsuranceNumber: "UK_NATIONAL_INSURANCE_NUMBER",
+    UkUniqueTaxpayerReferenceNumber: "UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER",
+    Url: "URL",
+    Username: "USERNAME",
+    UsBankAccountNumber: "US_BANK_ACCOUNT_NUMBER",
+    UsBankRoutingNumber: "US_BANK_ROUTING_NUMBER",
+    UsIndividualTaxIdentificationNumber: "US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER",
+    UsPassportNumber: "US_PASSPORT_NUMBER",
+    UsSocialSecurityNumber: "US_SOCIAL_SECURITY_NUMBER",
+    VehicleIdentificationNumber: "VEHICLE_IDENTIFICATION_NUMBER",
+} as const;
+
+/**
+ * The currently supported PII entities
+ */
+export type GuardrailPiiEntityType = (typeof GuardrailPiiEntityType)[keyof typeof GuardrailPiiEntityType];
+
+export const GuardrailSensitiveInformationAction = {
+    Block: "BLOCK",
+    Anonymize: "ANONYMIZE",
+} as const;
+
+/**
+ * Options for sensitive information action.
+ */
+export type GuardrailSensitiveInformationAction = (typeof GuardrailSensitiveInformationAction)[keyof typeof GuardrailSensitiveInformationAction];
+
+export const GuardrailStatus = {
+    Creating: "CREATING",
+    Updating: "UPDATING",
+    Versioning: "VERSIONING",
+    Ready: "READY",
+    Failed: "FAILED",
+    Deleting: "DELETING",
+} as const;
+
+/**
+ * Status of the guardrail
+ */
+export type GuardrailStatus = (typeof GuardrailStatus)[keyof typeof GuardrailStatus];
+
+export const GuardrailTopicType = {
+    Deny: "DENY",
+} as const;
+
+/**
+ * Type of topic in a policy
+ */
+export type GuardrailTopicType = (typeof GuardrailTopicType)[keyof typeof GuardrailTopicType];
+
 export const KnowledgeBaseStatus = {
     Creating: "CREATING",
     Active: "ACTIVE",

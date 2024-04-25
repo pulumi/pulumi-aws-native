@@ -14,6 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class DashboardTimeEqualityFilter
     {
         public readonly Outputs.DashboardColumnIdentifier Column;
+        public readonly Outputs.DashboardDefaultFilterControlConfiguration? DefaultFilterControlConfiguration;
         public readonly string FilterId;
         public readonly string? ParameterName;
         public readonly Outputs.DashboardRollingDateConfiguration? RollingDate;
@@ -23,6 +24,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         [OutputConstructor]
         private DashboardTimeEqualityFilter(
             Outputs.DashboardColumnIdentifier column,
+
+            Outputs.DashboardDefaultFilterControlConfiguration? defaultFilterControlConfiguration,
 
             string filterId,
 
@@ -35,6 +38,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             string? value)
         {
             Column = column;
+            DefaultFilterControlConfiguration = defaultFilterControlConfiguration;
             FilterId = filterId;
             ParameterName = parameterName;
             RollingDate = rollingDate;

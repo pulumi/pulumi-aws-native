@@ -73,23 +73,24 @@ class AliasProvisionedConcurrencyConfigurationArgs:
 @pulumi.input_type
 class AliasRoutingConfigurationArgs:
     def __init__(__self__, *,
-                 additional_version_weights: pulumi.Input[Sequence[pulumi.Input['AliasVersionWeightArgs']]]):
+                 additional_version_weights: Optional[pulumi.Input[Sequence[pulumi.Input['AliasVersionWeightArgs']]]] = None):
         """
         The traffic-shifting configuration of a Lambda function alias.
         :param pulumi.Input[Sequence[pulumi.Input['AliasVersionWeightArgs']]] additional_version_weights: The second version, and the percentage of traffic that's routed to it.
         """
-        pulumi.set(__self__, "additional_version_weights", additional_version_weights)
+        if additional_version_weights is not None:
+            pulumi.set(__self__, "additional_version_weights", additional_version_weights)
 
     @property
     @pulumi.getter(name="additionalVersionWeights")
-    def additional_version_weights(self) -> pulumi.Input[Sequence[pulumi.Input['AliasVersionWeightArgs']]]:
+    def additional_version_weights(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AliasVersionWeightArgs']]]]:
         """
         The second version, and the percentage of traffic that's routed to it.
         """
         return pulumi.get(self, "additional_version_weights")
 
     @additional_version_weights.setter
-    def additional_version_weights(self, value: pulumi.Input[Sequence[pulumi.Input['AliasVersionWeightArgs']]]):
+    def additional_version_weights(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AliasVersionWeightArgs']]]]):
         pulumi.set(self, "additional_version_weights", value)
 
 

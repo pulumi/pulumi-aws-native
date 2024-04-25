@@ -10,11 +10,26 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;The theme colors that are used for data colors in charts. The colors description is a
+    ///             hexadecimal color code that consists of six alphanumerical characters, prefixed with
+    ///                 &lt;code&gt;#&lt;/code&gt;, for example #37BFF5. &lt;/p&gt;
+    /// </summary>
     [OutputType]
     public sealed class ThemeDataColorPalette
     {
+        /// <summary>
+        /// &lt;p&gt;The hexadecimal codes for the colors.&lt;/p&gt;
+        /// </summary>
         public readonly ImmutableArray<string> Colors;
+        /// <summary>
+        /// &lt;p&gt;The hexadecimal code of a color that applies to charts where a lack of data is
+        ///             highlighted.&lt;/p&gt;
+        /// </summary>
         public readonly string? EmptyFillColor;
+        /// <summary>
+        /// &lt;p&gt;The minimum and maximum hexadecimal codes that describe a color gradient. &lt;/p&gt;
+        /// </summary>
         public readonly ImmutableArray<string> MinMaxGradient;
 
         [OutputConstructor]

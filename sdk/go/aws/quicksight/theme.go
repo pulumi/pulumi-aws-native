@@ -17,11 +17,14 @@ import (
 type Theme struct {
 	pulumi.CustomResourceState
 
-	Arn                pulumi.StringOutput                `pulumi:"arn"`
-	AwsAccountId       pulumi.StringOutput                `pulumi:"awsAccountId"`
-	BaseThemeId        pulumi.StringOutput                `pulumi:"baseThemeId"`
-	Configuration      ThemeConfigurationOutput           `pulumi:"configuration"`
-	CreatedTime        pulumi.StringOutput                `pulumi:"createdTime"`
+	// <p>The Amazon Resource Name (ARN) of the theme.</p>
+	Arn           pulumi.StringOutput      `pulumi:"arn"`
+	AwsAccountId  pulumi.StringOutput      `pulumi:"awsAccountId"`
+	BaseThemeId   pulumi.StringOutput      `pulumi:"baseThemeId"`
+	Configuration ThemeConfigurationOutput `pulumi:"configuration"`
+	// <p>The date and time that the theme was created.</p>
+	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
+	// <p>The date and time that the theme was last updated.</p>
 	LastUpdatedTime    pulumi.StringOutput                `pulumi:"lastUpdatedTime"`
 	Name               pulumi.StringOutput                `pulumi:"name"`
 	Permissions        ThemeResourcePermissionArrayOutput `pulumi:"permissions"`
@@ -148,6 +151,7 @@ func (o ThemeOutput) ToThemeOutputWithContext(ctx context.Context) ThemeOutput {
 	return o
 }
 
+// <p>The Amazon Resource Name (ARN) of the theme.</p>
 func (o ThemeOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -164,10 +168,12 @@ func (o ThemeOutput) Configuration() ThemeConfigurationOutput {
 	return o.ApplyT(func(v *Theme) ThemeConfigurationOutput { return v.Configuration }).(ThemeConfigurationOutput)
 }
 
+// <p>The date and time that the theme was created.</p>
 func (o ThemeOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
+// <p>The date and time that the theme was last updated.</p>
 func (o ThemeOutput) LastUpdatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringOutput { return v.LastUpdatedTime }).(pulumi.StringOutput)
 }

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;The theme display options for sheets. &lt;/p&gt;
+    /// </summary>
     public sealed class ThemeSheetStyleArgs : global::Pulumi.ResourceArgs
     {
         [Input("tile")]

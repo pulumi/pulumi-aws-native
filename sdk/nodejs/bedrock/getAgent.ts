@@ -93,6 +93,7 @@ export interface GetAgentResult {
      */
     readonly recommendedActions?: string[];
     readonly tags?: {[key: string]: string};
+    readonly testAliasTags?: {[key: string]: string};
     /**
      * Time Stamp.
      */

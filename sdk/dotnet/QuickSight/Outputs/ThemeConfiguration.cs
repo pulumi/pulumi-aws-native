@@ -10,6 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;The theme configuration. This configuration contains all of the display properties for
+    ///             a theme.&lt;/p&gt;
+    /// </summary>
     [OutputType]
     public sealed class ThemeConfiguration
     {

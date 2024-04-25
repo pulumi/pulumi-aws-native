@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.QuickSight
     [AwsNativeResourceType("aws-native:quicksight:Theme")]
     public partial class Theme : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// &lt;p&gt;The Amazon Resource Name (ARN) of the theme.&lt;/p&gt;
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
@@ -27,9 +30,15 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("configuration")]
         public Output<Outputs.ThemeConfiguration> Configuration { get; private set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;The date and time that the theme was created.&lt;/p&gt;
+        /// </summary>
         [Output("createdTime")]
         public Output<string> CreatedTime { get; private set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;The date and time that the theme was last updated.&lt;/p&gt;
+        /// </summary>
         [Output("lastUpdatedTime")]
         public Output<string> LastUpdatedTime { get; private set; } = null!;
 

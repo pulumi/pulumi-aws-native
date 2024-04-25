@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardFilterControlArgs : global::Pulumi.ResourceArgs
     {
+        [Input("crossSheet")]
+        public Input<Inputs.DashboardFilterCrossSheetControlArgs>? CrossSheet { get; set; }
+
         [Input("dateTimePicker")]
         public Input<Inputs.DashboardFilterDateTimePickerControlArgs>? DateTimePicker { get; set; }
 

@@ -56,7 +56,9 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         public readonly Pulumi.AwsNative.WorkSpacesWeb.PortalBrowserType? BrowserType;
         public readonly string? CreationDate;
         public readonly string? DisplayName;
+        public readonly Pulumi.AwsNative.WorkSpacesWeb.PortalInstanceType? InstanceType;
         public readonly string? IpAccessSettingsArn;
+        public readonly double? MaxConcurrentSessions;
         public readonly string? NetworkSettingsArn;
         public readonly string? PortalArn;
         public readonly string? PortalEndpoint;
@@ -81,7 +83,11 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
 
             string? displayName,
 
+            Pulumi.AwsNative.WorkSpacesWeb.PortalInstanceType? instanceType,
+
             string? ipAccessSettingsArn,
+
+            double? maxConcurrentSessions,
 
             string? networkSettingsArn,
 
@@ -110,7 +116,9 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
             BrowserType = browserType;
             CreationDate = creationDate;
             DisplayName = displayName;
+            InstanceType = instanceType;
             IpAccessSettingsArn = ipAccessSettingsArn;
+            MaxConcurrentSessions = maxConcurrentSessions;
             NetworkSettingsArn = networkSettingsArn;
             PortalArn = portalArn;
             PortalEndpoint = portalEndpoint;

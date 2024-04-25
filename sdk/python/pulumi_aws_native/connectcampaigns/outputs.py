@@ -69,6 +69,8 @@ class CampaignAnswerMachineDetectionConfig(dict):
         suggest = None
         if key == "enableAnswerMachineDetection":
             suggest = "enable_answer_machine_detection"
+        elif key == "awaitAnswerMachinePrompt":
+            suggest = "await_answer_machine_prompt"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in CampaignAnswerMachineDetectionConfig. Access the value via the '{suggest}' property getter instead.")
@@ -82,12 +84,16 @@ class CampaignAnswerMachineDetectionConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 enable_answer_machine_detection: bool):
+                 enable_answer_machine_detection: bool,
+                 await_answer_machine_prompt: Optional[bool] = None):
         """
         The configuration used for answering machine detection during outbound calls
         :param bool enable_answer_machine_detection: Flag to decided whether outbound calls should have answering machine detection enabled or not
+        :param bool await_answer_machine_prompt: Enables detection of prompts (e.g., beep after after a voicemail greeting)
         """
         pulumi.set(__self__, "enable_answer_machine_detection", enable_answer_machine_detection)
+        if await_answer_machine_prompt is not None:
+            pulumi.set(__self__, "await_answer_machine_prompt", await_answer_machine_prompt)
 
     @property
     @pulumi.getter(name="enableAnswerMachineDetection")
@@ -96,6 +102,14 @@ class CampaignAnswerMachineDetectionConfig(dict):
         Flag to decided whether outbound calls should have answering machine detection enabled or not
         """
         return pulumi.get(self, "enable_answer_machine_detection")
+
+    @property
+    @pulumi.getter(name="awaitAnswerMachinePrompt")
+    def await_answer_machine_prompt(self) -> Optional[bool]:
+        """
+        Enables detection of prompts (e.g., beep after after a voicemail greeting)
+        """
+        return pulumi.get(self, "await_answer_machine_prompt")
 
 
 @pulumi.output_type

@@ -10,6 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;The theme configuration. This configuration contains all of the display properties for
+    ///             a theme.&lt;/p&gt;
+    /// </summary>
     public sealed class ThemeConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("dataColorPalette")]

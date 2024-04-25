@@ -16,6 +16,13 @@ __all__ = [
     'DataSourceChunkingStrategy',
     'DataSourceStatus',
     'DataSourceType',
+    'GuardrailContentFilterType',
+    'GuardrailFilterStrength',
+    'GuardrailManagedWordsType',
+    'GuardrailPiiEntityType',
+    'GuardrailSensitiveInformationAction',
+    'GuardrailStatus',
+    'GuardrailTopicType',
     'KnowledgeBaseStatus',
     'KnowledgeBaseStorageType',
     'KnowledgeBaseType',
@@ -117,6 +124,99 @@ class DataSourceType(str, Enum):
     The type of the data source location.
     """
     S3 = "S3"
+
+
+class GuardrailContentFilterType(str, Enum):
+    """
+    Type of filter in content policy
+    """
+    SEXUAL = "SEXUAL"
+    VIOLENCE = "VIOLENCE"
+    HATE = "HATE"
+    INSULTS = "INSULTS"
+    MISCONDUCT = "MISCONDUCT"
+    PROMPT_ATTACK = "PROMPT_ATTACK"
+
+
+class GuardrailFilterStrength(str, Enum):
+    """
+    Strength for filters
+    """
+    NONE = "NONE"
+    LOW = "LOW"
+    MEDIUM = "MEDIUM"
+    HIGH = "HIGH"
+
+
+class GuardrailManagedWordsType(str, Enum):
+    """
+    Options for managed words.
+    """
+    PROFANITY = "PROFANITY"
+
+
+class GuardrailPiiEntityType(str, Enum):
+    """
+    The currently supported PII entities
+    """
+    ADDRESS = "ADDRESS"
+    AGE = "AGE"
+    AWS_ACCESS_KEY = "AWS_ACCESS_KEY"
+    AWS_SECRET_KEY = "AWS_SECRET_KEY"
+    CA_HEALTH_NUMBER = "CA_HEALTH_NUMBER"
+    CA_SOCIAL_INSURANCE_NUMBER = "CA_SOCIAL_INSURANCE_NUMBER"
+    CREDIT_DEBIT_CARD_CVV = "CREDIT_DEBIT_CARD_CVV"
+    CREDIT_DEBIT_CARD_EXPIRY = "CREDIT_DEBIT_CARD_EXPIRY"
+    CREDIT_DEBIT_CARD_NUMBER = "CREDIT_DEBIT_CARD_NUMBER"
+    DRIVER_ID = "DRIVER_ID"
+    EMAIL = "EMAIL"
+    INTERNATIONAL_BANK_ACCOUNT_NUMBER = "INTERNATIONAL_BANK_ACCOUNT_NUMBER"
+    IP_ADDRESS = "IP_ADDRESS"
+    LICENSE_PLATE = "LICENSE_PLATE"
+    MAC_ADDRESS = "MAC_ADDRESS"
+    NAME = "NAME"
+    PASSWORD = "PASSWORD"
+    PHONE = "PHONE"
+    PIN = "PIN"
+    SWIFT_CODE = "SWIFT_CODE"
+    UK_NATIONAL_HEALTH_SERVICE_NUMBER = "UK_NATIONAL_HEALTH_SERVICE_NUMBER"
+    UK_NATIONAL_INSURANCE_NUMBER = "UK_NATIONAL_INSURANCE_NUMBER"
+    UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER = "UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER"
+    URL = "URL"
+    USERNAME = "USERNAME"
+    US_BANK_ACCOUNT_NUMBER = "US_BANK_ACCOUNT_NUMBER"
+    US_BANK_ROUTING_NUMBER = "US_BANK_ROUTING_NUMBER"
+    US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER = "US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER"
+    US_PASSPORT_NUMBER = "US_PASSPORT_NUMBER"
+    US_SOCIAL_SECURITY_NUMBER = "US_SOCIAL_SECURITY_NUMBER"
+    VEHICLE_IDENTIFICATION_NUMBER = "VEHICLE_IDENTIFICATION_NUMBER"
+
+
+class GuardrailSensitiveInformationAction(str, Enum):
+    """
+    Options for sensitive information action.
+    """
+    BLOCK = "BLOCK"
+    ANONYMIZE = "ANONYMIZE"
+
+
+class GuardrailStatus(str, Enum):
+    """
+    Status of the guardrail
+    """
+    CREATING = "CREATING"
+    UPDATING = "UPDATING"
+    VERSIONING = "VERSIONING"
+    READY = "READY"
+    FAILED = "FAILED"
+    DELETING = "DELETING"
+
+
+class GuardrailTopicType(str, Enum):
+    """
+    Type of topic in a policy
+    """
+    DENY = "DENY"
 
 
 class KnowledgeBaseStatus(str, Enum):
