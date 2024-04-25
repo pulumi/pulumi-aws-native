@@ -45,8 +45,7 @@
             "$ref" : "#/definitions/VersionWeight"
           }
         }
-      },
-      "required" : [ "AdditionalVersionWeights" ]
+      }
     }
   },
   "properties" : {

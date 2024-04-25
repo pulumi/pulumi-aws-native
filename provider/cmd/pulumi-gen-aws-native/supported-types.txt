@@ -105,6 +105,7 @@ AWS::Batch::SchedulingPolicy
 AWS::Bedrock::Agent
 AWS::Bedrock::AgentAlias
 AWS::Bedrock::DataSource
+AWS::Bedrock::Guardrail
 AWS::Bedrock::KnowledgeBase
 AWS::Budgets::BudgetsAction
 AWS::CE::AnomalyMonitor
@@ -442,6 +443,7 @@ AWS::GameCast::Application
 AWS::GameCast::StreamGroup
 AWS::GameLift::Alias
 AWS::GameLift::Build
+AWS::GameLift::ContainerGroupDefinition
 AWS::GameLift::Fleet
 AWS::GameLift::GameServerGroup
 AWS::GameLift::GameSessionQueue
@@ -736,6 +738,8 @@ AWS::PCAConnectorAD::TemplateGroupAccessControlEntry
 AWS::Panorama::ApplicationInstance
 AWS::Panorama::Package
 AWS::Panorama::PackageVersion
+AWS::PaymentCryptography::Alias
+AWS::PaymentCryptography::Key
 AWS::Personalize::Dataset
 AWS::Personalize::DatasetGroup
 AWS::Personalize::Schema
@@ -806,6 +810,9 @@ AWS::Route53::DNSSEC
 AWS::Route53::HealthCheck
 AWS::Route53::HostedZone
 AWS::Route53::KeySigningKey
+AWS::Route53Profiles::Profile
+AWS::Route53Profiles::ProfileAssociation
+AWS::Route53Profiles::ProfileResourceAssociation
 AWS::Route53RecoveryControl::Cluster
 AWS::Route53RecoveryControl::ControlPanel
 AWS::Route53RecoveryControl::RoutingControl
