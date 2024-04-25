@@ -4723,12 +4723,10 @@
     "cfTypeName": "AWS::EC2::TransitGatewayRouteTableAssociation",
     "properties": {
       "transitGatewayAttachmentId": {
-        "type": "string",
-        "description": "The ID of transit gateway attachment."
+        "type": "string"
       },
       "transitGatewayRouteTableId": {
-        "type": "string",
-        "description": "The ID of transit gateway route table."
+        "type": "string"
       }
     }
   },

@@ -702,6 +702,7 @@
         "ec2/getTransitGatewayMulticastGroupSource.ts",
         "ec2/getTransitGatewayPeeringAttachment.ts",
         "ec2/getTransitGatewayRouteTable.ts",
+        "ec2/getTransitGatewayRouteTableAssociation.ts",
         "ec2/getTransitGatewayVpcAttachment.ts",
         "ec2/getVerifiedAccessEndpoint.ts",
         "ec2/getVerifiedAccessGroup.ts",
