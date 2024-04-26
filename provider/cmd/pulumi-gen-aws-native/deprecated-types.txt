@@ -3,9 +3,9 @@ AWS::Cognito::UserPoolDomain
 AWS::Cognito::UserPoolIdentityProvider
 AWS::Cognito::UserPoolResourceServer
 AWS::Cognito::UserPoolUICustomizationAttachment
-AWS::EC2::TransitGatewayRouteTableAssociation
 AWS::GameCast::Application
 AWS::GameCast::StreamGroup
+AWS::Lambda::Alias
 AWS::SNS::TopicPolicy
 AWS::SSMGuiConnect::Preferences
 AWSQS::EKS::Cluster

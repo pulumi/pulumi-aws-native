@@ -138,7 +138,8 @@
           }
         },
         "RoleArn" : {
-          "type" : "string"
+          "type" : "string",
+          "pattern" : "^(arn:(aws[a-zA-Z-]*)?:[a-z0-9-.]+:.*)|()$"
         }
       },
       "additionalProperties" : false
@@ -184,7 +185,8 @@
       "type" : "string"
     },
     "Arn" : {
-      "type" : "string"
+      "type" : "string",
+      "pattern" : "^(arn:(aws[a-zA-Z-]*)?:[a-z0-9-.]+:.*)|()$"
     },
     "EndpointDetails" : {
       "type" : "array",
