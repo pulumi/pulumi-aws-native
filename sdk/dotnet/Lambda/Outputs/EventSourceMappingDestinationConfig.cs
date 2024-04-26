@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.Lambda.Outputs
 {
 
     /// <summary>
-    /// (Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.
+    /// A configuration object that specifies the destination of an event after Lambda processes it.
     /// </summary>
     [OutputType]
     public sealed class EventSourceMappingDestinationConfig

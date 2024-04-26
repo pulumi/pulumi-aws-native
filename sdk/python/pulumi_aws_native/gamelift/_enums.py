@@ -7,6 +7,10 @@ from enum import Enum
 __all__ = [
     'AliasRoutingStrategyType',
     'BuildOperatingSystem',
+    'ContainerGroupDefinitionContainerDependencyCondition',
+    'ContainerGroupDefinitionContainerPortRangeProtocol',
+    'ContainerGroupDefinitionOperatingSystem',
+    'ContainerGroupDefinitionSchedulingStrategy',
     'FleetApplyCapacity',
     'FleetCertificateConfigurationCertificateType',
     'FleetComputeType',
@@ -48,6 +52,39 @@ class BuildOperatingSystem(str, Enum):
     WINDOWS2016 = "WINDOWS_2016"
 
 
+class ContainerGroupDefinitionContainerDependencyCondition(str, Enum):
+    """
+    The type of dependency.
+    """
+    START = "START"
+    COMPLETE = "COMPLETE"
+    SUCCESS = "SUCCESS"
+    HEALTHY = "HEALTHY"
+
+
+class ContainerGroupDefinitionContainerPortRangeProtocol(str, Enum):
+    """
+    Defines the protocol of these ports.
+    """
+    TCP = "TCP"
+    UDP = "UDP"
+
+
+class ContainerGroupDefinitionOperatingSystem(str, Enum):
+    """
+    The operating system of the container group
+    """
+    AMAZON_LINUX2023 = "AMAZON_LINUX_2023"
+
+
+class ContainerGroupDefinitionSchedulingStrategy(str, Enum):
+    """
+    Specifies whether the container group includes replica or daemon containers.
+    """
+    REPLICA = "REPLICA"
+    DAEMON = "DAEMON"
+
+
 class FleetApplyCapacity(str, Enum):
     """
     Determines whether to apply fleet or location capacities on fleet creation.
@@ -67,6 +104,7 @@ class FleetComputeType(str, Enum):
     """
     EC2 = "EC2"
     ANYWHERE = "ANYWHERE"
+    CONTAINER = "CONTAINER"
 
 
 class FleetInstanceRoleCredentialsProvider(str, Enum):

@@ -10,26 +10,29 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Dms.Outputs
 {
 
+    /// <summary>
+    /// MicrosoftSqlServerSettings property identifier.
+    /// </summary>
     [OutputType]
-    public sealed class Settings3PropertiesMicrosoftSqlServerSettingsProperties
+    public sealed class SettingsPropertiesMicrosoftSqlServerSettingsProperties
     {
         public readonly string? CertificateArn;
-        public readonly string? DatabaseName;
-        public readonly int? Port;
-        public readonly string? ServerName;
-        public readonly Pulumi.AwsNative.Dms.DataProviderDmsSslModeValue? SslMode;
+        public readonly string DatabaseName;
+        public readonly int Port;
+        public readonly string ServerName;
+        public readonly Pulumi.AwsNative.Dms.DataProviderDmsSslModeValue SslMode;
 
         [OutputConstructor]
-        private Settings3PropertiesMicrosoftSqlServerSettingsProperties(
+        private SettingsPropertiesMicrosoftSqlServerSettingsProperties(
             string? certificateArn,
 
-            string? databaseName,
+            string databaseName,
 
-            int? port,
+            int port,
 
-            string? serverName,
+            string serverName,
 
-            Pulumi.AwsNative.Dms.DataProviderDmsSslModeValue? sslMode)
+            Pulumi.AwsNative.Dms.DataProviderDmsSslModeValue sslMode)
         {
             CertificateArn = certificateArn;
             DatabaseName = databaseName;

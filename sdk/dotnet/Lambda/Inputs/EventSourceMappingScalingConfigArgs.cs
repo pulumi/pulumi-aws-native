@@ -11,12 +11,12 @@ namespace Pulumi.AwsNative.Lambda.Inputs
 {
 
     /// <summary>
-    /// The scaling configuration for the event source.
+    /// (Amazon SQS only) The scaling configuration for the event source. To remove the configuration, pass an empty value.
     /// </summary>
     public sealed class EventSourceMappingScalingConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The maximum number of concurrent functions that the event source can invoke.
+        /// Limits the number of concurrent instances that the SQS event source can invoke.
         /// </summary>
         [Input("maximumConcurrency")]
         public Input<int>? MaximumConcurrency { get; set; }

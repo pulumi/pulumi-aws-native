@@ -13,8 +13,18 @@ from ._enums import *
 __all__ = [
     'AliasRoutingStrategyArgs',
     'BuildStorageLocationArgs',
+    'ContainerGroupDefinitionContainerDefinitionArgs',
+    'ContainerGroupDefinitionContainerDependencyArgs',
+    'ContainerGroupDefinitionContainerEnvironmentArgs',
+    'ContainerGroupDefinitionContainerHealthCheckArgs',
+    'ContainerGroupDefinitionContainerPortRangeArgs',
+    'ContainerGroupDefinitionMemoryLimitsArgs',
+    'ContainerGroupDefinitionPortConfigurationArgs',
     'FleetAnywhereConfigurationArgs',
     'FleetCertificateConfigurationArgs',
+    'FleetConnectionPortRangeArgs',
+    'FleetContainerGroupsConfigurationArgs',
+    'FleetContainerGroupsPerInstanceArgs',
     'FleetIpPermissionArgs',
     'FleetLocationCapacityArgs',
     'FleetLocationConfigurationArgs',
@@ -158,6 +168,499 @@ class BuildStorageLocationArgs:
 
 
 @pulumi.input_type
+class ContainerGroupDefinitionContainerDefinitionArgs:
+    def __init__(__self__, *,
+                 container_name: pulumi.Input[str],
+                 image_uri: pulumi.Input[str],
+                 command: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 cpu: Optional[pulumi.Input[int]] = None,
+                 depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerGroupDefinitionContainerDependencyArgs']]]] = None,
+                 entry_point: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 environment: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerGroupDefinitionContainerEnvironmentArgs']]]] = None,
+                 essential: Optional[pulumi.Input[bool]] = None,
+                 health_check: Optional[pulumi.Input['ContainerGroupDefinitionContainerHealthCheckArgs']] = None,
+                 memory_limits: Optional[pulumi.Input['ContainerGroupDefinitionMemoryLimitsArgs']] = None,
+                 port_configuration: Optional[pulumi.Input['ContainerGroupDefinitionPortConfigurationArgs']] = None,
+                 resolved_image_digest: Optional[pulumi.Input[str]] = None,
+                 working_directory: Optional[pulumi.Input[str]] = None):
+        """
+        Details about a container that is used in a container fleet
+        :param pulumi.Input[str] container_name: A descriptive label for the container definition. Container definition names must be unique with a container group definition.
+        :param pulumi.Input[str] image_uri: Specifies the image URI of this container.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] command: The command that's passed to the container.
+        :param pulumi.Input[int] cpu: The maximum number of CPU units reserved for this container. The value is expressed as an integer amount of CPU units. 1 vCPU is equal to 1024 CPU units
+        :param pulumi.Input[Sequence[pulumi.Input['ContainerGroupDefinitionContainerDependencyArgs']]] depends_on: A list of container dependencies that determines when this container starts up and shuts down. For container groups with multiple containers, dependencies let you define a startup/shutdown sequence across the containers.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] entry_point: The entry point that's passed to the container so that it will run as an executable. If there are multiple arguments, each argument is a string in the array.
+        :param pulumi.Input[Sequence[pulumi.Input['ContainerGroupDefinitionContainerEnvironmentArgs']]] environment: The environment variables to pass to a container.
+        :param pulumi.Input[bool] essential: Specifies if the container is essential. If an essential container fails a health check, then all containers in the container group will be restarted. You must specify exactly 1 essential container in a container group.
+        :param pulumi.Input['ContainerGroupDefinitionContainerHealthCheckArgs'] health_check: Specifies how the health of the containers will be checked.
+        :param pulumi.Input['ContainerGroupDefinitionMemoryLimitsArgs'] memory_limits: Specifies how much memory is available to the container. You must specify at least this parameter or the TotalMemoryLimit parameter of the ContainerGroupDefinition.
+        :param pulumi.Input['ContainerGroupDefinitionPortConfigurationArgs'] port_configuration: Defines the ports on the container.
+        :param pulumi.Input[str] resolved_image_digest: The digest of the container image.
+        :param pulumi.Input[str] working_directory: The working directory to run commands inside the container in.
+        """
+        pulumi.set(__self__, "container_name", container_name)
+        pulumi.set(__self__, "image_uri", image_uri)
+        if command is not None:
+            pulumi.set(__self__, "command", command)
+        if cpu is not None:
+            pulumi.set(__self__, "cpu", cpu)
+        if depends_on is not None:
+            pulumi.set(__self__, "depends_on", depends_on)
+        if entry_point is not None:
+            pulumi.set(__self__, "entry_point", entry_point)
+        if environment is not None:
+            pulumi.set(__self__, "environment", environment)
+        if essential is not None:
+            pulumi.set(__self__, "essential", essential)
+        if health_check is not None:
+            pulumi.set(__self__, "health_check", health_check)
+        if memory_limits is not None:
+            pulumi.set(__self__, "memory_limits", memory_limits)
+        if port_configuration is not None:
+            pulumi.set(__self__, "port_configuration", port_configuration)
+        if resolved_image_digest is not None:
+            pulumi.set(__self__, "resolved_image_digest", resolved_image_digest)
+        if working_directory is not None:
+            pulumi.set(__self__, "working_directory", working_directory)
+
+    @property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> pulumi.Input[str]:
+        """
+        A descriptive label for the container definition. Container definition names must be unique with a container group definition.
+        """
+        return pulumi.get(self, "container_name")
+
+    @container_name.setter
+    def container_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "container_name", value)
+
+    @property
+    @pulumi.getter(name="imageUri")
+    def image_uri(self) -> pulumi.Input[str]:
+        """
+        Specifies the image URI of this container.
+        """
+        return pulumi.get(self, "image_uri")
+
+    @image_uri.setter
+    def image_uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "image_uri", value)
+
+    @property
+    @pulumi.getter
+    def command(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The command that's passed to the container.
+        """
+        return pulumi.get(self, "command")
+
+    @command.setter
+    def command(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "command", value)
+
+    @property
+    @pulumi.getter
+    def cpu(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of CPU units reserved for this container. The value is expressed as an integer amount of CPU units. 1 vCPU is equal to 1024 CPU units
+        """
+        return pulumi.get(self, "cpu")
+
+    @cpu.setter
+    def cpu(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "cpu", value)
+
+    @property
+    @pulumi.getter(name="dependsOn")
+    def depends_on(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContainerGroupDefinitionContainerDependencyArgs']]]]:
+        """
+        A list of container dependencies that determines when this container starts up and shuts down. For container groups with multiple containers, dependencies let you define a startup/shutdown sequence across the containers.
+        """
+        return pulumi.get(self, "depends_on")
+
+    @depends_on.setter
+    def depends_on(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerGroupDefinitionContainerDependencyArgs']]]]):
+        pulumi.set(self, "depends_on", value)
+
+    @property
+    @pulumi.getter(name="entryPoint")
+    def entry_point(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The entry point that's passed to the container so that it will run as an executable. If there are multiple arguments, each argument is a string in the array.
+        """
+        return pulumi.get(self, "entry_point")
+
+    @entry_point.setter
+    def entry_point(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "entry_point", value)
+
+    @property
+    @pulumi.getter
+    def environment(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContainerGroupDefinitionContainerEnvironmentArgs']]]]:
+        """
+        The environment variables to pass to a container.
+        """
+        return pulumi.get(self, "environment")
+
+    @environment.setter
+    def environment(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerGroupDefinitionContainerEnvironmentArgs']]]]):
+        pulumi.set(self, "environment", value)
+
+    @property
+    @pulumi.getter
+    def essential(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if the container is essential. If an essential container fails a health check, then all containers in the container group will be restarted. You must specify exactly 1 essential container in a container group.
+        """
+        return pulumi.get(self, "essential")
+
+    @essential.setter
+    def essential(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "essential", value)
+
+    @property
+    @pulumi.getter(name="healthCheck")
+    def health_check(self) -> Optional[pulumi.Input['ContainerGroupDefinitionContainerHealthCheckArgs']]:
+        """
+        Specifies how the health of the containers will be checked.
+        """
+        return pulumi.get(self, "health_check")
+
+    @health_check.setter
+    def health_check(self, value: Optional[pulumi.Input['ContainerGroupDefinitionContainerHealthCheckArgs']]):
+        pulumi.set(self, "health_check", value)
+
+    @property
+    @pulumi.getter(name="memoryLimits")
+    def memory_limits(self) -> Optional[pulumi.Input['ContainerGroupDefinitionMemoryLimitsArgs']]:
+        """
+        Specifies how much memory is available to the container. You must specify at least this parameter or the TotalMemoryLimit parameter of the ContainerGroupDefinition.
+        """
+        return pulumi.get(self, "memory_limits")
+
+    @memory_limits.setter
+    def memory_limits(self, value: Optional[pulumi.Input['ContainerGroupDefinitionMemoryLimitsArgs']]):
+        pulumi.set(self, "memory_limits", value)
+
+    @property
+    @pulumi.getter(name="portConfiguration")
+    def port_configuration(self) -> Optional[pulumi.Input['ContainerGroupDefinitionPortConfigurationArgs']]:
+        """
+        Defines the ports on the container.
+        """
+        return pulumi.get(self, "port_configuration")
+
+    @port_configuration.setter
+    def port_configuration(self, value: Optional[pulumi.Input['ContainerGroupDefinitionPortConfigurationArgs']]):
+        pulumi.set(self, "port_configuration", value)
+
+    @property
+    @pulumi.getter(name="resolvedImageDigest")
+    def resolved_image_digest(self) -> Optional[pulumi.Input[str]]:
+        """
+        The digest of the container image.
+        """
+        return pulumi.get(self, "resolved_image_digest")
+
+    @resolved_image_digest.setter
+    def resolved_image_digest(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resolved_image_digest", value)
+
+    @property
+    @pulumi.getter(name="workingDirectory")
+    def working_directory(self) -> Optional[pulumi.Input[str]]:
+        """
+        The working directory to run commands inside the container in.
+        """
+        return pulumi.get(self, "working_directory")
+
+    @working_directory.setter
+    def working_directory(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "working_directory", value)
+
+
+@pulumi.input_type
+class ContainerGroupDefinitionContainerDependencyArgs:
+    def __init__(__self__, *,
+                 condition: pulumi.Input['ContainerGroupDefinitionContainerDependencyCondition'],
+                 container_name: pulumi.Input[str]):
+        """
+        A dependency that impacts a container's startup and shutdown.
+        :param pulumi.Input['ContainerGroupDefinitionContainerDependencyCondition'] condition: The type of dependency.
+        :param pulumi.Input[str] container_name: A descriptive label for the container definition. The container being defined depends on this container's condition.
+        """
+        pulumi.set(__self__, "condition", condition)
+        pulumi.set(__self__, "container_name", container_name)
+
+    @property
+    @pulumi.getter
+    def condition(self) -> pulumi.Input['ContainerGroupDefinitionContainerDependencyCondition']:
+        """
+        The type of dependency.
+        """
+        return pulumi.get(self, "condition")
+
+    @condition.setter
+    def condition(self, value: pulumi.Input['ContainerGroupDefinitionContainerDependencyCondition']):
+        pulumi.set(self, "condition", value)
+
+    @property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> pulumi.Input[str]:
+        """
+        A descriptive label for the container definition. The container being defined depends on this container's condition.
+        """
+        return pulumi.get(self, "container_name")
+
+    @container_name.setter
+    def container_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "container_name", value)
+
+
+@pulumi.input_type
+class ContainerGroupDefinitionContainerEnvironmentArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        An environment variable to set inside a container, in the form of a key-value pair.
+        :param pulumi.Input[str] name: The environment variable name.
+        :param pulumi.Input[str] value: The environment variable value.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The environment variable name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The environment variable value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ContainerGroupDefinitionContainerHealthCheckArgs:
+    def __init__(__self__, *,
+                 command: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 interval: Optional[pulumi.Input[int]] = None,
+                 retries: Optional[pulumi.Input[int]] = None,
+                 start_period: Optional[pulumi.Input[int]] = None,
+                 timeout: Optional[pulumi.Input[int]] = None):
+        """
+        Specifies how the process manager checks the health of containers.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] command: A string array representing the command that the container runs to determine if it is healthy.
+        :param pulumi.Input[int] interval: How often (in seconds) the health is checked.
+        :param pulumi.Input[int] retries: How many times the process manager will retry the command after a timeout. (The first run of the command does not count as a retry.)
+        :param pulumi.Input[int] start_period: The optional grace period (in seconds) to give a container time to boostrap before teh health check is declared failed.
+        :param pulumi.Input[int] timeout: How many seconds the process manager allows the command to run before canceling it.
+        """
+        pulumi.set(__self__, "command", command)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+        if retries is not None:
+            pulumi.set(__self__, "retries", retries)
+        if start_period is not None:
+            pulumi.set(__self__, "start_period", start_period)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
+
+    @property
+    @pulumi.getter
+    def command(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A string array representing the command that the container runs to determine if it is healthy.
+        """
+        return pulumi.get(self, "command")
+
+    @command.setter
+    def command(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "command", value)
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[pulumi.Input[int]]:
+        """
+        How often (in seconds) the health is checked.
+        """
+        return pulumi.get(self, "interval")
+
+    @interval.setter
+    def interval(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "interval", value)
+
+    @property
+    @pulumi.getter
+    def retries(self) -> Optional[pulumi.Input[int]]:
+        """
+        How many times the process manager will retry the command after a timeout. (The first run of the command does not count as a retry.)
+        """
+        return pulumi.get(self, "retries")
+
+    @retries.setter
+    def retries(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "retries", value)
+
+    @property
+    @pulumi.getter(name="startPeriod")
+    def start_period(self) -> Optional[pulumi.Input[int]]:
+        """
+        The optional grace period (in seconds) to give a container time to boostrap before teh health check is declared failed.
+        """
+        return pulumi.get(self, "start_period")
+
+    @start_period.setter
+    def start_period(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "start_period", value)
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[pulumi.Input[int]]:
+        """
+        How many seconds the process manager allows the command to run before canceling it.
+        """
+        return pulumi.get(self, "timeout")
+
+    @timeout.setter
+    def timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "timeout", value)
+
+
+@pulumi.input_type
+class ContainerGroupDefinitionContainerPortRangeArgs:
+    def __init__(__self__, *,
+                 from_port: pulumi.Input[int],
+                 protocol: pulumi.Input['ContainerGroupDefinitionContainerPortRangeProtocol'],
+                 to_port: pulumi.Input[int]):
+        """
+        A set of one or more port numbers that can be opened on the container.
+        :param pulumi.Input[int] from_port: A starting value for the range of allowed port numbers.
+        :param pulumi.Input['ContainerGroupDefinitionContainerPortRangeProtocol'] protocol: Defines the protocol of these ports.
+        :param pulumi.Input[int] to_port: An ending value for the range of allowed port numbers. Port numbers are end-inclusive. This value must be equal to or greater than FromPort.
+        """
+        pulumi.set(__self__, "from_port", from_port)
+        pulumi.set(__self__, "protocol", protocol)
+        pulumi.set(__self__, "to_port", to_port)
+
+    @property
+    @pulumi.getter(name="fromPort")
+    def from_port(self) -> pulumi.Input[int]:
+        """
+        A starting value for the range of allowed port numbers.
+        """
+        return pulumi.get(self, "from_port")
+
+    @from_port.setter
+    def from_port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "from_port", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> pulumi.Input['ContainerGroupDefinitionContainerPortRangeProtocol']:
+        """
+        Defines the protocol of these ports.
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: pulumi.Input['ContainerGroupDefinitionContainerPortRangeProtocol']):
+        pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter(name="toPort")
+    def to_port(self) -> pulumi.Input[int]:
+        """
+        An ending value for the range of allowed port numbers. Port numbers are end-inclusive. This value must be equal to or greater than FromPort.
+        """
+        return pulumi.get(self, "to_port")
+
+    @to_port.setter
+    def to_port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "to_port", value)
+
+
+@pulumi.input_type
+class ContainerGroupDefinitionMemoryLimitsArgs:
+    def __init__(__self__, *,
+                 hard_limit: Optional[pulumi.Input[int]] = None,
+                 soft_limit: Optional[pulumi.Input[int]] = None):
+        """
+        Specifies how much memory is available to the container.
+        :param pulumi.Input[int] hard_limit: The hard limit of memory to reserve for the container.
+        :param pulumi.Input[int] soft_limit: The amount of memory that is reserved for the container.
+        """
+        if hard_limit is not None:
+            pulumi.set(__self__, "hard_limit", hard_limit)
+        if soft_limit is not None:
+            pulumi.set(__self__, "soft_limit", soft_limit)
+
+    @property
+    @pulumi.getter(name="hardLimit")
+    def hard_limit(self) -> Optional[pulumi.Input[int]]:
+        """
+        The hard limit of memory to reserve for the container.
+        """
+        return pulumi.get(self, "hard_limit")
+
+    @hard_limit.setter
+    def hard_limit(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "hard_limit", value)
+
+    @property
+    @pulumi.getter(name="softLimit")
+    def soft_limit(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of memory that is reserved for the container.
+        """
+        return pulumi.get(self, "soft_limit")
+
+    @soft_limit.setter
+    def soft_limit(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "soft_limit", value)
+
+
+@pulumi.input_type
+class ContainerGroupDefinitionPortConfigurationArgs:
+    def __init__(__self__, *,
+                 container_port_ranges: pulumi.Input[Sequence[pulumi.Input['ContainerGroupDefinitionContainerPortRangeArgs']]]):
+        """
+        Defines the ports on a container.
+        :param pulumi.Input[Sequence[pulumi.Input['ContainerGroupDefinitionContainerPortRangeArgs']]] container_port_ranges: Specifies one or more ranges of ports on a container.
+        """
+        pulumi.set(__self__, "container_port_ranges", container_port_ranges)
+
+    @property
+    @pulumi.getter(name="containerPortRanges")
+    def container_port_ranges(self) -> pulumi.Input[Sequence[pulumi.Input['ContainerGroupDefinitionContainerPortRangeArgs']]]:
+        """
+        Specifies one or more ranges of ports on a container.
+        """
+        return pulumi.get(self, "container_port_ranges")
+
+    @container_port_ranges.setter
+    def container_port_ranges(self, value: pulumi.Input[Sequence[pulumi.Input['ContainerGroupDefinitionContainerPortRangeArgs']]]):
+        pulumi.set(self, "container_port_ranges", value)
+
+
+@pulumi.input_type
 class FleetAnywhereConfigurationArgs:
     def __init__(__self__, *,
                  cost: pulumi.Input[str]):
@@ -197,6 +700,130 @@ class FleetCertificateConfigurationArgs:
     @certificate_type.setter
     def certificate_type(self, value: pulumi.Input['FleetCertificateConfigurationCertificateType']):
         pulumi.set(self, "certificate_type", value)
+
+
+@pulumi.input_type
+class FleetConnectionPortRangeArgs:
+    def __init__(__self__, *,
+                 from_port: pulumi.Input[int],
+                 to_port: pulumi.Input[int]):
+        """
+        Defines the range of ports on the instance that allow inbound traffic to connect with containers in a fleet.
+        :param pulumi.Input[int] from_port: A starting value for a range of allowed port numbers.
+        :param pulumi.Input[int] to_port: An ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than FromPort.
+        """
+        pulumi.set(__self__, "from_port", from_port)
+        pulumi.set(__self__, "to_port", to_port)
+
+    @property
+    @pulumi.getter(name="fromPort")
+    def from_port(self) -> pulumi.Input[int]:
+        """
+        A starting value for a range of allowed port numbers.
+        """
+        return pulumi.get(self, "from_port")
+
+    @from_port.setter
+    def from_port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "from_port", value)
+
+    @property
+    @pulumi.getter(name="toPort")
+    def to_port(self) -> pulumi.Input[int]:
+        """
+        An ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than FromPort.
+        """
+        return pulumi.get(self, "to_port")
+
+    @to_port.setter
+    def to_port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "to_port", value)
+
+
+@pulumi.input_type
+class FleetContainerGroupsConfigurationArgs:
+    def __init__(__self__, *,
+                 connection_port_range: pulumi.Input['FleetConnectionPortRangeArgs'],
+                 container_group_definition_names: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 container_groups_per_instance: Optional[pulumi.Input['FleetContainerGroupsPerInstanceArgs']] = None):
+        """
+        Specifies container groups that this instance will hold. You must specify exactly one replica group. Optionally, you may specify exactly one daemon group. You can't change this property after you create the fleet.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] container_group_definition_names: The names of the container group definitions that will be created in an instance. You must specify exactly one REPLICA container group. You have the option to also specify one DAEMON container group.
+        """
+        pulumi.set(__self__, "connection_port_range", connection_port_range)
+        pulumi.set(__self__, "container_group_definition_names", container_group_definition_names)
+        if container_groups_per_instance is not None:
+            pulumi.set(__self__, "container_groups_per_instance", container_groups_per_instance)
+
+    @property
+    @pulumi.getter(name="connectionPortRange")
+    def connection_port_range(self) -> pulumi.Input['FleetConnectionPortRangeArgs']:
+        return pulumi.get(self, "connection_port_range")
+
+    @connection_port_range.setter
+    def connection_port_range(self, value: pulumi.Input['FleetConnectionPortRangeArgs']):
+        pulumi.set(self, "connection_port_range", value)
+
+    @property
+    @pulumi.getter(name="containerGroupDefinitionNames")
+    def container_group_definition_names(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The names of the container group definitions that will be created in an instance. You must specify exactly one REPLICA container group. You have the option to also specify one DAEMON container group.
+        """
+        return pulumi.get(self, "container_group_definition_names")
+
+    @container_group_definition_names.setter
+    def container_group_definition_names(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "container_group_definition_names", value)
+
+    @property
+    @pulumi.getter(name="containerGroupsPerInstance")
+    def container_groups_per_instance(self) -> Optional[pulumi.Input['FleetContainerGroupsPerInstanceArgs']]:
+        return pulumi.get(self, "container_groups_per_instance")
+
+    @container_groups_per_instance.setter
+    def container_groups_per_instance(self, value: Optional[pulumi.Input['FleetContainerGroupsPerInstanceArgs']]):
+        pulumi.set(self, "container_groups_per_instance", value)
+
+
+@pulumi.input_type
+class FleetContainerGroupsPerInstanceArgs:
+    def __init__(__self__, *,
+                 desired_replica_container_groups_per_instance: Optional[pulumi.Input[int]] = None,
+                 max_replica_container_groups_per_instance: Optional[pulumi.Input[int]] = None):
+        """
+        The number of container groups per instance.
+        :param pulumi.Input[int] desired_replica_container_groups_per_instance: Use this parameter to override the number of replica container groups GameLift will launch per instance with a number that is lower than that calculated maximum.
+        :param pulumi.Input[int] max_replica_container_groups_per_instance: GameLift calculates the maximum number of replica container groups it can launch per instance based on instance properties such as CPU, memory, and connection ports.
+        """
+        if desired_replica_container_groups_per_instance is not None:
+            pulumi.set(__self__, "desired_replica_container_groups_per_instance", desired_replica_container_groups_per_instance)
+        if max_replica_container_groups_per_instance is not None:
+            pulumi.set(__self__, "max_replica_container_groups_per_instance", max_replica_container_groups_per_instance)
+
+    @property
+    @pulumi.getter(name="desiredReplicaContainerGroupsPerInstance")
+    def desired_replica_container_groups_per_instance(self) -> Optional[pulumi.Input[int]]:
+        """
+        Use this parameter to override the number of replica container groups GameLift will launch per instance with a number that is lower than that calculated maximum.
+        """
+        return pulumi.get(self, "desired_replica_container_groups_per_instance")
+
+    @desired_replica_container_groups_per_instance.setter
+    def desired_replica_container_groups_per_instance(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "desired_replica_container_groups_per_instance", value)
+
+    @property
+    @pulumi.getter(name="maxReplicaContainerGroupsPerInstance")
+    def max_replica_container_groups_per_instance(self) -> Optional[pulumi.Input[int]]:
+        """
+        GameLift calculates the maximum number of replica container groups it can launch per instance based on instance properties such as CPU, memory, and connection ports.
+        """
+        return pulumi.get(self, "max_replica_container_groups_per_instance")
+
+    @max_replica_container_groups_per_instance.setter
+    def max_replica_container_groups_per_instance(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_replica_container_groups_per_instance", value)
 
 
 @pulumi.input_type

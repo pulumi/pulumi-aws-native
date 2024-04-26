@@ -46,6 +46,7 @@ __all__ = [
     'TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel',
     'TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel',
     'TaskReportConfigReportLevel',
+    'TaskScheduleStatus',
     'TaskStatus',
 ]
 
@@ -399,6 +400,14 @@ class TaskReportConfigReportLevel(str, Enum):
     """
     ERRORS_ONLY = "ERRORS_ONLY"
     SUCCESSES_AND_ERRORS = "SUCCESSES_AND_ERRORS"
+
+
+class TaskScheduleStatus(str, Enum):
+    """
+    Specifies status of a schedule.
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
 
 
 class TaskStatus(str, Enum):

@@ -45,6 +45,9 @@ namespace Pulumi.AwsNative.GameLift
         [Output("computeType")]
         public Output<Pulumi.AwsNative.GameLift.FleetComputeType?> ComputeType { get; private set; } = null!;
 
+        [Output("containerGroupsConfiguration")]
+        public Output<Outputs.FleetContainerGroupsConfiguration?> ContainerGroupsConfiguration { get; private set; } = null!;
+
         /// <summary>
         /// A human-readable description of a fleet.
         /// </summary>
@@ -213,6 +216,7 @@ namespace Pulumi.AwsNative.GameLift
                     "buildId",
                     "certificateConfiguration",
                     "computeType",
+                    "containerGroupsConfiguration",
                     "ec2InstanceType",
                     "fleetType",
                     "instanceRoleArn",
@@ -275,6 +279,9 @@ namespace Pulumi.AwsNative.GameLift
         /// </summary>
         [Input("computeType")]
         public Input<Pulumi.AwsNative.GameLift.FleetComputeType>? ComputeType { get; set; }
+
+        [Input("containerGroupsConfiguration")]
+        public Input<Inputs.FleetContainerGroupsConfigurationArgs>? ContainerGroupsConfiguration { get; set; }
 
         /// <summary>
         /// A human-readable description of a fleet.

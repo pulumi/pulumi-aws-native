@@ -24,7 +24,8 @@ type Fleet struct {
 	// Indicates whether to generate a TLS/SSL certificate for the new fleet. TLS certificates are used for encrypting traffic between game clients and game servers running on GameLift. If this parameter is not set, certificate generation is disabled. This fleet setting cannot be changed once the fleet is created.
 	CertificateConfiguration FleetCertificateConfigurationPtrOutput `pulumi:"certificateConfiguration"`
 	// ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
-	ComputeType FleetComputeTypePtrOutput `pulumi:"computeType"`
+	ComputeType                  FleetComputeTypePtrOutput                  `pulumi:"computeType"`
+	ContainerGroupsConfiguration FleetContainerGroupsConfigurationPtrOutput `pulumi:"containerGroupsConfiguration"`
 	// A human-readable description of a fleet.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// [DEPRECATED] The number of EC2 instances that you want this fleet to host. When creating a new fleet, GameLift automatically sets this value to "1" and initiates a single instance. Once the fleet is active, update this value to trigger GameLift to add or remove instances from the fleet.
@@ -88,6 +89,7 @@ func NewFleet(ctx *pulumi.Context,
 		"buildId",
 		"certificateConfiguration",
 		"computeType",
+		"containerGroupsConfiguration",
 		"ec2InstanceType",
 		"fleetType",
 		"instanceRoleArn",
@@ -142,7 +144,8 @@ type fleetArgs struct {
 	// Indicates whether to generate a TLS/SSL certificate for the new fleet. TLS certificates are used for encrypting traffic between game clients and game servers running on GameLift. If this parameter is not set, certificate generation is disabled. This fleet setting cannot be changed once the fleet is created.
 	CertificateConfiguration *FleetCertificateConfiguration `pulumi:"certificateConfiguration"`
 	// ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
-	ComputeType *FleetComputeType `pulumi:"computeType"`
+	ComputeType                  *FleetComputeType                  `pulumi:"computeType"`
+	ContainerGroupsConfiguration *FleetContainerGroupsConfiguration `pulumi:"containerGroupsConfiguration"`
 	// A human-readable description of a fleet.
 	Description *string `pulumi:"description"`
 	// [DEPRECATED] The number of EC2 instances that you want this fleet to host. When creating a new fleet, GameLift automatically sets this value to "1" and initiates a single instance. Once the fleet is active, update this value to trigger GameLift to add or remove instances from the fleet.
@@ -203,7 +206,8 @@ type FleetArgs struct {
 	// Indicates whether to generate a TLS/SSL certificate for the new fleet. TLS certificates are used for encrypting traffic between game clients and game servers running on GameLift. If this parameter is not set, certificate generation is disabled. This fleet setting cannot be changed once the fleet is created.
 	CertificateConfiguration FleetCertificateConfigurationPtrInput
 	// ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
-	ComputeType FleetComputeTypePtrInput
+	ComputeType                  FleetComputeTypePtrInput
+	ContainerGroupsConfiguration FleetContainerGroupsConfigurationPtrInput
 	// A human-readable description of a fleet.
 	Description pulumi.StringPtrInput
 	// [DEPRECATED] The number of EC2 instances that you want this fleet to host. When creating a new fleet, GameLift automatically sets this value to "1" and initiates a single instance. Once the fleet is active, update this value to trigger GameLift to add or remove instances from the fleet.
@@ -313,6 +317,10 @@ func (o FleetOutput) CertificateConfiguration() FleetCertificateConfigurationPtr
 // ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
 func (o FleetOutput) ComputeType() FleetComputeTypePtrOutput {
 	return o.ApplyT(func(v *Fleet) FleetComputeTypePtrOutput { return v.ComputeType }).(FleetComputeTypePtrOutput)
+}
+
+func (o FleetOutput) ContainerGroupsConfiguration() FleetContainerGroupsConfigurationPtrOutput {
+	return o.ApplyT(func(v *Fleet) FleetContainerGroupsConfigurationPtrOutput { return v.ContainerGroupsConfiguration }).(FleetContainerGroupsConfigurationPtrOutput)
 }
 
 // A human-readable description of a fleet.

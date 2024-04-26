@@ -31,7 +31,9 @@ class ScalableTargetActionArgs:
                  max_capacity: Optional[pulumi.Input[int]] = None,
                  min_capacity: Optional[pulumi.Input[int]] = None):
         """
-        specifies the minimum and maximum capacity
+        ``ScalableTargetAction`` specifies the minimum and maximum capacity for the ``ScalableTargetAction`` property of the [AWS::ApplicationAutoScaling::ScalableTarget ScheduledAction](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html) property type.
+        :param pulumi.Input[int] max_capacity: The maximum capacity.
+        :param pulumi.Input[int] min_capacity: The minimum capacity.
         """
         if max_capacity is not None:
             pulumi.set(__self__, "max_capacity", max_capacity)
@@ -41,6 +43,9 @@ class ScalableTargetActionArgs:
     @property
     @pulumi.getter(name="maxCapacity")
     def max_capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum capacity.
+        """
         return pulumi.get(self, "max_capacity")
 
     @max_capacity.setter
@@ -50,6 +55,9 @@ class ScalableTargetActionArgs:
     @property
     @pulumi.getter(name="minCapacity")
     def min_capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        The minimum capacity.
+        """
         return pulumi.get(self, "min_capacity")
 
     @min_capacity.setter
@@ -67,7 +75,22 @@ class ScalableTargetScheduledActionArgs:
                  start_time: Optional[pulumi.Input[str]] = None,
                  timezone: Optional[pulumi.Input[str]] = None):
         """
-        specifies a scheduled action for a scalable target
+        ``ScheduledAction`` is a property of the [AWS::ApplicationAutoScaling::ScalableTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html) resource that specifies a scheduled action for a scalable target. 
+         For more information, see [Scheduled scaling](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scheduled-scaling.html) in the *Application Auto Scaling User Guide*.
+        :param pulumi.Input[str] schedule: The schedule for this action. The following formats are supported:
+                 +  At expressions - "``at(yyyy-mm-ddThh:mm:ss)``"
+                 +  Rate expressions - "``rate(value unit)``"
+                 +  Cron expressions - "``cron(fields)``"
+                 
+                At expressions are useful for one-time schedules. Cron expressions are useful for scheduled actions that run periodically at a specified date and time, and rate expressions are useful for scheduled actions that run at a regular interval.
+                At and cron expressions use Universal Coordinated Time (UTC) by default.
+                The cron format consists of six fields separated by white spaces: [Minutes] [Hours] [Day_of_Month] [Month] [Day_of_Week] [Year].
+                For rate expressions, *value* is a positive integer and *unit* is ``minute`` | ``minutes`` | ``hour`` | ``hours`` | ``day`` | ``days``.
+        :param pulumi.Input[str] scheduled_action_name: The name of the scheduled action. This name must be unique among all other scheduled actions on the specified scalable target.
+        :param pulumi.Input[str] end_time: The date and time that the action is scheduled to end, in UTC.
+        :param pulumi.Input['ScalableTargetActionArgs'] scalable_target_action: The new minimum and maximum capacity. You can set both values or just one. At the scheduled time, if the current capacity is below the minimum capacity, Application Auto Scaling scales out to the minimum capacity. If the current capacity is above the maximum capacity, Application Auto Scaling scales in to the maximum capacity.
+        :param pulumi.Input[str] start_time: The date and time that the action is scheduled to begin, in UTC.
+        :param pulumi.Input[str] timezone: The time zone used when referring to the date and time of a scheduled action, when the scheduled action uses an at or cron expression.
         """
         pulumi.set(__self__, "schedule", schedule)
         pulumi.set(__self__, "scheduled_action_name", scheduled_action_name)
@@ -83,6 +106,17 @@ class ScalableTargetScheduledActionArgs:
     @property
     @pulumi.getter
     def schedule(self) -> pulumi.Input[str]:
+        """
+        The schedule for this action. The following formats are supported:
+          +  At expressions - "``at(yyyy-mm-ddThh:mm:ss)``"
+          +  Rate expressions - "``rate(value unit)``"
+          +  Cron expressions - "``cron(fields)``"
+          
+         At expressions are useful for one-time schedules. Cron expressions are useful for scheduled actions that run periodically at a specified date and time, and rate expressions are useful for scheduled actions that run at a regular interval.
+         At and cron expressions use Universal Coordinated Time (UTC) by default.
+         The cron format consists of six fields separated by white spaces: [Minutes] [Hours] [Day_of_Month] [Month] [Day_of_Week] [Year].
+         For rate expressions, *value* is a positive integer and *unit* is ``minute`` | ``minutes`` | ``hour`` | ``hours`` | ``day`` | ``days``.
+        """
         return pulumi.get(self, "schedule")
 
     @schedule.setter
@@ -92,6 +126,9 @@ class ScalableTargetScheduledActionArgs:
     @property
     @pulumi.getter(name="scheduledActionName")
     def scheduled_action_name(self) -> pulumi.Input[str]:
+        """
+        The name of the scheduled action. This name must be unique among all other scheduled actions on the specified scalable target.
+        """
         return pulumi.get(self, "scheduled_action_name")
 
     @scheduled_action_name.setter
@@ -101,6 +138,9 @@ class ScalableTargetScheduledActionArgs:
     @property
     @pulumi.getter(name="endTime")
     def end_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The date and time that the action is scheduled to end, in UTC.
+        """
         return pulumi.get(self, "end_time")
 
     @end_time.setter
@@ -110,6 +150,9 @@ class ScalableTargetScheduledActionArgs:
     @property
     @pulumi.getter(name="scalableTargetAction")
     def scalable_target_action(self) -> Optional[pulumi.Input['ScalableTargetActionArgs']]:
+        """
+        The new minimum and maximum capacity. You can set both values or just one. At the scheduled time, if the current capacity is below the minimum capacity, Application Auto Scaling scales out to the minimum capacity. If the current capacity is above the maximum capacity, Application Auto Scaling scales in to the maximum capacity.
+        """
         return pulumi.get(self, "scalable_target_action")
 
     @scalable_target_action.setter
@@ -119,6 +162,9 @@ class ScalableTargetScheduledActionArgs:
     @property
     @pulumi.getter(name="startTime")
     def start_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The date and time that the action is scheduled to begin, in UTC.
+        """
         return pulumi.get(self, "start_time")
 
     @start_time.setter
@@ -128,6 +174,9 @@ class ScalableTargetScheduledActionArgs:
     @property
     @pulumi.getter
     def timezone(self) -> Optional[pulumi.Input[str]]:
+        """
+        The time zone used when referring to the date and time of a scheduled action, when the scheduled action uses an at or cron expression.
+        """
         return pulumi.get(self, "timezone")
 
     @timezone.setter
@@ -142,7 +191,11 @@ class ScalableTargetSuspendedStateArgs:
                  dynamic_scaling_out_suspended: Optional[pulumi.Input[bool]] = None,
                  scheduled_scaling_suspended: Optional[pulumi.Input[bool]] = None):
         """
-        specifies whether the scaling activities for a scalable target are in a suspended state
+        ``SuspendedState`` is a property of the [AWS::ApplicationAutoScaling::ScalableTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html) resource that specifies whether the scaling activities for a scalable target are in a suspended state.
+         For more information, see [Suspending and resuming scaling](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-suspend-resume-scaling.html) in the *Application Auto Scaling User Guide*.
+        :param pulumi.Input[bool] dynamic_scaling_in_suspended: Whether scale in by a target tracking scaling policy or a step scaling policy is suspended. Set the value to ``true`` if you don't want Application Auto Scaling to remove capacity when a scaling policy is triggered. The default is ``false``.
+        :param pulumi.Input[bool] dynamic_scaling_out_suspended: Whether scale out by a target tracking scaling policy or a step scaling policy is suspended. Set the value to ``true`` if you don't want Application Auto Scaling to add capacity when a scaling policy is triggered. The default is ``false``.
+        :param pulumi.Input[bool] scheduled_scaling_suspended: Whether scheduled scaling is suspended. Set the value to ``true`` if you don't want Application Auto Scaling to add or remove capacity by initiating scheduled actions. The default is ``false``.
         """
         if dynamic_scaling_in_suspended is not None:
             pulumi.set(__self__, "dynamic_scaling_in_suspended", dynamic_scaling_in_suspended)
@@ -154,6 +207,9 @@ class ScalableTargetSuspendedStateArgs:
     @property
     @pulumi.getter(name="dynamicScalingInSuspended")
     def dynamic_scaling_in_suspended(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether scale in by a target tracking scaling policy or a step scaling policy is suspended. Set the value to ``true`` if you don't want Application Auto Scaling to remove capacity when a scaling policy is triggered. The default is ``false``.
+        """
         return pulumi.get(self, "dynamic_scaling_in_suspended")
 
     @dynamic_scaling_in_suspended.setter
@@ -163,6 +219,9 @@ class ScalableTargetSuspendedStateArgs:
     @property
     @pulumi.getter(name="dynamicScalingOutSuspended")
     def dynamic_scaling_out_suspended(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether scale out by a target tracking scaling policy or a step scaling policy is suspended. Set the value to ``true`` if you don't want Application Auto Scaling to add capacity when a scaling policy is triggered. The default is ``false``.
+        """
         return pulumi.get(self, "dynamic_scaling_out_suspended")
 
     @dynamic_scaling_out_suspended.setter
@@ -172,6 +231,9 @@ class ScalableTargetSuspendedStateArgs:
     @property
     @pulumi.getter(name="scheduledScalingSuspended")
     def scheduled_scaling_suspended(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether scheduled scaling is suspended. Set the value to ``true`` if you don't want Application Auto Scaling to add or remove capacity by initiating scheduled actions. The default is ``false``.
+        """
         return pulumi.get(self, "scheduled_scaling_suspended")
 
     @scheduled_scaling_suspended.setter

@@ -68,7 +68,7 @@ export class DataProvider extends pulumi.CustomResource {
     /**
      * The property identifies the exact type of settings for the data provider.
      */
-    public readonly settings!: pulumi.Output<outputs.dms.Settings0Properties | outputs.dms.Settings1Properties | outputs.dms.Settings2Properties | outputs.dms.Settings3Properties | undefined>;
+    public readonly settings!: pulumi.Output<outputs.dms.SettingsProperties | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
@@ -140,7 +140,7 @@ export interface DataProviderArgs {
     /**
      * The property identifies the exact type of settings for the data provider.
      */
-    settings?: pulumi.Input<inputs.dms.Settings0PropertiesArgs | inputs.dms.Settings1PropertiesArgs | inputs.dms.Settings2PropertiesArgs | inputs.dms.Settings3PropertiesArgs>;
+    settings?: pulumi.Input<inputs.dms.SettingsPropertiesArgs>;
     /**
      * An array of key-value pairs to apply to this resource.
      */

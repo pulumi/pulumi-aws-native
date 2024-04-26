@@ -40,7 +40,7 @@ type LookupDataProviderResult struct {
 	// The property describes a data engine for the data provider.
 	Engine *DataProviderEngine `pulumi:"engine"`
 	// The property identifies the exact type of settings for the data provider.
-	Settings interface{} `pulumi:"settings"`
+	Settings *SettingsProperties `pulumi:"settings"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -107,8 +107,8 @@ func (o LookupDataProviderResultOutput) Engine() DataProviderEnginePtrOutput {
 }
 
 // The property identifies the exact type of settings for the data provider.
-func (o LookupDataProviderResultOutput) Settings() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupDataProviderResult) interface{} { return v.Settings }).(pulumi.AnyOutput)
+func (o LookupDataProviderResultOutput) Settings() SettingsPropertiesPtrOutput {
+	return o.ApplyT(func(v LookupDataProviderResult) *SettingsProperties { return v.Settings }).(SettingsPropertiesPtrOutput)
 }
 
 // An array of key-value pairs to apply to this resource.

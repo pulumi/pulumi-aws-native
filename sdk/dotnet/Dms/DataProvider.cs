@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.Dms
         /// The property identifies the exact type of settings for the data provider.
         /// </summary>
         [Output("settings")]
-        public Output<object?> Settings { get; private set; } = null!;
+        public Output<Outputs.SettingsProperties?> Settings { get; private set; } = null!;
 
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
@@ -148,7 +148,7 @@ namespace Pulumi.AwsNative.Dms
         /// The property identifies the exact type of settings for the data provider.
         /// </summary>
         [Input("settings")]
-        public object? Settings { get; set; }
+        public Input<Inputs.SettingsPropertiesArgs>? Settings { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.Dms
         /// <summary>
         /// The property identifies the exact type of settings for the data provider.
         /// </summary>
-        public readonly object? Settings;
+        public readonly Outputs.SettingsProperties? Settings;
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
@@ -98,7 +98,7 @@ namespace Pulumi.AwsNative.Dms
 
             Pulumi.AwsNative.Dms.DataProviderEngine? engine,
 
-            object? settings,
+            Outputs.SettingsProperties? settings,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {

@@ -32,7 +32,7 @@ type DataProvider struct {
 	// The property describes the exact settings which can be modified
 	ExactSettings pulumi.BoolPtrOutput `pulumi:"exactSettings"`
 	// The property identifies the exact type of settings for the data provider.
-	Settings pulumi.AnyOutput `pulumi:"settings"`
+	Settings SettingsPropertiesPtrOutput `pulumi:"settings"`
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -91,7 +91,7 @@ type dataProviderArgs struct {
 	// The property describes the exact settings which can be modified
 	ExactSettings *bool `pulumi:"exactSettings"`
 	// The property identifies the exact type of settings for the data provider.
-	Settings interface{} `pulumi:"settings"`
+	Settings *SettingsProperties `pulumi:"settings"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -109,7 +109,7 @@ type DataProviderArgs struct {
 	// The property describes the exact settings which can be modified
 	ExactSettings pulumi.BoolPtrInput
 	// The property identifies the exact type of settings for the data provider.
-	Settings pulumi.Input
+	Settings SettingsPropertiesPtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
 }
@@ -187,8 +187,8 @@ func (o DataProviderOutput) ExactSettings() pulumi.BoolPtrOutput {
 }
 
 // The property identifies the exact type of settings for the data provider.
-func (o DataProviderOutput) Settings() pulumi.AnyOutput {
-	return o.ApplyT(func(v *DataProvider) pulumi.AnyOutput { return v.Settings }).(pulumi.AnyOutput)
+func (o DataProviderOutput) Settings() SettingsPropertiesPtrOutput {
+	return o.ApplyT(func(v *DataProvider) SettingsPropertiesPtrOutput { return v.Settings }).(SettingsPropertiesPtrOutput)
 }
 
 // An array of key-value pairs to apply to this resource.

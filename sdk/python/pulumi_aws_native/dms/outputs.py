@@ -15,14 +15,11 @@ __all__ = [
     'MigrationProjectDataProviderDescriptor',
     'ReplicationConfigComputeConfig',
     'SchemaConversionApplicationAttributesProperties',
-    'Settings0Properties',
-    'Settings0PropertiesPostgreSqlSettingsProperties',
-    'Settings1Properties',
-    'Settings1PropertiesMySqlSettingsProperties',
-    'Settings2Properties',
-    'Settings2PropertiesOracleSettingsProperties',
-    'Settings3Properties',
-    'Settings3PropertiesMicrosoftSqlServerSettingsProperties',
+    'SettingsProperties',
+    'SettingsPropertiesMicrosoftSqlServerSettingsProperties',
+    'SettingsPropertiesMySqlSettingsProperties',
+    'SettingsPropertiesOracleSettingsProperties',
+    'SettingsPropertiesPostgreSqlSettingsProperties',
 ]
 
 @pulumi.output_type
@@ -263,250 +260,236 @@ class SchemaConversionApplicationAttributesProperties(dict):
 
 
 @pulumi.output_type
-class Settings0Properties(dict):
+class SettingsProperties(dict):
     """
-    PostgreSqlSettings property identifier.
+    The property identifies the exact type of settings for the data provider.
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "postgreSqlSettings":
+        if key == "microsoftSqlServerSettings":
+            suggest = "microsoft_sql_server_settings"
+        elif key == "mySqlSettings":
+            suggest = "my_sql_settings"
+        elif key == "oracleSettings":
+            suggest = "oracle_settings"
+        elif key == "postgreSqlSettings":
             suggest = "postgre_sql_settings"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in Settings0Properties. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in SettingsProperties. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        Settings0Properties.__key_warning(key)
+        SettingsProperties.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        Settings0Properties.__key_warning(key)
+        SettingsProperties.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 postgre_sql_settings: Optional['outputs.Settings0PropertiesPostgreSqlSettingsProperties'] = None):
+                 microsoft_sql_server_settings: Optional['outputs.SettingsPropertiesMicrosoftSqlServerSettingsProperties'] = None,
+                 my_sql_settings: Optional['outputs.SettingsPropertiesMySqlSettingsProperties'] = None,
+                 oracle_settings: Optional['outputs.SettingsPropertiesOracleSettingsProperties'] = None,
+                 postgre_sql_settings: Optional['outputs.SettingsPropertiesPostgreSqlSettingsProperties'] = None):
         """
-        PostgreSqlSettings property identifier.
+        The property identifies the exact type of settings for the data provider.
+        :param 'SettingsPropertiesMicrosoftSqlServerSettingsProperties' microsoft_sql_server_settings: MicrosoftSqlServerSettings property identifier.
+        :param 'SettingsPropertiesMySqlSettingsProperties' my_sql_settings: MySqlSettings property identifier.
+        :param 'SettingsPropertiesOracleSettingsProperties' oracle_settings: OracleSettings property identifier.
+        :param 'SettingsPropertiesPostgreSqlSettingsProperties' postgre_sql_settings: PostgreSqlSettings property identifier.
         """
+        if microsoft_sql_server_settings is not None:
+            pulumi.set(__self__, "microsoft_sql_server_settings", microsoft_sql_server_settings)
+        if my_sql_settings is not None:
+            pulumi.set(__self__, "my_sql_settings", my_sql_settings)
+        if oracle_settings is not None:
+            pulumi.set(__self__, "oracle_settings", oracle_settings)
         if postgre_sql_settings is not None:
             pulumi.set(__self__, "postgre_sql_settings", postgre_sql_settings)
 
     @property
+    @pulumi.getter(name="microsoftSqlServerSettings")
+    def microsoft_sql_server_settings(self) -> Optional['outputs.SettingsPropertiesMicrosoftSqlServerSettingsProperties']:
+        """
+        MicrosoftSqlServerSettings property identifier.
+        """
+        return pulumi.get(self, "microsoft_sql_server_settings")
+
+    @property
+    @pulumi.getter(name="mySqlSettings")
+    def my_sql_settings(self) -> Optional['outputs.SettingsPropertiesMySqlSettingsProperties']:
+        """
+        MySqlSettings property identifier.
+        """
+        return pulumi.get(self, "my_sql_settings")
+
+    @property
+    @pulumi.getter(name="oracleSettings")
+    def oracle_settings(self) -> Optional['outputs.SettingsPropertiesOracleSettingsProperties']:
+        """
+        OracleSettings property identifier.
+        """
+        return pulumi.get(self, "oracle_settings")
+
+    @property
     @pulumi.getter(name="postgreSqlSettings")
-    def postgre_sql_settings(self) -> Optional['outputs.Settings0PropertiesPostgreSqlSettingsProperties']:
+    def postgre_sql_settings(self) -> Optional['outputs.SettingsPropertiesPostgreSqlSettingsProperties']:
+        """
+        PostgreSqlSettings property identifier.
+        """
         return pulumi.get(self, "postgre_sql_settings")
 
 
 @pulumi.output_type
-class Settings0PropertiesPostgreSqlSettingsProperties(dict):
+class SettingsPropertiesMicrosoftSqlServerSettingsProperties(dict):
+    """
+    MicrosoftSqlServerSettings property identifier.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "certificateArn":
-            suggest = "certificate_arn"
-        elif key == "databaseName":
+        if key == "databaseName":
             suggest = "database_name"
         elif key == "serverName":
             suggest = "server_name"
         elif key == "sslMode":
             suggest = "ssl_mode"
+        elif key == "certificateArn":
+            suggest = "certificate_arn"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in Settings0PropertiesPostgreSqlSettingsProperties. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in SettingsPropertiesMicrosoftSqlServerSettingsProperties. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        Settings0PropertiesPostgreSqlSettingsProperties.__key_warning(key)
+        SettingsPropertiesMicrosoftSqlServerSettingsProperties.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        Settings0PropertiesPostgreSqlSettingsProperties.__key_warning(key)
+        SettingsPropertiesMicrosoftSqlServerSettingsProperties.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 certificate_arn: Optional[str] = None,
-                 database_name: Optional[str] = None,
-                 port: Optional[int] = None,
-                 server_name: Optional[str] = None,
-                 ssl_mode: Optional['DataProviderDmsSslModeValue'] = None):
+                 database_name: str,
+                 port: int,
+                 server_name: str,
+                 ssl_mode: 'DataProviderDmsSslModeValue',
+                 certificate_arn: Optional[str] = None):
+        """
+        MicrosoftSqlServerSettings property identifier.
+        """
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "server_name", server_name)
+        pulumi.set(__self__, "ssl_mode", ssl_mode)
         if certificate_arn is not None:
             pulumi.set(__self__, "certificate_arn", certificate_arn)
-        if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
-        if port is not None:
-            pulumi.set(__self__, "port", port)
-        if server_name is not None:
-            pulumi.set(__self__, "server_name", server_name)
-        if ssl_mode is not None:
-            pulumi.set(__self__, "ssl_mode", ssl_mode)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> str:
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter
+    def port(self) -> int:
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> str:
+        return pulumi.get(self, "server_name")
+
+    @property
+    @pulumi.getter(name="sslMode")
+    def ssl_mode(self) -> 'DataProviderDmsSslModeValue':
+        return pulumi.get(self, "ssl_mode")
 
     @property
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> Optional[str]:
         return pulumi.get(self, "certificate_arn")
 
-    @property
-    @pulumi.getter(name="databaseName")
-    def database_name(self) -> Optional[str]:
-        return pulumi.get(self, "database_name")
-
-    @property
-    @pulumi.getter
-    def port(self) -> Optional[int]:
-        return pulumi.get(self, "port")
-
-    @property
-    @pulumi.getter(name="serverName")
-    def server_name(self) -> Optional[str]:
-        return pulumi.get(self, "server_name")
-
-    @property
-    @pulumi.getter(name="sslMode")
-    def ssl_mode(self) -> Optional['DataProviderDmsSslModeValue']:
-        return pulumi.get(self, "ssl_mode")
-
 
 @pulumi.output_type
-class Settings1Properties(dict):
+class SettingsPropertiesMySqlSettingsProperties(dict):
     """
     MySqlSettings property identifier.
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "mySqlSettings":
-            suggest = "my_sql_settings"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in Settings1Properties. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        Settings1Properties.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        Settings1Properties.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 my_sql_settings: Optional['outputs.Settings1PropertiesMySqlSettingsProperties'] = None):
-        """
-        MySqlSettings property identifier.
-        """
-        if my_sql_settings is not None:
-            pulumi.set(__self__, "my_sql_settings", my_sql_settings)
-
-    @property
-    @pulumi.getter(name="mySqlSettings")
-    def my_sql_settings(self) -> Optional['outputs.Settings1PropertiesMySqlSettingsProperties']:
-        return pulumi.get(self, "my_sql_settings")
-
-
-@pulumi.output_type
-class Settings1PropertiesMySqlSettingsProperties(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "certificateArn":
-            suggest = "certificate_arn"
-        elif key == "serverName":
+        if key == "serverName":
             suggest = "server_name"
         elif key == "sslMode":
             suggest = "ssl_mode"
+        elif key == "certificateArn":
+            suggest = "certificate_arn"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in Settings1PropertiesMySqlSettingsProperties. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in SettingsPropertiesMySqlSettingsProperties. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        Settings1PropertiesMySqlSettingsProperties.__key_warning(key)
+        SettingsPropertiesMySqlSettingsProperties.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        Settings1PropertiesMySqlSettingsProperties.__key_warning(key)
+        SettingsPropertiesMySqlSettingsProperties.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 certificate_arn: Optional[str] = None,
-                 port: Optional[int] = None,
-                 server_name: Optional[str] = None,
-                 ssl_mode: Optional['DataProviderDmsSslModeValue'] = None):
+                 port: int,
+                 server_name: str,
+                 ssl_mode: 'DataProviderDmsSslModeValue',
+                 certificate_arn: Optional[str] = None):
+        """
+        MySqlSettings property identifier.
+        """
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "server_name", server_name)
+        pulumi.set(__self__, "ssl_mode", ssl_mode)
         if certificate_arn is not None:
             pulumi.set(__self__, "certificate_arn", certificate_arn)
-        if port is not None:
-            pulumi.set(__self__, "port", port)
-        if server_name is not None:
-            pulumi.set(__self__, "server_name", server_name)
-        if ssl_mode is not None:
-            pulumi.set(__self__, "ssl_mode", ssl_mode)
+
+    @property
+    @pulumi.getter
+    def port(self) -> int:
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> str:
+        return pulumi.get(self, "server_name")
+
+    @property
+    @pulumi.getter(name="sslMode")
+    def ssl_mode(self) -> 'DataProviderDmsSslModeValue':
+        return pulumi.get(self, "ssl_mode")
 
     @property
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> Optional[str]:
         return pulumi.get(self, "certificate_arn")
 
-    @property
-    @pulumi.getter
-    def port(self) -> Optional[int]:
-        return pulumi.get(self, "port")
-
-    @property
-    @pulumi.getter(name="serverName")
-    def server_name(self) -> Optional[str]:
-        return pulumi.get(self, "server_name")
-
-    @property
-    @pulumi.getter(name="sslMode")
-    def ssl_mode(self) -> Optional['DataProviderDmsSslModeValue']:
-        return pulumi.get(self, "ssl_mode")
-
 
 @pulumi.output_type
-class Settings2Properties(dict):
+class SettingsPropertiesOracleSettingsProperties(dict):
     """
     OracleSettings property identifier.
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "oracleSettings":
-            suggest = "oracle_settings"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in Settings2Properties. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        Settings2Properties.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        Settings2Properties.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 oracle_settings: Optional['outputs.Settings2PropertiesOracleSettingsProperties'] = None):
-        """
-        OracleSettings property identifier.
-        """
-        if oracle_settings is not None:
-            pulumi.set(__self__, "oracle_settings", oracle_settings)
-
-    @property
-    @pulumi.getter(name="oracleSettings")
-    def oracle_settings(self) -> Optional['outputs.Settings2PropertiesOracleSettingsProperties']:
-        return pulumi.get(self, "oracle_settings")
-
-
-@pulumi.output_type
-class Settings2PropertiesOracleSettingsProperties(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "asmServer":
+        if key == "databaseName":
+            suggest = "database_name"
+        elif key == "serverName":
+            suggest = "server_name"
+        elif key == "sslMode":
+            suggest = "ssl_mode"
+        elif key == "asmServer":
             suggest = "asm_server"
         elif key == "certificateArn":
             suggest = "certificate_arn"
-        elif key == "databaseName":
-            suggest = "database_name"
         elif key == "secretsManagerOracleAsmAccessRoleArn":
             suggest = "secrets_manager_oracle_asm_access_role_arn"
         elif key == "secretsManagerOracleAsmSecretId":
@@ -515,41 +498,40 @@ class Settings2PropertiesOracleSettingsProperties(dict):
             suggest = "secrets_manager_security_db_encryption_access_role_arn"
         elif key == "secretsManagerSecurityDbEncryptionSecretId":
             suggest = "secrets_manager_security_db_encryption_secret_id"
-        elif key == "serverName":
-            suggest = "server_name"
-        elif key == "sslMode":
-            suggest = "ssl_mode"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in Settings2PropertiesOracleSettingsProperties. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in SettingsPropertiesOracleSettingsProperties. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        Settings2PropertiesOracleSettingsProperties.__key_warning(key)
+        SettingsPropertiesOracleSettingsProperties.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        Settings2PropertiesOracleSettingsProperties.__key_warning(key)
+        SettingsPropertiesOracleSettingsProperties.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 database_name: str,
+                 port: int,
+                 server_name: str,
+                 ssl_mode: 'DataProviderDmsSslModeValue',
                  asm_server: Optional[str] = None,
                  certificate_arn: Optional[str] = None,
-                 database_name: Optional[str] = None,
-                 port: Optional[int] = None,
                  secrets_manager_oracle_asm_access_role_arn: Optional[str] = None,
                  secrets_manager_oracle_asm_secret_id: Optional[str] = None,
                  secrets_manager_security_db_encryption_access_role_arn: Optional[str] = None,
-                 secrets_manager_security_db_encryption_secret_id: Optional[str] = None,
-                 server_name: Optional[str] = None,
-                 ssl_mode: Optional['DataProviderDmsSslModeValue'] = None):
+                 secrets_manager_security_db_encryption_secret_id: Optional[str] = None):
+        """
+        OracleSettings property identifier.
+        """
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "server_name", server_name)
+        pulumi.set(__self__, "ssl_mode", ssl_mode)
         if asm_server is not None:
             pulumi.set(__self__, "asm_server", asm_server)
         if certificate_arn is not None:
             pulumi.set(__self__, "certificate_arn", certificate_arn)
-        if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
-        if port is not None:
-            pulumi.set(__self__, "port", port)
         if secrets_manager_oracle_asm_access_role_arn is not None:
             pulumi.set(__self__, "secrets_manager_oracle_asm_access_role_arn", secrets_manager_oracle_asm_access_role_arn)
         if secrets_manager_oracle_asm_secret_id is not None:
@@ -558,10 +540,26 @@ class Settings2PropertiesOracleSettingsProperties(dict):
             pulumi.set(__self__, "secrets_manager_security_db_encryption_access_role_arn", secrets_manager_security_db_encryption_access_role_arn)
         if secrets_manager_security_db_encryption_secret_id is not None:
             pulumi.set(__self__, "secrets_manager_security_db_encryption_secret_id", secrets_manager_security_db_encryption_secret_id)
-        if server_name is not None:
-            pulumi.set(__self__, "server_name", server_name)
-        if ssl_mode is not None:
-            pulumi.set(__self__, "ssl_mode", ssl_mode)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> str:
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter
+    def port(self) -> int:
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> str:
+        return pulumi.get(self, "server_name")
+
+    @property
+    @pulumi.getter(name="sslMode")
+    def ssl_mode(self) -> 'DataProviderDmsSslModeValue':
+        return pulumi.get(self, "ssl_mode")
 
     @property
     @pulumi.getter(name="asmServer")
@@ -572,16 +570,6 @@ class Settings2PropertiesOracleSettingsProperties(dict):
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> Optional[str]:
         return pulumi.get(self, "certificate_arn")
-
-    @property
-    @pulumi.getter(name="databaseName")
-    def database_name(self) -> Optional[str]:
-        return pulumi.get(self, "database_name")
-
-    @property
-    @pulumi.getter
-    def port(self) -> Optional[int]:
-        return pulumi.get(self, "port")
 
     @property
     @pulumi.getter(name="secretsManagerOracleAsmAccessRoleArn")
@@ -603,118 +591,74 @@ class Settings2PropertiesOracleSettingsProperties(dict):
     def secrets_manager_security_db_encryption_secret_id(self) -> Optional[str]:
         return pulumi.get(self, "secrets_manager_security_db_encryption_secret_id")
 
-    @property
-    @pulumi.getter(name="serverName")
-    def server_name(self) -> Optional[str]:
-        return pulumi.get(self, "server_name")
-
-    @property
-    @pulumi.getter(name="sslMode")
-    def ssl_mode(self) -> Optional['DataProviderDmsSslModeValue']:
-        return pulumi.get(self, "ssl_mode")
-
 
 @pulumi.output_type
-class Settings3Properties(dict):
+class SettingsPropertiesPostgreSqlSettingsProperties(dict):
     """
-    MicrosoftSqlServerSettings property identifier.
+    PostgreSqlSettings property identifier.
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "microsoftSqlServerSettings":
-            suggest = "microsoft_sql_server_settings"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in Settings3Properties. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        Settings3Properties.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        Settings3Properties.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 microsoft_sql_server_settings: Optional['outputs.Settings3PropertiesMicrosoftSqlServerSettingsProperties'] = None):
-        """
-        MicrosoftSqlServerSettings property identifier.
-        """
-        if microsoft_sql_server_settings is not None:
-            pulumi.set(__self__, "microsoft_sql_server_settings", microsoft_sql_server_settings)
-
-    @property
-    @pulumi.getter(name="microsoftSqlServerSettings")
-    def microsoft_sql_server_settings(self) -> Optional['outputs.Settings3PropertiesMicrosoftSqlServerSettingsProperties']:
-        return pulumi.get(self, "microsoft_sql_server_settings")
-
-
-@pulumi.output_type
-class Settings3PropertiesMicrosoftSqlServerSettingsProperties(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "certificateArn":
-            suggest = "certificate_arn"
-        elif key == "databaseName":
+        if key == "databaseName":
             suggest = "database_name"
         elif key == "serverName":
             suggest = "server_name"
         elif key == "sslMode":
             suggest = "ssl_mode"
+        elif key == "certificateArn":
+            suggest = "certificate_arn"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in Settings3PropertiesMicrosoftSqlServerSettingsProperties. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in SettingsPropertiesPostgreSqlSettingsProperties. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        Settings3PropertiesMicrosoftSqlServerSettingsProperties.__key_warning(key)
+        SettingsPropertiesPostgreSqlSettingsProperties.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        Settings3PropertiesMicrosoftSqlServerSettingsProperties.__key_warning(key)
+        SettingsPropertiesPostgreSqlSettingsProperties.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 certificate_arn: Optional[str] = None,
-                 database_name: Optional[str] = None,
-                 port: Optional[int] = None,
-                 server_name: Optional[str] = None,
-                 ssl_mode: Optional['DataProviderDmsSslModeValue'] = None):
+                 database_name: str,
+                 port: int,
+                 server_name: str,
+                 ssl_mode: 'DataProviderDmsSslModeValue',
+                 certificate_arn: Optional[str] = None):
+        """
+        PostgreSqlSettings property identifier.
+        """
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "server_name", server_name)
+        pulumi.set(__self__, "ssl_mode", ssl_mode)
         if certificate_arn is not None:
             pulumi.set(__self__, "certificate_arn", certificate_arn)
-        if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
-        if port is not None:
-            pulumi.set(__self__, "port", port)
-        if server_name is not None:
-            pulumi.set(__self__, "server_name", server_name)
-        if ssl_mode is not None:
-            pulumi.set(__self__, "ssl_mode", ssl_mode)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> str:
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter
+    def port(self) -> int:
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> str:
+        return pulumi.get(self, "server_name")
+
+    @property
+    @pulumi.getter(name="sslMode")
+    def ssl_mode(self) -> 'DataProviderDmsSslModeValue':
+        return pulumi.get(self, "ssl_mode")
 
     @property
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> Optional[str]:
         return pulumi.get(self, "certificate_arn")
-
-    @property
-    @pulumi.getter(name="databaseName")
-    def database_name(self) -> Optional[str]:
-        return pulumi.get(self, "database_name")
-
-    @property
-    @pulumi.getter
-    def port(self) -> Optional[int]:
-        return pulumi.get(self, "port")
-
-    @property
-    @pulumi.getter(name="serverName")
-    def server_name(self) -> Optional[str]:
-        return pulumi.get(self, "server_name")
-
-    @property
-    @pulumi.getter(name="sslMode")
-    def ssl_mode(self) -> Optional['DataProviderDmsSslModeValue']:
-        return pulumi.get(self, "ssl_mode")
 
 

@@ -18,8 +18,14 @@ namespace Pulumi.AwsNative.DataSync.Inputs
         /// <summary>
         /// A cron expression that specifies when AWS DataSync initiates a scheduled transfer from a source to a destination location
         /// </summary>
-        [Input("scheduleExpression", required: true)]
-        public Input<string> ScheduleExpression { get; set; } = null!;
+        [Input("scheduleExpression")]
+        public Input<string>? ScheduleExpression { get; set; }
+
+        /// <summary>
+        /// Specifies status of a schedule.
+        /// </summary>
+        [Input("status")]
+        public Input<Pulumi.AwsNative.DataSync.TaskScheduleStatus>? Status { get; set; }
 
         public TaskScheduleArgs()
         {

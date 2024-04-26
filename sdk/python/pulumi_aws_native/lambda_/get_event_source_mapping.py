@@ -80,7 +80,14 @@ class GetEventSourceMappingResult:
     @pulumi.getter(name="batchSize")
     def batch_size(self) -> Optional[int]:
         """
-        The maximum number of items to retrieve in a single batch.
+        The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).
+          +   *Amazon Kinesis* – Default 100. Max 10,000.
+          +   *Amazon DynamoDB Streams* – Default 100. Max 10,000.
+          +   *Amazon Simple Queue Service* – Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.
+          +   *Amazon Managed Streaming for Apache Kafka* – Default 100. Max 10,000.
+          +   *Self-managed Apache Kafka* – Default 100. Max 10,000.
+          +   *Amazon MQ (ActiveMQ and RabbitMQ)* – Default 100. Max 10,000.
+          +   *DocumentDB* – Default 100. Max 10,000.
         """
         return pulumi.get(self, "batch_size")
 
@@ -88,7 +95,7 @@ class GetEventSourceMappingResult:
     @pulumi.getter(name="bisectBatchOnFunctionError")
     def bisect_batch_on_function_error(self) -> Optional[bool]:
         """
-        (Streams) If the function returns an error, split the batch in two and retry.
+        (Kinesis and DynamoDB Streams only) If the function returns an error, split the batch in two and retry. The default value is false.
         """
         return pulumi.get(self, "bisect_batch_on_function_error")
 
@@ -96,7 +103,7 @@ class GetEventSourceMappingResult:
     @pulumi.getter(name="destinationConfig")
     def destination_config(self) -> Optional['outputs.EventSourceMappingDestinationConfig']:
         """
-        (Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.
+        (Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka event sources only) A configuration object that specifies the destination of an event after Lambda processes it.
         """
         return pulumi.get(self, "destination_config")
 
@@ -104,7 +111,7 @@ class GetEventSourceMappingResult:
     @pulumi.getter(name="documentDbEventSourceConfig")
     def document_db_event_source_config(self) -> Optional['outputs.EventSourceMappingDocumentDbEventSourceConfig']:
         """
-        Document db event source config.
+        Specific configuration settings for a DocumentDB event source.
         """
         return pulumi.get(self, "document_db_event_source_config")
 
@@ -112,7 +119,8 @@ class GetEventSourceMappingResult:
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
         """
-        Disables the event source mapping to pause polling and invocation.
+        When true, the event source mapping is active. When false, Lambda pauses polling and invocation.
+         Default: True
         """
         return pulumi.get(self, "enabled")
 
@@ -120,7 +128,7 @@ class GetEventSourceMappingResult:
     @pulumi.getter(name="filterCriteria")
     def filter_criteria(self) -> Optional['outputs.EventSourceMappingFilterCriteria']:
         """
-        The filter criteria to control event filtering.
+        An object that defines the filter criteria that determine whether Lambda should process an event. For more information, see [Lambda event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html).
         """
         return pulumi.get(self, "filter_criteria")
 
@@ -128,7 +136,14 @@ class GetEventSourceMappingResult:
     @pulumi.getter(name="functionName")
     def function_name(self) -> Optional[str]:
         """
-        The name of the Lambda function.
+        The name or ARN of the Lambda function.
+          **Name formats**
+         +   *Function name* – ``MyFunction``.
+          +   *Function ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:MyFunction``.
+          +   *Version or Alias ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD``.
+          +   *Partial ARN* – ``123456789012:function:MyFunction``.
+          
+         The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.
         """
         return pulumi.get(self, "function_name")
 
@@ -136,23 +151,24 @@ class GetEventSourceMappingResult:
     @pulumi.getter(name="functionResponseTypes")
     def function_response_types(self) -> Optional[Sequence['EventSourceMappingFunctionResponseTypesItem']]:
         """
-        (Streams) A list of response types supported by the function.
+        (Streams and SQS) A list of current response type enums applied to the event source mapping.
+         Valid Values: ``ReportBatchItemFailures``
         """
         return pulumi.get(self, "function_response_types")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
-        """
-        Event Source Mapping Identifier UUID.
-        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="maximumBatchingWindowInSeconds")
     def maximum_batching_window_in_seconds(self) -> Optional[int]:
         """
-        (Streams) The maximum amount of time to gather records before invoking the function, in seconds.
+        The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
+         *Default (, , event sources)*: 0
+         *Default (, Kafka, , event sources)*: 500 ms
+         *Related setting:* For SQS event sources, when you set ``BatchSize`` to a value greater than 10, you must set ``MaximumBatchingWindowInSeconds`` to at least 1.
         """
         return pulumi.get(self, "maximum_batching_window_in_seconds")
 
@@ -160,7 +176,8 @@ class GetEventSourceMappingResult:
     @pulumi.getter(name="maximumRecordAgeInSeconds")
     def maximum_record_age_in_seconds(self) -> Optional[int]:
         """
-        (Streams) The maximum age of a record that Lambda sends to a function for processing.
+        (Kinesis and DynamoDB Streams only) Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, Lambda never discards old records.
+          The minimum valid value for maximum record age is 60s. Although values less than 60 and greater than -1 fall within the parameter's absolute range, they are not allowed
         """
         return pulumi.get(self, "maximum_record_age_in_seconds")
 
@@ -168,7 +185,7 @@ class GetEventSourceMappingResult:
     @pulumi.getter(name="maximumRetryAttempts")
     def maximum_retry_attempts(self) -> Optional[int]:
         """
-        (Streams) The maximum number of times to retry when the function returns an error.
+        (Kinesis and DynamoDB Streams only) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, Lambda retries failed records until the record expires in the event source.
         """
         return pulumi.get(self, "maximum_retry_attempts")
 
@@ -176,7 +193,7 @@ class GetEventSourceMappingResult:
     @pulumi.getter(name="parallelizationFactor")
     def parallelization_factor(self) -> Optional[int]:
         """
-        (Streams) The number of batches to process from each shard concurrently.
+        (Kinesis and DynamoDB Streams only) The number of batches to process concurrently from each shard. The default value is 1.
         """
         return pulumi.get(self, "parallelization_factor")
 
@@ -184,7 +201,7 @@ class GetEventSourceMappingResult:
     @pulumi.getter
     def queues(self) -> Optional[Sequence[str]]:
         """
-        (ActiveMQ) A list of ActiveMQ queues.
+        (Amazon MQ) The name of the Amazon MQ broker destination queue to consume.
         """
         return pulumi.get(self, "queues")
 
@@ -192,7 +209,7 @@ class GetEventSourceMappingResult:
     @pulumi.getter(name="scalingConfig")
     def scaling_config(self) -> Optional['outputs.EventSourceMappingScalingConfig']:
         """
-        The scaling configuration for the event source.
+        (Amazon SQS only) The scaling configuration for the event source. For more information, see [Configuring maximum concurrency for Amazon SQS event sources](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency).
         """
         return pulumi.get(self, "scaling_config")
 
@@ -200,7 +217,7 @@ class GetEventSourceMappingResult:
     @pulumi.getter(name="sourceAccessConfigurations")
     def source_access_configurations(self) -> Optional[Sequence['outputs.EventSourceMappingSourceAccessConfiguration']]:
         """
-        A list of SourceAccessConfiguration.
+        An array of the authentication protocol, VPC components, or virtual host to secure and define your event source.
         """
         return pulumi.get(self, "source_access_configurations")
 
@@ -208,7 +225,7 @@ class GetEventSourceMappingResult:
     @pulumi.getter
     def topics(self) -> Optional[Sequence[str]]:
         """
-        (Kafka) A list of Kafka topics.
+        The name of the Kafka topic.
         """
         return pulumi.get(self, "topics")
 
@@ -216,7 +233,7 @@ class GetEventSourceMappingResult:
     @pulumi.getter(name="tumblingWindowInSeconds")
     def tumbling_window_in_seconds(self) -> Optional[int]:
         """
-        (Streams) Tumbling window (non-overlapping time window) duration to perform aggregations.
+        (Kinesis and DynamoDB Streams only) The duration in seconds of a processing window for DynamoDB and Kinesis Streams event sources. A value of 0 seconds indicates no tumbling window.
         """
         return pulumi.get(self, "tumbling_window_in_seconds")
 
@@ -250,10 +267,15 @@ class AwaitableGetEventSourceMappingResult(GetEventSourceMappingResult):
 def get_event_source_mapping(id: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEventSourceMappingResult:
     """
-    Resource Type definition for AWS::Lambda::EventSourceMapping
-
-
-    :param str id: Event Source Mapping Identifier UUID.
+    The ``AWS::Lambda::EventSourceMapping`` resource creates a mapping between an event source and an LAMlong function. LAM reads items from the event source and triggers the function.
+     For details about each event source type, see the following topics. In particular, each of the topics describes the required and optional parameters for the specific event source.
+      +  [Configuring a Dynamo DB stream as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-dynamodb-eventsourcemapping)
+      +  [Configuring a Kinesis stream as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-eventsourcemapping)
+      +  [Configuring an SQS queue as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-eventsource)
+      +  [Configuring an MQ broker as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-eventsourcemapping)
+      +  [Configuring MSK as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html)
+      +  [Configuring Self-Managed Apache Kafka as an event source](https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html)
+      +  [Configuring Amazon DocumentDB as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html)
     """
     __args__ = dict()
     __args__['id'] = id
@@ -285,9 +307,14 @@ def get_event_source_mapping(id: Optional[str] = None,
 def get_event_source_mapping_output(id: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventSourceMappingResult]:
     """
-    Resource Type definition for AWS::Lambda::EventSourceMapping
-
-
-    :param str id: Event Source Mapping Identifier UUID.
+    The ``AWS::Lambda::EventSourceMapping`` resource creates a mapping between an event source and an LAMlong function. LAM reads items from the event source and triggers the function.
+     For details about each event source type, see the following topics. In particular, each of the topics describes the required and optional parameters for the specific event source.
+      +  [Configuring a Dynamo DB stream as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-dynamodb-eventsourcemapping)
+      +  [Configuring a Kinesis stream as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-eventsourcemapping)
+      +  [Configuring an SQS queue as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-eventsource)
+      +  [Configuring an MQ broker as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-eventsourcemapping)
+      +  [Configuring MSK as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html)
+      +  [Configuring Self-Managed Apache Kafka as an event source](https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html)
+      +  [Configuring Amazon DocumentDB as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html)
     """
     ...

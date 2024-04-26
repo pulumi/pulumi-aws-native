@@ -10,29 +10,32 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Dms.Outputs
 {
 
+    /// <summary>
+    /// OracleSettings property identifier.
+    /// </summary>
     [OutputType]
-    public sealed class Settings2PropertiesOracleSettingsProperties
+    public sealed class SettingsPropertiesOracleSettingsProperties
     {
         public readonly string? AsmServer;
         public readonly string? CertificateArn;
-        public readonly string? DatabaseName;
-        public readonly int? Port;
+        public readonly string DatabaseName;
+        public readonly int Port;
         public readonly string? SecretsManagerOracleAsmAccessRoleArn;
         public readonly string? SecretsManagerOracleAsmSecretId;
         public readonly string? SecretsManagerSecurityDbEncryptionAccessRoleArn;
         public readonly string? SecretsManagerSecurityDbEncryptionSecretId;
-        public readonly string? ServerName;
-        public readonly Pulumi.AwsNative.Dms.DataProviderDmsSslModeValue? SslMode;
+        public readonly string ServerName;
+        public readonly Pulumi.AwsNative.Dms.DataProviderDmsSslModeValue SslMode;
 
         [OutputConstructor]
-        private Settings2PropertiesOracleSettingsProperties(
+        private SettingsPropertiesOracleSettingsProperties(
             string? asmServer,
 
             string? certificateArn,
 
-            string? databaseName,
+            string databaseName,
 
-            int? port,
+            int port,
 
             string? secretsManagerOracleAsmAccessRoleArn,
 
@@ -42,9 +45,9 @@ namespace Pulumi.AwsNative.Dms.Outputs
 
             string? secretsManagerSecurityDbEncryptionSecretId,
 
-            string? serverName,
+            string serverName,
 
-            Pulumi.AwsNative.Dms.DataProviderDmsSslModeValue? sslMode)
+            Pulumi.AwsNative.Dms.DataProviderDmsSslModeValue sslMode)
         {
             AsmServer = asmServer;
             CertificateArn = certificateArn;

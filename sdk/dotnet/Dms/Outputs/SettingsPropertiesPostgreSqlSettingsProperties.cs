@@ -10,26 +10,29 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Dms.Outputs
 {
 
+    /// <summary>
+    /// PostgreSqlSettings property identifier.
+    /// </summary>
     [OutputType]
-    public sealed class Settings0PropertiesPostgreSqlSettingsProperties
+    public sealed class SettingsPropertiesPostgreSqlSettingsProperties
     {
         public readonly string? CertificateArn;
-        public readonly string? DatabaseName;
-        public readonly int? Port;
-        public readonly string? ServerName;
-        public readonly Pulumi.AwsNative.Dms.DataProviderDmsSslModeValue? SslMode;
+        public readonly string DatabaseName;
+        public readonly int Port;
+        public readonly string ServerName;
+        public readonly Pulumi.AwsNative.Dms.DataProviderDmsSslModeValue SslMode;
 
         [OutputConstructor]
-        private Settings0PropertiesPostgreSqlSettingsProperties(
+        private SettingsPropertiesPostgreSqlSettingsProperties(
             string? certificateArn,
 
-            string? databaseName,
+            string databaseName,
 
-            int? port,
+            int port,
 
-            string? serverName,
+            string serverName,
 
-            Pulumi.AwsNative.Dms.DataProviderDmsSslModeValue? sslMode)
+            Pulumi.AwsNative.Dms.DataProviderDmsSslModeValue sslMode)
         {
             CertificateArn = certificateArn;
             DatabaseName = databaseName;

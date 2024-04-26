@@ -443,6 +443,7 @@ AWS::GameCast::Application
 AWS::GameCast::StreamGroup
 AWS::GameLift::Alias
 AWS::GameLift::Build
+AWS::GameLift::ContainerGroupDefinition
 AWS::GameLift::Fleet
 AWS::GameLift::GameServerGroup
 AWS::GameLift::GameSessionQueue

@@ -24,7 +24,7 @@ class DataProviderArgs:
                  data_provider_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  exact_settings: Optional[pulumi.Input[bool]] = None,
-                 settings: Optional[pulumi.Input[Union['Settings0PropertiesArgs', 'Settings1PropertiesArgs', 'Settings2PropertiesArgs', 'Settings3PropertiesArgs']]] = None,
+                 settings: Optional[pulumi.Input['SettingsPropertiesArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DataProvider resource.
@@ -33,7 +33,7 @@ class DataProviderArgs:
         :param pulumi.Input[str] data_provider_name: The property describes a name to identify the data provider.
         :param pulumi.Input[str] description: The optional description of the data provider.
         :param pulumi.Input[bool] exact_settings: The property describes the exact settings which can be modified
-        :param pulumi.Input[Union['Settings0PropertiesArgs', 'Settings1PropertiesArgs', 'Settings2PropertiesArgs', 'Settings3PropertiesArgs']] settings: The property identifies the exact type of settings for the data provider.
+        :param pulumi.Input['SettingsPropertiesArgs'] settings: The property identifies the exact type of settings for the data provider.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "engine", engine)
@@ -112,14 +112,14 @@ class DataProviderArgs:
 
     @property
     @pulumi.getter
-    def settings(self) -> Optional[pulumi.Input[Union['Settings0PropertiesArgs', 'Settings1PropertiesArgs', 'Settings2PropertiesArgs', 'Settings3PropertiesArgs']]]:
+    def settings(self) -> Optional[pulumi.Input['SettingsPropertiesArgs']]:
         """
         The property identifies the exact type of settings for the data provider.
         """
         return pulumi.get(self, "settings")
 
     @settings.setter
-    def settings(self, value: Optional[pulumi.Input[Union['Settings0PropertiesArgs', 'Settings1PropertiesArgs', 'Settings2PropertiesArgs', 'Settings3PropertiesArgs']]]):
+    def settings(self, value: Optional[pulumi.Input['SettingsPropertiesArgs']]):
         pulumi.set(self, "settings", value)
 
     @property
@@ -145,7 +145,7 @@ class DataProvider(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  engine: Optional[pulumi.Input['DataProviderEngine']] = None,
                  exact_settings: Optional[pulumi.Input[bool]] = None,
-                 settings: Optional[pulumi.Input[Union[pulumi.InputType['Settings0PropertiesArgs'], pulumi.InputType['Settings1PropertiesArgs'], pulumi.InputType['Settings2PropertiesArgs'], pulumi.InputType['Settings3PropertiesArgs']]]] = None,
+                 settings: Optional[pulumi.Input[pulumi.InputType['SettingsPropertiesArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
@@ -158,7 +158,7 @@ class DataProvider(pulumi.CustomResource):
         :param pulumi.Input[str] description: The optional description of the data provider.
         :param pulumi.Input['DataProviderEngine'] engine: The property describes a data engine for the data provider.
         :param pulumi.Input[bool] exact_settings: The property describes the exact settings which can be modified
-        :param pulumi.Input[Union[pulumi.InputType['Settings0PropertiesArgs'], pulumi.InputType['Settings1PropertiesArgs'], pulumi.InputType['Settings2PropertiesArgs'], pulumi.InputType['Settings3PropertiesArgs']]] settings: The property identifies the exact type of settings for the data provider.
+        :param pulumi.Input[pulumi.InputType['SettingsPropertiesArgs']] settings: The property identifies the exact type of settings for the data provider.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
@@ -190,7 +190,7 @@ class DataProvider(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  engine: Optional[pulumi.Input['DataProviderEngine']] = None,
                  exact_settings: Optional[pulumi.Input[bool]] = None,
-                 settings: Optional[pulumi.Input[Union[pulumi.InputType['Settings0PropertiesArgs'], pulumi.InputType['Settings1PropertiesArgs'], pulumi.InputType['Settings2PropertiesArgs'], pulumi.InputType['Settings3PropertiesArgs']]]] = None,
+                 settings: Optional[pulumi.Input[pulumi.InputType['SettingsPropertiesArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -303,7 +303,7 @@ class DataProvider(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def settings(self) -> pulumi.Output[Optional[Any]]:
+    def settings(self) -> pulumi.Output[Optional['outputs.SettingsProperties']]:
         """
         The property identifies the exact type of settings for the data provider.
         """

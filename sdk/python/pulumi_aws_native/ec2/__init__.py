@@ -77,7 +77,6 @@ from .get_transit_gateway_multicast_group_member import *
 from .get_transit_gateway_multicast_group_source import *
 from .get_transit_gateway_peering_attachment import *
 from .get_transit_gateway_route_table import *
-from .get_transit_gateway_route_table_association import *
 from .get_transit_gateway_vpc_attachment import *
 from .get_verified_access_endpoint import *
 from .get_verified_access_group import *

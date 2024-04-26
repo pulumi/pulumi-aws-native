@@ -22,6 +22,7 @@ class FleetArgs:
                  build_id: Optional[pulumi.Input[str]] = None,
                  certificate_configuration: Optional[pulumi.Input['FleetCertificateConfigurationArgs']] = None,
                  compute_type: Optional[pulumi.Input['FleetComputeType']] = None,
+                 container_groups_configuration: Optional[pulumi.Input['FleetContainerGroupsConfigurationArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  desired_ec2_instances: Optional[pulumi.Input[int]] = None,
                  ec2_inbound_permissions: Optional[pulumi.Input[Sequence[pulumi.Input['FleetIpPermissionArgs']]]] = None,
@@ -87,6 +88,8 @@ class FleetArgs:
             pulumi.set(__self__, "certificate_configuration", certificate_configuration)
         if compute_type is not None:
             pulumi.set(__self__, "compute_type", compute_type)
+        if container_groups_configuration is not None:
+            pulumi.set(__self__, "container_groups_configuration", container_groups_configuration)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if desired_ec2_instances is not None:
@@ -191,6 +194,15 @@ class FleetArgs:
     @compute_type.setter
     def compute_type(self, value: Optional[pulumi.Input['FleetComputeType']]):
         pulumi.set(self, "compute_type", value)
+
+    @property
+    @pulumi.getter(name="containerGroupsConfiguration")
+    def container_groups_configuration(self) -> Optional[pulumi.Input['FleetContainerGroupsConfigurationArgs']]:
+        return pulumi.get(self, "container_groups_configuration")
+
+    @container_groups_configuration.setter
+    def container_groups_configuration(self, value: Optional[pulumi.Input['FleetContainerGroupsConfigurationArgs']]):
+        pulumi.set(self, "container_groups_configuration", value)
 
     @property
     @pulumi.getter
@@ -468,6 +480,7 @@ class Fleet(pulumi.CustomResource):
                  build_id: Optional[pulumi.Input[str]] = None,
                  certificate_configuration: Optional[pulumi.Input[pulumi.InputType['FleetCertificateConfigurationArgs']]] = None,
                  compute_type: Optional[pulumi.Input['FleetComputeType']] = None,
+                 container_groups_configuration: Optional[pulumi.Input[pulumi.InputType['FleetContainerGroupsConfigurationArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  desired_ec2_instances: Optional[pulumi.Input[int]] = None,
                  ec2_inbound_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetIpPermissionArgs']]]]] = None,
@@ -556,6 +569,7 @@ class Fleet(pulumi.CustomResource):
                  build_id: Optional[pulumi.Input[str]] = None,
                  certificate_configuration: Optional[pulumi.Input[pulumi.InputType['FleetCertificateConfigurationArgs']]] = None,
                  compute_type: Optional[pulumi.Input['FleetComputeType']] = None,
+                 container_groups_configuration: Optional[pulumi.Input[pulumi.InputType['FleetContainerGroupsConfigurationArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  desired_ec2_instances: Optional[pulumi.Input[int]] = None,
                  ec2_inbound_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetIpPermissionArgs']]]]] = None,
@@ -592,6 +606,7 @@ class Fleet(pulumi.CustomResource):
             __props__.__dict__["build_id"] = build_id
             __props__.__dict__["certificate_configuration"] = certificate_configuration
             __props__.__dict__["compute_type"] = compute_type
+            __props__.__dict__["container_groups_configuration"] = container_groups_configuration
             __props__.__dict__["description"] = description
             __props__.__dict__["desired_ec2_instances"] = desired_ec2_instances
             __props__.__dict__["ec2_inbound_permissions"] = ec2_inbound_permissions
@@ -615,7 +630,7 @@ class Fleet(pulumi.CustomResource):
             __props__.__dict__["server_launch_parameters"] = server_launch_parameters
             __props__.__dict__["server_launch_path"] = server_launch_path
             __props__.__dict__["fleet_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["applyCapacity", "buildId", "certificateConfiguration", "computeType", "ec2InstanceType", "fleetType", "instanceRoleArn", "instanceRoleCredentialsProvider", "logPaths[*]", "peerVpcAwsAccountId", "peerVpcId", "scriptId", "serverLaunchParameters", "serverLaunchPath"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["applyCapacity", "buildId", "certificateConfiguration", "computeType", "containerGroupsConfiguration", "ec2InstanceType", "fleetType", "instanceRoleArn", "instanceRoleCredentialsProvider", "logPaths[*]", "peerVpcAwsAccountId", "peerVpcId", "scriptId", "serverLaunchParameters", "serverLaunchPath"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Fleet, __self__).__init__(
             'aws-native:gamelift:Fleet',
@@ -644,6 +659,7 @@ class Fleet(pulumi.CustomResource):
         __props__.__dict__["build_id"] = None
         __props__.__dict__["certificate_configuration"] = None
         __props__.__dict__["compute_type"] = None
+        __props__.__dict__["container_groups_configuration"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["desired_ec2_instances"] = None
         __props__.__dict__["ec2_inbound_permissions"] = None
@@ -708,6 +724,11 @@ class Fleet(pulumi.CustomResource):
         ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
         """
         return pulumi.get(self, "compute_type")
+
+    @property
+    @pulumi.getter(name="containerGroupsConfiguration")
+    def container_groups_configuration(self) -> pulumi.Output[Optional['outputs.FleetContainerGroupsConfiguration']]:
+        return pulumi.get(self, "container_groups_configuration")
 
     @property
     @pulumi.getter

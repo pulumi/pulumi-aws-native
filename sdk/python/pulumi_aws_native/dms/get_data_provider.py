@@ -86,7 +86,7 @@ class GetDataProviderResult:
 
     @property
     @pulumi.getter
-    def settings(self) -> Optional[Any]:
+    def settings(self) -> Optional['outputs.SettingsProperties']:
         """
         The property identifies the exact type of settings for the data provider.
         """

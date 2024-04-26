@@ -1350,23 +1350,40 @@ class TaskReportConfigArgs:
 @pulumi.input_type
 class TaskScheduleArgs:
     def __init__(__self__, *,
-                 schedule_expression: pulumi.Input[str]):
+                 schedule_expression: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input['TaskScheduleStatus']] = None):
         """
         Specifies the schedule you want your task to use for repeated executions.
         :param pulumi.Input[str] schedule_expression: A cron expression that specifies when AWS DataSync initiates a scheduled transfer from a source to a destination location
+        :param pulumi.Input['TaskScheduleStatus'] status: Specifies status of a schedule.
         """
-        pulumi.set(__self__, "schedule_expression", schedule_expression)
+        if schedule_expression is not None:
+            pulumi.set(__self__, "schedule_expression", schedule_expression)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter(name="scheduleExpression")
-    def schedule_expression(self) -> pulumi.Input[str]:
+    def schedule_expression(self) -> Optional[pulumi.Input[str]]:
         """
         A cron expression that specifies when AWS DataSync initiates a scheduled transfer from a source to a destination location
         """
         return pulumi.get(self, "schedule_expression")
 
     @schedule_expression.setter
-    def schedule_expression(self, value: pulumi.Input[str]):
+    def schedule_expression(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "schedule_expression", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input['TaskScheduleStatus']]:
+        """
+        Specifies status of a schedule.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input['TaskScheduleStatus']]):
+        pulumi.set(self, "status", value)
 
 

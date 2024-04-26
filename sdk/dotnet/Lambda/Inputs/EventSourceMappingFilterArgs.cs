@@ -11,12 +11,12 @@ namespace Pulumi.AwsNative.Lambda.Inputs
 {
 
     /// <summary>
-    /// The filter object that defines parameters for ESM filtering.
+    /// A structure within a ``FilterCriteria`` object that defines an event filtering pattern.
     /// </summary>
     public sealed class EventSourceMappingFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The filter pattern that defines which events should be passed for invocations.
+        /// A filter pattern. For more information on the syntax of a filter pattern, see [Filter rule syntax](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-syntax).
         /// </summary>
         [Input("pattern")]
         public Input<string>? Pattern { get; set; }

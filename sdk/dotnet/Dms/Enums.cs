@@ -19,8 +19,8 @@ namespace Pulumi.AwsNative.Dms
 
         public static DataProviderDmsSslModeValue None { get; } = new DataProviderDmsSslModeValue("none");
         public static DataProviderDmsSslModeValue Require { get; } = new DataProviderDmsSslModeValue("require");
-        public static DataProviderDmsSslModeValue VerifyCa { get; } = new DataProviderDmsSslModeValue("verify_ca");
-        public static DataProviderDmsSslModeValue VerifyFull { get; } = new DataProviderDmsSslModeValue("verify_full");
+        public static DataProviderDmsSslModeValue VerifyCa { get; } = new DataProviderDmsSslModeValue("verify-ca");
+        public static DataProviderDmsSslModeValue VerifyFull { get; } = new DataProviderDmsSslModeValue("verify-full");
 
         public static bool operator ==(DataProviderDmsSslModeValue left, DataProviderDmsSslModeValue right) => left.Equals(right);
         public static bool operator !=(DataProviderDmsSslModeValue left, DataProviderDmsSslModeValue right) => !left.Equals(right);

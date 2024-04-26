@@ -57,6 +57,7 @@ export class Fleet extends pulumi.CustomResource {
      * ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
      */
     public readonly computeType!: pulumi.Output<enums.gamelift.FleetComputeType | undefined>;
+    public readonly containerGroupsConfiguration!: pulumi.Output<outputs.gamelift.FleetContainerGroupsConfiguration | undefined>;
     /**
      * A human-readable description of a fleet.
      */
@@ -167,6 +168,7 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["buildId"] = args ? args.buildId : undefined;
             resourceInputs["certificateConfiguration"] = args ? args.certificateConfiguration : undefined;
             resourceInputs["computeType"] = args ? args.computeType : undefined;
+            resourceInputs["containerGroupsConfiguration"] = args ? args.containerGroupsConfiguration : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["desiredEc2Instances"] = args ? args.desiredEc2Instances : undefined;
             resourceInputs["ec2InboundPermissions"] = args ? args.ec2InboundPermissions : undefined;
@@ -196,6 +198,7 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["buildId"] = undefined /*out*/;
             resourceInputs["certificateConfiguration"] = undefined /*out*/;
             resourceInputs["computeType"] = undefined /*out*/;
+            resourceInputs["containerGroupsConfiguration"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["desiredEc2Instances"] = undefined /*out*/;
             resourceInputs["ec2InboundPermissions"] = undefined /*out*/;
@@ -221,7 +224,7 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["serverLaunchPath"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["applyCapacity", "buildId", "certificateConfiguration", "computeType", "ec2InstanceType", "fleetType", "instanceRoleArn", "instanceRoleCredentialsProvider", "logPaths[*]", "peerVpcAwsAccountId", "peerVpcId", "scriptId", "serverLaunchParameters", "serverLaunchPath"] };
+        const replaceOnChanges = { replaceOnChanges: ["applyCapacity", "buildId", "certificateConfiguration", "computeType", "containerGroupsConfiguration", "ec2InstanceType", "fleetType", "instanceRoleArn", "instanceRoleCredentialsProvider", "logPaths[*]", "peerVpcAwsAccountId", "peerVpcId", "scriptId", "serverLaunchParameters", "serverLaunchPath"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Fleet.__pulumiType, name, resourceInputs, opts);
     }
@@ -251,6 +254,7 @@ export interface FleetArgs {
      * ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
      */
     computeType?: pulumi.Input<enums.gamelift.FleetComputeType>;
+    containerGroupsConfiguration?: pulumi.Input<inputs.gamelift.FleetContainerGroupsConfigurationArgs>;
     /**
      * A human-readable description of a fleet.
      */

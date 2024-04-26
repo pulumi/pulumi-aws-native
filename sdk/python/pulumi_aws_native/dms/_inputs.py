@@ -14,14 +14,11 @@ __all__ = [
     'MigrationProjectDataProviderDescriptorArgs',
     'ReplicationConfigComputeConfigArgs',
     'SchemaConversionApplicationAttributesPropertiesArgs',
-    'Settings0PropertiesPostgreSqlSettingsPropertiesArgs',
-    'Settings0PropertiesArgs',
-    'Settings1PropertiesMySqlSettingsPropertiesArgs',
-    'Settings1PropertiesArgs',
-    'Settings2PropertiesOracleSettingsPropertiesArgs',
-    'Settings2PropertiesArgs',
-    'Settings3PropertiesMicrosoftSqlServerSettingsPropertiesArgs',
-    'Settings3PropertiesArgs',
+    'SettingsPropertiesMicrosoftSqlServerSettingsPropertiesArgs',
+    'SettingsPropertiesMySqlSettingsPropertiesArgs',
+    'SettingsPropertiesOracleSettingsPropertiesArgs',
+    'SettingsPropertiesPostgreSqlSettingsPropertiesArgs',
+    'SettingsPropertiesArgs',
 ]
 
 @pulumi.input_type
@@ -240,105 +237,58 @@ class SchemaConversionApplicationAttributesPropertiesArgs:
 
 
 @pulumi.input_type
-class Settings0PropertiesPostgreSqlSettingsPropertiesArgs:
+class SettingsPropertiesMicrosoftSqlServerSettingsPropertiesArgs:
     def __init__(__self__, *,
-                 certificate_arn: Optional[pulumi.Input[str]] = None,
-                 database_name: Optional[pulumi.Input[str]] = None,
-                 port: Optional[pulumi.Input[int]] = None,
-                 server_name: Optional[pulumi.Input[str]] = None,
-                 ssl_mode: Optional[pulumi.Input['DataProviderDmsSslModeValue']] = None):
+                 database_name: pulumi.Input[str],
+                 port: pulumi.Input[int],
+                 server_name: pulumi.Input[str],
+                 ssl_mode: pulumi.Input['DataProviderDmsSslModeValue'],
+                 certificate_arn: Optional[pulumi.Input[str]] = None):
+        """
+        MicrosoftSqlServerSettings property identifier.
+        """
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "server_name", server_name)
+        pulumi.set(__self__, "ssl_mode", ssl_mode)
         if certificate_arn is not None:
             pulumi.set(__self__, "certificate_arn", certificate_arn)
-        if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
-        if port is not None:
-            pulumi.set(__self__, "port", port)
-        if server_name is not None:
-            pulumi.set(__self__, "server_name", server_name)
-        if ssl_mode is not None:
-            pulumi.set(__self__, "ssl_mode", ssl_mode)
-
-    @property
-    @pulumi.getter(name="certificateArn")
-    def certificate_arn(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "certificate_arn")
-
-    @certificate_arn.setter
-    def certificate_arn(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "certificate_arn", value)
 
     @property
     @pulumi.getter(name="databaseName")
-    def database_name(self) -> Optional[pulumi.Input[str]]:
+    def database_name(self) -> pulumi.Input[str]:
         return pulumi.get(self, "database_name")
 
     @database_name.setter
-    def database_name(self, value: Optional[pulumi.Input[str]]):
+    def database_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "database_name", value)
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[int]]:
+    def port(self) -> pulumi.Input[int]:
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[int]]):
+    def port(self, value: pulumi.Input[int]):
         pulumi.set(self, "port", value)
 
     @property
     @pulumi.getter(name="serverName")
-    def server_name(self) -> Optional[pulumi.Input[str]]:
+    def server_name(self) -> pulumi.Input[str]:
         return pulumi.get(self, "server_name")
 
     @server_name.setter
-    def server_name(self, value: Optional[pulumi.Input[str]]):
+    def server_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "server_name", value)
 
     @property
     @pulumi.getter(name="sslMode")
-    def ssl_mode(self) -> Optional[pulumi.Input['DataProviderDmsSslModeValue']]:
+    def ssl_mode(self) -> pulumi.Input['DataProviderDmsSslModeValue']:
         return pulumi.get(self, "ssl_mode")
 
     @ssl_mode.setter
-    def ssl_mode(self, value: Optional[pulumi.Input['DataProviderDmsSslModeValue']]):
+    def ssl_mode(self, value: pulumi.Input['DataProviderDmsSslModeValue']):
         pulumi.set(self, "ssl_mode", value)
-
-
-@pulumi.input_type
-class Settings0PropertiesArgs:
-    def __init__(__self__, *,
-                 postgre_sql_settings: Optional[pulumi.Input['Settings0PropertiesPostgreSqlSettingsPropertiesArgs']] = None):
-        """
-        PostgreSqlSettings property identifier.
-        """
-        if postgre_sql_settings is not None:
-            pulumi.set(__self__, "postgre_sql_settings", postgre_sql_settings)
-
-    @property
-    @pulumi.getter(name="postgreSqlSettings")
-    def postgre_sql_settings(self) -> Optional[pulumi.Input['Settings0PropertiesPostgreSqlSettingsPropertiesArgs']]:
-        return pulumi.get(self, "postgre_sql_settings")
-
-    @postgre_sql_settings.setter
-    def postgre_sql_settings(self, value: Optional[pulumi.Input['Settings0PropertiesPostgreSqlSettingsPropertiesArgs']]):
-        pulumi.set(self, "postgre_sql_settings", value)
-
-
-@pulumi.input_type
-class Settings1PropertiesMySqlSettingsPropertiesArgs:
-    def __init__(__self__, *,
-                 certificate_arn: Optional[pulumi.Input[str]] = None,
-                 port: Optional[pulumi.Input[int]] = None,
-                 server_name: Optional[pulumi.Input[str]] = None,
-                 ssl_mode: Optional[pulumi.Input['DataProviderDmsSslModeValue']] = None):
-        if certificate_arn is not None:
-            pulumi.set(__self__, "certificate_arn", certificate_arn)
-        if port is not None:
-            pulumi.set(__self__, "port", port)
-        if server_name is not None:
-            pulumi.set(__self__, "server_name", server_name)
-        if ssl_mode is not None:
-            pulumi.set(__self__, "ssl_mode", ssl_mode)
 
     @property
     @pulumi.getter(name="certificateArn")
@@ -349,75 +299,84 @@ class Settings1PropertiesMySqlSettingsPropertiesArgs:
     def certificate_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "certificate_arn", value)
 
+
+@pulumi.input_type
+class SettingsPropertiesMySqlSettingsPropertiesArgs:
+    def __init__(__self__, *,
+                 port: pulumi.Input[int],
+                 server_name: pulumi.Input[str],
+                 ssl_mode: pulumi.Input['DataProviderDmsSslModeValue'],
+                 certificate_arn: Optional[pulumi.Input[str]] = None):
+        """
+        MySqlSettings property identifier.
+        """
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "server_name", server_name)
+        pulumi.set(__self__, "ssl_mode", ssl_mode)
+        if certificate_arn is not None:
+            pulumi.set(__self__, "certificate_arn", certificate_arn)
+
     @property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[int]]:
+    def port(self) -> pulumi.Input[int]:
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[int]]):
+    def port(self, value: pulumi.Input[int]):
         pulumi.set(self, "port", value)
 
     @property
     @pulumi.getter(name="serverName")
-    def server_name(self) -> Optional[pulumi.Input[str]]:
+    def server_name(self) -> pulumi.Input[str]:
         return pulumi.get(self, "server_name")
 
     @server_name.setter
-    def server_name(self, value: Optional[pulumi.Input[str]]):
+    def server_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "server_name", value)
 
     @property
     @pulumi.getter(name="sslMode")
-    def ssl_mode(self) -> Optional[pulumi.Input['DataProviderDmsSslModeValue']]:
+    def ssl_mode(self) -> pulumi.Input['DataProviderDmsSslModeValue']:
         return pulumi.get(self, "ssl_mode")
 
     @ssl_mode.setter
-    def ssl_mode(self, value: Optional[pulumi.Input['DataProviderDmsSslModeValue']]):
+    def ssl_mode(self, value: pulumi.Input['DataProviderDmsSslModeValue']):
         pulumi.set(self, "ssl_mode", value)
 
-
-@pulumi.input_type
-class Settings1PropertiesArgs:
-    def __init__(__self__, *,
-                 my_sql_settings: Optional[pulumi.Input['Settings1PropertiesMySqlSettingsPropertiesArgs']] = None):
-        """
-        MySqlSettings property identifier.
-        """
-        if my_sql_settings is not None:
-            pulumi.set(__self__, "my_sql_settings", my_sql_settings)
-
     @property
-    @pulumi.getter(name="mySqlSettings")
-    def my_sql_settings(self) -> Optional[pulumi.Input['Settings1PropertiesMySqlSettingsPropertiesArgs']]:
-        return pulumi.get(self, "my_sql_settings")
+    @pulumi.getter(name="certificateArn")
+    def certificate_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "certificate_arn")
 
-    @my_sql_settings.setter
-    def my_sql_settings(self, value: Optional[pulumi.Input['Settings1PropertiesMySqlSettingsPropertiesArgs']]):
-        pulumi.set(self, "my_sql_settings", value)
+    @certificate_arn.setter
+    def certificate_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_arn", value)
 
 
 @pulumi.input_type
-class Settings2PropertiesOracleSettingsPropertiesArgs:
+class SettingsPropertiesOracleSettingsPropertiesArgs:
     def __init__(__self__, *,
+                 database_name: pulumi.Input[str],
+                 port: pulumi.Input[int],
+                 server_name: pulumi.Input[str],
+                 ssl_mode: pulumi.Input['DataProviderDmsSslModeValue'],
                  asm_server: Optional[pulumi.Input[str]] = None,
                  certificate_arn: Optional[pulumi.Input[str]] = None,
-                 database_name: Optional[pulumi.Input[str]] = None,
-                 port: Optional[pulumi.Input[int]] = None,
                  secrets_manager_oracle_asm_access_role_arn: Optional[pulumi.Input[str]] = None,
                  secrets_manager_oracle_asm_secret_id: Optional[pulumi.Input[str]] = None,
                  secrets_manager_security_db_encryption_access_role_arn: Optional[pulumi.Input[str]] = None,
-                 secrets_manager_security_db_encryption_secret_id: Optional[pulumi.Input[str]] = None,
-                 server_name: Optional[pulumi.Input[str]] = None,
-                 ssl_mode: Optional[pulumi.Input['DataProviderDmsSslModeValue']] = None):
+                 secrets_manager_security_db_encryption_secret_id: Optional[pulumi.Input[str]] = None):
+        """
+        OracleSettings property identifier.
+        """
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "server_name", server_name)
+        pulumi.set(__self__, "ssl_mode", ssl_mode)
         if asm_server is not None:
             pulumi.set(__self__, "asm_server", asm_server)
         if certificate_arn is not None:
             pulumi.set(__self__, "certificate_arn", certificate_arn)
-        if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
-        if port is not None:
-            pulumi.set(__self__, "port", port)
         if secrets_manager_oracle_asm_access_role_arn is not None:
             pulumi.set(__self__, "secrets_manager_oracle_asm_access_role_arn", secrets_manager_oracle_asm_access_role_arn)
         if secrets_manager_oracle_asm_secret_id is not None:
@@ -426,10 +385,42 @@ class Settings2PropertiesOracleSettingsPropertiesArgs:
             pulumi.set(__self__, "secrets_manager_security_db_encryption_access_role_arn", secrets_manager_security_db_encryption_access_role_arn)
         if secrets_manager_security_db_encryption_secret_id is not None:
             pulumi.set(__self__, "secrets_manager_security_db_encryption_secret_id", secrets_manager_security_db_encryption_secret_id)
-        if server_name is not None:
-            pulumi.set(__self__, "server_name", server_name)
-        if ssl_mode is not None:
-            pulumi.set(__self__, "ssl_mode", ssl_mode)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "server_name")
+
+    @server_name.setter
+    def server_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "server_name", value)
+
+    @property
+    @pulumi.getter(name="sslMode")
+    def ssl_mode(self) -> pulumi.Input['DataProviderDmsSslModeValue']:
+        return pulumi.get(self, "ssl_mode")
+
+    @ssl_mode.setter
+    def ssl_mode(self, value: pulumi.Input['DataProviderDmsSslModeValue']):
+        pulumi.set(self, "ssl_mode", value)
 
     @property
     @pulumi.getter(name="asmServer")
@@ -448,24 +439,6 @@ class Settings2PropertiesOracleSettingsPropertiesArgs:
     @certificate_arn.setter
     def certificate_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "certificate_arn", value)
-
-    @property
-    @pulumi.getter(name="databaseName")
-    def database_name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "database_name")
-
-    @database_name.setter
-    def database_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "database_name", value)
-
-    @property
-    @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[int]]:
-        return pulumi.get(self, "port")
-
-    @port.setter
-    def port(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "port", value)
 
     @property
     @pulumi.getter(name="secretsManagerOracleAsmAccessRoleArn")
@@ -503,63 +476,60 @@ class Settings2PropertiesOracleSettingsPropertiesArgs:
     def secrets_manager_security_db_encryption_secret_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "secrets_manager_security_db_encryption_secret_id", value)
 
+
+@pulumi.input_type
+class SettingsPropertiesPostgreSqlSettingsPropertiesArgs:
+    def __init__(__self__, *,
+                 database_name: pulumi.Input[str],
+                 port: pulumi.Input[int],
+                 server_name: pulumi.Input[str],
+                 ssl_mode: pulumi.Input['DataProviderDmsSslModeValue'],
+                 certificate_arn: Optional[pulumi.Input[str]] = None):
+        """
+        PostgreSqlSettings property identifier.
+        """
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "server_name", server_name)
+        pulumi.set(__self__, "ssl_mode", ssl_mode)
+        if certificate_arn is not None:
+            pulumi.set(__self__, "certificate_arn", certificate_arn)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "port", value)
+
     @property
     @pulumi.getter(name="serverName")
-    def server_name(self) -> Optional[pulumi.Input[str]]:
+    def server_name(self) -> pulumi.Input[str]:
         return pulumi.get(self, "server_name")
 
     @server_name.setter
-    def server_name(self, value: Optional[pulumi.Input[str]]):
+    def server_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "server_name", value)
 
     @property
     @pulumi.getter(name="sslMode")
-    def ssl_mode(self) -> Optional[pulumi.Input['DataProviderDmsSslModeValue']]:
+    def ssl_mode(self) -> pulumi.Input['DataProviderDmsSslModeValue']:
         return pulumi.get(self, "ssl_mode")
 
     @ssl_mode.setter
-    def ssl_mode(self, value: Optional[pulumi.Input['DataProviderDmsSslModeValue']]):
+    def ssl_mode(self, value: pulumi.Input['DataProviderDmsSslModeValue']):
         pulumi.set(self, "ssl_mode", value)
-
-
-@pulumi.input_type
-class Settings2PropertiesArgs:
-    def __init__(__self__, *,
-                 oracle_settings: Optional[pulumi.Input['Settings2PropertiesOracleSettingsPropertiesArgs']] = None):
-        """
-        OracleSettings property identifier.
-        """
-        if oracle_settings is not None:
-            pulumi.set(__self__, "oracle_settings", oracle_settings)
-
-    @property
-    @pulumi.getter(name="oracleSettings")
-    def oracle_settings(self) -> Optional[pulumi.Input['Settings2PropertiesOracleSettingsPropertiesArgs']]:
-        return pulumi.get(self, "oracle_settings")
-
-    @oracle_settings.setter
-    def oracle_settings(self, value: Optional[pulumi.Input['Settings2PropertiesOracleSettingsPropertiesArgs']]):
-        pulumi.set(self, "oracle_settings", value)
-
-
-@pulumi.input_type
-class Settings3PropertiesMicrosoftSqlServerSettingsPropertiesArgs:
-    def __init__(__self__, *,
-                 certificate_arn: Optional[pulumi.Input[str]] = None,
-                 database_name: Optional[pulumi.Input[str]] = None,
-                 port: Optional[pulumi.Input[int]] = None,
-                 server_name: Optional[pulumi.Input[str]] = None,
-                 ssl_mode: Optional[pulumi.Input['DataProviderDmsSslModeValue']] = None):
-        if certificate_arn is not None:
-            pulumi.set(__self__, "certificate_arn", certificate_arn)
-        if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
-        if port is not None:
-            pulumi.set(__self__, "port", port)
-        if server_name is not None:
-            pulumi.set(__self__, "server_name", server_name)
-        if ssl_mode is not None:
-            pulumi.set(__self__, "ssl_mode", ssl_mode)
 
     @property
     @pulumi.getter(name="certificateArn")
@@ -570,60 +540,76 @@ class Settings3PropertiesMicrosoftSqlServerSettingsPropertiesArgs:
     def certificate_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "certificate_arn", value)
 
-    @property
-    @pulumi.getter(name="databaseName")
-    def database_name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "database_name")
-
-    @database_name.setter
-    def database_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "database_name", value)
-
-    @property
-    @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[int]]:
-        return pulumi.get(self, "port")
-
-    @port.setter
-    def port(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "port", value)
-
-    @property
-    @pulumi.getter(name="serverName")
-    def server_name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "server_name")
-
-    @server_name.setter
-    def server_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "server_name", value)
-
-    @property
-    @pulumi.getter(name="sslMode")
-    def ssl_mode(self) -> Optional[pulumi.Input['DataProviderDmsSslModeValue']]:
-        return pulumi.get(self, "ssl_mode")
-
-    @ssl_mode.setter
-    def ssl_mode(self, value: Optional[pulumi.Input['DataProviderDmsSslModeValue']]):
-        pulumi.set(self, "ssl_mode", value)
-
 
 @pulumi.input_type
-class Settings3PropertiesArgs:
+class SettingsPropertiesArgs:
     def __init__(__self__, *,
-                 microsoft_sql_server_settings: Optional[pulumi.Input['Settings3PropertiesMicrosoftSqlServerSettingsPropertiesArgs']] = None):
+                 microsoft_sql_server_settings: Optional[pulumi.Input['SettingsPropertiesMicrosoftSqlServerSettingsPropertiesArgs']] = None,
+                 my_sql_settings: Optional[pulumi.Input['SettingsPropertiesMySqlSettingsPropertiesArgs']] = None,
+                 oracle_settings: Optional[pulumi.Input['SettingsPropertiesOracleSettingsPropertiesArgs']] = None,
+                 postgre_sql_settings: Optional[pulumi.Input['SettingsPropertiesPostgreSqlSettingsPropertiesArgs']] = None):
         """
-        MicrosoftSqlServerSettings property identifier.
+        The property identifies the exact type of settings for the data provider.
+        :param pulumi.Input['SettingsPropertiesMicrosoftSqlServerSettingsPropertiesArgs'] microsoft_sql_server_settings: MicrosoftSqlServerSettings property identifier.
+        :param pulumi.Input['SettingsPropertiesMySqlSettingsPropertiesArgs'] my_sql_settings: MySqlSettings property identifier.
+        :param pulumi.Input['SettingsPropertiesOracleSettingsPropertiesArgs'] oracle_settings: OracleSettings property identifier.
+        :param pulumi.Input['SettingsPropertiesPostgreSqlSettingsPropertiesArgs'] postgre_sql_settings: PostgreSqlSettings property identifier.
         """
         if microsoft_sql_server_settings is not None:
             pulumi.set(__self__, "microsoft_sql_server_settings", microsoft_sql_server_settings)
+        if my_sql_settings is not None:
+            pulumi.set(__self__, "my_sql_settings", my_sql_settings)
+        if oracle_settings is not None:
+            pulumi.set(__self__, "oracle_settings", oracle_settings)
+        if postgre_sql_settings is not None:
+            pulumi.set(__self__, "postgre_sql_settings", postgre_sql_settings)
 
     @property
     @pulumi.getter(name="microsoftSqlServerSettings")
-    def microsoft_sql_server_settings(self) -> Optional[pulumi.Input['Settings3PropertiesMicrosoftSqlServerSettingsPropertiesArgs']]:
+    def microsoft_sql_server_settings(self) -> Optional[pulumi.Input['SettingsPropertiesMicrosoftSqlServerSettingsPropertiesArgs']]:
+        """
+        MicrosoftSqlServerSettings property identifier.
+        """
         return pulumi.get(self, "microsoft_sql_server_settings")
 
     @microsoft_sql_server_settings.setter
-    def microsoft_sql_server_settings(self, value: Optional[pulumi.Input['Settings3PropertiesMicrosoftSqlServerSettingsPropertiesArgs']]):
+    def microsoft_sql_server_settings(self, value: Optional[pulumi.Input['SettingsPropertiesMicrosoftSqlServerSettingsPropertiesArgs']]):
         pulumi.set(self, "microsoft_sql_server_settings", value)
+
+    @property
+    @pulumi.getter(name="mySqlSettings")
+    def my_sql_settings(self) -> Optional[pulumi.Input['SettingsPropertiesMySqlSettingsPropertiesArgs']]:
+        """
+        MySqlSettings property identifier.
+        """
+        return pulumi.get(self, "my_sql_settings")
+
+    @my_sql_settings.setter
+    def my_sql_settings(self, value: Optional[pulumi.Input['SettingsPropertiesMySqlSettingsPropertiesArgs']]):
+        pulumi.set(self, "my_sql_settings", value)
+
+    @property
+    @pulumi.getter(name="oracleSettings")
+    def oracle_settings(self) -> Optional[pulumi.Input['SettingsPropertiesOracleSettingsPropertiesArgs']]:
+        """
+        OracleSettings property identifier.
+        """
+        return pulumi.get(self, "oracle_settings")
+
+    @oracle_settings.setter
+    def oracle_settings(self, value: Optional[pulumi.Input['SettingsPropertiesOracleSettingsPropertiesArgs']]):
+        pulumi.set(self, "oracle_settings", value)
+
+    @property
+    @pulumi.getter(name="postgreSqlSettings")
+    def postgre_sql_settings(self) -> Optional[pulumi.Input['SettingsPropertiesPostgreSqlSettingsPropertiesArgs']]:
+        """
+        PostgreSqlSettings property identifier.
+        """
+        return pulumi.get(self, "postgre_sql_settings")
+
+    @postgre_sql_settings.setter
+    def postgre_sql_settings(self, value: Optional[pulumi.Input['SettingsPropertiesPostgreSqlSettingsPropertiesArgs']]):
+        pulumi.set(self, "postgre_sql_settings", value)
 
 

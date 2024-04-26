@@ -10,7 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Dms.Inputs
 {
 
-    public sealed class Settings2PropertiesOracleSettingsPropertiesArgs : global::Pulumi.ResourceArgs
+    /// <summary>
+    /// OracleSettings property identifier.
+    /// </summary>
+    public sealed class SettingsPropertiesOracleSettingsPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("asmServer")]
         public Input<string>? AsmServer { get; set; }
@@ -18,11 +21,11 @@ namespace Pulumi.AwsNative.Dms.Inputs
         [Input("certificateArn")]
         public Input<string>? CertificateArn { get; set; }
 
-        [Input("databaseName")]
-        public Input<string>? DatabaseName { get; set; }
+        [Input("databaseName", required: true)]
+        public Input<string> DatabaseName { get; set; } = null!;
 
-        [Input("port")]
-        public Input<int>? Port { get; set; }
+        [Input("port", required: true)]
+        public Input<int> Port { get; set; } = null!;
 
         [Input("secretsManagerOracleAsmAccessRoleArn")]
         public Input<string>? SecretsManagerOracleAsmAccessRoleArn { get; set; }
@@ -36,15 +39,15 @@ namespace Pulumi.AwsNative.Dms.Inputs
         [Input("secretsManagerSecurityDbEncryptionSecretId")]
         public Input<string>? SecretsManagerSecurityDbEncryptionSecretId { get; set; }
 
-        [Input("serverName")]
-        public Input<string>? ServerName { get; set; }
+        [Input("serverName", required: true)]
+        public Input<string> ServerName { get; set; } = null!;
 
-        [Input("sslMode")]
-        public Input<Pulumi.AwsNative.Dms.DataProviderDmsSslModeValue>? SslMode { get; set; }
+        [Input("sslMode", required: true)]
+        public Input<Pulumi.AwsNative.Dms.DataProviderDmsSslModeValue> SslMode { get; set; } = null!;
 
-        public Settings2PropertiesOracleSettingsPropertiesArgs()
+        public SettingsPropertiesOracleSettingsPropertiesArgs()
         {
         }
-        public static new Settings2PropertiesOracleSettingsPropertiesArgs Empty => new Settings2PropertiesOracleSettingsPropertiesArgs();
+        public static new SettingsPropertiesOracleSettingsPropertiesArgs Empty => new SettingsPropertiesOracleSettingsPropertiesArgs();
     }
 }

@@ -11,12 +11,18 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling.Outputs
 {
 
     /// <summary>
-    /// specifies the minimum and maximum capacity
+    /// ``ScalableTargetAction`` specifies the minimum and maximum capacity for the ``ScalableTargetAction`` property of the [AWS::ApplicationAutoScaling::ScalableTarget ScheduledAction](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html) property type.
     /// </summary>
     [OutputType]
     public sealed class ScalableTargetAction
     {
+        /// <summary>
+        /// The maximum capacity.
+        /// </summary>
         public readonly int? MaxCapacity;
+        /// <summary>
+        /// The minimum capacity.
+        /// </summary>
         public readonly int? MinCapacity;
 
         [OutputConstructor]

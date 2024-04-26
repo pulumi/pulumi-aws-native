@@ -2595,31 +2595,74 @@ export namespace appintegrations {
 
 export namespace applicationautoscaling {
     /**
-     * specifies the minimum and maximum capacity
+     * ``ScalableTargetAction`` specifies the minimum and maximum capacity for the ``ScalableTargetAction`` property of the [AWS::ApplicationAutoScaling::ScalableTarget ScheduledAction](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html) property type.
      */
     export interface ScalableTargetAction {
+        /**
+         * The maximum capacity.
+         */
         maxCapacity?: number;
+        /**
+         * The minimum capacity.
+         */
         minCapacity?: number;
     }
 
     /**
-     * specifies a scheduled action for a scalable target
+     * ``ScheduledAction`` is a property of the [AWS::ApplicationAutoScaling::ScalableTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html) resource that specifies a scheduled action for a scalable target. 
+     *  For more information, see [Scheduled scaling](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scheduled-scaling.html) in the *Application Auto Scaling User Guide*.
      */
     export interface ScalableTargetScheduledAction {
+        /**
+         * The date and time that the action is scheduled to end, in UTC.
+         */
         endTime?: string;
+        /**
+         * The new minimum and maximum capacity. You can set both values or just one. At the scheduled time, if the current capacity is below the minimum capacity, Application Auto Scaling scales out to the minimum capacity. If the current capacity is above the maximum capacity, Application Auto Scaling scales in to the maximum capacity.
+         */
         scalableTargetAction?: outputs.applicationautoscaling.ScalableTargetAction;
+        /**
+         * The schedule for this action. The following formats are supported:
+         *   +  At expressions - "``at(yyyy-mm-ddThh:mm:ss)``"
+         *   +  Rate expressions - "``rate(value unit)``"
+         *   +  Cron expressions - "``cron(fields)``"
+         *   
+         *  At expressions are useful for one-time schedules. Cron expressions are useful for scheduled actions that run periodically at a specified date and time, and rate expressions are useful for scheduled actions that run at a regular interval.
+         *  At and cron expressions use Universal Coordinated Time (UTC) by default.
+         *  The cron format consists of six fields separated by white spaces: [Minutes] [Hours] [Day_of_Month] [Month] [Day_of_Week] [Year].
+         *  For rate expressions, *value* is a positive integer and *unit* is ``minute`` | ``minutes`` | ``hour`` | ``hours`` | ``day`` | ``days``.
+         */
         schedule: string;
+        /**
+         * The name of the scheduled action. This name must be unique among all other scheduled actions on the specified scalable target.
+         */
         scheduledActionName: string;
+        /**
+         * The date and time that the action is scheduled to begin, in UTC.
+         */
         startTime?: string;
+        /**
+         * The time zone used when referring to the date and time of a scheduled action, when the scheduled action uses an at or cron expression.
+         */
         timezone?: string;
     }
 
     /**
-     * specifies whether the scaling activities for a scalable target are in a suspended state
+     * ``SuspendedState`` is a property of the [AWS::ApplicationAutoScaling::ScalableTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html) resource that specifies whether the scaling activities for a scalable target are in a suspended state.
+     *  For more information, see [Suspending and resuming scaling](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-suspend-resume-scaling.html) in the *Application Auto Scaling User Guide*.
      */
     export interface ScalableTargetSuspendedState {
+        /**
+         * Whether scale in by a target tracking scaling policy or a step scaling policy is suspended. Set the value to ``true`` if you don't want Application Auto Scaling to remove capacity when a scaling policy is triggered. The default is ``false``.
+         */
         dynamicScalingInSuspended?: boolean;
+        /**
+         * Whether scale out by a target tracking scaling policy or a step scaling policy is suspended. Set the value to ``true`` if you don't want Application Auto Scaling to add capacity when a scaling policy is triggered. The default is ``false``.
+         */
         dynamicScalingOutSuspended?: boolean;
+        /**
+         * Whether scheduled scaling is suspended. Set the value to ``true`` if you don't want Application Auto Scaling to add or remove capacity by initiating scheduled actions. The default is ``false``.
+         */
         scheduledScalingSuspended?: boolean;
     }
 
@@ -10522,7 +10565,11 @@ export namespace datasync {
         /**
          * A cron expression that specifies when AWS DataSync initiates a scheduled transfer from a source to a destination location
          */
-        scheduleExpression: string;
+        scheduleExpression?: string;
+        /**
+         * Specifies status of a schedule.
+         */
+        status?: enums.datasync.TaskScheduleStatus;
     }
 
 }
@@ -11033,67 +11080,73 @@ export namespace dms {
     }
 
     /**
-     * PostgreSqlSettings property identifier.
+     * The property identifies the exact type of settings for the data provider.
      */
-    export interface Settings0Properties {
-        postgreSqlSettings?: outputs.dms.Settings0PropertiesPostgreSqlSettingsProperties;
-    }
-
-    export interface Settings0PropertiesPostgreSqlSettingsProperties {
-        certificateArn?: string;
-        databaseName?: string;
-        port?: number;
-        serverName?: string;
-        sslMode?: enums.dms.DataProviderDmsSslModeValue;
-    }
-
-    /**
-     * MySqlSettings property identifier.
-     */
-    export interface Settings1Properties {
-        mySqlSettings?: outputs.dms.Settings1PropertiesMySqlSettingsProperties;
-    }
-
-    export interface Settings1PropertiesMySqlSettingsProperties {
-        certificateArn?: string;
-        port?: number;
-        serverName?: string;
-        sslMode?: enums.dms.DataProviderDmsSslModeValue;
-    }
-
-    /**
-     * OracleSettings property identifier.
-     */
-    export interface Settings2Properties {
-        oracleSettings?: outputs.dms.Settings2PropertiesOracleSettingsProperties;
-    }
-
-    export interface Settings2PropertiesOracleSettingsProperties {
-        asmServer?: string;
-        certificateArn?: string;
-        databaseName?: string;
-        port?: number;
-        secretsManagerOracleAsmAccessRoleArn?: string;
-        secretsManagerOracleAsmSecretId?: string;
-        secretsManagerSecurityDbEncryptionAccessRoleArn?: string;
-        secretsManagerSecurityDbEncryptionSecretId?: string;
-        serverName?: string;
-        sslMode?: enums.dms.DataProviderDmsSslModeValue;
+    export interface SettingsProperties {
+        /**
+         * MicrosoftSqlServerSettings property identifier.
+         */
+        microsoftSqlServerSettings?: outputs.dms.SettingsPropertiesMicrosoftSqlServerSettingsProperties;
+        /**
+         * MySqlSettings property identifier.
+         */
+        mySqlSettings?: outputs.dms.SettingsPropertiesMySqlSettingsProperties;
+        /**
+         * OracleSettings property identifier.
+         */
+        oracleSettings?: outputs.dms.SettingsPropertiesOracleSettingsProperties;
+        /**
+         * PostgreSqlSettings property identifier.
+         */
+        postgreSqlSettings?: outputs.dms.SettingsPropertiesPostgreSqlSettingsProperties;
     }
 
     /**
      * MicrosoftSqlServerSettings property identifier.
      */
-    export interface Settings3Properties {
-        microsoftSqlServerSettings?: outputs.dms.Settings3PropertiesMicrosoftSqlServerSettingsProperties;
+    export interface SettingsPropertiesMicrosoftSqlServerSettingsProperties {
+        certificateArn?: string;
+        databaseName: string;
+        port: number;
+        serverName: string;
+        sslMode: enums.dms.DataProviderDmsSslModeValue;
     }
 
-    export interface Settings3PropertiesMicrosoftSqlServerSettingsProperties {
+    /**
+     * MySqlSettings property identifier.
+     */
+    export interface SettingsPropertiesMySqlSettingsProperties {
         certificateArn?: string;
-        databaseName?: string;
-        port?: number;
-        serverName?: string;
-        sslMode?: enums.dms.DataProviderDmsSslModeValue;
+        port: number;
+        serverName: string;
+        sslMode: enums.dms.DataProviderDmsSslModeValue;
+    }
+
+    /**
+     * OracleSettings property identifier.
+     */
+    export interface SettingsPropertiesOracleSettingsProperties {
+        asmServer?: string;
+        certificateArn?: string;
+        databaseName: string;
+        port: number;
+        secretsManagerOracleAsmAccessRoleArn?: string;
+        secretsManagerOracleAsmSecretId?: string;
+        secretsManagerSecurityDbEncryptionAccessRoleArn?: string;
+        secretsManagerSecurityDbEncryptionSecretId?: string;
+        serverName: string;
+        sslMode: enums.dms.DataProviderDmsSslModeValue;
+    }
+
+    /**
+     * PostgreSqlSettings property identifier.
+     */
+    export interface SettingsPropertiesPostgreSqlSettingsProperties {
+        certificateArn?: string;
+        databaseName: string;
+        port: number;
+        serverName: string;
+        sslMode: enums.dms.DataProviderDmsSslModeValue;
     }
 
 }
@@ -18293,6 +18346,160 @@ export namespace gamelift {
     }
 
     /**
+     * Details about a container that is used in a container fleet
+     */
+    export interface ContainerGroupDefinitionContainerDefinition {
+        /**
+         * The command that's passed to the container.
+         */
+        command?: string[];
+        /**
+         * A descriptive label for the container definition. Container definition names must be unique with a container group definition.
+         */
+        containerName: string;
+        /**
+         * The maximum number of CPU units reserved for this container. The value is expressed as an integer amount of CPU units. 1 vCPU is equal to 1024 CPU units
+         */
+        cpu?: number;
+        /**
+         * A list of container dependencies that determines when this container starts up and shuts down. For container groups with multiple containers, dependencies let you define a startup/shutdown sequence across the containers.
+         */
+        dependsOn?: outputs.gamelift.ContainerGroupDefinitionContainerDependency[];
+        /**
+         * The entry point that's passed to the container so that it will run as an executable. If there are multiple arguments, each argument is a string in the array.
+         */
+        entryPoint?: string[];
+        /**
+         * The environment variables to pass to a container.
+         */
+        environment?: outputs.gamelift.ContainerGroupDefinitionContainerEnvironment[];
+        /**
+         * Specifies if the container is essential. If an essential container fails a health check, then all containers in the container group will be restarted. You must specify exactly 1 essential container in a container group.
+         */
+        essential?: boolean;
+        /**
+         * Specifies how the health of the containers will be checked.
+         */
+        healthCheck?: outputs.gamelift.ContainerGroupDefinitionContainerHealthCheck;
+        /**
+         * Specifies the image URI of this container.
+         */
+        imageUri: string;
+        /**
+         * Specifies how much memory is available to the container. You must specify at least this parameter or the TotalMemoryLimit parameter of the ContainerGroupDefinition.
+         */
+        memoryLimits?: outputs.gamelift.ContainerGroupDefinitionMemoryLimits;
+        /**
+         * Defines the ports on the container.
+         */
+        portConfiguration?: outputs.gamelift.ContainerGroupDefinitionPortConfiguration;
+        /**
+         * The digest of the container image.
+         */
+        resolvedImageDigest?: string;
+        /**
+         * The working directory to run commands inside the container in.
+         */
+        workingDirectory?: string;
+    }
+
+    /**
+     * A dependency that impacts a container's startup and shutdown.
+     */
+    export interface ContainerGroupDefinitionContainerDependency {
+        /**
+         * The type of dependency.
+         */
+        condition: enums.gamelift.ContainerGroupDefinitionContainerDependencyCondition;
+        /**
+         * A descriptive label for the container definition. The container being defined depends on this container's condition.
+         */
+        containerName: string;
+    }
+
+    /**
+     * An environment variable to set inside a container, in the form of a key-value pair.
+     */
+    export interface ContainerGroupDefinitionContainerEnvironment {
+        /**
+         * The environment variable name.
+         */
+        name: string;
+        /**
+         * The environment variable value.
+         */
+        value: string;
+    }
+
+    /**
+     * Specifies how the process manager checks the health of containers.
+     */
+    export interface ContainerGroupDefinitionContainerHealthCheck {
+        /**
+         * A string array representing the command that the container runs to determine if it is healthy.
+         */
+        command: string[];
+        /**
+         * How often (in seconds) the health is checked.
+         */
+        interval?: number;
+        /**
+         * How many times the process manager will retry the command after a timeout. (The first run of the command does not count as a retry.)
+         */
+        retries?: number;
+        /**
+         * The optional grace period (in seconds) to give a container time to boostrap before teh health check is declared failed.
+         */
+        startPeriod?: number;
+        /**
+         * How many seconds the process manager allows the command to run before canceling it.
+         */
+        timeout?: number;
+    }
+
+    /**
+     * A set of one or more port numbers that can be opened on the container.
+     */
+    export interface ContainerGroupDefinitionContainerPortRange {
+        /**
+         * A starting value for the range of allowed port numbers.
+         */
+        fromPort: number;
+        /**
+         * Defines the protocol of these ports.
+         */
+        protocol: enums.gamelift.ContainerGroupDefinitionContainerPortRangeProtocol;
+        /**
+         * An ending value for the range of allowed port numbers. Port numbers are end-inclusive. This value must be equal to or greater than FromPort.
+         */
+        toPort: number;
+    }
+
+    /**
+     * Specifies how much memory is available to the container.
+     */
+    export interface ContainerGroupDefinitionMemoryLimits {
+        /**
+         * The hard limit of memory to reserve for the container.
+         */
+        hardLimit?: number;
+        /**
+         * The amount of memory that is reserved for the container.
+         */
+        softLimit?: number;
+    }
+
+    /**
+     * Defines the ports on a container.
+     */
+    export interface ContainerGroupDefinitionPortConfiguration {
+        /**
+         * Specifies one or more ranges of ports on a container.
+         */
+        containerPortRanges: outputs.gamelift.ContainerGroupDefinitionContainerPortRange[];
+    }
+
+    /**
      * Configuration for Anywhere fleet.
      */
     export interface FleetAnywhereConfiguration {
@@ -18307,6 +18514,46 @@ export namespace gamelift {
      */
     export interface FleetCertificateConfiguration {
         certificateType: enums.gamelift.FleetCertificateConfigurationCertificateType;
+    }
+
+    /**
+     * Defines the range of ports on the instance that allow inbound traffic to connect with containers in a fleet.
+     */
+    export interface FleetConnectionPortRange {
+        /**
+         * A starting value for a range of allowed port numbers.
+         */
+        fromPort: number;
+        /**
+         * An ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than FromPort.
+         */
+        toPort: number;
+    }
+
+    /**
+     * Specifies container groups that this instance will hold. You must specify exactly one replica group. Optionally, you may specify exactly one daemon group. You can't change this property after you create the fleet.
+     */
+    export interface FleetContainerGroupsConfiguration {
+        connectionPortRange: outputs.gamelift.FleetConnectionPortRange;
+        /**
+         * The names of the container group definitions that will be created in an instance. You must specify exactly one REPLICA container group. You have the option to also specify one DAEMON container group.
+         */
+        containerGroupDefinitionNames: string[];
+        containerGroupsPerInstance?: outputs.gamelift.FleetContainerGroupsPerInstance;
+    }
+
+    /**
+     * The number of container groups per instance.
+     */
+    export interface FleetContainerGroupsPerInstance {
+        /**
+         * Use this parameter to override the number of replica container groups GameLift will launch per instance with a number that is lower than that calculated maximum.
+         */
+        desiredReplicaContainerGroupsPerInstance?: number;
+        /**
+         * GameLift calculates the maximum number of replica container groups it can launch per instance based on instance properties such as CPU, memory, and connection ports.
+         */
+        maxReplicaContainerGroupsPerInstance?: number;
     }
 
     /**
@@ -25058,17 +25305,17 @@ export namespace lambda {
     }
 
     /**
-     * Specific configuration settings for an MSK event source.
+     * Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.
      */
     export interface EventSourceMappingAmazonManagedKafkaEventSourceConfig {
         /**
-         * The identifier for the Kafka Consumer Group to join.
+         * The identifier for the Kafka consumer group to join. The consumer group ID must be unique among all your Kafka event sources. After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value. For more information, see [Customizable consumer group ID](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-consumer-group-id).
          */
         consumerGroupId?: string;
     }
 
     /**
-     * (Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.
+     * A configuration object that specifies the destination of an event after Lambda processes it.
      */
     export interface EventSourceMappingDestinationConfig {
         /**
@@ -25078,49 +25325,49 @@ export namespace lambda {
     }
 
     /**
-     * Document db event source config.
+     * Specific configuration settings for a DocumentDB event source.
      */
     export interface EventSourceMappingDocumentDbEventSourceConfig {
         /**
-         * The collection name to connect to.
+         * The name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.
          */
         collectionName?: string;
         /**
-         * The database name to connect to.
+         * The name of the database to consume within the DocumentDB cluster.
          */
         databaseName?: string;
         /**
-         * Include full document in change stream response. The default option will only send the changes made to documents to Lambda. If you want the complete document sent to Lambda, set this to UpdateLookup.
+         * Determines what DocumentDB sends to your event stream during document update operations. If set to UpdateLookup, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes.
          */
         fullDocument?: enums.lambda.EventSourceMappingDocumentDbEventSourceConfigFullDocument;
     }
 
     /**
-     * The endpoints used by AWS Lambda to access a self-managed event source.
+     * The list of bootstrap servers for your Kafka brokers in the following format: ``"KafkaBootstrapServers": ["abc.xyz.com:xxxx","abc2.xyz.com:xxxx"]``.
      */
     export interface EventSourceMappingEndpoints {
         /**
-         * A list of Kafka server endpoints.
+         * The list of bootstrap servers for your Kafka brokers in the following format: ``"KafkaBootstrapServers": ["abc.xyz.com:xxxx","abc2.xyz.com:xxxx"]``.
          */
         kafkaBootstrapServers?: string[];
     }
 
     /**
-     * The filter object that defines parameters for ESM filtering.
+     * A structure within a ``FilterCriteria`` object that defines an event filtering pattern.
      */
     export interface EventSourceMappingFilter {
         /**
-         * The filter pattern that defines which events should be passed for invocations.
+         * A filter pattern. For more information on the syntax of a filter pattern, see [Filter rule syntax](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-syntax).
          */
         pattern?: string;
     }
 
     /**
-     * The filter criteria to control event filtering.
+     * An object that contains the filters for an event source.
      */
     export interface EventSourceMappingFilterCriteria {
         /**
-         * List of filters of this FilterCriteria
+         * A list of filters.
          */
         filters?: outputs.lambda.EventSourceMappingFilter[];
     }
@@ -25131,50 +25378,62 @@ export namespace lambda {
     export interface EventSourceMappingOnFailure {
         /**
          * The Amazon Resource Name (ARN) of the destination resource.
+         *  To retain records of [asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations), you can configure an Amazon SNS topic, Amazon SQS queue, Lambda function, or Amazon EventBridge event bus as the destination.
+         *  To retain records of failed invocations from [Kinesis and DynamoDB event sources](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#event-source-mapping-destinations), you can configure an Amazon SNS topic or Amazon SQS queue as the destination.
+         *  To retain records of failed invocations from [self-managed Kafka](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-smaa-onfailure-destination) or [Amazon MSK](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-onfailure-destination), you can configure an Amazon SNS topic, Amazon SQS queue, or Amazon S3 bucket as the destination.
          */
         destination?: string;
     }
 
     /**
-     * The scaling configuration for the event source.
+     * (Amazon SQS only) The scaling configuration for the event source. To remove the configuration, pass an empty value.
      */
     export interface EventSourceMappingScalingConfig {
         /**
-         * The maximum number of concurrent functions that the event source can invoke.
+         * Limits the number of concurrent instances that the SQS event source can invoke.
          */
         maximumConcurrency?: number;
     }
 
     /**
-     * The configuration used by AWS Lambda to access a self-managed event source.
+     * The self-managed Apache Kafka cluster for your event source.
      */
     export interface EventSourceMappingSelfManagedEventSource {
         /**
-         * The endpoints for a self-managed event source.
+         * The list of bootstrap servers for your Kafka brokers in the following format: ``"KafkaBootstrapServers": ["abc.xyz.com:xxxx","abc2.xyz.com:xxxx"]``.
          */
         endpoints?: outputs.lambda.EventSourceMappingEndpoints;
     }
 
     /**
-     * Specific configuration settings for a Self-Managed Apache Kafka event source.
+     * Specific configuration settings for a self-managed Apache Kafka event source.
      */
     export interface EventSourceMappingSelfManagedKafkaEventSourceConfig {
         /**
-         * The identifier for the Kafka Consumer Group to join.
+         * The identifier for the Kafka consumer group to join. The consumer group ID must be unique among all your Kafka event sources. After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value. For more information, see [Customizable consumer group ID](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-consumer-group-id).
          */
         consumerGroupId?: string;
     }
 
     /**
-     * The configuration used by AWS Lambda to access event source
+     * An array of the authentication protocol, VPC components, or virtual host to secure and define your event source.
      */
     export interface EventSourceMappingSourceAccessConfiguration {
         /**
-         * The type of source access configuration.
+         * The type of authentication protocol, VPC components, or virtual host for your event source. For example: ``"Type":"SASL_SCRAM_512_AUTH"``.
+         *   +   ``BASIC_AUTH`` – (Amazon MQ) The ASMlong secret that stores your broker credentials.
+         *   +   ``BASIC_AUTH`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL/PLAIN authentication of your Apache Kafka brokers.
+         *   +   ``VPC_SUBNET`` – (Self-managed Apache Kafka) The subnets associated with your VPC. Lambda connects to these subnets to fetch data from your self-managed Apache Kafka cluster.
+         *   +   ``VPC_SECURITY_GROUP`` – (Self-managed Apache Kafka) The VPC security group used to manage access to your self-managed Apache Kafka brokers.
+         *   +   ``SASL_SCRAM_256_AUTH`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL SCRAM-256 authentication of your self-managed Apache Kafka brokers.
+         *   +   ``SASL_SCRAM_512_AUTH`` – (Amazon MSK, Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL SCRAM-512 authentication of your self-managed Apache Kafka brokers.
+         *   +   ``VIRTUAL_HOST`` –- (RabbitMQ) The name of the virtual host in your RabbitMQ broker. Lambda uses this RabbitMQ host as the event source. This property cannot be specified in an UpdateEventSourceMapping API call.
+         *   +   ``CLIENT_CERTIFICATE_TLS_AUTH`` – (Amazon MSK, self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the certificate chain (X.509 PEM), private key (PKCS#8 PEM), and private key password (optional) used for mutual TLS authentication of your MSK/Apache Kafka brokers.
+         *   +   ``SERVER_ROOT_CA_CERTIFICATE`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the root CA certificate (X.509 PEM) used for TLS encryption of your Apache Kafka brokers.
          */
         type?: enums.lambda.EventSourceMappingSourceAccessConfigurationType;
         /**
-         * The URI for the source access configuration resource.
+         * The value for your chosen configuration in ``Type``. For example: ``"URI": "arn:aws:secretsmanager:us-east-1:01234567890:secret:MyBrokerSecretName"``.
          */
         uri?: string;
     }

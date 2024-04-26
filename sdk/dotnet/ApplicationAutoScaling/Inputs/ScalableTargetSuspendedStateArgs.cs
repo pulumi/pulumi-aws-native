@@ -11,16 +11,26 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling.Inputs
 {
 
     /// <summary>
-    /// specifies whether the scaling activities for a scalable target are in a suspended state
+    /// ``SuspendedState`` is a property of the [AWS::ApplicationAutoScaling::ScalableTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html) resource that specifies whether the scaling activities for a scalable target are in a suspended state.
+    ///  For more information, see [Suspending and resuming scaling](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-suspend-resume-scaling.html) in the *Application Auto Scaling User Guide*.
     /// </summary>
     public sealed class ScalableTargetSuspendedStateArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether scale in by a target tracking scaling policy or a step scaling policy is suspended. Set the value to ``true`` if you don't want Application Auto Scaling to remove capacity when a scaling policy is triggered. The default is ``false``.
+        /// </summary>
         [Input("dynamicScalingInSuspended")]
         public Input<bool>? DynamicScalingInSuspended { get; set; }
 
+        /// <summary>
+        /// Whether scale out by a target tracking scaling policy or a step scaling policy is suspended. Set the value to ``true`` if you don't want Application Auto Scaling to add capacity when a scaling policy is triggered. The default is ``false``.
+        /// </summary>
         [Input("dynamicScalingOutSuspended")]
         public Input<bool>? DynamicScalingOutSuspended { get; set; }
 
+        /// <summary>
+        /// Whether scheduled scaling is suspended. Set the value to ``true`` if you don't want Application Auto Scaling to add or remove capacity by initiating scheduled actions. The default is ``false``.
+        /// </summary>
         [Input("scheduledScalingSuspended")]
         public Input<bool>? ScheduledScalingSuspended { get; set; }
 

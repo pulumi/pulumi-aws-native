@@ -13,9 +13,11 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
-// specifies the minimum and maximum capacity
+// “ScalableTargetAction“ specifies the minimum and maximum capacity for the “ScalableTargetAction“ property of the [AWS::ApplicationAutoScaling::ScalableTarget ScheduledAction](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html) property type.
 type ScalableTargetAction struct {
+	// The maximum capacity.
 	MaxCapacity *int `pulumi:"maxCapacity"`
+	// The minimum capacity.
 	MinCapacity *int `pulumi:"minCapacity"`
 }
 
@@ -30,9 +32,11 @@ type ScalableTargetActionInput interface {
 	ToScalableTargetActionOutputWithContext(context.Context) ScalableTargetActionOutput
 }
 
-// specifies the minimum and maximum capacity
+// “ScalableTargetAction“ specifies the minimum and maximum capacity for the “ScalableTargetAction“ property of the [AWS::ApplicationAutoScaling::ScalableTarget ScheduledAction](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html) property type.
 type ScalableTargetActionArgs struct {
+	// The maximum capacity.
 	MaxCapacity pulumi.IntPtrInput `pulumi:"maxCapacity"`
+	// The minimum capacity.
 	MinCapacity pulumi.IntPtrInput `pulumi:"minCapacity"`
 }
 
@@ -89,7 +93,7 @@ func (i *scalableTargetActionPtrType) ToScalableTargetActionPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ScalableTargetActionPtrOutput)
 }
 
-// specifies the minimum and maximum capacity
+// “ScalableTargetAction“ specifies the minimum and maximum capacity for the “ScalableTargetAction“ property of the [AWS::ApplicationAutoScaling::ScalableTarget ScheduledAction](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html) property type.
 type ScalableTargetActionOutput struct{ *pulumi.OutputState }
 
 func (ScalableTargetActionOutput) ElementType() reflect.Type {
@@ -114,10 +118,12 @@ func (o ScalableTargetActionOutput) ToScalableTargetActionPtrOutputWithContext(c
 	}).(ScalableTargetActionPtrOutput)
 }
 
+// The maximum capacity.
 func (o ScalableTargetActionOutput) MaxCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScalableTargetAction) *int { return v.MaxCapacity }).(pulumi.IntPtrOutput)
 }
 
+// The minimum capacity.
 func (o ScalableTargetActionOutput) MinCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScalableTargetAction) *int { return v.MinCapacity }).(pulumi.IntPtrOutput)
 }
@@ -146,6 +152,7 @@ func (o ScalableTargetActionPtrOutput) Elem() ScalableTargetActionOutput {
 	}).(ScalableTargetActionOutput)
 }
 
+// The maximum capacity.
 func (o ScalableTargetActionPtrOutput) MaxCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ScalableTargetAction) *int {
 		if v == nil {
@@ -155,6 +162,7 @@ func (o ScalableTargetActionPtrOutput) MaxCapacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The minimum capacity.
 func (o ScalableTargetActionPtrOutput) MinCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ScalableTargetAction) *int {
 		if v == nil {
@@ -164,14 +172,30 @@ func (o ScalableTargetActionPtrOutput) MinCapacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// specifies a scheduled action for a scalable target
+// “ScheduledAction“ is a property of the [AWS::ApplicationAutoScaling::ScalableTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html) resource that specifies a scheduled action for a scalable target.
+//
+//	For more information, see [Scheduled scaling](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scheduled-scaling.html) in the *Application Auto Scaling User Guide*.
 type ScalableTargetScheduledAction struct {
-	EndTime              *string               `pulumi:"endTime"`
+	// The date and time that the action is scheduled to end, in UTC.
+	EndTime *string `pulumi:"endTime"`
+	// The new minimum and maximum capacity. You can set both values or just one. At the scheduled time, if the current capacity is below the minimum capacity, Application Auto Scaling scales out to the minimum capacity. If the current capacity is above the maximum capacity, Application Auto Scaling scales in to the maximum capacity.
 	ScalableTargetAction *ScalableTargetAction `pulumi:"scalableTargetAction"`
-	Schedule             string                `pulumi:"schedule"`
-	ScheduledActionName  string                `pulumi:"scheduledActionName"`
-	StartTime            *string               `pulumi:"startTime"`
-	Timezone             *string               `pulumi:"timezone"`
+	// The schedule for this action. The following formats are supported:
+	//   +  At expressions - "``at(yyyy-mm-ddThh:mm:ss)``"
+	//   +  Rate expressions - "``rate(value unit)``"
+	//   +  Cron expressions - "``cron(fields)``"
+	//
+	//  At expressions are useful for one-time schedules. Cron expressions are useful for scheduled actions that run periodically at a specified date and time, and rate expressions are useful for scheduled actions that run at a regular interval.
+	//  At and cron expressions use Universal Coordinated Time (UTC) by default.
+	//  The cron format consists of six fields separated by white spaces: [Minutes] [Hours] [Day_of_Month] [Month] [Day_of_Week] [Year].
+	//  For rate expressions, *value* is a positive integer and *unit* is ``minute`` | ``minutes`` | ``hour`` | ``hours`` | ``day`` | ``days``.
+	Schedule string `pulumi:"schedule"`
+	// The name of the scheduled action. This name must be unique among all other scheduled actions on the specified scalable target.
+	ScheduledActionName string `pulumi:"scheduledActionName"`
+	// The date and time that the action is scheduled to begin, in UTC.
+	StartTime *string `pulumi:"startTime"`
+	// The time zone used when referring to the date and time of a scheduled action, when the scheduled action uses an at or cron expression.
+	Timezone *string `pulumi:"timezone"`
 }
 
 // ScalableTargetScheduledActionInput is an input type that accepts ScalableTargetScheduledActionArgs and ScalableTargetScheduledActionOutput values.
@@ -185,14 +209,30 @@ type ScalableTargetScheduledActionInput interface {
 	ToScalableTargetScheduledActionOutputWithContext(context.Context) ScalableTargetScheduledActionOutput
 }
 
-// specifies a scheduled action for a scalable target
+// “ScheduledAction“ is a property of the [AWS::ApplicationAutoScaling::ScalableTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html) resource that specifies a scheduled action for a scalable target.
+//
+//	For more information, see [Scheduled scaling](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scheduled-scaling.html) in the *Application Auto Scaling User Guide*.
 type ScalableTargetScheduledActionArgs struct {
-	EndTime              pulumi.StringPtrInput        `pulumi:"endTime"`
+	// The date and time that the action is scheduled to end, in UTC.
+	EndTime pulumi.StringPtrInput `pulumi:"endTime"`
+	// The new minimum and maximum capacity. You can set both values or just one. At the scheduled time, if the current capacity is below the minimum capacity, Application Auto Scaling scales out to the minimum capacity. If the current capacity is above the maximum capacity, Application Auto Scaling scales in to the maximum capacity.
 	ScalableTargetAction ScalableTargetActionPtrInput `pulumi:"scalableTargetAction"`
-	Schedule             pulumi.StringInput           `pulumi:"schedule"`
-	ScheduledActionName  pulumi.StringInput           `pulumi:"scheduledActionName"`
-	StartTime            pulumi.StringPtrInput        `pulumi:"startTime"`
-	Timezone             pulumi.StringPtrInput        `pulumi:"timezone"`
+	// The schedule for this action. The following formats are supported:
+	//   +  At expressions - "``at(yyyy-mm-ddThh:mm:ss)``"
+	//   +  Rate expressions - "``rate(value unit)``"
+	//   +  Cron expressions - "``cron(fields)``"
+	//
+	//  At expressions are useful for one-time schedules. Cron expressions are useful for scheduled actions that run periodically at a specified date and time, and rate expressions are useful for scheduled actions that run at a regular interval.
+	//  At and cron expressions use Universal Coordinated Time (UTC) by default.
+	//  The cron format consists of six fields separated by white spaces: [Minutes] [Hours] [Day_of_Month] [Month] [Day_of_Week] [Year].
+	//  For rate expressions, *value* is a positive integer and *unit* is ``minute`` | ``minutes`` | ``hour`` | ``hours`` | ``day`` | ``days``.
+	Schedule pulumi.StringInput `pulumi:"schedule"`
+	// The name of the scheduled action. This name must be unique among all other scheduled actions on the specified scalable target.
+	ScheduledActionName pulumi.StringInput `pulumi:"scheduledActionName"`
+	// The date and time that the action is scheduled to begin, in UTC.
+	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
+	// The time zone used when referring to the date and time of a scheduled action, when the scheduled action uses an at or cron expression.
+	Timezone pulumi.StringPtrInput `pulumi:"timezone"`
 }
 
 func (ScalableTargetScheduledActionArgs) ElementType() reflect.Type {
@@ -232,7 +272,9 @@ func (i ScalableTargetScheduledActionArray) ToScalableTargetScheduledActionArray
 	return pulumi.ToOutputWithContext(ctx, i).(ScalableTargetScheduledActionArrayOutput)
 }
 
-// specifies a scheduled action for a scalable target
+// “ScheduledAction“ is a property of the [AWS::ApplicationAutoScaling::ScalableTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html) resource that specifies a scheduled action for a scalable target.
+//
+//	For more information, see [Scheduled scaling](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scheduled-scaling.html) in the *Application Auto Scaling User Guide*.
 type ScalableTargetScheduledActionOutput struct{ *pulumi.OutputState }
 
 func (ScalableTargetScheduledActionOutput) ElementType() reflect.Type {
@@ -247,26 +289,43 @@ func (o ScalableTargetScheduledActionOutput) ToScalableTargetScheduledActionOutp
 	return o
 }
 
+// The date and time that the action is scheduled to end, in UTC.
 func (o ScalableTargetScheduledActionOutput) EndTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalableTargetScheduledAction) *string { return v.EndTime }).(pulumi.StringPtrOutput)
 }
 
+// The new minimum and maximum capacity. You can set both values or just one. At the scheduled time, if the current capacity is below the minimum capacity, Application Auto Scaling scales out to the minimum capacity. If the current capacity is above the maximum capacity, Application Auto Scaling scales in to the maximum capacity.
 func (o ScalableTargetScheduledActionOutput) ScalableTargetAction() ScalableTargetActionPtrOutput {
 	return o.ApplyT(func(v ScalableTargetScheduledAction) *ScalableTargetAction { return v.ScalableTargetAction }).(ScalableTargetActionPtrOutput)
 }
 
+// The schedule for this action. The following formats are supported:
+//
+//   - At expressions - "“at(yyyy-mm-ddThh:mm:ss)“"
+//
+//   - Rate expressions - "“rate(value unit)“"
+//
+//   - Cron expressions - "“cron(fields)“"
+//
+//     At expressions are useful for one-time schedules. Cron expressions are useful for scheduled actions that run periodically at a specified date and time, and rate expressions are useful for scheduled actions that run at a regular interval.
+//     At and cron expressions use Universal Coordinated Time (UTC) by default.
+//     The cron format consists of six fields separated by white spaces: [Minutes] [Hours] [Day_of_Month] [Month] [Day_of_Week] [Year].
+//     For rate expressions, *value* is a positive integer and *unit* is “minute“ | “minutes“ | “hour“ | “hours“ | “day“ | “days“.
 func (o ScalableTargetScheduledActionOutput) Schedule() pulumi.StringOutput {
 	return o.ApplyT(func(v ScalableTargetScheduledAction) string { return v.Schedule }).(pulumi.StringOutput)
 }
 
+// The name of the scheduled action. This name must be unique among all other scheduled actions on the specified scalable target.
 func (o ScalableTargetScheduledActionOutput) ScheduledActionName() pulumi.StringOutput {
 	return o.ApplyT(func(v ScalableTargetScheduledAction) string { return v.ScheduledActionName }).(pulumi.StringOutput)
 }
 
+// The date and time that the action is scheduled to begin, in UTC.
 func (o ScalableTargetScheduledActionOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalableTargetScheduledAction) *string { return v.StartTime }).(pulumi.StringPtrOutput)
 }
 
+// The time zone used when referring to the date and time of a scheduled action, when the scheduled action uses an at or cron expression.
 func (o ScalableTargetScheduledActionOutput) Timezone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalableTargetScheduledAction) *string { return v.Timezone }).(pulumi.StringPtrOutput)
 }
@@ -291,11 +350,16 @@ func (o ScalableTargetScheduledActionArrayOutput) Index(i pulumi.IntInput) Scala
 	}).(ScalableTargetScheduledActionOutput)
 }
 
-// specifies whether the scaling activities for a scalable target are in a suspended state
+// “SuspendedState“ is a property of the [AWS::ApplicationAutoScaling::ScalableTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html) resource that specifies whether the scaling activities for a scalable target are in a suspended state.
+//
+//	For more information, see [Suspending and resuming scaling](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-suspend-resume-scaling.html) in the *Application Auto Scaling User Guide*.
 type ScalableTargetSuspendedState struct {
-	DynamicScalingInSuspended  *bool `pulumi:"dynamicScalingInSuspended"`
+	// Whether scale in by a target tracking scaling policy or a step scaling policy is suspended. Set the value to ``true`` if you don't want Application Auto Scaling to remove capacity when a scaling policy is triggered. The default is ``false``.
+	DynamicScalingInSuspended *bool `pulumi:"dynamicScalingInSuspended"`
+	// Whether scale out by a target tracking scaling policy or a step scaling policy is suspended. Set the value to ``true`` if you don't want Application Auto Scaling to add capacity when a scaling policy is triggered. The default is ``false``.
 	DynamicScalingOutSuspended *bool `pulumi:"dynamicScalingOutSuspended"`
-	ScheduledScalingSuspended  *bool `pulumi:"scheduledScalingSuspended"`
+	// Whether scheduled scaling is suspended. Set the value to ``true`` if you don't want Application Auto Scaling to add or remove capacity by initiating scheduled actions. The default is ``false``.
+	ScheduledScalingSuspended *bool `pulumi:"scheduledScalingSuspended"`
 }
 
 // ScalableTargetSuspendedStateInput is an input type that accepts ScalableTargetSuspendedStateArgs and ScalableTargetSuspendedStateOutput values.
@@ -309,11 +373,16 @@ type ScalableTargetSuspendedStateInput interface {
 	ToScalableTargetSuspendedStateOutputWithContext(context.Context) ScalableTargetSuspendedStateOutput
 }
 
-// specifies whether the scaling activities for a scalable target are in a suspended state
+// “SuspendedState“ is a property of the [AWS::ApplicationAutoScaling::ScalableTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html) resource that specifies whether the scaling activities for a scalable target are in a suspended state.
+//
+//	For more information, see [Suspending and resuming scaling](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-suspend-resume-scaling.html) in the *Application Auto Scaling User Guide*.
 type ScalableTargetSuspendedStateArgs struct {
-	DynamicScalingInSuspended  pulumi.BoolPtrInput `pulumi:"dynamicScalingInSuspended"`
+	// Whether scale in by a target tracking scaling policy or a step scaling policy is suspended. Set the value to ``true`` if you don't want Application Auto Scaling to remove capacity when a scaling policy is triggered. The default is ``false``.
+	DynamicScalingInSuspended pulumi.BoolPtrInput `pulumi:"dynamicScalingInSuspended"`
+	// Whether scale out by a target tracking scaling policy or a step scaling policy is suspended. Set the value to ``true`` if you don't want Application Auto Scaling to add capacity when a scaling policy is triggered. The default is ``false``.
 	DynamicScalingOutSuspended pulumi.BoolPtrInput `pulumi:"dynamicScalingOutSuspended"`
-	ScheduledScalingSuspended  pulumi.BoolPtrInput `pulumi:"scheduledScalingSuspended"`
+	// Whether scheduled scaling is suspended. Set the value to ``true`` if you don't want Application Auto Scaling to add or remove capacity by initiating scheduled actions. The default is ``false``.
+	ScheduledScalingSuspended pulumi.BoolPtrInput `pulumi:"scheduledScalingSuspended"`
 }
 
 func (ScalableTargetSuspendedStateArgs) ElementType() reflect.Type {
@@ -369,7 +438,9 @@ func (i *scalableTargetSuspendedStatePtrType) ToScalableTargetSuspendedStatePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ScalableTargetSuspendedStatePtrOutput)
 }
 
-// specifies whether the scaling activities for a scalable target are in a suspended state
+// “SuspendedState“ is a property of the [AWS::ApplicationAutoScaling::ScalableTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html) resource that specifies whether the scaling activities for a scalable target are in a suspended state.
+//
+//	For more information, see [Suspending and resuming scaling](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-suspend-resume-scaling.html) in the *Application Auto Scaling User Guide*.
 type ScalableTargetSuspendedStateOutput struct{ *pulumi.OutputState }
 
 func (ScalableTargetSuspendedStateOutput) ElementType() reflect.Type {
@@ -394,14 +465,17 @@ func (o ScalableTargetSuspendedStateOutput) ToScalableTargetSuspendedStatePtrOut
 	}).(ScalableTargetSuspendedStatePtrOutput)
 }
 
+// Whether scale in by a target tracking scaling policy or a step scaling policy is suspended. Set the value to “true“ if you don't want Application Auto Scaling to remove capacity when a scaling policy is triggered. The default is “false“.
 func (o ScalableTargetSuspendedStateOutput) DynamicScalingInSuspended() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ScalableTargetSuspendedState) *bool { return v.DynamicScalingInSuspended }).(pulumi.BoolPtrOutput)
 }
 
+// Whether scale out by a target tracking scaling policy or a step scaling policy is suspended. Set the value to “true“ if you don't want Application Auto Scaling to add capacity when a scaling policy is triggered. The default is “false“.
 func (o ScalableTargetSuspendedStateOutput) DynamicScalingOutSuspended() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ScalableTargetSuspendedState) *bool { return v.DynamicScalingOutSuspended }).(pulumi.BoolPtrOutput)
 }
 
+// Whether scheduled scaling is suspended. Set the value to “true“ if you don't want Application Auto Scaling to add or remove capacity by initiating scheduled actions. The default is “false“.
 func (o ScalableTargetSuspendedStateOutput) ScheduledScalingSuspended() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ScalableTargetSuspendedState) *bool { return v.ScheduledScalingSuspended }).(pulumi.BoolPtrOutput)
 }
@@ -430,6 +504,7 @@ func (o ScalableTargetSuspendedStatePtrOutput) Elem() ScalableTargetSuspendedSta
 	}).(ScalableTargetSuspendedStateOutput)
 }
 
+// Whether scale in by a target tracking scaling policy or a step scaling policy is suspended. Set the value to “true“ if you don't want Application Auto Scaling to remove capacity when a scaling policy is triggered. The default is “false“.
 func (o ScalableTargetSuspendedStatePtrOutput) DynamicScalingInSuspended() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ScalableTargetSuspendedState) *bool {
 		if v == nil {
@@ -439,6 +514,7 @@ func (o ScalableTargetSuspendedStatePtrOutput) DynamicScalingInSuspended() pulum
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Whether scale out by a target tracking scaling policy or a step scaling policy is suspended. Set the value to “true“ if you don't want Application Auto Scaling to add capacity when a scaling policy is triggered. The default is “false“.
 func (o ScalableTargetSuspendedStatePtrOutput) DynamicScalingOutSuspended() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ScalableTargetSuspendedState) *bool {
 		if v == nil {
@@ -448,6 +524,7 @@ func (o ScalableTargetSuspendedStatePtrOutput) DynamicScalingOutSuspended() pulu
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Whether scheduled scaling is suspended. Set the value to “true“ if you don't want Application Auto Scaling to add or remove capacity by initiating scheduled actions. The default is “false“.
 func (o ScalableTargetSuspendedStatePtrOutput) ScheduledScalingSuspended() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ScalableTargetSuspendedState) *bool {
 		if v == nil {

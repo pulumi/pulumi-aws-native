@@ -5,8 +5,8 @@
 export const DataProviderDmsSslModeValue = {
     None: "none",
     Require: "require",
-    VerifyCa: "verify_ca",
-    VerifyFull: "verify_full",
+    VerifyCa: "verify-ca",
+    VerifyFull: "verify-full",
 } as const;
 
 export type DataProviderDmsSslModeValue = (typeof DataProviderDmsSslModeValue)[keyof typeof DataProviderDmsSslModeValue];

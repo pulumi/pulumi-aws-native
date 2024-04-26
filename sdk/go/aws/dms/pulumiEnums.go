@@ -15,8 +15,8 @@ type DataProviderDmsSslModeValue string
 const (
 	DataProviderDmsSslModeValueNone       = DataProviderDmsSslModeValue("none")
 	DataProviderDmsSslModeValueRequire    = DataProviderDmsSslModeValue("require")
-	DataProviderDmsSslModeValueVerifyCa   = DataProviderDmsSslModeValue("verify_ca")
-	DataProviderDmsSslModeValueVerifyFull = DataProviderDmsSslModeValue("verify_full")
+	DataProviderDmsSslModeValueVerifyCa   = DataProviderDmsSslModeValue("verify-ca")
+	DataProviderDmsSslModeValueVerifyFull = DataProviderDmsSslModeValue("verify-full")
 )
 
 func (DataProviderDmsSslModeValue) ElementType() reflect.Type {

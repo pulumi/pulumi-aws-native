@@ -10,23 +10,26 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Dms.Outputs
 {
 
+    /// <summary>
+    /// MySqlSettings property identifier.
+    /// </summary>
     [OutputType]
-    public sealed class Settings1PropertiesMySqlSettingsProperties
+    public sealed class SettingsPropertiesMySqlSettingsProperties
     {
         public readonly string? CertificateArn;
-        public readonly int? Port;
-        public readonly string? ServerName;
-        public readonly Pulumi.AwsNative.Dms.DataProviderDmsSslModeValue? SslMode;
+        public readonly int Port;
+        public readonly string ServerName;
+        public readonly Pulumi.AwsNative.Dms.DataProviderDmsSslModeValue SslMode;
 
         [OutputConstructor]
-        private Settings1PropertiesMySqlSettingsProperties(
+        private SettingsPropertiesMySqlSettingsProperties(
             string? certificateArn,
 
-            int? port,
+            int port,
 
-            string? serverName,
+            string serverName,
 
-            Pulumi.AwsNative.Dms.DataProviderDmsSslModeValue? sslMode)
+            Pulumi.AwsNative.Dms.DataProviderDmsSslModeValue sslMode)
         {
             CertificateArn = certificateArn;
             Port = port;

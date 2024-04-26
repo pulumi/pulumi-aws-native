@@ -1696,6 +1696,7 @@ _utilities.register(
   "classes": {
    "aws-native:gamelift:Alias": "Alias",
    "aws-native:gamelift:Build": "Build",
+   "aws-native:gamelift:ContainerGroupDefinition": "ContainerGroupDefinition",
    "aws-native:gamelift:Fleet": "Fleet",
    "aws-native:gamelift:GameServerGroup": "GameServerGroup",
    "aws-native:gamelift:GameSessionQueue": "GameSessionQueue",

@@ -1532,19 +1532,32 @@ class TaskSchedule(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 schedule_expression: str):
+                 schedule_expression: Optional[str] = None,
+                 status: Optional['TaskScheduleStatus'] = None):
         """
         Specifies the schedule you want your task to use for repeated executions.
         :param str schedule_expression: A cron expression that specifies when AWS DataSync initiates a scheduled transfer from a source to a destination location
+        :param 'TaskScheduleStatus' status: Specifies status of a schedule.
         """
-        pulumi.set(__self__, "schedule_expression", schedule_expression)
+        if schedule_expression is not None:
+            pulumi.set(__self__, "schedule_expression", schedule_expression)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter(name="scheduleExpression")
-    def schedule_expression(self) -> str:
+    def schedule_expression(self) -> Optional[str]:
         """
         A cron expression that specifies when AWS DataSync initiates a scheduled transfer from a source to a destination location
         """
         return pulumi.get(self, "schedule_expression")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional['TaskScheduleStatus']:
+        """
+        Specifies status of a schedule.
+        """
+        return pulumi.get(self, "status")
 
 

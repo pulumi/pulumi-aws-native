@@ -19,12 +19,20 @@ namespace Pulumi.AwsNative.DataSync.Outputs
         /// <summary>
         /// A cron expression that specifies when AWS DataSync initiates a scheduled transfer from a source to a destination location
         /// </summary>
-        public readonly string ScheduleExpression;
+        public readonly string? ScheduleExpression;
+        /// <summary>
+        /// Specifies status of a schedule.
+        /// </summary>
+        public readonly Pulumi.AwsNative.DataSync.TaskScheduleStatus? Status;
 
         [OutputConstructor]
-        private TaskSchedule(string scheduleExpression)
+        private TaskSchedule(
+            string? scheduleExpression,
+
+            Pulumi.AwsNative.DataSync.TaskScheduleStatus? status)
         {
             ScheduleExpression = scheduleExpression;
+            Status = status;
         }
     }
 }

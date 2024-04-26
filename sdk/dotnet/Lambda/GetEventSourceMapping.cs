@@ -12,13 +12,29 @@ namespace Pulumi.AwsNative.Lambda
     public static class GetEventSourceMapping
     {
         /// <summary>
-        /// Resource Type definition for AWS::Lambda::EventSourceMapping
+        /// The ``AWS::Lambda::EventSourceMapping`` resource creates a mapping between an event source and an LAMlong function. LAM reads items from the event source and triggers the function.
+        ///  For details about each event source type, see the following topics. In particular, each of the topics describes the required and optional parameters for the specific event source. 
+        ///   +  [Configuring a Dynamo DB stream as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-dynamodb-eventsourcemapping)
+        ///   +  [Configuring a Kinesis stream as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-eventsourcemapping)
+        ///   +  [Configuring an SQS queue as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-eventsource)
+        ///   +  [Configuring an MQ broker as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-eventsourcemapping)
+        ///   +  [Configuring MSK as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html)
+        ///   +  [Configuring Self-Managed Apache Kafka as an event source](https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html)
+        ///   +  [Configuring Amazon DocumentDB as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html)
         /// </summary>
         public static Task<GetEventSourceMappingResult> InvokeAsync(GetEventSourceMappingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEventSourceMappingResult>("aws-native:lambda:getEventSourceMapping", args ?? new GetEventSourceMappingArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::Lambda::EventSourceMapping
+        /// The ``AWS::Lambda::EventSourceMapping`` resource creates a mapping between an event source and an LAMlong function. LAM reads items from the event source and triggers the function.
+        ///  For details about each event source type, see the following topics. In particular, each of the topics describes the required and optional parameters for the specific event source. 
+        ///   +  [Configuring a Dynamo DB stream as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-dynamodb-eventsourcemapping)
+        ///   +  [Configuring a Kinesis stream as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-eventsourcemapping)
+        ///   +  [Configuring an SQS queue as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-eventsource)
+        ///   +  [Configuring an MQ broker as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-eventsourcemapping)
+        ///   +  [Configuring MSK as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html)
+        ///   +  [Configuring Self-Managed Apache Kafka as an event source](https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html)
+        ///   +  [Configuring Amazon DocumentDB as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html)
         /// </summary>
         public static Output<GetEventSourceMappingResult> Invoke(GetEventSourceMappingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEventSourceMappingResult>("aws-native:lambda:getEventSourceMapping", args ?? new GetEventSourceMappingInvokeArgs(), options.WithDefaults());
@@ -27,9 +43,6 @@ namespace Pulumi.AwsNative.Lambda
 
     public sealed class GetEventSourceMappingArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Event Source Mapping Identifier UUID.
-        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -41,9 +54,6 @@ namespace Pulumi.AwsNative.Lambda
 
     public sealed class GetEventSourceMappingInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Event Source Mapping Identifier UUID.
-        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -58,75 +68,92 @@ namespace Pulumi.AwsNative.Lambda
     public sealed class GetEventSourceMappingResult
     {
         /// <summary>
-        /// The maximum number of items to retrieve in a single batch.
+        /// The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).
+        ///   +   *Amazon Kinesis* – Default 100. Max 10,000.
+        ///   +   *Amazon DynamoDB Streams* – Default 100. Max 10,000.
+        ///   +   *Amazon Simple Queue Service* – Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.
+        ///   +   *Amazon Managed Streaming for Apache Kafka* – Default 100. Max 10,000.
+        ///   +   *Self-managed Apache Kafka* – Default 100. Max 10,000.
+        ///   +   *Amazon MQ (ActiveMQ and RabbitMQ)* – Default 100. Max 10,000.
+        ///   +   *DocumentDB* – Default 100. Max 10,000.
         /// </summary>
         public readonly int? BatchSize;
         /// <summary>
-        /// (Streams) If the function returns an error, split the batch in two and retry.
+        /// (Kinesis and DynamoDB Streams only) If the function returns an error, split the batch in two and retry. The default value is false.
         /// </summary>
         public readonly bool? BisectBatchOnFunctionError;
         /// <summary>
-        /// (Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.
+        /// (Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka event sources only) A configuration object that specifies the destination of an event after Lambda processes it.
         /// </summary>
         public readonly Outputs.EventSourceMappingDestinationConfig? DestinationConfig;
         /// <summary>
-        /// Document db event source config.
+        /// Specific configuration settings for a DocumentDB event source.
         /// </summary>
         public readonly Outputs.EventSourceMappingDocumentDbEventSourceConfig? DocumentDbEventSourceConfig;
         /// <summary>
-        /// Disables the event source mapping to pause polling and invocation.
+        /// When true, the event source mapping is active. When false, Lambda pauses polling and invocation.
+        ///  Default: True
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
-        /// The filter criteria to control event filtering.
+        /// An object that defines the filter criteria that determine whether Lambda should process an event. For more information, see [Lambda event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html).
         /// </summary>
         public readonly Outputs.EventSourceMappingFilterCriteria? FilterCriteria;
         /// <summary>
-        /// The name of the Lambda function.
+        /// The name or ARN of the Lambda function.
+        ///   **Name formats**
+        ///  +   *Function name* – ``MyFunction``.
+        ///   +   *Function ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:MyFunction``.
+        ///   +   *Version or Alias ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD``.
+        ///   +   *Partial ARN* – ``123456789012:function:MyFunction``.
+        ///   
+        ///  The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.
         /// </summary>
         public readonly string? FunctionName;
         /// <summary>
-        /// (Streams) A list of response types supported by the function.
+        /// (Streams and SQS) A list of current response type enums applied to the event source mapping.
+        ///  Valid Values: ``ReportBatchItemFailures``
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Lambda.EventSourceMappingFunctionResponseTypesItem> FunctionResponseTypes;
-        /// <summary>
-        /// Event Source Mapping Identifier UUID.
-        /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// (Streams) The maximum amount of time to gather records before invoking the function, in seconds.
+        /// The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
+        ///  *Default (, , event sources)*: 0
+        ///  *Default (, Kafka, , event sources)*: 500 ms
+        ///  *Related setting:* For SQS event sources, when you set ``BatchSize`` to a value greater than 10, you must set ``MaximumBatchingWindowInSeconds`` to at least 1.
         /// </summary>
         public readonly int? MaximumBatchingWindowInSeconds;
         /// <summary>
-        /// (Streams) The maximum age of a record that Lambda sends to a function for processing.
+        /// (Kinesis and DynamoDB Streams only) Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, Lambda never discards old records.
+        ///   The minimum valid value for maximum record age is 60s. Although values less than 60 and greater than -1 fall within the parameter's absolute range, they are not allowed
         /// </summary>
         public readonly int? MaximumRecordAgeInSeconds;
         /// <summary>
-        /// (Streams) The maximum number of times to retry when the function returns an error.
+        /// (Kinesis and DynamoDB Streams only) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, Lambda retries failed records until the record expires in the event source.
         /// </summary>
         public readonly int? MaximumRetryAttempts;
         /// <summary>
-        /// (Streams) The number of batches to process from each shard concurrently.
+        /// (Kinesis and DynamoDB Streams only) The number of batches to process concurrently from each shard. The default value is 1.
         /// </summary>
         public readonly int? ParallelizationFactor;
         /// <summary>
-        /// (ActiveMQ) A list of ActiveMQ queues.
+        /// (Amazon MQ) The name of the Amazon MQ broker destination queue to consume.
         /// </summary>
         public readonly ImmutableArray<string> Queues;
         /// <summary>
-        /// The scaling configuration for the event source.
+        /// (Amazon SQS only) The scaling configuration for the event source. For more information, see [Configuring maximum concurrency for Amazon SQS event sources](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency).
         /// </summary>
         public readonly Outputs.EventSourceMappingScalingConfig? ScalingConfig;
         /// <summary>
-        /// A list of SourceAccessConfiguration.
+        /// An array of the authentication protocol, VPC components, or virtual host to secure and define your event source.
         /// </summary>
         public readonly ImmutableArray<Outputs.EventSourceMappingSourceAccessConfiguration> SourceAccessConfigurations;
         /// <summary>
-        /// (Kafka) A list of Kafka topics.
+        /// The name of the Kafka topic.
         /// </summary>
         public readonly ImmutableArray<string> Topics;
         /// <summary>
-        /// (Streams) Tumbling window (non-overlapping time window) duration to perform aggregations.
+        /// (Kinesis and DynamoDB Streams only) The duration in seconds of a processing window for DynamoDB and Kinesis Streams event sources. A value of 0 seconds indicates no tumbling window.
         /// </summary>
         public readonly int? TumblingWindowInSeconds;
 

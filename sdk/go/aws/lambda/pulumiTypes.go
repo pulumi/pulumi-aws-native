@@ -1064,9 +1064,9 @@ func (o EventInvokeConfigOnSuccessPtrOutput) Destination() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specific configuration settings for an MSK event source.
+// Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.
 type EventSourceMappingAmazonManagedKafkaEventSourceConfig struct {
-	// The identifier for the Kafka Consumer Group to join.
+	// The identifier for the Kafka consumer group to join. The consumer group ID must be unique among all your Kafka event sources. After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value. For more information, see [Customizable consumer group ID](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-consumer-group-id).
 	ConsumerGroupId *string `pulumi:"consumerGroupId"`
 }
 
@@ -1081,9 +1081,9 @@ type EventSourceMappingAmazonManagedKafkaEventSourceConfigInput interface {
 	ToEventSourceMappingAmazonManagedKafkaEventSourceConfigOutputWithContext(context.Context) EventSourceMappingAmazonManagedKafkaEventSourceConfigOutput
 }
 
-// Specific configuration settings for an MSK event source.
+// Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.
 type EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs struct {
-	// The identifier for the Kafka Consumer Group to join.
+	// The identifier for the Kafka consumer group to join. The consumer group ID must be unique among all your Kafka event sources. After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value. For more information, see [Customizable consumer group ID](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-consumer-group-id).
 	ConsumerGroupId pulumi.StringPtrInput `pulumi:"consumerGroupId"`
 }
 
@@ -1140,7 +1140,7 @@ func (i *eventSourceMappingAmazonManagedKafkaEventSourceConfigPtrType) ToEventSo
 	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput)
 }
 
-// Specific configuration settings for an MSK event source.
+// Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.
 type EventSourceMappingAmazonManagedKafkaEventSourceConfigOutput struct{ *pulumi.OutputState }
 
 func (EventSourceMappingAmazonManagedKafkaEventSourceConfigOutput) ElementType() reflect.Type {
@@ -1165,7 +1165,7 @@ func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigOutput) ToEventSour
 	}).(EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput)
 }
 
-// The identifier for the Kafka Consumer Group to join.
+// The identifier for the Kafka consumer group to join. The consumer group ID must be unique among all your Kafka event sources. After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value. For more information, see [Customizable consumer group ID](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-consumer-group-id).
 func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigOutput) ConsumerGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventSourceMappingAmazonManagedKafkaEventSourceConfig) *string { return v.ConsumerGroupId }).(pulumi.StringPtrOutput)
 }
@@ -1194,7 +1194,7 @@ func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput) Elem() E
 	}).(EventSourceMappingAmazonManagedKafkaEventSourceConfigOutput)
 }
 
-// The identifier for the Kafka Consumer Group to join.
+// The identifier for the Kafka consumer group to join. The consumer group ID must be unique among all your Kafka event sources. After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value. For more information, see [Customizable consumer group ID](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-consumer-group-id).
 func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput) ConsumerGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventSourceMappingAmazonManagedKafkaEventSourceConfig) *string {
 		if v == nil {
@@ -1204,7 +1204,7 @@ func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput) Consumer
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.
+// A configuration object that specifies the destination of an event after Lambda processes it.
 type EventSourceMappingDestinationConfig struct {
 	// The destination configuration for failed invocations.
 	OnFailure *EventSourceMappingOnFailure `pulumi:"onFailure"`
@@ -1221,7 +1221,7 @@ type EventSourceMappingDestinationConfigInput interface {
 	ToEventSourceMappingDestinationConfigOutputWithContext(context.Context) EventSourceMappingDestinationConfigOutput
 }
 
-// (Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.
+// A configuration object that specifies the destination of an event after Lambda processes it.
 type EventSourceMappingDestinationConfigArgs struct {
 	// The destination configuration for failed invocations.
 	OnFailure EventSourceMappingOnFailurePtrInput `pulumi:"onFailure"`
@@ -1280,7 +1280,7 @@ func (i *eventSourceMappingDestinationConfigPtrType) ToEventSourceMappingDestina
 	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingDestinationConfigPtrOutput)
 }
 
-// (Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.
+// A configuration object that specifies the destination of an event after Lambda processes it.
 type EventSourceMappingDestinationConfigOutput struct{ *pulumi.OutputState }
 
 func (EventSourceMappingDestinationConfigOutput) ElementType() reflect.Type {
@@ -1344,13 +1344,13 @@ func (o EventSourceMappingDestinationConfigPtrOutput) OnFailure() EventSourceMap
 	}).(EventSourceMappingOnFailurePtrOutput)
 }
 
-// Document db event source config.
+// Specific configuration settings for a DocumentDB event source.
 type EventSourceMappingDocumentDbEventSourceConfig struct {
-	// The collection name to connect to.
+	// The name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.
 	CollectionName *string `pulumi:"collectionName"`
-	// The database name to connect to.
+	// The name of the database to consume within the DocumentDB cluster.
 	DatabaseName *string `pulumi:"databaseName"`
-	// Include full document in change stream response. The default option will only send the changes made to documents to Lambda. If you want the complete document sent to Lambda, set this to UpdateLookup.
+	// Determines what DocumentDB sends to your event stream during document update operations. If set to UpdateLookup, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes.
 	FullDocument *EventSourceMappingDocumentDbEventSourceConfigFullDocument `pulumi:"fullDocument"`
 }
 
@@ -1365,13 +1365,13 @@ type EventSourceMappingDocumentDbEventSourceConfigInput interface {
 	ToEventSourceMappingDocumentDbEventSourceConfigOutputWithContext(context.Context) EventSourceMappingDocumentDbEventSourceConfigOutput
 }
 
-// Document db event source config.
+// Specific configuration settings for a DocumentDB event source.
 type EventSourceMappingDocumentDbEventSourceConfigArgs struct {
-	// The collection name to connect to.
+	// The name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.
 	CollectionName pulumi.StringPtrInput `pulumi:"collectionName"`
-	// The database name to connect to.
+	// The name of the database to consume within the DocumentDB cluster.
 	DatabaseName pulumi.StringPtrInput `pulumi:"databaseName"`
-	// Include full document in change stream response. The default option will only send the changes made to documents to Lambda. If you want the complete document sent to Lambda, set this to UpdateLookup.
+	// Determines what DocumentDB sends to your event stream during document update operations. If set to UpdateLookup, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes.
 	FullDocument EventSourceMappingDocumentDbEventSourceConfigFullDocumentPtrInput `pulumi:"fullDocument"`
 }
 
@@ -1428,7 +1428,7 @@ func (i *eventSourceMappingDocumentDbEventSourceConfigPtrType) ToEventSourceMapp
 	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingDocumentDbEventSourceConfigPtrOutput)
 }
 
-// Document db event source config.
+// Specific configuration settings for a DocumentDB event source.
 type EventSourceMappingDocumentDbEventSourceConfigOutput struct{ *pulumi.OutputState }
 
 func (EventSourceMappingDocumentDbEventSourceConfigOutput) ElementType() reflect.Type {
@@ -1453,17 +1453,17 @@ func (o EventSourceMappingDocumentDbEventSourceConfigOutput) ToEventSourceMappin
 	}).(EventSourceMappingDocumentDbEventSourceConfigPtrOutput)
 }
 
-// The collection name to connect to.
+// The name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.
 func (o EventSourceMappingDocumentDbEventSourceConfigOutput) CollectionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventSourceMappingDocumentDbEventSourceConfig) *string { return v.CollectionName }).(pulumi.StringPtrOutput)
 }
 
-// The database name to connect to.
+// The name of the database to consume within the DocumentDB cluster.
 func (o EventSourceMappingDocumentDbEventSourceConfigOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventSourceMappingDocumentDbEventSourceConfig) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
 }
 
-// Include full document in change stream response. The default option will only send the changes made to documents to Lambda. If you want the complete document sent to Lambda, set this to UpdateLookup.
+// Determines what DocumentDB sends to your event stream during document update operations. If set to UpdateLookup, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes.
 func (o EventSourceMappingDocumentDbEventSourceConfigOutput) FullDocument() EventSourceMappingDocumentDbEventSourceConfigFullDocumentPtrOutput {
 	return o.ApplyT(func(v EventSourceMappingDocumentDbEventSourceConfig) *EventSourceMappingDocumentDbEventSourceConfigFullDocument {
 		return v.FullDocument
@@ -1494,7 +1494,7 @@ func (o EventSourceMappingDocumentDbEventSourceConfigPtrOutput) Elem() EventSour
 	}).(EventSourceMappingDocumentDbEventSourceConfigOutput)
 }
 
-// The collection name to connect to.
+// The name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.
 func (o EventSourceMappingDocumentDbEventSourceConfigPtrOutput) CollectionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventSourceMappingDocumentDbEventSourceConfig) *string {
 		if v == nil {
@@ -1504,7 +1504,7 @@ func (o EventSourceMappingDocumentDbEventSourceConfigPtrOutput) CollectionName()
 	}).(pulumi.StringPtrOutput)
 }
 
-// The database name to connect to.
+// The name of the database to consume within the DocumentDB cluster.
 func (o EventSourceMappingDocumentDbEventSourceConfigPtrOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventSourceMappingDocumentDbEventSourceConfig) *string {
 		if v == nil {
@@ -1514,7 +1514,7 @@ func (o EventSourceMappingDocumentDbEventSourceConfigPtrOutput) DatabaseName() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// Include full document in change stream response. The default option will only send the changes made to documents to Lambda. If you want the complete document sent to Lambda, set this to UpdateLookup.
+// Determines what DocumentDB sends to your event stream during document update operations. If set to UpdateLookup, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes.
 func (o EventSourceMappingDocumentDbEventSourceConfigPtrOutput) FullDocument() EventSourceMappingDocumentDbEventSourceConfigFullDocumentPtrOutput {
 	return o.ApplyT(func(v *EventSourceMappingDocumentDbEventSourceConfig) *EventSourceMappingDocumentDbEventSourceConfigFullDocument {
 		if v == nil {
@@ -1524,9 +1524,9 @@ func (o EventSourceMappingDocumentDbEventSourceConfigPtrOutput) FullDocument() E
 	}).(EventSourceMappingDocumentDbEventSourceConfigFullDocumentPtrOutput)
 }
 
-// The endpoints used by AWS Lambda to access a self-managed event source.
+// The list of bootstrap servers for your Kafka brokers in the following format: “"KafkaBootstrapServers": ["abc.xyz.com:xxxx","abc2.xyz.com:xxxx"]“.
 type EventSourceMappingEndpoints struct {
-	// A list of Kafka server endpoints.
+	// The list of bootstrap servers for your Kafka brokers in the following format: ``"KafkaBootstrapServers": ["abc.xyz.com:xxxx","abc2.xyz.com:xxxx"]``.
 	KafkaBootstrapServers []string `pulumi:"kafkaBootstrapServers"`
 }
 
@@ -1541,9 +1541,9 @@ type EventSourceMappingEndpointsInput interface {
 	ToEventSourceMappingEndpointsOutputWithContext(context.Context) EventSourceMappingEndpointsOutput
 }
 
-// The endpoints used by AWS Lambda to access a self-managed event source.
+// The list of bootstrap servers for your Kafka brokers in the following format: “"KafkaBootstrapServers": ["abc.xyz.com:xxxx","abc2.xyz.com:xxxx"]“.
 type EventSourceMappingEndpointsArgs struct {
-	// A list of Kafka server endpoints.
+	// The list of bootstrap servers for your Kafka brokers in the following format: ``"KafkaBootstrapServers": ["abc.xyz.com:xxxx","abc2.xyz.com:xxxx"]``.
 	KafkaBootstrapServers pulumi.StringArrayInput `pulumi:"kafkaBootstrapServers"`
 }
 
@@ -1600,7 +1600,7 @@ func (i *eventSourceMappingEndpointsPtrType) ToEventSourceMappingEndpointsPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingEndpointsPtrOutput)
 }
 
-// The endpoints used by AWS Lambda to access a self-managed event source.
+// The list of bootstrap servers for your Kafka brokers in the following format: “"KafkaBootstrapServers": ["abc.xyz.com:xxxx","abc2.xyz.com:xxxx"]“.
 type EventSourceMappingEndpointsOutput struct{ *pulumi.OutputState }
 
 func (EventSourceMappingEndpointsOutput) ElementType() reflect.Type {
@@ -1625,7 +1625,7 @@ func (o EventSourceMappingEndpointsOutput) ToEventSourceMappingEndpointsPtrOutpu
 	}).(EventSourceMappingEndpointsPtrOutput)
 }
 
-// A list of Kafka server endpoints.
+// The list of bootstrap servers for your Kafka brokers in the following format: “"KafkaBootstrapServers": ["abc.xyz.com:xxxx","abc2.xyz.com:xxxx"]“.
 func (o EventSourceMappingEndpointsOutput) KafkaBootstrapServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EventSourceMappingEndpoints) []string { return v.KafkaBootstrapServers }).(pulumi.StringArrayOutput)
 }
@@ -1654,7 +1654,7 @@ func (o EventSourceMappingEndpointsPtrOutput) Elem() EventSourceMappingEndpoints
 	}).(EventSourceMappingEndpointsOutput)
 }
 
-// A list of Kafka server endpoints.
+// The list of bootstrap servers for your Kafka brokers in the following format: “"KafkaBootstrapServers": ["abc.xyz.com:xxxx","abc2.xyz.com:xxxx"]“.
 func (o EventSourceMappingEndpointsPtrOutput) KafkaBootstrapServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *EventSourceMappingEndpoints) []string {
 		if v == nil {
@@ -1664,9 +1664,9 @@ func (o EventSourceMappingEndpointsPtrOutput) KafkaBootstrapServers() pulumi.Str
 	}).(pulumi.StringArrayOutput)
 }
 
-// The filter object that defines parameters for ESM filtering.
+// A structure within a “FilterCriteria“ object that defines an event filtering pattern.
 type EventSourceMappingFilter struct {
-	// The filter pattern that defines which events should be passed for invocations.
+	// A filter pattern. For more information on the syntax of a filter pattern, see [Filter rule syntax](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-syntax).
 	Pattern *string `pulumi:"pattern"`
 }
 
@@ -1681,9 +1681,9 @@ type EventSourceMappingFilterInput interface {
 	ToEventSourceMappingFilterOutputWithContext(context.Context) EventSourceMappingFilterOutput
 }
 
-// The filter object that defines parameters for ESM filtering.
+// A structure within a “FilterCriteria“ object that defines an event filtering pattern.
 type EventSourceMappingFilterArgs struct {
-	// The filter pattern that defines which events should be passed for invocations.
+	// A filter pattern. For more information on the syntax of a filter pattern, see [Filter rule syntax](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-syntax).
 	Pattern pulumi.StringPtrInput `pulumi:"pattern"`
 }
 
@@ -1724,7 +1724,7 @@ func (i EventSourceMappingFilterArray) ToEventSourceMappingFilterArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingFilterArrayOutput)
 }
 
-// The filter object that defines parameters for ESM filtering.
+// A structure within a “FilterCriteria“ object that defines an event filtering pattern.
 type EventSourceMappingFilterOutput struct{ *pulumi.OutputState }
 
 func (EventSourceMappingFilterOutput) ElementType() reflect.Type {
@@ -1739,7 +1739,7 @@ func (o EventSourceMappingFilterOutput) ToEventSourceMappingFilterOutputWithCont
 	return o
 }
 
-// The filter pattern that defines which events should be passed for invocations.
+// A filter pattern. For more information on the syntax of a filter pattern, see [Filter rule syntax](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-syntax).
 func (o EventSourceMappingFilterOutput) Pattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventSourceMappingFilter) *string { return v.Pattern }).(pulumi.StringPtrOutput)
 }
@@ -1764,9 +1764,9 @@ func (o EventSourceMappingFilterArrayOutput) Index(i pulumi.IntInput) EventSourc
 	}).(EventSourceMappingFilterOutput)
 }
 
-// The filter criteria to control event filtering.
+// An object that contains the filters for an event source.
 type EventSourceMappingFilterCriteria struct {
-	// List of filters of this FilterCriteria
+	// A list of filters.
 	Filters []EventSourceMappingFilter `pulumi:"filters"`
 }
 
@@ -1781,9 +1781,9 @@ type EventSourceMappingFilterCriteriaInput interface {
 	ToEventSourceMappingFilterCriteriaOutputWithContext(context.Context) EventSourceMappingFilterCriteriaOutput
 }
 
-// The filter criteria to control event filtering.
+// An object that contains the filters for an event source.
 type EventSourceMappingFilterCriteriaArgs struct {
-	// List of filters of this FilterCriteria
+	// A list of filters.
 	Filters EventSourceMappingFilterArrayInput `pulumi:"filters"`
 }
 
@@ -1840,7 +1840,7 @@ func (i *eventSourceMappingFilterCriteriaPtrType) ToEventSourceMappingFilterCrit
 	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingFilterCriteriaPtrOutput)
 }
 
-// The filter criteria to control event filtering.
+// An object that contains the filters for an event source.
 type EventSourceMappingFilterCriteriaOutput struct{ *pulumi.OutputState }
 
 func (EventSourceMappingFilterCriteriaOutput) ElementType() reflect.Type {
@@ -1865,7 +1865,7 @@ func (o EventSourceMappingFilterCriteriaOutput) ToEventSourceMappingFilterCriter
 	}).(EventSourceMappingFilterCriteriaPtrOutput)
 }
 
-// List of filters of this FilterCriteria
+// A list of filters.
 func (o EventSourceMappingFilterCriteriaOutput) Filters() EventSourceMappingFilterArrayOutput {
 	return o.ApplyT(func(v EventSourceMappingFilterCriteria) []EventSourceMappingFilter { return v.Filters }).(EventSourceMappingFilterArrayOutput)
 }
@@ -1894,7 +1894,7 @@ func (o EventSourceMappingFilterCriteriaPtrOutput) Elem() EventSourceMappingFilt
 	}).(EventSourceMappingFilterCriteriaOutput)
 }
 
-// List of filters of this FilterCriteria
+// A list of filters.
 func (o EventSourceMappingFilterCriteriaPtrOutput) Filters() EventSourceMappingFilterArrayOutput {
 	return o.ApplyT(func(v *EventSourceMappingFilterCriteria) []EventSourceMappingFilter {
 		if v == nil {
@@ -1907,6 +1907,9 @@ func (o EventSourceMappingFilterCriteriaPtrOutput) Filters() EventSourceMappingF
 // A destination for events that failed processing.
 type EventSourceMappingOnFailure struct {
 	// The Amazon Resource Name (ARN) of the destination resource.
+	//  To retain records of [asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations), you can configure an Amazon SNS topic, Amazon SQS queue, Lambda function, or Amazon EventBridge event bus as the destination.
+	//  To retain records of failed invocations from [Kinesis and DynamoDB event sources](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#event-source-mapping-destinations), you can configure an Amazon SNS topic or Amazon SQS queue as the destination.
+	//  To retain records of failed invocations from [self-managed Kafka](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-smaa-onfailure-destination) or [Amazon MSK](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-onfailure-destination), you can configure an Amazon SNS topic, Amazon SQS queue, or Amazon S3 bucket as the destination.
 	Destination *string `pulumi:"destination"`
 }
 
@@ -1924,6 +1927,9 @@ type EventSourceMappingOnFailureInput interface {
 // A destination for events that failed processing.
 type EventSourceMappingOnFailureArgs struct {
 	// The Amazon Resource Name (ARN) of the destination resource.
+	//  To retain records of [asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations), you can configure an Amazon SNS topic, Amazon SQS queue, Lambda function, or Amazon EventBridge event bus as the destination.
+	//  To retain records of failed invocations from [Kinesis and DynamoDB event sources](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#event-source-mapping-destinations), you can configure an Amazon SNS topic or Amazon SQS queue as the destination.
+	//  To retain records of failed invocations from [self-managed Kafka](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-smaa-onfailure-destination) or [Amazon MSK](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-onfailure-destination), you can configure an Amazon SNS topic, Amazon SQS queue, or Amazon S3 bucket as the destination.
 	Destination pulumi.StringPtrInput `pulumi:"destination"`
 }
 
@@ -2006,6 +2012,10 @@ func (o EventSourceMappingOnFailureOutput) ToEventSourceMappingOnFailurePtrOutpu
 }
 
 // The Amazon Resource Name (ARN) of the destination resource.
+//
+//	To retain records of [asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations), you can configure an Amazon SNS topic, Amazon SQS queue, Lambda function, or Amazon EventBridge event bus as the destination.
+//	To retain records of failed invocations from [Kinesis and DynamoDB event sources](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#event-source-mapping-destinations), you can configure an Amazon SNS topic or Amazon SQS queue as the destination.
+//	To retain records of failed invocations from [self-managed Kafka](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-smaa-onfailure-destination) or [Amazon MSK](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-onfailure-destination), you can configure an Amazon SNS topic, Amazon SQS queue, or Amazon S3 bucket as the destination.
 func (o EventSourceMappingOnFailureOutput) Destination() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventSourceMappingOnFailure) *string { return v.Destination }).(pulumi.StringPtrOutput)
 }
@@ -2035,6 +2045,10 @@ func (o EventSourceMappingOnFailurePtrOutput) Elem() EventSourceMappingOnFailure
 }
 
 // The Amazon Resource Name (ARN) of the destination resource.
+//
+//	To retain records of [asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations), you can configure an Amazon SNS topic, Amazon SQS queue, Lambda function, or Amazon EventBridge event bus as the destination.
+//	To retain records of failed invocations from [Kinesis and DynamoDB event sources](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#event-source-mapping-destinations), you can configure an Amazon SNS topic or Amazon SQS queue as the destination.
+//	To retain records of failed invocations from [self-managed Kafka](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-smaa-onfailure-destination) or [Amazon MSK](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-onfailure-destination), you can configure an Amazon SNS topic, Amazon SQS queue, or Amazon S3 bucket as the destination.
 func (o EventSourceMappingOnFailurePtrOutput) Destination() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventSourceMappingOnFailure) *string {
 		if v == nil {
@@ -2044,9 +2058,9 @@ func (o EventSourceMappingOnFailurePtrOutput) Destination() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The scaling configuration for the event source.
+// (Amazon SQS only) The scaling configuration for the event source. To remove the configuration, pass an empty value.
 type EventSourceMappingScalingConfig struct {
-	// The maximum number of concurrent functions that the event source can invoke.
+	// Limits the number of concurrent instances that the SQS event source can invoke.
 	MaximumConcurrency *int `pulumi:"maximumConcurrency"`
 }
 
@@ -2061,9 +2075,9 @@ type EventSourceMappingScalingConfigInput interface {
 	ToEventSourceMappingScalingConfigOutputWithContext(context.Context) EventSourceMappingScalingConfigOutput
 }
 
-// The scaling configuration for the event source.
+// (Amazon SQS only) The scaling configuration for the event source. To remove the configuration, pass an empty value.
 type EventSourceMappingScalingConfigArgs struct {
-	// The maximum number of concurrent functions that the event source can invoke.
+	// Limits the number of concurrent instances that the SQS event source can invoke.
 	MaximumConcurrency pulumi.IntPtrInput `pulumi:"maximumConcurrency"`
 }
 
@@ -2120,7 +2134,7 @@ func (i *eventSourceMappingScalingConfigPtrType) ToEventSourceMappingScalingConf
 	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingScalingConfigPtrOutput)
 }
 
-// The scaling configuration for the event source.
+// (Amazon SQS only) The scaling configuration for the event source. To remove the configuration, pass an empty value.
 type EventSourceMappingScalingConfigOutput struct{ *pulumi.OutputState }
 
 func (EventSourceMappingScalingConfigOutput) ElementType() reflect.Type {
@@ -2145,7 +2159,7 @@ func (o EventSourceMappingScalingConfigOutput) ToEventSourceMappingScalingConfig
 	}).(EventSourceMappingScalingConfigPtrOutput)
 }
 
-// The maximum number of concurrent functions that the event source can invoke.
+// Limits the number of concurrent instances that the SQS event source can invoke.
 func (o EventSourceMappingScalingConfigOutput) MaximumConcurrency() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EventSourceMappingScalingConfig) *int { return v.MaximumConcurrency }).(pulumi.IntPtrOutput)
 }
@@ -2174,7 +2188,7 @@ func (o EventSourceMappingScalingConfigPtrOutput) Elem() EventSourceMappingScali
 	}).(EventSourceMappingScalingConfigOutput)
 }
 
-// The maximum number of concurrent functions that the event source can invoke.
+// Limits the number of concurrent instances that the SQS event source can invoke.
 func (o EventSourceMappingScalingConfigPtrOutput) MaximumConcurrency() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EventSourceMappingScalingConfig) *int {
 		if v == nil {
@@ -2184,9 +2198,9 @@ func (o EventSourceMappingScalingConfigPtrOutput) MaximumConcurrency() pulumi.In
 	}).(pulumi.IntPtrOutput)
 }
 
-// The configuration used by AWS Lambda to access a self-managed event source.
+// The self-managed Apache Kafka cluster for your event source.
 type EventSourceMappingSelfManagedEventSource struct {
-	// The endpoints for a self-managed event source.
+	// The list of bootstrap servers for your Kafka brokers in the following format: ``"KafkaBootstrapServers": ["abc.xyz.com:xxxx","abc2.xyz.com:xxxx"]``.
 	Endpoints *EventSourceMappingEndpoints `pulumi:"endpoints"`
 }
 
@@ -2201,9 +2215,9 @@ type EventSourceMappingSelfManagedEventSourceInput interface {
 	ToEventSourceMappingSelfManagedEventSourceOutputWithContext(context.Context) EventSourceMappingSelfManagedEventSourceOutput
 }
 
-// The configuration used by AWS Lambda to access a self-managed event source.
+// The self-managed Apache Kafka cluster for your event source.
 type EventSourceMappingSelfManagedEventSourceArgs struct {
-	// The endpoints for a self-managed event source.
+	// The list of bootstrap servers for your Kafka brokers in the following format: ``"KafkaBootstrapServers": ["abc.xyz.com:xxxx","abc2.xyz.com:xxxx"]``.
 	Endpoints EventSourceMappingEndpointsPtrInput `pulumi:"endpoints"`
 }
 
@@ -2260,7 +2274,7 @@ func (i *eventSourceMappingSelfManagedEventSourcePtrType) ToEventSourceMappingSe
 	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingSelfManagedEventSourcePtrOutput)
 }
 
-// The configuration used by AWS Lambda to access a self-managed event source.
+// The self-managed Apache Kafka cluster for your event source.
 type EventSourceMappingSelfManagedEventSourceOutput struct{ *pulumi.OutputState }
 
 func (EventSourceMappingSelfManagedEventSourceOutput) ElementType() reflect.Type {
@@ -2285,7 +2299,7 @@ func (o EventSourceMappingSelfManagedEventSourceOutput) ToEventSourceMappingSelf
 	}).(EventSourceMappingSelfManagedEventSourcePtrOutput)
 }
 
-// The endpoints for a self-managed event source.
+// The list of bootstrap servers for your Kafka brokers in the following format: “"KafkaBootstrapServers": ["abc.xyz.com:xxxx","abc2.xyz.com:xxxx"]“.
 func (o EventSourceMappingSelfManagedEventSourceOutput) Endpoints() EventSourceMappingEndpointsPtrOutput {
 	return o.ApplyT(func(v EventSourceMappingSelfManagedEventSource) *EventSourceMappingEndpoints { return v.Endpoints }).(EventSourceMappingEndpointsPtrOutput)
 }
@@ -2314,7 +2328,7 @@ func (o EventSourceMappingSelfManagedEventSourcePtrOutput) Elem() EventSourceMap
 	}).(EventSourceMappingSelfManagedEventSourceOutput)
 }
 
-// The endpoints for a self-managed event source.
+// The list of bootstrap servers for your Kafka brokers in the following format: “"KafkaBootstrapServers": ["abc.xyz.com:xxxx","abc2.xyz.com:xxxx"]“.
 func (o EventSourceMappingSelfManagedEventSourcePtrOutput) Endpoints() EventSourceMappingEndpointsPtrOutput {
 	return o.ApplyT(func(v *EventSourceMappingSelfManagedEventSource) *EventSourceMappingEndpoints {
 		if v == nil {
@@ -2324,9 +2338,9 @@ func (o EventSourceMappingSelfManagedEventSourcePtrOutput) Endpoints() EventSour
 	}).(EventSourceMappingEndpointsPtrOutput)
 }
 
-// Specific configuration settings for a Self-Managed Apache Kafka event source.
+// Specific configuration settings for a self-managed Apache Kafka event source.
 type EventSourceMappingSelfManagedKafkaEventSourceConfig struct {
-	// The identifier for the Kafka Consumer Group to join.
+	// The identifier for the Kafka consumer group to join. The consumer group ID must be unique among all your Kafka event sources. After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value. For more information, see [Customizable consumer group ID](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-consumer-group-id).
 	ConsumerGroupId *string `pulumi:"consumerGroupId"`
 }
 
@@ -2341,9 +2355,9 @@ type EventSourceMappingSelfManagedKafkaEventSourceConfigInput interface {
 	ToEventSourceMappingSelfManagedKafkaEventSourceConfigOutputWithContext(context.Context) EventSourceMappingSelfManagedKafkaEventSourceConfigOutput
 }
 
-// Specific configuration settings for a Self-Managed Apache Kafka event source.
+// Specific configuration settings for a self-managed Apache Kafka event source.
 type EventSourceMappingSelfManagedKafkaEventSourceConfigArgs struct {
-	// The identifier for the Kafka Consumer Group to join.
+	// The identifier for the Kafka consumer group to join. The consumer group ID must be unique among all your Kafka event sources. After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value. For more information, see [Customizable consumer group ID](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-consumer-group-id).
 	ConsumerGroupId pulumi.StringPtrInput `pulumi:"consumerGroupId"`
 }
 
@@ -2400,7 +2414,7 @@ func (i *eventSourceMappingSelfManagedKafkaEventSourceConfigPtrType) ToEventSour
 	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput)
 }
 
-// Specific configuration settings for a Self-Managed Apache Kafka event source.
+// Specific configuration settings for a self-managed Apache Kafka event source.
 type EventSourceMappingSelfManagedKafkaEventSourceConfigOutput struct{ *pulumi.OutputState }
 
 func (EventSourceMappingSelfManagedKafkaEventSourceConfigOutput) ElementType() reflect.Type {
@@ -2425,7 +2439,7 @@ func (o EventSourceMappingSelfManagedKafkaEventSourceConfigOutput) ToEventSource
 	}).(EventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput)
 }
 
-// The identifier for the Kafka Consumer Group to join.
+// The identifier for the Kafka consumer group to join. The consumer group ID must be unique among all your Kafka event sources. After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value. For more information, see [Customizable consumer group ID](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-consumer-group-id).
 func (o EventSourceMappingSelfManagedKafkaEventSourceConfigOutput) ConsumerGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventSourceMappingSelfManagedKafkaEventSourceConfig) *string { return v.ConsumerGroupId }).(pulumi.StringPtrOutput)
 }
@@ -2454,7 +2468,7 @@ func (o EventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput) Elem() Eve
 	}).(EventSourceMappingSelfManagedKafkaEventSourceConfigOutput)
 }
 
-// The identifier for the Kafka Consumer Group to join.
+// The identifier for the Kafka consumer group to join. The consumer group ID must be unique among all your Kafka event sources. After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value. For more information, see [Customizable consumer group ID](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-consumer-group-id).
 func (o EventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput) ConsumerGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventSourceMappingSelfManagedKafkaEventSourceConfig) *string {
 		if v == nil {
@@ -2464,11 +2478,20 @@ func (o EventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput) ConsumerGr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The configuration used by AWS Lambda to access event source
+// An array of the authentication protocol, VPC components, or virtual host to secure and define your event source.
 type EventSourceMappingSourceAccessConfiguration struct {
-	// The type of source access configuration.
+	// The type of authentication protocol, VPC components, or virtual host for your event source. For example: ``"Type":"SASL_SCRAM_512_AUTH"``.
+	//   +   ``BASIC_AUTH`` – (Amazon MQ) The ASMlong secret that stores your broker credentials.
+	//   +   ``BASIC_AUTH`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL/PLAIN authentication of your Apache Kafka brokers.
+	//   +   ``VPC_SUBNET`` – (Self-managed Apache Kafka) The subnets associated with your VPC. Lambda connects to these subnets to fetch data from your self-managed Apache Kafka cluster.
+	//   +   ``VPC_SECURITY_GROUP`` – (Self-managed Apache Kafka) The VPC security group used to manage access to your self-managed Apache Kafka brokers.
+	//   +   ``SASL_SCRAM_256_AUTH`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL SCRAM-256 authentication of your self-managed Apache Kafka brokers.
+	//   +   ``SASL_SCRAM_512_AUTH`` – (Amazon MSK, Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL SCRAM-512 authentication of your self-managed Apache Kafka brokers.
+	//   +   ``VIRTUAL_HOST`` –- (RabbitMQ) The name of the virtual host in your RabbitMQ broker. Lambda uses this RabbitMQ host as the event source. This property cannot be specified in an UpdateEventSourceMapping API call.
+	//   +   ``CLIENT_CERTIFICATE_TLS_AUTH`` – (Amazon MSK, self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the certificate chain (X.509 PEM), private key (PKCS#8 PEM), and private key password (optional) used for mutual TLS authentication of your MSK/Apache Kafka brokers.
+	//   +   ``SERVER_ROOT_CA_CERTIFICATE`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the root CA certificate (X.509 PEM) used for TLS encryption of your Apache Kafka brokers.
 	Type *EventSourceMappingSourceAccessConfigurationType `pulumi:"type"`
-	// The URI for the source access configuration resource.
+	// The value for your chosen configuration in ``Type``. For example: ``"URI": "arn:aws:secretsmanager:us-east-1:01234567890:secret:MyBrokerSecretName"``.
 	Uri *string `pulumi:"uri"`
 }
 
@@ -2483,11 +2506,20 @@ type EventSourceMappingSourceAccessConfigurationInput interface {
 	ToEventSourceMappingSourceAccessConfigurationOutputWithContext(context.Context) EventSourceMappingSourceAccessConfigurationOutput
 }
 
-// The configuration used by AWS Lambda to access event source
+// An array of the authentication protocol, VPC components, or virtual host to secure and define your event source.
 type EventSourceMappingSourceAccessConfigurationArgs struct {
-	// The type of source access configuration.
+	// The type of authentication protocol, VPC components, or virtual host for your event source. For example: ``"Type":"SASL_SCRAM_512_AUTH"``.
+	//   +   ``BASIC_AUTH`` – (Amazon MQ) The ASMlong secret that stores your broker credentials.
+	//   +   ``BASIC_AUTH`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL/PLAIN authentication of your Apache Kafka brokers.
+	//   +   ``VPC_SUBNET`` – (Self-managed Apache Kafka) The subnets associated with your VPC. Lambda connects to these subnets to fetch data from your self-managed Apache Kafka cluster.
+	//   +   ``VPC_SECURITY_GROUP`` – (Self-managed Apache Kafka) The VPC security group used to manage access to your self-managed Apache Kafka brokers.
+	//   +   ``SASL_SCRAM_256_AUTH`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL SCRAM-256 authentication of your self-managed Apache Kafka brokers.
+	//   +   ``SASL_SCRAM_512_AUTH`` – (Amazon MSK, Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL SCRAM-512 authentication of your self-managed Apache Kafka brokers.
+	//   +   ``VIRTUAL_HOST`` –- (RabbitMQ) The name of the virtual host in your RabbitMQ broker. Lambda uses this RabbitMQ host as the event source. This property cannot be specified in an UpdateEventSourceMapping API call.
+	//   +   ``CLIENT_CERTIFICATE_TLS_AUTH`` – (Amazon MSK, self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the certificate chain (X.509 PEM), private key (PKCS#8 PEM), and private key password (optional) used for mutual TLS authentication of your MSK/Apache Kafka brokers.
+	//   +   ``SERVER_ROOT_CA_CERTIFICATE`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the root CA certificate (X.509 PEM) used for TLS encryption of your Apache Kafka brokers.
 	Type EventSourceMappingSourceAccessConfigurationTypePtrInput `pulumi:"type"`
-	// The URI for the source access configuration resource.
+	// The value for your chosen configuration in ``Type``. For example: ``"URI": "arn:aws:secretsmanager:us-east-1:01234567890:secret:MyBrokerSecretName"``.
 	Uri pulumi.StringPtrInput `pulumi:"uri"`
 }
 
@@ -2528,7 +2560,7 @@ func (i EventSourceMappingSourceAccessConfigurationArray) ToEventSourceMappingSo
 	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingSourceAccessConfigurationArrayOutput)
 }
 
-// The configuration used by AWS Lambda to access event source
+// An array of the authentication protocol, VPC components, or virtual host to secure and define your event source.
 type EventSourceMappingSourceAccessConfigurationOutput struct{ *pulumi.OutputState }
 
 func (EventSourceMappingSourceAccessConfigurationOutput) ElementType() reflect.Type {
@@ -2543,14 +2575,23 @@ func (o EventSourceMappingSourceAccessConfigurationOutput) ToEventSourceMappingS
 	return o
 }
 
-// The type of source access configuration.
+// The type of authentication protocol, VPC components, or virtual host for your event source. For example: “"Type":"SASL_SCRAM_512_AUTH"“.
+//   - “BASIC_AUTH“ – (Amazon MQ) The ASMlong secret that stores your broker credentials.
+//   - “BASIC_AUTH“ – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL/PLAIN authentication of your Apache Kafka brokers.
+//   - “VPC_SUBNET“ – (Self-managed Apache Kafka) The subnets associated with your VPC. Lambda connects to these subnets to fetch data from your self-managed Apache Kafka cluster.
+//   - “VPC_SECURITY_GROUP“ – (Self-managed Apache Kafka) The VPC security group used to manage access to your self-managed Apache Kafka brokers.
+//   - “SASL_SCRAM_256_AUTH“ – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL SCRAM-256 authentication of your self-managed Apache Kafka brokers.
+//   - “SASL_SCRAM_512_AUTH“ – (Amazon MSK, Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL SCRAM-512 authentication of your self-managed Apache Kafka brokers.
+//   - “VIRTUAL_HOST“ –- (RabbitMQ) The name of the virtual host in your RabbitMQ broker. Lambda uses this RabbitMQ host as the event source. This property cannot be specified in an UpdateEventSourceMapping API call.
+//   - “CLIENT_CERTIFICATE_TLS_AUTH“ – (Amazon MSK, self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the certificate chain (X.509 PEM), private key (PKCS#8 PEM), and private key password (optional) used for mutual TLS authentication of your MSK/Apache Kafka brokers.
+//   - “SERVER_ROOT_CA_CERTIFICATE“ – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the root CA certificate (X.509 PEM) used for TLS encryption of your Apache Kafka brokers.
 func (o EventSourceMappingSourceAccessConfigurationOutput) Type() EventSourceMappingSourceAccessConfigurationTypePtrOutput {
 	return o.ApplyT(func(v EventSourceMappingSourceAccessConfiguration) *EventSourceMappingSourceAccessConfigurationType {
 		return v.Type
 	}).(EventSourceMappingSourceAccessConfigurationTypePtrOutput)
 }
 
-// The URI for the source access configuration resource.
+// The value for your chosen configuration in “Type“. For example: “"URI": "arn:aws:secretsmanager:us-east-1:01234567890:secret:MyBrokerSecretName"“.
 func (o EventSourceMappingSourceAccessConfigurationOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventSourceMappingSourceAccessConfiguration) *string { return v.Uri }).(pulumi.StringPtrOutput)
 }

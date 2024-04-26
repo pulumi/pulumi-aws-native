@@ -261,8 +261,8 @@ class EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs:
     def __init__(__self__, *,
                  consumer_group_id: Optional[pulumi.Input[str]] = None):
         """
-        Specific configuration settings for an MSK event source.
-        :param pulumi.Input[str] consumer_group_id: The identifier for the Kafka Consumer Group to join.
+        Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.
+        :param pulumi.Input[str] consumer_group_id: The identifier for the Kafka consumer group to join. The consumer group ID must be unique among all your Kafka event sources. After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value. For more information, see [Customizable consumer group ID](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-consumer-group-id).
         """
         if consumer_group_id is not None:
             pulumi.set(__self__, "consumer_group_id", consumer_group_id)
@@ -271,7 +271,7 @@ class EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs:
     @pulumi.getter(name="consumerGroupId")
     def consumer_group_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The identifier for the Kafka Consumer Group to join.
+        The identifier for the Kafka consumer group to join. The consumer group ID must be unique among all your Kafka event sources. After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value. For more information, see [Customizable consumer group ID](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-consumer-group-id).
         """
         return pulumi.get(self, "consumer_group_id")
 
@@ -285,7 +285,7 @@ class EventSourceMappingDestinationConfigArgs:
     def __init__(__self__, *,
                  on_failure: Optional[pulumi.Input['EventSourceMappingOnFailureArgs']] = None):
         """
-        (Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.
+        A configuration object that specifies the destination of an event after Lambda processes it.
         :param pulumi.Input['EventSourceMappingOnFailureArgs'] on_failure: The destination configuration for failed invocations.
         """
         if on_failure is not None:
@@ -311,10 +311,10 @@ class EventSourceMappingDocumentDbEventSourceConfigArgs:
                  database_name: Optional[pulumi.Input[str]] = None,
                  full_document: Optional[pulumi.Input['EventSourceMappingDocumentDbEventSourceConfigFullDocument']] = None):
         """
-        Document db event source config.
-        :param pulumi.Input[str] collection_name: The collection name to connect to.
-        :param pulumi.Input[str] database_name: The database name to connect to.
-        :param pulumi.Input['EventSourceMappingDocumentDbEventSourceConfigFullDocument'] full_document: Include full document in change stream response. The default option will only send the changes made to documents to Lambda. If you want the complete document sent to Lambda, set this to UpdateLookup.
+        Specific configuration settings for a DocumentDB event source.
+        :param pulumi.Input[str] collection_name: The name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.
+        :param pulumi.Input[str] database_name: The name of the database to consume within the DocumentDB cluster.
+        :param pulumi.Input['EventSourceMappingDocumentDbEventSourceConfigFullDocument'] full_document: Determines what DocumentDB sends to your event stream during document update operations. If set to UpdateLookup, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes.
         """
         if collection_name is not None:
             pulumi.set(__self__, "collection_name", collection_name)
@@ -327,7 +327,7 @@ class EventSourceMappingDocumentDbEventSourceConfigArgs:
     @pulumi.getter(name="collectionName")
     def collection_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The collection name to connect to.
+        The name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.
         """
         return pulumi.get(self, "collection_name")
 
@@ -339,7 +339,7 @@ class EventSourceMappingDocumentDbEventSourceConfigArgs:
     @pulumi.getter(name="databaseName")
     def database_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The database name to connect to.
+        The name of the database to consume within the DocumentDB cluster.
         """
         return pulumi.get(self, "database_name")
 
@@ -351,7 +351,7 @@ class EventSourceMappingDocumentDbEventSourceConfigArgs:
     @pulumi.getter(name="fullDocument")
     def full_document(self) -> Optional[pulumi.Input['EventSourceMappingDocumentDbEventSourceConfigFullDocument']]:
         """
-        Include full document in change stream response. The default option will only send the changes made to documents to Lambda. If you want the complete document sent to Lambda, set this to UpdateLookup.
+        Determines what DocumentDB sends to your event stream during document update operations. If set to UpdateLookup, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes.
         """
         return pulumi.get(self, "full_document")
 
@@ -365,8 +365,8 @@ class EventSourceMappingEndpointsArgs:
     def __init__(__self__, *,
                  kafka_bootstrap_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        The endpoints used by AWS Lambda to access a self-managed event source.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] kafka_bootstrap_servers: A list of Kafka server endpoints.
+        The list of bootstrap servers for your Kafka brokers in the following format: ``"KafkaBootstrapServers": ["abc.xyz.com:xxxx","abc2.xyz.com:xxxx"]``.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] kafka_bootstrap_servers: The list of bootstrap servers for your Kafka brokers in the following format: ``"KafkaBootstrapServers": ["abc.xyz.com:xxxx","abc2.xyz.com:xxxx"]``.
         """
         if kafka_bootstrap_servers is not None:
             pulumi.set(__self__, "kafka_bootstrap_servers", kafka_bootstrap_servers)
@@ -375,7 +375,7 @@ class EventSourceMappingEndpointsArgs:
     @pulumi.getter(name="kafkaBootstrapServers")
     def kafka_bootstrap_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of Kafka server endpoints.
+        The list of bootstrap servers for your Kafka brokers in the following format: ``"KafkaBootstrapServers": ["abc.xyz.com:xxxx","abc2.xyz.com:xxxx"]``.
         """
         return pulumi.get(self, "kafka_bootstrap_servers")
 
@@ -389,8 +389,8 @@ class EventSourceMappingFilterCriteriaArgs:
     def __init__(__self__, *,
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFilterArgs']]]] = None):
         """
-        The filter criteria to control event filtering.
-        :param pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFilterArgs']]] filters: List of filters of this FilterCriteria
+        An object that contains the filters for an event source.
+        :param pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFilterArgs']]] filters: A list of filters.
         """
         if filters is not None:
             pulumi.set(__self__, "filters", filters)
@@ -399,7 +399,7 @@ class EventSourceMappingFilterCriteriaArgs:
     @pulumi.getter
     def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFilterArgs']]]]:
         """
-        List of filters of this FilterCriteria
+        A list of filters.
         """
         return pulumi.get(self, "filters")
 
@@ -413,8 +413,8 @@ class EventSourceMappingFilterArgs:
     def __init__(__self__, *,
                  pattern: Optional[pulumi.Input[str]] = None):
         """
-        The filter object that defines parameters for ESM filtering.
-        :param pulumi.Input[str] pattern: The filter pattern that defines which events should be passed for invocations.
+        A structure within a ``FilterCriteria`` object that defines an event filtering pattern.
+        :param pulumi.Input[str] pattern: A filter pattern. For more information on the syntax of a filter pattern, see [Filter rule syntax](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-syntax).
         """
         if pattern is not None:
             pulumi.set(__self__, "pattern", pattern)
@@ -423,7 +423,7 @@ class EventSourceMappingFilterArgs:
     @pulumi.getter
     def pattern(self) -> Optional[pulumi.Input[str]]:
         """
-        The filter pattern that defines which events should be passed for invocations.
+        A filter pattern. For more information on the syntax of a filter pattern, see [Filter rule syntax](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-syntax).
         """
         return pulumi.get(self, "pattern")
 
@@ -439,6 +439,9 @@ class EventSourceMappingOnFailureArgs:
         """
         A destination for events that failed processing.
         :param pulumi.Input[str] destination: The Amazon Resource Name (ARN) of the destination resource.
+                To retain records of [asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations), you can configure an Amazon SNS topic, Amazon SQS queue, Lambda function, or Amazon EventBridge event bus as the destination.
+                To retain records of failed invocations from [Kinesis and DynamoDB event sources](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#event-source-mapping-destinations), you can configure an Amazon SNS topic or Amazon SQS queue as the destination.
+                To retain records of failed invocations from [self-managed Kafka](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-smaa-onfailure-destination) or [Amazon MSK](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-onfailure-destination), you can configure an Amazon SNS topic, Amazon SQS queue, or Amazon S3 bucket as the destination.
         """
         if destination is not None:
             pulumi.set(__self__, "destination", destination)
@@ -448,6 +451,9 @@ class EventSourceMappingOnFailureArgs:
     def destination(self) -> Optional[pulumi.Input[str]]:
         """
         The Amazon Resource Name (ARN) of the destination resource.
+         To retain records of [asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations), you can configure an Amazon SNS topic, Amazon SQS queue, Lambda function, or Amazon EventBridge event bus as the destination.
+         To retain records of failed invocations from [Kinesis and DynamoDB event sources](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#event-source-mapping-destinations), you can configure an Amazon SNS topic or Amazon SQS queue as the destination.
+         To retain records of failed invocations from [self-managed Kafka](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-smaa-onfailure-destination) or [Amazon MSK](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-onfailure-destination), you can configure an Amazon SNS topic, Amazon SQS queue, or Amazon S3 bucket as the destination.
         """
         return pulumi.get(self, "destination")
 
@@ -461,8 +467,8 @@ class EventSourceMappingScalingConfigArgs:
     def __init__(__self__, *,
                  maximum_concurrency: Optional[pulumi.Input[int]] = None):
         """
-        The scaling configuration for the event source.
-        :param pulumi.Input[int] maximum_concurrency: The maximum number of concurrent functions that the event source can invoke.
+        (Amazon SQS only) The scaling configuration for the event source. To remove the configuration, pass an empty value.
+        :param pulumi.Input[int] maximum_concurrency: Limits the number of concurrent instances that the SQS event source can invoke.
         """
         if maximum_concurrency is not None:
             pulumi.set(__self__, "maximum_concurrency", maximum_concurrency)
@@ -471,7 +477,7 @@ class EventSourceMappingScalingConfigArgs:
     @pulumi.getter(name="maximumConcurrency")
     def maximum_concurrency(self) -> Optional[pulumi.Input[int]]:
         """
-        The maximum number of concurrent functions that the event source can invoke.
+        Limits the number of concurrent instances that the SQS event source can invoke.
         """
         return pulumi.get(self, "maximum_concurrency")
 
@@ -485,8 +491,8 @@ class EventSourceMappingSelfManagedEventSourceArgs:
     def __init__(__self__, *,
                  endpoints: Optional[pulumi.Input['EventSourceMappingEndpointsArgs']] = None):
         """
-        The configuration used by AWS Lambda to access a self-managed event source.
-        :param pulumi.Input['EventSourceMappingEndpointsArgs'] endpoints: The endpoints for a self-managed event source.
+        The self-managed Apache Kafka cluster for your event source.
+        :param pulumi.Input['EventSourceMappingEndpointsArgs'] endpoints: The list of bootstrap servers for your Kafka brokers in the following format: ``"KafkaBootstrapServers": ["abc.xyz.com:xxxx","abc2.xyz.com:xxxx"]``.
         """
         if endpoints is not None:
             pulumi.set(__self__, "endpoints", endpoints)
@@ -495,7 +501,7 @@ class EventSourceMappingSelfManagedEventSourceArgs:
     @pulumi.getter
     def endpoints(self) -> Optional[pulumi.Input['EventSourceMappingEndpointsArgs']]:
         """
-        The endpoints for a self-managed event source.
+        The list of bootstrap servers for your Kafka brokers in the following format: ``"KafkaBootstrapServers": ["abc.xyz.com:xxxx","abc2.xyz.com:xxxx"]``.
         """
         return pulumi.get(self, "endpoints")
 
@@ -509,8 +515,8 @@ class EventSourceMappingSelfManagedKafkaEventSourceConfigArgs:
     def __init__(__self__, *,
                  consumer_group_id: Optional[pulumi.Input[str]] = None):
         """
-        Specific configuration settings for a Self-Managed Apache Kafka event source.
-        :param pulumi.Input[str] consumer_group_id: The identifier for the Kafka Consumer Group to join.
+        Specific configuration settings for a self-managed Apache Kafka event source.
+        :param pulumi.Input[str] consumer_group_id: The identifier for the Kafka consumer group to join. The consumer group ID must be unique among all your Kafka event sources. After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value. For more information, see [Customizable consumer group ID](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-consumer-group-id).
         """
         if consumer_group_id is not None:
             pulumi.set(__self__, "consumer_group_id", consumer_group_id)
@@ -519,7 +525,7 @@ class EventSourceMappingSelfManagedKafkaEventSourceConfigArgs:
     @pulumi.getter(name="consumerGroupId")
     def consumer_group_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The identifier for the Kafka Consumer Group to join.
+        The identifier for the Kafka consumer group to join. The consumer group ID must be unique among all your Kafka event sources. After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value. For more information, see [Customizable consumer group ID](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-consumer-group-id).
         """
         return pulumi.get(self, "consumer_group_id")
 
@@ -534,9 +540,18 @@ class EventSourceMappingSourceAccessConfigurationArgs:
                  type: Optional[pulumi.Input['EventSourceMappingSourceAccessConfigurationType']] = None,
                  uri: Optional[pulumi.Input[str]] = None):
         """
-        The configuration used by AWS Lambda to access event source
-        :param pulumi.Input['EventSourceMappingSourceAccessConfigurationType'] type: The type of source access configuration.
-        :param pulumi.Input[str] uri: The URI for the source access configuration resource.
+        An array of the authentication protocol, VPC components, or virtual host to secure and define your event source.
+        :param pulumi.Input['EventSourceMappingSourceAccessConfigurationType'] type: The type of authentication protocol, VPC components, or virtual host for your event source. For example: ``"Type":"SASL_SCRAM_512_AUTH"``.
+                 +   ``BASIC_AUTH`` – (Amazon MQ) The ASMlong secret that stores your broker credentials.
+                 +   ``BASIC_AUTH`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL/PLAIN authentication of your Apache Kafka brokers.
+                 +   ``VPC_SUBNET`` – (Self-managed Apache Kafka) The subnets associated with your VPC. Lambda connects to these subnets to fetch data from your self-managed Apache Kafka cluster.
+                 +   ``VPC_SECURITY_GROUP`` – (Self-managed Apache Kafka) The VPC security group used to manage access to your self-managed Apache Kafka brokers.
+                 +   ``SASL_SCRAM_256_AUTH`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL SCRAM-256 authentication of your self-managed Apache Kafka brokers.
+                 +   ``SASL_SCRAM_512_AUTH`` – (Amazon MSK, Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL SCRAM-512 authentication of your self-managed Apache Kafka brokers.
+                 +   ``VIRTUAL_HOST`` –- (RabbitMQ) The name of the virtual host in your RabbitMQ broker. Lambda uses this RabbitMQ host as the event source. This property cannot be specified in an UpdateEventSourceMapping API call.
+                 +   ``CLIENT_CERTIFICATE_TLS_AUTH`` – (Amazon MSK, self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the certificate chain (X.509 PEM), private key (PKCS#8 PEM), and private key password (optional) used for mutual TLS authentication of your MSK/Apache Kafka brokers.
+                 +   ``SERVER_ROOT_CA_CERTIFICATE`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the root CA certificate (X.509 PEM) used for TLS encryption of your Apache Kafka brokers.
+        :param pulumi.Input[str] uri: The value for your chosen configuration in ``Type``. For example: ``"URI": "arn:aws:secretsmanager:us-east-1:01234567890:secret:MyBrokerSecretName"``.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -547,7 +562,16 @@ class EventSourceMappingSourceAccessConfigurationArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input['EventSourceMappingSourceAccessConfigurationType']]:
         """
-        The type of source access configuration.
+        The type of authentication protocol, VPC components, or virtual host for your event source. For example: ``"Type":"SASL_SCRAM_512_AUTH"``.
+          +   ``BASIC_AUTH`` – (Amazon MQ) The ASMlong secret that stores your broker credentials.
+          +   ``BASIC_AUTH`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL/PLAIN authentication of your Apache Kafka brokers.
+          +   ``VPC_SUBNET`` – (Self-managed Apache Kafka) The subnets associated with your VPC. Lambda connects to these subnets to fetch data from your self-managed Apache Kafka cluster.
+          +   ``VPC_SECURITY_GROUP`` – (Self-managed Apache Kafka) The VPC security group used to manage access to your self-managed Apache Kafka brokers.
+          +   ``SASL_SCRAM_256_AUTH`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL SCRAM-256 authentication of your self-managed Apache Kafka brokers.
+          +   ``SASL_SCRAM_512_AUTH`` – (Amazon MSK, Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL SCRAM-512 authentication of your self-managed Apache Kafka brokers.
+          +   ``VIRTUAL_HOST`` –- (RabbitMQ) The name of the virtual host in your RabbitMQ broker. Lambda uses this RabbitMQ host as the event source. This property cannot be specified in an UpdateEventSourceMapping API call.
+          +   ``CLIENT_CERTIFICATE_TLS_AUTH`` – (Amazon MSK, self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the certificate chain (X.509 PEM), private key (PKCS#8 PEM), and private key password (optional) used for mutual TLS authentication of your MSK/Apache Kafka brokers.
+          +   ``SERVER_ROOT_CA_CERTIFICATE`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the root CA certificate (X.509 PEM) used for TLS encryption of your Apache Kafka brokers.
         """
         return pulumi.get(self, "type")
 
@@ -559,7 +583,7 @@ class EventSourceMappingSourceAccessConfigurationArgs:
     @pulumi.getter
     def uri(self) -> Optional[pulumi.Input[str]]:
         """
-        The URI for the source access configuration resource.
+        The value for your chosen configuration in ``Type``. For example: ``"URI": "arn:aws:secretsmanager:us-east-1:01234567890:secret:MyBrokerSecretName"``.
         """
         return pulumi.get(self, "uri")
 

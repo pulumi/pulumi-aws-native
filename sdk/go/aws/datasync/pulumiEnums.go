@@ -6710,6 +6710,172 @@ func (in *taskReportConfigReportLevelPtr) ToTaskReportConfigReportLevelPtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(TaskReportConfigReportLevelPtrOutput)
 }
 
+// Specifies status of a schedule.
+type TaskScheduleStatus string
+
+const (
+	TaskScheduleStatusEnabled  = TaskScheduleStatus("ENABLED")
+	TaskScheduleStatusDisabled = TaskScheduleStatus("DISABLED")
+)
+
+func (TaskScheduleStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskScheduleStatus)(nil)).Elem()
+}
+
+func (e TaskScheduleStatus) ToTaskScheduleStatusOutput() TaskScheduleStatusOutput {
+	return pulumi.ToOutput(e).(TaskScheduleStatusOutput)
+}
+
+func (e TaskScheduleStatus) ToTaskScheduleStatusOutputWithContext(ctx context.Context) TaskScheduleStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TaskScheduleStatusOutput)
+}
+
+func (e TaskScheduleStatus) ToTaskScheduleStatusPtrOutput() TaskScheduleStatusPtrOutput {
+	return e.ToTaskScheduleStatusPtrOutputWithContext(context.Background())
+}
+
+func (e TaskScheduleStatus) ToTaskScheduleStatusPtrOutputWithContext(ctx context.Context) TaskScheduleStatusPtrOutput {
+	return TaskScheduleStatus(e).ToTaskScheduleStatusOutputWithContext(ctx).ToTaskScheduleStatusPtrOutputWithContext(ctx)
+}
+
+func (e TaskScheduleStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TaskScheduleStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TaskScheduleStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TaskScheduleStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TaskScheduleStatusOutput struct{ *pulumi.OutputState }
+
+func (TaskScheduleStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskScheduleStatus)(nil)).Elem()
+}
+
+func (o TaskScheduleStatusOutput) ToTaskScheduleStatusOutput() TaskScheduleStatusOutput {
+	return o
+}
+
+func (o TaskScheduleStatusOutput) ToTaskScheduleStatusOutputWithContext(ctx context.Context) TaskScheduleStatusOutput {
+	return o
+}
+
+func (o TaskScheduleStatusOutput) ToTaskScheduleStatusPtrOutput() TaskScheduleStatusPtrOutput {
+	return o.ToTaskScheduleStatusPtrOutputWithContext(context.Background())
+}
+
+func (o TaskScheduleStatusOutput) ToTaskScheduleStatusPtrOutputWithContext(ctx context.Context) TaskScheduleStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskScheduleStatus) *TaskScheduleStatus {
+		return &v
+	}).(TaskScheduleStatusPtrOutput)
+}
+
+func (o TaskScheduleStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TaskScheduleStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TaskScheduleStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TaskScheduleStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TaskScheduleStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TaskScheduleStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TaskScheduleStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (TaskScheduleStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskScheduleStatus)(nil)).Elem()
+}
+
+func (o TaskScheduleStatusPtrOutput) ToTaskScheduleStatusPtrOutput() TaskScheduleStatusPtrOutput {
+	return o
+}
+
+func (o TaskScheduleStatusPtrOutput) ToTaskScheduleStatusPtrOutputWithContext(ctx context.Context) TaskScheduleStatusPtrOutput {
+	return o
+}
+
+func (o TaskScheduleStatusPtrOutput) Elem() TaskScheduleStatusOutput {
+	return o.ApplyT(func(v *TaskScheduleStatus) TaskScheduleStatus {
+		if v != nil {
+			return *v
+		}
+		var ret TaskScheduleStatus
+		return ret
+	}).(TaskScheduleStatusOutput)
+}
+
+func (o TaskScheduleStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TaskScheduleStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TaskScheduleStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TaskScheduleStatusInput is an input type that accepts values of the TaskScheduleStatus enum
+// A concrete instance of `TaskScheduleStatusInput` can be one of the following:
+//
+//	TaskScheduleStatusEnabled
+//	TaskScheduleStatusDisabled
+type TaskScheduleStatusInput interface {
+	pulumi.Input
+
+	ToTaskScheduleStatusOutput() TaskScheduleStatusOutput
+	ToTaskScheduleStatusOutputWithContext(context.Context) TaskScheduleStatusOutput
+}
+
+var taskScheduleStatusPtrType = reflect.TypeOf((**TaskScheduleStatus)(nil)).Elem()
+
+type TaskScheduleStatusPtrInput interface {
+	pulumi.Input
+
+	ToTaskScheduleStatusPtrOutput() TaskScheduleStatusPtrOutput
+	ToTaskScheduleStatusPtrOutputWithContext(context.Context) TaskScheduleStatusPtrOutput
+}
+
+type taskScheduleStatusPtr string
+
+func TaskScheduleStatusPtr(v string) TaskScheduleStatusPtrInput {
+	return (*taskScheduleStatusPtr)(&v)
+}
+
+func (*taskScheduleStatusPtr) ElementType() reflect.Type {
+	return taskScheduleStatusPtrType
+}
+
+func (in *taskScheduleStatusPtr) ToTaskScheduleStatusPtrOutput() TaskScheduleStatusPtrOutput {
+	return pulumi.ToOutput(in).(TaskScheduleStatusPtrOutput)
+}
+
+func (in *taskScheduleStatusPtr) ToTaskScheduleStatusPtrOutputWithContext(ctx context.Context) TaskScheduleStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TaskScheduleStatusPtrOutput)
+}
+
 // The status of the task that was described.
 type TaskStatus string
 
@@ -6883,6 +7049,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelPtrInput)(nil)).Elem(), TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel("ERRORS_ONLY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskReportConfigReportLevelInput)(nil)).Elem(), TaskReportConfigReportLevel("ERRORS_ONLY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskReportConfigReportLevelPtrInput)(nil)).Elem(), TaskReportConfigReportLevel("ERRORS_ONLY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskScheduleStatusInput)(nil)).Elem(), TaskScheduleStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskScheduleStatusPtrInput)(nil)).Elem(), TaskScheduleStatus("ENABLED"))
 	pulumi.RegisterOutputType(AgentEndpointTypeOutput{})
 	pulumi.RegisterOutputType(AgentEndpointTypePtrOutput{})
 	pulumi.RegisterOutputType(LocationAzureBlobAzureAccessTierOutput{})
@@ -6965,6 +7133,8 @@ func init() {
 	pulumi.RegisterOutputType(TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelPtrOutput{})
 	pulumi.RegisterOutputType(TaskReportConfigReportLevelOutput{})
 	pulumi.RegisterOutputType(TaskReportConfigReportLevelPtrOutput{})
+	pulumi.RegisterOutputType(TaskScheduleStatusOutput{})
+	pulumi.RegisterOutputType(TaskScheduleStatusPtrOutput{})
 	pulumi.RegisterOutputType(TaskStatusOutput{})
 	pulumi.RegisterOutputType(TaskStatusPtrOutput{})
 }

@@ -49,7 +49,7 @@ export interface GetDataProviderResult {
     /**
      * The property identifies the exact type of settings for the data provider.
      */
-    readonly settings?: outputs.dms.Settings0Properties | outputs.dms.Settings1Properties | outputs.dms.Settings2Properties | outputs.dms.Settings3Properties;
+    readonly settings?: outputs.dms.SettingsProperties;
     /**
      * An array of key-value pairs to apply to this resource.
      */

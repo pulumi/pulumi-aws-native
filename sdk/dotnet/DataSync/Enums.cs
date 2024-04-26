@@ -1302,6 +1302,37 @@ namespace Pulumi.AwsNative.DataSync
     }
 
     /// <summary>
+    /// Specifies status of a schedule.
+    /// </summary>
+    [EnumType]
+    public readonly struct TaskScheduleStatus : IEquatable<TaskScheduleStatus>
+    {
+        private readonly string _value;
+
+        private TaskScheduleStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TaskScheduleStatus Enabled { get; } = new TaskScheduleStatus("ENABLED");
+        public static TaskScheduleStatus Disabled { get; } = new TaskScheduleStatus("DISABLED");
+
+        public static bool operator ==(TaskScheduleStatus left, TaskScheduleStatus right) => left.Equals(right);
+        public static bool operator !=(TaskScheduleStatus left, TaskScheduleStatus right) => !left.Equals(right);
+
+        public static explicit operator string(TaskScheduleStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TaskScheduleStatus other && Equals(other);
+        public bool Equals(TaskScheduleStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The status of the task that was described.
     /// </summary>
     [EnumType]

@@ -11,13 +11,13 @@ namespace Pulumi.AwsNative.Lambda.Outputs
 {
 
     /// <summary>
-    /// The filter criteria to control event filtering.
+    /// An object that contains the filters for an event source.
     /// </summary>
     [OutputType]
     public sealed class EventSourceMappingFilterCriteria
     {
         /// <summary>
-        /// List of filters of this FilterCriteria
+        /// A list of filters.
         /// </summary>
         public readonly ImmutableArray<Outputs.EventSourceMappingFilter> Filters;
 

@@ -435,6 +435,16 @@ export const TaskReportConfigReportLevel = {
  */
 export type TaskReportConfigReportLevel = (typeof TaskReportConfigReportLevel)[keyof typeof TaskReportConfigReportLevel];
 
+export const TaskScheduleStatus = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * Specifies status of a schedule.
+ */
+export type TaskScheduleStatus = (typeof TaskScheduleStatus)[keyof typeof TaskScheduleStatus];
+
 export const TaskStatus = {
     Available: "AVAILABLE",
     Creating: "CREATING",

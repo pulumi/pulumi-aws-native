@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.Lambda.Inputs
 {
 
     /// <summary>
-    /// The filter criteria to control event filtering.
+    /// An object that contains the filters for an event source.
     /// </summary>
     public sealed class EventSourceMappingFilterCriteriaArgs : global::Pulumi.ResourceArgs
     {
@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.Lambda.Inputs
         private InputList<Inputs.EventSourceMappingFilterArgs>? _filters;
 
         /// <summary>
-        /// List of filters of this FilterCriteria
+        /// A list of filters.
         /// </summary>
         public InputList<Inputs.EventSourceMappingFilterArgs> Filters
         {

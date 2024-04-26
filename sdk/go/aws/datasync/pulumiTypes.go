@@ -4704,7 +4704,9 @@ func (o TaskReportConfigOverridesPropertiesVerifiedPropertiesPtrOutput) ReportLe
 // Specifies the schedule you want your task to use for repeated executions.
 type TaskSchedule struct {
 	// A cron expression that specifies when AWS DataSync initiates a scheduled transfer from a source to a destination location
-	ScheduleExpression string `pulumi:"scheduleExpression"`
+	ScheduleExpression *string `pulumi:"scheduleExpression"`
+	// Specifies status of a schedule.
+	Status *TaskScheduleStatus `pulumi:"status"`
 }
 
 // TaskScheduleInput is an input type that accepts TaskScheduleArgs and TaskScheduleOutput values.
@@ -4721,7 +4723,9 @@ type TaskScheduleInput interface {
 // Specifies the schedule you want your task to use for repeated executions.
 type TaskScheduleArgs struct {
 	// A cron expression that specifies when AWS DataSync initiates a scheduled transfer from a source to a destination location
-	ScheduleExpression pulumi.StringInput `pulumi:"scheduleExpression"`
+	ScheduleExpression pulumi.StringPtrInput `pulumi:"scheduleExpression"`
+	// Specifies status of a schedule.
+	Status TaskScheduleStatusPtrInput `pulumi:"status"`
 }
 
 func (TaskScheduleArgs) ElementType() reflect.Type {
@@ -4803,8 +4807,13 @@ func (o TaskScheduleOutput) ToTaskSchedulePtrOutputWithContext(ctx context.Conte
 }
 
 // A cron expression that specifies when AWS DataSync initiates a scheduled transfer from a source to a destination location
-func (o TaskScheduleOutput) ScheduleExpression() pulumi.StringOutput {
-	return o.ApplyT(func(v TaskSchedule) string { return v.ScheduleExpression }).(pulumi.StringOutput)
+func (o TaskScheduleOutput) ScheduleExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskSchedule) *string { return v.ScheduleExpression }).(pulumi.StringPtrOutput)
+}
+
+// Specifies status of a schedule.
+func (o TaskScheduleOutput) Status() TaskScheduleStatusPtrOutput {
+	return o.ApplyT(func(v TaskSchedule) *TaskScheduleStatus { return v.Status }).(TaskScheduleStatusPtrOutput)
 }
 
 type TaskSchedulePtrOutput struct{ *pulumi.OutputState }
@@ -4837,8 +4846,18 @@ func (o TaskSchedulePtrOutput) ScheduleExpression() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.ScheduleExpression
+		return v.ScheduleExpression
 	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies status of a schedule.
+func (o TaskSchedulePtrOutput) Status() TaskScheduleStatusPtrOutput {
+	return o.ApplyT(func(v *TaskSchedule) *TaskScheduleStatus {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(TaskScheduleStatusPtrOutput)
 }
 
 // A key-value pair to associate with a resource.

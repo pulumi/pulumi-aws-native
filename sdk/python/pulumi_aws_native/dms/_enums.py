@@ -15,8 +15,8 @@ __all__ = [
 class DataProviderDmsSslModeValue(str, Enum):
     NONE = "none"
     REQUIRE = "require"
-    VERIFY_CA = "verify_ca"
-    VERIFY_FULL = "verify_full"
+    VERIFY_CA = "verify-ca"
+    VERIFY_FULL = "verify-full"
 
 
 class DataProviderEngine(str, Enum):

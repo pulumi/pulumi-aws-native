@@ -575,617 +575,362 @@ func (o SchemaConversionApplicationAttributesPropertiesPtrOutput) S3BucketRoleAr
 	}).(pulumi.StringPtrOutput)
 }
 
-// PostgreSqlSettings property identifier.
-type Settings0Properties struct {
-	PostgreSqlSettings *Settings0PropertiesPostgreSqlSettingsProperties `pulumi:"postgreSqlSettings"`
+// The property identifies the exact type of settings for the data provider.
+type SettingsProperties struct {
+	// MicrosoftSqlServerSettings property identifier.
+	MicrosoftSqlServerSettings *SettingsPropertiesMicrosoftSqlServerSettingsProperties `pulumi:"microsoftSqlServerSettings"`
+	// MySqlSettings property identifier.
+	MySqlSettings *SettingsPropertiesMySqlSettingsProperties `pulumi:"mySqlSettings"`
+	// OracleSettings property identifier.
+	OracleSettings *SettingsPropertiesOracleSettingsProperties `pulumi:"oracleSettings"`
+	// PostgreSqlSettings property identifier.
+	PostgreSqlSettings *SettingsPropertiesPostgreSqlSettingsProperties `pulumi:"postgreSqlSettings"`
 }
 
-// Settings0PropertiesInput is an input type that accepts Settings0PropertiesArgs and Settings0PropertiesOutput values.
-// You can construct a concrete instance of `Settings0PropertiesInput` via:
+// SettingsPropertiesInput is an input type that accepts SettingsPropertiesArgs and SettingsPropertiesOutput values.
+// You can construct a concrete instance of `SettingsPropertiesInput` via:
 //
-//	Settings0PropertiesArgs{...}
-type Settings0PropertiesInput interface {
+//	SettingsPropertiesArgs{...}
+type SettingsPropertiesInput interface {
 	pulumi.Input
 
-	ToSettings0PropertiesOutput() Settings0PropertiesOutput
-	ToSettings0PropertiesOutputWithContext(context.Context) Settings0PropertiesOutput
+	ToSettingsPropertiesOutput() SettingsPropertiesOutput
+	ToSettingsPropertiesOutputWithContext(context.Context) SettingsPropertiesOutput
 }
 
-// PostgreSqlSettings property identifier.
-type Settings0PropertiesArgs struct {
-	PostgreSqlSettings Settings0PropertiesPostgreSqlSettingsPropertiesPtrInput `pulumi:"postgreSqlSettings"`
+// The property identifies the exact type of settings for the data provider.
+type SettingsPropertiesArgs struct {
+	// MicrosoftSqlServerSettings property identifier.
+	MicrosoftSqlServerSettings SettingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrInput `pulumi:"microsoftSqlServerSettings"`
+	// MySqlSettings property identifier.
+	MySqlSettings SettingsPropertiesMySqlSettingsPropertiesPtrInput `pulumi:"mySqlSettings"`
+	// OracleSettings property identifier.
+	OracleSettings SettingsPropertiesOracleSettingsPropertiesPtrInput `pulumi:"oracleSettings"`
+	// PostgreSqlSettings property identifier.
+	PostgreSqlSettings SettingsPropertiesPostgreSqlSettingsPropertiesPtrInput `pulumi:"postgreSqlSettings"`
 }
 
-func (Settings0PropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Settings0Properties)(nil)).Elem()
+func (SettingsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SettingsProperties)(nil)).Elem()
 }
 
-func (i Settings0PropertiesArgs) ToSettings0PropertiesOutput() Settings0PropertiesOutput {
-	return i.ToSettings0PropertiesOutputWithContext(context.Background())
+func (i SettingsPropertiesArgs) ToSettingsPropertiesOutput() SettingsPropertiesOutput {
+	return i.ToSettingsPropertiesOutputWithContext(context.Background())
 }
 
-func (i Settings0PropertiesArgs) ToSettings0PropertiesOutputWithContext(ctx context.Context) Settings0PropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Settings0PropertiesOutput)
+func (i SettingsPropertiesArgs) ToSettingsPropertiesOutputWithContext(ctx context.Context) SettingsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SettingsPropertiesOutput)
 }
 
-func (i Settings0PropertiesArgs) ToSettings0PropertiesPtrOutput() Settings0PropertiesPtrOutput {
-	return i.ToSettings0PropertiesPtrOutputWithContext(context.Background())
+func (i SettingsPropertiesArgs) ToSettingsPropertiesPtrOutput() SettingsPropertiesPtrOutput {
+	return i.ToSettingsPropertiesPtrOutputWithContext(context.Background())
 }
 
-func (i Settings0PropertiesArgs) ToSettings0PropertiesPtrOutputWithContext(ctx context.Context) Settings0PropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Settings0PropertiesOutput).ToSettings0PropertiesPtrOutputWithContext(ctx)
+func (i SettingsPropertiesArgs) ToSettingsPropertiesPtrOutputWithContext(ctx context.Context) SettingsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SettingsPropertiesOutput).ToSettingsPropertiesPtrOutputWithContext(ctx)
 }
 
-// Settings0PropertiesPtrInput is an input type that accepts Settings0PropertiesArgs, Settings0PropertiesPtr and Settings0PropertiesPtrOutput values.
-// You can construct a concrete instance of `Settings0PropertiesPtrInput` via:
+// SettingsPropertiesPtrInput is an input type that accepts SettingsPropertiesArgs, SettingsPropertiesPtr and SettingsPropertiesPtrOutput values.
+// You can construct a concrete instance of `SettingsPropertiesPtrInput` via:
 //
-//	        Settings0PropertiesArgs{...}
+//	        SettingsPropertiesArgs{...}
 //
 //	or:
 //
 //	        nil
-type Settings0PropertiesPtrInput interface {
+type SettingsPropertiesPtrInput interface {
 	pulumi.Input
 
-	ToSettings0PropertiesPtrOutput() Settings0PropertiesPtrOutput
-	ToSettings0PropertiesPtrOutputWithContext(context.Context) Settings0PropertiesPtrOutput
+	ToSettingsPropertiesPtrOutput() SettingsPropertiesPtrOutput
+	ToSettingsPropertiesPtrOutputWithContext(context.Context) SettingsPropertiesPtrOutput
 }
 
-type settings0PropertiesPtrType Settings0PropertiesArgs
+type settingsPropertiesPtrType SettingsPropertiesArgs
 
-func Settings0PropertiesPtr(v *Settings0PropertiesArgs) Settings0PropertiesPtrInput {
-	return (*settings0PropertiesPtrType)(v)
+func SettingsPropertiesPtr(v *SettingsPropertiesArgs) SettingsPropertiesPtrInput {
+	return (*settingsPropertiesPtrType)(v)
 }
 
-func (*settings0PropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Settings0Properties)(nil)).Elem()
+func (*settingsPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SettingsProperties)(nil)).Elem()
 }
 
-func (i *settings0PropertiesPtrType) ToSettings0PropertiesPtrOutput() Settings0PropertiesPtrOutput {
-	return i.ToSettings0PropertiesPtrOutputWithContext(context.Background())
+func (i *settingsPropertiesPtrType) ToSettingsPropertiesPtrOutput() SettingsPropertiesPtrOutput {
+	return i.ToSettingsPropertiesPtrOutputWithContext(context.Background())
 }
 
-func (i *settings0PropertiesPtrType) ToSettings0PropertiesPtrOutputWithContext(ctx context.Context) Settings0PropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Settings0PropertiesPtrOutput)
+func (i *settingsPropertiesPtrType) ToSettingsPropertiesPtrOutputWithContext(ctx context.Context) SettingsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SettingsPropertiesPtrOutput)
+}
+
+// The property identifies the exact type of settings for the data provider.
+type SettingsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (SettingsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SettingsProperties)(nil)).Elem()
+}
+
+func (o SettingsPropertiesOutput) ToSettingsPropertiesOutput() SettingsPropertiesOutput {
+	return o
+}
+
+func (o SettingsPropertiesOutput) ToSettingsPropertiesOutputWithContext(ctx context.Context) SettingsPropertiesOutput {
+	return o
+}
+
+func (o SettingsPropertiesOutput) ToSettingsPropertiesPtrOutput() SettingsPropertiesPtrOutput {
+	return o.ToSettingsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o SettingsPropertiesOutput) ToSettingsPropertiesPtrOutputWithContext(ctx context.Context) SettingsPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SettingsProperties) *SettingsProperties {
+		return &v
+	}).(SettingsPropertiesPtrOutput)
+}
+
+// MicrosoftSqlServerSettings property identifier.
+func (o SettingsPropertiesOutput) MicrosoftSqlServerSettings() SettingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput {
+	return o.ApplyT(func(v SettingsProperties) *SettingsPropertiesMicrosoftSqlServerSettingsProperties {
+		return v.MicrosoftSqlServerSettings
+	}).(SettingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput)
+}
+
+// MySqlSettings property identifier.
+func (o SettingsPropertiesOutput) MySqlSettings() SettingsPropertiesMySqlSettingsPropertiesPtrOutput {
+	return o.ApplyT(func(v SettingsProperties) *SettingsPropertiesMySqlSettingsProperties { return v.MySqlSettings }).(SettingsPropertiesMySqlSettingsPropertiesPtrOutput)
+}
+
+// OracleSettings property identifier.
+func (o SettingsPropertiesOutput) OracleSettings() SettingsPropertiesOracleSettingsPropertiesPtrOutput {
+	return o.ApplyT(func(v SettingsProperties) *SettingsPropertiesOracleSettingsProperties { return v.OracleSettings }).(SettingsPropertiesOracleSettingsPropertiesPtrOutput)
 }
 
 // PostgreSqlSettings property identifier.
-type Settings0PropertiesOutput struct{ *pulumi.OutputState }
-
-func (Settings0PropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Settings0Properties)(nil)).Elem()
-}
-
-func (o Settings0PropertiesOutput) ToSettings0PropertiesOutput() Settings0PropertiesOutput {
-	return o
-}
-
-func (o Settings0PropertiesOutput) ToSettings0PropertiesOutputWithContext(ctx context.Context) Settings0PropertiesOutput {
-	return o
-}
-
-func (o Settings0PropertiesOutput) ToSettings0PropertiesPtrOutput() Settings0PropertiesPtrOutput {
-	return o.ToSettings0PropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o Settings0PropertiesOutput) ToSettings0PropertiesPtrOutputWithContext(ctx context.Context) Settings0PropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Settings0Properties) *Settings0Properties {
-		return &v
-	}).(Settings0PropertiesPtrOutput)
-}
-
-func (o Settings0PropertiesOutput) PostgreSqlSettings() Settings0PropertiesPostgreSqlSettingsPropertiesPtrOutput {
-	return o.ApplyT(func(v Settings0Properties) *Settings0PropertiesPostgreSqlSettingsProperties {
+func (o SettingsPropertiesOutput) PostgreSqlSettings() SettingsPropertiesPostgreSqlSettingsPropertiesPtrOutput {
+	return o.ApplyT(func(v SettingsProperties) *SettingsPropertiesPostgreSqlSettingsProperties {
 		return v.PostgreSqlSettings
-	}).(Settings0PropertiesPostgreSqlSettingsPropertiesPtrOutput)
+	}).(SettingsPropertiesPostgreSqlSettingsPropertiesPtrOutput)
 }
 
-type Settings0PropertiesPtrOutput struct{ *pulumi.OutputState }
+type SettingsPropertiesPtrOutput struct{ *pulumi.OutputState }
 
-func (Settings0PropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Settings0Properties)(nil)).Elem()
+func (SettingsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SettingsProperties)(nil)).Elem()
 }
 
-func (o Settings0PropertiesPtrOutput) ToSettings0PropertiesPtrOutput() Settings0PropertiesPtrOutput {
+func (o SettingsPropertiesPtrOutput) ToSettingsPropertiesPtrOutput() SettingsPropertiesPtrOutput {
 	return o
 }
 
-func (o Settings0PropertiesPtrOutput) ToSettings0PropertiesPtrOutputWithContext(ctx context.Context) Settings0PropertiesPtrOutput {
+func (o SettingsPropertiesPtrOutput) ToSettingsPropertiesPtrOutputWithContext(ctx context.Context) SettingsPropertiesPtrOutput {
 	return o
 }
 
-func (o Settings0PropertiesPtrOutput) Elem() Settings0PropertiesOutput {
-	return o.ApplyT(func(v *Settings0Properties) Settings0Properties {
+func (o SettingsPropertiesPtrOutput) Elem() SettingsPropertiesOutput {
+	return o.ApplyT(func(v *SettingsProperties) SettingsProperties {
 		if v != nil {
 			return *v
 		}
-		var ret Settings0Properties
+		var ret SettingsProperties
 		return ret
-	}).(Settings0PropertiesOutput)
+	}).(SettingsPropertiesOutput)
 }
 
-func (o Settings0PropertiesPtrOutput) PostgreSqlSettings() Settings0PropertiesPostgreSqlSettingsPropertiesPtrOutput {
-	return o.ApplyT(func(v *Settings0Properties) *Settings0PropertiesPostgreSqlSettingsProperties {
+// MicrosoftSqlServerSettings property identifier.
+func (o SettingsPropertiesPtrOutput) MicrosoftSqlServerSettings() SettingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput {
+	return o.ApplyT(func(v *SettingsProperties) *SettingsPropertiesMicrosoftSqlServerSettingsProperties {
 		if v == nil {
 			return nil
 		}
-		return v.PostgreSqlSettings
-	}).(Settings0PropertiesPostgreSqlSettingsPropertiesPtrOutput)
-}
-
-type Settings0PropertiesPostgreSqlSettingsProperties struct {
-	CertificateArn *string                      `pulumi:"certificateArn"`
-	DatabaseName   *string                      `pulumi:"databaseName"`
-	Port           *int                         `pulumi:"port"`
-	ServerName     *string                      `pulumi:"serverName"`
-	SslMode        *DataProviderDmsSslModeValue `pulumi:"sslMode"`
-}
-
-// Settings0PropertiesPostgreSqlSettingsPropertiesInput is an input type that accepts Settings0PropertiesPostgreSqlSettingsPropertiesArgs and Settings0PropertiesPostgreSqlSettingsPropertiesOutput values.
-// You can construct a concrete instance of `Settings0PropertiesPostgreSqlSettingsPropertiesInput` via:
-//
-//	Settings0PropertiesPostgreSqlSettingsPropertiesArgs{...}
-type Settings0PropertiesPostgreSqlSettingsPropertiesInput interface {
-	pulumi.Input
-
-	ToSettings0PropertiesPostgreSqlSettingsPropertiesOutput() Settings0PropertiesPostgreSqlSettingsPropertiesOutput
-	ToSettings0PropertiesPostgreSqlSettingsPropertiesOutputWithContext(context.Context) Settings0PropertiesPostgreSqlSettingsPropertiesOutput
-}
-
-type Settings0PropertiesPostgreSqlSettingsPropertiesArgs struct {
-	CertificateArn pulumi.StringPtrInput               `pulumi:"certificateArn"`
-	DatabaseName   pulumi.StringPtrInput               `pulumi:"databaseName"`
-	Port           pulumi.IntPtrInput                  `pulumi:"port"`
-	ServerName     pulumi.StringPtrInput               `pulumi:"serverName"`
-	SslMode        DataProviderDmsSslModeValuePtrInput `pulumi:"sslMode"`
-}
-
-func (Settings0PropertiesPostgreSqlSettingsPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Settings0PropertiesPostgreSqlSettingsProperties)(nil)).Elem()
-}
-
-func (i Settings0PropertiesPostgreSqlSettingsPropertiesArgs) ToSettings0PropertiesPostgreSqlSettingsPropertiesOutput() Settings0PropertiesPostgreSqlSettingsPropertiesOutput {
-	return i.ToSettings0PropertiesPostgreSqlSettingsPropertiesOutputWithContext(context.Background())
-}
-
-func (i Settings0PropertiesPostgreSqlSettingsPropertiesArgs) ToSettings0PropertiesPostgreSqlSettingsPropertiesOutputWithContext(ctx context.Context) Settings0PropertiesPostgreSqlSettingsPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Settings0PropertiesPostgreSqlSettingsPropertiesOutput)
-}
-
-func (i Settings0PropertiesPostgreSqlSettingsPropertiesArgs) ToSettings0PropertiesPostgreSqlSettingsPropertiesPtrOutput() Settings0PropertiesPostgreSqlSettingsPropertiesPtrOutput {
-	return i.ToSettings0PropertiesPostgreSqlSettingsPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i Settings0PropertiesPostgreSqlSettingsPropertiesArgs) ToSettings0PropertiesPostgreSqlSettingsPropertiesPtrOutputWithContext(ctx context.Context) Settings0PropertiesPostgreSqlSettingsPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Settings0PropertiesPostgreSqlSettingsPropertiesOutput).ToSettings0PropertiesPostgreSqlSettingsPropertiesPtrOutputWithContext(ctx)
-}
-
-// Settings0PropertiesPostgreSqlSettingsPropertiesPtrInput is an input type that accepts Settings0PropertiesPostgreSqlSettingsPropertiesArgs, Settings0PropertiesPostgreSqlSettingsPropertiesPtr and Settings0PropertiesPostgreSqlSettingsPropertiesPtrOutput values.
-// You can construct a concrete instance of `Settings0PropertiesPostgreSqlSettingsPropertiesPtrInput` via:
-//
-//	        Settings0PropertiesPostgreSqlSettingsPropertiesArgs{...}
-//
-//	or:
-//
-//	        nil
-type Settings0PropertiesPostgreSqlSettingsPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToSettings0PropertiesPostgreSqlSettingsPropertiesPtrOutput() Settings0PropertiesPostgreSqlSettingsPropertiesPtrOutput
-	ToSettings0PropertiesPostgreSqlSettingsPropertiesPtrOutputWithContext(context.Context) Settings0PropertiesPostgreSqlSettingsPropertiesPtrOutput
-}
-
-type settings0PropertiesPostgreSqlSettingsPropertiesPtrType Settings0PropertiesPostgreSqlSettingsPropertiesArgs
-
-func Settings0PropertiesPostgreSqlSettingsPropertiesPtr(v *Settings0PropertiesPostgreSqlSettingsPropertiesArgs) Settings0PropertiesPostgreSqlSettingsPropertiesPtrInput {
-	return (*settings0PropertiesPostgreSqlSettingsPropertiesPtrType)(v)
-}
-
-func (*settings0PropertiesPostgreSqlSettingsPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Settings0PropertiesPostgreSqlSettingsProperties)(nil)).Elem()
-}
-
-func (i *settings0PropertiesPostgreSqlSettingsPropertiesPtrType) ToSettings0PropertiesPostgreSqlSettingsPropertiesPtrOutput() Settings0PropertiesPostgreSqlSettingsPropertiesPtrOutput {
-	return i.ToSettings0PropertiesPostgreSqlSettingsPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *settings0PropertiesPostgreSqlSettingsPropertiesPtrType) ToSettings0PropertiesPostgreSqlSettingsPropertiesPtrOutputWithContext(ctx context.Context) Settings0PropertiesPostgreSqlSettingsPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Settings0PropertiesPostgreSqlSettingsPropertiesPtrOutput)
-}
-
-type Settings0PropertiesPostgreSqlSettingsPropertiesOutput struct{ *pulumi.OutputState }
-
-func (Settings0PropertiesPostgreSqlSettingsPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Settings0PropertiesPostgreSqlSettingsProperties)(nil)).Elem()
-}
-
-func (o Settings0PropertiesPostgreSqlSettingsPropertiesOutput) ToSettings0PropertiesPostgreSqlSettingsPropertiesOutput() Settings0PropertiesPostgreSqlSettingsPropertiesOutput {
-	return o
-}
-
-func (o Settings0PropertiesPostgreSqlSettingsPropertiesOutput) ToSettings0PropertiesPostgreSqlSettingsPropertiesOutputWithContext(ctx context.Context) Settings0PropertiesPostgreSqlSettingsPropertiesOutput {
-	return o
-}
-
-func (o Settings0PropertiesPostgreSqlSettingsPropertiesOutput) ToSettings0PropertiesPostgreSqlSettingsPropertiesPtrOutput() Settings0PropertiesPostgreSqlSettingsPropertiesPtrOutput {
-	return o.ToSettings0PropertiesPostgreSqlSettingsPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o Settings0PropertiesPostgreSqlSettingsPropertiesOutput) ToSettings0PropertiesPostgreSqlSettingsPropertiesPtrOutputWithContext(ctx context.Context) Settings0PropertiesPostgreSqlSettingsPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Settings0PropertiesPostgreSqlSettingsProperties) *Settings0PropertiesPostgreSqlSettingsProperties {
-		return &v
-	}).(Settings0PropertiesPostgreSqlSettingsPropertiesPtrOutput)
-}
-
-func (o Settings0PropertiesPostgreSqlSettingsPropertiesOutput) CertificateArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Settings0PropertiesPostgreSqlSettingsProperties) *string { return v.CertificateArn }).(pulumi.StringPtrOutput)
-}
-
-func (o Settings0PropertiesPostgreSqlSettingsPropertiesOutput) DatabaseName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Settings0PropertiesPostgreSqlSettingsProperties) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
-}
-
-func (o Settings0PropertiesPostgreSqlSettingsPropertiesOutput) Port() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v Settings0PropertiesPostgreSqlSettingsProperties) *int { return v.Port }).(pulumi.IntPtrOutput)
-}
-
-func (o Settings0PropertiesPostgreSqlSettingsPropertiesOutput) ServerName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Settings0PropertiesPostgreSqlSettingsProperties) *string { return v.ServerName }).(pulumi.StringPtrOutput)
-}
-
-func (o Settings0PropertiesPostgreSqlSettingsPropertiesOutput) SslMode() DataProviderDmsSslModeValuePtrOutput {
-	return o.ApplyT(func(v Settings0PropertiesPostgreSqlSettingsProperties) *DataProviderDmsSslModeValue { return v.SslMode }).(DataProviderDmsSslModeValuePtrOutput)
-}
-
-type Settings0PropertiesPostgreSqlSettingsPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (Settings0PropertiesPostgreSqlSettingsPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Settings0PropertiesPostgreSqlSettingsProperties)(nil)).Elem()
-}
-
-func (o Settings0PropertiesPostgreSqlSettingsPropertiesPtrOutput) ToSettings0PropertiesPostgreSqlSettingsPropertiesPtrOutput() Settings0PropertiesPostgreSqlSettingsPropertiesPtrOutput {
-	return o
-}
-
-func (o Settings0PropertiesPostgreSqlSettingsPropertiesPtrOutput) ToSettings0PropertiesPostgreSqlSettingsPropertiesPtrOutputWithContext(ctx context.Context) Settings0PropertiesPostgreSqlSettingsPropertiesPtrOutput {
-	return o
-}
-
-func (o Settings0PropertiesPostgreSqlSettingsPropertiesPtrOutput) Elem() Settings0PropertiesPostgreSqlSettingsPropertiesOutput {
-	return o.ApplyT(func(v *Settings0PropertiesPostgreSqlSettingsProperties) Settings0PropertiesPostgreSqlSettingsProperties {
-		if v != nil {
-			return *v
-		}
-		var ret Settings0PropertiesPostgreSqlSettingsProperties
-		return ret
-	}).(Settings0PropertiesPostgreSqlSettingsPropertiesOutput)
-}
-
-func (o Settings0PropertiesPostgreSqlSettingsPropertiesPtrOutput) CertificateArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Settings0PropertiesPostgreSqlSettingsProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CertificateArn
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o Settings0PropertiesPostgreSqlSettingsPropertiesPtrOutput) DatabaseName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Settings0PropertiesPostgreSqlSettingsProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DatabaseName
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o Settings0PropertiesPostgreSqlSettingsPropertiesPtrOutput) Port() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Settings0PropertiesPostgreSqlSettingsProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Port
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o Settings0PropertiesPostgreSqlSettingsPropertiesPtrOutput) ServerName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Settings0PropertiesPostgreSqlSettingsProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ServerName
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o Settings0PropertiesPostgreSqlSettingsPropertiesPtrOutput) SslMode() DataProviderDmsSslModeValuePtrOutput {
-	return o.ApplyT(func(v *Settings0PropertiesPostgreSqlSettingsProperties) *DataProviderDmsSslModeValue {
-		if v == nil {
-			return nil
-		}
-		return v.SslMode
-	}).(DataProviderDmsSslModeValuePtrOutput)
+		return v.MicrosoftSqlServerSettings
+	}).(SettingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput)
 }
 
 // MySqlSettings property identifier.
-type Settings1Properties struct {
-	MySqlSettings *Settings1PropertiesMySqlSettingsProperties `pulumi:"mySqlSettings"`
-}
-
-// Settings1PropertiesInput is an input type that accepts Settings1PropertiesArgs and Settings1PropertiesOutput values.
-// You can construct a concrete instance of `Settings1PropertiesInput` via:
-//
-//	Settings1PropertiesArgs{...}
-type Settings1PropertiesInput interface {
-	pulumi.Input
-
-	ToSettings1PropertiesOutput() Settings1PropertiesOutput
-	ToSettings1PropertiesOutputWithContext(context.Context) Settings1PropertiesOutput
-}
-
-// MySqlSettings property identifier.
-type Settings1PropertiesArgs struct {
-	MySqlSettings Settings1PropertiesMySqlSettingsPropertiesPtrInput `pulumi:"mySqlSettings"`
-}
-
-func (Settings1PropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Settings1Properties)(nil)).Elem()
-}
-
-func (i Settings1PropertiesArgs) ToSettings1PropertiesOutput() Settings1PropertiesOutput {
-	return i.ToSettings1PropertiesOutputWithContext(context.Background())
-}
-
-func (i Settings1PropertiesArgs) ToSettings1PropertiesOutputWithContext(ctx context.Context) Settings1PropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Settings1PropertiesOutput)
-}
-
-func (i Settings1PropertiesArgs) ToSettings1PropertiesPtrOutput() Settings1PropertiesPtrOutput {
-	return i.ToSettings1PropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i Settings1PropertiesArgs) ToSettings1PropertiesPtrOutputWithContext(ctx context.Context) Settings1PropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Settings1PropertiesOutput).ToSettings1PropertiesPtrOutputWithContext(ctx)
-}
-
-// Settings1PropertiesPtrInput is an input type that accepts Settings1PropertiesArgs, Settings1PropertiesPtr and Settings1PropertiesPtrOutput values.
-// You can construct a concrete instance of `Settings1PropertiesPtrInput` via:
-//
-//	        Settings1PropertiesArgs{...}
-//
-//	or:
-//
-//	        nil
-type Settings1PropertiesPtrInput interface {
-	pulumi.Input
-
-	ToSettings1PropertiesPtrOutput() Settings1PropertiesPtrOutput
-	ToSettings1PropertiesPtrOutputWithContext(context.Context) Settings1PropertiesPtrOutput
-}
-
-type settings1PropertiesPtrType Settings1PropertiesArgs
-
-func Settings1PropertiesPtr(v *Settings1PropertiesArgs) Settings1PropertiesPtrInput {
-	return (*settings1PropertiesPtrType)(v)
-}
-
-func (*settings1PropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Settings1Properties)(nil)).Elem()
-}
-
-func (i *settings1PropertiesPtrType) ToSettings1PropertiesPtrOutput() Settings1PropertiesPtrOutput {
-	return i.ToSettings1PropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *settings1PropertiesPtrType) ToSettings1PropertiesPtrOutputWithContext(ctx context.Context) Settings1PropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Settings1PropertiesPtrOutput)
-}
-
-// MySqlSettings property identifier.
-type Settings1PropertiesOutput struct{ *pulumi.OutputState }
-
-func (Settings1PropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Settings1Properties)(nil)).Elem()
-}
-
-func (o Settings1PropertiesOutput) ToSettings1PropertiesOutput() Settings1PropertiesOutput {
-	return o
-}
-
-func (o Settings1PropertiesOutput) ToSettings1PropertiesOutputWithContext(ctx context.Context) Settings1PropertiesOutput {
-	return o
-}
-
-func (o Settings1PropertiesOutput) ToSettings1PropertiesPtrOutput() Settings1PropertiesPtrOutput {
-	return o.ToSettings1PropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o Settings1PropertiesOutput) ToSettings1PropertiesPtrOutputWithContext(ctx context.Context) Settings1PropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Settings1Properties) *Settings1Properties {
-		return &v
-	}).(Settings1PropertiesPtrOutput)
-}
-
-func (o Settings1PropertiesOutput) MySqlSettings() Settings1PropertiesMySqlSettingsPropertiesPtrOutput {
-	return o.ApplyT(func(v Settings1Properties) *Settings1PropertiesMySqlSettingsProperties { return v.MySqlSettings }).(Settings1PropertiesMySqlSettingsPropertiesPtrOutput)
-}
-
-type Settings1PropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (Settings1PropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Settings1Properties)(nil)).Elem()
-}
-
-func (o Settings1PropertiesPtrOutput) ToSettings1PropertiesPtrOutput() Settings1PropertiesPtrOutput {
-	return o
-}
-
-func (o Settings1PropertiesPtrOutput) ToSettings1PropertiesPtrOutputWithContext(ctx context.Context) Settings1PropertiesPtrOutput {
-	return o
-}
-
-func (o Settings1PropertiesPtrOutput) Elem() Settings1PropertiesOutput {
-	return o.ApplyT(func(v *Settings1Properties) Settings1Properties {
-		if v != nil {
-			return *v
-		}
-		var ret Settings1Properties
-		return ret
-	}).(Settings1PropertiesOutput)
-}
-
-func (o Settings1PropertiesPtrOutput) MySqlSettings() Settings1PropertiesMySqlSettingsPropertiesPtrOutput {
-	return o.ApplyT(func(v *Settings1Properties) *Settings1PropertiesMySqlSettingsProperties {
+func (o SettingsPropertiesPtrOutput) MySqlSettings() SettingsPropertiesMySqlSettingsPropertiesPtrOutput {
+	return o.ApplyT(func(v *SettingsProperties) *SettingsPropertiesMySqlSettingsProperties {
 		if v == nil {
 			return nil
 		}
 		return v.MySqlSettings
-	}).(Settings1PropertiesMySqlSettingsPropertiesPtrOutput)
+	}).(SettingsPropertiesMySqlSettingsPropertiesPtrOutput)
 }
 
-type Settings1PropertiesMySqlSettingsProperties struct {
-	CertificateArn *string                      `pulumi:"certificateArn"`
-	Port           *int                         `pulumi:"port"`
-	ServerName     *string                      `pulumi:"serverName"`
-	SslMode        *DataProviderDmsSslModeValue `pulumi:"sslMode"`
+// OracleSettings property identifier.
+func (o SettingsPropertiesPtrOutput) OracleSettings() SettingsPropertiesOracleSettingsPropertiesPtrOutput {
+	return o.ApplyT(func(v *SettingsProperties) *SettingsPropertiesOracleSettingsProperties {
+		if v == nil {
+			return nil
+		}
+		return v.OracleSettings
+	}).(SettingsPropertiesOracleSettingsPropertiesPtrOutput)
 }
 
-// Settings1PropertiesMySqlSettingsPropertiesInput is an input type that accepts Settings1PropertiesMySqlSettingsPropertiesArgs and Settings1PropertiesMySqlSettingsPropertiesOutput values.
-// You can construct a concrete instance of `Settings1PropertiesMySqlSettingsPropertiesInput` via:
+// PostgreSqlSettings property identifier.
+func (o SettingsPropertiesPtrOutput) PostgreSqlSettings() SettingsPropertiesPostgreSqlSettingsPropertiesPtrOutput {
+	return o.ApplyT(func(v *SettingsProperties) *SettingsPropertiesPostgreSqlSettingsProperties {
+		if v == nil {
+			return nil
+		}
+		return v.PostgreSqlSettings
+	}).(SettingsPropertiesPostgreSqlSettingsPropertiesPtrOutput)
+}
+
+// MicrosoftSqlServerSettings property identifier.
+type SettingsPropertiesMicrosoftSqlServerSettingsProperties struct {
+	CertificateArn *string                     `pulumi:"certificateArn"`
+	DatabaseName   string                      `pulumi:"databaseName"`
+	Port           int                         `pulumi:"port"`
+	ServerName     string                      `pulumi:"serverName"`
+	SslMode        DataProviderDmsSslModeValue `pulumi:"sslMode"`
+}
+
+// SettingsPropertiesMicrosoftSqlServerSettingsPropertiesInput is an input type that accepts SettingsPropertiesMicrosoftSqlServerSettingsPropertiesArgs and SettingsPropertiesMicrosoftSqlServerSettingsPropertiesOutput values.
+// You can construct a concrete instance of `SettingsPropertiesMicrosoftSqlServerSettingsPropertiesInput` via:
 //
-//	Settings1PropertiesMySqlSettingsPropertiesArgs{...}
-type Settings1PropertiesMySqlSettingsPropertiesInput interface {
+//	SettingsPropertiesMicrosoftSqlServerSettingsPropertiesArgs{...}
+type SettingsPropertiesMicrosoftSqlServerSettingsPropertiesInput interface {
 	pulumi.Input
 
-	ToSettings1PropertiesMySqlSettingsPropertiesOutput() Settings1PropertiesMySqlSettingsPropertiesOutput
-	ToSettings1PropertiesMySqlSettingsPropertiesOutputWithContext(context.Context) Settings1PropertiesMySqlSettingsPropertiesOutput
+	ToSettingsPropertiesMicrosoftSqlServerSettingsPropertiesOutput() SettingsPropertiesMicrosoftSqlServerSettingsPropertiesOutput
+	ToSettingsPropertiesMicrosoftSqlServerSettingsPropertiesOutputWithContext(context.Context) SettingsPropertiesMicrosoftSqlServerSettingsPropertiesOutput
 }
 
-type Settings1PropertiesMySqlSettingsPropertiesArgs struct {
-	CertificateArn pulumi.StringPtrInput               `pulumi:"certificateArn"`
-	Port           pulumi.IntPtrInput                  `pulumi:"port"`
-	ServerName     pulumi.StringPtrInput               `pulumi:"serverName"`
-	SslMode        DataProviderDmsSslModeValuePtrInput `pulumi:"sslMode"`
+// MicrosoftSqlServerSettings property identifier.
+type SettingsPropertiesMicrosoftSqlServerSettingsPropertiesArgs struct {
+	CertificateArn pulumi.StringPtrInput            `pulumi:"certificateArn"`
+	DatabaseName   pulumi.StringInput               `pulumi:"databaseName"`
+	Port           pulumi.IntInput                  `pulumi:"port"`
+	ServerName     pulumi.StringInput               `pulumi:"serverName"`
+	SslMode        DataProviderDmsSslModeValueInput `pulumi:"sslMode"`
 }
 
-func (Settings1PropertiesMySqlSettingsPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Settings1PropertiesMySqlSettingsProperties)(nil)).Elem()
+func (SettingsPropertiesMicrosoftSqlServerSettingsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SettingsPropertiesMicrosoftSqlServerSettingsProperties)(nil)).Elem()
 }
 
-func (i Settings1PropertiesMySqlSettingsPropertiesArgs) ToSettings1PropertiesMySqlSettingsPropertiesOutput() Settings1PropertiesMySqlSettingsPropertiesOutput {
-	return i.ToSettings1PropertiesMySqlSettingsPropertiesOutputWithContext(context.Background())
+func (i SettingsPropertiesMicrosoftSqlServerSettingsPropertiesArgs) ToSettingsPropertiesMicrosoftSqlServerSettingsPropertiesOutput() SettingsPropertiesMicrosoftSqlServerSettingsPropertiesOutput {
+	return i.ToSettingsPropertiesMicrosoftSqlServerSettingsPropertiesOutputWithContext(context.Background())
 }
 
-func (i Settings1PropertiesMySqlSettingsPropertiesArgs) ToSettings1PropertiesMySqlSettingsPropertiesOutputWithContext(ctx context.Context) Settings1PropertiesMySqlSettingsPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Settings1PropertiesMySqlSettingsPropertiesOutput)
+func (i SettingsPropertiesMicrosoftSqlServerSettingsPropertiesArgs) ToSettingsPropertiesMicrosoftSqlServerSettingsPropertiesOutputWithContext(ctx context.Context) SettingsPropertiesMicrosoftSqlServerSettingsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SettingsPropertiesMicrosoftSqlServerSettingsPropertiesOutput)
 }
 
-func (i Settings1PropertiesMySqlSettingsPropertiesArgs) ToSettings1PropertiesMySqlSettingsPropertiesPtrOutput() Settings1PropertiesMySqlSettingsPropertiesPtrOutput {
-	return i.ToSettings1PropertiesMySqlSettingsPropertiesPtrOutputWithContext(context.Background())
+func (i SettingsPropertiesMicrosoftSqlServerSettingsPropertiesArgs) ToSettingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput() SettingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput {
+	return i.ToSettingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrOutputWithContext(context.Background())
 }
 
-func (i Settings1PropertiesMySqlSettingsPropertiesArgs) ToSettings1PropertiesMySqlSettingsPropertiesPtrOutputWithContext(ctx context.Context) Settings1PropertiesMySqlSettingsPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Settings1PropertiesMySqlSettingsPropertiesOutput).ToSettings1PropertiesMySqlSettingsPropertiesPtrOutputWithContext(ctx)
+func (i SettingsPropertiesMicrosoftSqlServerSettingsPropertiesArgs) ToSettingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrOutputWithContext(ctx context.Context) SettingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SettingsPropertiesMicrosoftSqlServerSettingsPropertiesOutput).ToSettingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrOutputWithContext(ctx)
 }
 
-// Settings1PropertiesMySqlSettingsPropertiesPtrInput is an input type that accepts Settings1PropertiesMySqlSettingsPropertiesArgs, Settings1PropertiesMySqlSettingsPropertiesPtr and Settings1PropertiesMySqlSettingsPropertiesPtrOutput values.
-// You can construct a concrete instance of `Settings1PropertiesMySqlSettingsPropertiesPtrInput` via:
+// SettingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrInput is an input type that accepts SettingsPropertiesMicrosoftSqlServerSettingsPropertiesArgs, SettingsPropertiesMicrosoftSqlServerSettingsPropertiesPtr and SettingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput values.
+// You can construct a concrete instance of `SettingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrInput` via:
 //
-//	        Settings1PropertiesMySqlSettingsPropertiesArgs{...}
+//	        SettingsPropertiesMicrosoftSqlServerSettingsPropertiesArgs{...}
 //
 //	or:
 //
 //	        nil
-type Settings1PropertiesMySqlSettingsPropertiesPtrInput interface {
+type SettingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrInput interface {
 	pulumi.Input
 
-	ToSettings1PropertiesMySqlSettingsPropertiesPtrOutput() Settings1PropertiesMySqlSettingsPropertiesPtrOutput
-	ToSettings1PropertiesMySqlSettingsPropertiesPtrOutputWithContext(context.Context) Settings1PropertiesMySqlSettingsPropertiesPtrOutput
+	ToSettingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput() SettingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput
+	ToSettingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrOutputWithContext(context.Context) SettingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput
 }
 
-type settings1PropertiesMySqlSettingsPropertiesPtrType Settings1PropertiesMySqlSettingsPropertiesArgs
+type settingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrType SettingsPropertiesMicrosoftSqlServerSettingsPropertiesArgs
 
-func Settings1PropertiesMySqlSettingsPropertiesPtr(v *Settings1PropertiesMySqlSettingsPropertiesArgs) Settings1PropertiesMySqlSettingsPropertiesPtrInput {
-	return (*settings1PropertiesMySqlSettingsPropertiesPtrType)(v)
+func SettingsPropertiesMicrosoftSqlServerSettingsPropertiesPtr(v *SettingsPropertiesMicrosoftSqlServerSettingsPropertiesArgs) SettingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrInput {
+	return (*settingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrType)(v)
 }
 
-func (*settings1PropertiesMySqlSettingsPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Settings1PropertiesMySqlSettingsProperties)(nil)).Elem()
+func (*settingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SettingsPropertiesMicrosoftSqlServerSettingsProperties)(nil)).Elem()
 }
 
-func (i *settings1PropertiesMySqlSettingsPropertiesPtrType) ToSettings1PropertiesMySqlSettingsPropertiesPtrOutput() Settings1PropertiesMySqlSettingsPropertiesPtrOutput {
-	return i.ToSettings1PropertiesMySqlSettingsPropertiesPtrOutputWithContext(context.Background())
+func (i *settingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrType) ToSettingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput() SettingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput {
+	return i.ToSettingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrOutputWithContext(context.Background())
 }
 
-func (i *settings1PropertiesMySqlSettingsPropertiesPtrType) ToSettings1PropertiesMySqlSettingsPropertiesPtrOutputWithContext(ctx context.Context) Settings1PropertiesMySqlSettingsPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Settings1PropertiesMySqlSettingsPropertiesPtrOutput)
+func (i *settingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrType) ToSettingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrOutputWithContext(ctx context.Context) SettingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SettingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput)
 }
 
-type Settings1PropertiesMySqlSettingsPropertiesOutput struct{ *pulumi.OutputState }
+// MicrosoftSqlServerSettings property identifier.
+type SettingsPropertiesMicrosoftSqlServerSettingsPropertiesOutput struct{ *pulumi.OutputState }
 
-func (Settings1PropertiesMySqlSettingsPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Settings1PropertiesMySqlSettingsProperties)(nil)).Elem()
+func (SettingsPropertiesMicrosoftSqlServerSettingsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SettingsPropertiesMicrosoftSqlServerSettingsProperties)(nil)).Elem()
 }
 
-func (o Settings1PropertiesMySqlSettingsPropertiesOutput) ToSettings1PropertiesMySqlSettingsPropertiesOutput() Settings1PropertiesMySqlSettingsPropertiesOutput {
+func (o SettingsPropertiesMicrosoftSqlServerSettingsPropertiesOutput) ToSettingsPropertiesMicrosoftSqlServerSettingsPropertiesOutput() SettingsPropertiesMicrosoftSqlServerSettingsPropertiesOutput {
 	return o
 }
 
-func (o Settings1PropertiesMySqlSettingsPropertiesOutput) ToSettings1PropertiesMySqlSettingsPropertiesOutputWithContext(ctx context.Context) Settings1PropertiesMySqlSettingsPropertiesOutput {
+func (o SettingsPropertiesMicrosoftSqlServerSettingsPropertiesOutput) ToSettingsPropertiesMicrosoftSqlServerSettingsPropertiesOutputWithContext(ctx context.Context) SettingsPropertiesMicrosoftSqlServerSettingsPropertiesOutput {
 	return o
 }
 
-func (o Settings1PropertiesMySqlSettingsPropertiesOutput) ToSettings1PropertiesMySqlSettingsPropertiesPtrOutput() Settings1PropertiesMySqlSettingsPropertiesPtrOutput {
-	return o.ToSettings1PropertiesMySqlSettingsPropertiesPtrOutputWithContext(context.Background())
+func (o SettingsPropertiesMicrosoftSqlServerSettingsPropertiesOutput) ToSettingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput() SettingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput {
+	return o.ToSettingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrOutputWithContext(context.Background())
 }
 
-func (o Settings1PropertiesMySqlSettingsPropertiesOutput) ToSettings1PropertiesMySqlSettingsPropertiesPtrOutputWithContext(ctx context.Context) Settings1PropertiesMySqlSettingsPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Settings1PropertiesMySqlSettingsProperties) *Settings1PropertiesMySqlSettingsProperties {
+func (o SettingsPropertiesMicrosoftSqlServerSettingsPropertiesOutput) ToSettingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrOutputWithContext(ctx context.Context) SettingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SettingsPropertiesMicrosoftSqlServerSettingsProperties) *SettingsPropertiesMicrosoftSqlServerSettingsProperties {
 		return &v
-	}).(Settings1PropertiesMySqlSettingsPropertiesPtrOutput)
+	}).(SettingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput)
 }
 
-func (o Settings1PropertiesMySqlSettingsPropertiesOutput) CertificateArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Settings1PropertiesMySqlSettingsProperties) *string { return v.CertificateArn }).(pulumi.StringPtrOutput)
+func (o SettingsPropertiesMicrosoftSqlServerSettingsPropertiesOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SettingsPropertiesMicrosoftSqlServerSettingsProperties) *string { return v.CertificateArn }).(pulumi.StringPtrOutput)
 }
 
-func (o Settings1PropertiesMySqlSettingsPropertiesOutput) Port() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v Settings1PropertiesMySqlSettingsProperties) *int { return v.Port }).(pulumi.IntPtrOutput)
+func (o SettingsPropertiesMicrosoftSqlServerSettingsPropertiesOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v SettingsPropertiesMicrosoftSqlServerSettingsProperties) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-func (o Settings1PropertiesMySqlSettingsPropertiesOutput) ServerName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Settings1PropertiesMySqlSettingsProperties) *string { return v.ServerName }).(pulumi.StringPtrOutput)
+func (o SettingsPropertiesMicrosoftSqlServerSettingsPropertiesOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v SettingsPropertiesMicrosoftSqlServerSettingsProperties) int { return v.Port }).(pulumi.IntOutput)
 }
 
-func (o Settings1PropertiesMySqlSettingsPropertiesOutput) SslMode() DataProviderDmsSslModeValuePtrOutput {
-	return o.ApplyT(func(v Settings1PropertiesMySqlSettingsProperties) *DataProviderDmsSslModeValue { return v.SslMode }).(DataProviderDmsSslModeValuePtrOutput)
+func (o SettingsPropertiesMicrosoftSqlServerSettingsPropertiesOutput) ServerName() pulumi.StringOutput {
+	return o.ApplyT(func(v SettingsPropertiesMicrosoftSqlServerSettingsProperties) string { return v.ServerName }).(pulumi.StringOutput)
 }
 
-type Settings1PropertiesMySqlSettingsPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (Settings1PropertiesMySqlSettingsPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Settings1PropertiesMySqlSettingsProperties)(nil)).Elem()
+func (o SettingsPropertiesMicrosoftSqlServerSettingsPropertiesOutput) SslMode() DataProviderDmsSslModeValueOutput {
+	return o.ApplyT(func(v SettingsPropertiesMicrosoftSqlServerSettingsProperties) DataProviderDmsSslModeValue {
+		return v.SslMode
+	}).(DataProviderDmsSslModeValueOutput)
 }
 
-func (o Settings1PropertiesMySqlSettingsPropertiesPtrOutput) ToSettings1PropertiesMySqlSettingsPropertiesPtrOutput() Settings1PropertiesMySqlSettingsPropertiesPtrOutput {
+type SettingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (SettingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SettingsPropertiesMicrosoftSqlServerSettingsProperties)(nil)).Elem()
+}
+
+func (o SettingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput) ToSettingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput() SettingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput {
 	return o
 }
 
-func (o Settings1PropertiesMySqlSettingsPropertiesPtrOutput) ToSettings1PropertiesMySqlSettingsPropertiesPtrOutputWithContext(ctx context.Context) Settings1PropertiesMySqlSettingsPropertiesPtrOutput {
+func (o SettingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput) ToSettingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrOutputWithContext(ctx context.Context) SettingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput {
 	return o
 }
 
-func (o Settings1PropertiesMySqlSettingsPropertiesPtrOutput) Elem() Settings1PropertiesMySqlSettingsPropertiesOutput {
-	return o.ApplyT(func(v *Settings1PropertiesMySqlSettingsProperties) Settings1PropertiesMySqlSettingsProperties {
+func (o SettingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput) Elem() SettingsPropertiesMicrosoftSqlServerSettingsPropertiesOutput {
+	return o.ApplyT(func(v *SettingsPropertiesMicrosoftSqlServerSettingsProperties) SettingsPropertiesMicrosoftSqlServerSettingsProperties {
 		if v != nil {
 			return *v
 		}
-		var ret Settings1PropertiesMySqlSettingsProperties
+		var ret SettingsPropertiesMicrosoftSqlServerSettingsProperties
 		return ret
-	}).(Settings1PropertiesMySqlSettingsPropertiesOutput)
+	}).(SettingsPropertiesMicrosoftSqlServerSettingsPropertiesOutput)
 }
 
-func (o Settings1PropertiesMySqlSettingsPropertiesPtrOutput) CertificateArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Settings1PropertiesMySqlSettingsProperties) *string {
+func (o SettingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SettingsPropertiesMicrosoftSqlServerSettingsProperties) *string {
 		if v == nil {
 			return nil
 		}
@@ -1193,355 +938,412 @@ func (o Settings1PropertiesMySqlSettingsPropertiesPtrOutput) CertificateArn() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o Settings1PropertiesMySqlSettingsPropertiesPtrOutput) Port() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Settings1PropertiesMySqlSettingsProperties) *int {
+func (o SettingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SettingsPropertiesMicrosoftSqlServerSettingsProperties) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Port
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o Settings1PropertiesMySqlSettingsPropertiesPtrOutput) ServerName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Settings1PropertiesMySqlSettingsProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ServerName
+		return &v.DatabaseName
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o Settings1PropertiesMySqlSettingsPropertiesPtrOutput) SslMode() DataProviderDmsSslModeValuePtrOutput {
-	return o.ApplyT(func(v *Settings1PropertiesMySqlSettingsProperties) *DataProviderDmsSslModeValue {
+func (o SettingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SettingsPropertiesMicrosoftSqlServerSettingsProperties) *int {
 		if v == nil {
 			return nil
 		}
-		return v.SslMode
+		return &v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o SettingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SettingsPropertiesMicrosoftSqlServerSettingsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ServerName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SettingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput) SslMode() DataProviderDmsSslModeValuePtrOutput {
+	return o.ApplyT(func(v *SettingsPropertiesMicrosoftSqlServerSettingsProperties) *DataProviderDmsSslModeValue {
+		if v == nil {
+			return nil
+		}
+		return &v.SslMode
+	}).(DataProviderDmsSslModeValuePtrOutput)
+}
+
+// MySqlSettings property identifier.
+type SettingsPropertiesMySqlSettingsProperties struct {
+	CertificateArn *string                     `pulumi:"certificateArn"`
+	Port           int                         `pulumi:"port"`
+	ServerName     string                      `pulumi:"serverName"`
+	SslMode        DataProviderDmsSslModeValue `pulumi:"sslMode"`
+}
+
+// SettingsPropertiesMySqlSettingsPropertiesInput is an input type that accepts SettingsPropertiesMySqlSettingsPropertiesArgs and SettingsPropertiesMySqlSettingsPropertiesOutput values.
+// You can construct a concrete instance of `SettingsPropertiesMySqlSettingsPropertiesInput` via:
+//
+//	SettingsPropertiesMySqlSettingsPropertiesArgs{...}
+type SettingsPropertiesMySqlSettingsPropertiesInput interface {
+	pulumi.Input
+
+	ToSettingsPropertiesMySqlSettingsPropertiesOutput() SettingsPropertiesMySqlSettingsPropertiesOutput
+	ToSettingsPropertiesMySqlSettingsPropertiesOutputWithContext(context.Context) SettingsPropertiesMySqlSettingsPropertiesOutput
+}
+
+// MySqlSettings property identifier.
+type SettingsPropertiesMySqlSettingsPropertiesArgs struct {
+	CertificateArn pulumi.StringPtrInput            `pulumi:"certificateArn"`
+	Port           pulumi.IntInput                  `pulumi:"port"`
+	ServerName     pulumi.StringInput               `pulumi:"serverName"`
+	SslMode        DataProviderDmsSslModeValueInput `pulumi:"sslMode"`
+}
+
+func (SettingsPropertiesMySqlSettingsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SettingsPropertiesMySqlSettingsProperties)(nil)).Elem()
+}
+
+func (i SettingsPropertiesMySqlSettingsPropertiesArgs) ToSettingsPropertiesMySqlSettingsPropertiesOutput() SettingsPropertiesMySqlSettingsPropertiesOutput {
+	return i.ToSettingsPropertiesMySqlSettingsPropertiesOutputWithContext(context.Background())
+}
+
+func (i SettingsPropertiesMySqlSettingsPropertiesArgs) ToSettingsPropertiesMySqlSettingsPropertiesOutputWithContext(ctx context.Context) SettingsPropertiesMySqlSettingsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SettingsPropertiesMySqlSettingsPropertiesOutput)
+}
+
+func (i SettingsPropertiesMySqlSettingsPropertiesArgs) ToSettingsPropertiesMySqlSettingsPropertiesPtrOutput() SettingsPropertiesMySqlSettingsPropertiesPtrOutput {
+	return i.ToSettingsPropertiesMySqlSettingsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i SettingsPropertiesMySqlSettingsPropertiesArgs) ToSettingsPropertiesMySqlSettingsPropertiesPtrOutputWithContext(ctx context.Context) SettingsPropertiesMySqlSettingsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SettingsPropertiesMySqlSettingsPropertiesOutput).ToSettingsPropertiesMySqlSettingsPropertiesPtrOutputWithContext(ctx)
+}
+
+// SettingsPropertiesMySqlSettingsPropertiesPtrInput is an input type that accepts SettingsPropertiesMySqlSettingsPropertiesArgs, SettingsPropertiesMySqlSettingsPropertiesPtr and SettingsPropertiesMySqlSettingsPropertiesPtrOutput values.
+// You can construct a concrete instance of `SettingsPropertiesMySqlSettingsPropertiesPtrInput` via:
+//
+//	        SettingsPropertiesMySqlSettingsPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type SettingsPropertiesMySqlSettingsPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToSettingsPropertiesMySqlSettingsPropertiesPtrOutput() SettingsPropertiesMySqlSettingsPropertiesPtrOutput
+	ToSettingsPropertiesMySqlSettingsPropertiesPtrOutputWithContext(context.Context) SettingsPropertiesMySqlSettingsPropertiesPtrOutput
+}
+
+type settingsPropertiesMySqlSettingsPropertiesPtrType SettingsPropertiesMySqlSettingsPropertiesArgs
+
+func SettingsPropertiesMySqlSettingsPropertiesPtr(v *SettingsPropertiesMySqlSettingsPropertiesArgs) SettingsPropertiesMySqlSettingsPropertiesPtrInput {
+	return (*settingsPropertiesMySqlSettingsPropertiesPtrType)(v)
+}
+
+func (*settingsPropertiesMySqlSettingsPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SettingsPropertiesMySqlSettingsProperties)(nil)).Elem()
+}
+
+func (i *settingsPropertiesMySqlSettingsPropertiesPtrType) ToSettingsPropertiesMySqlSettingsPropertiesPtrOutput() SettingsPropertiesMySqlSettingsPropertiesPtrOutput {
+	return i.ToSettingsPropertiesMySqlSettingsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *settingsPropertiesMySqlSettingsPropertiesPtrType) ToSettingsPropertiesMySqlSettingsPropertiesPtrOutputWithContext(ctx context.Context) SettingsPropertiesMySqlSettingsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SettingsPropertiesMySqlSettingsPropertiesPtrOutput)
+}
+
+// MySqlSettings property identifier.
+type SettingsPropertiesMySqlSettingsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (SettingsPropertiesMySqlSettingsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SettingsPropertiesMySqlSettingsProperties)(nil)).Elem()
+}
+
+func (o SettingsPropertiesMySqlSettingsPropertiesOutput) ToSettingsPropertiesMySqlSettingsPropertiesOutput() SettingsPropertiesMySqlSettingsPropertiesOutput {
+	return o
+}
+
+func (o SettingsPropertiesMySqlSettingsPropertiesOutput) ToSettingsPropertiesMySqlSettingsPropertiesOutputWithContext(ctx context.Context) SettingsPropertiesMySqlSettingsPropertiesOutput {
+	return o
+}
+
+func (o SettingsPropertiesMySqlSettingsPropertiesOutput) ToSettingsPropertiesMySqlSettingsPropertiesPtrOutput() SettingsPropertiesMySqlSettingsPropertiesPtrOutput {
+	return o.ToSettingsPropertiesMySqlSettingsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o SettingsPropertiesMySqlSettingsPropertiesOutput) ToSettingsPropertiesMySqlSettingsPropertiesPtrOutputWithContext(ctx context.Context) SettingsPropertiesMySqlSettingsPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SettingsPropertiesMySqlSettingsProperties) *SettingsPropertiesMySqlSettingsProperties {
+		return &v
+	}).(SettingsPropertiesMySqlSettingsPropertiesPtrOutput)
+}
+
+func (o SettingsPropertiesMySqlSettingsPropertiesOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SettingsPropertiesMySqlSettingsProperties) *string { return v.CertificateArn }).(pulumi.StringPtrOutput)
+}
+
+func (o SettingsPropertiesMySqlSettingsPropertiesOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v SettingsPropertiesMySqlSettingsProperties) int { return v.Port }).(pulumi.IntOutput)
+}
+
+func (o SettingsPropertiesMySqlSettingsPropertiesOutput) ServerName() pulumi.StringOutput {
+	return o.ApplyT(func(v SettingsPropertiesMySqlSettingsProperties) string { return v.ServerName }).(pulumi.StringOutput)
+}
+
+func (o SettingsPropertiesMySqlSettingsPropertiesOutput) SslMode() DataProviderDmsSslModeValueOutput {
+	return o.ApplyT(func(v SettingsPropertiesMySqlSettingsProperties) DataProviderDmsSslModeValue { return v.SslMode }).(DataProviderDmsSslModeValueOutput)
+}
+
+type SettingsPropertiesMySqlSettingsPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (SettingsPropertiesMySqlSettingsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SettingsPropertiesMySqlSettingsProperties)(nil)).Elem()
+}
+
+func (o SettingsPropertiesMySqlSettingsPropertiesPtrOutput) ToSettingsPropertiesMySqlSettingsPropertiesPtrOutput() SettingsPropertiesMySqlSettingsPropertiesPtrOutput {
+	return o
+}
+
+func (o SettingsPropertiesMySqlSettingsPropertiesPtrOutput) ToSettingsPropertiesMySqlSettingsPropertiesPtrOutputWithContext(ctx context.Context) SettingsPropertiesMySqlSettingsPropertiesPtrOutput {
+	return o
+}
+
+func (o SettingsPropertiesMySqlSettingsPropertiesPtrOutput) Elem() SettingsPropertiesMySqlSettingsPropertiesOutput {
+	return o.ApplyT(func(v *SettingsPropertiesMySqlSettingsProperties) SettingsPropertiesMySqlSettingsProperties {
+		if v != nil {
+			return *v
+		}
+		var ret SettingsPropertiesMySqlSettingsProperties
+		return ret
+	}).(SettingsPropertiesMySqlSettingsPropertiesOutput)
+}
+
+func (o SettingsPropertiesMySqlSettingsPropertiesPtrOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SettingsPropertiesMySqlSettingsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CertificateArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SettingsPropertiesMySqlSettingsPropertiesPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SettingsPropertiesMySqlSettingsProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o SettingsPropertiesMySqlSettingsPropertiesPtrOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SettingsPropertiesMySqlSettingsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ServerName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SettingsPropertiesMySqlSettingsPropertiesPtrOutput) SslMode() DataProviderDmsSslModeValuePtrOutput {
+	return o.ApplyT(func(v *SettingsPropertiesMySqlSettingsProperties) *DataProviderDmsSslModeValue {
+		if v == nil {
+			return nil
+		}
+		return &v.SslMode
 	}).(DataProviderDmsSslModeValuePtrOutput)
 }
 
 // OracleSettings property identifier.
-type Settings2Properties struct {
-	OracleSettings *Settings2PropertiesOracleSettingsProperties `pulumi:"oracleSettings"`
+type SettingsPropertiesOracleSettingsProperties struct {
+	AsmServer                                       *string                     `pulumi:"asmServer"`
+	CertificateArn                                  *string                     `pulumi:"certificateArn"`
+	DatabaseName                                    string                      `pulumi:"databaseName"`
+	Port                                            int                         `pulumi:"port"`
+	SecretsManagerOracleAsmAccessRoleArn            *string                     `pulumi:"secretsManagerOracleAsmAccessRoleArn"`
+	SecretsManagerOracleAsmSecretId                 *string                     `pulumi:"secretsManagerOracleAsmSecretId"`
+	SecretsManagerSecurityDbEncryptionAccessRoleArn *string                     `pulumi:"secretsManagerSecurityDbEncryptionAccessRoleArn"`
+	SecretsManagerSecurityDbEncryptionSecretId      *string                     `pulumi:"secretsManagerSecurityDbEncryptionSecretId"`
+	ServerName                                      string                      `pulumi:"serverName"`
+	SslMode                                         DataProviderDmsSslModeValue `pulumi:"sslMode"`
 }
 
-// Settings2PropertiesInput is an input type that accepts Settings2PropertiesArgs and Settings2PropertiesOutput values.
-// You can construct a concrete instance of `Settings2PropertiesInput` via:
+// SettingsPropertiesOracleSettingsPropertiesInput is an input type that accepts SettingsPropertiesOracleSettingsPropertiesArgs and SettingsPropertiesOracleSettingsPropertiesOutput values.
+// You can construct a concrete instance of `SettingsPropertiesOracleSettingsPropertiesInput` via:
 //
-//	Settings2PropertiesArgs{...}
-type Settings2PropertiesInput interface {
+//	SettingsPropertiesOracleSettingsPropertiesArgs{...}
+type SettingsPropertiesOracleSettingsPropertiesInput interface {
 	pulumi.Input
 
-	ToSettings2PropertiesOutput() Settings2PropertiesOutput
-	ToSettings2PropertiesOutputWithContext(context.Context) Settings2PropertiesOutput
+	ToSettingsPropertiesOracleSettingsPropertiesOutput() SettingsPropertiesOracleSettingsPropertiesOutput
+	ToSettingsPropertiesOracleSettingsPropertiesOutputWithContext(context.Context) SettingsPropertiesOracleSettingsPropertiesOutput
 }
 
 // OracleSettings property identifier.
-type Settings2PropertiesArgs struct {
-	OracleSettings Settings2PropertiesOracleSettingsPropertiesPtrInput `pulumi:"oracleSettings"`
+type SettingsPropertiesOracleSettingsPropertiesArgs struct {
+	AsmServer                                       pulumi.StringPtrInput            `pulumi:"asmServer"`
+	CertificateArn                                  pulumi.StringPtrInput            `pulumi:"certificateArn"`
+	DatabaseName                                    pulumi.StringInput               `pulumi:"databaseName"`
+	Port                                            pulumi.IntInput                  `pulumi:"port"`
+	SecretsManagerOracleAsmAccessRoleArn            pulumi.StringPtrInput            `pulumi:"secretsManagerOracleAsmAccessRoleArn"`
+	SecretsManagerOracleAsmSecretId                 pulumi.StringPtrInput            `pulumi:"secretsManagerOracleAsmSecretId"`
+	SecretsManagerSecurityDbEncryptionAccessRoleArn pulumi.StringPtrInput            `pulumi:"secretsManagerSecurityDbEncryptionAccessRoleArn"`
+	SecretsManagerSecurityDbEncryptionSecretId      pulumi.StringPtrInput            `pulumi:"secretsManagerSecurityDbEncryptionSecretId"`
+	ServerName                                      pulumi.StringInput               `pulumi:"serverName"`
+	SslMode                                         DataProviderDmsSslModeValueInput `pulumi:"sslMode"`
 }
 
-func (Settings2PropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Settings2Properties)(nil)).Elem()
+func (SettingsPropertiesOracleSettingsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SettingsPropertiesOracleSettingsProperties)(nil)).Elem()
 }
 
-func (i Settings2PropertiesArgs) ToSettings2PropertiesOutput() Settings2PropertiesOutput {
-	return i.ToSettings2PropertiesOutputWithContext(context.Background())
+func (i SettingsPropertiesOracleSettingsPropertiesArgs) ToSettingsPropertiesOracleSettingsPropertiesOutput() SettingsPropertiesOracleSettingsPropertiesOutput {
+	return i.ToSettingsPropertiesOracleSettingsPropertiesOutputWithContext(context.Background())
 }
 
-func (i Settings2PropertiesArgs) ToSettings2PropertiesOutputWithContext(ctx context.Context) Settings2PropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Settings2PropertiesOutput)
+func (i SettingsPropertiesOracleSettingsPropertiesArgs) ToSettingsPropertiesOracleSettingsPropertiesOutputWithContext(ctx context.Context) SettingsPropertiesOracleSettingsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SettingsPropertiesOracleSettingsPropertiesOutput)
 }
 
-func (i Settings2PropertiesArgs) ToSettings2PropertiesPtrOutput() Settings2PropertiesPtrOutput {
-	return i.ToSettings2PropertiesPtrOutputWithContext(context.Background())
+func (i SettingsPropertiesOracleSettingsPropertiesArgs) ToSettingsPropertiesOracleSettingsPropertiesPtrOutput() SettingsPropertiesOracleSettingsPropertiesPtrOutput {
+	return i.ToSettingsPropertiesOracleSettingsPropertiesPtrOutputWithContext(context.Background())
 }
 
-func (i Settings2PropertiesArgs) ToSettings2PropertiesPtrOutputWithContext(ctx context.Context) Settings2PropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Settings2PropertiesOutput).ToSettings2PropertiesPtrOutputWithContext(ctx)
+func (i SettingsPropertiesOracleSettingsPropertiesArgs) ToSettingsPropertiesOracleSettingsPropertiesPtrOutputWithContext(ctx context.Context) SettingsPropertiesOracleSettingsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SettingsPropertiesOracleSettingsPropertiesOutput).ToSettingsPropertiesOracleSettingsPropertiesPtrOutputWithContext(ctx)
 }
 
-// Settings2PropertiesPtrInput is an input type that accepts Settings2PropertiesArgs, Settings2PropertiesPtr and Settings2PropertiesPtrOutput values.
-// You can construct a concrete instance of `Settings2PropertiesPtrInput` via:
+// SettingsPropertiesOracleSettingsPropertiesPtrInput is an input type that accepts SettingsPropertiesOracleSettingsPropertiesArgs, SettingsPropertiesOracleSettingsPropertiesPtr and SettingsPropertiesOracleSettingsPropertiesPtrOutput values.
+// You can construct a concrete instance of `SettingsPropertiesOracleSettingsPropertiesPtrInput` via:
 //
-//	        Settings2PropertiesArgs{...}
+//	        SettingsPropertiesOracleSettingsPropertiesArgs{...}
 //
 //	or:
 //
 //	        nil
-type Settings2PropertiesPtrInput interface {
+type SettingsPropertiesOracleSettingsPropertiesPtrInput interface {
 	pulumi.Input
 
-	ToSettings2PropertiesPtrOutput() Settings2PropertiesPtrOutput
-	ToSettings2PropertiesPtrOutputWithContext(context.Context) Settings2PropertiesPtrOutput
+	ToSettingsPropertiesOracleSettingsPropertiesPtrOutput() SettingsPropertiesOracleSettingsPropertiesPtrOutput
+	ToSettingsPropertiesOracleSettingsPropertiesPtrOutputWithContext(context.Context) SettingsPropertiesOracleSettingsPropertiesPtrOutput
 }
 
-type settings2PropertiesPtrType Settings2PropertiesArgs
+type settingsPropertiesOracleSettingsPropertiesPtrType SettingsPropertiesOracleSettingsPropertiesArgs
 
-func Settings2PropertiesPtr(v *Settings2PropertiesArgs) Settings2PropertiesPtrInput {
-	return (*settings2PropertiesPtrType)(v)
+func SettingsPropertiesOracleSettingsPropertiesPtr(v *SettingsPropertiesOracleSettingsPropertiesArgs) SettingsPropertiesOracleSettingsPropertiesPtrInput {
+	return (*settingsPropertiesOracleSettingsPropertiesPtrType)(v)
 }
 
-func (*settings2PropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Settings2Properties)(nil)).Elem()
+func (*settingsPropertiesOracleSettingsPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SettingsPropertiesOracleSettingsProperties)(nil)).Elem()
 }
 
-func (i *settings2PropertiesPtrType) ToSettings2PropertiesPtrOutput() Settings2PropertiesPtrOutput {
-	return i.ToSettings2PropertiesPtrOutputWithContext(context.Background())
+func (i *settingsPropertiesOracleSettingsPropertiesPtrType) ToSettingsPropertiesOracleSettingsPropertiesPtrOutput() SettingsPropertiesOracleSettingsPropertiesPtrOutput {
+	return i.ToSettingsPropertiesOracleSettingsPropertiesPtrOutputWithContext(context.Background())
 }
 
-func (i *settings2PropertiesPtrType) ToSettings2PropertiesPtrOutputWithContext(ctx context.Context) Settings2PropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Settings2PropertiesPtrOutput)
+func (i *settingsPropertiesOracleSettingsPropertiesPtrType) ToSettingsPropertiesOracleSettingsPropertiesPtrOutputWithContext(ctx context.Context) SettingsPropertiesOracleSettingsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SettingsPropertiesOracleSettingsPropertiesPtrOutput)
 }
 
 // OracleSettings property identifier.
-type Settings2PropertiesOutput struct{ *pulumi.OutputState }
+type SettingsPropertiesOracleSettingsPropertiesOutput struct{ *pulumi.OutputState }
 
-func (Settings2PropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Settings2Properties)(nil)).Elem()
+func (SettingsPropertiesOracleSettingsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SettingsPropertiesOracleSettingsProperties)(nil)).Elem()
 }
 
-func (o Settings2PropertiesOutput) ToSettings2PropertiesOutput() Settings2PropertiesOutput {
+func (o SettingsPropertiesOracleSettingsPropertiesOutput) ToSettingsPropertiesOracleSettingsPropertiesOutput() SettingsPropertiesOracleSettingsPropertiesOutput {
 	return o
 }
 
-func (o Settings2PropertiesOutput) ToSettings2PropertiesOutputWithContext(ctx context.Context) Settings2PropertiesOutput {
+func (o SettingsPropertiesOracleSettingsPropertiesOutput) ToSettingsPropertiesOracleSettingsPropertiesOutputWithContext(ctx context.Context) SettingsPropertiesOracleSettingsPropertiesOutput {
 	return o
 }
 
-func (o Settings2PropertiesOutput) ToSettings2PropertiesPtrOutput() Settings2PropertiesPtrOutput {
-	return o.ToSettings2PropertiesPtrOutputWithContext(context.Background())
+func (o SettingsPropertiesOracleSettingsPropertiesOutput) ToSettingsPropertiesOracleSettingsPropertiesPtrOutput() SettingsPropertiesOracleSettingsPropertiesPtrOutput {
+	return o.ToSettingsPropertiesOracleSettingsPropertiesPtrOutputWithContext(context.Background())
 }
 
-func (o Settings2PropertiesOutput) ToSettings2PropertiesPtrOutputWithContext(ctx context.Context) Settings2PropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Settings2Properties) *Settings2Properties {
+func (o SettingsPropertiesOracleSettingsPropertiesOutput) ToSettingsPropertiesOracleSettingsPropertiesPtrOutputWithContext(ctx context.Context) SettingsPropertiesOracleSettingsPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SettingsPropertiesOracleSettingsProperties) *SettingsPropertiesOracleSettingsProperties {
 		return &v
-	}).(Settings2PropertiesPtrOutput)
+	}).(SettingsPropertiesOracleSettingsPropertiesPtrOutput)
 }
 
-func (o Settings2PropertiesOutput) OracleSettings() Settings2PropertiesOracleSettingsPropertiesPtrOutput {
-	return o.ApplyT(func(v Settings2Properties) *Settings2PropertiesOracleSettingsProperties { return v.OracleSettings }).(Settings2PropertiesOracleSettingsPropertiesPtrOutput)
+func (o SettingsPropertiesOracleSettingsPropertiesOutput) AsmServer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SettingsPropertiesOracleSettingsProperties) *string { return v.AsmServer }).(pulumi.StringPtrOutput)
 }
 
-type Settings2PropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (Settings2PropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Settings2Properties)(nil)).Elem()
+func (o SettingsPropertiesOracleSettingsPropertiesOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SettingsPropertiesOracleSettingsProperties) *string { return v.CertificateArn }).(pulumi.StringPtrOutput)
 }
 
-func (o Settings2PropertiesPtrOutput) ToSettings2PropertiesPtrOutput() Settings2PropertiesPtrOutput {
-	return o
+func (o SettingsPropertiesOracleSettingsPropertiesOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v SettingsPropertiesOracleSettingsProperties) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-func (o Settings2PropertiesPtrOutput) ToSettings2PropertiesPtrOutputWithContext(ctx context.Context) Settings2PropertiesPtrOutput {
-	return o
+func (o SettingsPropertiesOracleSettingsPropertiesOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v SettingsPropertiesOracleSettingsProperties) int { return v.Port }).(pulumi.IntOutput)
 }
 
-func (o Settings2PropertiesPtrOutput) Elem() Settings2PropertiesOutput {
-	return o.ApplyT(func(v *Settings2Properties) Settings2Properties {
-		if v != nil {
-			return *v
-		}
-		var ret Settings2Properties
-		return ret
-	}).(Settings2PropertiesOutput)
-}
-
-func (o Settings2PropertiesPtrOutput) OracleSettings() Settings2PropertiesOracleSettingsPropertiesPtrOutput {
-	return o.ApplyT(func(v *Settings2Properties) *Settings2PropertiesOracleSettingsProperties {
-		if v == nil {
-			return nil
-		}
-		return v.OracleSettings
-	}).(Settings2PropertiesOracleSettingsPropertiesPtrOutput)
-}
-
-type Settings2PropertiesOracleSettingsProperties struct {
-	AsmServer                                       *string                      `pulumi:"asmServer"`
-	CertificateArn                                  *string                      `pulumi:"certificateArn"`
-	DatabaseName                                    *string                      `pulumi:"databaseName"`
-	Port                                            *int                         `pulumi:"port"`
-	SecretsManagerOracleAsmAccessRoleArn            *string                      `pulumi:"secretsManagerOracleAsmAccessRoleArn"`
-	SecretsManagerOracleAsmSecretId                 *string                      `pulumi:"secretsManagerOracleAsmSecretId"`
-	SecretsManagerSecurityDbEncryptionAccessRoleArn *string                      `pulumi:"secretsManagerSecurityDbEncryptionAccessRoleArn"`
-	SecretsManagerSecurityDbEncryptionSecretId      *string                      `pulumi:"secretsManagerSecurityDbEncryptionSecretId"`
-	ServerName                                      *string                      `pulumi:"serverName"`
-	SslMode                                         *DataProviderDmsSslModeValue `pulumi:"sslMode"`
-}
-
-// Settings2PropertiesOracleSettingsPropertiesInput is an input type that accepts Settings2PropertiesOracleSettingsPropertiesArgs and Settings2PropertiesOracleSettingsPropertiesOutput values.
-// You can construct a concrete instance of `Settings2PropertiesOracleSettingsPropertiesInput` via:
-//
-//	Settings2PropertiesOracleSettingsPropertiesArgs{...}
-type Settings2PropertiesOracleSettingsPropertiesInput interface {
-	pulumi.Input
-
-	ToSettings2PropertiesOracleSettingsPropertiesOutput() Settings2PropertiesOracleSettingsPropertiesOutput
-	ToSettings2PropertiesOracleSettingsPropertiesOutputWithContext(context.Context) Settings2PropertiesOracleSettingsPropertiesOutput
-}
-
-type Settings2PropertiesOracleSettingsPropertiesArgs struct {
-	AsmServer                                       pulumi.StringPtrInput               `pulumi:"asmServer"`
-	CertificateArn                                  pulumi.StringPtrInput               `pulumi:"certificateArn"`
-	DatabaseName                                    pulumi.StringPtrInput               `pulumi:"databaseName"`
-	Port                                            pulumi.IntPtrInput                  `pulumi:"port"`
-	SecretsManagerOracleAsmAccessRoleArn            pulumi.StringPtrInput               `pulumi:"secretsManagerOracleAsmAccessRoleArn"`
-	SecretsManagerOracleAsmSecretId                 pulumi.StringPtrInput               `pulumi:"secretsManagerOracleAsmSecretId"`
-	SecretsManagerSecurityDbEncryptionAccessRoleArn pulumi.StringPtrInput               `pulumi:"secretsManagerSecurityDbEncryptionAccessRoleArn"`
-	SecretsManagerSecurityDbEncryptionSecretId      pulumi.StringPtrInput               `pulumi:"secretsManagerSecurityDbEncryptionSecretId"`
-	ServerName                                      pulumi.StringPtrInput               `pulumi:"serverName"`
-	SslMode                                         DataProviderDmsSslModeValuePtrInput `pulumi:"sslMode"`
-}
-
-func (Settings2PropertiesOracleSettingsPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Settings2PropertiesOracleSettingsProperties)(nil)).Elem()
-}
-
-func (i Settings2PropertiesOracleSettingsPropertiesArgs) ToSettings2PropertiesOracleSettingsPropertiesOutput() Settings2PropertiesOracleSettingsPropertiesOutput {
-	return i.ToSettings2PropertiesOracleSettingsPropertiesOutputWithContext(context.Background())
-}
-
-func (i Settings2PropertiesOracleSettingsPropertiesArgs) ToSettings2PropertiesOracleSettingsPropertiesOutputWithContext(ctx context.Context) Settings2PropertiesOracleSettingsPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Settings2PropertiesOracleSettingsPropertiesOutput)
-}
-
-func (i Settings2PropertiesOracleSettingsPropertiesArgs) ToSettings2PropertiesOracleSettingsPropertiesPtrOutput() Settings2PropertiesOracleSettingsPropertiesPtrOutput {
-	return i.ToSettings2PropertiesOracleSettingsPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i Settings2PropertiesOracleSettingsPropertiesArgs) ToSettings2PropertiesOracleSettingsPropertiesPtrOutputWithContext(ctx context.Context) Settings2PropertiesOracleSettingsPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Settings2PropertiesOracleSettingsPropertiesOutput).ToSettings2PropertiesOracleSettingsPropertiesPtrOutputWithContext(ctx)
-}
-
-// Settings2PropertiesOracleSettingsPropertiesPtrInput is an input type that accepts Settings2PropertiesOracleSettingsPropertiesArgs, Settings2PropertiesOracleSettingsPropertiesPtr and Settings2PropertiesOracleSettingsPropertiesPtrOutput values.
-// You can construct a concrete instance of `Settings2PropertiesOracleSettingsPropertiesPtrInput` via:
-//
-//	        Settings2PropertiesOracleSettingsPropertiesArgs{...}
-//
-//	or:
-//
-//	        nil
-type Settings2PropertiesOracleSettingsPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToSettings2PropertiesOracleSettingsPropertiesPtrOutput() Settings2PropertiesOracleSettingsPropertiesPtrOutput
-	ToSettings2PropertiesOracleSettingsPropertiesPtrOutputWithContext(context.Context) Settings2PropertiesOracleSettingsPropertiesPtrOutput
-}
-
-type settings2PropertiesOracleSettingsPropertiesPtrType Settings2PropertiesOracleSettingsPropertiesArgs
-
-func Settings2PropertiesOracleSettingsPropertiesPtr(v *Settings2PropertiesOracleSettingsPropertiesArgs) Settings2PropertiesOracleSettingsPropertiesPtrInput {
-	return (*settings2PropertiesOracleSettingsPropertiesPtrType)(v)
-}
-
-func (*settings2PropertiesOracleSettingsPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Settings2PropertiesOracleSettingsProperties)(nil)).Elem()
-}
-
-func (i *settings2PropertiesOracleSettingsPropertiesPtrType) ToSettings2PropertiesOracleSettingsPropertiesPtrOutput() Settings2PropertiesOracleSettingsPropertiesPtrOutput {
-	return i.ToSettings2PropertiesOracleSettingsPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *settings2PropertiesOracleSettingsPropertiesPtrType) ToSettings2PropertiesOracleSettingsPropertiesPtrOutputWithContext(ctx context.Context) Settings2PropertiesOracleSettingsPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Settings2PropertiesOracleSettingsPropertiesPtrOutput)
-}
-
-type Settings2PropertiesOracleSettingsPropertiesOutput struct{ *pulumi.OutputState }
-
-func (Settings2PropertiesOracleSettingsPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Settings2PropertiesOracleSettingsProperties)(nil)).Elem()
-}
-
-func (o Settings2PropertiesOracleSettingsPropertiesOutput) ToSettings2PropertiesOracleSettingsPropertiesOutput() Settings2PropertiesOracleSettingsPropertiesOutput {
-	return o
-}
-
-func (o Settings2PropertiesOracleSettingsPropertiesOutput) ToSettings2PropertiesOracleSettingsPropertiesOutputWithContext(ctx context.Context) Settings2PropertiesOracleSettingsPropertiesOutput {
-	return o
-}
-
-func (o Settings2PropertiesOracleSettingsPropertiesOutput) ToSettings2PropertiesOracleSettingsPropertiesPtrOutput() Settings2PropertiesOracleSettingsPropertiesPtrOutput {
-	return o.ToSettings2PropertiesOracleSettingsPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o Settings2PropertiesOracleSettingsPropertiesOutput) ToSettings2PropertiesOracleSettingsPropertiesPtrOutputWithContext(ctx context.Context) Settings2PropertiesOracleSettingsPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Settings2PropertiesOracleSettingsProperties) *Settings2PropertiesOracleSettingsProperties {
-		return &v
-	}).(Settings2PropertiesOracleSettingsPropertiesPtrOutput)
-}
-
-func (o Settings2PropertiesOracleSettingsPropertiesOutput) AsmServer() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Settings2PropertiesOracleSettingsProperties) *string { return v.AsmServer }).(pulumi.StringPtrOutput)
-}
-
-func (o Settings2PropertiesOracleSettingsPropertiesOutput) CertificateArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Settings2PropertiesOracleSettingsProperties) *string { return v.CertificateArn }).(pulumi.StringPtrOutput)
-}
-
-func (o Settings2PropertiesOracleSettingsPropertiesOutput) DatabaseName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Settings2PropertiesOracleSettingsProperties) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
-}
-
-func (o Settings2PropertiesOracleSettingsPropertiesOutput) Port() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v Settings2PropertiesOracleSettingsProperties) *int { return v.Port }).(pulumi.IntPtrOutput)
-}
-
-func (o Settings2PropertiesOracleSettingsPropertiesOutput) SecretsManagerOracleAsmAccessRoleArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Settings2PropertiesOracleSettingsProperties) *string {
+func (o SettingsPropertiesOracleSettingsPropertiesOutput) SecretsManagerOracleAsmAccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SettingsPropertiesOracleSettingsProperties) *string {
 		return v.SecretsManagerOracleAsmAccessRoleArn
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o Settings2PropertiesOracleSettingsPropertiesOutput) SecretsManagerOracleAsmSecretId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Settings2PropertiesOracleSettingsProperties) *string { return v.SecretsManagerOracleAsmSecretId }).(pulumi.StringPtrOutput)
+func (o SettingsPropertiesOracleSettingsPropertiesOutput) SecretsManagerOracleAsmSecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SettingsPropertiesOracleSettingsProperties) *string { return v.SecretsManagerOracleAsmSecretId }).(pulumi.StringPtrOutput)
 }
 
-func (o Settings2PropertiesOracleSettingsPropertiesOutput) SecretsManagerSecurityDbEncryptionAccessRoleArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Settings2PropertiesOracleSettingsProperties) *string {
+func (o SettingsPropertiesOracleSettingsPropertiesOutput) SecretsManagerSecurityDbEncryptionAccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SettingsPropertiesOracleSettingsProperties) *string {
 		return v.SecretsManagerSecurityDbEncryptionAccessRoleArn
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o Settings2PropertiesOracleSettingsPropertiesOutput) SecretsManagerSecurityDbEncryptionSecretId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Settings2PropertiesOracleSettingsProperties) *string {
+func (o SettingsPropertiesOracleSettingsPropertiesOutput) SecretsManagerSecurityDbEncryptionSecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SettingsPropertiesOracleSettingsProperties) *string {
 		return v.SecretsManagerSecurityDbEncryptionSecretId
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o Settings2PropertiesOracleSettingsPropertiesOutput) ServerName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Settings2PropertiesOracleSettingsProperties) *string { return v.ServerName }).(pulumi.StringPtrOutput)
+func (o SettingsPropertiesOracleSettingsPropertiesOutput) ServerName() pulumi.StringOutput {
+	return o.ApplyT(func(v SettingsPropertiesOracleSettingsProperties) string { return v.ServerName }).(pulumi.StringOutput)
 }
 
-func (o Settings2PropertiesOracleSettingsPropertiesOutput) SslMode() DataProviderDmsSslModeValuePtrOutput {
-	return o.ApplyT(func(v Settings2PropertiesOracleSettingsProperties) *DataProviderDmsSslModeValue { return v.SslMode }).(DataProviderDmsSslModeValuePtrOutput)
+func (o SettingsPropertiesOracleSettingsPropertiesOutput) SslMode() DataProviderDmsSslModeValueOutput {
+	return o.ApplyT(func(v SettingsPropertiesOracleSettingsProperties) DataProviderDmsSslModeValue { return v.SslMode }).(DataProviderDmsSslModeValueOutput)
 }
 
-type Settings2PropertiesOracleSettingsPropertiesPtrOutput struct{ *pulumi.OutputState }
+type SettingsPropertiesOracleSettingsPropertiesPtrOutput struct{ *pulumi.OutputState }
 
-func (Settings2PropertiesOracleSettingsPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Settings2PropertiesOracleSettingsProperties)(nil)).Elem()
+func (SettingsPropertiesOracleSettingsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SettingsPropertiesOracleSettingsProperties)(nil)).Elem()
 }
 
-func (o Settings2PropertiesOracleSettingsPropertiesPtrOutput) ToSettings2PropertiesOracleSettingsPropertiesPtrOutput() Settings2PropertiesOracleSettingsPropertiesPtrOutput {
+func (o SettingsPropertiesOracleSettingsPropertiesPtrOutput) ToSettingsPropertiesOracleSettingsPropertiesPtrOutput() SettingsPropertiesOracleSettingsPropertiesPtrOutput {
 	return o
 }
 
-func (o Settings2PropertiesOracleSettingsPropertiesPtrOutput) ToSettings2PropertiesOracleSettingsPropertiesPtrOutputWithContext(ctx context.Context) Settings2PropertiesOracleSettingsPropertiesPtrOutput {
+func (o SettingsPropertiesOracleSettingsPropertiesPtrOutput) ToSettingsPropertiesOracleSettingsPropertiesPtrOutputWithContext(ctx context.Context) SettingsPropertiesOracleSettingsPropertiesPtrOutput {
 	return o
 }
 
-func (o Settings2PropertiesOracleSettingsPropertiesPtrOutput) Elem() Settings2PropertiesOracleSettingsPropertiesOutput {
-	return o.ApplyT(func(v *Settings2PropertiesOracleSettingsProperties) Settings2PropertiesOracleSettingsProperties {
+func (o SettingsPropertiesOracleSettingsPropertiesPtrOutput) Elem() SettingsPropertiesOracleSettingsPropertiesOutput {
+	return o.ApplyT(func(v *SettingsPropertiesOracleSettingsProperties) SettingsPropertiesOracleSettingsProperties {
 		if v != nil {
 			return *v
 		}
-		var ret Settings2PropertiesOracleSettingsProperties
+		var ret SettingsPropertiesOracleSettingsProperties
 		return ret
-	}).(Settings2PropertiesOracleSettingsPropertiesOutput)
+	}).(SettingsPropertiesOracleSettingsPropertiesOutput)
 }
 
-func (o Settings2PropertiesOracleSettingsPropertiesPtrOutput) AsmServer() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Settings2PropertiesOracleSettingsProperties) *string {
+func (o SettingsPropertiesOracleSettingsPropertiesPtrOutput) AsmServer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SettingsPropertiesOracleSettingsProperties) *string {
 		if v == nil {
 			return nil
 		}
@@ -1549,8 +1351,8 @@ func (o Settings2PropertiesOracleSettingsPropertiesPtrOutput) AsmServer() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o Settings2PropertiesOracleSettingsPropertiesPtrOutput) CertificateArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Settings2PropertiesOracleSettingsProperties) *string {
+func (o SettingsPropertiesOracleSettingsPropertiesPtrOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SettingsPropertiesOracleSettingsProperties) *string {
 		if v == nil {
 			return nil
 		}
@@ -1558,26 +1360,26 @@ func (o Settings2PropertiesOracleSettingsPropertiesPtrOutput) CertificateArn() p
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o Settings2PropertiesOracleSettingsPropertiesPtrOutput) DatabaseName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Settings2PropertiesOracleSettingsProperties) *string {
+func (o SettingsPropertiesOracleSettingsPropertiesPtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SettingsPropertiesOracleSettingsProperties) *string {
 		if v == nil {
 			return nil
 		}
-		return v.DatabaseName
+		return &v.DatabaseName
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o Settings2PropertiesOracleSettingsPropertiesPtrOutput) Port() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Settings2PropertiesOracleSettingsProperties) *int {
+func (o SettingsPropertiesOracleSettingsPropertiesPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SettingsPropertiesOracleSettingsProperties) *int {
 		if v == nil {
 			return nil
 		}
-		return v.Port
+		return &v.Port
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o Settings2PropertiesOracleSettingsPropertiesPtrOutput) SecretsManagerOracleAsmAccessRoleArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Settings2PropertiesOracleSettingsProperties) *string {
+func (o SettingsPropertiesOracleSettingsPropertiesPtrOutput) SecretsManagerOracleAsmAccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SettingsPropertiesOracleSettingsProperties) *string {
 		if v == nil {
 			return nil
 		}
@@ -1585,8 +1387,8 @@ func (o Settings2PropertiesOracleSettingsPropertiesPtrOutput) SecretsManagerOrac
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o Settings2PropertiesOracleSettingsPropertiesPtrOutput) SecretsManagerOracleAsmSecretId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Settings2PropertiesOracleSettingsProperties) *string {
+func (o SettingsPropertiesOracleSettingsPropertiesPtrOutput) SecretsManagerOracleAsmSecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SettingsPropertiesOracleSettingsProperties) *string {
 		if v == nil {
 			return nil
 		}
@@ -1594,8 +1396,8 @@ func (o Settings2PropertiesOracleSettingsPropertiesPtrOutput) SecretsManagerOrac
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o Settings2PropertiesOracleSettingsPropertiesPtrOutput) SecretsManagerSecurityDbEncryptionAccessRoleArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Settings2PropertiesOracleSettingsProperties) *string {
+func (o SettingsPropertiesOracleSettingsPropertiesPtrOutput) SecretsManagerSecurityDbEncryptionAccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SettingsPropertiesOracleSettingsProperties) *string {
 		if v == nil {
 			return nil
 		}
@@ -1603,8 +1405,8 @@ func (o Settings2PropertiesOracleSettingsPropertiesPtrOutput) SecretsManagerSecu
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o Settings2PropertiesOracleSettingsPropertiesPtrOutput) SecretsManagerSecurityDbEncryptionSecretId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Settings2PropertiesOracleSettingsProperties) *string {
+func (o SettingsPropertiesOracleSettingsPropertiesPtrOutput) SecretsManagerSecurityDbEncryptionSecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SettingsPropertiesOracleSettingsProperties) *string {
 		if v == nil {
 			return nil
 		}
@@ -1612,314 +1414,177 @@ func (o Settings2PropertiesOracleSettingsPropertiesPtrOutput) SecretsManagerSecu
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o Settings2PropertiesOracleSettingsPropertiesPtrOutput) ServerName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Settings2PropertiesOracleSettingsProperties) *string {
+func (o SettingsPropertiesOracleSettingsPropertiesPtrOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SettingsPropertiesOracleSettingsProperties) *string {
 		if v == nil {
 			return nil
 		}
-		return v.ServerName
+		return &v.ServerName
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o Settings2PropertiesOracleSettingsPropertiesPtrOutput) SslMode() DataProviderDmsSslModeValuePtrOutput {
-	return o.ApplyT(func(v *Settings2PropertiesOracleSettingsProperties) *DataProviderDmsSslModeValue {
+func (o SettingsPropertiesOracleSettingsPropertiesPtrOutput) SslMode() DataProviderDmsSslModeValuePtrOutput {
+	return o.ApplyT(func(v *SettingsPropertiesOracleSettingsProperties) *DataProviderDmsSslModeValue {
 		if v == nil {
 			return nil
 		}
-		return v.SslMode
+		return &v.SslMode
 	}).(DataProviderDmsSslModeValuePtrOutput)
 }
 
-// MicrosoftSqlServerSettings property identifier.
-type Settings3Properties struct {
-	MicrosoftSqlServerSettings *Settings3PropertiesMicrosoftSqlServerSettingsProperties `pulumi:"microsoftSqlServerSettings"`
+// PostgreSqlSettings property identifier.
+type SettingsPropertiesPostgreSqlSettingsProperties struct {
+	CertificateArn *string                     `pulumi:"certificateArn"`
+	DatabaseName   string                      `pulumi:"databaseName"`
+	Port           int                         `pulumi:"port"`
+	ServerName     string                      `pulumi:"serverName"`
+	SslMode        DataProviderDmsSslModeValue `pulumi:"sslMode"`
 }
 
-// Settings3PropertiesInput is an input type that accepts Settings3PropertiesArgs and Settings3PropertiesOutput values.
-// You can construct a concrete instance of `Settings3PropertiesInput` via:
+// SettingsPropertiesPostgreSqlSettingsPropertiesInput is an input type that accepts SettingsPropertiesPostgreSqlSettingsPropertiesArgs and SettingsPropertiesPostgreSqlSettingsPropertiesOutput values.
+// You can construct a concrete instance of `SettingsPropertiesPostgreSqlSettingsPropertiesInput` via:
 //
-//	Settings3PropertiesArgs{...}
-type Settings3PropertiesInput interface {
+//	SettingsPropertiesPostgreSqlSettingsPropertiesArgs{...}
+type SettingsPropertiesPostgreSqlSettingsPropertiesInput interface {
 	pulumi.Input
 
-	ToSettings3PropertiesOutput() Settings3PropertiesOutput
-	ToSettings3PropertiesOutputWithContext(context.Context) Settings3PropertiesOutput
+	ToSettingsPropertiesPostgreSqlSettingsPropertiesOutput() SettingsPropertiesPostgreSqlSettingsPropertiesOutput
+	ToSettingsPropertiesPostgreSqlSettingsPropertiesOutputWithContext(context.Context) SettingsPropertiesPostgreSqlSettingsPropertiesOutput
 }
 
-// MicrosoftSqlServerSettings property identifier.
-type Settings3PropertiesArgs struct {
-	MicrosoftSqlServerSettings Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrInput `pulumi:"microsoftSqlServerSettings"`
+// PostgreSqlSettings property identifier.
+type SettingsPropertiesPostgreSqlSettingsPropertiesArgs struct {
+	CertificateArn pulumi.StringPtrInput            `pulumi:"certificateArn"`
+	DatabaseName   pulumi.StringInput               `pulumi:"databaseName"`
+	Port           pulumi.IntInput                  `pulumi:"port"`
+	ServerName     pulumi.StringInput               `pulumi:"serverName"`
+	SslMode        DataProviderDmsSslModeValueInput `pulumi:"sslMode"`
 }
 
-func (Settings3PropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Settings3Properties)(nil)).Elem()
+func (SettingsPropertiesPostgreSqlSettingsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SettingsPropertiesPostgreSqlSettingsProperties)(nil)).Elem()
 }
 
-func (i Settings3PropertiesArgs) ToSettings3PropertiesOutput() Settings3PropertiesOutput {
-	return i.ToSettings3PropertiesOutputWithContext(context.Background())
+func (i SettingsPropertiesPostgreSqlSettingsPropertiesArgs) ToSettingsPropertiesPostgreSqlSettingsPropertiesOutput() SettingsPropertiesPostgreSqlSettingsPropertiesOutput {
+	return i.ToSettingsPropertiesPostgreSqlSettingsPropertiesOutputWithContext(context.Background())
 }
 
-func (i Settings3PropertiesArgs) ToSettings3PropertiesOutputWithContext(ctx context.Context) Settings3PropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Settings3PropertiesOutput)
+func (i SettingsPropertiesPostgreSqlSettingsPropertiesArgs) ToSettingsPropertiesPostgreSqlSettingsPropertiesOutputWithContext(ctx context.Context) SettingsPropertiesPostgreSqlSettingsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SettingsPropertiesPostgreSqlSettingsPropertiesOutput)
 }
 
-func (i Settings3PropertiesArgs) ToSettings3PropertiesPtrOutput() Settings3PropertiesPtrOutput {
-	return i.ToSettings3PropertiesPtrOutputWithContext(context.Background())
+func (i SettingsPropertiesPostgreSqlSettingsPropertiesArgs) ToSettingsPropertiesPostgreSqlSettingsPropertiesPtrOutput() SettingsPropertiesPostgreSqlSettingsPropertiesPtrOutput {
+	return i.ToSettingsPropertiesPostgreSqlSettingsPropertiesPtrOutputWithContext(context.Background())
 }
 
-func (i Settings3PropertiesArgs) ToSettings3PropertiesPtrOutputWithContext(ctx context.Context) Settings3PropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Settings3PropertiesOutput).ToSettings3PropertiesPtrOutputWithContext(ctx)
+func (i SettingsPropertiesPostgreSqlSettingsPropertiesArgs) ToSettingsPropertiesPostgreSqlSettingsPropertiesPtrOutputWithContext(ctx context.Context) SettingsPropertiesPostgreSqlSettingsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SettingsPropertiesPostgreSqlSettingsPropertiesOutput).ToSettingsPropertiesPostgreSqlSettingsPropertiesPtrOutputWithContext(ctx)
 }
 
-// Settings3PropertiesPtrInput is an input type that accepts Settings3PropertiesArgs, Settings3PropertiesPtr and Settings3PropertiesPtrOutput values.
-// You can construct a concrete instance of `Settings3PropertiesPtrInput` via:
+// SettingsPropertiesPostgreSqlSettingsPropertiesPtrInput is an input type that accepts SettingsPropertiesPostgreSqlSettingsPropertiesArgs, SettingsPropertiesPostgreSqlSettingsPropertiesPtr and SettingsPropertiesPostgreSqlSettingsPropertiesPtrOutput values.
+// You can construct a concrete instance of `SettingsPropertiesPostgreSqlSettingsPropertiesPtrInput` via:
 //
-//	        Settings3PropertiesArgs{...}
+//	        SettingsPropertiesPostgreSqlSettingsPropertiesArgs{...}
 //
 //	or:
 //
 //	        nil
-type Settings3PropertiesPtrInput interface {
+type SettingsPropertiesPostgreSqlSettingsPropertiesPtrInput interface {
 	pulumi.Input
 
-	ToSettings3PropertiesPtrOutput() Settings3PropertiesPtrOutput
-	ToSettings3PropertiesPtrOutputWithContext(context.Context) Settings3PropertiesPtrOutput
+	ToSettingsPropertiesPostgreSqlSettingsPropertiesPtrOutput() SettingsPropertiesPostgreSqlSettingsPropertiesPtrOutput
+	ToSettingsPropertiesPostgreSqlSettingsPropertiesPtrOutputWithContext(context.Context) SettingsPropertiesPostgreSqlSettingsPropertiesPtrOutput
 }
 
-type settings3PropertiesPtrType Settings3PropertiesArgs
+type settingsPropertiesPostgreSqlSettingsPropertiesPtrType SettingsPropertiesPostgreSqlSettingsPropertiesArgs
 
-func Settings3PropertiesPtr(v *Settings3PropertiesArgs) Settings3PropertiesPtrInput {
-	return (*settings3PropertiesPtrType)(v)
+func SettingsPropertiesPostgreSqlSettingsPropertiesPtr(v *SettingsPropertiesPostgreSqlSettingsPropertiesArgs) SettingsPropertiesPostgreSqlSettingsPropertiesPtrInput {
+	return (*settingsPropertiesPostgreSqlSettingsPropertiesPtrType)(v)
 }
 
-func (*settings3PropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Settings3Properties)(nil)).Elem()
+func (*settingsPropertiesPostgreSqlSettingsPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SettingsPropertiesPostgreSqlSettingsProperties)(nil)).Elem()
 }
 
-func (i *settings3PropertiesPtrType) ToSettings3PropertiesPtrOutput() Settings3PropertiesPtrOutput {
-	return i.ToSettings3PropertiesPtrOutputWithContext(context.Background())
+func (i *settingsPropertiesPostgreSqlSettingsPropertiesPtrType) ToSettingsPropertiesPostgreSqlSettingsPropertiesPtrOutput() SettingsPropertiesPostgreSqlSettingsPropertiesPtrOutput {
+	return i.ToSettingsPropertiesPostgreSqlSettingsPropertiesPtrOutputWithContext(context.Background())
 }
 
-func (i *settings3PropertiesPtrType) ToSettings3PropertiesPtrOutputWithContext(ctx context.Context) Settings3PropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Settings3PropertiesPtrOutput)
+func (i *settingsPropertiesPostgreSqlSettingsPropertiesPtrType) ToSettingsPropertiesPostgreSqlSettingsPropertiesPtrOutputWithContext(ctx context.Context) SettingsPropertiesPostgreSqlSettingsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SettingsPropertiesPostgreSqlSettingsPropertiesPtrOutput)
 }
 
-// MicrosoftSqlServerSettings property identifier.
-type Settings3PropertiesOutput struct{ *pulumi.OutputState }
+// PostgreSqlSettings property identifier.
+type SettingsPropertiesPostgreSqlSettingsPropertiesOutput struct{ *pulumi.OutputState }
 
-func (Settings3PropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Settings3Properties)(nil)).Elem()
+func (SettingsPropertiesPostgreSqlSettingsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SettingsPropertiesPostgreSqlSettingsProperties)(nil)).Elem()
 }
 
-func (o Settings3PropertiesOutput) ToSettings3PropertiesOutput() Settings3PropertiesOutput {
+func (o SettingsPropertiesPostgreSqlSettingsPropertiesOutput) ToSettingsPropertiesPostgreSqlSettingsPropertiesOutput() SettingsPropertiesPostgreSqlSettingsPropertiesOutput {
 	return o
 }
 
-func (o Settings3PropertiesOutput) ToSettings3PropertiesOutputWithContext(ctx context.Context) Settings3PropertiesOutput {
+func (o SettingsPropertiesPostgreSqlSettingsPropertiesOutput) ToSettingsPropertiesPostgreSqlSettingsPropertiesOutputWithContext(ctx context.Context) SettingsPropertiesPostgreSqlSettingsPropertiesOutput {
 	return o
 }
 
-func (o Settings3PropertiesOutput) ToSettings3PropertiesPtrOutput() Settings3PropertiesPtrOutput {
-	return o.ToSettings3PropertiesPtrOutputWithContext(context.Background())
+func (o SettingsPropertiesPostgreSqlSettingsPropertiesOutput) ToSettingsPropertiesPostgreSqlSettingsPropertiesPtrOutput() SettingsPropertiesPostgreSqlSettingsPropertiesPtrOutput {
+	return o.ToSettingsPropertiesPostgreSqlSettingsPropertiesPtrOutputWithContext(context.Background())
 }
 
-func (o Settings3PropertiesOutput) ToSettings3PropertiesPtrOutputWithContext(ctx context.Context) Settings3PropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Settings3Properties) *Settings3Properties {
+func (o SettingsPropertiesPostgreSqlSettingsPropertiesOutput) ToSettingsPropertiesPostgreSqlSettingsPropertiesPtrOutputWithContext(ctx context.Context) SettingsPropertiesPostgreSqlSettingsPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SettingsPropertiesPostgreSqlSettingsProperties) *SettingsPropertiesPostgreSqlSettingsProperties {
 		return &v
-	}).(Settings3PropertiesPtrOutput)
+	}).(SettingsPropertiesPostgreSqlSettingsPropertiesPtrOutput)
 }
 
-func (o Settings3PropertiesOutput) MicrosoftSqlServerSettings() Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput {
-	return o.ApplyT(func(v Settings3Properties) *Settings3PropertiesMicrosoftSqlServerSettingsProperties {
-		return v.MicrosoftSqlServerSettings
-	}).(Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput)
+func (o SettingsPropertiesPostgreSqlSettingsPropertiesOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SettingsPropertiesPostgreSqlSettingsProperties) *string { return v.CertificateArn }).(pulumi.StringPtrOutput)
 }
 
-type Settings3PropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (Settings3PropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Settings3Properties)(nil)).Elem()
+func (o SettingsPropertiesPostgreSqlSettingsPropertiesOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v SettingsPropertiesPostgreSqlSettingsProperties) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-func (o Settings3PropertiesPtrOutput) ToSettings3PropertiesPtrOutput() Settings3PropertiesPtrOutput {
+func (o SettingsPropertiesPostgreSqlSettingsPropertiesOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v SettingsPropertiesPostgreSqlSettingsProperties) int { return v.Port }).(pulumi.IntOutput)
+}
+
+func (o SettingsPropertiesPostgreSqlSettingsPropertiesOutput) ServerName() pulumi.StringOutput {
+	return o.ApplyT(func(v SettingsPropertiesPostgreSqlSettingsProperties) string { return v.ServerName }).(pulumi.StringOutput)
+}
+
+func (o SettingsPropertiesPostgreSqlSettingsPropertiesOutput) SslMode() DataProviderDmsSslModeValueOutput {
+	return o.ApplyT(func(v SettingsPropertiesPostgreSqlSettingsProperties) DataProviderDmsSslModeValue { return v.SslMode }).(DataProviderDmsSslModeValueOutput)
+}
+
+type SettingsPropertiesPostgreSqlSettingsPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (SettingsPropertiesPostgreSqlSettingsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SettingsPropertiesPostgreSqlSettingsProperties)(nil)).Elem()
+}
+
+func (o SettingsPropertiesPostgreSqlSettingsPropertiesPtrOutput) ToSettingsPropertiesPostgreSqlSettingsPropertiesPtrOutput() SettingsPropertiesPostgreSqlSettingsPropertiesPtrOutput {
 	return o
 }
 
-func (o Settings3PropertiesPtrOutput) ToSettings3PropertiesPtrOutputWithContext(ctx context.Context) Settings3PropertiesPtrOutput {
+func (o SettingsPropertiesPostgreSqlSettingsPropertiesPtrOutput) ToSettingsPropertiesPostgreSqlSettingsPropertiesPtrOutputWithContext(ctx context.Context) SettingsPropertiesPostgreSqlSettingsPropertiesPtrOutput {
 	return o
 }
 
-func (o Settings3PropertiesPtrOutput) Elem() Settings3PropertiesOutput {
-	return o.ApplyT(func(v *Settings3Properties) Settings3Properties {
+func (o SettingsPropertiesPostgreSqlSettingsPropertiesPtrOutput) Elem() SettingsPropertiesPostgreSqlSettingsPropertiesOutput {
+	return o.ApplyT(func(v *SettingsPropertiesPostgreSqlSettingsProperties) SettingsPropertiesPostgreSqlSettingsProperties {
 		if v != nil {
 			return *v
 		}
-		var ret Settings3Properties
+		var ret SettingsPropertiesPostgreSqlSettingsProperties
 		return ret
-	}).(Settings3PropertiesOutput)
+	}).(SettingsPropertiesPostgreSqlSettingsPropertiesOutput)
 }
 
-func (o Settings3PropertiesPtrOutput) MicrosoftSqlServerSettings() Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput {
-	return o.ApplyT(func(v *Settings3Properties) *Settings3PropertiesMicrosoftSqlServerSettingsProperties {
-		if v == nil {
-			return nil
-		}
-		return v.MicrosoftSqlServerSettings
-	}).(Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput)
-}
-
-type Settings3PropertiesMicrosoftSqlServerSettingsProperties struct {
-	CertificateArn *string                      `pulumi:"certificateArn"`
-	DatabaseName   *string                      `pulumi:"databaseName"`
-	Port           *int                         `pulumi:"port"`
-	ServerName     *string                      `pulumi:"serverName"`
-	SslMode        *DataProviderDmsSslModeValue `pulumi:"sslMode"`
-}
-
-// Settings3PropertiesMicrosoftSqlServerSettingsPropertiesInput is an input type that accepts Settings3PropertiesMicrosoftSqlServerSettingsPropertiesArgs and Settings3PropertiesMicrosoftSqlServerSettingsPropertiesOutput values.
-// You can construct a concrete instance of `Settings3PropertiesMicrosoftSqlServerSettingsPropertiesInput` via:
-//
-//	Settings3PropertiesMicrosoftSqlServerSettingsPropertiesArgs{...}
-type Settings3PropertiesMicrosoftSqlServerSettingsPropertiesInput interface {
-	pulumi.Input
-
-	ToSettings3PropertiesMicrosoftSqlServerSettingsPropertiesOutput() Settings3PropertiesMicrosoftSqlServerSettingsPropertiesOutput
-	ToSettings3PropertiesMicrosoftSqlServerSettingsPropertiesOutputWithContext(context.Context) Settings3PropertiesMicrosoftSqlServerSettingsPropertiesOutput
-}
-
-type Settings3PropertiesMicrosoftSqlServerSettingsPropertiesArgs struct {
-	CertificateArn pulumi.StringPtrInput               `pulumi:"certificateArn"`
-	DatabaseName   pulumi.StringPtrInput               `pulumi:"databaseName"`
-	Port           pulumi.IntPtrInput                  `pulumi:"port"`
-	ServerName     pulumi.StringPtrInput               `pulumi:"serverName"`
-	SslMode        DataProviderDmsSslModeValuePtrInput `pulumi:"sslMode"`
-}
-
-func (Settings3PropertiesMicrosoftSqlServerSettingsPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Settings3PropertiesMicrosoftSqlServerSettingsProperties)(nil)).Elem()
-}
-
-func (i Settings3PropertiesMicrosoftSqlServerSettingsPropertiesArgs) ToSettings3PropertiesMicrosoftSqlServerSettingsPropertiesOutput() Settings3PropertiesMicrosoftSqlServerSettingsPropertiesOutput {
-	return i.ToSettings3PropertiesMicrosoftSqlServerSettingsPropertiesOutputWithContext(context.Background())
-}
-
-func (i Settings3PropertiesMicrosoftSqlServerSettingsPropertiesArgs) ToSettings3PropertiesMicrosoftSqlServerSettingsPropertiesOutputWithContext(ctx context.Context) Settings3PropertiesMicrosoftSqlServerSettingsPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Settings3PropertiesMicrosoftSqlServerSettingsPropertiesOutput)
-}
-
-func (i Settings3PropertiesMicrosoftSqlServerSettingsPropertiesArgs) ToSettings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput() Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput {
-	return i.ToSettings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i Settings3PropertiesMicrosoftSqlServerSettingsPropertiesArgs) ToSettings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutputWithContext(ctx context.Context) Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Settings3PropertiesMicrosoftSqlServerSettingsPropertiesOutput).ToSettings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutputWithContext(ctx)
-}
-
-// Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrInput is an input type that accepts Settings3PropertiesMicrosoftSqlServerSettingsPropertiesArgs, Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtr and Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput values.
-// You can construct a concrete instance of `Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrInput` via:
-//
-//	        Settings3PropertiesMicrosoftSqlServerSettingsPropertiesArgs{...}
-//
-//	or:
-//
-//	        nil
-type Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToSettings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput() Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput
-	ToSettings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutputWithContext(context.Context) Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput
-}
-
-type settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrType Settings3PropertiesMicrosoftSqlServerSettingsPropertiesArgs
-
-func Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtr(v *Settings3PropertiesMicrosoftSqlServerSettingsPropertiesArgs) Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrInput {
-	return (*settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrType)(v)
-}
-
-func (*settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Settings3PropertiesMicrosoftSqlServerSettingsProperties)(nil)).Elem()
-}
-
-func (i *settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrType) ToSettings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput() Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput {
-	return i.ToSettings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrType) ToSettings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutputWithContext(ctx context.Context) Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput)
-}
-
-type Settings3PropertiesMicrosoftSqlServerSettingsPropertiesOutput struct{ *pulumi.OutputState }
-
-func (Settings3PropertiesMicrosoftSqlServerSettingsPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Settings3PropertiesMicrosoftSqlServerSettingsProperties)(nil)).Elem()
-}
-
-func (o Settings3PropertiesMicrosoftSqlServerSettingsPropertiesOutput) ToSettings3PropertiesMicrosoftSqlServerSettingsPropertiesOutput() Settings3PropertiesMicrosoftSqlServerSettingsPropertiesOutput {
-	return o
-}
-
-func (o Settings3PropertiesMicrosoftSqlServerSettingsPropertiesOutput) ToSettings3PropertiesMicrosoftSqlServerSettingsPropertiesOutputWithContext(ctx context.Context) Settings3PropertiesMicrosoftSqlServerSettingsPropertiesOutput {
-	return o
-}
-
-func (o Settings3PropertiesMicrosoftSqlServerSettingsPropertiesOutput) ToSettings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput() Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput {
-	return o.ToSettings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o Settings3PropertiesMicrosoftSqlServerSettingsPropertiesOutput) ToSettings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutputWithContext(ctx context.Context) Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Settings3PropertiesMicrosoftSqlServerSettingsProperties) *Settings3PropertiesMicrosoftSqlServerSettingsProperties {
-		return &v
-	}).(Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput)
-}
-
-func (o Settings3PropertiesMicrosoftSqlServerSettingsPropertiesOutput) CertificateArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Settings3PropertiesMicrosoftSqlServerSettingsProperties) *string { return v.CertificateArn }).(pulumi.StringPtrOutput)
-}
-
-func (o Settings3PropertiesMicrosoftSqlServerSettingsPropertiesOutput) DatabaseName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Settings3PropertiesMicrosoftSqlServerSettingsProperties) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
-}
-
-func (o Settings3PropertiesMicrosoftSqlServerSettingsPropertiesOutput) Port() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v Settings3PropertiesMicrosoftSqlServerSettingsProperties) *int { return v.Port }).(pulumi.IntPtrOutput)
-}
-
-func (o Settings3PropertiesMicrosoftSqlServerSettingsPropertiesOutput) ServerName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Settings3PropertiesMicrosoftSqlServerSettingsProperties) *string { return v.ServerName }).(pulumi.StringPtrOutput)
-}
-
-func (o Settings3PropertiesMicrosoftSqlServerSettingsPropertiesOutput) SslMode() DataProviderDmsSslModeValuePtrOutput {
-	return o.ApplyT(func(v Settings3PropertiesMicrosoftSqlServerSettingsProperties) *DataProviderDmsSslModeValue {
-		return v.SslMode
-	}).(DataProviderDmsSslModeValuePtrOutput)
-}
-
-type Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Settings3PropertiesMicrosoftSqlServerSettingsProperties)(nil)).Elem()
-}
-
-func (o Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput) ToSettings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput() Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput {
-	return o
-}
-
-func (o Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput) ToSettings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutputWithContext(ctx context.Context) Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput {
-	return o
-}
-
-func (o Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput) Elem() Settings3PropertiesMicrosoftSqlServerSettingsPropertiesOutput {
-	return o.ApplyT(func(v *Settings3PropertiesMicrosoftSqlServerSettingsProperties) Settings3PropertiesMicrosoftSqlServerSettingsProperties {
-		if v != nil {
-			return *v
-		}
-		var ret Settings3PropertiesMicrosoftSqlServerSettingsProperties
-		return ret
-	}).(Settings3PropertiesMicrosoftSqlServerSettingsPropertiesOutput)
-}
-
-func (o Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput) CertificateArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Settings3PropertiesMicrosoftSqlServerSettingsProperties) *string {
+func (o SettingsPropertiesPostgreSqlSettingsPropertiesPtrOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SettingsPropertiesPostgreSqlSettingsProperties) *string {
 		if v == nil {
 			return nil
 		}
@@ -1927,39 +1592,39 @@ func (o Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput) Certif
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput) DatabaseName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Settings3PropertiesMicrosoftSqlServerSettingsProperties) *string {
+func (o SettingsPropertiesPostgreSqlSettingsPropertiesPtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SettingsPropertiesPostgreSqlSettingsProperties) *string {
 		if v == nil {
 			return nil
 		}
-		return v.DatabaseName
+		return &v.DatabaseName
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput) Port() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Settings3PropertiesMicrosoftSqlServerSettingsProperties) *int {
+func (o SettingsPropertiesPostgreSqlSettingsPropertiesPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SettingsPropertiesPostgreSqlSettingsProperties) *int {
 		if v == nil {
 			return nil
 		}
-		return v.Port
+		return &v.Port
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput) ServerName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Settings3PropertiesMicrosoftSqlServerSettingsProperties) *string {
+func (o SettingsPropertiesPostgreSqlSettingsPropertiesPtrOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SettingsPropertiesPostgreSqlSettingsProperties) *string {
 		if v == nil {
 			return nil
 		}
-		return v.ServerName
+		return &v.ServerName
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput) SslMode() DataProviderDmsSslModeValuePtrOutput {
-	return o.ApplyT(func(v *Settings3PropertiesMicrosoftSqlServerSettingsProperties) *DataProviderDmsSslModeValue {
+func (o SettingsPropertiesPostgreSqlSettingsPropertiesPtrOutput) SslMode() DataProviderDmsSslModeValuePtrOutput {
+	return o.ApplyT(func(v *SettingsPropertiesPostgreSqlSettingsProperties) *DataProviderDmsSslModeValue {
 		if v == nil {
 			return nil
 		}
-		return v.SslMode
+		return &v.SslMode
 	}).(DataProviderDmsSslModeValuePtrOutput)
 }
 
@@ -1970,42 +1635,30 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigComputeConfigPtrInput)(nil)).Elem(), ReplicationConfigComputeConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaConversionApplicationAttributesPropertiesInput)(nil)).Elem(), SchemaConversionApplicationAttributesPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaConversionApplicationAttributesPropertiesPtrInput)(nil)).Elem(), SchemaConversionApplicationAttributesPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*Settings0PropertiesInput)(nil)).Elem(), Settings0PropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*Settings0PropertiesPtrInput)(nil)).Elem(), Settings0PropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*Settings0PropertiesPostgreSqlSettingsPropertiesInput)(nil)).Elem(), Settings0PropertiesPostgreSqlSettingsPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*Settings0PropertiesPostgreSqlSettingsPropertiesPtrInput)(nil)).Elem(), Settings0PropertiesPostgreSqlSettingsPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*Settings1PropertiesInput)(nil)).Elem(), Settings1PropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*Settings1PropertiesPtrInput)(nil)).Elem(), Settings1PropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*Settings1PropertiesMySqlSettingsPropertiesInput)(nil)).Elem(), Settings1PropertiesMySqlSettingsPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*Settings1PropertiesMySqlSettingsPropertiesPtrInput)(nil)).Elem(), Settings1PropertiesMySqlSettingsPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*Settings2PropertiesInput)(nil)).Elem(), Settings2PropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*Settings2PropertiesPtrInput)(nil)).Elem(), Settings2PropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*Settings2PropertiesOracleSettingsPropertiesInput)(nil)).Elem(), Settings2PropertiesOracleSettingsPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*Settings2PropertiesOracleSettingsPropertiesPtrInput)(nil)).Elem(), Settings2PropertiesOracleSettingsPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*Settings3PropertiesInput)(nil)).Elem(), Settings3PropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*Settings3PropertiesPtrInput)(nil)).Elem(), Settings3PropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*Settings3PropertiesMicrosoftSqlServerSettingsPropertiesInput)(nil)).Elem(), Settings3PropertiesMicrosoftSqlServerSettingsPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrInput)(nil)).Elem(), Settings3PropertiesMicrosoftSqlServerSettingsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SettingsPropertiesInput)(nil)).Elem(), SettingsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SettingsPropertiesPtrInput)(nil)).Elem(), SettingsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SettingsPropertiesMicrosoftSqlServerSettingsPropertiesInput)(nil)).Elem(), SettingsPropertiesMicrosoftSqlServerSettingsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SettingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrInput)(nil)).Elem(), SettingsPropertiesMicrosoftSqlServerSettingsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SettingsPropertiesMySqlSettingsPropertiesInput)(nil)).Elem(), SettingsPropertiesMySqlSettingsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SettingsPropertiesMySqlSettingsPropertiesPtrInput)(nil)).Elem(), SettingsPropertiesMySqlSettingsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SettingsPropertiesOracleSettingsPropertiesInput)(nil)).Elem(), SettingsPropertiesOracleSettingsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SettingsPropertiesOracleSettingsPropertiesPtrInput)(nil)).Elem(), SettingsPropertiesOracleSettingsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SettingsPropertiesPostgreSqlSettingsPropertiesInput)(nil)).Elem(), SettingsPropertiesPostgreSqlSettingsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SettingsPropertiesPostgreSqlSettingsPropertiesPtrInput)(nil)).Elem(), SettingsPropertiesPostgreSqlSettingsPropertiesArgs{})
 	pulumi.RegisterOutputType(MigrationProjectDataProviderDescriptorOutput{})
 	pulumi.RegisterOutputType(MigrationProjectDataProviderDescriptorArrayOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigComputeConfigOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigComputeConfigPtrOutput{})
 	pulumi.RegisterOutputType(SchemaConversionApplicationAttributesPropertiesOutput{})
 	pulumi.RegisterOutputType(SchemaConversionApplicationAttributesPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(Settings0PropertiesOutput{})
-	pulumi.RegisterOutputType(Settings0PropertiesPtrOutput{})
-	pulumi.RegisterOutputType(Settings0PropertiesPostgreSqlSettingsPropertiesOutput{})
-	pulumi.RegisterOutputType(Settings0PropertiesPostgreSqlSettingsPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(Settings1PropertiesOutput{})
-	pulumi.RegisterOutputType(Settings1PropertiesPtrOutput{})
-	pulumi.RegisterOutputType(Settings1PropertiesMySqlSettingsPropertiesOutput{})
-	pulumi.RegisterOutputType(Settings1PropertiesMySqlSettingsPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(Settings2PropertiesOutput{})
-	pulumi.RegisterOutputType(Settings2PropertiesPtrOutput{})
-	pulumi.RegisterOutputType(Settings2PropertiesOracleSettingsPropertiesOutput{})
-	pulumi.RegisterOutputType(Settings2PropertiesOracleSettingsPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(Settings3PropertiesOutput{})
-	pulumi.RegisterOutputType(Settings3PropertiesPtrOutput{})
-	pulumi.RegisterOutputType(Settings3PropertiesMicrosoftSqlServerSettingsPropertiesOutput{})
-	pulumi.RegisterOutputType(Settings3PropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(SettingsPropertiesOutput{})
+	pulumi.RegisterOutputType(SettingsPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(SettingsPropertiesMicrosoftSqlServerSettingsPropertiesOutput{})
+	pulumi.RegisterOutputType(SettingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(SettingsPropertiesMySqlSettingsPropertiesOutput{})
+	pulumi.RegisterOutputType(SettingsPropertiesMySqlSettingsPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(SettingsPropertiesOracleSettingsPropertiesOutput{})
+	pulumi.RegisterOutputType(SettingsPropertiesOracleSettingsPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(SettingsPropertiesPostgreSqlSettingsPropertiesOutput{})
+	pulumi.RegisterOutputType(SettingsPropertiesPostgreSqlSettingsPropertiesPtrOutput{})
 }
