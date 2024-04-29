@@ -91,7 +91,6 @@
   "readOnlyProperties" : [ "/properties/PortalArn", "/properties/PortalClientId", "/properties/PortalId", "/properties/PortalStartUrl" ],
   "primaryIdentifier" : [ "/properties/PortalId" ],
   "additionalIdentifiers" : [ [ "/properties/PortalArn" ] ],
-  "writeOnlyProperties" : [ "/properties/Tags" ],
   "handlers" : {
     "create" : {
       "permissions" : [ "iotsitewise:CreatePortal", "iotsitewise:DescribePortal", "iotsitewise:ListTagsForResource", "iotsitewise:TagResource", "iam:PassRole", "sso:CreateManagedApplicationInstance", "sso:DescribeRegisteredRegions" ]
