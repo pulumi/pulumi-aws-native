@@ -782,7 +782,7 @@
         },
         "Series" : {
           "minItems" : 0,
-          "maxItems" : 10,
+          "maxItems" : 2000,
           "type" : "array",
           "items" : {
             "$ref" : "#/definitions/SeriesItem"
@@ -2095,6 +2095,24 @@
           "maximum" : 100,
           "type" : "number",
           "minimum" : 0
+        }
+      }
+    },
+    "WaterfallChartGroupColorConfiguration" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "NegativeBarColor" : {
+          "pattern" : "^#[A-F0-9]{6}$",
+          "type" : "string"
+        },
+        "TotalBarColor" : {
+          "pattern" : "^#[A-F0-9]{6}$",
+          "type" : "string"
+        },
+        "PositiveBarColor" : {
+          "pattern" : "^#[A-F0-9]{6}$",
+          "type" : "string"
         }
       }
     },
@@ -5034,6 +5052,15 @@
       },
       "required" : [ "MaximumValue", "MinimumValue", "StepSize" ]
     },
+    "WaterfallChartColorConfiguration" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "GroupColorConfiguration" : {
+          "$ref" : "#/definitions/WaterfallChartGroupColorConfiguration"
+        }
+      }
+    },
     "ParameterListControl" : {
       "additionalProperties" : false,
       "type" : "object",
@@ -5861,6 +5888,9 @@
         },
         "WaterfallChartOptions" : {
           "$ref" : "#/definitions/WaterfallChartOptions"
+        },
+        "ColorConfiguration" : {
+          "$ref" : "#/definitions/WaterfallChartColorConfiguration"
         },
         "CategoryAxisDisplayOptions" : {
           "$ref" : "#/definitions/AxisDisplayOptions"
@@ -7926,7 +7956,7 @@
       "properties" : {
         "ConditionalFormattingOptions" : {
           "minItems" : 0,
-          "maxItems" : 100,
+          "maxItems" : 500,
           "type" : "array",
           "items" : {
             "$ref" : "#/definitions/TableConditionalFormattingOption"
@@ -8222,7 +8252,7 @@
       "properties" : {
         "ConditionalFormattingOptions" : {
           "minItems" : 0,
-          "maxItems" : 100,
+          "maxItems" : 500,
           "type" : "array",
           "items" : {
             "$ref" : "#/definitions/PivotTableConditionalFormattingOption"

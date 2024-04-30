@@ -341,6 +341,7 @@ AWS::EC2::TransitGatewayPeeringAttachment
 AWS::EC2::TransitGatewayRoute
 AWS::EC2::TransitGatewayRouteTable
 AWS::EC2::TransitGatewayRouteTableAssociation
+AWS::EC2::TransitGatewayRouteTablePropagation
 AWS::EC2::TransitGatewayVpcAttachment
 AWS::EC2::VPC
 AWS::EC2::VPCCidrBlock

@@ -5,6 +5,7 @@ AWS::Cognito::UserPoolResourceServer
 AWS::Cognito::UserPoolUICustomizationAttachment
 AWS::GameCast::Application
 AWS::GameCast::StreamGroup
+AWS::Lambda::Alias
 AWS::SNS::TopicPolicy
 AWS::SSMGuiConnect::Preferences
 AWSQS::EKS::Cluster

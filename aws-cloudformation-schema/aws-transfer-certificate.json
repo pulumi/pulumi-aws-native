@@ -27,26 +27,26 @@
     "Usage" : {
       "description" : "Specifies the usage type for the certificate.",
       "type" : "string",
-      "enum" : [ "SIGNING", "ENCRYPTION" ]
+      "enum" : [ "SIGNING", "ENCRYPTION", "TLS" ]
     },
     "Certificate" : {
       "description" : "Specifies the certificate body to be imported.",
       "type" : "string",
-      "pattern" : "^[\t\n\r -ÿ]*",
+      "pattern" : "^[\\t\\n\\r\\u0020-\\u00FF]+$",
       "minLength" : 1,
       "maxLength" : 16384
     },
     "CertificateChain" : {
       "description" : "Specifies the certificate chain to be imported.",
       "type" : "string",
-      "pattern" : "^[\t\n\r -ÿ]*",
+      "pattern" : "^[\\t\\n\\r\\u0020-\\u00FF]+$",
       "minLength" : 1,
       "maxLength" : 2097152
     },
     "PrivateKey" : {
       "description" : "Specifies the private key for the certificate.",
       "type" : "string",
-      "pattern" : "^[\t\n\r -ÿ]*",
+      "pattern" : "^[\\t\\n\\r\\u0020-\\u00FF]+$",
       "minLength" : 1,
       "maxLength" : 16384
     },
@@ -61,7 +61,7 @@
     "Description" : {
       "description" : "A textual description for the certificate.",
       "type" : "string",
-      "pattern" : "^[\\w\\- ]*$",
+      "pattern" : "^[\\u0021-\\u007E]+$",
       "minLength" : 1,
       "maxLength" : 200
     },
@@ -102,7 +102,7 @@
     "Serial" : {
       "description" : "Specifies Certificate's serial.",
       "type" : "string",
-      "pattern" : "^[\\p{XDigit}{2}:?]*",
+      "pattern" : "^[0-9a-fA-F{}:?]*$",
       "minLength" : 0,
       "maxLength" : 48
     },
