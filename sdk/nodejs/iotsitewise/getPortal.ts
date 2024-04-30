@@ -66,6 +66,10 @@ export interface GetPortalResult {
      * The ARN of a service role that allows the portal's users to access your AWS IoT SiteWise resources on your behalf.
      */
     readonly roleArn?: string;
+    /**
+     * A list of key-value pairs that contain metadata for the portal.
+     */
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource schema for AWS::IoTSiteWise::Portal

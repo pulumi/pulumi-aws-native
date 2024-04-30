@@ -5490,7 +5490,9 @@ func (in *ipamTierPtr) ToIpamTierPtrOutputWithContext(ctx context.Context) IpamT
 	return pulumi.ToOutputWithContext(ctx, in).(IpamTierPtrOutput)
 }
 
-// The format of the private key
+// The format of the key pair.
+//
+//	Default: ``pem``
 type KeyPairKeyFormat string
 
 const (
@@ -5656,7 +5658,10 @@ func (in *keyPairKeyFormatPtr) ToKeyPairKeyFormatPtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(KeyPairKeyFormatPtrOutput)
 }
 
-// The crypto-system used to generate a key pair.
+// The type of key pair. Note that ED25519 keys are not supported for Windows instances.
+//
+//	If the ``PublicKeyMaterial`` property is specified, the ``KeyType`` property is ignored, and the key type is inferred from the ``PublicKeyMaterial`` value.
+//	Default: ``rsa``
 type KeyPairKeyType string
 
 const (

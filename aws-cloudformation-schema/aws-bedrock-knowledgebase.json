@@ -19,7 +19,7 @@
     "KnowledgeBaseStatus" : {
       "type" : "string",
       "description" : "The status of a knowledge base.",
-      "enum" : [ "CREATING", "ACTIVE", "DELETING", "UPDATING", "FAILED" ]
+      "enum" : [ "CREATING", "ACTIVE", "DELETING", "UPDATING", "FAILED", "DELETE_UNSUCCESSFUL" ]
     },
     "KnowledgeBaseStorageType" : {
       "type" : "string",

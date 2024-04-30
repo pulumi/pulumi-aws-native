@@ -24,11 +24,15 @@ class KeyPairArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a KeyPair resource.
-        :param pulumi.Input[str] key_name: The name of the SSH key pair
-        :param pulumi.Input['KeyPairKeyFormat'] key_format: The format of the private key
-        :param pulumi.Input['KeyPairKeyType'] key_type: The crypto-system used to generate a key pair.
-        :param pulumi.Input[str] public_key_material: Plain text public key to import
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[str] key_name: A unique name for the key pair.
+                Constraints: Up to 255 ASCII characters
+        :param pulumi.Input['KeyPairKeyFormat'] key_format: The format of the key pair.
+                Default: ``pem``
+        :param pulumi.Input['KeyPairKeyType'] key_type: The type of key pair. Note that ED25519 keys are not supported for Windows instances.
+                If the ``PublicKeyMaterial`` property is specified, the ``KeyType`` property is ignored, and the key type is inferred from the ``PublicKeyMaterial`` value.
+                Default: ``rsa``
+        :param pulumi.Input[str] public_key_material: The public key material. The ``PublicKeyMaterial`` property is used to import a key pair. If this property is not specified, then a new key pair will be created.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: The tags to apply to the key pair.
         """
         pulumi.set(__self__, "key_name", key_name)
         if key_format is not None:
@@ -44,7 +48,8 @@ class KeyPairArgs:
     @pulumi.getter(name="keyName")
     def key_name(self) -> pulumi.Input[str]:
         """
-        The name of the SSH key pair
+        A unique name for the key pair.
+         Constraints: Up to 255 ASCII characters
         """
         return pulumi.get(self, "key_name")
 
@@ -56,7 +61,8 @@ class KeyPairArgs:
     @pulumi.getter(name="keyFormat")
     def key_format(self) -> Optional[pulumi.Input['KeyPairKeyFormat']]:
         """
-        The format of the private key
+        The format of the key pair.
+         Default: ``pem``
         """
         return pulumi.get(self, "key_format")
 
@@ -68,7 +74,9 @@ class KeyPairArgs:
     @pulumi.getter(name="keyType")
     def key_type(self) -> Optional[pulumi.Input['KeyPairKeyType']]:
         """
-        The crypto-system used to generate a key pair.
+        The type of key pair. Note that ED25519 keys are not supported for Windows instances.
+         If the ``PublicKeyMaterial`` property is specified, the ``KeyType`` property is ignored, and the key type is inferred from the ``PublicKeyMaterial`` value.
+         Default: ``rsa``
         """
         return pulumi.get(self, "key_type")
 
@@ -80,7 +88,7 @@ class KeyPairArgs:
     @pulumi.getter(name="publicKeyMaterial")
     def public_key_material(self) -> Optional[pulumi.Input[str]]:
         """
-        Plain text public key to import
+        The public key material. The ``PublicKeyMaterial`` property is used to import a key pair. If this property is not specified, then a new key pair will be created.
         """
         return pulumi.get(self, "public_key_material")
 
@@ -92,7 +100,7 @@ class KeyPairArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
         """
-        An array of key-value pairs to apply to this resource.
+        The tags to apply to the key pair.
         """
         return pulumi.get(self, "tags")
 
@@ -113,7 +121,13 @@ class KeyPair(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
                  __props__=None):
         """
-        The AWS::EC2::KeyPair creates an SSH key pair
+        Specifies a key pair for use with an EC2long instance as follows:
+          +  To import an existing key pair, include the ``PublicKeyMaterial`` property.
+          +  To create a new key pair, omit the ``PublicKeyMaterial`` property.
+
+         When you import an existing key pair, you specify the public key material for the key. We assume that you have the private key material for the key. CFNlong does not create or return the private key material when you import a key pair.
+         When you create a new key pair, the private key is saved to SYSlong Parameter Store, using a parameter with the following name: ``/ec2/keypair/{key_pair_id}``. For more information about retrieving private key, and the required permissions, see [Create a key pair using](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-key-pairs.html#create-key-pair-cloudformation) in the *User Guide*.
+         When CFN deletes a key pair that was created or imported by a stack, it also deletes the parameter that was used to store the private key material in Parameter Store.
 
         ## Example Usage
         ### Example
@@ -171,11 +185,15 @@ class KeyPair(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input['KeyPairKeyFormat'] key_format: The format of the private key
-        :param pulumi.Input[str] key_name: The name of the SSH key pair
-        :param pulumi.Input['KeyPairKeyType'] key_type: The crypto-system used to generate a key pair.
-        :param pulumi.Input[str] public_key_material: Plain text public key to import
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input['KeyPairKeyFormat'] key_format: The format of the key pair.
+                Default: ``pem``
+        :param pulumi.Input[str] key_name: A unique name for the key pair.
+                Constraints: Up to 255 ASCII characters
+        :param pulumi.Input['KeyPairKeyType'] key_type: The type of key pair. Note that ED25519 keys are not supported for Windows instances.
+                If the ``PublicKeyMaterial`` property is specified, the ``KeyType`` property is ignored, and the key type is inferred from the ``PublicKeyMaterial`` value.
+                Default: ``rsa``
+        :param pulumi.Input[str] public_key_material: The public key material. The ``PublicKeyMaterial`` property is used to import a key pair. If this property is not specified, then a new key pair will be created.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: The tags to apply to the key pair.
         """
         ...
     @overload
@@ -184,7 +202,13 @@ class KeyPair(pulumi.CustomResource):
                  args: KeyPairArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        The AWS::EC2::KeyPair creates an SSH key pair
+        Specifies a key pair for use with an EC2long instance as follows:
+          +  To import an existing key pair, include the ``PublicKeyMaterial`` property.
+          +  To create a new key pair, omit the ``PublicKeyMaterial`` property.
+
+         When you import an existing key pair, you specify the public key material for the key. We assume that you have the private key material for the key. CFNlong does not create or return the private key material when you import a key pair.
+         When you create a new key pair, the private key is saved to SYSlong Parameter Store, using a parameter with the following name: ``/ec2/keypair/{key_pair_id}``. For more information about retrieving private key, and the required permissions, see [Create a key pair using](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-key-pairs.html#create-key-pair-cloudformation) in the *User Guide*.
+         When CFN deletes a key pair that was created or imported by a stack, it also deletes the parameter that was used to store the private key material in Parameter Store.
 
         ## Example Usage
         ### Example
@@ -314,16 +338,14 @@ class KeyPair(pulumi.CustomResource):
     @property
     @pulumi.getter(name="keyFingerprint")
     def key_fingerprint(self) -> pulumi.Output[str]:
-        """
-        A short sequence of bytes used for public key verification
-        """
         return pulumi.get(self, "key_fingerprint")
 
     @property
     @pulumi.getter(name="keyFormat")
     def key_format(self) -> pulumi.Output[Optional['KeyPairKeyFormat']]:
         """
-        The format of the private key
+        The format of the key pair.
+         Default: ``pem``
         """
         return pulumi.get(self, "key_format")
 
@@ -331,23 +353,23 @@ class KeyPair(pulumi.CustomResource):
     @pulumi.getter(name="keyName")
     def key_name(self) -> pulumi.Output[str]:
         """
-        The name of the SSH key pair
+        A unique name for the key pair.
+         Constraints: Up to 255 ASCII characters
         """
         return pulumi.get(self, "key_name")
 
     @property
     @pulumi.getter(name="keyPairId")
     def key_pair_id(self) -> pulumi.Output[str]:
-        """
-        An AWS generated ID for the key pair
-        """
         return pulumi.get(self, "key_pair_id")
 
     @property
     @pulumi.getter(name="keyType")
     def key_type(self) -> pulumi.Output[Optional['KeyPairKeyType']]:
         """
-        The crypto-system used to generate a key pair.
+        The type of key pair. Note that ED25519 keys are not supported for Windows instances.
+         If the ``PublicKeyMaterial`` property is specified, the ``KeyType`` property is ignored, and the key type is inferred from the ``PublicKeyMaterial`` value.
+         Default: ``rsa``
         """
         return pulumi.get(self, "key_type")
 
@@ -355,7 +377,7 @@ class KeyPair(pulumi.CustomResource):
     @pulumi.getter(name="publicKeyMaterial")
     def public_key_material(self) -> pulumi.Output[Optional[str]]:
         """
-        Plain text public key to import
+        The public key material. The ``PublicKeyMaterial`` property is used to import a key pair. If this property is not specified, then a new key pair will be created.
         """
         return pulumi.get(self, "public_key_material")
 
@@ -363,7 +385,7 @@ class KeyPair(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.CreateOnlyTag']]]:
         """
-        An array of key-value pairs to apply to this resource.
+        The tags to apply to the key pair.
         """
         return pulumi.get(self, "tags")
 

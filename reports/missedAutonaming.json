@@ -3740,26 +3740,26 @@
     "properties": {
       "keyFormat": {
         "$ref": "#/types/aws-native:ec2:KeyPairKeyFormat",
-        "description": "The format of the private key"
+        "description": "The format of the key pair.\n Default: ``pem``"
       },
       "keyName": {
         "type": "string",
-        "description": "The name of the SSH key pair"
+        "description": "A unique name for the key pair.\n Constraints: Up to 255 ASCII characters"
       },
       "keyType": {
         "$ref": "#/types/aws-native:ec2:KeyPairKeyType",
-        "description": "The crypto-system used to generate a key pair."
+        "description": "The type of key pair. Note that ED25519 keys are not supported for Windows instances.\n If the ``PublicKeyMaterial`` property is specified, the ``KeyType`` property is ignored, and the key type is inferred from the ``PublicKeyMaterial`` value.\n Default: ``rsa``"
       },
       "publicKeyMaterial": {
         "type": "string",
-        "description": "Plain text public key to import"
+        "description": "The public key material. The ``PublicKeyMaterial`` property is used to import a key pair. If this property is not specified, then a new key pair will be created."
       },
       "tags": {
         "type": "array",
         "items": {
           "$ref": "#/types/aws-native:index:CreateOnlyTag"
         },
-        "description": "An array of key-value pairs to apply to this resource."
+        "description": "The tags to apply to the key pair."
       }
     }
   },
@@ -4721,6 +4721,19 @@
   },
   "aws-native:ec2:TransitGatewayRouteTableAssociation": {
     "cfTypeName": "AWS::EC2::TransitGatewayRouteTableAssociation",
+    "properties": {
+      "transitGatewayAttachmentId": {
+        "type": "string",
+        "description": "The ID of transit gateway attachment."
+      },
+      "transitGatewayRouteTableId": {
+        "type": "string",
+        "description": "The ID of transit gateway route table."
+      }
+    }
+  },
+  "aws-native:ec2:TransitGatewayRouteTablePropagation": {
+    "cfTypeName": "AWS::EC2::TransitGatewayRouteTablePropagation",
     "properties": {
       "transitGatewayAttachmentId": {
         "type": "string",
@@ -10899,6 +10912,10 @@
       "loggingRole": {
         "type": "string",
         "description": "Specifies the logging role for the connector."
+      },
+      "securityPolicyName": {
+        "type": "string",
+        "description": "Security policy for SFTP Connector"
       },
       "sftpConfig": {
         "$ref": "#/types/aws-native:transfer:SftpConfigProperties",

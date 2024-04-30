@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetPortalResult',
@@ -19,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetPortalResult:
-    def __init__(__self__, alarms=None, notification_sender_email=None, portal_arn=None, portal_client_id=None, portal_contact_email=None, portal_description=None, portal_id=None, portal_name=None, portal_start_url=None, role_arn=None):
+    def __init__(__self__, alarms=None, notification_sender_email=None, portal_arn=None, portal_client_id=None, portal_contact_email=None, portal_description=None, portal_id=None, portal_name=None, portal_start_url=None, role_arn=None, tags=None):
         if alarms and not isinstance(alarms, dict):
             raise TypeError("Expected argument 'alarms' to be a dict")
         pulumi.set(__self__, "alarms", alarms)
@@ -50,6 +51,9 @@ class GetPortalResult:
         if role_arn and not isinstance(role_arn, str):
             raise TypeError("Expected argument 'role_arn' to be a str")
         pulumi.set(__self__, "role_arn", role_arn)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -131,6 +135,14 @@ class GetPortalResult:
         """
         return pulumi.get(self, "role_arn")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        A list of key-value pairs that contain metadata for the portal.
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetPortalResult(GetPortalResult):
     # pylint: disable=using-constant-test
@@ -147,7 +159,8 @@ class AwaitableGetPortalResult(GetPortalResult):
             portal_id=self.portal_id,
             portal_name=self.portal_name,
             portal_start_url=self.portal_start_url,
-            role_arn=self.role_arn)
+            role_arn=self.role_arn,
+            tags=self.tags)
 
 
 def get_portal(portal_id: Optional[str] = None,
@@ -173,7 +186,8 @@ def get_portal(portal_id: Optional[str] = None,
         portal_id=pulumi.get(__ret__, 'portal_id'),
         portal_name=pulumi.get(__ret__, 'portal_name'),
         portal_start_url=pulumi.get(__ret__, 'portal_start_url'),
-        role_arn=pulumi.get(__ret__, 'role_arn'))
+        role_arn=pulumi.get(__ret__, 'role_arn'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_portal)

@@ -97,6 +97,10 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// The ARN of a service role that allows the portal's users to access your AWS IoT SiteWise resources on your behalf.
         /// </summary>
         public readonly string? RoleArn;
+        /// <summary>
+        /// A list of key-value pairs that contain metadata for the portal.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetPortalResult(
@@ -118,7 +122,9 @@ namespace Pulumi.AwsNative.IoTSiteWise
 
             string? portalStartUrl,
 
-            string? roleArn)
+            string? roleArn,
+
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Alarms = alarms;
             NotificationSenderEmail = notificationSenderEmail;
@@ -130,6 +136,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
             PortalName = portalName;
             PortalStartUrl = portalStartUrl;
             RoleArn = roleArn;
+            Tags = tags;
         }
     }
 }

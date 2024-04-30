@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Transfer.Outputs
     [OutputType]
     public sealed class WorkflowStepDecryptStepDetailsProperties
     {
-        public readonly Outputs.WorkflowInputFileLocation? DestinationFileLocation;
+        public readonly Outputs.WorkflowInputFileLocation DestinationFileLocation;
         /// <summary>
         /// The name of the step, used as an identifier.
         /// </summary>
@@ -32,11 +32,11 @@ namespace Pulumi.AwsNative.Transfer.Outputs
         /// <summary>
         /// Specifies which encryption method to use.
         /// </summary>
-        public readonly Pulumi.AwsNative.Transfer.WorkflowStepDecryptStepDetailsPropertiesType? Type;
+        public readonly Pulumi.AwsNative.Transfer.WorkflowStepDecryptStepDetailsPropertiesType Type;
 
         [OutputConstructor]
         private WorkflowStepDecryptStepDetailsProperties(
-            Outputs.WorkflowInputFileLocation? destinationFileLocation,
+            Outputs.WorkflowInputFileLocation destinationFileLocation,
 
             string? name,
 
@@ -44,7 +44,7 @@ namespace Pulumi.AwsNative.Transfer.Outputs
 
             string? sourceFileLocation,
 
-            Pulumi.AwsNative.Transfer.WorkflowStepDecryptStepDetailsPropertiesType? type)
+            Pulumi.AwsNative.Transfer.WorkflowStepDecryptStepDetailsPropertiesType type)
         {
             DestinationFileLocation = destinationFileLocation;
             Name = name;

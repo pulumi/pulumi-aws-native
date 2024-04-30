@@ -58,6 +58,14 @@ export class Connector extends pulumi.CustomResource {
      */
     public readonly loggingRole!: pulumi.Output<string | undefined>;
     /**
+     * Security policy for SFTP Connector
+     */
+    public readonly securityPolicyName!: pulumi.Output<string | undefined>;
+    /**
+     * The list of egress IP addresses of this connector. These IP addresses are assigned automatically when you create the connector.
+     */
+    public /*out*/ readonly serviceManagedEgressIpAddresses!: pulumi.Output<string[]>;
+    /**
      * Configuration for an SFTP connector.
      */
     public readonly sftpConfig!: pulumi.Output<outputs.transfer.SftpConfigProperties | undefined>;
@@ -90,17 +98,21 @@ export class Connector extends pulumi.CustomResource {
             resourceInputs["accessRole"] = args ? args.accessRole : undefined;
             resourceInputs["as2Config"] = args ? args.as2Config : undefined;
             resourceInputs["loggingRole"] = args ? args.loggingRole : undefined;
+            resourceInputs["securityPolicyName"] = args ? args.securityPolicyName : undefined;
             resourceInputs["sftpConfig"] = args ? args.sftpConfig : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["url"] = args ? args.url : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["connectorId"] = undefined /*out*/;
+            resourceInputs["serviceManagedEgressIpAddresses"] = undefined /*out*/;
         } else {
             resourceInputs["accessRole"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["as2Config"] = undefined /*out*/;
             resourceInputs["connectorId"] = undefined /*out*/;
             resourceInputs["loggingRole"] = undefined /*out*/;
+            resourceInputs["securityPolicyName"] = undefined /*out*/;
+            resourceInputs["serviceManagedEgressIpAddresses"] = undefined /*out*/;
             resourceInputs["sftpConfig"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["url"] = undefined /*out*/;
@@ -126,6 +138,10 @@ export interface ConnectorArgs {
      * Specifies the logging role for the connector.
      */
     loggingRole?: pulumi.Input<string>;
+    /**
+     * Security policy for SFTP Connector
+     */
+    securityPolicyName?: pulumi.Input<string>;
     /**
      * Configuration for an SFTP connector.
      */

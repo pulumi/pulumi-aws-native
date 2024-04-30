@@ -339,7 +339,8 @@ export const KeyPairKeyFormat = {
 } as const;
 
 /**
- * The format of the private key
+ * The format of the key pair.
+ *  Default: ``pem``
  */
 export type KeyPairKeyFormat = (typeof KeyPairKeyFormat)[keyof typeof KeyPairKeyFormat];
 
@@ -349,7 +350,9 @@ export const KeyPairKeyType = {
 } as const;
 
 /**
- * The crypto-system used to generate a key pair.
+ * The type of key pair. Note that ED25519 keys are not supported for Windows instances.
+ *  If the ``PublicKeyMaterial`` property is specified, the ``KeyType`` property is ignored, and the key type is inferred from the ``PublicKeyMaterial`` value.
+ *  Default: ``rsa``
  */
 export type KeyPairKeyType = (typeof KeyPairKeyType)[keyof typeof KeyPairKeyType];
 

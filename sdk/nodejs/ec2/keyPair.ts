@@ -8,7 +8,13 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The AWS::EC2::KeyPair creates an SSH key pair
+ * Specifies a key pair for use with an EC2long instance as follows:
+ *   +  To import an existing key pair, include the ``PublicKeyMaterial`` property.
+ *   +  To create a new key pair, omit the ``PublicKeyMaterial`` property.
+ *
+ *  When you import an existing key pair, you specify the public key material for the key. We assume that you have the private key material for the key. CFNlong does not create or return the private key material when you import a key pair.
+ *  When you create a new key pair, the private key is saved to SYSlong Parameter Store, using a parameter with the following name: ``/ec2/keypair/{key_pair_id}``. For more information about retrieving private key, and the required permissions, see [Create a key pair using](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-key-pairs.html#create-key-pair-cloudformation) in the *User Guide*.
+ *  When CFN deletes a key pair that was created or imported by a stack, it also deletes the parameter that was used to store the private key material in Parameter Store.
  *
  * ## Example Usage
  * ### Example
@@ -97,32 +103,30 @@ export class KeyPair extends pulumi.CustomResource {
         return obj['__pulumiType'] === KeyPair.__pulumiType;
     }
 
-    /**
-     * A short sequence of bytes used for public key verification
-     */
     public /*out*/ readonly keyFingerprint!: pulumi.Output<string>;
     /**
-     * The format of the private key
+     * The format of the key pair.
+     *  Default: ``pem``
      */
     public readonly keyFormat!: pulumi.Output<enums.ec2.KeyPairKeyFormat | undefined>;
     /**
-     * The name of the SSH key pair
+     * A unique name for the key pair.
+     *  Constraints: Up to 255 ASCII characters
      */
     public readonly keyName!: pulumi.Output<string>;
-    /**
-     * An AWS generated ID for the key pair
-     */
     public /*out*/ readonly keyPairId!: pulumi.Output<string>;
     /**
-     * The crypto-system used to generate a key pair.
+     * The type of key pair. Note that ED25519 keys are not supported for Windows instances.
+     *  If the ``PublicKeyMaterial`` property is specified, the ``KeyType`` property is ignored, and the key type is inferred from the ``PublicKeyMaterial`` value.
+     *  Default: ``rsa``
      */
     public readonly keyType!: pulumi.Output<enums.ec2.KeyPairKeyType | undefined>;
     /**
-     * Plain text public key to import
+     * The public key material. The ``PublicKeyMaterial`` property is used to import a key pair. If this property is not specified, then a new key pair will be created.
      */
     public readonly publicKeyMaterial!: pulumi.Output<string | undefined>;
     /**
-     * An array of key-value pairs to apply to this resource.
+     * The tags to apply to the key pair.
      */
     public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
 
@@ -168,23 +172,27 @@ export class KeyPair extends pulumi.CustomResource {
  */
 export interface KeyPairArgs {
     /**
-     * The format of the private key
+     * The format of the key pair.
+     *  Default: ``pem``
      */
     keyFormat?: pulumi.Input<enums.ec2.KeyPairKeyFormat>;
     /**
-     * The name of the SSH key pair
+     * A unique name for the key pair.
+     *  Constraints: Up to 255 ASCII characters
      */
     keyName: pulumi.Input<string>;
     /**
-     * The crypto-system used to generate a key pair.
+     * The type of key pair. Note that ED25519 keys are not supported for Windows instances.
+     *  If the ``PublicKeyMaterial`` property is specified, the ``KeyType`` property is ignored, and the key type is inferred from the ``PublicKeyMaterial`` value.
+     *  Default: ``rsa``
      */
     keyType?: pulumi.Input<enums.ec2.KeyPairKeyType>;
     /**
-     * Plain text public key to import
+     * The public key material. The ``PublicKeyMaterial`` property is used to import a key pair. If this property is not specified, then a new key pair will be created.
      */
     publicKeyMaterial?: pulumi.Input<string>;
     /**
-     * An array of key-value pairs to apply to this resource.
+     * The tags to apply to the key pair.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
 }

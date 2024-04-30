@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.Bedrock
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        [Output("dataDeletionPolicy")]
+        public Output<Pulumi.AwsNative.Bedrock.DataSourceDataDeletionPolicy?> DataDeletionPolicy { get; private set; } = null!;
+
         [Output("dataSourceConfiguration")]
         public Output<Outputs.DataSourceConfiguration> DataSourceConfiguration { get; private set; } = null!;
 
@@ -38,6 +41,12 @@ namespace Pulumi.AwsNative.Bedrock
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// The details of the failure reasons related to the data source.
+        /// </summary>
+        [Output("failureReasons")]
+        public Output<ImmutableArray<string>> FailureReasons { get; private set; } = null!;
 
         /// <summary>
         /// The unique identifier of the knowledge base to which to add the data source.
@@ -113,6 +122,9 @@ namespace Pulumi.AwsNative.Bedrock
 
     public sealed class DataSourceArgs : global::Pulumi.ResourceArgs
     {
+        [Input("dataDeletionPolicy")]
+        public Input<Pulumi.AwsNative.Bedrock.DataSourceDataDeletionPolicy>? DataDeletionPolicy { get; set; }
+
         [Input("dataSourceConfiguration", required: true)]
         public Input<Inputs.DataSourceConfigurationArgs> DataSourceConfiguration { get; set; } = null!;
 

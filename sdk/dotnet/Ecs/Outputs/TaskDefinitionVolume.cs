@@ -31,6 +31,9 @@ namespace Pulumi.AwsNative.Ecs.Outputs
         /// This parameter is specified when you use an Amazon Elastic File System file system for task storage.
         /// </summary>
         public readonly Outputs.TaskDefinitionEfsVolumeConfiguration? EfsVolumeConfiguration;
+        /// <summary>
+        /// This parameter is specified when you use Amazon FSx for Windows File Server file system for task storage.
+        /// </summary>
         public readonly Outputs.TaskDefinitionFSxWindowsFileServerVolumeConfiguration? FSxWindowsFileServerVolumeConfiguration;
         /// <summary>
         /// This parameter is specified when you use bind mount host volumes. The contents of the ``host`` parameter determine whether your bind mount host volume persists on the host container instance and where it's stored. If the ``host`` parameter is empty, then the Docker daemon assigns a host path for your data volume. However, the data isn't guaranteed to persist after the containers that are associated with it stop running.

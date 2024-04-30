@@ -10,14 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lambda.Inputs
 {
 
-    /// <summary>
-    /// A provisioned concurrency configuration for a function's alias.
-    /// </summary>
     public sealed class AliasProvisionedConcurrencyConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The amount of provisioned concurrency to allocate for the alias.
-        /// </summary>
         [Input("provisionedConcurrentExecutions", required: true)]
         public Input<int> ProvisionedConcurrentExecutions { get; set; } = null!;
 

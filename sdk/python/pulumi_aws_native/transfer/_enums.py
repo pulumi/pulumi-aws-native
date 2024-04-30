@@ -53,6 +53,7 @@ class CertificateUsage(str, Enum):
     """
     SIGNING = "SIGNING"
     ENCRYPTION = "ENCRYPTION"
+    TLS = "TLS"
 
 
 class ConnectorAs2ConfigPropertiesCompression(str, Enum):
@@ -71,6 +72,7 @@ class ConnectorAs2ConfigPropertiesEncryptionAlgorithm(str, Enum):
     AES192_CBC = "AES192_CBC"
     AES256_CBC = "AES256_CBC"
     NONE = "NONE"
+    DES_EDE3_CBC = "DES_EDE3_CBC"
 
 
 class ConnectorAs2ConfigPropertiesMdnResponse(str, Enum):

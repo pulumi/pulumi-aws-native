@@ -14,6 +14,7 @@ __all__ = [
     'AgentPromptType',
     'AgentStatus',
     'DataSourceChunkingStrategy',
+    'DataSourceDataDeletionPolicy',
     'DataSourceStatus',
     'DataSourceType',
     'GuardrailContentFilterType',
@@ -111,12 +112,21 @@ class DataSourceChunkingStrategy(str, Enum):
     NONE = "NONE"
 
 
+class DataSourceDataDeletionPolicy(str, Enum):
+    """
+    The deletion policy for the data source.
+    """
+    RETAIN = "RETAIN"
+    DELETE = "DELETE"
+
+
 class DataSourceStatus(str, Enum):
     """
     The status of a data source.
     """
     AVAILABLE = "AVAILABLE"
     DELETING = "DELETING"
+    DELETE_UNSUCCESSFUL = "DELETE_UNSUCCESSFUL"
 
 
 class DataSourceType(str, Enum):
@@ -228,6 +238,7 @@ class KnowledgeBaseStatus(str, Enum):
     DELETING = "DELETING"
     UPDATING = "UPDATING"
     FAILED = "FAILED"
+    DELETE_UNSUCCESSFUL = "DELETE_UNSUCCESSFUL"
 
 
 class KnowledgeBaseStorageType(str, Enum):

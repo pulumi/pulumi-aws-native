@@ -145,6 +145,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &TransitGatewayRouteTable{}
 	case "aws-native:ec2:TransitGatewayRouteTableAssociation":
 		r = &TransitGatewayRouteTableAssociation{}
+	case "aws-native:ec2:TransitGatewayRouteTablePropagation":
+		r = &TransitGatewayRouteTablePropagation{}
 	case "aws-native:ec2:TransitGatewayVpcAttachment":
 		r = &TransitGatewayVpcAttachment{}
 	case "aws-native:ec2:VerifiedAccessEndpoint":

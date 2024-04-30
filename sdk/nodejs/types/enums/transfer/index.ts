@@ -36,6 +36,7 @@ export type CertificateType = (typeof CertificateType)[keyof typeof CertificateT
 export const CertificateUsage = {
     Signing: "SIGNING",
     Encryption: "ENCRYPTION",
+    Tls: "TLS",
 } as const;
 
 /**
@@ -58,6 +59,7 @@ export const ConnectorAs2ConfigPropertiesEncryptionAlgorithm = {
     Aes192Cbc: "AES192_CBC",
     Aes256Cbc: "AES256_CBC",
     None: "NONE",
+    DesEde3Cbc: "DES_EDE3_CBC",
 } as const;
 
 /**

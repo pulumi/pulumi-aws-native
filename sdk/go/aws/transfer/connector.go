@@ -27,6 +27,10 @@ type Connector struct {
 	ConnectorId pulumi.StringOutput `pulumi:"connectorId"`
 	// Specifies the logging role for the connector.
 	LoggingRole pulumi.StringPtrOutput `pulumi:"loggingRole"`
+	// Security policy for SFTP Connector
+	SecurityPolicyName pulumi.StringPtrOutput `pulumi:"securityPolicyName"`
+	// The list of egress IP addresses of this connector. These IP addresses are assigned automatically when you create the connector.
+	ServiceManagedEgressIpAddresses pulumi.StringArrayOutput `pulumi:"serviceManagedEgressIpAddresses"`
 	// Configuration for an SFTP connector.
 	SftpConfig SftpConfigPropertiesPtrOutput `pulumi:"sftpConfig"`
 	// Key-value pairs that can be used to group and search for connectors. Tags are metadata attached to connectors for any purpose.
@@ -87,6 +91,8 @@ type connectorArgs struct {
 	As2Config *As2ConfigProperties `pulumi:"as2Config"`
 	// Specifies the logging role for the connector.
 	LoggingRole *string `pulumi:"loggingRole"`
+	// Security policy for SFTP Connector
+	SecurityPolicyName *string `pulumi:"securityPolicyName"`
 	// Configuration for an SFTP connector.
 	SftpConfig *SftpConfigProperties `pulumi:"sftpConfig"`
 	// Key-value pairs that can be used to group and search for connectors. Tags are metadata attached to connectors for any purpose.
@@ -103,6 +109,8 @@ type ConnectorArgs struct {
 	As2Config As2ConfigPropertiesPtrInput
 	// Specifies the logging role for the connector.
 	LoggingRole pulumi.StringPtrInput
+	// Security policy for SFTP Connector
+	SecurityPolicyName pulumi.StringPtrInput
 	// Configuration for an SFTP connector.
 	SftpConfig SftpConfigPropertiesPtrInput
 	// Key-value pairs that can be used to group and search for connectors. Tags are metadata attached to connectors for any purpose.
@@ -171,6 +179,16 @@ func (o ConnectorOutput) ConnectorId() pulumi.StringOutput {
 // Specifies the logging role for the connector.
 func (o ConnectorOutput) LoggingRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringPtrOutput { return v.LoggingRole }).(pulumi.StringPtrOutput)
+}
+
+// Security policy for SFTP Connector
+func (o ConnectorOutput) SecurityPolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Connector) pulumi.StringPtrOutput { return v.SecurityPolicyName }).(pulumi.StringPtrOutput)
+}
+
+// The list of egress IP addresses of this connector. These IP addresses are assigned automatically when you create the connector.
+func (o ConnectorOutput) ServiceManagedEgressIpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Connector) pulumi.StringArrayOutput { return v.ServiceManagedEgressIpAddresses }).(pulumi.StringArrayOutput)
 }
 
 // Configuration for an SFTP connector.

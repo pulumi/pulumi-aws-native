@@ -13,7 +13,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The AWS::EC2::KeyPair creates an SSH key pair
+// Specifies a key pair for use with an EC2long instance as follows:
+//
+//   - To import an existing key pair, include the “PublicKeyMaterial“ property.
+//
+//   - To create a new key pair, omit the “PublicKeyMaterial“ property.
+//
+//     When you import an existing key pair, you specify the public key material for the key. We assume that you have the private key material for the key. CFNlong does not create or return the private key material when you import a key pair.
+//     When you create a new key pair, the private key is saved to SYSlong Parameter Store, using a parameter with the following name: “/ec2/keypair/{key_pair_id}“. For more information about retrieving private key, and the required permissions, see [Create a key pair using](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-key-pairs.html#create-key-pair-cloudformation) in the *User Guide*.
+//     When CFN deletes a key pair that was created or imported by a stack, it also deletes the parameter that was used to store the private key material in Parameter Store.
 //
 // ## Example Usage
 // ### Example
@@ -149,19 +157,21 @@ import (
 type KeyPair struct {
 	pulumi.CustomResourceState
 
-	// A short sequence of bytes used for public key verification
 	KeyFingerprint pulumi.StringOutput `pulumi:"keyFingerprint"`
-	// The format of the private key
+	// The format of the key pair.
+	//  Default: ``pem``
 	KeyFormat KeyPairKeyFormatPtrOutput `pulumi:"keyFormat"`
-	// The name of the SSH key pair
-	KeyName pulumi.StringOutput `pulumi:"keyName"`
-	// An AWS generated ID for the key pair
+	// A unique name for the key pair.
+	//  Constraints: Up to 255 ASCII characters
+	KeyName   pulumi.StringOutput `pulumi:"keyName"`
 	KeyPairId pulumi.StringOutput `pulumi:"keyPairId"`
-	// The crypto-system used to generate a key pair.
+	// The type of key pair. Note that ED25519 keys are not supported for Windows instances.
+	//  If the ``PublicKeyMaterial`` property is specified, the ``KeyType`` property is ignored, and the key type is inferred from the ``PublicKeyMaterial`` value.
+	//  Default: ``rsa``
 	KeyType KeyPairKeyTypePtrOutput `pulumi:"keyType"`
-	// Plain text public key to import
+	// The public key material. The ``PublicKeyMaterial`` property is used to import a key pair. If this property is not specified, then a new key pair will be created.
 	PublicKeyMaterial pulumi.StringPtrOutput `pulumi:"publicKeyMaterial"`
-	// An array of key-value pairs to apply to this resource.
+	// The tags to apply to the key pair.
 	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 }
 
@@ -216,29 +226,37 @@ func (KeyPairState) ElementType() reflect.Type {
 }
 
 type keyPairArgs struct {
-	// The format of the private key
+	// The format of the key pair.
+	//  Default: ``pem``
 	KeyFormat *KeyPairKeyFormat `pulumi:"keyFormat"`
-	// The name of the SSH key pair
+	// A unique name for the key pair.
+	//  Constraints: Up to 255 ASCII characters
 	KeyName string `pulumi:"keyName"`
-	// The crypto-system used to generate a key pair.
+	// The type of key pair. Note that ED25519 keys are not supported for Windows instances.
+	//  If the ``PublicKeyMaterial`` property is specified, the ``KeyType`` property is ignored, and the key type is inferred from the ``PublicKeyMaterial`` value.
+	//  Default: ``rsa``
 	KeyType *KeyPairKeyType `pulumi:"keyType"`
-	// Plain text public key to import
+	// The public key material. The ``PublicKeyMaterial`` property is used to import a key pair. If this property is not specified, then a new key pair will be created.
 	PublicKeyMaterial *string `pulumi:"publicKeyMaterial"`
-	// An array of key-value pairs to apply to this resource.
+	// The tags to apply to the key pair.
 	Tags []aws.CreateOnlyTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a KeyPair resource.
 type KeyPairArgs struct {
-	// The format of the private key
+	// The format of the key pair.
+	//  Default: ``pem``
 	KeyFormat KeyPairKeyFormatPtrInput
-	// The name of the SSH key pair
+	// A unique name for the key pair.
+	//  Constraints: Up to 255 ASCII characters
 	KeyName pulumi.StringInput
-	// The crypto-system used to generate a key pair.
+	// The type of key pair. Note that ED25519 keys are not supported for Windows instances.
+	//  If the ``PublicKeyMaterial`` property is specified, the ``KeyType`` property is ignored, and the key type is inferred from the ``PublicKeyMaterial`` value.
+	//  Default: ``rsa``
 	KeyType KeyPairKeyTypePtrInput
-	// Plain text public key to import
+	// The public key material. The ``PublicKeyMaterial`` property is used to import a key pair. If this property is not specified, then a new key pair will be created.
 	PublicKeyMaterial pulumi.StringPtrInput
-	// An array of key-value pairs to apply to this resource.
+	// The tags to apply to the key pair.
 	Tags aws.CreateOnlyTagArrayInput
 }
 
@@ -279,37 +297,42 @@ func (o KeyPairOutput) ToKeyPairOutputWithContext(ctx context.Context) KeyPairOu
 	return o
 }
 
-// A short sequence of bytes used for public key verification
 func (o KeyPairOutput) KeyFingerprint() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyPair) pulumi.StringOutput { return v.KeyFingerprint }).(pulumi.StringOutput)
 }
 
-// The format of the private key
+// The format of the key pair.
+//
+//	Default: ``pem``
 func (o KeyPairOutput) KeyFormat() KeyPairKeyFormatPtrOutput {
 	return o.ApplyT(func(v *KeyPair) KeyPairKeyFormatPtrOutput { return v.KeyFormat }).(KeyPairKeyFormatPtrOutput)
 }
 
-// The name of the SSH key pair
+// A unique name for the key pair.
+//
+//	Constraints: Up to 255 ASCII characters
 func (o KeyPairOutput) KeyName() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyPair) pulumi.StringOutput { return v.KeyName }).(pulumi.StringOutput)
 }
 
-// An AWS generated ID for the key pair
 func (o KeyPairOutput) KeyPairId() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyPair) pulumi.StringOutput { return v.KeyPairId }).(pulumi.StringOutput)
 }
 
-// The crypto-system used to generate a key pair.
+// The type of key pair. Note that ED25519 keys are not supported for Windows instances.
+//
+//	If the ``PublicKeyMaterial`` property is specified, the ``KeyType`` property is ignored, and the key type is inferred from the ``PublicKeyMaterial`` value.
+//	Default: ``rsa``
 func (o KeyPairOutput) KeyType() KeyPairKeyTypePtrOutput {
 	return o.ApplyT(func(v *KeyPair) KeyPairKeyTypePtrOutput { return v.KeyType }).(KeyPairKeyTypePtrOutput)
 }
 
-// Plain text public key to import
+// The public key material. The “PublicKeyMaterial“ property is used to import a key pair. If this property is not specified, then a new key pair will be created.
 func (o KeyPairOutput) PublicKeyMaterial() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyPair) pulumi.StringPtrOutput { return v.PublicKeyMaterial }).(pulumi.StringPtrOutput)
 }
 
-// An array of key-value pairs to apply to this resource.
+// The tags to apply to the key pair.
 func (o KeyPairOutput) Tags() aws.CreateOnlyTagArrayOutput {
 	return o.ApplyT(func(v *KeyPair) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }

@@ -15,6 +15,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     {
         public readonly Outputs.TemplateAxisDisplayOptions? CategoryAxisDisplayOptions;
         public readonly Outputs.TemplateChartAxisLabelOptions? CategoryAxisLabelOptions;
+        public readonly Outputs.TemplateWaterfallChartColorConfiguration? ColorConfiguration;
         public readonly Outputs.TemplateDataLabelOptions? DataLabels;
         public readonly Outputs.TemplateWaterfallChartFieldWells? FieldWells;
         public readonly Outputs.TemplateLegendOptions? Legend;
@@ -29,6 +30,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             Outputs.TemplateAxisDisplayOptions? categoryAxisDisplayOptions,
 
             Outputs.TemplateChartAxisLabelOptions? categoryAxisLabelOptions,
+
+            Outputs.TemplateWaterfallChartColorConfiguration? colorConfiguration,
 
             Outputs.TemplateDataLabelOptions? dataLabels,
 
@@ -48,6 +51,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         {
             CategoryAxisDisplayOptions = categoryAxisDisplayOptions;
             CategoryAxisLabelOptions = categoryAxisLabelOptions;
+            ColorConfiguration = colorConfiguration;
             DataLabels = dataLabels;
             FieldWells = fieldWells;
             Legend = legend;

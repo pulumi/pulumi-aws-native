@@ -21,6 +21,10 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// </summary>
         public readonly string BucketArn;
         /// <summary>
+        /// The account ID for the owner of the S3 bucket.
+        /// </summary>
+        public readonly string? BucketOwnerAccountId;
+        /// <summary>
         /// A list of S3 prefixes that define the object containing the data sources.
         /// </summary>
         public readonly ImmutableArray<string> InclusionPrefixes;
@@ -29,9 +33,12 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         private DataSourceS3DataSourceConfiguration(
             string bucketArn,
 
+            string? bucketOwnerAccountId,
+
             ImmutableArray<string> inclusionPrefixes)
         {
             BucketArn = bucketArn;
+            BucketOwnerAccountId = bucketOwnerAccountId;
             InclusionPrefixes = inclusionPrefixes;
         }
     }

@@ -582,7 +582,6 @@ func (o ClusterCapacityProviderStrategyItemArrayOutput) Index(i pulumi.IntInput)
 type ClusterConfiguration struct {
 	// The details of the execute command configuration.
 	ExecuteCommandConfiguration *ClusterExecuteCommandConfiguration `pulumi:"executeCommandConfiguration"`
-	ManagedStorageConfiguration *ClusterManagedStorageConfiguration `pulumi:"managedStorageConfiguration"`
 }
 
 // ClusterConfigurationInput is an input type that accepts ClusterConfigurationArgs and ClusterConfigurationOutput values.
@@ -600,7 +599,6 @@ type ClusterConfigurationInput interface {
 type ClusterConfigurationArgs struct {
 	// The details of the execute command configuration.
 	ExecuteCommandConfiguration ClusterExecuteCommandConfigurationPtrInput `pulumi:"executeCommandConfiguration"`
-	ManagedStorageConfiguration ClusterManagedStorageConfigurationPtrInput `pulumi:"managedStorageConfiguration"`
 }
 
 func (ClusterConfigurationArgs) ElementType() reflect.Type {
@@ -686,10 +684,6 @@ func (o ClusterConfigurationOutput) ExecuteCommandConfiguration() ClusterExecute
 	return o.ApplyT(func(v ClusterConfiguration) *ClusterExecuteCommandConfiguration { return v.ExecuteCommandConfiguration }).(ClusterExecuteCommandConfigurationPtrOutput)
 }
 
-func (o ClusterConfigurationOutput) ManagedStorageConfiguration() ClusterManagedStorageConfigurationPtrOutput {
-	return o.ApplyT(func(v ClusterConfiguration) *ClusterManagedStorageConfiguration { return v.ManagedStorageConfiguration }).(ClusterManagedStorageConfigurationPtrOutput)
-}
-
 type ClusterConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterConfigurationPtrOutput) ElementType() reflect.Type {
@@ -722,15 +716,6 @@ func (o ClusterConfigurationPtrOutput) ExecuteCommandConfiguration() ClusterExec
 		}
 		return v.ExecuteCommandConfiguration
 	}).(ClusterExecuteCommandConfigurationPtrOutput)
-}
-
-func (o ClusterConfigurationPtrOutput) ManagedStorageConfiguration() ClusterManagedStorageConfigurationPtrOutput {
-	return o.ApplyT(func(v *ClusterConfiguration) *ClusterManagedStorageConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.ManagedStorageConfiguration
-	}).(ClusterManagedStorageConfigurationPtrOutput)
 }
 
 // The details of the execute command configuration.
@@ -1150,154 +1135,6 @@ func (o ClusterExecuteCommandLogConfigurationPtrOutput) S3KeyPrefix() pulumi.Str
 			return nil
 		}
 		return v.S3KeyPrefix
-	}).(pulumi.StringPtrOutput)
-}
-
-type ClusterManagedStorageConfiguration struct {
-	FargateEphemeralStorageKmsKeyId *string `pulumi:"fargateEphemeralStorageKmsKeyId"`
-	KmsKeyId                        *string `pulumi:"kmsKeyId"`
-}
-
-// ClusterManagedStorageConfigurationInput is an input type that accepts ClusterManagedStorageConfigurationArgs and ClusterManagedStorageConfigurationOutput values.
-// You can construct a concrete instance of `ClusterManagedStorageConfigurationInput` via:
-//
-//	ClusterManagedStorageConfigurationArgs{...}
-type ClusterManagedStorageConfigurationInput interface {
-	pulumi.Input
-
-	ToClusterManagedStorageConfigurationOutput() ClusterManagedStorageConfigurationOutput
-	ToClusterManagedStorageConfigurationOutputWithContext(context.Context) ClusterManagedStorageConfigurationOutput
-}
-
-type ClusterManagedStorageConfigurationArgs struct {
-	FargateEphemeralStorageKmsKeyId pulumi.StringPtrInput `pulumi:"fargateEphemeralStorageKmsKeyId"`
-	KmsKeyId                        pulumi.StringPtrInput `pulumi:"kmsKeyId"`
-}
-
-func (ClusterManagedStorageConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterManagedStorageConfiguration)(nil)).Elem()
-}
-
-func (i ClusterManagedStorageConfigurationArgs) ToClusterManagedStorageConfigurationOutput() ClusterManagedStorageConfigurationOutput {
-	return i.ToClusterManagedStorageConfigurationOutputWithContext(context.Background())
-}
-
-func (i ClusterManagedStorageConfigurationArgs) ToClusterManagedStorageConfigurationOutputWithContext(ctx context.Context) ClusterManagedStorageConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterManagedStorageConfigurationOutput)
-}
-
-func (i ClusterManagedStorageConfigurationArgs) ToClusterManagedStorageConfigurationPtrOutput() ClusterManagedStorageConfigurationPtrOutput {
-	return i.ToClusterManagedStorageConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i ClusterManagedStorageConfigurationArgs) ToClusterManagedStorageConfigurationPtrOutputWithContext(ctx context.Context) ClusterManagedStorageConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterManagedStorageConfigurationOutput).ToClusterManagedStorageConfigurationPtrOutputWithContext(ctx)
-}
-
-// ClusterManagedStorageConfigurationPtrInput is an input type that accepts ClusterManagedStorageConfigurationArgs, ClusterManagedStorageConfigurationPtr and ClusterManagedStorageConfigurationPtrOutput values.
-// You can construct a concrete instance of `ClusterManagedStorageConfigurationPtrInput` via:
-//
-//	        ClusterManagedStorageConfigurationArgs{...}
-//
-//	or:
-//
-//	        nil
-type ClusterManagedStorageConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToClusterManagedStorageConfigurationPtrOutput() ClusterManagedStorageConfigurationPtrOutput
-	ToClusterManagedStorageConfigurationPtrOutputWithContext(context.Context) ClusterManagedStorageConfigurationPtrOutput
-}
-
-type clusterManagedStorageConfigurationPtrType ClusterManagedStorageConfigurationArgs
-
-func ClusterManagedStorageConfigurationPtr(v *ClusterManagedStorageConfigurationArgs) ClusterManagedStorageConfigurationPtrInput {
-	return (*clusterManagedStorageConfigurationPtrType)(v)
-}
-
-func (*clusterManagedStorageConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterManagedStorageConfiguration)(nil)).Elem()
-}
-
-func (i *clusterManagedStorageConfigurationPtrType) ToClusterManagedStorageConfigurationPtrOutput() ClusterManagedStorageConfigurationPtrOutput {
-	return i.ToClusterManagedStorageConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *clusterManagedStorageConfigurationPtrType) ToClusterManagedStorageConfigurationPtrOutputWithContext(ctx context.Context) ClusterManagedStorageConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterManagedStorageConfigurationPtrOutput)
-}
-
-type ClusterManagedStorageConfigurationOutput struct{ *pulumi.OutputState }
-
-func (ClusterManagedStorageConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterManagedStorageConfiguration)(nil)).Elem()
-}
-
-func (o ClusterManagedStorageConfigurationOutput) ToClusterManagedStorageConfigurationOutput() ClusterManagedStorageConfigurationOutput {
-	return o
-}
-
-func (o ClusterManagedStorageConfigurationOutput) ToClusterManagedStorageConfigurationOutputWithContext(ctx context.Context) ClusterManagedStorageConfigurationOutput {
-	return o
-}
-
-func (o ClusterManagedStorageConfigurationOutput) ToClusterManagedStorageConfigurationPtrOutput() ClusterManagedStorageConfigurationPtrOutput {
-	return o.ToClusterManagedStorageConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o ClusterManagedStorageConfigurationOutput) ToClusterManagedStorageConfigurationPtrOutputWithContext(ctx context.Context) ClusterManagedStorageConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterManagedStorageConfiguration) *ClusterManagedStorageConfiguration {
-		return &v
-	}).(ClusterManagedStorageConfigurationPtrOutput)
-}
-
-func (o ClusterManagedStorageConfigurationOutput) FargateEphemeralStorageKmsKeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterManagedStorageConfiguration) *string { return v.FargateEphemeralStorageKmsKeyId }).(pulumi.StringPtrOutput)
-}
-
-func (o ClusterManagedStorageConfigurationOutput) KmsKeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterManagedStorageConfiguration) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
-}
-
-type ClusterManagedStorageConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (ClusterManagedStorageConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterManagedStorageConfiguration)(nil)).Elem()
-}
-
-func (o ClusterManagedStorageConfigurationPtrOutput) ToClusterManagedStorageConfigurationPtrOutput() ClusterManagedStorageConfigurationPtrOutput {
-	return o
-}
-
-func (o ClusterManagedStorageConfigurationPtrOutput) ToClusterManagedStorageConfigurationPtrOutputWithContext(ctx context.Context) ClusterManagedStorageConfigurationPtrOutput {
-	return o
-}
-
-func (o ClusterManagedStorageConfigurationPtrOutput) Elem() ClusterManagedStorageConfigurationOutput {
-	return o.ApplyT(func(v *ClusterManagedStorageConfiguration) ClusterManagedStorageConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret ClusterManagedStorageConfiguration
-		return ret
-	}).(ClusterManagedStorageConfigurationOutput)
-}
-
-func (o ClusterManagedStorageConfigurationPtrOutput) FargateEphemeralStorageKmsKeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterManagedStorageConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FargateEphemeralStorageKmsKeyId
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ClusterManagedStorageConfigurationPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterManagedStorageConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return v.KmsKeyId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -7557,10 +7394,16 @@ func (o TaskDefinitionFSxAuthorizationConfigPtrOutput) Domain() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// This parameter is specified when you're using [Amazon FSx for Windows File Server](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/what-is.html) file system for task storage.
+//
+//	For more information and the input format, see [Amazon FSx for Windows File Server volumes](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/wfsx-volumes.html) in the *Amazon Elastic Container Service Developer Guide*.
 type TaskDefinitionFSxWindowsFileServerVolumeConfiguration struct {
+	// The authorization configuration details for the Amazon FSx for Windows File Server file system.
 	AuthorizationConfig *TaskDefinitionFSxAuthorizationConfig `pulumi:"authorizationConfig"`
-	FileSystemId        string                                `pulumi:"fileSystemId"`
-	RootDirectory       string                                `pulumi:"rootDirectory"`
+	// The Amazon FSx for Windows File Server file system ID to use.
+	FileSystemId string `pulumi:"fileSystemId"`
+	// The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
+	RootDirectory string `pulumi:"rootDirectory"`
 }
 
 // TaskDefinitionFSxWindowsFileServerVolumeConfigurationInput is an input type that accepts TaskDefinitionFSxWindowsFileServerVolumeConfigurationArgs and TaskDefinitionFSxWindowsFileServerVolumeConfigurationOutput values.
@@ -7574,10 +7417,16 @@ type TaskDefinitionFSxWindowsFileServerVolumeConfigurationInput interface {
 	ToTaskDefinitionFSxWindowsFileServerVolumeConfigurationOutputWithContext(context.Context) TaskDefinitionFSxWindowsFileServerVolumeConfigurationOutput
 }
 
+// This parameter is specified when you're using [Amazon FSx for Windows File Server](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/what-is.html) file system for task storage.
+//
+//	For more information and the input format, see [Amazon FSx for Windows File Server volumes](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/wfsx-volumes.html) in the *Amazon Elastic Container Service Developer Guide*.
 type TaskDefinitionFSxWindowsFileServerVolumeConfigurationArgs struct {
+	// The authorization configuration details for the Amazon FSx for Windows File Server file system.
 	AuthorizationConfig TaskDefinitionFSxAuthorizationConfigPtrInput `pulumi:"authorizationConfig"`
-	FileSystemId        pulumi.StringInput                           `pulumi:"fileSystemId"`
-	RootDirectory       pulumi.StringInput                           `pulumi:"rootDirectory"`
+	// The Amazon FSx for Windows File Server file system ID to use.
+	FileSystemId pulumi.StringInput `pulumi:"fileSystemId"`
+	// The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
+	RootDirectory pulumi.StringInput `pulumi:"rootDirectory"`
 }
 
 func (TaskDefinitionFSxWindowsFileServerVolumeConfigurationArgs) ElementType() reflect.Type {
@@ -7633,6 +7482,9 @@ func (i *taskDefinitionFSxWindowsFileServerVolumeConfigurationPtrType) ToTaskDef
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionFSxWindowsFileServerVolumeConfigurationPtrOutput)
 }
 
+// This parameter is specified when you're using [Amazon FSx for Windows File Server](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/what-is.html) file system for task storage.
+//
+//	For more information and the input format, see [Amazon FSx for Windows File Server volumes](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/wfsx-volumes.html) in the *Amazon Elastic Container Service Developer Guide*.
 type TaskDefinitionFSxWindowsFileServerVolumeConfigurationOutput struct{ *pulumi.OutputState }
 
 func (TaskDefinitionFSxWindowsFileServerVolumeConfigurationOutput) ElementType() reflect.Type {
@@ -7657,16 +7509,19 @@ func (o TaskDefinitionFSxWindowsFileServerVolumeConfigurationOutput) ToTaskDefin
 	}).(TaskDefinitionFSxWindowsFileServerVolumeConfigurationPtrOutput)
 }
 
+// The authorization configuration details for the Amazon FSx for Windows File Server file system.
 func (o TaskDefinitionFSxWindowsFileServerVolumeConfigurationOutput) AuthorizationConfig() TaskDefinitionFSxAuthorizationConfigPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionFSxWindowsFileServerVolumeConfiguration) *TaskDefinitionFSxAuthorizationConfig {
 		return v.AuthorizationConfig
 	}).(TaskDefinitionFSxAuthorizationConfigPtrOutput)
 }
 
+// The Amazon FSx for Windows File Server file system ID to use.
 func (o TaskDefinitionFSxWindowsFileServerVolumeConfigurationOutput) FileSystemId() pulumi.StringOutput {
 	return o.ApplyT(func(v TaskDefinitionFSxWindowsFileServerVolumeConfiguration) string { return v.FileSystemId }).(pulumi.StringOutput)
 }
 
+// The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
 func (o TaskDefinitionFSxWindowsFileServerVolumeConfigurationOutput) RootDirectory() pulumi.StringOutput {
 	return o.ApplyT(func(v TaskDefinitionFSxWindowsFileServerVolumeConfiguration) string { return v.RootDirectory }).(pulumi.StringOutput)
 }
@@ -7695,6 +7550,7 @@ func (o TaskDefinitionFSxWindowsFileServerVolumeConfigurationPtrOutput) Elem() T
 	}).(TaskDefinitionFSxWindowsFileServerVolumeConfigurationOutput)
 }
 
+// The authorization configuration details for the Amazon FSx for Windows File Server file system.
 func (o TaskDefinitionFSxWindowsFileServerVolumeConfigurationPtrOutput) AuthorizationConfig() TaskDefinitionFSxAuthorizationConfigPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionFSxWindowsFileServerVolumeConfiguration) *TaskDefinitionFSxAuthorizationConfig {
 		if v == nil {
@@ -7704,6 +7560,7 @@ func (o TaskDefinitionFSxWindowsFileServerVolumeConfigurationPtrOutput) Authoriz
 	}).(TaskDefinitionFSxAuthorizationConfigPtrOutput)
 }
 
+// The Amazon FSx for Windows File Server file system ID to use.
 func (o TaskDefinitionFSxWindowsFileServerVolumeConfigurationPtrOutput) FileSystemId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionFSxWindowsFileServerVolumeConfiguration) *string {
 		if v == nil {
@@ -7713,6 +7570,7 @@ func (o TaskDefinitionFSxWindowsFileServerVolumeConfigurationPtrOutput) FileSyst
 	}).(pulumi.StringPtrOutput)
 }
 
+// The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
 func (o TaskDefinitionFSxWindowsFileServerVolumeConfigurationPtrOutput) RootDirectory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionFSxWindowsFileServerVolumeConfiguration) *string {
 		if v == nil {
@@ -11014,7 +10872,8 @@ type TaskDefinitionVolume struct {
 	//   Docker volumes aren't supported by tasks run on FARGATElong.
 	DockerVolumeConfiguration *TaskDefinitionDockerVolumeConfiguration `pulumi:"dockerVolumeConfiguration"`
 	// This parameter is specified when you use an Amazon Elastic File System file system for task storage.
-	EfsVolumeConfiguration                  *TaskDefinitionEfsVolumeConfiguration                  `pulumi:"efsVolumeConfiguration"`
+	EfsVolumeConfiguration *TaskDefinitionEfsVolumeConfiguration `pulumi:"efsVolumeConfiguration"`
+	// This parameter is specified when you use Amazon FSx for Windows File Server file system for task storage.
 	FSxWindowsFileServerVolumeConfiguration *TaskDefinitionFSxWindowsFileServerVolumeConfiguration `pulumi:"fSxWindowsFileServerVolumeConfiguration"`
 	// This parameter is specified when you use bind mount host volumes. The contents of the ``host`` parameter determine whether your bind mount host volume persists on the host container instance and where it's stored. If the ``host`` parameter is empty, then the Docker daemon assigns a host path for your data volume. However, the data isn't guaranteed to persist after the containers that are associated with it stop running.
 	//  Windows containers can mount whole directories on the same drive as ``$env:ProgramData``. Windows containers can't mount directories on a different drive, and mount point can't be across drives. For example, you can mount ``C:\my\path:C:\my\path`` and ``D:\:D:\``, but not ``D:\my\path:C:\my\path`` or ``D:\:C:\my\path``.
@@ -11047,7 +10906,8 @@ type TaskDefinitionVolumeArgs struct {
 	//   Docker volumes aren't supported by tasks run on FARGATElong.
 	DockerVolumeConfiguration TaskDefinitionDockerVolumeConfigurationPtrInput `pulumi:"dockerVolumeConfiguration"`
 	// This parameter is specified when you use an Amazon Elastic File System file system for task storage.
-	EfsVolumeConfiguration                  TaskDefinitionEfsVolumeConfigurationPtrInput                  `pulumi:"efsVolumeConfiguration"`
+	EfsVolumeConfiguration TaskDefinitionEfsVolumeConfigurationPtrInput `pulumi:"efsVolumeConfiguration"`
+	// This parameter is specified when you use Amazon FSx for Windows File Server file system for task storage.
 	FSxWindowsFileServerVolumeConfiguration TaskDefinitionFSxWindowsFileServerVolumeConfigurationPtrInput `pulumi:"fSxWindowsFileServerVolumeConfiguration"`
 	// This parameter is specified when you use bind mount host volumes. The contents of the ``host`` parameter determine whether your bind mount host volume persists on the host container instance and where it's stored. If the ``host`` parameter is empty, then the Docker daemon assigns a host path for your data volume. However, the data isn't guaranteed to persist after the containers that are associated with it stop running.
 	//  Windows containers can mount whole directories on the same drive as ``$env:ProgramData``. Windows containers can't mount directories on a different drive, and mount point can't be across drives. For example, you can mount ``C:\my\path:C:\my\path`` and ``D:\:D:\``, but not ``D:\my\path:C:\my\path`` or ``D:\:C:\my\path``.
@@ -11133,6 +10993,7 @@ func (o TaskDefinitionVolumeOutput) EfsVolumeConfiguration() TaskDefinitionEfsVo
 	return o.ApplyT(func(v TaskDefinitionVolume) *TaskDefinitionEfsVolumeConfiguration { return v.EfsVolumeConfiguration }).(TaskDefinitionEfsVolumeConfigurationPtrOutput)
 }
 
+// This parameter is specified when you use Amazon FSx for Windows File Server file system for task storage.
 func (o TaskDefinitionVolumeOutput) FSxWindowsFileServerVolumeConfiguration() TaskDefinitionFSxWindowsFileServerVolumeConfigurationPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionVolume) *TaskDefinitionFSxWindowsFileServerVolumeConfiguration {
 		return v.FSxWindowsFileServerVolumeConfiguration
@@ -12015,8 +11876,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterExecuteCommandConfigurationPtrInput)(nil)).Elem(), ClusterExecuteCommandConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterExecuteCommandLogConfigurationInput)(nil)).Elem(), ClusterExecuteCommandLogConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterExecuteCommandLogConfigurationPtrInput)(nil)).Elem(), ClusterExecuteCommandLogConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ClusterManagedStorageConfigurationInput)(nil)).Elem(), ClusterManagedStorageConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ClusterManagedStorageConfigurationPtrInput)(nil)).Elem(), ClusterManagedStorageConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServiceConnectDefaultsInput)(nil)).Elem(), ClusterServiceConnectDefaultsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServiceConnectDefaultsPtrInput)(nil)).Elem(), ClusterServiceConnectDefaultsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSettingsInput)(nil)).Elem(), ClusterSettingsArgs{})
@@ -12155,8 +12014,6 @@ func init() {
 	pulumi.RegisterOutputType(ClusterExecuteCommandConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ClusterExecuteCommandLogConfigurationOutput{})
 	pulumi.RegisterOutputType(ClusterExecuteCommandLogConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(ClusterManagedStorageConfigurationOutput{})
-	pulumi.RegisterOutputType(ClusterManagedStorageConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ClusterServiceConnectDefaultsOutput{})
 	pulumi.RegisterOutputType(ClusterServiceConnectDefaultsPtrOutput{})
 	pulumi.RegisterOutputType(ClusterSettingsOutput{})

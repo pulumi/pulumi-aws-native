@@ -10,14 +10,27 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ecs.Inputs
 {
 
+    /// <summary>
+    /// This parameter is specified when you're using [Amazon FSx for Windows File Server](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/what-is.html) file system for task storage.
+    ///  For more information and the input format, see [Amazon FSx for Windows File Server volumes](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/wfsx-volumes.html) in the *Amazon Elastic Container Service Developer Guide*.
+    /// </summary>
     public sealed class TaskDefinitionFSxWindowsFileServerVolumeConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The authorization configuration details for the Amazon FSx for Windows File Server file system.
+        /// </summary>
         [Input("authorizationConfig")]
         public Input<Inputs.TaskDefinitionFSxAuthorizationConfigArgs>? AuthorizationConfig { get; set; }
 
+        /// <summary>
+        /// The Amazon FSx for Windows File Server file system ID to use.
+        /// </summary>
         [Input("fileSystemId", required: true)]
         public Input<string> FileSystemId { get; set; } = null!;
 
+        /// <summary>
+        /// The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
+        /// </summary>
         [Input("rootDirectory", required: true)]
         public Input<string> RootDirectory { get; set; } = null!;
 

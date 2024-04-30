@@ -481,8 +481,10 @@ __all__ = [
     'AnalysisVisualTitleLabelOptionsArgs',
     'AnalysisVisualArgs',
     'AnalysisWaterfallChartAggregatedFieldWellsArgs',
+    'AnalysisWaterfallChartColorConfigurationArgs',
     'AnalysisWaterfallChartConfigurationArgs',
     'AnalysisWaterfallChartFieldWellsArgs',
+    'AnalysisWaterfallChartGroupColorConfigurationArgs',
     'AnalysisWaterfallChartOptionsArgs',
     'AnalysisWaterfallChartSortConfigurationArgs',
     'AnalysisWaterfallVisualArgs',
@@ -975,8 +977,10 @@ __all__ = [
     'DashboardVisualTitleLabelOptionsArgs',
     'DashboardVisualArgs',
     'DashboardWaterfallChartAggregatedFieldWellsArgs',
+    'DashboardWaterfallChartColorConfigurationArgs',
     'DashboardWaterfallChartConfigurationArgs',
     'DashboardWaterfallChartFieldWellsArgs',
+    'DashboardWaterfallChartGroupColorConfigurationArgs',
     'DashboardWaterfallChartOptionsArgs',
     'DashboardWaterfallChartSortConfigurationArgs',
     'DashboardWaterfallVisualArgs',
@@ -1531,8 +1535,10 @@ __all__ = [
     'TemplateVisualTitleLabelOptionsArgs',
     'TemplateVisualArgs',
     'TemplateWaterfallChartAggregatedFieldWellsArgs',
+    'TemplateWaterfallChartColorConfigurationArgs',
     'TemplateWaterfallChartConfigurationArgs',
     'TemplateWaterfallChartFieldWellsArgs',
+    'TemplateWaterfallChartGroupColorConfigurationArgs',
     'TemplateWaterfallChartOptionsArgs',
     'TemplateWaterfallChartSortConfigurationArgs',
     'TemplateWaterfallVisualArgs',
@@ -22410,10 +22416,28 @@ class AnalysisWaterfallChartAggregatedFieldWellsArgs:
 
 
 @pulumi.input_type
+class AnalysisWaterfallChartColorConfigurationArgs:
+    def __init__(__self__, *,
+                 group_color_configuration: Optional[pulumi.Input['AnalysisWaterfallChartGroupColorConfigurationArgs']] = None):
+        if group_color_configuration is not None:
+            pulumi.set(__self__, "group_color_configuration", group_color_configuration)
+
+    @property
+    @pulumi.getter(name="groupColorConfiguration")
+    def group_color_configuration(self) -> Optional[pulumi.Input['AnalysisWaterfallChartGroupColorConfigurationArgs']]:
+        return pulumi.get(self, "group_color_configuration")
+
+    @group_color_configuration.setter
+    def group_color_configuration(self, value: Optional[pulumi.Input['AnalysisWaterfallChartGroupColorConfigurationArgs']]):
+        pulumi.set(self, "group_color_configuration", value)
+
+
+@pulumi.input_type
 class AnalysisWaterfallChartConfigurationArgs:
     def __init__(__self__, *,
                  category_axis_display_options: Optional[pulumi.Input['AnalysisAxisDisplayOptionsArgs']] = None,
                  category_axis_label_options: Optional[pulumi.Input['AnalysisChartAxisLabelOptionsArgs']] = None,
+                 color_configuration: Optional[pulumi.Input['AnalysisWaterfallChartColorConfigurationArgs']] = None,
                  data_labels: Optional[pulumi.Input['AnalysisDataLabelOptionsArgs']] = None,
                  field_wells: Optional[pulumi.Input['AnalysisWaterfallChartFieldWellsArgs']] = None,
                  legend: Optional[pulumi.Input['AnalysisLegendOptionsArgs']] = None,
@@ -22426,6 +22450,8 @@ class AnalysisWaterfallChartConfigurationArgs:
             pulumi.set(__self__, "category_axis_display_options", category_axis_display_options)
         if category_axis_label_options is not None:
             pulumi.set(__self__, "category_axis_label_options", category_axis_label_options)
+        if color_configuration is not None:
+            pulumi.set(__self__, "color_configuration", color_configuration)
         if data_labels is not None:
             pulumi.set(__self__, "data_labels", data_labels)
         if field_wells is not None:
@@ -22460,6 +22486,15 @@ class AnalysisWaterfallChartConfigurationArgs:
     @category_axis_label_options.setter
     def category_axis_label_options(self, value: Optional[pulumi.Input['AnalysisChartAxisLabelOptionsArgs']]):
         pulumi.set(self, "category_axis_label_options", value)
+
+    @property
+    @pulumi.getter(name="colorConfiguration")
+    def color_configuration(self) -> Optional[pulumi.Input['AnalysisWaterfallChartColorConfigurationArgs']]:
+        return pulumi.get(self, "color_configuration")
+
+    @color_configuration.setter
+    def color_configuration(self, value: Optional[pulumi.Input['AnalysisWaterfallChartColorConfigurationArgs']]):
+        pulumi.set(self, "color_configuration", value)
 
     @property
     @pulumi.getter(name="dataLabels")
@@ -22549,6 +22584,47 @@ class AnalysisWaterfallChartFieldWellsArgs:
     @waterfall_chart_aggregated_field_wells.setter
     def waterfall_chart_aggregated_field_wells(self, value: Optional[pulumi.Input['AnalysisWaterfallChartAggregatedFieldWellsArgs']]):
         pulumi.set(self, "waterfall_chart_aggregated_field_wells", value)
+
+
+@pulumi.input_type
+class AnalysisWaterfallChartGroupColorConfigurationArgs:
+    def __init__(__self__, *,
+                 negative_bar_color: Optional[pulumi.Input[str]] = None,
+                 positive_bar_color: Optional[pulumi.Input[str]] = None,
+                 total_bar_color: Optional[pulumi.Input[str]] = None):
+        if negative_bar_color is not None:
+            pulumi.set(__self__, "negative_bar_color", negative_bar_color)
+        if positive_bar_color is not None:
+            pulumi.set(__self__, "positive_bar_color", positive_bar_color)
+        if total_bar_color is not None:
+            pulumi.set(__self__, "total_bar_color", total_bar_color)
+
+    @property
+    @pulumi.getter(name="negativeBarColor")
+    def negative_bar_color(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "negative_bar_color")
+
+    @negative_bar_color.setter
+    def negative_bar_color(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "negative_bar_color", value)
+
+    @property
+    @pulumi.getter(name="positiveBarColor")
+    def positive_bar_color(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "positive_bar_color")
+
+    @positive_bar_color.setter
+    def positive_bar_color(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "positive_bar_color", value)
+
+    @property
+    @pulumi.getter(name="totalBarColor")
+    def total_bar_color(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "total_bar_color")
+
+    @total_bar_color.setter
+    def total_bar_color(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "total_bar_color", value)
 
 
 @pulumi.input_type
@@ -44122,10 +44198,28 @@ class DashboardWaterfallChartAggregatedFieldWellsArgs:
 
 
 @pulumi.input_type
+class DashboardWaterfallChartColorConfigurationArgs:
+    def __init__(__self__, *,
+                 group_color_configuration: Optional[pulumi.Input['DashboardWaterfallChartGroupColorConfigurationArgs']] = None):
+        if group_color_configuration is not None:
+            pulumi.set(__self__, "group_color_configuration", group_color_configuration)
+
+    @property
+    @pulumi.getter(name="groupColorConfiguration")
+    def group_color_configuration(self) -> Optional[pulumi.Input['DashboardWaterfallChartGroupColorConfigurationArgs']]:
+        return pulumi.get(self, "group_color_configuration")
+
+    @group_color_configuration.setter
+    def group_color_configuration(self, value: Optional[pulumi.Input['DashboardWaterfallChartGroupColorConfigurationArgs']]):
+        pulumi.set(self, "group_color_configuration", value)
+
+
+@pulumi.input_type
 class DashboardWaterfallChartConfigurationArgs:
     def __init__(__self__, *,
                  category_axis_display_options: Optional[pulumi.Input['DashboardAxisDisplayOptionsArgs']] = None,
                  category_axis_label_options: Optional[pulumi.Input['DashboardChartAxisLabelOptionsArgs']] = None,
+                 color_configuration: Optional[pulumi.Input['DashboardWaterfallChartColorConfigurationArgs']] = None,
                  data_labels: Optional[pulumi.Input['DashboardDataLabelOptionsArgs']] = None,
                  field_wells: Optional[pulumi.Input['DashboardWaterfallChartFieldWellsArgs']] = None,
                  legend: Optional[pulumi.Input['DashboardLegendOptionsArgs']] = None,
@@ -44138,6 +44232,8 @@ class DashboardWaterfallChartConfigurationArgs:
             pulumi.set(__self__, "category_axis_display_options", category_axis_display_options)
         if category_axis_label_options is not None:
             pulumi.set(__self__, "category_axis_label_options", category_axis_label_options)
+        if color_configuration is not None:
+            pulumi.set(__self__, "color_configuration", color_configuration)
         if data_labels is not None:
             pulumi.set(__self__, "data_labels", data_labels)
         if field_wells is not None:
@@ -44172,6 +44268,15 @@ class DashboardWaterfallChartConfigurationArgs:
     @category_axis_label_options.setter
     def category_axis_label_options(self, value: Optional[pulumi.Input['DashboardChartAxisLabelOptionsArgs']]):
         pulumi.set(self, "category_axis_label_options", value)
+
+    @property
+    @pulumi.getter(name="colorConfiguration")
+    def color_configuration(self) -> Optional[pulumi.Input['DashboardWaterfallChartColorConfigurationArgs']]:
+        return pulumi.get(self, "color_configuration")
+
+    @color_configuration.setter
+    def color_configuration(self, value: Optional[pulumi.Input['DashboardWaterfallChartColorConfigurationArgs']]):
+        pulumi.set(self, "color_configuration", value)
 
     @property
     @pulumi.getter(name="dataLabels")
@@ -44261,6 +44366,47 @@ class DashboardWaterfallChartFieldWellsArgs:
     @waterfall_chart_aggregated_field_wells.setter
     def waterfall_chart_aggregated_field_wells(self, value: Optional[pulumi.Input['DashboardWaterfallChartAggregatedFieldWellsArgs']]):
         pulumi.set(self, "waterfall_chart_aggregated_field_wells", value)
+
+
+@pulumi.input_type
+class DashboardWaterfallChartGroupColorConfigurationArgs:
+    def __init__(__self__, *,
+                 negative_bar_color: Optional[pulumi.Input[str]] = None,
+                 positive_bar_color: Optional[pulumi.Input[str]] = None,
+                 total_bar_color: Optional[pulumi.Input[str]] = None):
+        if negative_bar_color is not None:
+            pulumi.set(__self__, "negative_bar_color", negative_bar_color)
+        if positive_bar_color is not None:
+            pulumi.set(__self__, "positive_bar_color", positive_bar_color)
+        if total_bar_color is not None:
+            pulumi.set(__self__, "total_bar_color", total_bar_color)
+
+    @property
+    @pulumi.getter(name="negativeBarColor")
+    def negative_bar_color(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "negative_bar_color")
+
+    @negative_bar_color.setter
+    def negative_bar_color(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "negative_bar_color", value)
+
+    @property
+    @pulumi.getter(name="positiveBarColor")
+    def positive_bar_color(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "positive_bar_color")
+
+    @positive_bar_color.setter
+    def positive_bar_color(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "positive_bar_color", value)
+
+    @property
+    @pulumi.getter(name="totalBarColor")
+    def total_bar_color(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "total_bar_color")
+
+    @total_bar_color.setter
+    def total_bar_color(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "total_bar_color", value)
 
 
 @pulumi.input_type
@@ -69196,10 +69342,28 @@ class TemplateWaterfallChartAggregatedFieldWellsArgs:
 
 
 @pulumi.input_type
+class TemplateWaterfallChartColorConfigurationArgs:
+    def __init__(__self__, *,
+                 group_color_configuration: Optional[pulumi.Input['TemplateWaterfallChartGroupColorConfigurationArgs']] = None):
+        if group_color_configuration is not None:
+            pulumi.set(__self__, "group_color_configuration", group_color_configuration)
+
+    @property
+    @pulumi.getter(name="groupColorConfiguration")
+    def group_color_configuration(self) -> Optional[pulumi.Input['TemplateWaterfallChartGroupColorConfigurationArgs']]:
+        return pulumi.get(self, "group_color_configuration")
+
+    @group_color_configuration.setter
+    def group_color_configuration(self, value: Optional[pulumi.Input['TemplateWaterfallChartGroupColorConfigurationArgs']]):
+        pulumi.set(self, "group_color_configuration", value)
+
+
+@pulumi.input_type
 class TemplateWaterfallChartConfigurationArgs:
     def __init__(__self__, *,
                  category_axis_display_options: Optional[pulumi.Input['TemplateAxisDisplayOptionsArgs']] = None,
                  category_axis_label_options: Optional[pulumi.Input['TemplateChartAxisLabelOptionsArgs']] = None,
+                 color_configuration: Optional[pulumi.Input['TemplateWaterfallChartColorConfigurationArgs']] = None,
                  data_labels: Optional[pulumi.Input['TemplateDataLabelOptionsArgs']] = None,
                  field_wells: Optional[pulumi.Input['TemplateWaterfallChartFieldWellsArgs']] = None,
                  legend: Optional[pulumi.Input['TemplateLegendOptionsArgs']] = None,
@@ -69212,6 +69376,8 @@ class TemplateWaterfallChartConfigurationArgs:
             pulumi.set(__self__, "category_axis_display_options", category_axis_display_options)
         if category_axis_label_options is not None:
             pulumi.set(__self__, "category_axis_label_options", category_axis_label_options)
+        if color_configuration is not None:
+            pulumi.set(__self__, "color_configuration", color_configuration)
         if data_labels is not None:
             pulumi.set(__self__, "data_labels", data_labels)
         if field_wells is not None:
@@ -69246,6 +69412,15 @@ class TemplateWaterfallChartConfigurationArgs:
     @category_axis_label_options.setter
     def category_axis_label_options(self, value: Optional[pulumi.Input['TemplateChartAxisLabelOptionsArgs']]):
         pulumi.set(self, "category_axis_label_options", value)
+
+    @property
+    @pulumi.getter(name="colorConfiguration")
+    def color_configuration(self) -> Optional[pulumi.Input['TemplateWaterfallChartColorConfigurationArgs']]:
+        return pulumi.get(self, "color_configuration")
+
+    @color_configuration.setter
+    def color_configuration(self, value: Optional[pulumi.Input['TemplateWaterfallChartColorConfigurationArgs']]):
+        pulumi.set(self, "color_configuration", value)
 
     @property
     @pulumi.getter(name="dataLabels")
@@ -69335,6 +69510,47 @@ class TemplateWaterfallChartFieldWellsArgs:
     @waterfall_chart_aggregated_field_wells.setter
     def waterfall_chart_aggregated_field_wells(self, value: Optional[pulumi.Input['TemplateWaterfallChartAggregatedFieldWellsArgs']]):
         pulumi.set(self, "waterfall_chart_aggregated_field_wells", value)
+
+
+@pulumi.input_type
+class TemplateWaterfallChartGroupColorConfigurationArgs:
+    def __init__(__self__, *,
+                 negative_bar_color: Optional[pulumi.Input[str]] = None,
+                 positive_bar_color: Optional[pulumi.Input[str]] = None,
+                 total_bar_color: Optional[pulumi.Input[str]] = None):
+        if negative_bar_color is not None:
+            pulumi.set(__self__, "negative_bar_color", negative_bar_color)
+        if positive_bar_color is not None:
+            pulumi.set(__self__, "positive_bar_color", positive_bar_color)
+        if total_bar_color is not None:
+            pulumi.set(__self__, "total_bar_color", total_bar_color)
+
+    @property
+    @pulumi.getter(name="negativeBarColor")
+    def negative_bar_color(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "negative_bar_color")
+
+    @negative_bar_color.setter
+    def negative_bar_color(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "negative_bar_color", value)
+
+    @property
+    @pulumi.getter(name="positiveBarColor")
+    def positive_bar_color(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "positive_bar_color")
+
+    @positive_bar_color.setter
+    def positive_bar_color(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "positive_bar_color", value)
+
+    @property
+    @pulumi.getter(name="totalBarColor")
+    def total_bar_color(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "total_bar_color")
+
+    @total_bar_color.setter
+    def total_bar_color(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "total_bar_color", value)
 
 
 @pulumi.input_type

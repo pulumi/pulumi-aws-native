@@ -46,6 +46,18 @@ namespace Pulumi.AwsNative.Transfer
         public Output<string?> LoggingRole { get; private set; } = null!;
 
         /// <summary>
+        /// Security policy for SFTP Connector
+        /// </summary>
+        [Output("securityPolicyName")]
+        public Output<string?> SecurityPolicyName { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of egress IP addresses of this connector. These IP addresses are assigned automatically when you create the connector.
+        /// </summary>
+        [Output("serviceManagedEgressIpAddresses")]
+        public Output<ImmutableArray<string>> ServiceManagedEgressIpAddresses { get; private set; } = null!;
+
+        /// <summary>
         /// Configuration for an SFTP connector.
         /// </summary>
         [Output("sftpConfig")]
@@ -125,6 +137,12 @@ namespace Pulumi.AwsNative.Transfer
         /// </summary>
         [Input("loggingRole")]
         public Input<string>? LoggingRole { get; set; }
+
+        /// <summary>
+        /// Security policy for SFTP Connector
+        /// </summary>
+        [Input("securityPolicyName")]
+        public Input<string>? SecurityPolicyName { get; set; }
 
         /// <summary>
         /// Configuration for an SFTP connector.

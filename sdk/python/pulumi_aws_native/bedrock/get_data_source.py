@@ -20,10 +20,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetDataSourceResult:
-    def __init__(__self__, created_at=None, data_source_configuration=None, data_source_id=None, data_source_status=None, description=None, name=None, server_side_encryption_configuration=None, updated_at=None):
+    def __init__(__self__, created_at=None, data_deletion_policy=None, data_source_configuration=None, data_source_id=None, data_source_status=None, description=None, failure_reasons=None, name=None, server_side_encryption_configuration=None, updated_at=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
+        if data_deletion_policy and not isinstance(data_deletion_policy, str):
+            raise TypeError("Expected argument 'data_deletion_policy' to be a str")
+        pulumi.set(__self__, "data_deletion_policy", data_deletion_policy)
         if data_source_configuration and not isinstance(data_source_configuration, dict):
             raise TypeError("Expected argument 'data_source_configuration' to be a dict")
         pulumi.set(__self__, "data_source_configuration", data_source_configuration)
@@ -36,6 +39,9 @@ class GetDataSourceResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if failure_reasons and not isinstance(failure_reasons, list):
+            raise TypeError("Expected argument 'failure_reasons' to be a list")
+        pulumi.set(__self__, "failure_reasons", failure_reasons)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -53,6 +59,11 @@ class GetDataSourceResult:
         The time at which the data source was created.
         """
         return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="dataDeletionPolicy")
+    def data_deletion_policy(self) -> Optional['DataSourceDataDeletionPolicy']:
+        return pulumi.get(self, "data_deletion_policy")
 
     @property
     @pulumi.getter(name="dataSourceConfiguration")
@@ -79,6 +90,14 @@ class GetDataSourceResult:
         Description of the Resource.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="failureReasons")
+    def failure_reasons(self) -> Optional[Sequence[str]]:
+        """
+        The details of the failure reasons related to the data source.
+        """
+        return pulumi.get(self, "failure_reasons")
 
     @property
     @pulumi.getter
@@ -109,10 +128,12 @@ class AwaitableGetDataSourceResult(GetDataSourceResult):
             yield self
         return GetDataSourceResult(
             created_at=self.created_at,
+            data_deletion_policy=self.data_deletion_policy,
             data_source_configuration=self.data_source_configuration,
             data_source_id=self.data_source_id,
             data_source_status=self.data_source_status,
             description=self.description,
+            failure_reasons=self.failure_reasons,
             name=self.name,
             server_side_encryption_configuration=self.server_side_encryption_configuration,
             updated_at=self.updated_at)
@@ -136,10 +157,12 @@ def get_data_source(data_source_id: Optional[str] = None,
 
     return AwaitableGetDataSourceResult(
         created_at=pulumi.get(__ret__, 'created_at'),
+        data_deletion_policy=pulumi.get(__ret__, 'data_deletion_policy'),
         data_source_configuration=pulumi.get(__ret__, 'data_source_configuration'),
         data_source_id=pulumi.get(__ret__, 'data_source_id'),
         data_source_status=pulumi.get(__ret__, 'data_source_status'),
         description=pulumi.get(__ret__, 'description'),
+        failure_reasons=pulumi.get(__ret__, 'failure_reasons'),
         name=pulumi.get(__ret__, 'name'),
         server_side_encryption_configuration=pulumi.get(__ret__, 'server_side_encryption_configuration'),
         updated_at=pulumi.get(__ret__, 'updated_at'))

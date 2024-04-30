@@ -13,9 +13,7 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
-// A provisioned concurrency configuration for a function's alias.
 type AliasProvisionedConcurrencyConfiguration struct {
-	// The amount of provisioned concurrency to allocate for the alias.
 	ProvisionedConcurrentExecutions int `pulumi:"provisionedConcurrentExecutions"`
 }
 
@@ -30,9 +28,7 @@ type AliasProvisionedConcurrencyConfigurationInput interface {
 	ToAliasProvisionedConcurrencyConfigurationOutputWithContext(context.Context) AliasProvisionedConcurrencyConfigurationOutput
 }
 
-// A provisioned concurrency configuration for a function's alias.
 type AliasProvisionedConcurrencyConfigurationArgs struct {
-	// The amount of provisioned concurrency to allocate for the alias.
 	ProvisionedConcurrentExecutions pulumi.IntInput `pulumi:"provisionedConcurrentExecutions"`
 }
 
@@ -89,7 +85,6 @@ func (i *aliasProvisionedConcurrencyConfigurationPtrType) ToAliasProvisionedConc
 	return pulumi.ToOutputWithContext(ctx, i).(AliasProvisionedConcurrencyConfigurationPtrOutput)
 }
 
-// A provisioned concurrency configuration for a function's alias.
 type AliasProvisionedConcurrencyConfigurationOutput struct{ *pulumi.OutputState }
 
 func (AliasProvisionedConcurrencyConfigurationOutput) ElementType() reflect.Type {
@@ -114,7 +109,6 @@ func (o AliasProvisionedConcurrencyConfigurationOutput) ToAliasProvisionedConcur
 	}).(AliasProvisionedConcurrencyConfigurationPtrOutput)
 }
 
-// The amount of provisioned concurrency to allocate for the alias.
 func (o AliasProvisionedConcurrencyConfigurationOutput) ProvisionedConcurrentExecutions() pulumi.IntOutput {
 	return o.ApplyT(func(v AliasProvisionedConcurrencyConfiguration) int { return v.ProvisionedConcurrentExecutions }).(pulumi.IntOutput)
 }
@@ -143,7 +137,6 @@ func (o AliasProvisionedConcurrencyConfigurationPtrOutput) Elem() AliasProvision
 	}).(AliasProvisionedConcurrencyConfigurationOutput)
 }
 
-// The amount of provisioned concurrency to allocate for the alias.
 func (o AliasProvisionedConcurrencyConfigurationPtrOutput) ProvisionedConcurrentExecutions() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AliasProvisionedConcurrencyConfiguration) *int {
 		if v == nil {
@@ -153,9 +146,7 @@ func (o AliasProvisionedConcurrencyConfigurationPtrOutput) ProvisionedConcurrent
 	}).(pulumi.IntPtrOutput)
 }
 
-// The traffic-shifting configuration of a Lambda function alias.
 type AliasRoutingConfiguration struct {
-	// The second version, and the percentage of traffic that's routed to it.
 	AdditionalVersionWeights []AliasVersionWeight `pulumi:"additionalVersionWeights"`
 }
 
@@ -170,9 +161,7 @@ type AliasRoutingConfigurationInput interface {
 	ToAliasRoutingConfigurationOutputWithContext(context.Context) AliasRoutingConfigurationOutput
 }
 
-// The traffic-shifting configuration of a Lambda function alias.
 type AliasRoutingConfigurationArgs struct {
-	// The second version, and the percentage of traffic that's routed to it.
 	AdditionalVersionWeights AliasVersionWeightArrayInput `pulumi:"additionalVersionWeights"`
 }
 
@@ -229,7 +218,6 @@ func (i *aliasRoutingConfigurationPtrType) ToAliasRoutingConfigurationPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(AliasRoutingConfigurationPtrOutput)
 }
 
-// The traffic-shifting configuration of a Lambda function alias.
 type AliasRoutingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (AliasRoutingConfigurationOutput) ElementType() reflect.Type {
@@ -254,7 +242,6 @@ func (o AliasRoutingConfigurationOutput) ToAliasRoutingConfigurationPtrOutputWit
 	}).(AliasRoutingConfigurationPtrOutput)
 }
 
-// The second version, and the percentage of traffic that's routed to it.
 func (o AliasRoutingConfigurationOutput) AdditionalVersionWeights() AliasVersionWeightArrayOutput {
 	return o.ApplyT(func(v AliasRoutingConfiguration) []AliasVersionWeight { return v.AdditionalVersionWeights }).(AliasVersionWeightArrayOutput)
 }
@@ -283,7 +270,6 @@ func (o AliasRoutingConfigurationPtrOutput) Elem() AliasRoutingConfigurationOutp
 	}).(AliasRoutingConfigurationOutput)
 }
 
-// The second version, and the percentage of traffic that's routed to it.
 func (o AliasRoutingConfigurationPtrOutput) AdditionalVersionWeights() AliasVersionWeightArrayOutput {
 	return o.ApplyT(func(v *AliasRoutingConfiguration) []AliasVersionWeight {
 		if v == nil {
@@ -293,12 +279,9 @@ func (o AliasRoutingConfigurationPtrOutput) AdditionalVersionWeights() AliasVers
 	}).(AliasVersionWeightArrayOutput)
 }
 
-// The traffic-shifting configuration of a Lambda function alias.
 type AliasVersionWeight struct {
-	// The qualifier of the second version.
-	FunctionVersion string `pulumi:"functionVersion"`
-	// The percentage of traffic that the alias routes to the second version.
-	FunctionWeight float64 `pulumi:"functionWeight"`
+	FunctionVersion string  `pulumi:"functionVersion"`
+	FunctionWeight  float64 `pulumi:"functionWeight"`
 }
 
 // AliasVersionWeightInput is an input type that accepts AliasVersionWeightArgs and AliasVersionWeightOutput values.
@@ -312,12 +295,9 @@ type AliasVersionWeightInput interface {
 	ToAliasVersionWeightOutputWithContext(context.Context) AliasVersionWeightOutput
 }
 
-// The traffic-shifting configuration of a Lambda function alias.
 type AliasVersionWeightArgs struct {
-	// The qualifier of the second version.
-	FunctionVersion pulumi.StringInput `pulumi:"functionVersion"`
-	// The percentage of traffic that the alias routes to the second version.
-	FunctionWeight pulumi.Float64Input `pulumi:"functionWeight"`
+	FunctionVersion pulumi.StringInput  `pulumi:"functionVersion"`
+	FunctionWeight  pulumi.Float64Input `pulumi:"functionWeight"`
 }
 
 func (AliasVersionWeightArgs) ElementType() reflect.Type {
@@ -357,7 +337,6 @@ func (i AliasVersionWeightArray) ToAliasVersionWeightArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(AliasVersionWeightArrayOutput)
 }
 
-// The traffic-shifting configuration of a Lambda function alias.
 type AliasVersionWeightOutput struct{ *pulumi.OutputState }
 
 func (AliasVersionWeightOutput) ElementType() reflect.Type {
@@ -372,12 +351,10 @@ func (o AliasVersionWeightOutput) ToAliasVersionWeightOutputWithContext(ctx cont
 	return o
 }
 
-// The qualifier of the second version.
 func (o AliasVersionWeightOutput) FunctionVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v AliasVersionWeight) string { return v.FunctionVersion }).(pulumi.StringOutput)
 }
 
-// The percentage of traffic that the alias routes to the second version.
 func (o AliasVersionWeightOutput) FunctionWeight() pulumi.Float64Output {
 	return o.ApplyT(func(v AliasVersionWeight) float64 { return v.FunctionWeight }).(pulumi.Float64Output)
 }

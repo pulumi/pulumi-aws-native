@@ -12,13 +12,25 @@ namespace Pulumi.AwsNative.Ec2
     public static class GetKeyPair
     {
         /// <summary>
-        /// The AWS::EC2::KeyPair creates an SSH key pair
+        /// Specifies a key pair for use with an EC2long instance as follows:
+        ///   +  To import an existing key pair, include the ``PublicKeyMaterial`` property.
+        ///   +  To create a new key pair, omit the ``PublicKeyMaterial`` property.
+        ///   
+        ///  When you import an existing key pair, you specify the public key material for the key. We assume that you have the private key material for the key. CFNlong does not create or return the private key material when you import a key pair.
+        ///  When you create a new key pair, the private key is saved to SYSlong Parameter Store, using a parameter with the following name: ``/ec2/keypair/{key_pair_id}``. For more information about retrieving private key, and the required permissions, see [Create a key pair using](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-key-pairs.html#create-key-pair-cloudformation) in the *User Guide*.
+        ///  When CFN deletes a key pair that was created or imported by a stack, it also deletes the parameter that was used to store the private key material in Parameter Store.
         /// </summary>
         public static Task<GetKeyPairResult> InvokeAsync(GetKeyPairArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetKeyPairResult>("aws-native:ec2:getKeyPair", args ?? new GetKeyPairArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The AWS::EC2::KeyPair creates an SSH key pair
+        /// Specifies a key pair for use with an EC2long instance as follows:
+        ///   +  To import an existing key pair, include the ``PublicKeyMaterial`` property.
+        ///   +  To create a new key pair, omit the ``PublicKeyMaterial`` property.
+        ///   
+        ///  When you import an existing key pair, you specify the public key material for the key. We assume that you have the private key material for the key. CFNlong does not create or return the private key material when you import a key pair.
+        ///  When you create a new key pair, the private key is saved to SYSlong Parameter Store, using a parameter with the following name: ``/ec2/keypair/{key_pair_id}``. For more information about retrieving private key, and the required permissions, see [Create a key pair using](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-key-pairs.html#create-key-pair-cloudformation) in the *User Guide*.
+        ///  When CFN deletes a key pair that was created or imported by a stack, it also deletes the parameter that was used to store the private key material in Parameter Store.
         /// </summary>
         public static Output<GetKeyPairResult> Invoke(GetKeyPairInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKeyPairResult>("aws-native:ec2:getKeyPair", args ?? new GetKeyPairInvokeArgs(), options.WithDefaults());
@@ -28,7 +40,8 @@ namespace Pulumi.AwsNative.Ec2
     public sealed class GetKeyPairArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the SSH key pair
+        /// A unique name for the key pair.
+        ///  Constraints: Up to 255 ASCII characters
         /// </summary>
         [Input("keyName", required: true)]
         public string KeyName { get; set; } = null!;
@@ -42,7 +55,8 @@ namespace Pulumi.AwsNative.Ec2
     public sealed class GetKeyPairInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the SSH key pair
+        /// A unique name for the key pair.
+        ///  Constraints: Up to 255 ASCII characters
         /// </summary>
         [Input("keyName", required: true)]
         public Input<string> KeyName { get; set; } = null!;
@@ -57,13 +71,7 @@ namespace Pulumi.AwsNative.Ec2
     [OutputType]
     public sealed class GetKeyPairResult
     {
-        /// <summary>
-        /// A short sequence of bytes used for public key verification
-        /// </summary>
         public readonly string? KeyFingerprint;
-        /// <summary>
-        /// An AWS generated ID for the key pair
-        /// </summary>
         public readonly string? KeyPairId;
 
         [OutputConstructor]

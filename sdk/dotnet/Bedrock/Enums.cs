@@ -297,6 +297,37 @@ namespace Pulumi.AwsNative.Bedrock
     }
 
     /// <summary>
+    /// The deletion policy for the data source.
+    /// </summary>
+    [EnumType]
+    public readonly struct DataSourceDataDeletionPolicy : IEquatable<DataSourceDataDeletionPolicy>
+    {
+        private readonly string _value;
+
+        private DataSourceDataDeletionPolicy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataSourceDataDeletionPolicy Retain { get; } = new DataSourceDataDeletionPolicy("RETAIN");
+        public static DataSourceDataDeletionPolicy Delete { get; } = new DataSourceDataDeletionPolicy("DELETE");
+
+        public static bool operator ==(DataSourceDataDeletionPolicy left, DataSourceDataDeletionPolicy right) => left.Equals(right);
+        public static bool operator !=(DataSourceDataDeletionPolicy left, DataSourceDataDeletionPolicy right) => !left.Equals(right);
+
+        public static explicit operator string(DataSourceDataDeletionPolicy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataSourceDataDeletionPolicy other && Equals(other);
+        public bool Equals(DataSourceDataDeletionPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The status of a data source.
     /// </summary>
     [EnumType]
@@ -311,6 +342,7 @@ namespace Pulumi.AwsNative.Bedrock
 
         public static DataSourceStatus Available { get; } = new DataSourceStatus("AVAILABLE");
         public static DataSourceStatus Deleting { get; } = new DataSourceStatus("DELETING");
+        public static DataSourceStatus DeleteUnsuccessful { get; } = new DataSourceStatus("DELETE_UNSUCCESSFUL");
 
         public static bool operator ==(DataSourceStatus left, DataSourceStatus right) => left.Equals(right);
         public static bool operator !=(DataSourceStatus left, DataSourceStatus right) => !left.Equals(right);
@@ -629,6 +661,7 @@ namespace Pulumi.AwsNative.Bedrock
         public static KnowledgeBaseStatus Deleting { get; } = new KnowledgeBaseStatus("DELETING");
         public static KnowledgeBaseStatus Updating { get; } = new KnowledgeBaseStatus("UPDATING");
         public static KnowledgeBaseStatus Failed { get; } = new KnowledgeBaseStatus("FAILED");
+        public static KnowledgeBaseStatus DeleteUnsuccessful { get; } = new KnowledgeBaseStatus("DELETE_UNSUCCESSFUL");
 
         public static bool operator ==(KnowledgeBaseStatus left, KnowledgeBaseStatus right) => left.Equals(right);
         public static bool operator !=(KnowledgeBaseStatus left, KnowledgeBaseStatus right) => !left.Equals(right);

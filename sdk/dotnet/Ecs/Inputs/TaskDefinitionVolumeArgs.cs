@@ -36,6 +36,9 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         [Input("efsVolumeConfiguration")]
         public Input<Inputs.TaskDefinitionEfsVolumeConfigurationArgs>? EfsVolumeConfiguration { get; set; }
 
+        /// <summary>
+        /// This parameter is specified when you use Amazon FSx for Windows File Server file system for task storage.
+        /// </summary>
         [Input("fSxWindowsFileServerVolumeConfiguration")]
         public Input<Inputs.TaskDefinitionFSxWindowsFileServerVolumeConfigurationArgs>? FSxWindowsFileServerVolumeConfiguration { get; set; }
 

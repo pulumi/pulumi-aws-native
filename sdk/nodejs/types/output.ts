@@ -5494,6 +5494,10 @@ export namespace bedrock {
          */
         bucketArn: string;
         /**
+         * The account ID for the owner of the S3 bucket.
+         */
+        bucketOwnerAccountId?: string;
+        /**
          * A list of S3 prefixes that define the object containing the data sources.
          */
         inclusionPrefixes?: string[];
@@ -14108,7 +14112,6 @@ export namespace ecs {
          * The details of the execute command configuration.
          */
         executeCommandConfiguration?: outputs.ecs.ClusterExecuteCommandConfiguration;
-        managedStorageConfiguration?: outputs.ecs.ClusterManagedStorageConfiguration;
     }
 
     /**
@@ -14158,11 +14161,6 @@ export namespace ecs {
          * An optional folder in the S3 bucket to place logs in.
          */
         s3KeyPrefix?: string;
-    }
-
-    export interface ClusterManagedStorageConfiguration {
-        fargateEphemeralStorageKmsKeyId?: string;
-        kmsKeyId?: string;
     }
 
     /**
@@ -15123,9 +15121,22 @@ export namespace ecs {
         domain: string;
     }
 
+    /**
+     * This parameter is specified when you're using [Amazon FSx for Windows File Server](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/what-is.html) file system for task storage.
+     *  For more information and the input format, see [Amazon FSx for Windows File Server volumes](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/wfsx-volumes.html) in the *Amazon Elastic Container Service Developer Guide*.
+     */
     export interface TaskDefinitionFSxWindowsFileServerVolumeConfiguration {
+        /**
+         * The authorization configuration details for the Amazon FSx for Windows File Server file system.
+         */
         authorizationConfig?: outputs.ecs.TaskDefinitionFSxAuthorizationConfig;
+        /**
+         * The Amazon FSx for Windows File Server file system ID to use.
+         */
         fileSystemId: string;
+        /**
+         * The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
+         */
         rootDirectory: string;
     }
 
@@ -15593,6 +15604,9 @@ export namespace ecs {
          * This parameter is specified when you use an Amazon Elastic File System file system for task storage.
          */
         efsVolumeConfiguration?: outputs.ecs.TaskDefinitionEfsVolumeConfiguration;
+        /**
+         * This parameter is specified when you use Amazon FSx for Windows File Server file system for task storage.
+         */
         fSxWindowsFileServerVolumeConfiguration?: outputs.ecs.TaskDefinitionFSxWindowsFileServerVolumeConfiguration;
         /**
          * This parameter is specified when you use bind mount host volumes. The contents of the ``host`` parameter determine whether your bind mount host volume persists on the host container instance and where it's stored. If the ``host`` parameter is empty, then the Docker daemon assigns a host path for your data volume. However, the data isn't guaranteed to persist after the containers that are associated with it stop running.
@@ -25222,37 +25236,16 @@ export namespace lakeformation {
 }
 
 export namespace lambda {
-    /**
-     * A provisioned concurrency configuration for a function's alias.
-     */
     export interface AliasProvisionedConcurrencyConfiguration {
-        /**
-         * The amount of provisioned concurrency to allocate for the alias.
-         */
         provisionedConcurrentExecutions: number;
     }
 
-    /**
-     * The traffic-shifting configuration of a Lambda function alias.
-     */
     export interface AliasRoutingConfiguration {
-        /**
-         * The second version, and the percentage of traffic that's routed to it.
-         */
-        additionalVersionWeights?: outputs.lambda.AliasVersionWeight[];
+        additionalVersionWeights: outputs.lambda.AliasVersionWeight[];
     }
 
-    /**
-     * The traffic-shifting configuration of a Lambda function alias.
-     */
     export interface AliasVersionWeight {
-        /**
-         * The qualifier of the second version.
-         */
         functionVersion: string;
-        /**
-         * The percentage of traffic that the alias routes to the second version.
-         */
         functionWeight: number;
     }
 
@@ -35110,9 +35103,14 @@ export namespace quicksight {
         values?: outputs.quicksight.AnalysisMeasureField[];
     }
 
+    export interface AnalysisWaterfallChartColorConfiguration {
+        groupColorConfiguration?: outputs.quicksight.AnalysisWaterfallChartGroupColorConfiguration;
+    }
+
     export interface AnalysisWaterfallChartConfiguration {
         categoryAxisDisplayOptions?: outputs.quicksight.AnalysisAxisDisplayOptions;
         categoryAxisLabelOptions?: outputs.quicksight.AnalysisChartAxisLabelOptions;
+        colorConfiguration?: outputs.quicksight.AnalysisWaterfallChartColorConfiguration;
         dataLabels?: outputs.quicksight.AnalysisDataLabelOptions;
         fieldWells?: outputs.quicksight.AnalysisWaterfallChartFieldWells;
         legend?: outputs.quicksight.AnalysisLegendOptions;
@@ -35125,6 +35123,12 @@ export namespace quicksight {
 
     export interface AnalysisWaterfallChartFieldWells {
         waterfallChartAggregatedFieldWells?: outputs.quicksight.AnalysisWaterfallChartAggregatedFieldWells;
+    }
+
+    export interface AnalysisWaterfallChartGroupColorConfiguration {
+        negativeBarColor?: string;
+        positiveBarColor?: string;
+        totalBarColor?: string;
     }
 
     export interface AnalysisWaterfallChartOptions {
@@ -38477,9 +38481,14 @@ export namespace quicksight {
         values?: outputs.quicksight.DashboardMeasureField[];
     }
 
+    export interface DashboardWaterfallChartColorConfiguration {
+        groupColorConfiguration?: outputs.quicksight.DashboardWaterfallChartGroupColorConfiguration;
+    }
+
     export interface DashboardWaterfallChartConfiguration {
         categoryAxisDisplayOptions?: outputs.quicksight.DashboardAxisDisplayOptions;
         categoryAxisLabelOptions?: outputs.quicksight.DashboardChartAxisLabelOptions;
+        colorConfiguration?: outputs.quicksight.DashboardWaterfallChartColorConfiguration;
         dataLabels?: outputs.quicksight.DashboardDataLabelOptions;
         fieldWells?: outputs.quicksight.DashboardWaterfallChartFieldWells;
         legend?: outputs.quicksight.DashboardLegendOptions;
@@ -38492,6 +38501,12 @@ export namespace quicksight {
 
     export interface DashboardWaterfallChartFieldWells {
         waterfallChartAggregatedFieldWells?: outputs.quicksight.DashboardWaterfallChartAggregatedFieldWells;
+    }
+
+    export interface DashboardWaterfallChartGroupColorConfiguration {
+        negativeBarColor?: string;
+        positiveBarColor?: string;
+        totalBarColor?: string;
     }
 
     export interface DashboardWaterfallChartOptions {
@@ -42858,9 +42873,14 @@ export namespace quicksight {
         values?: outputs.quicksight.TemplateMeasureField[];
     }
 
+    export interface TemplateWaterfallChartColorConfiguration {
+        groupColorConfiguration?: outputs.quicksight.TemplateWaterfallChartGroupColorConfiguration;
+    }
+
     export interface TemplateWaterfallChartConfiguration {
         categoryAxisDisplayOptions?: outputs.quicksight.TemplateAxisDisplayOptions;
         categoryAxisLabelOptions?: outputs.quicksight.TemplateChartAxisLabelOptions;
+        colorConfiguration?: outputs.quicksight.TemplateWaterfallChartColorConfiguration;
         dataLabels?: outputs.quicksight.TemplateDataLabelOptions;
         fieldWells?: outputs.quicksight.TemplateWaterfallChartFieldWells;
         legend?: outputs.quicksight.TemplateLegendOptions;
@@ -42873,6 +42893,12 @@ export namespace quicksight {
 
     export interface TemplateWaterfallChartFieldWells {
         waterfallChartAggregatedFieldWells?: outputs.quicksight.TemplateWaterfallChartAggregatedFieldWells;
+    }
+
+    export interface TemplateWaterfallChartGroupColorConfiguration {
+        negativeBarColor?: string;
+        positiveBarColor?: string;
+        totalBarColor?: string;
     }
 
     export interface TemplateWaterfallChartOptions {
@@ -51959,7 +51985,7 @@ export namespace transfer {
      * Details for a step that performs a file decryption.
      */
     export interface WorkflowStepDecryptStepDetailsProperties {
-        destinationFileLocation?: outputs.transfer.WorkflowInputFileLocation;
+        destinationFileLocation: outputs.transfer.WorkflowInputFileLocation;
         /**
          * The name of the step, used as an identifier.
          */
@@ -51975,7 +52001,7 @@ export namespace transfer {
         /**
          * Specifies which encryption method to use.
          */
-        type?: enums.transfer.WorkflowStepDecryptStepDetailsPropertiesType;
+        type: enums.transfer.WorkflowStepDecryptStepDetailsPropertiesType;
     }
 
     /**

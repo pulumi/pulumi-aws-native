@@ -47,6 +47,14 @@ export interface GetConnectorResult {
      */
     readonly loggingRole?: string;
     /**
+     * Security policy for SFTP Connector
+     */
+    readonly securityPolicyName?: string;
+    /**
+     * The list of egress IP addresses of this connector. These IP addresses are assigned automatically when you create the connector.
+     */
+    readonly serviceManagedEgressIpAddresses?: string[];
+    /**
      * Configuration for an SFTP connector.
      */
     readonly sftpConfig?: outputs.transfer.SftpConfigProperties;

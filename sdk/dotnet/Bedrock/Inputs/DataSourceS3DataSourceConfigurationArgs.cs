@@ -21,6 +21,12 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         [Input("bucketArn", required: true)]
         public Input<string> BucketArn { get; set; } = null!;
 
+        /// <summary>
+        /// The account ID for the owner of the S3 bucket.
+        /// </summary>
+        [Input("bucketOwnerAccountId")]
+        public Input<string>? BucketOwnerAccountId { get; set; }
+
         [Input("inclusionPrefixes")]
         private InputList<string>? _inclusionPrefixes;
 

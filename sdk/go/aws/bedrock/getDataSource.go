@@ -31,13 +31,16 @@ type LookupDataSourceArgs struct {
 
 type LookupDataSourceResult struct {
 	// The time at which the data source was created.
-	CreatedAt               *string                  `pulumi:"createdAt"`
-	DataSourceConfiguration *DataSourceConfiguration `pulumi:"dataSourceConfiguration"`
+	CreatedAt               *string                       `pulumi:"createdAt"`
+	DataDeletionPolicy      *DataSourceDataDeletionPolicy `pulumi:"dataDeletionPolicy"`
+	DataSourceConfiguration *DataSourceConfiguration      `pulumi:"dataSourceConfiguration"`
 	// Identifier for a resource.
 	DataSourceId     *string           `pulumi:"dataSourceId"`
 	DataSourceStatus *DataSourceStatus `pulumi:"dataSourceStatus"`
 	// Description of the Resource.
 	Description *string `pulumi:"description"`
+	// The details of the failure reasons related to the data source.
+	FailureReasons []string `pulumi:"failureReasons"`
 	// The name of the data source.
 	Name                              *string                                      `pulumi:"name"`
 	ServerSideEncryptionConfiguration *DataSourceServerSideEncryptionConfiguration `pulumi:"serverSideEncryptionConfiguration"`
@@ -88,6 +91,10 @@ func (o LookupDataSourceResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDataSourceResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
+func (o LookupDataSourceResultOutput) DataDeletionPolicy() DataSourceDataDeletionPolicyPtrOutput {
+	return o.ApplyT(func(v LookupDataSourceResult) *DataSourceDataDeletionPolicy { return v.DataDeletionPolicy }).(DataSourceDataDeletionPolicyPtrOutput)
+}
+
 func (o LookupDataSourceResultOutput) DataSourceConfiguration() DataSourceConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupDataSourceResult) *DataSourceConfiguration { return v.DataSourceConfiguration }).(DataSourceConfigurationPtrOutput)
 }
@@ -104,6 +111,11 @@ func (o LookupDataSourceResultOutput) DataSourceStatus() DataSourceStatusPtrOutp
 // Description of the Resource.
 func (o LookupDataSourceResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDataSourceResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The details of the failure reasons related to the data source.
+func (o LookupDataSourceResultOutput) FailureReasons() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupDataSourceResult) []string { return v.FailureReasons }).(pulumi.StringArrayOutput)
 }
 
 // The name of the data source.

@@ -690,6 +690,11 @@ export type TransitGatewayRouteTableAssociation = import("./transitGatewayRouteT
 export const TransitGatewayRouteTableAssociation: typeof import("./transitGatewayRouteTableAssociation").TransitGatewayRouteTableAssociation = null as any;
 utilities.lazyLoad(exports, ["TransitGatewayRouteTableAssociation"], () => require("./transitGatewayRouteTableAssociation"));
 
+export { TransitGatewayRouteTablePropagationArgs } from "./transitGatewayRouteTablePropagation";
+export type TransitGatewayRouteTablePropagation = import("./transitGatewayRouteTablePropagation").TransitGatewayRouteTablePropagation;
+export const TransitGatewayRouteTablePropagation: typeof import("./transitGatewayRouteTablePropagation").TransitGatewayRouteTablePropagation = null as any;
+utilities.lazyLoad(exports, ["TransitGatewayRouteTablePropagation"], () => require("./transitGatewayRouteTablePropagation"));
+
 export { TransitGatewayVpcAttachmentArgs } from "./transitGatewayVpcAttachment";
 export type TransitGatewayVpcAttachment = import("./transitGatewayVpcAttachment").TransitGatewayVpcAttachment;
 export const TransitGatewayVpcAttachment: typeof import("./transitGatewayVpcAttachment").TransitGatewayVpcAttachment = null as any;
@@ -917,6 +922,8 @@ const _module = {
                 return new TransitGatewayRouteTable(name, <any>undefined, { urn })
             case "aws-native:ec2:TransitGatewayRouteTableAssociation":
                 return new TransitGatewayRouteTableAssociation(name, <any>undefined, { urn })
+            case "aws-native:ec2:TransitGatewayRouteTablePropagation":
+                return new TransitGatewayRouteTablePropagation(name, <any>undefined, { urn })
             case "aws-native:ec2:TransitGatewayVpcAttachment":
                 return new TransitGatewayVpcAttachment(name, <any>undefined, { urn })
             case "aws-native:ec2:VerifiedAccessEndpoint":

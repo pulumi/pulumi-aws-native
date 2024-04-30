@@ -102,9 +102,20 @@ export const DataSourceChunkingStrategy = {
  */
 export type DataSourceChunkingStrategy = (typeof DataSourceChunkingStrategy)[keyof typeof DataSourceChunkingStrategy];
 
+export const DataSourceDataDeletionPolicy = {
+    Retain: "RETAIN",
+    Delete: "DELETE",
+} as const;
+
+/**
+ * The deletion policy for the data source.
+ */
+export type DataSourceDataDeletionPolicy = (typeof DataSourceDataDeletionPolicy)[keyof typeof DataSourceDataDeletionPolicy];
+
 export const DataSourceStatus = {
     Available: "AVAILABLE",
     Deleting: "DELETING",
+    DeleteUnsuccessful: "DELETE_UNSUCCESSFUL",
 } as const;
 
 /**
@@ -234,6 +245,7 @@ export const KnowledgeBaseStatus = {
     Deleting: "DELETING",
     Updating: "UPDATING",
     Failed: "FAILED",
+    DeleteUnsuccessful: "DELETE_UNSUCCESSFUL",
 } as const;
 
 /**

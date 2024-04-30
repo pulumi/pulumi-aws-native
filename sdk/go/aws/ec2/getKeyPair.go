@@ -11,7 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The AWS::EC2::KeyPair creates an SSH key pair
+// Specifies a key pair for use with an EC2long instance as follows:
+//
+//   - To import an existing key pair, include the “PublicKeyMaterial“ property.
+//
+//   - To create a new key pair, omit the “PublicKeyMaterial“ property.
+//
+//     When you import an existing key pair, you specify the public key material for the key. We assume that you have the private key material for the key. CFNlong does not create or return the private key material when you import a key pair.
+//     When you create a new key pair, the private key is saved to SYSlong Parameter Store, using a parameter with the following name: “/ec2/keypair/{key_pair_id}“. For more information about retrieving private key, and the required permissions, see [Create a key pair using](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-key-pairs.html#create-key-pair-cloudformation) in the *User Guide*.
+//     When CFN deletes a key pair that was created or imported by a stack, it also deletes the parameter that was used to store the private key material in Parameter Store.
 func LookupKeyPair(ctx *pulumi.Context, args *LookupKeyPairArgs, opts ...pulumi.InvokeOption) (*LookupKeyPairResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupKeyPairResult
@@ -23,15 +31,14 @@ func LookupKeyPair(ctx *pulumi.Context, args *LookupKeyPairArgs, opts ...pulumi.
 }
 
 type LookupKeyPairArgs struct {
-	// The name of the SSH key pair
+	// A unique name for the key pair.
+	//  Constraints: Up to 255 ASCII characters
 	KeyName string `pulumi:"keyName"`
 }
 
 type LookupKeyPairResult struct {
-	// A short sequence of bytes used for public key verification
 	KeyFingerprint *string `pulumi:"keyFingerprint"`
-	// An AWS generated ID for the key pair
-	KeyPairId *string `pulumi:"keyPairId"`
+	KeyPairId      *string `pulumi:"keyPairId"`
 }
 
 func LookupKeyPairOutput(ctx *pulumi.Context, args LookupKeyPairOutputArgs, opts ...pulumi.InvokeOption) LookupKeyPairResultOutput {
@@ -48,7 +55,8 @@ func LookupKeyPairOutput(ctx *pulumi.Context, args LookupKeyPairOutputArgs, opts
 }
 
 type LookupKeyPairOutputArgs struct {
-	// The name of the SSH key pair
+	// A unique name for the key pair.
+	//  Constraints: Up to 255 ASCII characters
 	KeyName pulumi.StringInput `pulumi:"keyName"`
 }
 
@@ -70,12 +78,10 @@ func (o LookupKeyPairResultOutput) ToLookupKeyPairResultOutputWithContext(ctx co
 	return o
 }
 
-// A short sequence of bytes used for public key verification
 func (o LookupKeyPairResultOutput) KeyFingerprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupKeyPairResult) *string { return v.KeyFingerprint }).(pulumi.StringPtrOutput)
 }
 
-// An AWS generated ID for the key pair
 func (o LookupKeyPairResultOutput) KeyPairId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupKeyPairResult) *string { return v.KeyPairId }).(pulumi.StringPtrOutput)
 }

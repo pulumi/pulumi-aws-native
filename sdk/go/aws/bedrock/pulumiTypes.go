@@ -1923,6 +1923,8 @@ func (o DataSourceFixedSizeChunkingConfigurationPtrOutput) OverlapPercentage() p
 type DataSourceS3DataSourceConfiguration struct {
 	// The ARN of the bucket that contains the data source.
 	BucketArn string `pulumi:"bucketArn"`
+	// The account ID for the owner of the S3 bucket.
+	BucketOwnerAccountId *string `pulumi:"bucketOwnerAccountId"`
 	// A list of S3 prefixes that define the object containing the data sources.
 	InclusionPrefixes []string `pulumi:"inclusionPrefixes"`
 }
@@ -1942,6 +1944,8 @@ type DataSourceS3DataSourceConfigurationInput interface {
 type DataSourceS3DataSourceConfigurationArgs struct {
 	// The ARN of the bucket that contains the data source.
 	BucketArn pulumi.StringInput `pulumi:"bucketArn"`
+	// The account ID for the owner of the S3 bucket.
+	BucketOwnerAccountId pulumi.StringPtrInput `pulumi:"bucketOwnerAccountId"`
 	// A list of S3 prefixes that define the object containing the data sources.
 	InclusionPrefixes pulumi.StringArrayInput `pulumi:"inclusionPrefixes"`
 }
@@ -1976,6 +1980,11 @@ func (o DataSourceS3DataSourceConfigurationOutput) ToDataSourceS3DataSourceConfi
 // The ARN of the bucket that contains the data source.
 func (o DataSourceS3DataSourceConfigurationOutput) BucketArn() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceS3DataSourceConfiguration) string { return v.BucketArn }).(pulumi.StringOutput)
+}
+
+// The account ID for the owner of the S3 bucket.
+func (o DataSourceS3DataSourceConfigurationOutput) BucketOwnerAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSourceS3DataSourceConfiguration) *string { return v.BucketOwnerAccountId }).(pulumi.StringPtrOutput)
 }
 
 // A list of S3 prefixes that define the object containing the data sources.
@@ -2014,6 +2023,16 @@ func (o DataSourceS3DataSourceConfigurationPtrOutput) BucketArn() pulumi.StringP
 			return nil
 		}
 		return &v.BucketArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The account ID for the owner of the S3 bucket.
+func (o DataSourceS3DataSourceConfigurationPtrOutput) BucketOwnerAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceS3DataSourceConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BucketOwnerAccountId
 	}).(pulumi.StringPtrOutput)
 }
 

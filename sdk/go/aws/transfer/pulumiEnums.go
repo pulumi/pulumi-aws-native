@@ -365,6 +365,7 @@ type CertificateUsage string
 const (
 	CertificateUsageSigning    = CertificateUsage("SIGNING")
 	CertificateUsageEncryption = CertificateUsage("ENCRYPTION")
+	CertificateUsageTls        = CertificateUsage("TLS")
 )
 
 func (CertificateUsage) ElementType() reflect.Type {
@@ -491,6 +492,7 @@ func (o CertificateUsagePtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 //
 //	CertificateUsageSigning
 //	CertificateUsageEncryption
+//	CertificateUsageTls
 type CertificateUsageInput interface {
 	pulumi.Input
 
@@ -695,10 +697,11 @@ func (in *connectorAs2ConfigPropertiesCompressionPtr) ToConnectorAs2ConfigProper
 type ConnectorAs2ConfigPropertiesEncryptionAlgorithm string
 
 const (
-	ConnectorAs2ConfigPropertiesEncryptionAlgorithmAes128Cbc = ConnectorAs2ConfigPropertiesEncryptionAlgorithm("AES128_CBC")
-	ConnectorAs2ConfigPropertiesEncryptionAlgorithmAes192Cbc = ConnectorAs2ConfigPropertiesEncryptionAlgorithm("AES192_CBC")
-	ConnectorAs2ConfigPropertiesEncryptionAlgorithmAes256Cbc = ConnectorAs2ConfigPropertiesEncryptionAlgorithm("AES256_CBC")
-	ConnectorAs2ConfigPropertiesEncryptionAlgorithmNone      = ConnectorAs2ConfigPropertiesEncryptionAlgorithm("NONE")
+	ConnectorAs2ConfigPropertiesEncryptionAlgorithmAes128Cbc  = ConnectorAs2ConfigPropertiesEncryptionAlgorithm("AES128_CBC")
+	ConnectorAs2ConfigPropertiesEncryptionAlgorithmAes192Cbc  = ConnectorAs2ConfigPropertiesEncryptionAlgorithm("AES192_CBC")
+	ConnectorAs2ConfigPropertiesEncryptionAlgorithmAes256Cbc  = ConnectorAs2ConfigPropertiesEncryptionAlgorithm("AES256_CBC")
+	ConnectorAs2ConfigPropertiesEncryptionAlgorithmNone       = ConnectorAs2ConfigPropertiesEncryptionAlgorithm("NONE")
+	ConnectorAs2ConfigPropertiesEncryptionAlgorithmDesEde3Cbc = ConnectorAs2ConfigPropertiesEncryptionAlgorithm("DES_EDE3_CBC")
 )
 
 func (ConnectorAs2ConfigPropertiesEncryptionAlgorithm) ElementType() reflect.Type {
@@ -827,6 +830,7 @@ func (o ConnectorAs2ConfigPropertiesEncryptionAlgorithmPtrOutput) ToStringPtrOut
 //	ConnectorAs2ConfigPropertiesEncryptionAlgorithmAes192Cbc
 //	ConnectorAs2ConfigPropertiesEncryptionAlgorithmAes256Cbc
 //	ConnectorAs2ConfigPropertiesEncryptionAlgorithmNone
+//	ConnectorAs2ConfigPropertiesEncryptionAlgorithmDesEde3Cbc
 type ConnectorAs2ConfigPropertiesEncryptionAlgorithmInput interface {
 	pulumi.Input
 

@@ -13,6 +13,636 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type TemplateTextAreaControlDisplayOptions struct {
+	InfoIconLabelOptions *TemplateSheetControlInfoIconLabelOptions `pulumi:"infoIconLabelOptions"`
+	PlaceholderOptions   *TemplateTextControlPlaceholderOptions    `pulumi:"placeholderOptions"`
+	TitleOptions         *TemplateLabelOptions                     `pulumi:"titleOptions"`
+}
+
+// TemplateTextAreaControlDisplayOptionsInput is an input type that accepts TemplateTextAreaControlDisplayOptionsArgs and TemplateTextAreaControlDisplayOptionsOutput values.
+// You can construct a concrete instance of `TemplateTextAreaControlDisplayOptionsInput` via:
+//
+//	TemplateTextAreaControlDisplayOptionsArgs{...}
+type TemplateTextAreaControlDisplayOptionsInput interface {
+	pulumi.Input
+
+	ToTemplateTextAreaControlDisplayOptionsOutput() TemplateTextAreaControlDisplayOptionsOutput
+	ToTemplateTextAreaControlDisplayOptionsOutputWithContext(context.Context) TemplateTextAreaControlDisplayOptionsOutput
+}
+
+type TemplateTextAreaControlDisplayOptionsArgs struct {
+	InfoIconLabelOptions TemplateSheetControlInfoIconLabelOptionsPtrInput `pulumi:"infoIconLabelOptions"`
+	PlaceholderOptions   TemplateTextControlPlaceholderOptionsPtrInput    `pulumi:"placeholderOptions"`
+	TitleOptions         TemplateLabelOptionsPtrInput                     `pulumi:"titleOptions"`
+}
+
+func (TemplateTextAreaControlDisplayOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateTextAreaControlDisplayOptions)(nil)).Elem()
+}
+
+func (i TemplateTextAreaControlDisplayOptionsArgs) ToTemplateTextAreaControlDisplayOptionsOutput() TemplateTextAreaControlDisplayOptionsOutput {
+	return i.ToTemplateTextAreaControlDisplayOptionsOutputWithContext(context.Background())
+}
+
+func (i TemplateTextAreaControlDisplayOptionsArgs) ToTemplateTextAreaControlDisplayOptionsOutputWithContext(ctx context.Context) TemplateTextAreaControlDisplayOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTextAreaControlDisplayOptionsOutput)
+}
+
+func (i TemplateTextAreaControlDisplayOptionsArgs) ToTemplateTextAreaControlDisplayOptionsPtrOutput() TemplateTextAreaControlDisplayOptionsPtrOutput {
+	return i.ToTemplateTextAreaControlDisplayOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateTextAreaControlDisplayOptionsArgs) ToTemplateTextAreaControlDisplayOptionsPtrOutputWithContext(ctx context.Context) TemplateTextAreaControlDisplayOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTextAreaControlDisplayOptionsOutput).ToTemplateTextAreaControlDisplayOptionsPtrOutputWithContext(ctx)
+}
+
+// TemplateTextAreaControlDisplayOptionsPtrInput is an input type that accepts TemplateTextAreaControlDisplayOptionsArgs, TemplateTextAreaControlDisplayOptionsPtr and TemplateTextAreaControlDisplayOptionsPtrOutput values.
+// You can construct a concrete instance of `TemplateTextAreaControlDisplayOptionsPtrInput` via:
+//
+//	        TemplateTextAreaControlDisplayOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateTextAreaControlDisplayOptionsPtrInput interface {
+	pulumi.Input
+
+	ToTemplateTextAreaControlDisplayOptionsPtrOutput() TemplateTextAreaControlDisplayOptionsPtrOutput
+	ToTemplateTextAreaControlDisplayOptionsPtrOutputWithContext(context.Context) TemplateTextAreaControlDisplayOptionsPtrOutput
+}
+
+type templateTextAreaControlDisplayOptionsPtrType TemplateTextAreaControlDisplayOptionsArgs
+
+func TemplateTextAreaControlDisplayOptionsPtr(v *TemplateTextAreaControlDisplayOptionsArgs) TemplateTextAreaControlDisplayOptionsPtrInput {
+	return (*templateTextAreaControlDisplayOptionsPtrType)(v)
+}
+
+func (*templateTextAreaControlDisplayOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateTextAreaControlDisplayOptions)(nil)).Elem()
+}
+
+func (i *templateTextAreaControlDisplayOptionsPtrType) ToTemplateTextAreaControlDisplayOptionsPtrOutput() TemplateTextAreaControlDisplayOptionsPtrOutput {
+	return i.ToTemplateTextAreaControlDisplayOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *templateTextAreaControlDisplayOptionsPtrType) ToTemplateTextAreaControlDisplayOptionsPtrOutputWithContext(ctx context.Context) TemplateTextAreaControlDisplayOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTextAreaControlDisplayOptionsPtrOutput)
+}
+
+type TemplateTextAreaControlDisplayOptionsOutput struct{ *pulumi.OutputState }
+
+func (TemplateTextAreaControlDisplayOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateTextAreaControlDisplayOptions)(nil)).Elem()
+}
+
+func (o TemplateTextAreaControlDisplayOptionsOutput) ToTemplateTextAreaControlDisplayOptionsOutput() TemplateTextAreaControlDisplayOptionsOutput {
+	return o
+}
+
+func (o TemplateTextAreaControlDisplayOptionsOutput) ToTemplateTextAreaControlDisplayOptionsOutputWithContext(ctx context.Context) TemplateTextAreaControlDisplayOptionsOutput {
+	return o
+}
+
+func (o TemplateTextAreaControlDisplayOptionsOutput) ToTemplateTextAreaControlDisplayOptionsPtrOutput() TemplateTextAreaControlDisplayOptionsPtrOutput {
+	return o.ToTemplateTextAreaControlDisplayOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateTextAreaControlDisplayOptionsOutput) ToTemplateTextAreaControlDisplayOptionsPtrOutputWithContext(ctx context.Context) TemplateTextAreaControlDisplayOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateTextAreaControlDisplayOptions) *TemplateTextAreaControlDisplayOptions {
+		return &v
+	}).(TemplateTextAreaControlDisplayOptionsPtrOutput)
+}
+
+func (o TemplateTextAreaControlDisplayOptionsOutput) InfoIconLabelOptions() TemplateSheetControlInfoIconLabelOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateTextAreaControlDisplayOptions) *TemplateSheetControlInfoIconLabelOptions {
+		return v.InfoIconLabelOptions
+	}).(TemplateSheetControlInfoIconLabelOptionsPtrOutput)
+}
+
+func (o TemplateTextAreaControlDisplayOptionsOutput) PlaceholderOptions() TemplateTextControlPlaceholderOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateTextAreaControlDisplayOptions) *TemplateTextControlPlaceholderOptions {
+		return v.PlaceholderOptions
+	}).(TemplateTextControlPlaceholderOptionsPtrOutput)
+}
+
+func (o TemplateTextAreaControlDisplayOptionsOutput) TitleOptions() TemplateLabelOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateTextAreaControlDisplayOptions) *TemplateLabelOptions { return v.TitleOptions }).(TemplateLabelOptionsPtrOutput)
+}
+
+type TemplateTextAreaControlDisplayOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateTextAreaControlDisplayOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateTextAreaControlDisplayOptions)(nil)).Elem()
+}
+
+func (o TemplateTextAreaControlDisplayOptionsPtrOutput) ToTemplateTextAreaControlDisplayOptionsPtrOutput() TemplateTextAreaControlDisplayOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateTextAreaControlDisplayOptionsPtrOutput) ToTemplateTextAreaControlDisplayOptionsPtrOutputWithContext(ctx context.Context) TemplateTextAreaControlDisplayOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateTextAreaControlDisplayOptionsPtrOutput) Elem() TemplateTextAreaControlDisplayOptionsOutput {
+	return o.ApplyT(func(v *TemplateTextAreaControlDisplayOptions) TemplateTextAreaControlDisplayOptions {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateTextAreaControlDisplayOptions
+		return ret
+	}).(TemplateTextAreaControlDisplayOptionsOutput)
+}
+
+func (o TemplateTextAreaControlDisplayOptionsPtrOutput) InfoIconLabelOptions() TemplateSheetControlInfoIconLabelOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateTextAreaControlDisplayOptions) *TemplateSheetControlInfoIconLabelOptions {
+		if v == nil {
+			return nil
+		}
+		return v.InfoIconLabelOptions
+	}).(TemplateSheetControlInfoIconLabelOptionsPtrOutput)
+}
+
+func (o TemplateTextAreaControlDisplayOptionsPtrOutput) PlaceholderOptions() TemplateTextControlPlaceholderOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateTextAreaControlDisplayOptions) *TemplateTextControlPlaceholderOptions {
+		if v == nil {
+			return nil
+		}
+		return v.PlaceholderOptions
+	}).(TemplateTextControlPlaceholderOptionsPtrOutput)
+}
+
+func (o TemplateTextAreaControlDisplayOptionsPtrOutput) TitleOptions() TemplateLabelOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateTextAreaControlDisplayOptions) *TemplateLabelOptions {
+		if v == nil {
+			return nil
+		}
+		return v.TitleOptions
+	}).(TemplateLabelOptionsPtrOutput)
+}
+
+type TemplateTextConditionalFormat struct {
+	BackgroundColor *TemplateConditionalFormattingColor `pulumi:"backgroundColor"`
+	Icon            *TemplateConditionalFormattingIcon  `pulumi:"icon"`
+	TextColor       *TemplateConditionalFormattingColor `pulumi:"textColor"`
+}
+
+// TemplateTextConditionalFormatInput is an input type that accepts TemplateTextConditionalFormatArgs and TemplateTextConditionalFormatOutput values.
+// You can construct a concrete instance of `TemplateTextConditionalFormatInput` via:
+//
+//	TemplateTextConditionalFormatArgs{...}
+type TemplateTextConditionalFormatInput interface {
+	pulumi.Input
+
+	ToTemplateTextConditionalFormatOutput() TemplateTextConditionalFormatOutput
+	ToTemplateTextConditionalFormatOutputWithContext(context.Context) TemplateTextConditionalFormatOutput
+}
+
+type TemplateTextConditionalFormatArgs struct {
+	BackgroundColor TemplateConditionalFormattingColorPtrInput `pulumi:"backgroundColor"`
+	Icon            TemplateConditionalFormattingIconPtrInput  `pulumi:"icon"`
+	TextColor       TemplateConditionalFormattingColorPtrInput `pulumi:"textColor"`
+}
+
+func (TemplateTextConditionalFormatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateTextConditionalFormat)(nil)).Elem()
+}
+
+func (i TemplateTextConditionalFormatArgs) ToTemplateTextConditionalFormatOutput() TemplateTextConditionalFormatOutput {
+	return i.ToTemplateTextConditionalFormatOutputWithContext(context.Background())
+}
+
+func (i TemplateTextConditionalFormatArgs) ToTemplateTextConditionalFormatOutputWithContext(ctx context.Context) TemplateTextConditionalFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTextConditionalFormatOutput)
+}
+
+func (i TemplateTextConditionalFormatArgs) ToTemplateTextConditionalFormatPtrOutput() TemplateTextConditionalFormatPtrOutput {
+	return i.ToTemplateTextConditionalFormatPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateTextConditionalFormatArgs) ToTemplateTextConditionalFormatPtrOutputWithContext(ctx context.Context) TemplateTextConditionalFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTextConditionalFormatOutput).ToTemplateTextConditionalFormatPtrOutputWithContext(ctx)
+}
+
+// TemplateTextConditionalFormatPtrInput is an input type that accepts TemplateTextConditionalFormatArgs, TemplateTextConditionalFormatPtr and TemplateTextConditionalFormatPtrOutput values.
+// You can construct a concrete instance of `TemplateTextConditionalFormatPtrInput` via:
+//
+//	        TemplateTextConditionalFormatArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateTextConditionalFormatPtrInput interface {
+	pulumi.Input
+
+	ToTemplateTextConditionalFormatPtrOutput() TemplateTextConditionalFormatPtrOutput
+	ToTemplateTextConditionalFormatPtrOutputWithContext(context.Context) TemplateTextConditionalFormatPtrOutput
+}
+
+type templateTextConditionalFormatPtrType TemplateTextConditionalFormatArgs
+
+func TemplateTextConditionalFormatPtr(v *TemplateTextConditionalFormatArgs) TemplateTextConditionalFormatPtrInput {
+	return (*templateTextConditionalFormatPtrType)(v)
+}
+
+func (*templateTextConditionalFormatPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateTextConditionalFormat)(nil)).Elem()
+}
+
+func (i *templateTextConditionalFormatPtrType) ToTemplateTextConditionalFormatPtrOutput() TemplateTextConditionalFormatPtrOutput {
+	return i.ToTemplateTextConditionalFormatPtrOutputWithContext(context.Background())
+}
+
+func (i *templateTextConditionalFormatPtrType) ToTemplateTextConditionalFormatPtrOutputWithContext(ctx context.Context) TemplateTextConditionalFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTextConditionalFormatPtrOutput)
+}
+
+type TemplateTextConditionalFormatOutput struct{ *pulumi.OutputState }
+
+func (TemplateTextConditionalFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateTextConditionalFormat)(nil)).Elem()
+}
+
+func (o TemplateTextConditionalFormatOutput) ToTemplateTextConditionalFormatOutput() TemplateTextConditionalFormatOutput {
+	return o
+}
+
+func (o TemplateTextConditionalFormatOutput) ToTemplateTextConditionalFormatOutputWithContext(ctx context.Context) TemplateTextConditionalFormatOutput {
+	return o
+}
+
+func (o TemplateTextConditionalFormatOutput) ToTemplateTextConditionalFormatPtrOutput() TemplateTextConditionalFormatPtrOutput {
+	return o.ToTemplateTextConditionalFormatPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateTextConditionalFormatOutput) ToTemplateTextConditionalFormatPtrOutputWithContext(ctx context.Context) TemplateTextConditionalFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateTextConditionalFormat) *TemplateTextConditionalFormat {
+		return &v
+	}).(TemplateTextConditionalFormatPtrOutput)
+}
+
+func (o TemplateTextConditionalFormatOutput) BackgroundColor() TemplateConditionalFormattingColorPtrOutput {
+	return o.ApplyT(func(v TemplateTextConditionalFormat) *TemplateConditionalFormattingColor { return v.BackgroundColor }).(TemplateConditionalFormattingColorPtrOutput)
+}
+
+func (o TemplateTextConditionalFormatOutput) Icon() TemplateConditionalFormattingIconPtrOutput {
+	return o.ApplyT(func(v TemplateTextConditionalFormat) *TemplateConditionalFormattingIcon { return v.Icon }).(TemplateConditionalFormattingIconPtrOutput)
+}
+
+func (o TemplateTextConditionalFormatOutput) TextColor() TemplateConditionalFormattingColorPtrOutput {
+	return o.ApplyT(func(v TemplateTextConditionalFormat) *TemplateConditionalFormattingColor { return v.TextColor }).(TemplateConditionalFormattingColorPtrOutput)
+}
+
+type TemplateTextConditionalFormatPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateTextConditionalFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateTextConditionalFormat)(nil)).Elem()
+}
+
+func (o TemplateTextConditionalFormatPtrOutput) ToTemplateTextConditionalFormatPtrOutput() TemplateTextConditionalFormatPtrOutput {
+	return o
+}
+
+func (o TemplateTextConditionalFormatPtrOutput) ToTemplateTextConditionalFormatPtrOutputWithContext(ctx context.Context) TemplateTextConditionalFormatPtrOutput {
+	return o
+}
+
+func (o TemplateTextConditionalFormatPtrOutput) Elem() TemplateTextConditionalFormatOutput {
+	return o.ApplyT(func(v *TemplateTextConditionalFormat) TemplateTextConditionalFormat {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateTextConditionalFormat
+		return ret
+	}).(TemplateTextConditionalFormatOutput)
+}
+
+func (o TemplateTextConditionalFormatPtrOutput) BackgroundColor() TemplateConditionalFormattingColorPtrOutput {
+	return o.ApplyT(func(v *TemplateTextConditionalFormat) *TemplateConditionalFormattingColor {
+		if v == nil {
+			return nil
+		}
+		return v.BackgroundColor
+	}).(TemplateConditionalFormattingColorPtrOutput)
+}
+
+func (o TemplateTextConditionalFormatPtrOutput) Icon() TemplateConditionalFormattingIconPtrOutput {
+	return o.ApplyT(func(v *TemplateTextConditionalFormat) *TemplateConditionalFormattingIcon {
+		if v == nil {
+			return nil
+		}
+		return v.Icon
+	}).(TemplateConditionalFormattingIconPtrOutput)
+}
+
+func (o TemplateTextConditionalFormatPtrOutput) TextColor() TemplateConditionalFormattingColorPtrOutput {
+	return o.ApplyT(func(v *TemplateTextConditionalFormat) *TemplateConditionalFormattingColor {
+		if v == nil {
+			return nil
+		}
+		return v.TextColor
+	}).(TemplateConditionalFormattingColorPtrOutput)
+}
+
+type TemplateTextControlPlaceholderOptions struct {
+	Visibility *TemplateVisibility `pulumi:"visibility"`
+}
+
+// TemplateTextControlPlaceholderOptionsInput is an input type that accepts TemplateTextControlPlaceholderOptionsArgs and TemplateTextControlPlaceholderOptionsOutput values.
+// You can construct a concrete instance of `TemplateTextControlPlaceholderOptionsInput` via:
+//
+//	TemplateTextControlPlaceholderOptionsArgs{...}
+type TemplateTextControlPlaceholderOptionsInput interface {
+	pulumi.Input
+
+	ToTemplateTextControlPlaceholderOptionsOutput() TemplateTextControlPlaceholderOptionsOutput
+	ToTemplateTextControlPlaceholderOptionsOutputWithContext(context.Context) TemplateTextControlPlaceholderOptionsOutput
+}
+
+type TemplateTextControlPlaceholderOptionsArgs struct {
+	Visibility TemplateVisibilityPtrInput `pulumi:"visibility"`
+}
+
+func (TemplateTextControlPlaceholderOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateTextControlPlaceholderOptions)(nil)).Elem()
+}
+
+func (i TemplateTextControlPlaceholderOptionsArgs) ToTemplateTextControlPlaceholderOptionsOutput() TemplateTextControlPlaceholderOptionsOutput {
+	return i.ToTemplateTextControlPlaceholderOptionsOutputWithContext(context.Background())
+}
+
+func (i TemplateTextControlPlaceholderOptionsArgs) ToTemplateTextControlPlaceholderOptionsOutputWithContext(ctx context.Context) TemplateTextControlPlaceholderOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTextControlPlaceholderOptionsOutput)
+}
+
+func (i TemplateTextControlPlaceholderOptionsArgs) ToTemplateTextControlPlaceholderOptionsPtrOutput() TemplateTextControlPlaceholderOptionsPtrOutput {
+	return i.ToTemplateTextControlPlaceholderOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateTextControlPlaceholderOptionsArgs) ToTemplateTextControlPlaceholderOptionsPtrOutputWithContext(ctx context.Context) TemplateTextControlPlaceholderOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTextControlPlaceholderOptionsOutput).ToTemplateTextControlPlaceholderOptionsPtrOutputWithContext(ctx)
+}
+
+// TemplateTextControlPlaceholderOptionsPtrInput is an input type that accepts TemplateTextControlPlaceholderOptionsArgs, TemplateTextControlPlaceholderOptionsPtr and TemplateTextControlPlaceholderOptionsPtrOutput values.
+// You can construct a concrete instance of `TemplateTextControlPlaceholderOptionsPtrInput` via:
+//
+//	        TemplateTextControlPlaceholderOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateTextControlPlaceholderOptionsPtrInput interface {
+	pulumi.Input
+
+	ToTemplateTextControlPlaceholderOptionsPtrOutput() TemplateTextControlPlaceholderOptionsPtrOutput
+	ToTemplateTextControlPlaceholderOptionsPtrOutputWithContext(context.Context) TemplateTextControlPlaceholderOptionsPtrOutput
+}
+
+type templateTextControlPlaceholderOptionsPtrType TemplateTextControlPlaceholderOptionsArgs
+
+func TemplateTextControlPlaceholderOptionsPtr(v *TemplateTextControlPlaceholderOptionsArgs) TemplateTextControlPlaceholderOptionsPtrInput {
+	return (*templateTextControlPlaceholderOptionsPtrType)(v)
+}
+
+func (*templateTextControlPlaceholderOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateTextControlPlaceholderOptions)(nil)).Elem()
+}
+
+func (i *templateTextControlPlaceholderOptionsPtrType) ToTemplateTextControlPlaceholderOptionsPtrOutput() TemplateTextControlPlaceholderOptionsPtrOutput {
+	return i.ToTemplateTextControlPlaceholderOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *templateTextControlPlaceholderOptionsPtrType) ToTemplateTextControlPlaceholderOptionsPtrOutputWithContext(ctx context.Context) TemplateTextControlPlaceholderOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTextControlPlaceholderOptionsPtrOutput)
+}
+
+type TemplateTextControlPlaceholderOptionsOutput struct{ *pulumi.OutputState }
+
+func (TemplateTextControlPlaceholderOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateTextControlPlaceholderOptions)(nil)).Elem()
+}
+
+func (o TemplateTextControlPlaceholderOptionsOutput) ToTemplateTextControlPlaceholderOptionsOutput() TemplateTextControlPlaceholderOptionsOutput {
+	return o
+}
+
+func (o TemplateTextControlPlaceholderOptionsOutput) ToTemplateTextControlPlaceholderOptionsOutputWithContext(ctx context.Context) TemplateTextControlPlaceholderOptionsOutput {
+	return o
+}
+
+func (o TemplateTextControlPlaceholderOptionsOutput) ToTemplateTextControlPlaceholderOptionsPtrOutput() TemplateTextControlPlaceholderOptionsPtrOutput {
+	return o.ToTemplateTextControlPlaceholderOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateTextControlPlaceholderOptionsOutput) ToTemplateTextControlPlaceholderOptionsPtrOutputWithContext(ctx context.Context) TemplateTextControlPlaceholderOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateTextControlPlaceholderOptions) *TemplateTextControlPlaceholderOptions {
+		return &v
+	}).(TemplateTextControlPlaceholderOptionsPtrOutput)
+}
+
+func (o TemplateTextControlPlaceholderOptionsOutput) Visibility() TemplateVisibilityPtrOutput {
+	return o.ApplyT(func(v TemplateTextControlPlaceholderOptions) *TemplateVisibility { return v.Visibility }).(TemplateVisibilityPtrOutput)
+}
+
+type TemplateTextControlPlaceholderOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateTextControlPlaceholderOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateTextControlPlaceholderOptions)(nil)).Elem()
+}
+
+func (o TemplateTextControlPlaceholderOptionsPtrOutput) ToTemplateTextControlPlaceholderOptionsPtrOutput() TemplateTextControlPlaceholderOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateTextControlPlaceholderOptionsPtrOutput) ToTemplateTextControlPlaceholderOptionsPtrOutputWithContext(ctx context.Context) TemplateTextControlPlaceholderOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateTextControlPlaceholderOptionsPtrOutput) Elem() TemplateTextControlPlaceholderOptionsOutput {
+	return o.ApplyT(func(v *TemplateTextControlPlaceholderOptions) TemplateTextControlPlaceholderOptions {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateTextControlPlaceholderOptions
+		return ret
+	}).(TemplateTextControlPlaceholderOptionsOutput)
+}
+
+func (o TemplateTextControlPlaceholderOptionsPtrOutput) Visibility() TemplateVisibilityPtrOutput {
+	return o.ApplyT(func(v *TemplateTextControlPlaceholderOptions) *TemplateVisibility {
+		if v == nil {
+			return nil
+		}
+		return v.Visibility
+	}).(TemplateVisibilityPtrOutput)
+}
+
+type TemplateTextFieldControlDisplayOptions struct {
+	InfoIconLabelOptions *TemplateSheetControlInfoIconLabelOptions `pulumi:"infoIconLabelOptions"`
+	PlaceholderOptions   *TemplateTextControlPlaceholderOptions    `pulumi:"placeholderOptions"`
+	TitleOptions         *TemplateLabelOptions                     `pulumi:"titleOptions"`
+}
+
+// TemplateTextFieldControlDisplayOptionsInput is an input type that accepts TemplateTextFieldControlDisplayOptionsArgs and TemplateTextFieldControlDisplayOptionsOutput values.
+// You can construct a concrete instance of `TemplateTextFieldControlDisplayOptionsInput` via:
+//
+//	TemplateTextFieldControlDisplayOptionsArgs{...}
+type TemplateTextFieldControlDisplayOptionsInput interface {
+	pulumi.Input
+
+	ToTemplateTextFieldControlDisplayOptionsOutput() TemplateTextFieldControlDisplayOptionsOutput
+	ToTemplateTextFieldControlDisplayOptionsOutputWithContext(context.Context) TemplateTextFieldControlDisplayOptionsOutput
+}
+
+type TemplateTextFieldControlDisplayOptionsArgs struct {
+	InfoIconLabelOptions TemplateSheetControlInfoIconLabelOptionsPtrInput `pulumi:"infoIconLabelOptions"`
+	PlaceholderOptions   TemplateTextControlPlaceholderOptionsPtrInput    `pulumi:"placeholderOptions"`
+	TitleOptions         TemplateLabelOptionsPtrInput                     `pulumi:"titleOptions"`
+}
+
+func (TemplateTextFieldControlDisplayOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateTextFieldControlDisplayOptions)(nil)).Elem()
+}
+
+func (i TemplateTextFieldControlDisplayOptionsArgs) ToTemplateTextFieldControlDisplayOptionsOutput() TemplateTextFieldControlDisplayOptionsOutput {
+	return i.ToTemplateTextFieldControlDisplayOptionsOutputWithContext(context.Background())
+}
+
+func (i TemplateTextFieldControlDisplayOptionsArgs) ToTemplateTextFieldControlDisplayOptionsOutputWithContext(ctx context.Context) TemplateTextFieldControlDisplayOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTextFieldControlDisplayOptionsOutput)
+}
+
+func (i TemplateTextFieldControlDisplayOptionsArgs) ToTemplateTextFieldControlDisplayOptionsPtrOutput() TemplateTextFieldControlDisplayOptionsPtrOutput {
+	return i.ToTemplateTextFieldControlDisplayOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateTextFieldControlDisplayOptionsArgs) ToTemplateTextFieldControlDisplayOptionsPtrOutputWithContext(ctx context.Context) TemplateTextFieldControlDisplayOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTextFieldControlDisplayOptionsOutput).ToTemplateTextFieldControlDisplayOptionsPtrOutputWithContext(ctx)
+}
+
+// TemplateTextFieldControlDisplayOptionsPtrInput is an input type that accepts TemplateTextFieldControlDisplayOptionsArgs, TemplateTextFieldControlDisplayOptionsPtr and TemplateTextFieldControlDisplayOptionsPtrOutput values.
+// You can construct a concrete instance of `TemplateTextFieldControlDisplayOptionsPtrInput` via:
+//
+//	        TemplateTextFieldControlDisplayOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateTextFieldControlDisplayOptionsPtrInput interface {
+	pulumi.Input
+
+	ToTemplateTextFieldControlDisplayOptionsPtrOutput() TemplateTextFieldControlDisplayOptionsPtrOutput
+	ToTemplateTextFieldControlDisplayOptionsPtrOutputWithContext(context.Context) TemplateTextFieldControlDisplayOptionsPtrOutput
+}
+
+type templateTextFieldControlDisplayOptionsPtrType TemplateTextFieldControlDisplayOptionsArgs
+
+func TemplateTextFieldControlDisplayOptionsPtr(v *TemplateTextFieldControlDisplayOptionsArgs) TemplateTextFieldControlDisplayOptionsPtrInput {
+	return (*templateTextFieldControlDisplayOptionsPtrType)(v)
+}
+
+func (*templateTextFieldControlDisplayOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateTextFieldControlDisplayOptions)(nil)).Elem()
+}
+
+func (i *templateTextFieldControlDisplayOptionsPtrType) ToTemplateTextFieldControlDisplayOptionsPtrOutput() TemplateTextFieldControlDisplayOptionsPtrOutput {
+	return i.ToTemplateTextFieldControlDisplayOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *templateTextFieldControlDisplayOptionsPtrType) ToTemplateTextFieldControlDisplayOptionsPtrOutputWithContext(ctx context.Context) TemplateTextFieldControlDisplayOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTextFieldControlDisplayOptionsPtrOutput)
+}
+
+type TemplateTextFieldControlDisplayOptionsOutput struct{ *pulumi.OutputState }
+
+func (TemplateTextFieldControlDisplayOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateTextFieldControlDisplayOptions)(nil)).Elem()
+}
+
+func (o TemplateTextFieldControlDisplayOptionsOutput) ToTemplateTextFieldControlDisplayOptionsOutput() TemplateTextFieldControlDisplayOptionsOutput {
+	return o
+}
+
+func (o TemplateTextFieldControlDisplayOptionsOutput) ToTemplateTextFieldControlDisplayOptionsOutputWithContext(ctx context.Context) TemplateTextFieldControlDisplayOptionsOutput {
+	return o
+}
+
+func (o TemplateTextFieldControlDisplayOptionsOutput) ToTemplateTextFieldControlDisplayOptionsPtrOutput() TemplateTextFieldControlDisplayOptionsPtrOutput {
+	return o.ToTemplateTextFieldControlDisplayOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateTextFieldControlDisplayOptionsOutput) ToTemplateTextFieldControlDisplayOptionsPtrOutputWithContext(ctx context.Context) TemplateTextFieldControlDisplayOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateTextFieldControlDisplayOptions) *TemplateTextFieldControlDisplayOptions {
+		return &v
+	}).(TemplateTextFieldControlDisplayOptionsPtrOutput)
+}
+
+func (o TemplateTextFieldControlDisplayOptionsOutput) InfoIconLabelOptions() TemplateSheetControlInfoIconLabelOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateTextFieldControlDisplayOptions) *TemplateSheetControlInfoIconLabelOptions {
+		return v.InfoIconLabelOptions
+	}).(TemplateSheetControlInfoIconLabelOptionsPtrOutput)
+}
+
+func (o TemplateTextFieldControlDisplayOptionsOutput) PlaceholderOptions() TemplateTextControlPlaceholderOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateTextFieldControlDisplayOptions) *TemplateTextControlPlaceholderOptions {
+		return v.PlaceholderOptions
+	}).(TemplateTextControlPlaceholderOptionsPtrOutput)
+}
+
+func (o TemplateTextFieldControlDisplayOptionsOutput) TitleOptions() TemplateLabelOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateTextFieldControlDisplayOptions) *TemplateLabelOptions { return v.TitleOptions }).(TemplateLabelOptionsPtrOutput)
+}
+
+type TemplateTextFieldControlDisplayOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateTextFieldControlDisplayOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateTextFieldControlDisplayOptions)(nil)).Elem()
+}
+
+func (o TemplateTextFieldControlDisplayOptionsPtrOutput) ToTemplateTextFieldControlDisplayOptionsPtrOutput() TemplateTextFieldControlDisplayOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateTextFieldControlDisplayOptionsPtrOutput) ToTemplateTextFieldControlDisplayOptionsPtrOutputWithContext(ctx context.Context) TemplateTextFieldControlDisplayOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateTextFieldControlDisplayOptionsPtrOutput) Elem() TemplateTextFieldControlDisplayOptionsOutput {
+	return o.ApplyT(func(v *TemplateTextFieldControlDisplayOptions) TemplateTextFieldControlDisplayOptions {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateTextFieldControlDisplayOptions
+		return ret
+	}).(TemplateTextFieldControlDisplayOptionsOutput)
+}
+
+func (o TemplateTextFieldControlDisplayOptionsPtrOutput) InfoIconLabelOptions() TemplateSheetControlInfoIconLabelOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateTextFieldControlDisplayOptions) *TemplateSheetControlInfoIconLabelOptions {
+		if v == nil {
+			return nil
+		}
+		return v.InfoIconLabelOptions
+	}).(TemplateSheetControlInfoIconLabelOptionsPtrOutput)
+}
+
+func (o TemplateTextFieldControlDisplayOptionsPtrOutput) PlaceholderOptions() TemplateTextControlPlaceholderOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateTextFieldControlDisplayOptions) *TemplateTextControlPlaceholderOptions {
+		if v == nil {
+			return nil
+		}
+		return v.PlaceholderOptions
+	}).(TemplateTextControlPlaceholderOptionsPtrOutput)
+}
+
+func (o TemplateTextFieldControlDisplayOptionsPtrOutput) TitleOptions() TemplateLabelOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateTextFieldControlDisplayOptions) *TemplateLabelOptions {
+		if v == nil {
+			return nil
+		}
+		return v.TitleOptions
+	}).(TemplateLabelOptionsPtrOutput)
+}
+
 type TemplateThousandSeparatorOptions struct {
 	Symbol     *TemplateNumericSeparatorSymbol `pulumi:"symbol"`
 	Visibility *TemplateVisibility             `pulumi:"visibility"`
@@ -5760,17 +6390,153 @@ func (o TemplateWaterfallChartAggregatedFieldWellsPtrOutput) Values() TemplateMe
 	}).(TemplateMeasureFieldArrayOutput)
 }
 
+type TemplateWaterfallChartColorConfiguration struct {
+	GroupColorConfiguration *TemplateWaterfallChartGroupColorConfiguration `pulumi:"groupColorConfiguration"`
+}
+
+// TemplateWaterfallChartColorConfigurationInput is an input type that accepts TemplateWaterfallChartColorConfigurationArgs and TemplateWaterfallChartColorConfigurationOutput values.
+// You can construct a concrete instance of `TemplateWaterfallChartColorConfigurationInput` via:
+//
+//	TemplateWaterfallChartColorConfigurationArgs{...}
+type TemplateWaterfallChartColorConfigurationInput interface {
+	pulumi.Input
+
+	ToTemplateWaterfallChartColorConfigurationOutput() TemplateWaterfallChartColorConfigurationOutput
+	ToTemplateWaterfallChartColorConfigurationOutputWithContext(context.Context) TemplateWaterfallChartColorConfigurationOutput
+}
+
+type TemplateWaterfallChartColorConfigurationArgs struct {
+	GroupColorConfiguration TemplateWaterfallChartGroupColorConfigurationPtrInput `pulumi:"groupColorConfiguration"`
+}
+
+func (TemplateWaterfallChartColorConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateWaterfallChartColorConfiguration)(nil)).Elem()
+}
+
+func (i TemplateWaterfallChartColorConfigurationArgs) ToTemplateWaterfallChartColorConfigurationOutput() TemplateWaterfallChartColorConfigurationOutput {
+	return i.ToTemplateWaterfallChartColorConfigurationOutputWithContext(context.Background())
+}
+
+func (i TemplateWaterfallChartColorConfigurationArgs) ToTemplateWaterfallChartColorConfigurationOutputWithContext(ctx context.Context) TemplateWaterfallChartColorConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateWaterfallChartColorConfigurationOutput)
+}
+
+func (i TemplateWaterfallChartColorConfigurationArgs) ToTemplateWaterfallChartColorConfigurationPtrOutput() TemplateWaterfallChartColorConfigurationPtrOutput {
+	return i.ToTemplateWaterfallChartColorConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateWaterfallChartColorConfigurationArgs) ToTemplateWaterfallChartColorConfigurationPtrOutputWithContext(ctx context.Context) TemplateWaterfallChartColorConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateWaterfallChartColorConfigurationOutput).ToTemplateWaterfallChartColorConfigurationPtrOutputWithContext(ctx)
+}
+
+// TemplateWaterfallChartColorConfigurationPtrInput is an input type that accepts TemplateWaterfallChartColorConfigurationArgs, TemplateWaterfallChartColorConfigurationPtr and TemplateWaterfallChartColorConfigurationPtrOutput values.
+// You can construct a concrete instance of `TemplateWaterfallChartColorConfigurationPtrInput` via:
+//
+//	        TemplateWaterfallChartColorConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateWaterfallChartColorConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTemplateWaterfallChartColorConfigurationPtrOutput() TemplateWaterfallChartColorConfigurationPtrOutput
+	ToTemplateWaterfallChartColorConfigurationPtrOutputWithContext(context.Context) TemplateWaterfallChartColorConfigurationPtrOutput
+}
+
+type templateWaterfallChartColorConfigurationPtrType TemplateWaterfallChartColorConfigurationArgs
+
+func TemplateWaterfallChartColorConfigurationPtr(v *TemplateWaterfallChartColorConfigurationArgs) TemplateWaterfallChartColorConfigurationPtrInput {
+	return (*templateWaterfallChartColorConfigurationPtrType)(v)
+}
+
+func (*templateWaterfallChartColorConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateWaterfallChartColorConfiguration)(nil)).Elem()
+}
+
+func (i *templateWaterfallChartColorConfigurationPtrType) ToTemplateWaterfallChartColorConfigurationPtrOutput() TemplateWaterfallChartColorConfigurationPtrOutput {
+	return i.ToTemplateWaterfallChartColorConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *templateWaterfallChartColorConfigurationPtrType) ToTemplateWaterfallChartColorConfigurationPtrOutputWithContext(ctx context.Context) TemplateWaterfallChartColorConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateWaterfallChartColorConfigurationPtrOutput)
+}
+
+type TemplateWaterfallChartColorConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TemplateWaterfallChartColorConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateWaterfallChartColorConfiguration)(nil)).Elem()
+}
+
+func (o TemplateWaterfallChartColorConfigurationOutput) ToTemplateWaterfallChartColorConfigurationOutput() TemplateWaterfallChartColorConfigurationOutput {
+	return o
+}
+
+func (o TemplateWaterfallChartColorConfigurationOutput) ToTemplateWaterfallChartColorConfigurationOutputWithContext(ctx context.Context) TemplateWaterfallChartColorConfigurationOutput {
+	return o
+}
+
+func (o TemplateWaterfallChartColorConfigurationOutput) ToTemplateWaterfallChartColorConfigurationPtrOutput() TemplateWaterfallChartColorConfigurationPtrOutput {
+	return o.ToTemplateWaterfallChartColorConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateWaterfallChartColorConfigurationOutput) ToTemplateWaterfallChartColorConfigurationPtrOutputWithContext(ctx context.Context) TemplateWaterfallChartColorConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateWaterfallChartColorConfiguration) *TemplateWaterfallChartColorConfiguration {
+		return &v
+	}).(TemplateWaterfallChartColorConfigurationPtrOutput)
+}
+
+func (o TemplateWaterfallChartColorConfigurationOutput) GroupColorConfiguration() TemplateWaterfallChartGroupColorConfigurationPtrOutput {
+	return o.ApplyT(func(v TemplateWaterfallChartColorConfiguration) *TemplateWaterfallChartGroupColorConfiguration {
+		return v.GroupColorConfiguration
+	}).(TemplateWaterfallChartGroupColorConfigurationPtrOutput)
+}
+
+type TemplateWaterfallChartColorConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateWaterfallChartColorConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateWaterfallChartColorConfiguration)(nil)).Elem()
+}
+
+func (o TemplateWaterfallChartColorConfigurationPtrOutput) ToTemplateWaterfallChartColorConfigurationPtrOutput() TemplateWaterfallChartColorConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateWaterfallChartColorConfigurationPtrOutput) ToTemplateWaterfallChartColorConfigurationPtrOutputWithContext(ctx context.Context) TemplateWaterfallChartColorConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateWaterfallChartColorConfigurationPtrOutput) Elem() TemplateWaterfallChartColorConfigurationOutput {
+	return o.ApplyT(func(v *TemplateWaterfallChartColorConfiguration) TemplateWaterfallChartColorConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateWaterfallChartColorConfiguration
+		return ret
+	}).(TemplateWaterfallChartColorConfigurationOutput)
+}
+
+func (o TemplateWaterfallChartColorConfigurationPtrOutput) GroupColorConfiguration() TemplateWaterfallChartGroupColorConfigurationPtrOutput {
+	return o.ApplyT(func(v *TemplateWaterfallChartColorConfiguration) *TemplateWaterfallChartGroupColorConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.GroupColorConfiguration
+	}).(TemplateWaterfallChartGroupColorConfigurationPtrOutput)
+}
+
 type TemplateWaterfallChartConfiguration struct {
-	CategoryAxisDisplayOptions *TemplateAxisDisplayOptions              `pulumi:"categoryAxisDisplayOptions"`
-	CategoryAxisLabelOptions   *TemplateChartAxisLabelOptions           `pulumi:"categoryAxisLabelOptions"`
-	DataLabels                 *TemplateDataLabelOptions                `pulumi:"dataLabels"`
-	FieldWells                 *TemplateWaterfallChartFieldWells        `pulumi:"fieldWells"`
-	Legend                     *TemplateLegendOptions                   `pulumi:"legend"`
-	PrimaryYAxisDisplayOptions *TemplateAxisDisplayOptions              `pulumi:"primaryYAxisDisplayOptions"`
-	PrimaryYAxisLabelOptions   *TemplateChartAxisLabelOptions           `pulumi:"primaryYAxisLabelOptions"`
-	SortConfiguration          *TemplateWaterfallChartSortConfiguration `pulumi:"sortConfiguration"`
-	VisualPalette              *TemplateVisualPalette                   `pulumi:"visualPalette"`
-	WaterfallChartOptions      *TemplateWaterfallChartOptions           `pulumi:"waterfallChartOptions"`
+	CategoryAxisDisplayOptions *TemplateAxisDisplayOptions               `pulumi:"categoryAxisDisplayOptions"`
+	CategoryAxisLabelOptions   *TemplateChartAxisLabelOptions            `pulumi:"categoryAxisLabelOptions"`
+	ColorConfiguration         *TemplateWaterfallChartColorConfiguration `pulumi:"colorConfiguration"`
+	DataLabels                 *TemplateDataLabelOptions                 `pulumi:"dataLabels"`
+	FieldWells                 *TemplateWaterfallChartFieldWells         `pulumi:"fieldWells"`
+	Legend                     *TemplateLegendOptions                    `pulumi:"legend"`
+	PrimaryYAxisDisplayOptions *TemplateAxisDisplayOptions               `pulumi:"primaryYAxisDisplayOptions"`
+	PrimaryYAxisLabelOptions   *TemplateChartAxisLabelOptions            `pulumi:"primaryYAxisLabelOptions"`
+	SortConfiguration          *TemplateWaterfallChartSortConfiguration  `pulumi:"sortConfiguration"`
+	VisualPalette              *TemplateVisualPalette                    `pulumi:"visualPalette"`
+	WaterfallChartOptions      *TemplateWaterfallChartOptions            `pulumi:"waterfallChartOptions"`
 }
 
 // TemplateWaterfallChartConfigurationInput is an input type that accepts TemplateWaterfallChartConfigurationArgs and TemplateWaterfallChartConfigurationOutput values.
@@ -5785,16 +6551,17 @@ type TemplateWaterfallChartConfigurationInput interface {
 }
 
 type TemplateWaterfallChartConfigurationArgs struct {
-	CategoryAxisDisplayOptions TemplateAxisDisplayOptionsPtrInput              `pulumi:"categoryAxisDisplayOptions"`
-	CategoryAxisLabelOptions   TemplateChartAxisLabelOptionsPtrInput           `pulumi:"categoryAxisLabelOptions"`
-	DataLabels                 TemplateDataLabelOptionsPtrInput                `pulumi:"dataLabels"`
-	FieldWells                 TemplateWaterfallChartFieldWellsPtrInput        `pulumi:"fieldWells"`
-	Legend                     TemplateLegendOptionsPtrInput                   `pulumi:"legend"`
-	PrimaryYAxisDisplayOptions TemplateAxisDisplayOptionsPtrInput              `pulumi:"primaryYAxisDisplayOptions"`
-	PrimaryYAxisLabelOptions   TemplateChartAxisLabelOptionsPtrInput           `pulumi:"primaryYAxisLabelOptions"`
-	SortConfiguration          TemplateWaterfallChartSortConfigurationPtrInput `pulumi:"sortConfiguration"`
-	VisualPalette              TemplateVisualPalettePtrInput                   `pulumi:"visualPalette"`
-	WaterfallChartOptions      TemplateWaterfallChartOptionsPtrInput           `pulumi:"waterfallChartOptions"`
+	CategoryAxisDisplayOptions TemplateAxisDisplayOptionsPtrInput               `pulumi:"categoryAxisDisplayOptions"`
+	CategoryAxisLabelOptions   TemplateChartAxisLabelOptionsPtrInput            `pulumi:"categoryAxisLabelOptions"`
+	ColorConfiguration         TemplateWaterfallChartColorConfigurationPtrInput `pulumi:"colorConfiguration"`
+	DataLabels                 TemplateDataLabelOptionsPtrInput                 `pulumi:"dataLabels"`
+	FieldWells                 TemplateWaterfallChartFieldWellsPtrInput         `pulumi:"fieldWells"`
+	Legend                     TemplateLegendOptionsPtrInput                    `pulumi:"legend"`
+	PrimaryYAxisDisplayOptions TemplateAxisDisplayOptionsPtrInput               `pulumi:"primaryYAxisDisplayOptions"`
+	PrimaryYAxisLabelOptions   TemplateChartAxisLabelOptionsPtrInput            `pulumi:"primaryYAxisLabelOptions"`
+	SortConfiguration          TemplateWaterfallChartSortConfigurationPtrInput  `pulumi:"sortConfiguration"`
+	VisualPalette              TemplateVisualPalettePtrInput                    `pulumi:"visualPalette"`
+	WaterfallChartOptions      TemplateWaterfallChartOptionsPtrInput            `pulumi:"waterfallChartOptions"`
 }
 
 func (TemplateWaterfallChartConfigurationArgs) ElementType() reflect.Type {
@@ -5886,6 +6653,12 @@ func (o TemplateWaterfallChartConfigurationOutput) CategoryAxisLabelOptions() Te
 	}).(TemplateChartAxisLabelOptionsPtrOutput)
 }
 
+func (o TemplateWaterfallChartConfigurationOutput) ColorConfiguration() TemplateWaterfallChartColorConfigurationPtrOutput {
+	return o.ApplyT(func(v TemplateWaterfallChartConfiguration) *TemplateWaterfallChartColorConfiguration {
+		return v.ColorConfiguration
+	}).(TemplateWaterfallChartColorConfigurationPtrOutput)
+}
+
 func (o TemplateWaterfallChartConfigurationOutput) DataLabels() TemplateDataLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateWaterfallChartConfiguration) *TemplateDataLabelOptions { return v.DataLabels }).(TemplateDataLabelOptionsPtrOutput)
 }
@@ -5966,6 +6739,15 @@ func (o TemplateWaterfallChartConfigurationPtrOutput) CategoryAxisLabelOptions()
 		}
 		return v.CategoryAxisLabelOptions
 	}).(TemplateChartAxisLabelOptionsPtrOutput)
+}
+
+func (o TemplateWaterfallChartConfigurationPtrOutput) ColorConfiguration() TemplateWaterfallChartColorConfigurationPtrOutput {
+	return o.ApplyT(func(v *TemplateWaterfallChartConfiguration) *TemplateWaterfallChartColorConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ColorConfiguration
+	}).(TemplateWaterfallChartColorConfigurationPtrOutput)
 }
 
 func (o TemplateWaterfallChartConfigurationPtrOutput) DataLabels() TemplateDataLabelOptionsPtrOutput {
@@ -6173,6 +6955,169 @@ func (o TemplateWaterfallChartFieldWellsPtrOutput) WaterfallChartAggregatedField
 		}
 		return v.WaterfallChartAggregatedFieldWells
 	}).(TemplateWaterfallChartAggregatedFieldWellsPtrOutput)
+}
+
+type TemplateWaterfallChartGroupColorConfiguration struct {
+	NegativeBarColor *string `pulumi:"negativeBarColor"`
+	PositiveBarColor *string `pulumi:"positiveBarColor"`
+	TotalBarColor    *string `pulumi:"totalBarColor"`
+}
+
+// TemplateWaterfallChartGroupColorConfigurationInput is an input type that accepts TemplateWaterfallChartGroupColorConfigurationArgs and TemplateWaterfallChartGroupColorConfigurationOutput values.
+// You can construct a concrete instance of `TemplateWaterfallChartGroupColorConfigurationInput` via:
+//
+//	TemplateWaterfallChartGroupColorConfigurationArgs{...}
+type TemplateWaterfallChartGroupColorConfigurationInput interface {
+	pulumi.Input
+
+	ToTemplateWaterfallChartGroupColorConfigurationOutput() TemplateWaterfallChartGroupColorConfigurationOutput
+	ToTemplateWaterfallChartGroupColorConfigurationOutputWithContext(context.Context) TemplateWaterfallChartGroupColorConfigurationOutput
+}
+
+type TemplateWaterfallChartGroupColorConfigurationArgs struct {
+	NegativeBarColor pulumi.StringPtrInput `pulumi:"negativeBarColor"`
+	PositiveBarColor pulumi.StringPtrInput `pulumi:"positiveBarColor"`
+	TotalBarColor    pulumi.StringPtrInput `pulumi:"totalBarColor"`
+}
+
+func (TemplateWaterfallChartGroupColorConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateWaterfallChartGroupColorConfiguration)(nil)).Elem()
+}
+
+func (i TemplateWaterfallChartGroupColorConfigurationArgs) ToTemplateWaterfallChartGroupColorConfigurationOutput() TemplateWaterfallChartGroupColorConfigurationOutput {
+	return i.ToTemplateWaterfallChartGroupColorConfigurationOutputWithContext(context.Background())
+}
+
+func (i TemplateWaterfallChartGroupColorConfigurationArgs) ToTemplateWaterfallChartGroupColorConfigurationOutputWithContext(ctx context.Context) TemplateWaterfallChartGroupColorConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateWaterfallChartGroupColorConfigurationOutput)
+}
+
+func (i TemplateWaterfallChartGroupColorConfigurationArgs) ToTemplateWaterfallChartGroupColorConfigurationPtrOutput() TemplateWaterfallChartGroupColorConfigurationPtrOutput {
+	return i.ToTemplateWaterfallChartGroupColorConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateWaterfallChartGroupColorConfigurationArgs) ToTemplateWaterfallChartGroupColorConfigurationPtrOutputWithContext(ctx context.Context) TemplateWaterfallChartGroupColorConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateWaterfallChartGroupColorConfigurationOutput).ToTemplateWaterfallChartGroupColorConfigurationPtrOutputWithContext(ctx)
+}
+
+// TemplateWaterfallChartGroupColorConfigurationPtrInput is an input type that accepts TemplateWaterfallChartGroupColorConfigurationArgs, TemplateWaterfallChartGroupColorConfigurationPtr and TemplateWaterfallChartGroupColorConfigurationPtrOutput values.
+// You can construct a concrete instance of `TemplateWaterfallChartGroupColorConfigurationPtrInput` via:
+//
+//	        TemplateWaterfallChartGroupColorConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateWaterfallChartGroupColorConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTemplateWaterfallChartGroupColorConfigurationPtrOutput() TemplateWaterfallChartGroupColorConfigurationPtrOutput
+	ToTemplateWaterfallChartGroupColorConfigurationPtrOutputWithContext(context.Context) TemplateWaterfallChartGroupColorConfigurationPtrOutput
+}
+
+type templateWaterfallChartGroupColorConfigurationPtrType TemplateWaterfallChartGroupColorConfigurationArgs
+
+func TemplateWaterfallChartGroupColorConfigurationPtr(v *TemplateWaterfallChartGroupColorConfigurationArgs) TemplateWaterfallChartGroupColorConfigurationPtrInput {
+	return (*templateWaterfallChartGroupColorConfigurationPtrType)(v)
+}
+
+func (*templateWaterfallChartGroupColorConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateWaterfallChartGroupColorConfiguration)(nil)).Elem()
+}
+
+func (i *templateWaterfallChartGroupColorConfigurationPtrType) ToTemplateWaterfallChartGroupColorConfigurationPtrOutput() TemplateWaterfallChartGroupColorConfigurationPtrOutput {
+	return i.ToTemplateWaterfallChartGroupColorConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *templateWaterfallChartGroupColorConfigurationPtrType) ToTemplateWaterfallChartGroupColorConfigurationPtrOutputWithContext(ctx context.Context) TemplateWaterfallChartGroupColorConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateWaterfallChartGroupColorConfigurationPtrOutput)
+}
+
+type TemplateWaterfallChartGroupColorConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TemplateWaterfallChartGroupColorConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateWaterfallChartGroupColorConfiguration)(nil)).Elem()
+}
+
+func (o TemplateWaterfallChartGroupColorConfigurationOutput) ToTemplateWaterfallChartGroupColorConfigurationOutput() TemplateWaterfallChartGroupColorConfigurationOutput {
+	return o
+}
+
+func (o TemplateWaterfallChartGroupColorConfigurationOutput) ToTemplateWaterfallChartGroupColorConfigurationOutputWithContext(ctx context.Context) TemplateWaterfallChartGroupColorConfigurationOutput {
+	return o
+}
+
+func (o TemplateWaterfallChartGroupColorConfigurationOutput) ToTemplateWaterfallChartGroupColorConfigurationPtrOutput() TemplateWaterfallChartGroupColorConfigurationPtrOutput {
+	return o.ToTemplateWaterfallChartGroupColorConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateWaterfallChartGroupColorConfigurationOutput) ToTemplateWaterfallChartGroupColorConfigurationPtrOutputWithContext(ctx context.Context) TemplateWaterfallChartGroupColorConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateWaterfallChartGroupColorConfiguration) *TemplateWaterfallChartGroupColorConfiguration {
+		return &v
+	}).(TemplateWaterfallChartGroupColorConfigurationPtrOutput)
+}
+
+func (o TemplateWaterfallChartGroupColorConfigurationOutput) NegativeBarColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateWaterfallChartGroupColorConfiguration) *string { return v.NegativeBarColor }).(pulumi.StringPtrOutput)
+}
+
+func (o TemplateWaterfallChartGroupColorConfigurationOutput) PositiveBarColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateWaterfallChartGroupColorConfiguration) *string { return v.PositiveBarColor }).(pulumi.StringPtrOutput)
+}
+
+func (o TemplateWaterfallChartGroupColorConfigurationOutput) TotalBarColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateWaterfallChartGroupColorConfiguration) *string { return v.TotalBarColor }).(pulumi.StringPtrOutput)
+}
+
+type TemplateWaterfallChartGroupColorConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateWaterfallChartGroupColorConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateWaterfallChartGroupColorConfiguration)(nil)).Elem()
+}
+
+func (o TemplateWaterfallChartGroupColorConfigurationPtrOutput) ToTemplateWaterfallChartGroupColorConfigurationPtrOutput() TemplateWaterfallChartGroupColorConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateWaterfallChartGroupColorConfigurationPtrOutput) ToTemplateWaterfallChartGroupColorConfigurationPtrOutputWithContext(ctx context.Context) TemplateWaterfallChartGroupColorConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateWaterfallChartGroupColorConfigurationPtrOutput) Elem() TemplateWaterfallChartGroupColorConfigurationOutput {
+	return o.ApplyT(func(v *TemplateWaterfallChartGroupColorConfiguration) TemplateWaterfallChartGroupColorConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateWaterfallChartGroupColorConfiguration
+		return ret
+	}).(TemplateWaterfallChartGroupColorConfigurationOutput)
+}
+
+func (o TemplateWaterfallChartGroupColorConfigurationPtrOutput) NegativeBarColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateWaterfallChartGroupColorConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NegativeBarColor
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TemplateWaterfallChartGroupColorConfigurationPtrOutput) PositiveBarColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateWaterfallChartGroupColorConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PositiveBarColor
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TemplateWaterfallChartGroupColorConfigurationPtrOutput) TotalBarColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateWaterfallChartGroupColorConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TotalBarColor
+	}).(pulumi.StringPtrOutput)
 }
 
 type TemplateWaterfallChartOptions struct {
@@ -14362,6 +15307,14 @@ type VpcConnectionTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTextAreaControlDisplayOptionsInput)(nil)).Elem(), TemplateTextAreaControlDisplayOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTextAreaControlDisplayOptionsPtrInput)(nil)).Elem(), TemplateTextAreaControlDisplayOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTextConditionalFormatInput)(nil)).Elem(), TemplateTextConditionalFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTextConditionalFormatPtrInput)(nil)).Elem(), TemplateTextConditionalFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTextControlPlaceholderOptionsInput)(nil)).Elem(), TemplateTextControlPlaceholderOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTextControlPlaceholderOptionsPtrInput)(nil)).Elem(), TemplateTextControlPlaceholderOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTextFieldControlDisplayOptionsInput)(nil)).Elem(), TemplateTextFieldControlDisplayOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTextFieldControlDisplayOptionsPtrInput)(nil)).Elem(), TemplateTextFieldControlDisplayOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateThousandSeparatorOptionsInput)(nil)).Elem(), TemplateThousandSeparatorOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateThousandSeparatorOptionsPtrInput)(nil)).Elem(), TemplateThousandSeparatorOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTimeBasedForecastPropertiesInput)(nil)).Elem(), TemplateTimeBasedForecastPropertiesArgs{})
@@ -14427,10 +15380,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateVisualTitleLabelOptionsPtrInput)(nil)).Elem(), TemplateVisualTitleLabelOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateWaterfallChartAggregatedFieldWellsInput)(nil)).Elem(), TemplateWaterfallChartAggregatedFieldWellsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateWaterfallChartAggregatedFieldWellsPtrInput)(nil)).Elem(), TemplateWaterfallChartAggregatedFieldWellsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateWaterfallChartColorConfigurationInput)(nil)).Elem(), TemplateWaterfallChartColorConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateWaterfallChartColorConfigurationPtrInput)(nil)).Elem(), TemplateWaterfallChartColorConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateWaterfallChartConfigurationInput)(nil)).Elem(), TemplateWaterfallChartConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateWaterfallChartConfigurationPtrInput)(nil)).Elem(), TemplateWaterfallChartConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateWaterfallChartFieldWellsInput)(nil)).Elem(), TemplateWaterfallChartFieldWellsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateWaterfallChartFieldWellsPtrInput)(nil)).Elem(), TemplateWaterfallChartFieldWellsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateWaterfallChartGroupColorConfigurationInput)(nil)).Elem(), TemplateWaterfallChartGroupColorConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateWaterfallChartGroupColorConfigurationPtrInput)(nil)).Elem(), TemplateWaterfallChartGroupColorConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateWaterfallChartOptionsInput)(nil)).Elem(), TemplateWaterfallChartOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateWaterfallChartOptionsPtrInput)(nil)).Elem(), TemplateWaterfallChartOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateWaterfallChartSortConfigurationInput)(nil)).Elem(), TemplateWaterfallChartSortConfigurationArgs{})
@@ -14526,6 +15483,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSemanticTypePtrInput)(nil)).Elem(), TopicSemanticTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSingularFilterConstantInput)(nil)).Elem(), TopicSingularFilterConstantArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSingularFilterConstantPtrInput)(nil)).Elem(), TopicSingularFilterConstantArgs{})
+	pulumi.RegisterOutputType(TemplateTextAreaControlDisplayOptionsOutput{})
+	pulumi.RegisterOutputType(TemplateTextAreaControlDisplayOptionsPtrOutput{})
+	pulumi.RegisterOutputType(TemplateTextConditionalFormatOutput{})
+	pulumi.RegisterOutputType(TemplateTextConditionalFormatPtrOutput{})
+	pulumi.RegisterOutputType(TemplateTextControlPlaceholderOptionsOutput{})
+	pulumi.RegisterOutputType(TemplateTextControlPlaceholderOptionsPtrOutput{})
+	pulumi.RegisterOutputType(TemplateTextFieldControlDisplayOptionsOutput{})
+	pulumi.RegisterOutputType(TemplateTextFieldControlDisplayOptionsPtrOutput{})
 	pulumi.RegisterOutputType(TemplateThousandSeparatorOptionsOutput{})
 	pulumi.RegisterOutputType(TemplateThousandSeparatorOptionsPtrOutput{})
 	pulumi.RegisterOutputType(TemplateTimeBasedForecastPropertiesOutput{})
@@ -14593,10 +15558,14 @@ func init() {
 	pulumi.RegisterOutputType(TemplateVisualTitleLabelOptionsPtrOutput{})
 	pulumi.RegisterOutputType(TemplateWaterfallChartAggregatedFieldWellsOutput{})
 	pulumi.RegisterOutputType(TemplateWaterfallChartAggregatedFieldWellsPtrOutput{})
+	pulumi.RegisterOutputType(TemplateWaterfallChartColorConfigurationOutput{})
+	pulumi.RegisterOutputType(TemplateWaterfallChartColorConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TemplateWaterfallChartConfigurationOutput{})
 	pulumi.RegisterOutputType(TemplateWaterfallChartConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TemplateWaterfallChartFieldWellsOutput{})
 	pulumi.RegisterOutputType(TemplateWaterfallChartFieldWellsPtrOutput{})
+	pulumi.RegisterOutputType(TemplateWaterfallChartGroupColorConfigurationOutput{})
+	pulumi.RegisterOutputType(TemplateWaterfallChartGroupColorConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TemplateWaterfallChartOptionsOutput{})
 	pulumi.RegisterOutputType(TemplateWaterfallChartOptionsPtrOutput{})
 	pulumi.RegisterOutputType(TemplateWaterfallChartSortConfigurationOutput{})

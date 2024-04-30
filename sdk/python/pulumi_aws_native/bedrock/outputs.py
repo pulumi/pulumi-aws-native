@@ -837,6 +837,8 @@ class DataSourceS3DataSourceConfiguration(dict):
         suggest = None
         if key == "bucketArn":
             suggest = "bucket_arn"
+        elif key == "bucketOwnerAccountId":
+            suggest = "bucket_owner_account_id"
         elif key == "inclusionPrefixes":
             suggest = "inclusion_prefixes"
 
@@ -853,13 +855,17 @@ class DataSourceS3DataSourceConfiguration(dict):
 
     def __init__(__self__, *,
                  bucket_arn: str,
+                 bucket_owner_account_id: Optional[str] = None,
                  inclusion_prefixes: Optional[Sequence[str]] = None):
         """
         Contains information about the S3 configuration of the data source.
         :param str bucket_arn: The ARN of the bucket that contains the data source.
+        :param str bucket_owner_account_id: The account ID for the owner of the S3 bucket.
         :param Sequence[str] inclusion_prefixes: A list of S3 prefixes that define the object containing the data sources.
         """
         pulumi.set(__self__, "bucket_arn", bucket_arn)
+        if bucket_owner_account_id is not None:
+            pulumi.set(__self__, "bucket_owner_account_id", bucket_owner_account_id)
         if inclusion_prefixes is not None:
             pulumi.set(__self__, "inclusion_prefixes", inclusion_prefixes)
 
@@ -870,6 +876,14 @@ class DataSourceS3DataSourceConfiguration(dict):
         The ARN of the bucket that contains the data source.
         """
         return pulumi.get(self, "bucket_arn")
+
+    @property
+    @pulumi.getter(name="bucketOwnerAccountId")
+    def bucket_owner_account_id(self) -> Optional[str]:
+        """
+        The account ID for the owner of the S3 bucket.
+        """
+        return pulumi.get(self, "bucket_owner_account_id")
 
     @property
     @pulumi.getter(name="inclusionPrefixes")

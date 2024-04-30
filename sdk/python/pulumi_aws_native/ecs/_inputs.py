@@ -18,7 +18,6 @@ __all__ = [
     'ClusterConfigurationArgs',
     'ClusterExecuteCommandConfigurationArgs',
     'ClusterExecuteCommandLogConfigurationArgs',
-    'ClusterManagedStorageConfigurationArgs',
     'ClusterServiceConnectDefaultsArgs',
     'ClusterSettingsArgs',
     'ServiceAwsVpcConfigurationArgs',
@@ -306,16 +305,13 @@ class ClusterCapacityProviderStrategyItemArgs:
 @pulumi.input_type
 class ClusterConfigurationArgs:
     def __init__(__self__, *,
-                 execute_command_configuration: Optional[pulumi.Input['ClusterExecuteCommandConfigurationArgs']] = None,
-                 managed_storage_configuration: Optional[pulumi.Input['ClusterManagedStorageConfigurationArgs']] = None):
+                 execute_command_configuration: Optional[pulumi.Input['ClusterExecuteCommandConfigurationArgs']] = None):
         """
         The execute command configuration for the cluster.
         :param pulumi.Input['ClusterExecuteCommandConfigurationArgs'] execute_command_configuration: The details of the execute command configuration.
         """
         if execute_command_configuration is not None:
             pulumi.set(__self__, "execute_command_configuration", execute_command_configuration)
-        if managed_storage_configuration is not None:
-            pulumi.set(__self__, "managed_storage_configuration", managed_storage_configuration)
 
     @property
     @pulumi.getter(name="executeCommandConfiguration")
@@ -328,15 +324,6 @@ class ClusterConfigurationArgs:
     @execute_command_configuration.setter
     def execute_command_configuration(self, value: Optional[pulumi.Input['ClusterExecuteCommandConfigurationArgs']]):
         pulumi.set(self, "execute_command_configuration", value)
-
-    @property
-    @pulumi.getter(name="managedStorageConfiguration")
-    def managed_storage_configuration(self) -> Optional[pulumi.Input['ClusterManagedStorageConfigurationArgs']]:
-        return pulumi.get(self, "managed_storage_configuration")
-
-    @managed_storage_configuration.setter
-    def managed_storage_configuration(self, value: Optional[pulumi.Input['ClusterManagedStorageConfigurationArgs']]):
-        pulumi.set(self, "managed_storage_configuration", value)
 
 
 @pulumi.input_type
@@ -491,35 +478,6 @@ class ClusterExecuteCommandLogConfigurationArgs:
     @s3_key_prefix.setter
     def s3_key_prefix(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "s3_key_prefix", value)
-
-
-@pulumi.input_type
-class ClusterManagedStorageConfigurationArgs:
-    def __init__(__self__, *,
-                 fargate_ephemeral_storage_kms_key_id: Optional[pulumi.Input[str]] = None,
-                 kms_key_id: Optional[pulumi.Input[str]] = None):
-        if fargate_ephemeral_storage_kms_key_id is not None:
-            pulumi.set(__self__, "fargate_ephemeral_storage_kms_key_id", fargate_ephemeral_storage_kms_key_id)
-        if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
-
-    @property
-    @pulumi.getter(name="fargateEphemeralStorageKmsKeyId")
-    def fargate_ephemeral_storage_kms_key_id(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "fargate_ephemeral_storage_kms_key_id")
-
-    @fargate_ephemeral_storage_kms_key_id.setter
-    def fargate_ephemeral_storage_kms_key_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "fargate_ephemeral_storage_kms_key_id", value)
-
-    @property
-    @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "kms_key_id")
-
-    @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "kms_key_id", value)
 
 
 @pulumi.input_type
@@ -3315,6 +3273,13 @@ class TaskDefinitionFSxWindowsFileServerVolumeConfigurationArgs:
                  file_system_id: pulumi.Input[str],
                  root_directory: pulumi.Input[str],
                  authorization_config: Optional[pulumi.Input['TaskDefinitionFSxAuthorizationConfigArgs']] = None):
+        """
+        This parameter is specified when you're using [Amazon FSx for Windows File Server](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/what-is.html) file system for task storage.
+         For more information and the input format, see [Amazon FSx for Windows File Server volumes](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/wfsx-volumes.html) in the *Amazon Elastic Container Service Developer Guide*.
+        :param pulumi.Input[str] file_system_id: The Amazon FSx for Windows File Server file system ID to use.
+        :param pulumi.Input[str] root_directory: The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
+        :param pulumi.Input['TaskDefinitionFSxAuthorizationConfigArgs'] authorization_config: The authorization configuration details for the Amazon FSx for Windows File Server file system.
+        """
         pulumi.set(__self__, "file_system_id", file_system_id)
         pulumi.set(__self__, "root_directory", root_directory)
         if authorization_config is not None:
@@ -3323,6 +3288,9 @@ class TaskDefinitionFSxWindowsFileServerVolumeConfigurationArgs:
     @property
     @pulumi.getter(name="fileSystemId")
     def file_system_id(self) -> pulumi.Input[str]:
+        """
+        The Amazon FSx for Windows File Server file system ID to use.
+        """
         return pulumi.get(self, "file_system_id")
 
     @file_system_id.setter
@@ -3332,6 +3300,9 @@ class TaskDefinitionFSxWindowsFileServerVolumeConfigurationArgs:
     @property
     @pulumi.getter(name="rootDirectory")
     def root_directory(self) -> pulumi.Input[str]:
+        """
+        The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
+        """
         return pulumi.get(self, "root_directory")
 
     @root_directory.setter
@@ -3341,6 +3312,9 @@ class TaskDefinitionFSxWindowsFileServerVolumeConfigurationArgs:
     @property
     @pulumi.getter(name="authorizationConfig")
     def authorization_config(self) -> Optional[pulumi.Input['TaskDefinitionFSxAuthorizationConfigArgs']]:
+        """
+        The authorization configuration details for the Amazon FSx for Windows File Server file system.
+        """
         return pulumi.get(self, "authorization_config")
 
     @authorization_config.setter
@@ -4617,6 +4591,7 @@ class TaskDefinitionVolumeArgs:
                 Windows containers only support the use of the ``local`` driver. To use bind mounts, specify the ``host`` parameter instead.
                  Docker volumes aren't supported by tasks run on FARGATElong.
         :param pulumi.Input['TaskDefinitionEfsVolumeConfigurationArgs'] efs_volume_configuration: This parameter is specified when you use an Amazon Elastic File System file system for task storage.
+        :param pulumi.Input['TaskDefinitionFSxWindowsFileServerVolumeConfigurationArgs'] f_sx_windows_file_server_volume_configuration: This parameter is specified when you use Amazon FSx for Windows File Server file system for task storage.
         :param pulumi.Input['TaskDefinitionHostVolumePropertiesArgs'] host: This parameter is specified when you use bind mount host volumes. The contents of the ``host`` parameter determine whether your bind mount host volume persists on the host container instance and where it's stored. If the ``host`` parameter is empty, then the Docker daemon assigns a host path for your data volume. However, the data isn't guaranteed to persist after the containers that are associated with it stop running.
                 Windows containers can mount whole directories on the same drive as ``$env:ProgramData``. Windows containers can't mount directories on a different drive, and mount point can't be across drives. For example, you can mount ``C:\\my\\path:C:\\my\\path`` and ``D:\\:D:\\``, but not ``D:\\my\\path:C:\\my\\path`` or ``D:\\:C:\\my\\path``.
         :param pulumi.Input[str] name: The name of the volume. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed.
@@ -4679,6 +4654,9 @@ class TaskDefinitionVolumeArgs:
     @property
     @pulumi.getter(name="fSxWindowsFileServerVolumeConfiguration")
     def f_sx_windows_file_server_volume_configuration(self) -> Optional[pulumi.Input['TaskDefinitionFSxWindowsFileServerVolumeConfigurationArgs']]:
+        """
+        This parameter is specified when you use Amazon FSx for Windows File Server file system for task storage.
+        """
         return pulumi.get(self, "f_sx_windows_file_server_volume_configuration")
 
     @f_sx_windows_file_server_volume_configuration.setter

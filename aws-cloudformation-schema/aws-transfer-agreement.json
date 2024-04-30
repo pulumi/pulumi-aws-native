@@ -28,7 +28,7 @@
     "Description" : {
       "description" : "A textual description for the agreement.",
       "type" : "string",
-      "pattern" : "^[\\w\\- ]*$",
+      "pattern" : "^[\\u0021-\\u007E]+$",
       "minLength" : 1,
       "maxLength" : 200
     },
@@ -56,7 +56,7 @@
     "BaseDirectory" : {
       "description" : "Specifies the base directory for the agreement.",
       "type" : "string",
-      "pattern" : "^$|/.*",
+      "pattern" : "^(|/.*)$",
       "maxLength" : 1024
     },
     "AccessRole" : {

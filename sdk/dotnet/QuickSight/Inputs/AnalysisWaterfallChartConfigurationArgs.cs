@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("categoryAxisLabelOptions")]
         public Input<Inputs.AnalysisChartAxisLabelOptionsArgs>? CategoryAxisLabelOptions { get; set; }
 
+        [Input("colorConfiguration")]
+        public Input<Inputs.AnalysisWaterfallChartColorConfigurationArgs>? ColorConfiguration { get; set; }
+
         [Input("dataLabels")]
         public Input<Inputs.AnalysisDataLabelOptionsArgs>? DataLabels { get; set; }
 

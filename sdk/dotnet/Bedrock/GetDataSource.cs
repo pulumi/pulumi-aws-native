@@ -73,6 +73,7 @@ namespace Pulumi.AwsNative.Bedrock
         /// The time at which the data source was created.
         /// </summary>
         public readonly string? CreatedAt;
+        public readonly Pulumi.AwsNative.Bedrock.DataSourceDataDeletionPolicy? DataDeletionPolicy;
         public readonly Outputs.DataSourceConfiguration? DataSourceConfiguration;
         /// <summary>
         /// Identifier for a resource.
@@ -83,6 +84,10 @@ namespace Pulumi.AwsNative.Bedrock
         /// Description of the Resource.
         /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The details of the failure reasons related to the data source.
+        /// </summary>
+        public readonly ImmutableArray<string> FailureReasons;
         /// <summary>
         /// The name of the data source.
         /// </summary>
@@ -97,6 +102,8 @@ namespace Pulumi.AwsNative.Bedrock
         private GetDataSourceResult(
             string? createdAt,
 
+            Pulumi.AwsNative.Bedrock.DataSourceDataDeletionPolicy? dataDeletionPolicy,
+
             Outputs.DataSourceConfiguration? dataSourceConfiguration,
 
             string? dataSourceId,
@@ -105,6 +112,8 @@ namespace Pulumi.AwsNative.Bedrock
 
             string? description,
 
+            ImmutableArray<string> failureReasons,
+
             string? name,
 
             Outputs.DataSourceServerSideEncryptionConfiguration? serverSideEncryptionConfiguration,
@@ -112,10 +121,12 @@ namespace Pulumi.AwsNative.Bedrock
             string? updatedAt)
         {
             CreatedAt = createdAt;
+            DataDeletionPolicy = dataDeletionPolicy;
             DataSourceConfiguration = dataSourceConfiguration;
             DataSourceId = dataSourceId;
             DataSourceStatus = dataSourceStatus;
             Description = description;
+            FailureReasons = failureReasons;
             Name = name;
             ServerSideEncryptionConfiguration = serverSideEncryptionConfiguration;
             UpdatedAt = updatedAt;

@@ -78,6 +78,14 @@ namespace Pulumi.AwsNative.Transfer
         /// </summary>
         public readonly string? LoggingRole;
         /// <summary>
+        /// Security policy for SFTP Connector
+        /// </summary>
+        public readonly string? SecurityPolicyName;
+        /// <summary>
+        /// The list of egress IP addresses of this connector. These IP addresses are assigned automatically when you create the connector.
+        /// </summary>
+        public readonly ImmutableArray<string> ServiceManagedEgressIpAddresses;
+        /// <summary>
         /// Configuration for an SFTP connector.
         /// </summary>
         public readonly Outputs.SftpConfigProperties? SftpConfig;
@@ -102,6 +110,10 @@ namespace Pulumi.AwsNative.Transfer
 
             string? loggingRole,
 
+            string? securityPolicyName,
+
+            ImmutableArray<string> serviceManagedEgressIpAddresses,
+
             Outputs.SftpConfigProperties? sftpConfig,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
@@ -113,6 +125,8 @@ namespace Pulumi.AwsNative.Transfer
             As2Config = as2Config;
             ConnectorId = connectorId;
             LoggingRole = loggingRole;
+            SecurityPolicyName = securityPolicyName;
+            ServiceManagedEgressIpAddresses = serviceManagedEgressIpAddresses;
             SftpConfig = sftpConfig;
             Tags = tags;
             Url = url;

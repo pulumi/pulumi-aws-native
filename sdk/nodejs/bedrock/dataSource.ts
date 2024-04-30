@@ -41,6 +41,7 @@ export class DataSource extends pulumi.CustomResource {
      * The time at which the data source was created.
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    public readonly dataDeletionPolicy!: pulumi.Output<enums.bedrock.DataSourceDataDeletionPolicy | undefined>;
     public readonly dataSourceConfiguration!: pulumi.Output<outputs.bedrock.DataSourceConfiguration>;
     /**
      * Identifier for a resource.
@@ -51,6 +52,10 @@ export class DataSource extends pulumi.CustomResource {
      * Description of the Resource.
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The details of the failure reasons related to the data source.
+     */
+    public /*out*/ readonly failureReasons!: pulumi.Output<string[]>;
     /**
      * The unique identifier of the knowledge base to which to add the data source.
      */
@@ -83,6 +88,7 @@ export class DataSource extends pulumi.CustomResource {
             if ((!args || args.knowledgeBaseId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'knowledgeBaseId'");
             }
+            resourceInputs["dataDeletionPolicy"] = args ? args.dataDeletionPolicy : undefined;
             resourceInputs["dataSourceConfiguration"] = args ? args.dataSourceConfiguration : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["knowledgeBaseId"] = args ? args.knowledgeBaseId : undefined;
@@ -92,13 +98,16 @@ export class DataSource extends pulumi.CustomResource {
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["dataSourceId"] = undefined /*out*/;
             resourceInputs["dataSourceStatus"] = undefined /*out*/;
+            resourceInputs["failureReasons"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
         } else {
             resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["dataDeletionPolicy"] = undefined /*out*/;
             resourceInputs["dataSourceConfiguration"] = undefined /*out*/;
             resourceInputs["dataSourceId"] = undefined /*out*/;
             resourceInputs["dataSourceStatus"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["failureReasons"] = undefined /*out*/;
             resourceInputs["knowledgeBaseId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["serverSideEncryptionConfiguration"] = undefined /*out*/;
@@ -116,6 +125,7 @@ export class DataSource extends pulumi.CustomResource {
  * The set of arguments for constructing a DataSource resource.
  */
 export interface DataSourceArgs {
+    dataDeletionPolicy?: pulumi.Input<enums.bedrock.DataSourceDataDeletionPolicy>;
     dataSourceConfiguration: pulumi.Input<inputs.bedrock.DataSourceConfigurationArgs>;
     /**
      * Description of the Resource.

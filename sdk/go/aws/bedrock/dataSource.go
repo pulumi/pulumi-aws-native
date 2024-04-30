@@ -17,13 +17,16 @@ type DataSource struct {
 	pulumi.CustomResourceState
 
 	// The time at which the data source was created.
-	CreatedAt               pulumi.StringOutput           `pulumi:"createdAt"`
-	DataSourceConfiguration DataSourceConfigurationOutput `pulumi:"dataSourceConfiguration"`
+	CreatedAt               pulumi.StringOutput                   `pulumi:"createdAt"`
+	DataDeletionPolicy      DataSourceDataDeletionPolicyPtrOutput `pulumi:"dataDeletionPolicy"`
+	DataSourceConfiguration DataSourceConfigurationOutput         `pulumi:"dataSourceConfiguration"`
 	// Identifier for a resource.
 	DataSourceId     pulumi.StringOutput    `pulumi:"dataSourceId"`
 	DataSourceStatus DataSourceStatusOutput `pulumi:"dataSourceStatus"`
 	// Description of the Resource.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The details of the failure reasons related to the data source.
+	FailureReasons pulumi.StringArrayOutput `pulumi:"failureReasons"`
 	// The unique identifier of the knowledge base to which to add the data source.
 	KnowledgeBaseId pulumi.StringOutput `pulumi:"knowledgeBaseId"`
 	// The name of the data source.
@@ -85,7 +88,8 @@ func (DataSourceState) ElementType() reflect.Type {
 }
 
 type dataSourceArgs struct {
-	DataSourceConfiguration DataSourceConfiguration `pulumi:"dataSourceConfiguration"`
+	DataDeletionPolicy      *DataSourceDataDeletionPolicy `pulumi:"dataDeletionPolicy"`
+	DataSourceConfiguration DataSourceConfiguration       `pulumi:"dataSourceConfiguration"`
 	// Description of the Resource.
 	Description *string `pulumi:"description"`
 	// The unique identifier of the knowledge base to which to add the data source.
@@ -98,6 +102,7 @@ type dataSourceArgs struct {
 
 // The set of arguments for constructing a DataSource resource.
 type DataSourceArgs struct {
+	DataDeletionPolicy      DataSourceDataDeletionPolicyPtrInput
 	DataSourceConfiguration DataSourceConfigurationInput
 	// Description of the Resource.
 	Description pulumi.StringPtrInput
@@ -151,6 +156,10 @@ func (o DataSourceOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
+func (o DataSourceOutput) DataDeletionPolicy() DataSourceDataDeletionPolicyPtrOutput {
+	return o.ApplyT(func(v *DataSource) DataSourceDataDeletionPolicyPtrOutput { return v.DataDeletionPolicy }).(DataSourceDataDeletionPolicyPtrOutput)
+}
+
 func (o DataSourceOutput) DataSourceConfiguration() DataSourceConfigurationOutput {
 	return o.ApplyT(func(v *DataSource) DataSourceConfigurationOutput { return v.DataSourceConfiguration }).(DataSourceConfigurationOutput)
 }
@@ -167,6 +176,11 @@ func (o DataSourceOutput) DataSourceStatus() DataSourceStatusOutput {
 // Description of the Resource.
 func (o DataSourceOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The details of the failure reasons related to the data source.
+func (o DataSourceOutput) FailureReasons() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DataSource) pulumi.StringArrayOutput { return v.FailureReasons }).(pulumi.StringArrayOutput)
 }
 
 // The unique identifier of the knowledge base to which to add the data source.

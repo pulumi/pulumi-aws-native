@@ -1449,6 +1449,7 @@ _utilities.register(
    "aws-native:ec2:TransitGatewayRoute": "TransitGatewayRoute",
    "aws-native:ec2:TransitGatewayRouteTable": "TransitGatewayRouteTable",
    "aws-native:ec2:TransitGatewayRouteTableAssociation": "TransitGatewayRouteTableAssociation",
+   "aws-native:ec2:TransitGatewayRouteTablePropagation": "TransitGatewayRouteTablePropagation",
    "aws-native:ec2:TransitGatewayVpcAttachment": "TransitGatewayVpcAttachment",
    "aws-native:ec2:VerifiedAccessEndpoint": "VerifiedAccessEndpoint",
    "aws-native:ec2:VerifiedAccessGroup": "VerifiedAccessGroup",

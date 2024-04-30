@@ -1365,12 +1365,179 @@ func (in *dataSourceChunkingStrategyPtr) ToDataSourceChunkingStrategyPtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(DataSourceChunkingStrategyPtrOutput)
 }
 
+// The deletion policy for the data source.
+type DataSourceDataDeletionPolicy string
+
+const (
+	DataSourceDataDeletionPolicyRetain = DataSourceDataDeletionPolicy("RETAIN")
+	DataSourceDataDeletionPolicyDelete = DataSourceDataDeletionPolicy("DELETE")
+)
+
+func (DataSourceDataDeletionPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceDataDeletionPolicy)(nil)).Elem()
+}
+
+func (e DataSourceDataDeletionPolicy) ToDataSourceDataDeletionPolicyOutput() DataSourceDataDeletionPolicyOutput {
+	return pulumi.ToOutput(e).(DataSourceDataDeletionPolicyOutput)
+}
+
+func (e DataSourceDataDeletionPolicy) ToDataSourceDataDeletionPolicyOutputWithContext(ctx context.Context) DataSourceDataDeletionPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataSourceDataDeletionPolicyOutput)
+}
+
+func (e DataSourceDataDeletionPolicy) ToDataSourceDataDeletionPolicyPtrOutput() DataSourceDataDeletionPolicyPtrOutput {
+	return e.ToDataSourceDataDeletionPolicyPtrOutputWithContext(context.Background())
+}
+
+func (e DataSourceDataDeletionPolicy) ToDataSourceDataDeletionPolicyPtrOutputWithContext(ctx context.Context) DataSourceDataDeletionPolicyPtrOutput {
+	return DataSourceDataDeletionPolicy(e).ToDataSourceDataDeletionPolicyOutputWithContext(ctx).ToDataSourceDataDeletionPolicyPtrOutputWithContext(ctx)
+}
+
+func (e DataSourceDataDeletionPolicy) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSourceDataDeletionPolicy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSourceDataDeletionPolicy) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataSourceDataDeletionPolicy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataSourceDataDeletionPolicyOutput struct{ *pulumi.OutputState }
+
+func (DataSourceDataDeletionPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceDataDeletionPolicy)(nil)).Elem()
+}
+
+func (o DataSourceDataDeletionPolicyOutput) ToDataSourceDataDeletionPolicyOutput() DataSourceDataDeletionPolicyOutput {
+	return o
+}
+
+func (o DataSourceDataDeletionPolicyOutput) ToDataSourceDataDeletionPolicyOutputWithContext(ctx context.Context) DataSourceDataDeletionPolicyOutput {
+	return o
+}
+
+func (o DataSourceDataDeletionPolicyOutput) ToDataSourceDataDeletionPolicyPtrOutput() DataSourceDataDeletionPolicyPtrOutput {
+	return o.ToDataSourceDataDeletionPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceDataDeletionPolicyOutput) ToDataSourceDataDeletionPolicyPtrOutputWithContext(ctx context.Context) DataSourceDataDeletionPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceDataDeletionPolicy) *DataSourceDataDeletionPolicy {
+		return &v
+	}).(DataSourceDataDeletionPolicyPtrOutput)
+}
+
+func (o DataSourceDataDeletionPolicyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataSourceDataDeletionPolicyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSourceDataDeletionPolicy) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataSourceDataDeletionPolicyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceDataDeletionPolicyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSourceDataDeletionPolicy) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSourceDataDeletionPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceDataDeletionPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceDataDeletionPolicy)(nil)).Elem()
+}
+
+func (o DataSourceDataDeletionPolicyPtrOutput) ToDataSourceDataDeletionPolicyPtrOutput() DataSourceDataDeletionPolicyPtrOutput {
+	return o
+}
+
+func (o DataSourceDataDeletionPolicyPtrOutput) ToDataSourceDataDeletionPolicyPtrOutputWithContext(ctx context.Context) DataSourceDataDeletionPolicyPtrOutput {
+	return o
+}
+
+func (o DataSourceDataDeletionPolicyPtrOutput) Elem() DataSourceDataDeletionPolicyOutput {
+	return o.ApplyT(func(v *DataSourceDataDeletionPolicy) DataSourceDataDeletionPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceDataDeletionPolicy
+		return ret
+	}).(DataSourceDataDeletionPolicyOutput)
+}
+
+func (o DataSourceDataDeletionPolicyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceDataDeletionPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataSourceDataDeletionPolicy) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataSourceDataDeletionPolicyInput is an input type that accepts values of the DataSourceDataDeletionPolicy enum
+// A concrete instance of `DataSourceDataDeletionPolicyInput` can be one of the following:
+//
+//	DataSourceDataDeletionPolicyRetain
+//	DataSourceDataDeletionPolicyDelete
+type DataSourceDataDeletionPolicyInput interface {
+	pulumi.Input
+
+	ToDataSourceDataDeletionPolicyOutput() DataSourceDataDeletionPolicyOutput
+	ToDataSourceDataDeletionPolicyOutputWithContext(context.Context) DataSourceDataDeletionPolicyOutput
+}
+
+var dataSourceDataDeletionPolicyPtrType = reflect.TypeOf((**DataSourceDataDeletionPolicy)(nil)).Elem()
+
+type DataSourceDataDeletionPolicyPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceDataDeletionPolicyPtrOutput() DataSourceDataDeletionPolicyPtrOutput
+	ToDataSourceDataDeletionPolicyPtrOutputWithContext(context.Context) DataSourceDataDeletionPolicyPtrOutput
+}
+
+type dataSourceDataDeletionPolicyPtr string
+
+func DataSourceDataDeletionPolicyPtr(v string) DataSourceDataDeletionPolicyPtrInput {
+	return (*dataSourceDataDeletionPolicyPtr)(&v)
+}
+
+func (*dataSourceDataDeletionPolicyPtr) ElementType() reflect.Type {
+	return dataSourceDataDeletionPolicyPtrType
+}
+
+func (in *dataSourceDataDeletionPolicyPtr) ToDataSourceDataDeletionPolicyPtrOutput() DataSourceDataDeletionPolicyPtrOutput {
+	return pulumi.ToOutput(in).(DataSourceDataDeletionPolicyPtrOutput)
+}
+
+func (in *dataSourceDataDeletionPolicyPtr) ToDataSourceDataDeletionPolicyPtrOutputWithContext(ctx context.Context) DataSourceDataDeletionPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataSourceDataDeletionPolicyPtrOutput)
+}
+
 // The status of a data source.
 type DataSourceStatus string
 
 const (
-	DataSourceStatusAvailable = DataSourceStatus("AVAILABLE")
-	DataSourceStatusDeleting  = DataSourceStatus("DELETING")
+	DataSourceStatusAvailable          = DataSourceStatus("AVAILABLE")
+	DataSourceStatusDeleting           = DataSourceStatus("DELETING")
+	DataSourceStatusDeleteUnsuccessful = DataSourceStatus("DELETE_UNSUCCESSFUL")
 )
 
 type DataSourceStatusOutput struct{ *pulumi.OutputState }
@@ -2781,11 +2948,12 @@ func (in *guardrailTopicTypePtr) ToGuardrailTopicTypePtrOutputWithContext(ctx co
 type KnowledgeBaseStatus string
 
 const (
-	KnowledgeBaseStatusCreating = KnowledgeBaseStatus("CREATING")
-	KnowledgeBaseStatusActive   = KnowledgeBaseStatus("ACTIVE")
-	KnowledgeBaseStatusDeleting = KnowledgeBaseStatus("DELETING")
-	KnowledgeBaseStatusUpdating = KnowledgeBaseStatus("UPDATING")
-	KnowledgeBaseStatusFailed   = KnowledgeBaseStatus("FAILED")
+	KnowledgeBaseStatusCreating           = KnowledgeBaseStatus("CREATING")
+	KnowledgeBaseStatusActive             = KnowledgeBaseStatus("ACTIVE")
+	KnowledgeBaseStatusDeleting           = KnowledgeBaseStatus("DELETING")
+	KnowledgeBaseStatusUpdating           = KnowledgeBaseStatus("UPDATING")
+	KnowledgeBaseStatusFailed             = KnowledgeBaseStatus("FAILED")
+	KnowledgeBaseStatusDeleteUnsuccessful = KnowledgeBaseStatus("DELETE_UNSUCCESSFUL")
 )
 
 type KnowledgeBaseStatusOutput struct{ *pulumi.OutputState }
@@ -3218,6 +3386,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptTypePtrInput)(nil)).Elem(), AgentPromptType("PRE_PROCESSING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceChunkingStrategyInput)(nil)).Elem(), DataSourceChunkingStrategy("FIXED_SIZE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceChunkingStrategyPtrInput)(nil)).Elem(), DataSourceChunkingStrategy("FIXED_SIZE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDataDeletionPolicyInput)(nil)).Elem(), DataSourceDataDeletionPolicy("RETAIN"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDataDeletionPolicyPtrInput)(nil)).Elem(), DataSourceDataDeletionPolicy("RETAIN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceTypeInput)(nil)).Elem(), DataSourceType("S3"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceTypePtrInput)(nil)).Elem(), DataSourceType("S3"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailContentFilterTypeInput)(nil)).Elem(), GuardrailContentFilterType("SEXUAL"))
@@ -3254,6 +3424,8 @@ func init() {
 	pulumi.RegisterOutputType(AgentStatusPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceChunkingStrategyOutput{})
 	pulumi.RegisterOutputType(DataSourceChunkingStrategyPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceDataDeletionPolicyOutput{})
+	pulumi.RegisterOutputType(DataSourceDataDeletionPolicyPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceStatusOutput{})
 	pulumi.RegisterOutputType(DataSourceStatusPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceTypeOutput{})

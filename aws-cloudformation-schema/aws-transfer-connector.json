@@ -58,7 +58,7 @@
         "MessageSubject" : {
           "type" : "string",
           "description" : "The message subject for this AS2 connector configuration.",
-          "pattern" : "^[\\p{Print}\\p{Blank}]+",
+          "pattern" : "^[\\u0020-\\u007E\\t]+$",
           "minLength" : 1,
           "maxLength" : 1024
         },
@@ -70,7 +70,7 @@
         "EncryptionAlgorithm" : {
           "type" : "string",
           "description" : "Encryption algorithm for this AS2 connector configuration.",
-          "enum" : [ "AES128_CBC", "AES192_CBC", "AES256_CBC", "NONE" ]
+          "enum" : [ "AES128_CBC", "AES192_CBC", "AES256_CBC", "NONE", "DES_EDE3_CBC" ]
         },
         "SigningAlgorithm" : {
           "type" : "string",
@@ -140,6 +140,14 @@
       "minLength" : 20,
       "maxLength" : 2048
     },
+    "ServiceManagedEgressIpAddresses" : {
+      "description" : "The list of egress IP addresses of this connector. These IP addresses are assigned automatically when you create the connector.",
+      "type" : "array",
+      "items" : {
+        "type" : "string",
+        "pattern" : "^\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}$"
+      }
+    },
     "Tags" : {
       "description" : "Key-value pairs that can be used to group and search for connectors. Tags are metadata attached to connectors for any purpose.",
       "type" : "array",
@@ -154,11 +162,17 @@
       "description" : "URL for Connector",
       "type" : "string",
       "maxLength" : 255
+    },
+    "SecurityPolicyName" : {
+      "description" : "Security policy for SFTP Connector",
+      "type" : "string",
+      "pattern" : "TransferSFTPConnectorSecurityPolicy-[A-Za-z0-9-]+",
+      "maxLength" : 50
     }
   },
   "additionalProperties" : false,
   "required" : [ "AccessRole", "Url" ],
-  "readOnlyProperties" : [ "/properties/Arn", "/properties/ConnectorId" ],
+  "readOnlyProperties" : [ "/properties/Arn", "/properties/ConnectorId", "/properties/ServiceManagedEgressIpAddresses" ],
   "primaryIdentifier" : [ "/properties/ConnectorId" ],
   "tagging" : {
     "taggable" : true,

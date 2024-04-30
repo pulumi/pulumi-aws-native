@@ -20,16 +20,11 @@ namespace Pulumi.AwsNative.Ecs.Outputs
         /// The details of the execute command configuration.
         /// </summary>
         public readonly Outputs.ClusterExecuteCommandConfiguration? ExecuteCommandConfiguration;
-        public readonly Outputs.ClusterManagedStorageConfiguration? ManagedStorageConfiguration;
 
         [OutputConstructor]
-        private ClusterConfiguration(
-            Outputs.ClusterExecuteCommandConfiguration? executeCommandConfiguration,
-
-            Outputs.ClusterManagedStorageConfiguration? managedStorageConfiguration)
+        private ClusterConfiguration(Outputs.ClusterExecuteCommandConfiguration? executeCommandConfiguration)
         {
             ExecuteCommandConfiguration = executeCommandConfiguration;
-            ManagedStorageConfiguration = managedStorageConfiguration;
         }
     }
 }

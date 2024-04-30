@@ -143,6 +143,7 @@ from .transit_gateway_peering_attachment import *
 from .transit_gateway_route import *
 from .transit_gateway_route_table import *
 from .transit_gateway_route_table_association import *
+from .transit_gateway_route_table_propagation import *
 from .transit_gateway_vpc_attachment import *
 from .verified_access_endpoint import *
 from .verified_access_group import *

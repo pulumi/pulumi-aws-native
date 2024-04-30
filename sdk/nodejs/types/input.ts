@@ -5560,6 +5560,10 @@ export namespace bedrock {
          */
         bucketArn: pulumi.Input<string>;
         /**
+         * The account ID for the owner of the S3 bucket.
+         */
+        bucketOwnerAccountId?: pulumi.Input<string>;
+        /**
          * A list of S3 prefixes that define the object containing the data sources.
          */
         inclusionPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
@@ -13853,7 +13857,6 @@ export namespace ecs {
          * The details of the execute command configuration.
          */
         executeCommandConfiguration?: pulumi.Input<inputs.ecs.ClusterExecuteCommandConfigurationArgs>;
-        managedStorageConfiguration?: pulumi.Input<inputs.ecs.ClusterManagedStorageConfigurationArgs>;
     }
 
     /**
@@ -13903,11 +13906,6 @@ export namespace ecs {
          * An optional folder in the S3 bucket to place logs in.
          */
         s3KeyPrefix?: pulumi.Input<string>;
-    }
-
-    export interface ClusterManagedStorageConfigurationArgs {
-        fargateEphemeralStorageKmsKeyId?: pulumi.Input<string>;
-        kmsKeyId?: pulumi.Input<string>;
     }
 
     /**
@@ -14868,9 +14866,22 @@ export namespace ecs {
         domain: pulumi.Input<string>;
     }
 
+    /**
+     * This parameter is specified when you're using [Amazon FSx for Windows File Server](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/what-is.html) file system for task storage.
+     *  For more information and the input format, see [Amazon FSx for Windows File Server volumes](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/wfsx-volumes.html) in the *Amazon Elastic Container Service Developer Guide*.
+     */
     export interface TaskDefinitionFSxWindowsFileServerVolumeConfigurationArgs {
+        /**
+         * The authorization configuration details for the Amazon FSx for Windows File Server file system.
+         */
         authorizationConfig?: pulumi.Input<inputs.ecs.TaskDefinitionFSxAuthorizationConfigArgs>;
+        /**
+         * The Amazon FSx for Windows File Server file system ID to use.
+         */
         fileSystemId: pulumi.Input<string>;
+        /**
+         * The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
+         */
         rootDirectory: pulumi.Input<string>;
     }
 
@@ -15338,6 +15349,9 @@ export namespace ecs {
          * This parameter is specified when you use an Amazon Elastic File System file system for task storage.
          */
         efsVolumeConfiguration?: pulumi.Input<inputs.ecs.TaskDefinitionEfsVolumeConfigurationArgs>;
+        /**
+         * This parameter is specified when you use Amazon FSx for Windows File Server file system for task storage.
+         */
         fSxWindowsFileServerVolumeConfiguration?: pulumi.Input<inputs.ecs.TaskDefinitionFSxWindowsFileServerVolumeConfigurationArgs>;
         /**
          * This parameter is specified when you use bind mount host volumes. The contents of the ``host`` parameter determine whether your bind mount host volume persists on the host container instance and where it's stored. If the ``host`` parameter is empty, then the Docker daemon assigns a host path for your data volume. However, the data isn't guaranteed to persist after the containers that are associated with it stop running.
@@ -24893,37 +24907,16 @@ export namespace lakeformation {
 }
 
 export namespace lambda {
-    /**
-     * A provisioned concurrency configuration for a function's alias.
-     */
     export interface AliasProvisionedConcurrencyConfigurationArgs {
-        /**
-         * The amount of provisioned concurrency to allocate for the alias.
-         */
         provisionedConcurrentExecutions: pulumi.Input<number>;
     }
 
-    /**
-     * The traffic-shifting configuration of a Lambda function alias.
-     */
     export interface AliasRoutingConfigurationArgs {
-        /**
-         * The second version, and the percentage of traffic that's routed to it.
-         */
-        additionalVersionWeights?: pulumi.Input<pulumi.Input<inputs.lambda.AliasVersionWeightArgs>[]>;
+        additionalVersionWeights: pulumi.Input<pulumi.Input<inputs.lambda.AliasVersionWeightArgs>[]>;
     }
 
-    /**
-     * The traffic-shifting configuration of a Lambda function alias.
-     */
     export interface AliasVersionWeightArgs {
-        /**
-         * The qualifier of the second version.
-         */
         functionVersion: pulumi.Input<string>;
-        /**
-         * The percentage of traffic that the alias routes to the second version.
-         */
         functionWeight: pulumi.Input<number>;
     }
 
@@ -34633,9 +34626,14 @@ export namespace quicksight {
         values?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs>[]>;
     }
 
+    export interface AnalysisWaterfallChartColorConfigurationArgs {
+        groupColorConfiguration?: pulumi.Input<inputs.quicksight.AnalysisWaterfallChartGroupColorConfigurationArgs>;
+    }
+
     export interface AnalysisWaterfallChartConfigurationArgs {
         categoryAxisDisplayOptions?: pulumi.Input<inputs.quicksight.AnalysisAxisDisplayOptionsArgs>;
         categoryAxisLabelOptions?: pulumi.Input<inputs.quicksight.AnalysisChartAxisLabelOptionsArgs>;
+        colorConfiguration?: pulumi.Input<inputs.quicksight.AnalysisWaterfallChartColorConfigurationArgs>;
         dataLabels?: pulumi.Input<inputs.quicksight.AnalysisDataLabelOptionsArgs>;
         fieldWells?: pulumi.Input<inputs.quicksight.AnalysisWaterfallChartFieldWellsArgs>;
         legend?: pulumi.Input<inputs.quicksight.AnalysisLegendOptionsArgs>;
@@ -34648,6 +34646,12 @@ export namespace quicksight {
 
     export interface AnalysisWaterfallChartFieldWellsArgs {
         waterfallChartAggregatedFieldWells?: pulumi.Input<inputs.quicksight.AnalysisWaterfallChartAggregatedFieldWellsArgs>;
+    }
+
+    export interface AnalysisWaterfallChartGroupColorConfigurationArgs {
+        negativeBarColor?: pulumi.Input<string>;
+        positiveBarColor?: pulumi.Input<string>;
+        totalBarColor?: pulumi.Input<string>;
     }
 
     export interface AnalysisWaterfallChartOptionsArgs {
@@ -37918,9 +37922,14 @@ export namespace quicksight {
         values?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardMeasureFieldArgs>[]>;
     }
 
+    export interface DashboardWaterfallChartColorConfigurationArgs {
+        groupColorConfiguration?: pulumi.Input<inputs.quicksight.DashboardWaterfallChartGroupColorConfigurationArgs>;
+    }
+
     export interface DashboardWaterfallChartConfigurationArgs {
         categoryAxisDisplayOptions?: pulumi.Input<inputs.quicksight.DashboardAxisDisplayOptionsArgs>;
         categoryAxisLabelOptions?: pulumi.Input<inputs.quicksight.DashboardChartAxisLabelOptionsArgs>;
+        colorConfiguration?: pulumi.Input<inputs.quicksight.DashboardWaterfallChartColorConfigurationArgs>;
         dataLabels?: pulumi.Input<inputs.quicksight.DashboardDataLabelOptionsArgs>;
         fieldWells?: pulumi.Input<inputs.quicksight.DashboardWaterfallChartFieldWellsArgs>;
         legend?: pulumi.Input<inputs.quicksight.DashboardLegendOptionsArgs>;
@@ -37933,6 +37942,12 @@ export namespace quicksight {
 
     export interface DashboardWaterfallChartFieldWellsArgs {
         waterfallChartAggregatedFieldWells?: pulumi.Input<inputs.quicksight.DashboardWaterfallChartAggregatedFieldWellsArgs>;
+    }
+
+    export interface DashboardWaterfallChartGroupColorConfigurationArgs {
+        negativeBarColor?: pulumi.Input<string>;
+        positiveBarColor?: pulumi.Input<string>;
+        totalBarColor?: pulumi.Input<string>;
     }
 
     export interface DashboardWaterfallChartOptionsArgs {
@@ -42203,9 +42218,14 @@ export namespace quicksight {
         values?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateMeasureFieldArgs>[]>;
     }
 
+    export interface TemplateWaterfallChartColorConfigurationArgs {
+        groupColorConfiguration?: pulumi.Input<inputs.quicksight.TemplateWaterfallChartGroupColorConfigurationArgs>;
+    }
+
     export interface TemplateWaterfallChartConfigurationArgs {
         categoryAxisDisplayOptions?: pulumi.Input<inputs.quicksight.TemplateAxisDisplayOptionsArgs>;
         categoryAxisLabelOptions?: pulumi.Input<inputs.quicksight.TemplateChartAxisLabelOptionsArgs>;
+        colorConfiguration?: pulumi.Input<inputs.quicksight.TemplateWaterfallChartColorConfigurationArgs>;
         dataLabels?: pulumi.Input<inputs.quicksight.TemplateDataLabelOptionsArgs>;
         fieldWells?: pulumi.Input<inputs.quicksight.TemplateWaterfallChartFieldWellsArgs>;
         legend?: pulumi.Input<inputs.quicksight.TemplateLegendOptionsArgs>;
@@ -42218,6 +42238,12 @@ export namespace quicksight {
 
     export interface TemplateWaterfallChartFieldWellsArgs {
         waterfallChartAggregatedFieldWells?: pulumi.Input<inputs.quicksight.TemplateWaterfallChartAggregatedFieldWellsArgs>;
+    }
+
+    export interface TemplateWaterfallChartGroupColorConfigurationArgs {
+        negativeBarColor?: pulumi.Input<string>;
+        positiveBarColor?: pulumi.Input<string>;
+        totalBarColor?: pulumi.Input<string>;
     }
 
     export interface TemplateWaterfallChartOptionsArgs {
@@ -51034,7 +51060,7 @@ export namespace transfer {
      * Details for a step that performs a file decryption.
      */
     export interface WorkflowStepDecryptStepDetailsPropertiesArgs {
-        destinationFileLocation?: pulumi.Input<inputs.transfer.WorkflowInputFileLocationArgs>;
+        destinationFileLocation: pulumi.Input<inputs.transfer.WorkflowInputFileLocationArgs>;
         /**
          * The name of the step, used as an identifier.
          */
@@ -51050,7 +51076,7 @@ export namespace transfer {
         /**
          * Specifies which encryption method to use.
          */
-        type?: pulumi.Input<enums.transfer.WorkflowStepDecryptStepDetailsPropertiesType>;
+        type: pulumi.Input<enums.transfer.WorkflowStepDecryptStepDetailsPropertiesType>;
     }
 
     /**

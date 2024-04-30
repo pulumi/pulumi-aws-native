@@ -124,7 +124,8 @@
       "permissions" : [ "states:DescribeStateMachineAlias" ]
     },
     "update" : {
-      "permissions" : [ "cloudwatch:DescribeAlarms", "states:UpdateStateMachineAlias", "states:DescribeStateMachineAlias" ]
+      "permissions" : [ "cloudwatch:DescribeAlarms", "states:UpdateStateMachineAlias", "states:DescribeStateMachineAlias" ],
+      "timeoutInMinutes" : 2160
     },
     "delete" : {
       "permissions" : [ "states:DescribeStateMachineAlias", "states:DeleteStateMachineAlias" ]

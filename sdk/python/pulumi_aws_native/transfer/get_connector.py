@@ -21,7 +21,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetConnectorResult:
-    def __init__(__self__, access_role=None, arn=None, as2_config=None, connector_id=None, logging_role=None, sftp_config=None, tags=None, url=None):
+    def __init__(__self__, access_role=None, arn=None, as2_config=None, connector_id=None, logging_role=None, security_policy_name=None, service_managed_egress_ip_addresses=None, sftp_config=None, tags=None, url=None):
         if access_role and not isinstance(access_role, str):
             raise TypeError("Expected argument 'access_role' to be a str")
         pulumi.set(__self__, "access_role", access_role)
@@ -37,6 +37,12 @@ class GetConnectorResult:
         if logging_role and not isinstance(logging_role, str):
             raise TypeError("Expected argument 'logging_role' to be a str")
         pulumi.set(__self__, "logging_role", logging_role)
+        if security_policy_name and not isinstance(security_policy_name, str):
+            raise TypeError("Expected argument 'security_policy_name' to be a str")
+        pulumi.set(__self__, "security_policy_name", security_policy_name)
+        if service_managed_egress_ip_addresses and not isinstance(service_managed_egress_ip_addresses, list):
+            raise TypeError("Expected argument 'service_managed_egress_ip_addresses' to be a list")
+        pulumi.set(__self__, "service_managed_egress_ip_addresses", service_managed_egress_ip_addresses)
         if sftp_config and not isinstance(sftp_config, dict):
             raise TypeError("Expected argument 'sftp_config' to be a dict")
         pulumi.set(__self__, "sftp_config", sftp_config)
@@ -88,6 +94,22 @@ class GetConnectorResult:
         return pulumi.get(self, "logging_role")
 
     @property
+    @pulumi.getter(name="securityPolicyName")
+    def security_policy_name(self) -> Optional[str]:
+        """
+        Security policy for SFTP Connector
+        """
+        return pulumi.get(self, "security_policy_name")
+
+    @property
+    @pulumi.getter(name="serviceManagedEgressIpAddresses")
+    def service_managed_egress_ip_addresses(self) -> Optional[Sequence[str]]:
+        """
+        The list of egress IP addresses of this connector. These IP addresses are assigned automatically when you create the connector.
+        """
+        return pulumi.get(self, "service_managed_egress_ip_addresses")
+
+    @property
     @pulumi.getter(name="sftpConfig")
     def sftp_config(self) -> Optional['outputs.SftpConfigProperties']:
         """
@@ -123,6 +145,8 @@ class AwaitableGetConnectorResult(GetConnectorResult):
             as2_config=self.as2_config,
             connector_id=self.connector_id,
             logging_role=self.logging_role,
+            security_policy_name=self.security_policy_name,
+            service_managed_egress_ip_addresses=self.service_managed_egress_ip_addresses,
             sftp_config=self.sftp_config,
             tags=self.tags,
             url=self.url)
@@ -147,6 +171,8 @@ def get_connector(connector_id: Optional[str] = None,
         as2_config=pulumi.get(__ret__, 'as2_config'),
         connector_id=pulumi.get(__ret__, 'connector_id'),
         logging_role=pulumi.get(__ret__, 'logging_role'),
+        security_policy_name=pulumi.get(__ret__, 'security_policy_name'),
+        service_managed_egress_ip_addresses=pulumi.get(__ret__, 'service_managed_egress_ip_addresses'),
         sftp_config=pulumi.get(__ret__, 'sftp_config'),
         tags=pulumi.get(__ret__, 'tags'),
         url=pulumi.get(__ret__, 'url'))

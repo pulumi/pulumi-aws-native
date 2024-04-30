@@ -338,7 +338,8 @@ class IpamTier(str, Enum):
 
 class KeyPairKeyFormat(str, Enum):
     """
-    The format of the private key
+    The format of the key pair.
+     Default: ``pem``
     """
     PEM = "pem"
     PPK = "ppk"
@@ -346,7 +347,9 @@ class KeyPairKeyFormat(str, Enum):
 
 class KeyPairKeyType(str, Enum):
     """
-    The crypto-system used to generate a key pair.
+    The type of key pair. Note that ED25519 keys are not supported for Windows instances.
+     If the ``PublicKeyMaterial`` property is specified, the ``KeyType`` property is ignored, and the key type is inferred from the ``PublicKeyMaterial`` value.
+     Default: ``rsa``
     """
     RSA = "rsa"
     ED25519 = "ed25519"

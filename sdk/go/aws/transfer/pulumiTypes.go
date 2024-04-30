@@ -1752,7 +1752,7 @@ func (o WorkflowStepCustomStepDetailsPropertiesPtrOutput) TimeoutSeconds() pulum
 
 // Details for a step that performs a file decryption.
 type WorkflowStepDecryptStepDetailsProperties struct {
-	DestinationFileLocation *WorkflowInputFileLocation `pulumi:"destinationFileLocation"`
+	DestinationFileLocation WorkflowInputFileLocation `pulumi:"destinationFileLocation"`
 	// The name of the step, used as an identifier.
 	Name *string `pulumi:"name"`
 	// A flag that indicates whether or not to overwrite an existing file of the same name. The default is FALSE.
@@ -1760,7 +1760,7 @@ type WorkflowStepDecryptStepDetailsProperties struct {
 	// Specifies which file to use as input to the workflow step.
 	SourceFileLocation *string `pulumi:"sourceFileLocation"`
 	// Specifies which encryption method to use.
-	Type *WorkflowStepDecryptStepDetailsPropertiesType `pulumi:"type"`
+	Type WorkflowStepDecryptStepDetailsPropertiesType `pulumi:"type"`
 }
 
 // WorkflowStepDecryptStepDetailsPropertiesInput is an input type that accepts WorkflowStepDecryptStepDetailsPropertiesArgs and WorkflowStepDecryptStepDetailsPropertiesOutput values.
@@ -1776,7 +1776,7 @@ type WorkflowStepDecryptStepDetailsPropertiesInput interface {
 
 // Details for a step that performs a file decryption.
 type WorkflowStepDecryptStepDetailsPropertiesArgs struct {
-	DestinationFileLocation WorkflowInputFileLocationPtrInput `pulumi:"destinationFileLocation"`
+	DestinationFileLocation WorkflowInputFileLocationInput `pulumi:"destinationFileLocation"`
 	// The name of the step, used as an identifier.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// A flag that indicates whether or not to overwrite an existing file of the same name. The default is FALSE.
@@ -1784,7 +1784,7 @@ type WorkflowStepDecryptStepDetailsPropertiesArgs struct {
 	// Specifies which file to use as input to the workflow step.
 	SourceFileLocation pulumi.StringPtrInput `pulumi:"sourceFileLocation"`
 	// Specifies which encryption method to use.
-	Type WorkflowStepDecryptStepDetailsPropertiesTypePtrInput `pulumi:"type"`
+	Type WorkflowStepDecryptStepDetailsPropertiesTypeInput `pulumi:"type"`
 }
 
 func (WorkflowStepDecryptStepDetailsPropertiesArgs) ElementType() reflect.Type {
@@ -1865,10 +1865,10 @@ func (o WorkflowStepDecryptStepDetailsPropertiesOutput) ToWorkflowStepDecryptSte
 	}).(WorkflowStepDecryptStepDetailsPropertiesPtrOutput)
 }
 
-func (o WorkflowStepDecryptStepDetailsPropertiesOutput) DestinationFileLocation() WorkflowInputFileLocationPtrOutput {
-	return o.ApplyT(func(v WorkflowStepDecryptStepDetailsProperties) *WorkflowInputFileLocation {
+func (o WorkflowStepDecryptStepDetailsPropertiesOutput) DestinationFileLocation() WorkflowInputFileLocationOutput {
+	return o.ApplyT(func(v WorkflowStepDecryptStepDetailsProperties) WorkflowInputFileLocation {
 		return v.DestinationFileLocation
-	}).(WorkflowInputFileLocationPtrOutput)
+	}).(WorkflowInputFileLocationOutput)
 }
 
 // The name of the step, used as an identifier.
@@ -1889,10 +1889,10 @@ func (o WorkflowStepDecryptStepDetailsPropertiesOutput) SourceFileLocation() pul
 }
 
 // Specifies which encryption method to use.
-func (o WorkflowStepDecryptStepDetailsPropertiesOutput) Type() WorkflowStepDecryptStepDetailsPropertiesTypePtrOutput {
-	return o.ApplyT(func(v WorkflowStepDecryptStepDetailsProperties) *WorkflowStepDecryptStepDetailsPropertiesType {
+func (o WorkflowStepDecryptStepDetailsPropertiesOutput) Type() WorkflowStepDecryptStepDetailsPropertiesTypeOutput {
+	return o.ApplyT(func(v WorkflowStepDecryptStepDetailsProperties) WorkflowStepDecryptStepDetailsPropertiesType {
 		return v.Type
-	}).(WorkflowStepDecryptStepDetailsPropertiesTypePtrOutput)
+	}).(WorkflowStepDecryptStepDetailsPropertiesTypeOutput)
 }
 
 type WorkflowStepDecryptStepDetailsPropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -1924,7 +1924,7 @@ func (o WorkflowStepDecryptStepDetailsPropertiesPtrOutput) DestinationFileLocati
 		if v == nil {
 			return nil
 		}
-		return v.DestinationFileLocation
+		return &v.DestinationFileLocation
 	}).(WorkflowInputFileLocationPtrOutput)
 }
 
@@ -1964,7 +1964,7 @@ func (o WorkflowStepDecryptStepDetailsPropertiesPtrOutput) Type() WorkflowStepDe
 		if v == nil {
 			return nil
 		}
-		return v.Type
+		return &v.Type
 	}).(WorkflowStepDecryptStepDetailsPropertiesTypePtrOutput)
 }
 

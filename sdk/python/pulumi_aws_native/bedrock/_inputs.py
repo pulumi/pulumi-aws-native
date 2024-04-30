@@ -642,13 +642,17 @@ class DataSourceFixedSizeChunkingConfigurationArgs:
 class DataSourceS3DataSourceConfigurationArgs:
     def __init__(__self__, *,
                  bucket_arn: pulumi.Input[str],
+                 bucket_owner_account_id: Optional[pulumi.Input[str]] = None,
                  inclusion_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Contains information about the S3 configuration of the data source.
         :param pulumi.Input[str] bucket_arn: The ARN of the bucket that contains the data source.
+        :param pulumi.Input[str] bucket_owner_account_id: The account ID for the owner of the S3 bucket.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] inclusion_prefixes: A list of S3 prefixes that define the object containing the data sources.
         """
         pulumi.set(__self__, "bucket_arn", bucket_arn)
+        if bucket_owner_account_id is not None:
+            pulumi.set(__self__, "bucket_owner_account_id", bucket_owner_account_id)
         if inclusion_prefixes is not None:
             pulumi.set(__self__, "inclusion_prefixes", inclusion_prefixes)
 
@@ -663,6 +667,18 @@ class DataSourceS3DataSourceConfigurationArgs:
     @bucket_arn.setter
     def bucket_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "bucket_arn", value)
+
+    @property
+    @pulumi.getter(name="bucketOwnerAccountId")
+    def bucket_owner_account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The account ID for the owner of the S3 bucket.
+        """
+        return pulumi.get(self, "bucket_owner_account_id")
+
+    @bucket_owner_account_id.setter
+    def bucket_owner_account_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bucket_owner_account_id", value)
 
     @property
     @pulumi.getter(name="inclusionPrefixes")

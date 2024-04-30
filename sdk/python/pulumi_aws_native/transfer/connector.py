@@ -23,6 +23,7 @@ class ConnectorArgs:
                  url: pulumi.Input[str],
                  as2_config: Optional[pulumi.Input['As2ConfigPropertiesArgs']] = None,
                  logging_role: Optional[pulumi.Input[str]] = None,
+                 security_policy_name: Optional[pulumi.Input[str]] = None,
                  sftp_config: Optional[pulumi.Input['SftpConfigPropertiesArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
@@ -31,6 +32,7 @@ class ConnectorArgs:
         :param pulumi.Input[str] url: URL for Connector
         :param pulumi.Input['As2ConfigPropertiesArgs'] as2_config: Configuration for an AS2 connector.
         :param pulumi.Input[str] logging_role: Specifies the logging role for the connector.
+        :param pulumi.Input[str] security_policy_name: Security policy for SFTP Connector
         :param pulumi.Input['SftpConfigPropertiesArgs'] sftp_config: Configuration for an SFTP connector.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Key-value pairs that can be used to group and search for connectors. Tags are metadata attached to connectors for any purpose.
         """
@@ -40,6 +42,8 @@ class ConnectorArgs:
             pulumi.set(__self__, "as2_config", as2_config)
         if logging_role is not None:
             pulumi.set(__self__, "logging_role", logging_role)
+        if security_policy_name is not None:
+            pulumi.set(__self__, "security_policy_name", security_policy_name)
         if sftp_config is not None:
             pulumi.set(__self__, "sftp_config", sftp_config)
         if tags is not None:
@@ -94,6 +98,18 @@ class ConnectorArgs:
         pulumi.set(self, "logging_role", value)
 
     @property
+    @pulumi.getter(name="securityPolicyName")
+    def security_policy_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Security policy for SFTP Connector
+        """
+        return pulumi.get(self, "security_policy_name")
+
+    @security_policy_name.setter
+    def security_policy_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "security_policy_name", value)
+
+    @property
     @pulumi.getter(name="sftpConfig")
     def sftp_config(self) -> Optional[pulumi.Input['SftpConfigPropertiesArgs']]:
         """
@@ -126,6 +142,7 @@ class Connector(pulumi.CustomResource):
                  access_role: Optional[pulumi.Input[str]] = None,
                  as2_config: Optional[pulumi.Input[pulumi.InputType['As2ConfigPropertiesArgs']]] = None,
                  logging_role: Optional[pulumi.Input[str]] = None,
+                 security_policy_name: Optional[pulumi.Input[str]] = None,
                  sftp_config: Optional[pulumi.Input[pulumi.InputType['SftpConfigPropertiesArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  url: Optional[pulumi.Input[str]] = None,
@@ -138,6 +155,7 @@ class Connector(pulumi.CustomResource):
         :param pulumi.Input[str] access_role: Specifies the access role for the connector.
         :param pulumi.Input[pulumi.InputType['As2ConfigPropertiesArgs']] as2_config: Configuration for an AS2 connector.
         :param pulumi.Input[str] logging_role: Specifies the logging role for the connector.
+        :param pulumi.Input[str] security_policy_name: Security policy for SFTP Connector
         :param pulumi.Input[pulumi.InputType['SftpConfigPropertiesArgs']] sftp_config: Configuration for an SFTP connector.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Key-value pairs that can be used to group and search for connectors. Tags are metadata attached to connectors for any purpose.
         :param pulumi.Input[str] url: URL for Connector
@@ -169,6 +187,7 @@ class Connector(pulumi.CustomResource):
                  access_role: Optional[pulumi.Input[str]] = None,
                  as2_config: Optional[pulumi.Input[pulumi.InputType['As2ConfigPropertiesArgs']]] = None,
                  logging_role: Optional[pulumi.Input[str]] = None,
+                 security_policy_name: Optional[pulumi.Input[str]] = None,
                  sftp_config: Optional[pulumi.Input[pulumi.InputType['SftpConfigPropertiesArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  url: Optional[pulumi.Input[str]] = None,
@@ -186,6 +205,7 @@ class Connector(pulumi.CustomResource):
             __props__.__dict__["access_role"] = access_role
             __props__.__dict__["as2_config"] = as2_config
             __props__.__dict__["logging_role"] = logging_role
+            __props__.__dict__["security_policy_name"] = security_policy_name
             __props__.__dict__["sftp_config"] = sftp_config
             __props__.__dict__["tags"] = tags
             if url is None and not opts.urn:
@@ -193,6 +213,7 @@ class Connector(pulumi.CustomResource):
             __props__.__dict__["url"] = url
             __props__.__dict__["arn"] = None
             __props__.__dict__["connector_id"] = None
+            __props__.__dict__["service_managed_egress_ip_addresses"] = None
         super(Connector, __self__).__init__(
             'aws-native:transfer:Connector',
             resource_name,
@@ -220,6 +241,8 @@ class Connector(pulumi.CustomResource):
         __props__.__dict__["as2_config"] = None
         __props__.__dict__["connector_id"] = None
         __props__.__dict__["logging_role"] = None
+        __props__.__dict__["security_policy_name"] = None
+        __props__.__dict__["service_managed_egress_ip_addresses"] = None
         __props__.__dict__["sftp_config"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["url"] = None
@@ -264,6 +287,22 @@ class Connector(pulumi.CustomResource):
         Specifies the logging role for the connector.
         """
         return pulumi.get(self, "logging_role")
+
+    @property
+    @pulumi.getter(name="securityPolicyName")
+    def security_policy_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        Security policy for SFTP Connector
+        """
+        return pulumi.get(self, "security_policy_name")
+
+    @property
+    @pulumi.getter(name="serviceManagedEgressIpAddresses")
+    def service_managed_egress_ip_addresses(self) -> pulumi.Output[Sequence[str]]:
+        """
+        The list of egress IP addresses of this connector. These IP addresses are assigned automatically when you create the connector.
+        """
+        return pulumi.get(self, "service_managed_egress_ip_addresses")
 
     @property
     @pulumi.getter(name="sftpConfig")

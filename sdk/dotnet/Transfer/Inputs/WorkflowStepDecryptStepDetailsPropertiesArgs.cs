@@ -15,8 +15,8 @@ namespace Pulumi.AwsNative.Transfer.Inputs
     /// </summary>
     public sealed class WorkflowStepDecryptStepDetailsPropertiesArgs : global::Pulumi.ResourceArgs
     {
-        [Input("destinationFileLocation")]
-        public Input<Inputs.WorkflowInputFileLocationArgs>? DestinationFileLocation { get; set; }
+        [Input("destinationFileLocation", required: true)]
+        public Input<Inputs.WorkflowInputFileLocationArgs> DestinationFileLocation { get; set; } = null!;
 
         /// <summary>
         /// The name of the step, used as an identifier.
@@ -39,8 +39,8 @@ namespace Pulumi.AwsNative.Transfer.Inputs
         /// <summary>
         /// Specifies which encryption method to use.
         /// </summary>
-        [Input("type")]
-        public Input<Pulumi.AwsNative.Transfer.WorkflowStepDecryptStepDetailsPropertiesType>? Type { get; set; }
+        [Input("type", required: true)]
+        public Input<Pulumi.AwsNative.Transfer.WorkflowStepDecryptStepDetailsPropertiesType> Type { get; set; } = null!;
 
         public WorkflowStepDecryptStepDetailsPropertiesArgs()
         {

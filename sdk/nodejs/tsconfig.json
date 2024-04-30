@@ -769,6 +769,7 @@
         "ec2/transitGatewayRoute.ts",
         "ec2/transitGatewayRouteTable.ts",
         "ec2/transitGatewayRouteTableAssociation.ts",
+        "ec2/transitGatewayRouteTablePropagation.ts",
         "ec2/transitGatewayVpcAttachment.ts",
         "ec2/verifiedAccessEndpoint.ts",
         "ec2/verifiedAccessGroup.ts",

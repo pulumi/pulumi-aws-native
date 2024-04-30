@@ -531,37 +531,47 @@ class WorkflowStepCustomStepDetailsPropertiesArgs:
 @pulumi.input_type
 class WorkflowStepDecryptStepDetailsPropertiesArgs:
     def __init__(__self__, *,
-                 destination_file_location: Optional[pulumi.Input['WorkflowInputFileLocationArgs']] = None,
+                 destination_file_location: pulumi.Input['WorkflowInputFileLocationArgs'],
+                 type: pulumi.Input['WorkflowStepDecryptStepDetailsPropertiesType'],
                  name: Optional[pulumi.Input[str]] = None,
                  overwrite_existing: Optional[pulumi.Input['WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting']] = None,
-                 source_file_location: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input['WorkflowStepDecryptStepDetailsPropertiesType']] = None):
+                 source_file_location: Optional[pulumi.Input[str]] = None):
         """
         Details for a step that performs a file decryption.
+        :param pulumi.Input['WorkflowStepDecryptStepDetailsPropertiesType'] type: Specifies which encryption method to use.
         :param pulumi.Input[str] name: The name of the step, used as an identifier.
         :param pulumi.Input['WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting'] overwrite_existing: A flag that indicates whether or not to overwrite an existing file of the same name. The default is FALSE.
         :param pulumi.Input[str] source_file_location: Specifies which file to use as input to the workflow step.
-        :param pulumi.Input['WorkflowStepDecryptStepDetailsPropertiesType'] type: Specifies which encryption method to use.
         """
-        if destination_file_location is not None:
-            pulumi.set(__self__, "destination_file_location", destination_file_location)
+        pulumi.set(__self__, "destination_file_location", destination_file_location)
+        pulumi.set(__self__, "type", type)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if overwrite_existing is not None:
             pulumi.set(__self__, "overwrite_existing", overwrite_existing)
         if source_file_location is not None:
             pulumi.set(__self__, "source_file_location", source_file_location)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="destinationFileLocation")
-    def destination_file_location(self) -> Optional[pulumi.Input['WorkflowInputFileLocationArgs']]:
+    def destination_file_location(self) -> pulumi.Input['WorkflowInputFileLocationArgs']:
         return pulumi.get(self, "destination_file_location")
 
     @destination_file_location.setter
-    def destination_file_location(self, value: Optional[pulumi.Input['WorkflowInputFileLocationArgs']]):
+    def destination_file_location(self, value: pulumi.Input['WorkflowInputFileLocationArgs']):
         pulumi.set(self, "destination_file_location", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['WorkflowStepDecryptStepDetailsPropertiesType']:
+        """
+        Specifies which encryption method to use.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['WorkflowStepDecryptStepDetailsPropertiesType']):
+        pulumi.set(self, "type", value)
 
     @property
     @pulumi.getter
@@ -598,18 +608,6 @@ class WorkflowStepDecryptStepDetailsPropertiesArgs:
     @source_file_location.setter
     def source_file_location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "source_file_location", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['WorkflowStepDecryptStepDetailsPropertiesType']]:
-        """
-        Specifies which encryption method to use.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input['WorkflowStepDecryptStepDetailsPropertiesType']]):
-        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type

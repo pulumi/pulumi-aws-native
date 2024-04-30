@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -48,6 +49,8 @@ type LookupPortalResult struct {
 	PortalStartUrl *string `pulumi:"portalStartUrl"`
 	// The ARN of a service role that allows the portal's users to access your AWS IoT SiteWise resources on your behalf.
 	RoleArn *string `pulumi:"roleArn"`
+	// A list of key-value pairs that contain metadata for the portal.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupPortalOutput(ctx *pulumi.Context, args LookupPortalOutputArgs, opts ...pulumi.InvokeOption) LookupPortalResultOutput {
@@ -134,6 +137,11 @@ func (o LookupPortalResultOutput) PortalStartUrl() pulumi.StringPtrOutput {
 // The ARN of a service role that allows the portal's users to access your AWS IoT SiteWise resources on your behalf.
 func (o LookupPortalResultOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPortalResult) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
+}
+
+// A list of key-value pairs that contain metadata for the portal.
+func (o LookupPortalResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupPortalResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

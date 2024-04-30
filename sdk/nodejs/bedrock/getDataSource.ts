@@ -35,6 +35,7 @@ export interface GetDataSourceResult {
      * The time at which the data source was created.
      */
     readonly createdAt?: string;
+    readonly dataDeletionPolicy?: enums.bedrock.DataSourceDataDeletionPolicy;
     readonly dataSourceConfiguration?: outputs.bedrock.DataSourceConfiguration;
     /**
      * Identifier for a resource.
@@ -45,6 +46,10 @@ export interface GetDataSourceResult {
      * Description of the Resource.
      */
     readonly description?: string;
+    /**
+     * The details of the failure reasons related to the data source.
+     */
+    readonly failureReasons?: string[];
     /**
      * The name of the data source.
      */

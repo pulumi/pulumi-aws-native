@@ -482,8 +482,10 @@ __all__ = [
     'AnalysisVisualSubtitleLabelOptions',
     'AnalysisVisualTitleLabelOptions',
     'AnalysisWaterfallChartAggregatedFieldWells',
+    'AnalysisWaterfallChartColorConfiguration',
     'AnalysisWaterfallChartConfiguration',
     'AnalysisWaterfallChartFieldWells',
+    'AnalysisWaterfallChartGroupColorConfiguration',
     'AnalysisWaterfallChartOptions',
     'AnalysisWaterfallChartSortConfiguration',
     'AnalysisWaterfallVisual',
@@ -980,8 +982,10 @@ __all__ = [
     'DashboardVisualSubtitleLabelOptions',
     'DashboardVisualTitleLabelOptions',
     'DashboardWaterfallChartAggregatedFieldWells',
+    'DashboardWaterfallChartColorConfiguration',
     'DashboardWaterfallChartConfiguration',
     'DashboardWaterfallChartFieldWells',
+    'DashboardWaterfallChartGroupColorConfiguration',
     'DashboardWaterfallChartOptions',
     'DashboardWaterfallChartSortConfiguration',
     'DashboardWaterfallVisual',
@@ -1541,8 +1545,10 @@ __all__ = [
     'TemplateVisualSubtitleLabelOptions',
     'TemplateVisualTitleLabelOptions',
     'TemplateWaterfallChartAggregatedFieldWells',
+    'TemplateWaterfallChartColorConfiguration',
     'TemplateWaterfallChartConfiguration',
     'TemplateWaterfallChartFieldWells',
+    'TemplateWaterfallChartGroupColorConfiguration',
     'TemplateWaterfallChartOptions',
     'TemplateWaterfallChartSortConfiguration',
     'TemplateWaterfallVisual',
@@ -24358,6 +24364,36 @@ class AnalysisWaterfallChartAggregatedFieldWells(dict):
 
 
 @pulumi.output_type
+class AnalysisWaterfallChartColorConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupColorConfiguration":
+            suggest = "group_color_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalysisWaterfallChartColorConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalysisWaterfallChartColorConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalysisWaterfallChartColorConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 group_color_configuration: Optional['outputs.AnalysisWaterfallChartGroupColorConfiguration'] = None):
+        if group_color_configuration is not None:
+            pulumi.set(__self__, "group_color_configuration", group_color_configuration)
+
+    @property
+    @pulumi.getter(name="groupColorConfiguration")
+    def group_color_configuration(self) -> Optional['outputs.AnalysisWaterfallChartGroupColorConfiguration']:
+        return pulumi.get(self, "group_color_configuration")
+
+
+@pulumi.output_type
 class AnalysisWaterfallChartConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -24366,6 +24402,8 @@ class AnalysisWaterfallChartConfiguration(dict):
             suggest = "category_axis_display_options"
         elif key == "categoryAxisLabelOptions":
             suggest = "category_axis_label_options"
+        elif key == "colorConfiguration":
+            suggest = "color_configuration"
         elif key == "dataLabels":
             suggest = "data_labels"
         elif key == "fieldWells":
@@ -24395,6 +24433,7 @@ class AnalysisWaterfallChartConfiguration(dict):
     def __init__(__self__, *,
                  category_axis_display_options: Optional['outputs.AnalysisAxisDisplayOptions'] = None,
                  category_axis_label_options: Optional['outputs.AnalysisChartAxisLabelOptions'] = None,
+                 color_configuration: Optional['outputs.AnalysisWaterfallChartColorConfiguration'] = None,
                  data_labels: Optional['outputs.AnalysisDataLabelOptions'] = None,
                  field_wells: Optional['outputs.AnalysisWaterfallChartFieldWells'] = None,
                  legend: Optional['outputs.AnalysisLegendOptions'] = None,
@@ -24407,6 +24446,8 @@ class AnalysisWaterfallChartConfiguration(dict):
             pulumi.set(__self__, "category_axis_display_options", category_axis_display_options)
         if category_axis_label_options is not None:
             pulumi.set(__self__, "category_axis_label_options", category_axis_label_options)
+        if color_configuration is not None:
+            pulumi.set(__self__, "color_configuration", color_configuration)
         if data_labels is not None:
             pulumi.set(__self__, "data_labels", data_labels)
         if field_wells is not None:
@@ -24433,6 +24474,11 @@ class AnalysisWaterfallChartConfiguration(dict):
     @pulumi.getter(name="categoryAxisLabelOptions")
     def category_axis_label_options(self) -> Optional['outputs.AnalysisChartAxisLabelOptions']:
         return pulumi.get(self, "category_axis_label_options")
+
+    @property
+    @pulumi.getter(name="colorConfiguration")
+    def color_configuration(self) -> Optional['outputs.AnalysisWaterfallChartColorConfiguration']:
+        return pulumi.get(self, "color_configuration")
 
     @property
     @pulumi.getter(name="dataLabels")
@@ -24503,6 +24549,56 @@ class AnalysisWaterfallChartFieldWells(dict):
     @pulumi.getter(name="waterfallChartAggregatedFieldWells")
     def waterfall_chart_aggregated_field_wells(self) -> Optional['outputs.AnalysisWaterfallChartAggregatedFieldWells']:
         return pulumi.get(self, "waterfall_chart_aggregated_field_wells")
+
+
+@pulumi.output_type
+class AnalysisWaterfallChartGroupColorConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "negativeBarColor":
+            suggest = "negative_bar_color"
+        elif key == "positiveBarColor":
+            suggest = "positive_bar_color"
+        elif key == "totalBarColor":
+            suggest = "total_bar_color"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalysisWaterfallChartGroupColorConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalysisWaterfallChartGroupColorConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalysisWaterfallChartGroupColorConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 negative_bar_color: Optional[str] = None,
+                 positive_bar_color: Optional[str] = None,
+                 total_bar_color: Optional[str] = None):
+        if negative_bar_color is not None:
+            pulumi.set(__self__, "negative_bar_color", negative_bar_color)
+        if positive_bar_color is not None:
+            pulumi.set(__self__, "positive_bar_color", positive_bar_color)
+        if total_bar_color is not None:
+            pulumi.set(__self__, "total_bar_color", total_bar_color)
+
+    @property
+    @pulumi.getter(name="negativeBarColor")
+    def negative_bar_color(self) -> Optional[str]:
+        return pulumi.get(self, "negative_bar_color")
+
+    @property
+    @pulumi.getter(name="positiveBarColor")
+    def positive_bar_color(self) -> Optional[str]:
+        return pulumi.get(self, "positive_bar_color")
+
+    @property
+    @pulumi.getter(name="totalBarColor")
+    def total_bar_color(self) -> Optional[str]:
+        return pulumi.get(self, "total_bar_color")
 
 
 @pulumi.output_type
@@ -48518,6 +48614,36 @@ class DashboardWaterfallChartAggregatedFieldWells(dict):
 
 
 @pulumi.output_type
+class DashboardWaterfallChartColorConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupColorConfiguration":
+            suggest = "group_color_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWaterfallChartColorConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWaterfallChartColorConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWaterfallChartColorConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 group_color_configuration: Optional['outputs.DashboardWaterfallChartGroupColorConfiguration'] = None):
+        if group_color_configuration is not None:
+            pulumi.set(__self__, "group_color_configuration", group_color_configuration)
+
+    @property
+    @pulumi.getter(name="groupColorConfiguration")
+    def group_color_configuration(self) -> Optional['outputs.DashboardWaterfallChartGroupColorConfiguration']:
+        return pulumi.get(self, "group_color_configuration")
+
+
+@pulumi.output_type
 class DashboardWaterfallChartConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -48526,6 +48652,8 @@ class DashboardWaterfallChartConfiguration(dict):
             suggest = "category_axis_display_options"
         elif key == "categoryAxisLabelOptions":
             suggest = "category_axis_label_options"
+        elif key == "colorConfiguration":
+            suggest = "color_configuration"
         elif key == "dataLabels":
             suggest = "data_labels"
         elif key == "fieldWells":
@@ -48555,6 +48683,7 @@ class DashboardWaterfallChartConfiguration(dict):
     def __init__(__self__, *,
                  category_axis_display_options: Optional['outputs.DashboardAxisDisplayOptions'] = None,
                  category_axis_label_options: Optional['outputs.DashboardChartAxisLabelOptions'] = None,
+                 color_configuration: Optional['outputs.DashboardWaterfallChartColorConfiguration'] = None,
                  data_labels: Optional['outputs.DashboardDataLabelOptions'] = None,
                  field_wells: Optional['outputs.DashboardWaterfallChartFieldWells'] = None,
                  legend: Optional['outputs.DashboardLegendOptions'] = None,
@@ -48567,6 +48696,8 @@ class DashboardWaterfallChartConfiguration(dict):
             pulumi.set(__self__, "category_axis_display_options", category_axis_display_options)
         if category_axis_label_options is not None:
             pulumi.set(__self__, "category_axis_label_options", category_axis_label_options)
+        if color_configuration is not None:
+            pulumi.set(__self__, "color_configuration", color_configuration)
         if data_labels is not None:
             pulumi.set(__self__, "data_labels", data_labels)
         if field_wells is not None:
@@ -48593,6 +48724,11 @@ class DashboardWaterfallChartConfiguration(dict):
     @pulumi.getter(name="categoryAxisLabelOptions")
     def category_axis_label_options(self) -> Optional['outputs.DashboardChartAxisLabelOptions']:
         return pulumi.get(self, "category_axis_label_options")
+
+    @property
+    @pulumi.getter(name="colorConfiguration")
+    def color_configuration(self) -> Optional['outputs.DashboardWaterfallChartColorConfiguration']:
+        return pulumi.get(self, "color_configuration")
 
     @property
     @pulumi.getter(name="dataLabels")
@@ -48663,6 +48799,56 @@ class DashboardWaterfallChartFieldWells(dict):
     @pulumi.getter(name="waterfallChartAggregatedFieldWells")
     def waterfall_chart_aggregated_field_wells(self) -> Optional['outputs.DashboardWaterfallChartAggregatedFieldWells']:
         return pulumi.get(self, "waterfall_chart_aggregated_field_wells")
+
+
+@pulumi.output_type
+class DashboardWaterfallChartGroupColorConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "negativeBarColor":
+            suggest = "negative_bar_color"
+        elif key == "positiveBarColor":
+            suggest = "positive_bar_color"
+        elif key == "totalBarColor":
+            suggest = "total_bar_color"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWaterfallChartGroupColorConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWaterfallChartGroupColorConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWaterfallChartGroupColorConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 negative_bar_color: Optional[str] = None,
+                 positive_bar_color: Optional[str] = None,
+                 total_bar_color: Optional[str] = None):
+        if negative_bar_color is not None:
+            pulumi.set(__self__, "negative_bar_color", negative_bar_color)
+        if positive_bar_color is not None:
+            pulumi.set(__self__, "positive_bar_color", positive_bar_color)
+        if total_bar_color is not None:
+            pulumi.set(__self__, "total_bar_color", total_bar_color)
+
+    @property
+    @pulumi.getter(name="negativeBarColor")
+    def negative_bar_color(self) -> Optional[str]:
+        return pulumi.get(self, "negative_bar_color")
+
+    @property
+    @pulumi.getter(name="positiveBarColor")
+    def positive_bar_color(self) -> Optional[str]:
+        return pulumi.get(self, "positive_bar_color")
+
+    @property
+    @pulumi.getter(name="totalBarColor")
+    def total_bar_color(self) -> Optional[str]:
+        return pulumi.get(self, "total_bar_color")
 
 
 @pulumi.output_type
@@ -76390,6 +76576,36 @@ class TemplateWaterfallChartAggregatedFieldWells(dict):
 
 
 @pulumi.output_type
+class TemplateWaterfallChartColorConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupColorConfiguration":
+            suggest = "group_color_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateWaterfallChartColorConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateWaterfallChartColorConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateWaterfallChartColorConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 group_color_configuration: Optional['outputs.TemplateWaterfallChartGroupColorConfiguration'] = None):
+        if group_color_configuration is not None:
+            pulumi.set(__self__, "group_color_configuration", group_color_configuration)
+
+    @property
+    @pulumi.getter(name="groupColorConfiguration")
+    def group_color_configuration(self) -> Optional['outputs.TemplateWaterfallChartGroupColorConfiguration']:
+        return pulumi.get(self, "group_color_configuration")
+
+
+@pulumi.output_type
 class TemplateWaterfallChartConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -76398,6 +76614,8 @@ class TemplateWaterfallChartConfiguration(dict):
             suggest = "category_axis_display_options"
         elif key == "categoryAxisLabelOptions":
             suggest = "category_axis_label_options"
+        elif key == "colorConfiguration":
+            suggest = "color_configuration"
         elif key == "dataLabels":
             suggest = "data_labels"
         elif key == "fieldWells":
@@ -76427,6 +76645,7 @@ class TemplateWaterfallChartConfiguration(dict):
     def __init__(__self__, *,
                  category_axis_display_options: Optional['outputs.TemplateAxisDisplayOptions'] = None,
                  category_axis_label_options: Optional['outputs.TemplateChartAxisLabelOptions'] = None,
+                 color_configuration: Optional['outputs.TemplateWaterfallChartColorConfiguration'] = None,
                  data_labels: Optional['outputs.TemplateDataLabelOptions'] = None,
                  field_wells: Optional['outputs.TemplateWaterfallChartFieldWells'] = None,
                  legend: Optional['outputs.TemplateLegendOptions'] = None,
@@ -76439,6 +76658,8 @@ class TemplateWaterfallChartConfiguration(dict):
             pulumi.set(__self__, "category_axis_display_options", category_axis_display_options)
         if category_axis_label_options is not None:
             pulumi.set(__self__, "category_axis_label_options", category_axis_label_options)
+        if color_configuration is not None:
+            pulumi.set(__self__, "color_configuration", color_configuration)
         if data_labels is not None:
             pulumi.set(__self__, "data_labels", data_labels)
         if field_wells is not None:
@@ -76465,6 +76686,11 @@ class TemplateWaterfallChartConfiguration(dict):
     @pulumi.getter(name="categoryAxisLabelOptions")
     def category_axis_label_options(self) -> Optional['outputs.TemplateChartAxisLabelOptions']:
         return pulumi.get(self, "category_axis_label_options")
+
+    @property
+    @pulumi.getter(name="colorConfiguration")
+    def color_configuration(self) -> Optional['outputs.TemplateWaterfallChartColorConfiguration']:
+        return pulumi.get(self, "color_configuration")
 
     @property
     @pulumi.getter(name="dataLabels")
@@ -76535,6 +76761,56 @@ class TemplateWaterfallChartFieldWells(dict):
     @pulumi.getter(name="waterfallChartAggregatedFieldWells")
     def waterfall_chart_aggregated_field_wells(self) -> Optional['outputs.TemplateWaterfallChartAggregatedFieldWells']:
         return pulumi.get(self, "waterfall_chart_aggregated_field_wells")
+
+
+@pulumi.output_type
+class TemplateWaterfallChartGroupColorConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "negativeBarColor":
+            suggest = "negative_bar_color"
+        elif key == "positiveBarColor":
+            suggest = "positive_bar_color"
+        elif key == "totalBarColor":
+            suggest = "total_bar_color"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateWaterfallChartGroupColorConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateWaterfallChartGroupColorConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateWaterfallChartGroupColorConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 negative_bar_color: Optional[str] = None,
+                 positive_bar_color: Optional[str] = None,
+                 total_bar_color: Optional[str] = None):
+        if negative_bar_color is not None:
+            pulumi.set(__self__, "negative_bar_color", negative_bar_color)
+        if positive_bar_color is not None:
+            pulumi.set(__self__, "positive_bar_color", positive_bar_color)
+        if total_bar_color is not None:
+            pulumi.set(__self__, "total_bar_color", total_bar_color)
+
+    @property
+    @pulumi.getter(name="negativeBarColor")
+    def negative_bar_color(self) -> Optional[str]:
+        return pulumi.get(self, "negative_bar_color")
+
+    @property
+    @pulumi.getter(name="positiveBarColor")
+    def positive_bar_color(self) -> Optional[str]:
+        return pulumi.get(self, "positive_bar_color")
+
+    @property
+    @pulumi.getter(name="totalBarColor")
+    def total_bar_color(self) -> Optional[str]:
+        return pulumi.get(self, "total_bar_color")
 
 
 @pulumi.output_type

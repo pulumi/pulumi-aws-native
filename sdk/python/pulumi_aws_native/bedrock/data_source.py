@@ -19,6 +19,7 @@ class DataSourceArgs:
     def __init__(__self__, *,
                  data_source_configuration: pulumi.Input['DataSourceConfigurationArgs'],
                  knowledge_base_id: pulumi.Input[str],
+                 data_deletion_policy: Optional[pulumi.Input['DataSourceDataDeletionPolicy']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  server_side_encryption_configuration: Optional[pulumi.Input['DataSourceServerSideEncryptionConfigurationArgs']] = None,
@@ -31,6 +32,8 @@ class DataSourceArgs:
         """
         pulumi.set(__self__, "data_source_configuration", data_source_configuration)
         pulumi.set(__self__, "knowledge_base_id", knowledge_base_id)
+        if data_deletion_policy is not None:
+            pulumi.set(__self__, "data_deletion_policy", data_deletion_policy)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if name is not None:
@@ -60,6 +63,15 @@ class DataSourceArgs:
     @knowledge_base_id.setter
     def knowledge_base_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "knowledge_base_id", value)
+
+    @property
+    @pulumi.getter(name="dataDeletionPolicy")
+    def data_deletion_policy(self) -> Optional[pulumi.Input['DataSourceDataDeletionPolicy']]:
+        return pulumi.get(self, "data_deletion_policy")
+
+    @data_deletion_policy.setter
+    def data_deletion_policy(self, value: Optional[pulumi.Input['DataSourceDataDeletionPolicy']]):
+        pulumi.set(self, "data_deletion_policy", value)
 
     @property
     @pulumi.getter
@@ -109,6 +121,7 @@ class DataSource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 data_deletion_policy: Optional[pulumi.Input['DataSourceDataDeletionPolicy']] = None,
                  data_source_configuration: Optional[pulumi.Input[pulumi.InputType['DataSourceConfigurationArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  knowledge_base_id: Optional[pulumi.Input[str]] = None,
@@ -149,6 +162,7 @@ class DataSource(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 data_deletion_policy: Optional[pulumi.Input['DataSourceDataDeletionPolicy']] = None,
                  data_source_configuration: Optional[pulumi.Input[pulumi.InputType['DataSourceConfigurationArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  knowledge_base_id: Optional[pulumi.Input[str]] = None,
@@ -164,6 +178,7 @@ class DataSource(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DataSourceArgs.__new__(DataSourceArgs)
 
+            __props__.__dict__["data_deletion_policy"] = data_deletion_policy
             if data_source_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'data_source_configuration'")
             __props__.__dict__["data_source_configuration"] = data_source_configuration
@@ -177,6 +192,7 @@ class DataSource(pulumi.CustomResource):
             __props__.__dict__["created_at"] = None
             __props__.__dict__["data_source_id"] = None
             __props__.__dict__["data_source_status"] = None
+            __props__.__dict__["failure_reasons"] = None
             __props__.__dict__["updated_at"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["knowledgeBaseId", "vectorIngestionConfiguration"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -203,10 +219,12 @@ class DataSource(pulumi.CustomResource):
         __props__ = DataSourceArgs.__new__(DataSourceArgs)
 
         __props__.__dict__["created_at"] = None
+        __props__.__dict__["data_deletion_policy"] = None
         __props__.__dict__["data_source_configuration"] = None
         __props__.__dict__["data_source_id"] = None
         __props__.__dict__["data_source_status"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["failure_reasons"] = None
         __props__.__dict__["knowledge_base_id"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["server_side_encryption_configuration"] = None
@@ -221,6 +239,11 @@ class DataSource(pulumi.CustomResource):
         The time at which the data source was created.
         """
         return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="dataDeletionPolicy")
+    def data_deletion_policy(self) -> pulumi.Output[Optional['DataSourceDataDeletionPolicy']]:
+        return pulumi.get(self, "data_deletion_policy")
 
     @property
     @pulumi.getter(name="dataSourceConfiguration")
@@ -247,6 +270,14 @@ class DataSource(pulumi.CustomResource):
         Description of the Resource.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="failureReasons")
+    def failure_reasons(self) -> pulumi.Output[Sequence[str]]:
+        """
+        The details of the failure reasons related to the data source.
+        """
+        return pulumi.get(self, "failure_reasons")
 
     @property
     @pulumi.getter(name="knowledgeBaseId")

@@ -74617,17 +74617,153 @@ func (o AnalysisWaterfallChartAggregatedFieldWellsPtrOutput) Values() AnalysisMe
 	}).(AnalysisMeasureFieldArrayOutput)
 }
 
+type AnalysisWaterfallChartColorConfiguration struct {
+	GroupColorConfiguration *AnalysisWaterfallChartGroupColorConfiguration `pulumi:"groupColorConfiguration"`
+}
+
+// AnalysisWaterfallChartColorConfigurationInput is an input type that accepts AnalysisWaterfallChartColorConfigurationArgs and AnalysisWaterfallChartColorConfigurationOutput values.
+// You can construct a concrete instance of `AnalysisWaterfallChartColorConfigurationInput` via:
+//
+//	AnalysisWaterfallChartColorConfigurationArgs{...}
+type AnalysisWaterfallChartColorConfigurationInput interface {
+	pulumi.Input
+
+	ToAnalysisWaterfallChartColorConfigurationOutput() AnalysisWaterfallChartColorConfigurationOutput
+	ToAnalysisWaterfallChartColorConfigurationOutputWithContext(context.Context) AnalysisWaterfallChartColorConfigurationOutput
+}
+
+type AnalysisWaterfallChartColorConfigurationArgs struct {
+	GroupColorConfiguration AnalysisWaterfallChartGroupColorConfigurationPtrInput `pulumi:"groupColorConfiguration"`
+}
+
+func (AnalysisWaterfallChartColorConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisWaterfallChartColorConfiguration)(nil)).Elem()
+}
+
+func (i AnalysisWaterfallChartColorConfigurationArgs) ToAnalysisWaterfallChartColorConfigurationOutput() AnalysisWaterfallChartColorConfigurationOutput {
+	return i.ToAnalysisWaterfallChartColorConfigurationOutputWithContext(context.Background())
+}
+
+func (i AnalysisWaterfallChartColorConfigurationArgs) ToAnalysisWaterfallChartColorConfigurationOutputWithContext(ctx context.Context) AnalysisWaterfallChartColorConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisWaterfallChartColorConfigurationOutput)
+}
+
+func (i AnalysisWaterfallChartColorConfigurationArgs) ToAnalysisWaterfallChartColorConfigurationPtrOutput() AnalysisWaterfallChartColorConfigurationPtrOutput {
+	return i.ToAnalysisWaterfallChartColorConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AnalysisWaterfallChartColorConfigurationArgs) ToAnalysisWaterfallChartColorConfigurationPtrOutputWithContext(ctx context.Context) AnalysisWaterfallChartColorConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisWaterfallChartColorConfigurationOutput).ToAnalysisWaterfallChartColorConfigurationPtrOutputWithContext(ctx)
+}
+
+// AnalysisWaterfallChartColorConfigurationPtrInput is an input type that accepts AnalysisWaterfallChartColorConfigurationArgs, AnalysisWaterfallChartColorConfigurationPtr and AnalysisWaterfallChartColorConfigurationPtrOutput values.
+// You can construct a concrete instance of `AnalysisWaterfallChartColorConfigurationPtrInput` via:
+//
+//	        AnalysisWaterfallChartColorConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnalysisWaterfallChartColorConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAnalysisWaterfallChartColorConfigurationPtrOutput() AnalysisWaterfallChartColorConfigurationPtrOutput
+	ToAnalysisWaterfallChartColorConfigurationPtrOutputWithContext(context.Context) AnalysisWaterfallChartColorConfigurationPtrOutput
+}
+
+type analysisWaterfallChartColorConfigurationPtrType AnalysisWaterfallChartColorConfigurationArgs
+
+func AnalysisWaterfallChartColorConfigurationPtr(v *AnalysisWaterfallChartColorConfigurationArgs) AnalysisWaterfallChartColorConfigurationPtrInput {
+	return (*analysisWaterfallChartColorConfigurationPtrType)(v)
+}
+
+func (*analysisWaterfallChartColorConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisWaterfallChartColorConfiguration)(nil)).Elem()
+}
+
+func (i *analysisWaterfallChartColorConfigurationPtrType) ToAnalysisWaterfallChartColorConfigurationPtrOutput() AnalysisWaterfallChartColorConfigurationPtrOutput {
+	return i.ToAnalysisWaterfallChartColorConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *analysisWaterfallChartColorConfigurationPtrType) ToAnalysisWaterfallChartColorConfigurationPtrOutputWithContext(ctx context.Context) AnalysisWaterfallChartColorConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisWaterfallChartColorConfigurationPtrOutput)
+}
+
+type AnalysisWaterfallChartColorConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AnalysisWaterfallChartColorConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisWaterfallChartColorConfiguration)(nil)).Elem()
+}
+
+func (o AnalysisWaterfallChartColorConfigurationOutput) ToAnalysisWaterfallChartColorConfigurationOutput() AnalysisWaterfallChartColorConfigurationOutput {
+	return o
+}
+
+func (o AnalysisWaterfallChartColorConfigurationOutput) ToAnalysisWaterfallChartColorConfigurationOutputWithContext(ctx context.Context) AnalysisWaterfallChartColorConfigurationOutput {
+	return o
+}
+
+func (o AnalysisWaterfallChartColorConfigurationOutput) ToAnalysisWaterfallChartColorConfigurationPtrOutput() AnalysisWaterfallChartColorConfigurationPtrOutput {
+	return o.ToAnalysisWaterfallChartColorConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisWaterfallChartColorConfigurationOutput) ToAnalysisWaterfallChartColorConfigurationPtrOutputWithContext(ctx context.Context) AnalysisWaterfallChartColorConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisWaterfallChartColorConfiguration) *AnalysisWaterfallChartColorConfiguration {
+		return &v
+	}).(AnalysisWaterfallChartColorConfigurationPtrOutput)
+}
+
+func (o AnalysisWaterfallChartColorConfigurationOutput) GroupColorConfiguration() AnalysisWaterfallChartGroupColorConfigurationPtrOutput {
+	return o.ApplyT(func(v AnalysisWaterfallChartColorConfiguration) *AnalysisWaterfallChartGroupColorConfiguration {
+		return v.GroupColorConfiguration
+	}).(AnalysisWaterfallChartGroupColorConfigurationPtrOutput)
+}
+
+type AnalysisWaterfallChartColorConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisWaterfallChartColorConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisWaterfallChartColorConfiguration)(nil)).Elem()
+}
+
+func (o AnalysisWaterfallChartColorConfigurationPtrOutput) ToAnalysisWaterfallChartColorConfigurationPtrOutput() AnalysisWaterfallChartColorConfigurationPtrOutput {
+	return o
+}
+
+func (o AnalysisWaterfallChartColorConfigurationPtrOutput) ToAnalysisWaterfallChartColorConfigurationPtrOutputWithContext(ctx context.Context) AnalysisWaterfallChartColorConfigurationPtrOutput {
+	return o
+}
+
+func (o AnalysisWaterfallChartColorConfigurationPtrOutput) Elem() AnalysisWaterfallChartColorConfigurationOutput {
+	return o.ApplyT(func(v *AnalysisWaterfallChartColorConfiguration) AnalysisWaterfallChartColorConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisWaterfallChartColorConfiguration
+		return ret
+	}).(AnalysisWaterfallChartColorConfigurationOutput)
+}
+
+func (o AnalysisWaterfallChartColorConfigurationPtrOutput) GroupColorConfiguration() AnalysisWaterfallChartGroupColorConfigurationPtrOutput {
+	return o.ApplyT(func(v *AnalysisWaterfallChartColorConfiguration) *AnalysisWaterfallChartGroupColorConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.GroupColorConfiguration
+	}).(AnalysisWaterfallChartGroupColorConfigurationPtrOutput)
+}
+
 type AnalysisWaterfallChartConfiguration struct {
-	CategoryAxisDisplayOptions *AnalysisAxisDisplayOptions              `pulumi:"categoryAxisDisplayOptions"`
-	CategoryAxisLabelOptions   *AnalysisChartAxisLabelOptions           `pulumi:"categoryAxisLabelOptions"`
-	DataLabels                 *AnalysisDataLabelOptions                `pulumi:"dataLabels"`
-	FieldWells                 *AnalysisWaterfallChartFieldWells        `pulumi:"fieldWells"`
-	Legend                     *AnalysisLegendOptions                   `pulumi:"legend"`
-	PrimaryYAxisDisplayOptions *AnalysisAxisDisplayOptions              `pulumi:"primaryYAxisDisplayOptions"`
-	PrimaryYAxisLabelOptions   *AnalysisChartAxisLabelOptions           `pulumi:"primaryYAxisLabelOptions"`
-	SortConfiguration          *AnalysisWaterfallChartSortConfiguration `pulumi:"sortConfiguration"`
-	VisualPalette              *AnalysisVisualPalette                   `pulumi:"visualPalette"`
-	WaterfallChartOptions      *AnalysisWaterfallChartOptions           `pulumi:"waterfallChartOptions"`
+	CategoryAxisDisplayOptions *AnalysisAxisDisplayOptions               `pulumi:"categoryAxisDisplayOptions"`
+	CategoryAxisLabelOptions   *AnalysisChartAxisLabelOptions            `pulumi:"categoryAxisLabelOptions"`
+	ColorConfiguration         *AnalysisWaterfallChartColorConfiguration `pulumi:"colorConfiguration"`
+	DataLabels                 *AnalysisDataLabelOptions                 `pulumi:"dataLabels"`
+	FieldWells                 *AnalysisWaterfallChartFieldWells         `pulumi:"fieldWells"`
+	Legend                     *AnalysisLegendOptions                    `pulumi:"legend"`
+	PrimaryYAxisDisplayOptions *AnalysisAxisDisplayOptions               `pulumi:"primaryYAxisDisplayOptions"`
+	PrimaryYAxisLabelOptions   *AnalysisChartAxisLabelOptions            `pulumi:"primaryYAxisLabelOptions"`
+	SortConfiguration          *AnalysisWaterfallChartSortConfiguration  `pulumi:"sortConfiguration"`
+	VisualPalette              *AnalysisVisualPalette                    `pulumi:"visualPalette"`
+	WaterfallChartOptions      *AnalysisWaterfallChartOptions            `pulumi:"waterfallChartOptions"`
 }
 
 // AnalysisWaterfallChartConfigurationInput is an input type that accepts AnalysisWaterfallChartConfigurationArgs and AnalysisWaterfallChartConfigurationOutput values.
@@ -74642,16 +74778,17 @@ type AnalysisWaterfallChartConfigurationInput interface {
 }
 
 type AnalysisWaterfallChartConfigurationArgs struct {
-	CategoryAxisDisplayOptions AnalysisAxisDisplayOptionsPtrInput              `pulumi:"categoryAxisDisplayOptions"`
-	CategoryAxisLabelOptions   AnalysisChartAxisLabelOptionsPtrInput           `pulumi:"categoryAxisLabelOptions"`
-	DataLabels                 AnalysisDataLabelOptionsPtrInput                `pulumi:"dataLabels"`
-	FieldWells                 AnalysisWaterfallChartFieldWellsPtrInput        `pulumi:"fieldWells"`
-	Legend                     AnalysisLegendOptionsPtrInput                   `pulumi:"legend"`
-	PrimaryYAxisDisplayOptions AnalysisAxisDisplayOptionsPtrInput              `pulumi:"primaryYAxisDisplayOptions"`
-	PrimaryYAxisLabelOptions   AnalysisChartAxisLabelOptionsPtrInput           `pulumi:"primaryYAxisLabelOptions"`
-	SortConfiguration          AnalysisWaterfallChartSortConfigurationPtrInput `pulumi:"sortConfiguration"`
-	VisualPalette              AnalysisVisualPalettePtrInput                   `pulumi:"visualPalette"`
-	WaterfallChartOptions      AnalysisWaterfallChartOptionsPtrInput           `pulumi:"waterfallChartOptions"`
+	CategoryAxisDisplayOptions AnalysisAxisDisplayOptionsPtrInput               `pulumi:"categoryAxisDisplayOptions"`
+	CategoryAxisLabelOptions   AnalysisChartAxisLabelOptionsPtrInput            `pulumi:"categoryAxisLabelOptions"`
+	ColorConfiguration         AnalysisWaterfallChartColorConfigurationPtrInput `pulumi:"colorConfiguration"`
+	DataLabels                 AnalysisDataLabelOptionsPtrInput                 `pulumi:"dataLabels"`
+	FieldWells                 AnalysisWaterfallChartFieldWellsPtrInput         `pulumi:"fieldWells"`
+	Legend                     AnalysisLegendOptionsPtrInput                    `pulumi:"legend"`
+	PrimaryYAxisDisplayOptions AnalysisAxisDisplayOptionsPtrInput               `pulumi:"primaryYAxisDisplayOptions"`
+	PrimaryYAxisLabelOptions   AnalysisChartAxisLabelOptionsPtrInput            `pulumi:"primaryYAxisLabelOptions"`
+	SortConfiguration          AnalysisWaterfallChartSortConfigurationPtrInput  `pulumi:"sortConfiguration"`
+	VisualPalette              AnalysisVisualPalettePtrInput                    `pulumi:"visualPalette"`
+	WaterfallChartOptions      AnalysisWaterfallChartOptionsPtrInput            `pulumi:"waterfallChartOptions"`
 }
 
 func (AnalysisWaterfallChartConfigurationArgs) ElementType() reflect.Type {
@@ -74743,6 +74880,12 @@ func (o AnalysisWaterfallChartConfigurationOutput) CategoryAxisLabelOptions() An
 	}).(AnalysisChartAxisLabelOptionsPtrOutput)
 }
 
+func (o AnalysisWaterfallChartConfigurationOutput) ColorConfiguration() AnalysisWaterfallChartColorConfigurationPtrOutput {
+	return o.ApplyT(func(v AnalysisWaterfallChartConfiguration) *AnalysisWaterfallChartColorConfiguration {
+		return v.ColorConfiguration
+	}).(AnalysisWaterfallChartColorConfigurationPtrOutput)
+}
+
 func (o AnalysisWaterfallChartConfigurationOutput) DataLabels() AnalysisDataLabelOptionsPtrOutput {
 	return o.ApplyT(func(v AnalysisWaterfallChartConfiguration) *AnalysisDataLabelOptions { return v.DataLabels }).(AnalysisDataLabelOptionsPtrOutput)
 }
@@ -74823,6 +74966,15 @@ func (o AnalysisWaterfallChartConfigurationPtrOutput) CategoryAxisLabelOptions()
 		}
 		return v.CategoryAxisLabelOptions
 	}).(AnalysisChartAxisLabelOptionsPtrOutput)
+}
+
+func (o AnalysisWaterfallChartConfigurationPtrOutput) ColorConfiguration() AnalysisWaterfallChartColorConfigurationPtrOutput {
+	return o.ApplyT(func(v *AnalysisWaterfallChartConfiguration) *AnalysisWaterfallChartColorConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ColorConfiguration
+	}).(AnalysisWaterfallChartColorConfigurationPtrOutput)
 }
 
 func (o AnalysisWaterfallChartConfigurationPtrOutput) DataLabels() AnalysisDataLabelOptionsPtrOutput {
@@ -75030,6 +75182,169 @@ func (o AnalysisWaterfallChartFieldWellsPtrOutput) WaterfallChartAggregatedField
 		}
 		return v.WaterfallChartAggregatedFieldWells
 	}).(AnalysisWaterfallChartAggregatedFieldWellsPtrOutput)
+}
+
+type AnalysisWaterfallChartGroupColorConfiguration struct {
+	NegativeBarColor *string `pulumi:"negativeBarColor"`
+	PositiveBarColor *string `pulumi:"positiveBarColor"`
+	TotalBarColor    *string `pulumi:"totalBarColor"`
+}
+
+// AnalysisWaterfallChartGroupColorConfigurationInput is an input type that accepts AnalysisWaterfallChartGroupColorConfigurationArgs and AnalysisWaterfallChartGroupColorConfigurationOutput values.
+// You can construct a concrete instance of `AnalysisWaterfallChartGroupColorConfigurationInput` via:
+//
+//	AnalysisWaterfallChartGroupColorConfigurationArgs{...}
+type AnalysisWaterfallChartGroupColorConfigurationInput interface {
+	pulumi.Input
+
+	ToAnalysisWaterfallChartGroupColorConfigurationOutput() AnalysisWaterfallChartGroupColorConfigurationOutput
+	ToAnalysisWaterfallChartGroupColorConfigurationOutputWithContext(context.Context) AnalysisWaterfallChartGroupColorConfigurationOutput
+}
+
+type AnalysisWaterfallChartGroupColorConfigurationArgs struct {
+	NegativeBarColor pulumi.StringPtrInput `pulumi:"negativeBarColor"`
+	PositiveBarColor pulumi.StringPtrInput `pulumi:"positiveBarColor"`
+	TotalBarColor    pulumi.StringPtrInput `pulumi:"totalBarColor"`
+}
+
+func (AnalysisWaterfallChartGroupColorConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisWaterfallChartGroupColorConfiguration)(nil)).Elem()
+}
+
+func (i AnalysisWaterfallChartGroupColorConfigurationArgs) ToAnalysisWaterfallChartGroupColorConfigurationOutput() AnalysisWaterfallChartGroupColorConfigurationOutput {
+	return i.ToAnalysisWaterfallChartGroupColorConfigurationOutputWithContext(context.Background())
+}
+
+func (i AnalysisWaterfallChartGroupColorConfigurationArgs) ToAnalysisWaterfallChartGroupColorConfigurationOutputWithContext(ctx context.Context) AnalysisWaterfallChartGroupColorConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisWaterfallChartGroupColorConfigurationOutput)
+}
+
+func (i AnalysisWaterfallChartGroupColorConfigurationArgs) ToAnalysisWaterfallChartGroupColorConfigurationPtrOutput() AnalysisWaterfallChartGroupColorConfigurationPtrOutput {
+	return i.ToAnalysisWaterfallChartGroupColorConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AnalysisWaterfallChartGroupColorConfigurationArgs) ToAnalysisWaterfallChartGroupColorConfigurationPtrOutputWithContext(ctx context.Context) AnalysisWaterfallChartGroupColorConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisWaterfallChartGroupColorConfigurationOutput).ToAnalysisWaterfallChartGroupColorConfigurationPtrOutputWithContext(ctx)
+}
+
+// AnalysisWaterfallChartGroupColorConfigurationPtrInput is an input type that accepts AnalysisWaterfallChartGroupColorConfigurationArgs, AnalysisWaterfallChartGroupColorConfigurationPtr and AnalysisWaterfallChartGroupColorConfigurationPtrOutput values.
+// You can construct a concrete instance of `AnalysisWaterfallChartGroupColorConfigurationPtrInput` via:
+//
+//	        AnalysisWaterfallChartGroupColorConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnalysisWaterfallChartGroupColorConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAnalysisWaterfallChartGroupColorConfigurationPtrOutput() AnalysisWaterfallChartGroupColorConfigurationPtrOutput
+	ToAnalysisWaterfallChartGroupColorConfigurationPtrOutputWithContext(context.Context) AnalysisWaterfallChartGroupColorConfigurationPtrOutput
+}
+
+type analysisWaterfallChartGroupColorConfigurationPtrType AnalysisWaterfallChartGroupColorConfigurationArgs
+
+func AnalysisWaterfallChartGroupColorConfigurationPtr(v *AnalysisWaterfallChartGroupColorConfigurationArgs) AnalysisWaterfallChartGroupColorConfigurationPtrInput {
+	return (*analysisWaterfallChartGroupColorConfigurationPtrType)(v)
+}
+
+func (*analysisWaterfallChartGroupColorConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisWaterfallChartGroupColorConfiguration)(nil)).Elem()
+}
+
+func (i *analysisWaterfallChartGroupColorConfigurationPtrType) ToAnalysisWaterfallChartGroupColorConfigurationPtrOutput() AnalysisWaterfallChartGroupColorConfigurationPtrOutput {
+	return i.ToAnalysisWaterfallChartGroupColorConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *analysisWaterfallChartGroupColorConfigurationPtrType) ToAnalysisWaterfallChartGroupColorConfigurationPtrOutputWithContext(ctx context.Context) AnalysisWaterfallChartGroupColorConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisWaterfallChartGroupColorConfigurationPtrOutput)
+}
+
+type AnalysisWaterfallChartGroupColorConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AnalysisWaterfallChartGroupColorConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisWaterfallChartGroupColorConfiguration)(nil)).Elem()
+}
+
+func (o AnalysisWaterfallChartGroupColorConfigurationOutput) ToAnalysisWaterfallChartGroupColorConfigurationOutput() AnalysisWaterfallChartGroupColorConfigurationOutput {
+	return o
+}
+
+func (o AnalysisWaterfallChartGroupColorConfigurationOutput) ToAnalysisWaterfallChartGroupColorConfigurationOutputWithContext(ctx context.Context) AnalysisWaterfallChartGroupColorConfigurationOutput {
+	return o
+}
+
+func (o AnalysisWaterfallChartGroupColorConfigurationOutput) ToAnalysisWaterfallChartGroupColorConfigurationPtrOutput() AnalysisWaterfallChartGroupColorConfigurationPtrOutput {
+	return o.ToAnalysisWaterfallChartGroupColorConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisWaterfallChartGroupColorConfigurationOutput) ToAnalysisWaterfallChartGroupColorConfigurationPtrOutputWithContext(ctx context.Context) AnalysisWaterfallChartGroupColorConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisWaterfallChartGroupColorConfiguration) *AnalysisWaterfallChartGroupColorConfiguration {
+		return &v
+	}).(AnalysisWaterfallChartGroupColorConfigurationPtrOutput)
+}
+
+func (o AnalysisWaterfallChartGroupColorConfigurationOutput) NegativeBarColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AnalysisWaterfallChartGroupColorConfiguration) *string { return v.NegativeBarColor }).(pulumi.StringPtrOutput)
+}
+
+func (o AnalysisWaterfallChartGroupColorConfigurationOutput) PositiveBarColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AnalysisWaterfallChartGroupColorConfiguration) *string { return v.PositiveBarColor }).(pulumi.StringPtrOutput)
+}
+
+func (o AnalysisWaterfallChartGroupColorConfigurationOutput) TotalBarColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AnalysisWaterfallChartGroupColorConfiguration) *string { return v.TotalBarColor }).(pulumi.StringPtrOutput)
+}
+
+type AnalysisWaterfallChartGroupColorConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisWaterfallChartGroupColorConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisWaterfallChartGroupColorConfiguration)(nil)).Elem()
+}
+
+func (o AnalysisWaterfallChartGroupColorConfigurationPtrOutput) ToAnalysisWaterfallChartGroupColorConfigurationPtrOutput() AnalysisWaterfallChartGroupColorConfigurationPtrOutput {
+	return o
+}
+
+func (o AnalysisWaterfallChartGroupColorConfigurationPtrOutput) ToAnalysisWaterfallChartGroupColorConfigurationPtrOutputWithContext(ctx context.Context) AnalysisWaterfallChartGroupColorConfigurationPtrOutput {
+	return o
+}
+
+func (o AnalysisWaterfallChartGroupColorConfigurationPtrOutput) Elem() AnalysisWaterfallChartGroupColorConfigurationOutput {
+	return o.ApplyT(func(v *AnalysisWaterfallChartGroupColorConfiguration) AnalysisWaterfallChartGroupColorConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisWaterfallChartGroupColorConfiguration
+		return ret
+	}).(AnalysisWaterfallChartGroupColorConfigurationOutput)
+}
+
+func (o AnalysisWaterfallChartGroupColorConfigurationPtrOutput) NegativeBarColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnalysisWaterfallChartGroupColorConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NegativeBarColor
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AnalysisWaterfallChartGroupColorConfigurationPtrOutput) PositiveBarColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnalysisWaterfallChartGroupColorConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PositiveBarColor
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AnalysisWaterfallChartGroupColorConfigurationPtrOutput) TotalBarColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnalysisWaterfallChartGroupColorConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TotalBarColor
+	}).(pulumi.StringPtrOutput)
 }
 
 type AnalysisWaterfallChartOptions struct {
@@ -78837,366 +79152,6 @@ func (o DashboardAxisDisplayDataDrivenRangePtrOutput) Elem() DashboardAxisDispla
 	}).(DashboardAxisDisplayDataDrivenRangeOutput)
 }
 
-type DashboardAxisDisplayMinMaxRange struct {
-	Maximum *float64 `pulumi:"maximum"`
-	Minimum *float64 `pulumi:"minimum"`
-}
-
-// DashboardAxisDisplayMinMaxRangeInput is an input type that accepts DashboardAxisDisplayMinMaxRangeArgs and DashboardAxisDisplayMinMaxRangeOutput values.
-// You can construct a concrete instance of `DashboardAxisDisplayMinMaxRangeInput` via:
-//
-//	DashboardAxisDisplayMinMaxRangeArgs{...}
-type DashboardAxisDisplayMinMaxRangeInput interface {
-	pulumi.Input
-
-	ToDashboardAxisDisplayMinMaxRangeOutput() DashboardAxisDisplayMinMaxRangeOutput
-	ToDashboardAxisDisplayMinMaxRangeOutputWithContext(context.Context) DashboardAxisDisplayMinMaxRangeOutput
-}
-
-type DashboardAxisDisplayMinMaxRangeArgs struct {
-	Maximum pulumi.Float64PtrInput `pulumi:"maximum"`
-	Minimum pulumi.Float64PtrInput `pulumi:"minimum"`
-}
-
-func (DashboardAxisDisplayMinMaxRangeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardAxisDisplayMinMaxRange)(nil)).Elem()
-}
-
-func (i DashboardAxisDisplayMinMaxRangeArgs) ToDashboardAxisDisplayMinMaxRangeOutput() DashboardAxisDisplayMinMaxRangeOutput {
-	return i.ToDashboardAxisDisplayMinMaxRangeOutputWithContext(context.Background())
-}
-
-func (i DashboardAxisDisplayMinMaxRangeArgs) ToDashboardAxisDisplayMinMaxRangeOutputWithContext(ctx context.Context) DashboardAxisDisplayMinMaxRangeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardAxisDisplayMinMaxRangeOutput)
-}
-
-func (i DashboardAxisDisplayMinMaxRangeArgs) ToDashboardAxisDisplayMinMaxRangePtrOutput() DashboardAxisDisplayMinMaxRangePtrOutput {
-	return i.ToDashboardAxisDisplayMinMaxRangePtrOutputWithContext(context.Background())
-}
-
-func (i DashboardAxisDisplayMinMaxRangeArgs) ToDashboardAxisDisplayMinMaxRangePtrOutputWithContext(ctx context.Context) DashboardAxisDisplayMinMaxRangePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardAxisDisplayMinMaxRangeOutput).ToDashboardAxisDisplayMinMaxRangePtrOutputWithContext(ctx)
-}
-
-// DashboardAxisDisplayMinMaxRangePtrInput is an input type that accepts DashboardAxisDisplayMinMaxRangeArgs, DashboardAxisDisplayMinMaxRangePtr and DashboardAxisDisplayMinMaxRangePtrOutput values.
-// You can construct a concrete instance of `DashboardAxisDisplayMinMaxRangePtrInput` via:
-//
-//	        DashboardAxisDisplayMinMaxRangeArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardAxisDisplayMinMaxRangePtrInput interface {
-	pulumi.Input
-
-	ToDashboardAxisDisplayMinMaxRangePtrOutput() DashboardAxisDisplayMinMaxRangePtrOutput
-	ToDashboardAxisDisplayMinMaxRangePtrOutputWithContext(context.Context) DashboardAxisDisplayMinMaxRangePtrOutput
-}
-
-type dashboardAxisDisplayMinMaxRangePtrType DashboardAxisDisplayMinMaxRangeArgs
-
-func DashboardAxisDisplayMinMaxRangePtr(v *DashboardAxisDisplayMinMaxRangeArgs) DashboardAxisDisplayMinMaxRangePtrInput {
-	return (*dashboardAxisDisplayMinMaxRangePtrType)(v)
-}
-
-func (*dashboardAxisDisplayMinMaxRangePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardAxisDisplayMinMaxRange)(nil)).Elem()
-}
-
-func (i *dashboardAxisDisplayMinMaxRangePtrType) ToDashboardAxisDisplayMinMaxRangePtrOutput() DashboardAxisDisplayMinMaxRangePtrOutput {
-	return i.ToDashboardAxisDisplayMinMaxRangePtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardAxisDisplayMinMaxRangePtrType) ToDashboardAxisDisplayMinMaxRangePtrOutputWithContext(ctx context.Context) DashboardAxisDisplayMinMaxRangePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardAxisDisplayMinMaxRangePtrOutput)
-}
-
-type DashboardAxisDisplayMinMaxRangeOutput struct{ *pulumi.OutputState }
-
-func (DashboardAxisDisplayMinMaxRangeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardAxisDisplayMinMaxRange)(nil)).Elem()
-}
-
-func (o DashboardAxisDisplayMinMaxRangeOutput) ToDashboardAxisDisplayMinMaxRangeOutput() DashboardAxisDisplayMinMaxRangeOutput {
-	return o
-}
-
-func (o DashboardAxisDisplayMinMaxRangeOutput) ToDashboardAxisDisplayMinMaxRangeOutputWithContext(ctx context.Context) DashboardAxisDisplayMinMaxRangeOutput {
-	return o
-}
-
-func (o DashboardAxisDisplayMinMaxRangeOutput) ToDashboardAxisDisplayMinMaxRangePtrOutput() DashboardAxisDisplayMinMaxRangePtrOutput {
-	return o.ToDashboardAxisDisplayMinMaxRangePtrOutputWithContext(context.Background())
-}
-
-func (o DashboardAxisDisplayMinMaxRangeOutput) ToDashboardAxisDisplayMinMaxRangePtrOutputWithContext(ctx context.Context) DashboardAxisDisplayMinMaxRangePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardAxisDisplayMinMaxRange) *DashboardAxisDisplayMinMaxRange {
-		return &v
-	}).(DashboardAxisDisplayMinMaxRangePtrOutput)
-}
-
-func (o DashboardAxisDisplayMinMaxRangeOutput) Maximum() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v DashboardAxisDisplayMinMaxRange) *float64 { return v.Maximum }).(pulumi.Float64PtrOutput)
-}
-
-func (o DashboardAxisDisplayMinMaxRangeOutput) Minimum() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v DashboardAxisDisplayMinMaxRange) *float64 { return v.Minimum }).(pulumi.Float64PtrOutput)
-}
-
-type DashboardAxisDisplayMinMaxRangePtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardAxisDisplayMinMaxRangePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardAxisDisplayMinMaxRange)(nil)).Elem()
-}
-
-func (o DashboardAxisDisplayMinMaxRangePtrOutput) ToDashboardAxisDisplayMinMaxRangePtrOutput() DashboardAxisDisplayMinMaxRangePtrOutput {
-	return o
-}
-
-func (o DashboardAxisDisplayMinMaxRangePtrOutput) ToDashboardAxisDisplayMinMaxRangePtrOutputWithContext(ctx context.Context) DashboardAxisDisplayMinMaxRangePtrOutput {
-	return o
-}
-
-func (o DashboardAxisDisplayMinMaxRangePtrOutput) Elem() DashboardAxisDisplayMinMaxRangeOutput {
-	return o.ApplyT(func(v *DashboardAxisDisplayMinMaxRange) DashboardAxisDisplayMinMaxRange {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardAxisDisplayMinMaxRange
-		return ret
-	}).(DashboardAxisDisplayMinMaxRangeOutput)
-}
-
-func (o DashboardAxisDisplayMinMaxRangePtrOutput) Maximum() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *DashboardAxisDisplayMinMaxRange) *float64 {
-		if v == nil {
-			return nil
-		}
-		return v.Maximum
-	}).(pulumi.Float64PtrOutput)
-}
-
-func (o DashboardAxisDisplayMinMaxRangePtrOutput) Minimum() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *DashboardAxisDisplayMinMaxRange) *float64 {
-		if v == nil {
-			return nil
-		}
-		return v.Minimum
-	}).(pulumi.Float64PtrOutput)
-}
-
-type DashboardAxisDisplayOptions struct {
-	AxisLineVisibility *DashboardVisibility `pulumi:"axisLineVisibility"`
-	// String based length that is composed of value and unit in px
-	AxisOffset         *string                        `pulumi:"axisOffset"`
-	DataOptions        *DashboardAxisDataOptions      `pulumi:"dataOptions"`
-	GridLineVisibility *DashboardVisibility           `pulumi:"gridLineVisibility"`
-	ScrollbarOptions   *DashboardScrollBarOptions     `pulumi:"scrollbarOptions"`
-	TickLabelOptions   *DashboardAxisTickLabelOptions `pulumi:"tickLabelOptions"`
-}
-
-// DashboardAxisDisplayOptionsInput is an input type that accepts DashboardAxisDisplayOptionsArgs and DashboardAxisDisplayOptionsOutput values.
-// You can construct a concrete instance of `DashboardAxisDisplayOptionsInput` via:
-//
-//	DashboardAxisDisplayOptionsArgs{...}
-type DashboardAxisDisplayOptionsInput interface {
-	pulumi.Input
-
-	ToDashboardAxisDisplayOptionsOutput() DashboardAxisDisplayOptionsOutput
-	ToDashboardAxisDisplayOptionsOutputWithContext(context.Context) DashboardAxisDisplayOptionsOutput
-}
-
-type DashboardAxisDisplayOptionsArgs struct {
-	AxisLineVisibility DashboardVisibilityPtrInput `pulumi:"axisLineVisibility"`
-	// String based length that is composed of value and unit in px
-	AxisOffset         pulumi.StringPtrInput                 `pulumi:"axisOffset"`
-	DataOptions        DashboardAxisDataOptionsPtrInput      `pulumi:"dataOptions"`
-	GridLineVisibility DashboardVisibilityPtrInput           `pulumi:"gridLineVisibility"`
-	ScrollbarOptions   DashboardScrollBarOptionsPtrInput     `pulumi:"scrollbarOptions"`
-	TickLabelOptions   DashboardAxisTickLabelOptionsPtrInput `pulumi:"tickLabelOptions"`
-}
-
-func (DashboardAxisDisplayOptionsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardAxisDisplayOptions)(nil)).Elem()
-}
-
-func (i DashboardAxisDisplayOptionsArgs) ToDashboardAxisDisplayOptionsOutput() DashboardAxisDisplayOptionsOutput {
-	return i.ToDashboardAxisDisplayOptionsOutputWithContext(context.Background())
-}
-
-func (i DashboardAxisDisplayOptionsArgs) ToDashboardAxisDisplayOptionsOutputWithContext(ctx context.Context) DashboardAxisDisplayOptionsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardAxisDisplayOptionsOutput)
-}
-
-func (i DashboardAxisDisplayOptionsArgs) ToDashboardAxisDisplayOptionsPtrOutput() DashboardAxisDisplayOptionsPtrOutput {
-	return i.ToDashboardAxisDisplayOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardAxisDisplayOptionsArgs) ToDashboardAxisDisplayOptionsPtrOutputWithContext(ctx context.Context) DashboardAxisDisplayOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardAxisDisplayOptionsOutput).ToDashboardAxisDisplayOptionsPtrOutputWithContext(ctx)
-}
-
-// DashboardAxisDisplayOptionsPtrInput is an input type that accepts DashboardAxisDisplayOptionsArgs, DashboardAxisDisplayOptionsPtr and DashboardAxisDisplayOptionsPtrOutput values.
-// You can construct a concrete instance of `DashboardAxisDisplayOptionsPtrInput` via:
-//
-//	        DashboardAxisDisplayOptionsArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardAxisDisplayOptionsPtrInput interface {
-	pulumi.Input
-
-	ToDashboardAxisDisplayOptionsPtrOutput() DashboardAxisDisplayOptionsPtrOutput
-	ToDashboardAxisDisplayOptionsPtrOutputWithContext(context.Context) DashboardAxisDisplayOptionsPtrOutput
-}
-
-type dashboardAxisDisplayOptionsPtrType DashboardAxisDisplayOptionsArgs
-
-func DashboardAxisDisplayOptionsPtr(v *DashboardAxisDisplayOptionsArgs) DashboardAxisDisplayOptionsPtrInput {
-	return (*dashboardAxisDisplayOptionsPtrType)(v)
-}
-
-func (*dashboardAxisDisplayOptionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardAxisDisplayOptions)(nil)).Elem()
-}
-
-func (i *dashboardAxisDisplayOptionsPtrType) ToDashboardAxisDisplayOptionsPtrOutput() DashboardAxisDisplayOptionsPtrOutput {
-	return i.ToDashboardAxisDisplayOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardAxisDisplayOptionsPtrType) ToDashboardAxisDisplayOptionsPtrOutputWithContext(ctx context.Context) DashboardAxisDisplayOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardAxisDisplayOptionsPtrOutput)
-}
-
-type DashboardAxisDisplayOptionsOutput struct{ *pulumi.OutputState }
-
-func (DashboardAxisDisplayOptionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardAxisDisplayOptions)(nil)).Elem()
-}
-
-func (o DashboardAxisDisplayOptionsOutput) ToDashboardAxisDisplayOptionsOutput() DashboardAxisDisplayOptionsOutput {
-	return o
-}
-
-func (o DashboardAxisDisplayOptionsOutput) ToDashboardAxisDisplayOptionsOutputWithContext(ctx context.Context) DashboardAxisDisplayOptionsOutput {
-	return o
-}
-
-func (o DashboardAxisDisplayOptionsOutput) ToDashboardAxisDisplayOptionsPtrOutput() DashboardAxisDisplayOptionsPtrOutput {
-	return o.ToDashboardAxisDisplayOptionsPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardAxisDisplayOptionsOutput) ToDashboardAxisDisplayOptionsPtrOutputWithContext(ctx context.Context) DashboardAxisDisplayOptionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardAxisDisplayOptions) *DashboardAxisDisplayOptions {
-		return &v
-	}).(DashboardAxisDisplayOptionsPtrOutput)
-}
-
-func (o DashboardAxisDisplayOptionsOutput) AxisLineVisibility() DashboardVisibilityPtrOutput {
-	return o.ApplyT(func(v DashboardAxisDisplayOptions) *DashboardVisibility { return v.AxisLineVisibility }).(DashboardVisibilityPtrOutput)
-}
-
-// String based length that is composed of value and unit in px
-func (o DashboardAxisDisplayOptionsOutput) AxisOffset() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardAxisDisplayOptions) *string { return v.AxisOffset }).(pulumi.StringPtrOutput)
-}
-
-func (o DashboardAxisDisplayOptionsOutput) DataOptions() DashboardAxisDataOptionsPtrOutput {
-	return o.ApplyT(func(v DashboardAxisDisplayOptions) *DashboardAxisDataOptions { return v.DataOptions }).(DashboardAxisDataOptionsPtrOutput)
-}
-
-func (o DashboardAxisDisplayOptionsOutput) GridLineVisibility() DashboardVisibilityPtrOutput {
-	return o.ApplyT(func(v DashboardAxisDisplayOptions) *DashboardVisibility { return v.GridLineVisibility }).(DashboardVisibilityPtrOutput)
-}
-
-func (o DashboardAxisDisplayOptionsOutput) ScrollbarOptions() DashboardScrollBarOptionsPtrOutput {
-	return o.ApplyT(func(v DashboardAxisDisplayOptions) *DashboardScrollBarOptions { return v.ScrollbarOptions }).(DashboardScrollBarOptionsPtrOutput)
-}
-
-func (o DashboardAxisDisplayOptionsOutput) TickLabelOptions() DashboardAxisTickLabelOptionsPtrOutput {
-	return o.ApplyT(func(v DashboardAxisDisplayOptions) *DashboardAxisTickLabelOptions { return v.TickLabelOptions }).(DashboardAxisTickLabelOptionsPtrOutput)
-}
-
-type DashboardAxisDisplayOptionsPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardAxisDisplayOptionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardAxisDisplayOptions)(nil)).Elem()
-}
-
-func (o DashboardAxisDisplayOptionsPtrOutput) ToDashboardAxisDisplayOptionsPtrOutput() DashboardAxisDisplayOptionsPtrOutput {
-	return o
-}
-
-func (o DashboardAxisDisplayOptionsPtrOutput) ToDashboardAxisDisplayOptionsPtrOutputWithContext(ctx context.Context) DashboardAxisDisplayOptionsPtrOutput {
-	return o
-}
-
-func (o DashboardAxisDisplayOptionsPtrOutput) Elem() DashboardAxisDisplayOptionsOutput {
-	return o.ApplyT(func(v *DashboardAxisDisplayOptions) DashboardAxisDisplayOptions {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardAxisDisplayOptions
-		return ret
-	}).(DashboardAxisDisplayOptionsOutput)
-}
-
-func (o DashboardAxisDisplayOptionsPtrOutput) AxisLineVisibility() DashboardVisibilityPtrOutput {
-	return o.ApplyT(func(v *DashboardAxisDisplayOptions) *DashboardVisibility {
-		if v == nil {
-			return nil
-		}
-		return v.AxisLineVisibility
-	}).(DashboardVisibilityPtrOutput)
-}
-
-// String based length that is composed of value and unit in px
-func (o DashboardAxisDisplayOptionsPtrOutput) AxisOffset() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardAxisDisplayOptions) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AxisOffset
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o DashboardAxisDisplayOptionsPtrOutput) DataOptions() DashboardAxisDataOptionsPtrOutput {
-	return o.ApplyT(func(v *DashboardAxisDisplayOptions) *DashboardAxisDataOptions {
-		if v == nil {
-			return nil
-		}
-		return v.DataOptions
-	}).(DashboardAxisDataOptionsPtrOutput)
-}
-
-func (o DashboardAxisDisplayOptionsPtrOutput) GridLineVisibility() DashboardVisibilityPtrOutput {
-	return o.ApplyT(func(v *DashboardAxisDisplayOptions) *DashboardVisibility {
-		if v == nil {
-			return nil
-		}
-		return v.GridLineVisibility
-	}).(DashboardVisibilityPtrOutput)
-}
-
-func (o DashboardAxisDisplayOptionsPtrOutput) ScrollbarOptions() DashboardScrollBarOptionsPtrOutput {
-	return o.ApplyT(func(v *DashboardAxisDisplayOptions) *DashboardScrollBarOptions {
-		if v == nil {
-			return nil
-		}
-		return v.ScrollbarOptions
-	}).(DashboardScrollBarOptionsPtrOutput)
-}
-
-func (o DashboardAxisDisplayOptionsPtrOutput) TickLabelOptions() DashboardAxisTickLabelOptionsPtrOutput {
-	return o.ApplyT(func(v *DashboardAxisDisplayOptions) *DashboardAxisTickLabelOptions {
-		if v == nil {
-			return nil
-		}
-		return v.TickLabelOptions
-	}).(DashboardAxisTickLabelOptionsPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisAggregationFunctionInput)(nil)).Elem(), AnalysisAggregationFunctionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisAggregationFunctionPtrInput)(nil)).Elem(), AnalysisAggregationFunctionArgs{})
@@ -80132,10 +80087,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisVisualTitleLabelOptionsPtrInput)(nil)).Elem(), AnalysisVisualTitleLabelOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisWaterfallChartAggregatedFieldWellsInput)(nil)).Elem(), AnalysisWaterfallChartAggregatedFieldWellsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisWaterfallChartAggregatedFieldWellsPtrInput)(nil)).Elem(), AnalysisWaterfallChartAggregatedFieldWellsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisWaterfallChartColorConfigurationInput)(nil)).Elem(), AnalysisWaterfallChartColorConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisWaterfallChartColorConfigurationPtrInput)(nil)).Elem(), AnalysisWaterfallChartColorConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisWaterfallChartConfigurationInput)(nil)).Elem(), AnalysisWaterfallChartConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisWaterfallChartConfigurationPtrInput)(nil)).Elem(), AnalysisWaterfallChartConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisWaterfallChartFieldWellsInput)(nil)).Elem(), AnalysisWaterfallChartFieldWellsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisWaterfallChartFieldWellsPtrInput)(nil)).Elem(), AnalysisWaterfallChartFieldWellsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisWaterfallChartGroupColorConfigurationInput)(nil)).Elem(), AnalysisWaterfallChartGroupColorConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisWaterfallChartGroupColorConfigurationPtrInput)(nil)).Elem(), AnalysisWaterfallChartGroupColorConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisWaterfallChartOptionsInput)(nil)).Elem(), AnalysisWaterfallChartOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisWaterfallChartOptionsPtrInput)(nil)).Elem(), AnalysisWaterfallChartOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisWaterfallChartSortConfigurationInput)(nil)).Elem(), AnalysisWaterfallChartSortConfigurationArgs{})
@@ -80186,10 +80145,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardAxisDataOptionsPtrInput)(nil)).Elem(), DashboardAxisDataOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardAxisDisplayDataDrivenRangeInput)(nil)).Elem(), DashboardAxisDisplayDataDrivenRangeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardAxisDisplayDataDrivenRangePtrInput)(nil)).Elem(), DashboardAxisDisplayDataDrivenRangeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardAxisDisplayMinMaxRangeInput)(nil)).Elem(), DashboardAxisDisplayMinMaxRangeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardAxisDisplayMinMaxRangePtrInput)(nil)).Elem(), DashboardAxisDisplayMinMaxRangeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardAxisDisplayOptionsInput)(nil)).Elem(), DashboardAxisDisplayOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardAxisDisplayOptionsPtrInput)(nil)).Elem(), DashboardAxisDisplayOptionsArgs{})
 	pulumi.RegisterOutputType(AnalysisAggregationFunctionOutput{})
 	pulumi.RegisterOutputType(AnalysisAggregationFunctionPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisAggregationSortConfigurationOutput{})
@@ -81124,10 +81079,14 @@ func init() {
 	pulumi.RegisterOutputType(AnalysisVisualTitleLabelOptionsPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisWaterfallChartAggregatedFieldWellsOutput{})
 	pulumi.RegisterOutputType(AnalysisWaterfallChartAggregatedFieldWellsPtrOutput{})
+	pulumi.RegisterOutputType(AnalysisWaterfallChartColorConfigurationOutput{})
+	pulumi.RegisterOutputType(AnalysisWaterfallChartColorConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisWaterfallChartConfigurationOutput{})
 	pulumi.RegisterOutputType(AnalysisWaterfallChartConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisWaterfallChartFieldWellsOutput{})
 	pulumi.RegisterOutputType(AnalysisWaterfallChartFieldWellsPtrOutput{})
+	pulumi.RegisterOutputType(AnalysisWaterfallChartGroupColorConfigurationOutput{})
+	pulumi.RegisterOutputType(AnalysisWaterfallChartGroupColorConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisWaterfallChartOptionsOutput{})
 	pulumi.RegisterOutputType(AnalysisWaterfallChartOptionsPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisWaterfallChartSortConfigurationOutput{})
@@ -81178,8 +81137,4 @@ func init() {
 	pulumi.RegisterOutputType(DashboardAxisDataOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DashboardAxisDisplayDataDrivenRangeOutput{})
 	pulumi.RegisterOutputType(DashboardAxisDisplayDataDrivenRangePtrOutput{})
-	pulumi.RegisterOutputType(DashboardAxisDisplayMinMaxRangeOutput{})
-	pulumi.RegisterOutputType(DashboardAxisDisplayMinMaxRangePtrOutput{})
-	pulumi.RegisterOutputType(DashboardAxisDisplayOptionsOutput{})
-	pulumi.RegisterOutputType(DashboardAxisDisplayOptionsPtrOutput{})
 }
