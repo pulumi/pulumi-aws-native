@@ -5,14 +5,18 @@ PACKDIR          := sdk
 PROJECT          := github.com/pulumi/pulumi-aws-native
 PROVIDER        := pulumi-resource-${PACK}
 CODEGEN         := pulumi-gen-${PACK}
-VERSION         := $(shell pulumictl get version)
 
 WORKING_DIR		:= $(shell pwd)
 
 JAVA_GEN		 := pulumi-java-gen
 JAVA_GEN_VERSION := v0.9.7
 
-VERSION_FLAGS   := -ldflags "-X github.com/pulumi/pulumi-${PACK}/provider/pkg/version.Version=${VERSION}"
+# Override during CI using `make [TARGET] PROVIDER_VERSION=""` or by setting a PROVIDER_VERSION environment variable
+# Local & branch builds will just used this fixed default version unless specified
+PROVIDER_VERSION ?= 1.0.0-alpha.0+dev
+# Use this normalised version everywhere rather than the raw input to ensure consistency.
+VERSION_GENERIC = $(shell pulumictl convert-version --language generic --version "$(PROVIDER_VERSION)")
+VERSION_FLAGS   := -ldflags "-X github.com/pulumi/pulumi-${PACK}/provider/pkg/version.Version=${VERSION_GENERIC}"
 
 CFN_SCHEMA_DIR  := aws-cloudformation-schema
 
@@ -34,7 +38,7 @@ update_submodules:: init_submodules
 	done
 
 discovery:: update_submodules codegen
-	$(WORKING_DIR)/bin/$(CODEGEN) discovery $(CFN_SCHEMA_DIR) ${VERSION} https://schema.cloudformation.us-east-1.amazonaws.com/CloudformationSchema.zip,https://schema.cloudformation.us-west-2.amazonaws.com/CloudformationSchema.zip
+	$(WORKING_DIR)/bin/$(CODEGEN) discovery $(CFN_SCHEMA_DIR) ${VERSION_GENERIC} https://schema.cloudformation.us-east-1.amazonaws.com/CloudformationSchema.zip,https://schema.cloudformation.us-west-2.amazonaws.com/CloudformationSchema.zip
 
 ensure:: init_submodules
 	@echo "GO111MODULE=on go mod tidy"
@@ -46,7 +50,7 @@ local_generate:: generate_schema generate_nodejs generate_python generate_dotnet
 
 generate_schema::
 	echo "Generating Pulumi schema..."
-	$(WORKING_DIR)/bin/$(CODEGEN) schema $(CFN_SCHEMA_DIR) ${VERSION}
+	$(WORKING_DIR)/bin/$(CODEGEN) schema $(CFN_SCHEMA_DIR) ${VERSION_GENERIC}
 	echo "Finished generating schema."
 
 codegen::
@@ -78,13 +82,13 @@ generate_nodejs: .pulumi/bin/pulumi
 	echo "module fake_nodejs_module // Exclude this directory from Go tools\n\ngo 1.17" > 'sdk/nodejs/go.mod'
 	.pulumi/bin/pulumi package gen-sdk provider/cmd/pulumi-resource-aws-native/schema.json --language nodejs
 
-build_nodejs:: VERSION := $(shell pulumictl get version --language javascript)
+build_nodejs:: NODE_VERSION := $(shell pulumictl convert-version --language javascript -v "$(VERSION_GENERIC)")
 build_nodejs::
 	cd ${PACKDIR}/nodejs/ && \
 		yarn install && \
 		yarn run build && \
 		cp ../../README.md ../../LICENSE package.json yarn.lock ./bin/ && \
-		sed -i.bak -e "s/\$${VERSION}/$(VERSION)/g" ./bin/package.json
+		sed -i.bak -e "s/\$${VERSION}/$(NODE_VERSION)/g" ./bin/package.json
 
 generate_python: .pulumi/bin/pulumi
 	rm -rf sdk/python
@@ -92,7 +96,7 @@ generate_python: .pulumi/bin/pulumi
 	echo "module fake_python_module // Exclude this directory from Go tools\n\ngo 1.17" > 'sdk/python/go.mod'
 	.pulumi/bin/pulumi package gen-sdk provider/cmd/pulumi-resource-aws-native/schema.json --language python
 
-build_python:: PYPI_VERSION := $(shell pulumictl get version --language python)
+build_python:: PYPI_VERSION := $(shell pulumictl convert-version --language python -v "$(VERSION_GENERIC)")
 build_python::
 	# Delete files not tracked in Git
 	cd sdk/python/ && git clean -fxd
@@ -112,7 +116,7 @@ generate_dotnet: .pulumi/bin/pulumi
 	echo "module fake_dotnet_module // Exclude this directory from Go tools\n\ngo 1.17" > 'sdk/dotnet/go.mod'
 	.pulumi/bin/pulumi package gen-sdk provider/cmd/pulumi-resource-aws-native/schema.json --language dotnet
 
-build_dotnet:: DOTNET_VERSION := $(shell pulumictl get version --language dotnet)
+build_dotnet:: DOTNET_VERSION := $(shell pulumictl convert-version --language dotnet -v "$(VERSION_GENERIC)")
 build_dotnet::
 	cd ${PACKDIR}/dotnet/ && \
 		echo "${PACK}\n${DOTNET_VERSION}" >version.txt && \
@@ -124,7 +128,7 @@ generate_java:: bin/pulumi-java-gen
 	echo "module fake_java_module // Exclude this directory from Go tools\n\ngo 1.17" > 'sdk/java/go.mod'
 	$(WORKING_DIR)/bin/$(JAVA_GEN) generate --schema $(WORKING_DIR)/provider/cmd/$(PROVIDER)/schema.json --out sdk/java --build gradle-nexus
 
-build_java:: PACKAGE_VERSION := $(shell pulumictl get version --language generic)
+build_java:: PACKAGE_VERSION := $(VERSION_GENERIC)
 build_java::
 	cd ${PACKDIR}/java/ && \
 		gradle --console=plain build
