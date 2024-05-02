@@ -25,7 +25,12 @@
     }
   },
   "additionalProperties" : false,
-  "taggable" : false,
+  "tagging" : {
+    "taggable" : false,
+    "tagOnCreate" : false,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : false
+  },
   "required" : [ "Actions", "CertificateAuthorityArn", "Principal" ],
   "createOnlyProperties" : [ "/properties/Actions", "/properties/CertificateAuthorityArn", "/properties/Principal", "/properties/SourceAccount" ],
   "primaryIdentifier" : [ "/properties/CertificateAuthorityArn", "/properties/Principal" ],

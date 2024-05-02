@@ -1003,7 +1003,7 @@
     },
     "RuntimePlatform" : {
       "$ref" : "#/definitions/RuntimePlatform",
-      "description" : "The operating system that your tasks definitions run on. A platform family is specified only for tasks using the Fargate launch type. \n When you specify a task definition in a service, this value must match the ``runtimePlatform`` value of the service."
+      "description" : "The operating system that your tasks definitions run on. A platform family is specified only for tasks using the Fargate launch type."
     },
     "IpcMode" : {
       "type" : "string",

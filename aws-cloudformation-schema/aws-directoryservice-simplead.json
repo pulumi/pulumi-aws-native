@@ -90,7 +90,7 @@
   "primaryIdentifier" : [ "/properties/DirectoryId" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "ds:CreateDirectory", "ds:CreateAlias", "ds:EnableSso", "ds:DescribeDirectories", "ec2:DescribeSubnets", "ec2:DescribeVpcs", "ec2:CreateSecurityGroup", "ec2:CreateNetworkInterface", "ec2:DescribeNetworkInterfaces", "ec2:AuthorizeSecurityGroupIngress", "ec2:AuthorizeSecurityGroupEgress", "ec2:CreateTags" ],
+      "permissions" : [ "ds:CreateDirectory", "ds:CreateAlias", "ds:EnableSso", "ds:DescribeDirectories", "ec2:DescribeSubnets", "ec2:DescribeVpcs", "ec2:CreateSecurityGroup", "ec2:CreateNetworkInterface", "ec2:DescribeNetworkInterfaces", "ec2:AuthorizeSecurityGroupIngress", "ec2:AuthorizeSecurityGroupEgress", "ec2:CreateTags", "ec2:RevokeSecurityGroupIngress", "ec2:RevokeSecurityGroupEgress" ],
       "timeoutInMinutes" : 60
     },
     "read" : {

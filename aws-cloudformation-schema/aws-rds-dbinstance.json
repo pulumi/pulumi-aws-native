@@ -47,7 +47,7 @@
       "timeoutInMinutes" : 2160
     }
   },
-  "writeOnlyProperties" : [ "/properties/AllowMajorVersionUpgrade", "/properties/CertificateRotationRestart", "/properties/DBSnapshotIdentifier", "/properties/DeleteAutomatedBackups", "/properties/MasterUserPassword", "/properties/Port", "/properties/RestoreTime", "/properties/SourceDBInstanceAutomatedBackupsArn", "/properties/SourceDBInstanceIdentifier", "/properties/SourceDbiResourceId", "/properties/SourceRegion", "/properties/TdeCredentialPassword", "/properties/UseDefaultProcessorFeatures", "/properties/UseLatestRestorableTime" ],
+  "writeOnlyProperties" : [ "/properties/AllowMajorVersionUpgrade", "/properties/AutomaticBackupReplicationKmsKeyId", "/properties/CertificateRotationRestart", "/properties/DBSnapshotIdentifier", "/properties/DeleteAutomatedBackups", "/properties/MasterUserPassword", "/properties/Port", "/properties/RestoreTime", "/properties/SourceDBInstanceAutomatedBackupsArn", "/properties/SourceDBInstanceIdentifier", "/properties/SourceDbiResourceId", "/properties/SourceRegion", "/properties/TdeCredentialPassword", "/properties/UseDefaultProcessorFeatures", "/properties/UseLatestRestorableTime" ],
   "additionalProperties" : false,
   "definitions" : {
     "MasterUserSecret" : {
@@ -216,6 +216,10 @@
       "$ref" : "#/definitions/Endpoint"
     },
     "TdeCredentialArn" : {
+      "description" : "",
+      "type" : "string"
+    },
+    "AutomaticBackupReplicationKmsKeyId" : {
       "description" : "",
       "type" : "string"
     },
