@@ -874,6 +874,7 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["private_ip"] = None
             __props__.__dict__["public_dns_name"] = None
             __props__.__dict__["public_ip"] = None
+            __props__.__dict__["state"] = None
             __props__.__dict__["vpc_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["availabilityZone", "cpuOptions", "elasticGpuSpecifications[*]", "elasticInferenceAccelerators[*]", "enclaveOptions", "hibernationOptions", "hostResourceGroupArn", "imageId", "ipv6AddressCount", "ipv6Addresses[*]", "keyName", "launchTemplate", "licenseSpecifications[*]", "networkInterfaces[*]", "placementGroupName", "privateIpAddress", "securityGroups[*]", "subnetId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -939,6 +940,7 @@ class Instance(pulumi.CustomResource):
         __props__.__dict__["security_groups"] = None
         __props__.__dict__["source_dest_check"] = None
         __props__.__dict__["ssm_associations"] = None
+        __props__.__dict__["state"] = None
         __props__.__dict__["subnet_id"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["tenancy"] = None
@@ -1266,6 +1268,14 @@ class Instance(pulumi.CustomResource):
         The SSM document and parameter values in AWS Systems Manager to associate with this instance.
         """
         return pulumi.get(self, "ssm_associations")
+
+    @property
+    @pulumi.getter
+    def state(self) -> pulumi.Output['outputs.InstanceState']:
+        """
+        The current state of the instance.
+        """
+        return pulumi.get(self, "state")
 
     @property
     @pulumi.getter(name="subnetId")

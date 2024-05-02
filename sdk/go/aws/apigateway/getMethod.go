@@ -38,7 +38,7 @@ type LookupMethodResult struct {
 	AuthorizationScopes []string `pulumi:"authorizationScopes"`
 	// The method's authorization type. This parameter is required. For valid values, see [Method](https://docs.aws.amazon.com/apigateway/latest/api/API_Method.html) in the *API Gateway API Reference*.
 	//   If you specify the ``AuthorizerId`` property, specify ``CUSTOM`` or ``COGNITO_USER_POOLS`` for this property.
-	AuthorizationType *MethodAuthorizationType `pulumi:"authorizationType"`
+	AuthorizationType *string `pulumi:"authorizationType"`
 	// The identifier of an authorizer to use on this method. The method's authorization type must be ``CUSTOM`` or ``COGNITO_USER_POOLS``.
 	AuthorizerId *string `pulumi:"authorizerId"`
 	// Represents an ``HTTP``, ``HTTP_PROXY``, ``AWS``, ``AWS_PROXY``, or Mock integration.
@@ -108,8 +108,8 @@ func (o LookupMethodResultOutput) AuthorizationScopes() pulumi.StringArrayOutput
 // The method's authorization type. This parameter is required. For valid values, see [Method](https://docs.aws.amazon.com/apigateway/latest/api/API_Method.html) in the *API Gateway API Reference*.
 //
 //	If you specify the ``AuthorizerId`` property, specify ``CUSTOM`` or ``COGNITO_USER_POOLS`` for this property.
-func (o LookupMethodResultOutput) AuthorizationType() MethodAuthorizationTypePtrOutput {
-	return o.ApplyT(func(v LookupMethodResult) *MethodAuthorizationType { return v.AuthorizationType }).(MethodAuthorizationTypePtrOutput)
+func (o LookupMethodResultOutput) AuthorizationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupMethodResult) *string { return v.AuthorizationType }).(pulumi.StringPtrOutput)
 }
 
 // The identifier of an authorizer to use on this method. The method's authorization type must be “CUSTOM“ or “COGNITO_USER_POOLS“.

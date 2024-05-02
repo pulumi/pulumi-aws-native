@@ -145,27 +145,35 @@ class CertificateAuthorityAccessMethodArgs:
 @pulumi.input_type
 class CertificateAuthorityCrlConfigurationArgs:
     def __init__(__self__, *,
+                 enabled: pulumi.Input[bool],
                  crl_distribution_point_extension_configuration: Optional[pulumi.Input['CertificateAuthorityCrlDistributionPointExtensionConfigurationArgs']] = None,
                  custom_cname: Optional[pulumi.Input[str]] = None,
-                 enabled: Optional[pulumi.Input[bool]] = None,
                  expiration_in_days: Optional[pulumi.Input[int]] = None,
                  s3_bucket_name: Optional[pulumi.Input[str]] = None,
                  s3_object_acl: Optional[pulumi.Input[str]] = None):
         """
         Your certificate authority can create and maintain a certificate revocation list (CRL). A CRL contains information about certificates that have been revoked.
         """
+        pulumi.set(__self__, "enabled", enabled)
         if crl_distribution_point_extension_configuration is not None:
             pulumi.set(__self__, "crl_distribution_point_extension_configuration", crl_distribution_point_extension_configuration)
         if custom_cname is not None:
             pulumi.set(__self__, "custom_cname", custom_cname)
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
         if expiration_in_days is not None:
             pulumi.set(__self__, "expiration_in_days", expiration_in_days)
         if s3_bucket_name is not None:
             pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
         if s3_object_acl is not None:
             pulumi.set(__self__, "s3_object_acl", s3_object_acl)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
 
     @property
     @pulumi.getter(name="crlDistributionPointExtensionConfiguration")
@@ -184,15 +192,6 @@ class CertificateAuthorityCrlConfigurationArgs:
     @custom_cname.setter
     def custom_cname(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "custom_cname", value)
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enabled", value)
 
     @property
     @pulumi.getter(name="expirationInDays")
@@ -306,22 +305,14 @@ class CertificateAuthorityCustomAttributeArgs:
 @pulumi.input_type
 class CertificateAuthorityEdiPartyNameArgs:
     def __init__(__self__, *,
-                 name_assigner: pulumi.Input[str],
-                 party_name: pulumi.Input[str]):
+                 party_name: pulumi.Input[str],
+                 name_assigner: Optional[pulumi.Input[str]] = None):
         """
         Structure that contains X.509 EdiPartyName information.
         """
-        pulumi.set(__self__, "name_assigner", name_assigner)
         pulumi.set(__self__, "party_name", party_name)
-
-    @property
-    @pulumi.getter(name="nameAssigner")
-    def name_assigner(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "name_assigner")
-
-    @name_assigner.setter
-    def name_assigner(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name_assigner", value)
+        if name_assigner is not None:
+            pulumi.set(__self__, "name_assigner", name_assigner)
 
     @property
     @pulumi.getter(name="partyName")
@@ -331,6 +322,15 @@ class CertificateAuthorityEdiPartyNameArgs:
     @party_name.setter
     def party_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "party_name", value)
+
+    @property
+    @pulumi.getter(name="nameAssigner")
+    def name_assigner(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name_assigner")
+
+    @name_assigner.setter
+    def name_assigner(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name_assigner", value)
 
 
 @pulumi.input_type
@@ -556,23 +556,22 @@ class CertificateAuthorityKeyUsageArgs:
 @pulumi.input_type
 class CertificateAuthorityOcspConfigurationArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[bool]] = None,
+                 enabled: pulumi.Input[bool],
                  ocsp_custom_cname: Optional[pulumi.Input[str]] = None):
         """
         Helps to configure online certificate status protocol (OCSP) responder for your certificate authority
         """
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "enabled", enabled)
         if ocsp_custom_cname is not None:
             pulumi.set(__self__, "ocsp_custom_cname", ocsp_custom_cname)
 
     @property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[bool]]:
+    def enabled(self) -> pulumi.Input[bool]:
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[bool]]):
+    def enabled(self, value: pulumi.Input[bool]):
         pulumi.set(self, "enabled", value)
 
     @property

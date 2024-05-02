@@ -22,7 +22,7 @@ type Method struct {
 	AuthorizationScopes pulumi.StringArrayOutput `pulumi:"authorizationScopes"`
 	// The method's authorization type. This parameter is required. For valid values, see [Method](https://docs.aws.amazon.com/apigateway/latest/api/API_Method.html) in the *API Gateway API Reference*.
 	//   If you specify the ``AuthorizerId`` property, specify ``CUSTOM`` or ``COGNITO_USER_POOLS`` for this property.
-	AuthorizationType MethodAuthorizationTypePtrOutput `pulumi:"authorizationType"`
+	AuthorizationType pulumi.StringPtrOutput `pulumi:"authorizationType"`
 	// The identifier of an authorizer to use on this method. The method's authorization type must be ``CUSTOM`` or ``COGNITO_USER_POOLS``.
 	AuthorizerId pulumi.StringPtrOutput `pulumi:"authorizerId"`
 	// The method's HTTP verb.
@@ -106,7 +106,7 @@ type methodArgs struct {
 	AuthorizationScopes []string `pulumi:"authorizationScopes"`
 	// The method's authorization type. This parameter is required. For valid values, see [Method](https://docs.aws.amazon.com/apigateway/latest/api/API_Method.html) in the *API Gateway API Reference*.
 	//   If you specify the ``AuthorizerId`` property, specify ``CUSTOM`` or ``COGNITO_USER_POOLS`` for this property.
-	AuthorizationType *MethodAuthorizationType `pulumi:"authorizationType"`
+	AuthorizationType *string `pulumi:"authorizationType"`
 	// The identifier of an authorizer to use on this method. The method's authorization type must be ``CUSTOM`` or ``COGNITO_USER_POOLS``.
 	AuthorizerId *string `pulumi:"authorizerId"`
 	// The method's HTTP verb.
@@ -137,7 +137,7 @@ type MethodArgs struct {
 	AuthorizationScopes pulumi.StringArrayInput
 	// The method's authorization type. This parameter is required. For valid values, see [Method](https://docs.aws.amazon.com/apigateway/latest/api/API_Method.html) in the *API Gateway API Reference*.
 	//   If you specify the ``AuthorizerId`` property, specify ``CUSTOM`` or ``COGNITO_USER_POOLS`` for this property.
-	AuthorizationType MethodAuthorizationTypePtrInput
+	AuthorizationType pulumi.StringPtrInput
 	// The identifier of an authorizer to use on this method. The method's authorization type must be ``CUSTOM`` or ``COGNITO_USER_POOLS``.
 	AuthorizerId pulumi.StringPtrInput
 	// The method's HTTP verb.
@@ -210,8 +210,8 @@ func (o MethodOutput) AuthorizationScopes() pulumi.StringArrayOutput {
 // The method's authorization type. This parameter is required. For valid values, see [Method](https://docs.aws.amazon.com/apigateway/latest/api/API_Method.html) in the *API Gateway API Reference*.
 //
 //	If you specify the ``AuthorizerId`` property, specify ``CUSTOM`` or ``COGNITO_USER_POOLS`` for this property.
-func (o MethodOutput) AuthorizationType() MethodAuthorizationTypePtrOutput {
-	return o.ApplyT(func(v *Method) MethodAuthorizationTypePtrOutput { return v.AuthorizationType }).(MethodAuthorizationTypePtrOutput)
+func (o MethodOutput) AuthorizationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Method) pulumi.StringPtrOutput { return v.AuthorizationType }).(pulumi.StringPtrOutput)
 }
 
 // The identifier of an authorizer to use on this method. The method's authorization type must be “CUSTOM“ or “COGNITO_USER_POOLS“.

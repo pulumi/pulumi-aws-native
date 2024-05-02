@@ -54,6 +54,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("defaultFormatting")]
         public Input<Inputs.TopicDefaultFormattingArgs>? DefaultFormatting { get; set; }
 
+        [Input("disableIndexing")]
+        public Input<bool>? DisableIndexing { get; set; }
+
         [Input("expression", required: true)]
         public Input<string> Expression { get; set; } = null!;
 

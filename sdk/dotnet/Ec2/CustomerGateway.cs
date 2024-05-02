@@ -22,9 +22,6 @@ namespace Pulumi.AwsNative.Ec2
         [Output("bgpAsn")]
         public Output<int?> BgpAsn { get; private set; } = null!;
 
-        [Output("bgpAsnExtended")]
-        public Output<double?> BgpAsnExtended { get; private set; } = null!;
-
         [Output("certificateArn")]
         public Output<string?> CertificateArn { get; private set; } = null!;
 
@@ -81,7 +78,6 @@ namespace Pulumi.AwsNative.Ec2
                 ReplaceOnChanges =
                 {
                     "bgpAsn",
-                    "bgpAsnExtended",
                     "certificateArn",
                     "deviceName",
                     "ipAddress",
@@ -115,9 +111,6 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         [Input("bgpAsn")]
         public Input<int>? BgpAsn { get; set; }
-
-        [Input("bgpAsnExtended")]
-        public Input<double>? BgpAsnExtended { get; set; }
 
         [Input("certificateArn")]
         public Input<string>? CertificateArn { get; set; }

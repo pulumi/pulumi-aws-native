@@ -19,7 +19,6 @@ class CustomerGatewayArgs:
                  ip_address: pulumi.Input[str],
                  type: pulumi.Input[str],
                  bgp_asn: Optional[pulumi.Input[int]] = None,
-                 bgp_asn_extended: Optional[pulumi.Input[float]] = None,
                  certificate_arn: Optional[pulumi.Input[str]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
@@ -36,8 +35,6 @@ class CustomerGatewayArgs:
         pulumi.set(__self__, "type", type)
         if bgp_asn is not None:
             pulumi.set(__self__, "bgp_asn", bgp_asn)
-        if bgp_asn_extended is not None:
-            pulumi.set(__self__, "bgp_asn_extended", bgp_asn_extended)
         if certificate_arn is not None:
             pulumi.set(__self__, "certificate_arn", certificate_arn)
         if device_name is not None:
@@ -83,15 +80,6 @@ class CustomerGatewayArgs:
         pulumi.set(self, "bgp_asn", value)
 
     @property
-    @pulumi.getter(name="bgpAsnExtended")
-    def bgp_asn_extended(self) -> Optional[pulumi.Input[float]]:
-        return pulumi.get(self, "bgp_asn_extended")
-
-    @bgp_asn_extended.setter
-    def bgp_asn_extended(self, value: Optional[pulumi.Input[float]]):
-        pulumi.set(self, "bgp_asn_extended", value)
-
-    @property
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "certificate_arn")
@@ -131,7 +119,6 @@ class CustomerGateway(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bgp_asn: Optional[pulumi.Input[int]] = None,
-                 bgp_asn_extended: Optional[pulumi.Input[float]] = None,
                  certificate_arn: Optional[pulumi.Input[str]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
@@ -175,7 +162,6 @@ class CustomerGateway(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bgp_asn: Optional[pulumi.Input[int]] = None,
-                 bgp_asn_extended: Optional[pulumi.Input[float]] = None,
                  certificate_arn: Optional[pulumi.Input[str]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
@@ -191,7 +177,6 @@ class CustomerGateway(pulumi.CustomResource):
             __props__ = CustomerGatewayArgs.__new__(CustomerGatewayArgs)
 
             __props__.__dict__["bgp_asn"] = bgp_asn
-            __props__.__dict__["bgp_asn_extended"] = bgp_asn_extended
             __props__.__dict__["certificate_arn"] = certificate_arn
             __props__.__dict__["device_name"] = device_name
             if ip_address is None and not opts.urn:
@@ -202,7 +187,7 @@ class CustomerGateway(pulumi.CustomResource):
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
             __props__.__dict__["customer_gateway_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["bgpAsn", "bgpAsnExtended", "certificateArn", "deviceName", "ipAddress", "type"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["bgpAsn", "certificateArn", "deviceName", "ipAddress", "type"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(CustomerGateway, __self__).__init__(
             'aws-native:ec2:CustomerGateway',
@@ -227,7 +212,6 @@ class CustomerGateway(pulumi.CustomResource):
         __props__ = CustomerGatewayArgs.__new__(CustomerGatewayArgs)
 
         __props__.__dict__["bgp_asn"] = None
-        __props__.__dict__["bgp_asn_extended"] = None
         __props__.__dict__["certificate_arn"] = None
         __props__.__dict__["customer_gateway_id"] = None
         __props__.__dict__["device_name"] = None
@@ -244,11 +228,6 @@ class CustomerGateway(pulumi.CustomResource):
          Default: 65000
         """
         return pulumi.get(self, "bgp_asn")
-
-    @property
-    @pulumi.getter(name="bgpAsnExtended")
-    def bgp_asn_extended(self) -> pulumi.Output[Optional[float]]:
-        return pulumi.get(self, "bgp_asn_extended")
 
     @property
     @pulumi.getter(name="certificateArn")

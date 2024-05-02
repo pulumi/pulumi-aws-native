@@ -28,12 +28,13 @@ type LookupGeofenceCollectionArgs struct {
 }
 
 type LookupGeofenceCollectionResult struct {
-	Arn                   *string                        `pulumi:"arn"`
-	CollectionArn         *string                        `pulumi:"collectionArn"`
-	CreateTime            *string                        `pulumi:"createTime"`
-	Description           *string                        `pulumi:"description"`
-	PricingPlan           *GeofenceCollectionPricingPlan `pulumi:"pricingPlan"`
-	PricingPlanDataSource *string                        `pulumi:"pricingPlanDataSource"`
+	Arn           *string                        `pulumi:"arn"`
+	CollectionArn *string                        `pulumi:"collectionArn"`
+	CreateTime    *string                        `pulumi:"createTime"`
+	Description   *string                        `pulumi:"description"`
+	PricingPlan   *GeofenceCollectionPricingPlan `pulumi:"pricingPlan"`
+	// This shape is deprecated since 2022-02-01: Deprecated. No longer allowed.
+	PricingPlanDataSource *string `pulumi:"pricingPlanDataSource"`
 	// An array of key-value pairs to apply to this resource.
 	Tags       []aws.Tag `pulumi:"tags"`
 	UpdateTime *string   `pulumi:"updateTime"`
@@ -94,6 +95,7 @@ func (o LookupGeofenceCollectionResultOutput) PricingPlan() GeofenceCollectionPr
 	return o.ApplyT(func(v LookupGeofenceCollectionResult) *GeofenceCollectionPricingPlan { return v.PricingPlan }).(GeofenceCollectionPricingPlanPtrOutput)
 }
 
+// This shape is deprecated since 2022-02-01: Deprecated. No longer allowed.
 func (o LookupGeofenceCollectionResultOutput) PricingPlanDataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGeofenceCollectionResult) *string { return v.PricingPlanDataSource }).(pulumi.StringPtrOutput)
 }

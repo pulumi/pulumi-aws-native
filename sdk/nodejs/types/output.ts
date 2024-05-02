@@ -111,7 +111,7 @@ export namespace acmpca {
     export interface CertificateAuthorityCrlConfiguration {
         crlDistributionPointExtensionConfiguration?: outputs.acmpca.CertificateAuthorityCrlDistributionPointExtensionConfiguration;
         customCname?: string;
-        enabled?: boolean;
+        enabled: boolean;
         expirationInDays?: number;
         s3BucketName?: string;
         s3ObjectAcl?: string;
@@ -144,7 +144,7 @@ export namespace acmpca {
      * Structure that contains X.509 EdiPartyName information.
      */
     export interface CertificateAuthorityEdiPartyName {
-        nameAssigner: string;
+        nameAssigner?: string;
         partyName: string;
     }
 
@@ -181,7 +181,7 @@ export namespace acmpca {
      * Helps to configure online certificate status protocol (OCSP) responder for your certificate authority
      */
     export interface CertificateAuthorityOcspConfiguration {
-        enabled?: boolean;
+        enabled: boolean;
         ocspCustomCname?: string;
     }
 
@@ -12000,6 +12000,20 @@ export namespace ec2 {
         documentName: string;
     }
 
+    /**
+     * The current state of the instance
+     */
+    export interface InstanceState {
+        /**
+         * The state of the instance as a 16-bit unsigned integer.
+         */
+        code?: string;
+        /**
+         * The current state of the instance.
+         */
+        name?: string;
+    }
+
     export interface InstanceVolume {
         /**
          * The device name (for example, /dev/sdh or xvdh).
@@ -17971,6 +17985,85 @@ export namespace fms {
     }
 
     /**
+     * Network ACL common policy.
+     */
+    export interface PolicyNetworkAclCommonPolicy {
+        networkAclEntrySet: outputs.fms.PolicyNetworkAclEntrySet;
+    }
+
+    /**
+     * Network ACL entry.
+     */
+    export interface PolicyNetworkAclEntry {
+        /**
+         * CIDR block.
+         */
+        cidrBlock?: string;
+        /**
+         * Whether the entry is an egress entry.
+         */
+        egress: boolean;
+        /**
+         * ICMP type and code.
+         */
+        icmpTypeCode?: outputs.fms.PolicyNetworkAclEntryIcmpTypeCodeProperties;
+        /**
+         * IPv6 CIDR block.
+         */
+        ipv6CidrBlock?: string;
+        /**
+         * Port range.
+         */
+        portRange?: outputs.fms.PolicyNetworkAclEntryPortRangeProperties;
+        /**
+         * Protocol.
+         */
+        protocol: string;
+        /**
+         * Rule Action.
+         */
+        ruleAction: enums.fms.PolicyNetworkAclEntryRuleAction;
+    }
+
+    /**
+     * ICMP type and code.
+     */
+    export interface PolicyNetworkAclEntryIcmpTypeCodeProperties {
+        /**
+         * Code.
+         */
+        code: number;
+        /**
+         * Type.
+         */
+        type: number;
+    }
+
+    /**
+     * Port range.
+     */
+    export interface PolicyNetworkAclEntryPortRangeProperties {
+        /**
+         * From Port.
+         */
+        from: number;
+        /**
+         * To Port.
+         */
+        to: number;
+    }
+
+    /**
+     * Network ACL entry set.
+     */
+    export interface PolicyNetworkAclEntrySet {
+        firstEntries?: outputs.fms.PolicyNetworkAclEntry[];
+        forceRemediateForFirstEntries: boolean;
+        forceRemediateForLastEntries: boolean;
+        lastEntries?: outputs.fms.PolicyNetworkAclEntry[];
+    }
+
+    /**
      * Network firewall policy.
      */
     export interface PolicyNetworkFirewallPolicy {
@@ -17981,6 +18074,7 @@ export namespace fms {
      * Firewall policy option.
      */
     export interface PolicyOption {
+        networkAclCommonPolicy?: outputs.fms.PolicyNetworkAclCommonPolicy;
         networkFirewallPolicy?: outputs.fms.PolicyNetworkFirewallPolicy;
         thirdPartyFirewallPolicy?: outputs.fms.PolicyThirdPartyFirewallPolicy;
     }
@@ -31955,6 +32049,148 @@ export namespace pipes {
 export namespace proton {
 }
 
+export namespace qbusiness {
+    export interface ApplicationAttachmentsConfiguration {
+        attachmentsControlMode: enums.qbusiness.ApplicationAttachmentsControlMode;
+    }
+
+    export interface ApplicationEncryptionConfiguration {
+        kmsKeyId?: string;
+    }
+
+    export interface DataSourceDocumentAttributeCondition {
+        key: string;
+        operator: enums.qbusiness.DataSourceDocumentEnrichmentConditionOperator;
+        value?: outputs.qbusiness.DataSourceDocumentAttributeValue0Properties | outputs.qbusiness.DataSourceDocumentAttributeValue1Properties | outputs.qbusiness.DataSourceDocumentAttributeValue2Properties | outputs.qbusiness.DataSourceDocumentAttributeValue3Properties;
+    }
+
+    export interface DataSourceDocumentAttributeTarget {
+        attributeValueOperator?: enums.qbusiness.DataSourceAttributeValueOperator;
+        key: string;
+        value?: outputs.qbusiness.DataSourceDocumentAttributeValue0Properties | outputs.qbusiness.DataSourceDocumentAttributeValue1Properties | outputs.qbusiness.DataSourceDocumentAttributeValue2Properties | outputs.qbusiness.DataSourceDocumentAttributeValue3Properties;
+    }
+
+    export interface DataSourceDocumentAttributeValue0Properties {
+        stringValue: string;
+    }
+
+    export interface DataSourceDocumentAttributeValue1Properties {
+        stringListValue: string[];
+    }
+
+    export interface DataSourceDocumentAttributeValue2Properties {
+        longValue: number;
+    }
+
+    export interface DataSourceDocumentAttributeValue3Properties {
+        dateValue: string;
+    }
+
+    export interface DataSourceDocumentEnrichmentConfiguration {
+        inlineConfigurations?: outputs.qbusiness.DataSourceInlineDocumentEnrichmentConfiguration[];
+        postExtractionHookConfiguration?: outputs.qbusiness.DataSourceHookConfiguration;
+        preExtractionHookConfiguration?: outputs.qbusiness.DataSourceHookConfiguration;
+    }
+
+    export interface DataSourceHookConfiguration {
+        invocationCondition?: outputs.qbusiness.DataSourceDocumentAttributeCondition;
+        lambdaArn?: string;
+        roleArn?: string;
+        s3BucketName?: string;
+    }
+
+    export interface DataSourceInlineDocumentEnrichmentConfiguration {
+        condition?: outputs.qbusiness.DataSourceDocumentAttributeCondition;
+        documentContentOperator?: enums.qbusiness.DataSourceDocumentContentOperator;
+        target?: outputs.qbusiness.DataSourceDocumentAttributeTarget;
+    }
+
+    export interface DataSourceVpcConfiguration {
+        securityGroupIds: string[];
+        subnetIds: string[];
+    }
+
+    export interface IndexCapacityConfiguration {
+        units?: number;
+    }
+
+    export interface IndexDocumentAttributeConfiguration {
+        name?: string;
+        search?: enums.qbusiness.QBusinessIndexStatus;
+        type?: enums.qbusiness.IndexAttributeType;
+    }
+
+    export interface IndexStatistics {
+        textDocumentStatistics?: outputs.qbusiness.IndexTextDocumentStatistics;
+    }
+
+    export interface IndexTextDocumentStatistics {
+        indexedTextBytes?: number;
+        indexedTextDocumentCount?: number;
+    }
+
+    export interface PluginApiSchema0Properties {
+        payload: string;
+    }
+
+    export interface PluginApiSchema1Properties {
+        s3: outputs.qbusiness.PluginS3;
+    }
+
+    export interface PluginAuthConfiguration0Properties {
+        basicAuthConfiguration: outputs.qbusiness.PluginBasicAuthConfiguration;
+    }
+
+    export interface PluginAuthConfiguration1Properties {
+        oAuth2ClientCredentialConfiguration: outputs.qbusiness.PluginOAuth2ClientCredentialConfiguration;
+    }
+
+    export interface PluginAuthConfiguration2Properties {
+        noAuthConfiguration: outputs.qbusiness.PluginNoAuthConfiguration;
+    }
+
+    export interface PluginBasicAuthConfiguration {
+        roleArn: string;
+        secretArn: string;
+    }
+
+    export interface PluginCustomPluginConfiguration {
+        apiSchema: outputs.qbusiness.PluginApiSchema0Properties | outputs.qbusiness.PluginApiSchema1Properties;
+        apiSchemaType: enums.qbusiness.PluginApiSchemaType;
+        description: string;
+    }
+
+    export interface PluginNoAuthConfiguration {
+    }
+
+    export interface PluginOAuth2ClientCredentialConfiguration {
+        roleArn: string;
+        secretArn: string;
+    }
+
+    export interface PluginS3 {
+        bucket: string;
+        key: string;
+    }
+
+    export interface RetrieverConfiguration0Properties {
+        nativeIndexConfiguration: outputs.qbusiness.RetrieverNativeIndexConfiguration;
+    }
+
+    export interface RetrieverConfiguration1Properties {
+        kendraIndexConfiguration: outputs.qbusiness.RetrieverKendraIndexConfiguration;
+    }
+
+    export interface RetrieverKendraIndexConfiguration {
+        indexId: string;
+    }
+
+    export interface RetrieverNativeIndexConfiguration {
+        indexId: string;
+    }
+
+}
+
 export namespace qldb {
     export interface StreamKinesisConfiguration {
         aggregationEnabled?: boolean;
@@ -43229,6 +43465,7 @@ export namespace quicksight {
         columnDataRole?: enums.quicksight.TopicColumnDataRole;
         comparativeOrder?: outputs.quicksight.TopicComparativeOrder;
         defaultFormatting?: outputs.quicksight.TopicDefaultFormatting;
+        disableIndexing?: boolean;
         expression: string;
         isIncludedInTopic?: boolean;
         neverAggregateInFilter?: boolean;
@@ -43271,6 +43508,7 @@ export namespace quicksight {
         columnSynonyms?: string[];
         comparativeOrder?: outputs.quicksight.TopicComparativeOrder;
         defaultFormatting?: outputs.quicksight.TopicDefaultFormatting;
+        disableIndexing?: boolean;
         isIncludedInTopic?: boolean;
         neverAggregateInFilter?: boolean;
         nonAdditive?: boolean;

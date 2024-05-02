@@ -56,6 +56,7 @@ __all__ = [
     'InstancePrivateDnsNameOptions',
     'InstancePrivateIpAddressSpecification',
     'InstanceSsmAssociation',
+    'InstanceState',
     'InstanceVolume',
     'IpamOperatingRegion',
     'IpamPoolProvisionedCidr',
@@ -2442,6 +2443,41 @@ class InstanceSsmAssociation(dict):
         The input parameter values to use with the associated SSM document.
         """
         return pulumi.get(self, "association_parameters")
+
+
+@pulumi.output_type
+class InstanceState(dict):
+    """
+    The current state of the instance
+    """
+    def __init__(__self__, *,
+                 code: Optional[str] = None,
+                 name: Optional[str] = None):
+        """
+        The current state of the instance
+        :param str code: The state of the instance as a 16-bit unsigned integer.
+        :param str name: The current state of the instance.
+        """
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def code(self) -> Optional[str]:
+        """
+        The state of the instance as a 16-bit unsigned integer.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The current state of the instance.
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type

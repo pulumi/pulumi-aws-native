@@ -176,6 +176,172 @@ func (in *policyFirewallDeploymentModelPtr) ToPolicyFirewallDeploymentModelPtrOu
 	return pulumi.ToOutputWithContext(ctx, in).(PolicyFirewallDeploymentModelPtrOutput)
 }
 
+// Rule Action.
+type PolicyNetworkAclEntryRuleAction string
+
+const (
+	PolicyNetworkAclEntryRuleActionAllow = PolicyNetworkAclEntryRuleAction("allow")
+	PolicyNetworkAclEntryRuleActionDeny  = PolicyNetworkAclEntryRuleAction("deny")
+)
+
+func (PolicyNetworkAclEntryRuleAction) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyNetworkAclEntryRuleAction)(nil)).Elem()
+}
+
+func (e PolicyNetworkAclEntryRuleAction) ToPolicyNetworkAclEntryRuleActionOutput() PolicyNetworkAclEntryRuleActionOutput {
+	return pulumi.ToOutput(e).(PolicyNetworkAclEntryRuleActionOutput)
+}
+
+func (e PolicyNetworkAclEntryRuleAction) ToPolicyNetworkAclEntryRuleActionOutputWithContext(ctx context.Context) PolicyNetworkAclEntryRuleActionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PolicyNetworkAclEntryRuleActionOutput)
+}
+
+func (e PolicyNetworkAclEntryRuleAction) ToPolicyNetworkAclEntryRuleActionPtrOutput() PolicyNetworkAclEntryRuleActionPtrOutput {
+	return e.ToPolicyNetworkAclEntryRuleActionPtrOutputWithContext(context.Background())
+}
+
+func (e PolicyNetworkAclEntryRuleAction) ToPolicyNetworkAclEntryRuleActionPtrOutputWithContext(ctx context.Context) PolicyNetworkAclEntryRuleActionPtrOutput {
+	return PolicyNetworkAclEntryRuleAction(e).ToPolicyNetworkAclEntryRuleActionOutputWithContext(ctx).ToPolicyNetworkAclEntryRuleActionPtrOutputWithContext(ctx)
+}
+
+func (e PolicyNetworkAclEntryRuleAction) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PolicyNetworkAclEntryRuleAction) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PolicyNetworkAclEntryRuleAction) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PolicyNetworkAclEntryRuleAction) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PolicyNetworkAclEntryRuleActionOutput struct{ *pulumi.OutputState }
+
+func (PolicyNetworkAclEntryRuleActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyNetworkAclEntryRuleAction)(nil)).Elem()
+}
+
+func (o PolicyNetworkAclEntryRuleActionOutput) ToPolicyNetworkAclEntryRuleActionOutput() PolicyNetworkAclEntryRuleActionOutput {
+	return o
+}
+
+func (o PolicyNetworkAclEntryRuleActionOutput) ToPolicyNetworkAclEntryRuleActionOutputWithContext(ctx context.Context) PolicyNetworkAclEntryRuleActionOutput {
+	return o
+}
+
+func (o PolicyNetworkAclEntryRuleActionOutput) ToPolicyNetworkAclEntryRuleActionPtrOutput() PolicyNetworkAclEntryRuleActionPtrOutput {
+	return o.ToPolicyNetworkAclEntryRuleActionPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyNetworkAclEntryRuleActionOutput) ToPolicyNetworkAclEntryRuleActionPtrOutputWithContext(ctx context.Context) PolicyNetworkAclEntryRuleActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyNetworkAclEntryRuleAction) *PolicyNetworkAclEntryRuleAction {
+		return &v
+	}).(PolicyNetworkAclEntryRuleActionPtrOutput)
+}
+
+func (o PolicyNetworkAclEntryRuleActionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PolicyNetworkAclEntryRuleActionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PolicyNetworkAclEntryRuleAction) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PolicyNetworkAclEntryRuleActionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyNetworkAclEntryRuleActionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PolicyNetworkAclEntryRuleAction) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PolicyNetworkAclEntryRuleActionPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyNetworkAclEntryRuleActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyNetworkAclEntryRuleAction)(nil)).Elem()
+}
+
+func (o PolicyNetworkAclEntryRuleActionPtrOutput) ToPolicyNetworkAclEntryRuleActionPtrOutput() PolicyNetworkAclEntryRuleActionPtrOutput {
+	return o
+}
+
+func (o PolicyNetworkAclEntryRuleActionPtrOutput) ToPolicyNetworkAclEntryRuleActionPtrOutputWithContext(ctx context.Context) PolicyNetworkAclEntryRuleActionPtrOutput {
+	return o
+}
+
+func (o PolicyNetworkAclEntryRuleActionPtrOutput) Elem() PolicyNetworkAclEntryRuleActionOutput {
+	return o.ApplyT(func(v *PolicyNetworkAclEntryRuleAction) PolicyNetworkAclEntryRuleAction {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyNetworkAclEntryRuleAction
+		return ret
+	}).(PolicyNetworkAclEntryRuleActionOutput)
+}
+
+func (o PolicyNetworkAclEntryRuleActionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyNetworkAclEntryRuleActionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PolicyNetworkAclEntryRuleAction) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PolicyNetworkAclEntryRuleActionInput is an input type that accepts values of the PolicyNetworkAclEntryRuleAction enum
+// A concrete instance of `PolicyNetworkAclEntryRuleActionInput` can be one of the following:
+//
+//	PolicyNetworkAclEntryRuleActionAllow
+//	PolicyNetworkAclEntryRuleActionDeny
+type PolicyNetworkAclEntryRuleActionInput interface {
+	pulumi.Input
+
+	ToPolicyNetworkAclEntryRuleActionOutput() PolicyNetworkAclEntryRuleActionOutput
+	ToPolicyNetworkAclEntryRuleActionOutputWithContext(context.Context) PolicyNetworkAclEntryRuleActionOutput
+}
+
+var policyNetworkAclEntryRuleActionPtrType = reflect.TypeOf((**PolicyNetworkAclEntryRuleAction)(nil)).Elem()
+
+type PolicyNetworkAclEntryRuleActionPtrInput interface {
+	pulumi.Input
+
+	ToPolicyNetworkAclEntryRuleActionPtrOutput() PolicyNetworkAclEntryRuleActionPtrOutput
+	ToPolicyNetworkAclEntryRuleActionPtrOutputWithContext(context.Context) PolicyNetworkAclEntryRuleActionPtrOutput
+}
+
+type policyNetworkAclEntryRuleActionPtr string
+
+func PolicyNetworkAclEntryRuleActionPtr(v string) PolicyNetworkAclEntryRuleActionPtrInput {
+	return (*policyNetworkAclEntryRuleActionPtr)(&v)
+}
+
+func (*policyNetworkAclEntryRuleActionPtr) ElementType() reflect.Type {
+	return policyNetworkAclEntryRuleActionPtrType
+}
+
+func (in *policyNetworkAclEntryRuleActionPtr) ToPolicyNetworkAclEntryRuleActionPtrOutput() PolicyNetworkAclEntryRuleActionPtrOutput {
+	return pulumi.ToOutput(in).(PolicyNetworkAclEntryRuleActionPtrOutput)
+}
+
+func (in *policyNetworkAclEntryRuleActionPtr) ToPolicyNetworkAclEntryRuleActionPtrOutputWithContext(ctx context.Context) PolicyNetworkAclEntryRuleActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PolicyNetworkAclEntryRuleActionPtrOutput)
+}
+
 // Firewall policy type.
 type PolicyType string
 
@@ -190,6 +356,7 @@ const (
 	PolicyTypeThirdPartyFirewall         = PolicyType("THIRD_PARTY_FIREWALL")
 	PolicyTypeDnsFirewall                = PolicyType("DNS_FIREWALL")
 	PolicyTypeImportNetworkFirewall      = PolicyType("IMPORT_NETWORK_FIREWALL")
+	PolicyTypeNetworkAclCommon           = PolicyType("NETWORK_ACL_COMMON")
 )
 
 func (PolicyType) ElementType() reflect.Type {
@@ -324,6 +491,7 @@ func (o PolicyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) p
 //	PolicyTypeThirdPartyFirewall
 //	PolicyTypeDnsFirewall
 //	PolicyTypeImportNetworkFirewall
+//	PolicyTypeNetworkAclCommon
 type PolicyTypeInput interface {
 	pulumi.Input
 
@@ -361,10 +529,14 @@ func (in *policyTypePtr) ToPolicyTypePtrOutputWithContext(ctx context.Context) P
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyFirewallDeploymentModelInput)(nil)).Elem(), PolicyFirewallDeploymentModel("DISTRIBUTED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyFirewallDeploymentModelPtrInput)(nil)).Elem(), PolicyFirewallDeploymentModel("DISTRIBUTED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyNetworkAclEntryRuleActionInput)(nil)).Elem(), PolicyNetworkAclEntryRuleAction("allow"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyNetworkAclEntryRuleActionPtrInput)(nil)).Elem(), PolicyNetworkAclEntryRuleAction("allow"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyTypeInput)(nil)).Elem(), PolicyType("WAF"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyTypePtrInput)(nil)).Elem(), PolicyType("WAF"))
 	pulumi.RegisterOutputType(PolicyFirewallDeploymentModelOutput{})
 	pulumi.RegisterOutputType(PolicyFirewallDeploymentModelPtrOutput{})
+	pulumi.RegisterOutputType(PolicyNetworkAclEntryRuleActionOutput{})
+	pulumi.RegisterOutputType(PolicyNetworkAclEntryRuleActionPtrOutput{})
 	pulumi.RegisterOutputType(PolicyTypeOutput{})
 	pulumi.RegisterOutputType(PolicyTypePtrOutput{})
 }

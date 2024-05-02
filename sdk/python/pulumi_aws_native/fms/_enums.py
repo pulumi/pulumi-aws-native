@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'PolicyFirewallDeploymentModel',
+    'PolicyNetworkAclEntryRuleAction',
     'PolicyType',
 ]
 
@@ -16,6 +17,14 @@ class PolicyFirewallDeploymentModel(str, Enum):
     """
     DISTRIBUTED = "DISTRIBUTED"
     CENTRALIZED = "CENTRALIZED"
+
+
+class PolicyNetworkAclEntryRuleAction(str, Enum):
+    """
+    Rule Action.
+    """
+    ALLOW = "allow"
+    DENY = "deny"
 
 
 class PolicyType(str, Enum):
@@ -32,3 +41,4 @@ class PolicyType(str, Enum):
     THIRD_PARTY_FIREWALL = "THIRD_PARTY_FIREWALL"
     DNS_FIREWALL = "DNS_FIREWALL"
     IMPORT_NETWORK_FIREWALL = "IMPORT_NETWORK_FIREWALL"
+    NETWORK_ACL_COMMON = "NETWORK_ACL_COMMON"

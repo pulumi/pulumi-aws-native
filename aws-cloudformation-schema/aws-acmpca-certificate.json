@@ -448,10 +448,16 @@
     }
   },
   "additionalProperties" : false,
+  "tagging" : {
+    "taggable" : false,
+    "tagOnCreate" : false,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : false
+  },
   "required" : [ "CertificateAuthorityArn", "CertificateSigningRequest", "SigningAlgorithm", "Validity" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/Certificate" ],
   "createOnlyProperties" : [ "/properties/ApiPassthrough", "/properties/CertificateAuthorityArn", "/properties/CertificateSigningRequest", "/properties/SigningAlgorithm", "/properties/TemplateArn", "/properties/Validity", "/properties/ValidityNotBefore" ],
-  "writeOnlyProperties" : [ "/properties/ApiPassthrough", "/properties/CertificateSigningRequest" ],
+  "writeOnlyProperties" : [ "/properties/ApiPassthrough", "/properties/CertificateSigningRequest", "/properties/SigningAlgorithm", "/properties/TemplateArn", "/properties/Validity", "/properties/ValidityNotBefore" ],
   "primaryIdentifier" : [ "/properties/Arn", "/properties/CertificateAuthorityArn" ],
   "handlers" : {
     "create" : {

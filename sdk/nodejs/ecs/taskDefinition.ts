@@ -315,8 +315,7 @@ export class TaskDefinition extends pulumi.CustomResource {
      */
     public readonly requiresCompatibilities!: pulumi.Output<string[] | undefined>;
     /**
-     * The operating system that your tasks definitions run on. A platform family is specified only for tasks using the Fargate launch type. 
-     *  When you specify a task definition in a service, this value must match the ``runtimePlatform`` value of the service.
+     * The operating system that your tasks definitions run on. A platform family is specified only for tasks using the Fargate launch type.
      */
     public readonly runtimePlatform!: pulumi.Output<outputs.ecs.TaskDefinitionRuntimePlatform | undefined>;
     /**
@@ -499,8 +498,7 @@ export interface TaskDefinitionArgs {
      */
     requiresCompatibilities?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The operating system that your tasks definitions run on. A platform family is specified only for tasks using the Fargate launch type. 
-     *  When you specify a task definition in a service, this value must match the ``runtimePlatform`` value of the service.
+     * The operating system that your tasks definitions run on. A platform family is specified only for tasks using the Fargate launch type.
      */
     runtimePlatform?: pulumi.Input<inputs.ecs.TaskDefinitionRuntimePlatformArgs>;
     /**

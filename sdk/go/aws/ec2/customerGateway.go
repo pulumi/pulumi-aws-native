@@ -19,10 +19,9 @@ type CustomerGateway struct {
 
 	// For devices that support BGP, the customer gateway's BGP ASN.
 	//  Default: 65000
-	BgpAsn            pulumi.IntPtrOutput     `pulumi:"bgpAsn"`
-	BgpAsnExtended    pulumi.Float64PtrOutput `pulumi:"bgpAsnExtended"`
-	CertificateArn    pulumi.StringPtrOutput  `pulumi:"certificateArn"`
-	CustomerGatewayId pulumi.StringOutput     `pulumi:"customerGatewayId"`
+	BgpAsn            pulumi.IntPtrOutput    `pulumi:"bgpAsn"`
+	CertificateArn    pulumi.StringPtrOutput `pulumi:"certificateArn"`
+	CustomerGatewayId pulumi.StringOutput    `pulumi:"customerGatewayId"`
 	// The name of customer gateway device.
 	DeviceName pulumi.StringPtrOutput `pulumi:"deviceName"`
 	// IPv4 address for the customer gateway device's outside interface. The address must be static.
@@ -48,7 +47,6 @@ func NewCustomerGateway(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"bgpAsn",
-		"bgpAsnExtended",
 		"certificateArn",
 		"deviceName",
 		"ipAddress",
@@ -90,9 +88,8 @@ func (CustomerGatewayState) ElementType() reflect.Type {
 type customerGatewayArgs struct {
 	// For devices that support BGP, the customer gateway's BGP ASN.
 	//  Default: 65000
-	BgpAsn         *int     `pulumi:"bgpAsn"`
-	BgpAsnExtended *float64 `pulumi:"bgpAsnExtended"`
-	CertificateArn *string  `pulumi:"certificateArn"`
+	BgpAsn         *int    `pulumi:"bgpAsn"`
+	CertificateArn *string `pulumi:"certificateArn"`
 	// The name of customer gateway device.
 	DeviceName *string `pulumi:"deviceName"`
 	// IPv4 address for the customer gateway device's outside interface. The address must be static.
@@ -108,7 +105,6 @@ type CustomerGatewayArgs struct {
 	// For devices that support BGP, the customer gateway's BGP ASN.
 	//  Default: 65000
 	BgpAsn         pulumi.IntPtrInput
-	BgpAsnExtended pulumi.Float64PtrInput
 	CertificateArn pulumi.StringPtrInput
 	// The name of customer gateway device.
 	DeviceName pulumi.StringPtrInput
@@ -162,10 +158,6 @@ func (o CustomerGatewayOutput) ToCustomerGatewayOutputWithContext(ctx context.Co
 //	Default: 65000
 func (o CustomerGatewayOutput) BgpAsn() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CustomerGateway) pulumi.IntPtrOutput { return v.BgpAsn }).(pulumi.IntPtrOutput)
-}
-
-func (o CustomerGatewayOutput) BgpAsnExtended() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *CustomerGateway) pulumi.Float64PtrOutput { return v.BgpAsnExtended }).(pulumi.Float64PtrOutput)
 }
 
 func (o CustomerGatewayOutput) CertificateArn() pulumi.StringPtrOutput {

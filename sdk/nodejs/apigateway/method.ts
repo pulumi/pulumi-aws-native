@@ -49,7 +49,7 @@ export class Method extends pulumi.CustomResource {
      * The method's authorization type. This parameter is required. For valid values, see [Method](https://docs.aws.amazon.com/apigateway/latest/api/API_Method.html) in the *API Gateway API Reference*.
      *   If you specify the ``AuthorizerId`` property, specify ``CUSTOM`` or ``COGNITO_USER_POOLS`` for this property.
      */
-    public readonly authorizationType!: pulumi.Output<enums.apigateway.MethodAuthorizationType | undefined>;
+    public readonly authorizationType!: pulumi.Output<string | undefined>;
     /**
      * The identifier of an authorizer to use on this method. The method's authorization type must be ``CUSTOM`` or ``COGNITO_USER_POOLS``.
      */
@@ -162,7 +162,7 @@ export interface MethodArgs {
      * The method's authorization type. This parameter is required. For valid values, see [Method](https://docs.aws.amazon.com/apigateway/latest/api/API_Method.html) in the *API Gateway API Reference*.
      *   If you specify the ``AuthorizerId`` property, specify ``CUSTOM`` or ``COGNITO_USER_POOLS`` for this property.
      */
-    authorizationType?: pulumi.Input<enums.apigateway.MethodAuthorizationType>;
+    authorizationType?: pulumi.Input<string>;
     /**
      * The identifier of an authorizer to use on this method. The method's authorization type must be ``CUSTOM`` or ``COGNITO_USER_POOLS``.
      */

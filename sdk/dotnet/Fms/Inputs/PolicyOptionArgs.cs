@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Fms.Inputs
     /// </summary>
     public sealed class PolicyOptionArgs : global::Pulumi.ResourceArgs
     {
+        [Input("networkAclCommonPolicy")]
+        public Input<Inputs.PolicyNetworkAclCommonPolicyArgs>? NetworkAclCommonPolicy { get; set; }
+
         [Input("networkFirewallPolicy")]
         public Input<Inputs.PolicyNetworkFirewallPolicyArgs>? NetworkFirewallPolicy { get; set; }
 

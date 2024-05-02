@@ -121,6 +121,7 @@ export class DbInstance extends pulumi.CustomResource {
      * A value that indicates whether minor engine upgrades are applied automatically to the DB instance during the maintenance window. By default, minor engine upgrades are applied automatically.
      */
     public readonly autoMinorVersionUpgrade!: pulumi.Output<boolean | undefined>;
+    public readonly automaticBackupReplicationKmsKeyId!: pulumi.Output<string | undefined>;
     /**
      * The destination region for the backup replication of the DB instance. For more info, see [Replicating automated backups to another Region](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html) in the *Amazon RDS User Guide*.
      */
@@ -813,6 +814,7 @@ export class DbInstance extends pulumi.CustomResource {
             resourceInputs["allowMajorVersionUpgrade"] = args ? args.allowMajorVersionUpgrade : undefined;
             resourceInputs["associatedRoles"] = args ? args.associatedRoles : undefined;
             resourceInputs["autoMinorVersionUpgrade"] = args ? args.autoMinorVersionUpgrade : undefined;
+            resourceInputs["automaticBackupReplicationKmsKeyId"] = args ? args.automaticBackupReplicationKmsKeyId : undefined;
             resourceInputs["automaticBackupReplicationRegion"] = args ? args.automaticBackupReplicationRegion : undefined;
             resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
             resourceInputs["backupRetentionPeriod"] = args ? args.backupRetentionPeriod : undefined;
@@ -893,6 +895,7 @@ export class DbInstance extends pulumi.CustomResource {
             resourceInputs["allowMajorVersionUpgrade"] = undefined /*out*/;
             resourceInputs["associatedRoles"] = undefined /*out*/;
             resourceInputs["autoMinorVersionUpgrade"] = undefined /*out*/;
+            resourceInputs["automaticBackupReplicationKmsKeyId"] = undefined /*out*/;
             resourceInputs["automaticBackupReplicationRegion"] = undefined /*out*/;
             resourceInputs["availabilityZone"] = undefined /*out*/;
             resourceInputs["backupRetentionPeriod"] = undefined /*out*/;
@@ -1044,6 +1047,7 @@ export interface DbInstanceArgs {
      * A value that indicates whether minor engine upgrades are applied automatically to the DB instance during the maintenance window. By default, minor engine upgrades are applied automatically.
      */
     autoMinorVersionUpgrade?: pulumi.Input<boolean>;
+    automaticBackupReplicationKmsKeyId?: pulumi.Input<string>;
     /**
      * The destination region for the backup replication of the DB instance. For more info, see [Replicating automated backups to another Region](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html) in the *Amazon RDS User Guide*.
      */

@@ -94,8 +94,7 @@ class TaskDefinitionArgs:
         :param pulumi.Input['TaskDefinitionProxyConfigurationArgs'] proxy_configuration: The configuration details for the App Mesh proxy.
                 Your Amazon ECS container instances require at least version 1.26.0 of the container agent and at least version 1.26.0-1 of the ``ecs-init`` package to use a proxy configuration. If your container instances are launched from the Amazon ECS optimized AMI version ``20190301`` or later, they contain the required versions of the container agent and ``ecs-init``. For more information, see [Amazon ECS-optimized Linux AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html) in the *Amazon Elastic Container Service Developer Guide*.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] requires_compatibilities: The task launch types the task definition was validated against. The valid values are ``EC2``, ``FARGATE``, and ``EXTERNAL``. For more information, see [Amazon ECS launch types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
-        :param pulumi.Input['TaskDefinitionRuntimePlatformArgs'] runtime_platform: The operating system that your tasks definitions run on. A platform family is specified only for tasks using the Fargate launch type. 
-                When you specify a task definition in a service, this value must match the ``runtimePlatform`` value of the service.
+        :param pulumi.Input['TaskDefinitionRuntimePlatformArgs'] runtime_platform: The operating system that your tasks definitions run on. A platform family is specified only for tasks using the Fargate launch type.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The metadata that you apply to the task definition to help you categorize and organize them. Each tag consists of a key and an optional value. You define both of them.
                 The following basic restrictions apply to tags:
                  +  Maximum number of tags per resource - 50
@@ -348,8 +347,7 @@ class TaskDefinitionArgs:
     @pulumi.getter(name="runtimePlatform")
     def runtime_platform(self) -> Optional[pulumi.Input['TaskDefinitionRuntimePlatformArgs']]:
         """
-        The operating system that your tasks definitions run on. A platform family is specified only for tasks using the Fargate launch type. 
-         When you specify a task definition in a service, this value must match the ``runtimePlatform`` value of the service.
+        The operating system that your tasks definitions run on. A platform family is specified only for tasks using the Fargate launch type.
         """
         return pulumi.get(self, "runtime_platform")
 
@@ -666,8 +664,7 @@ class TaskDefinition(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['TaskDefinitionProxyConfigurationArgs']] proxy_configuration: The configuration details for the App Mesh proxy.
                 Your Amazon ECS container instances require at least version 1.26.0 of the container agent and at least version 1.26.0-1 of the ``ecs-init`` package to use a proxy configuration. If your container instances are launched from the Amazon ECS optimized AMI version ``20190301`` or later, they contain the required versions of the container agent and ``ecs-init``. For more information, see [Amazon ECS-optimized Linux AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html) in the *Amazon Elastic Container Service Developer Guide*.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] requires_compatibilities: The task launch types the task definition was validated against. The valid values are ``EC2``, ``FARGATE``, and ``EXTERNAL``. For more information, see [Amazon ECS launch types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
-        :param pulumi.Input[pulumi.InputType['TaskDefinitionRuntimePlatformArgs']] runtime_platform: The operating system that your tasks definitions run on. A platform family is specified only for tasks using the Fargate launch type. 
-                When you specify a task definition in a service, this value must match the ``runtimePlatform`` value of the service.
+        :param pulumi.Input[pulumi.InputType['TaskDefinitionRuntimePlatformArgs']] runtime_platform: The operating system that your tasks definitions run on. A platform family is specified only for tasks using the Fargate launch type.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The metadata that you apply to the task definition to help you categorize and organize them. Each tag consists of a key and an optional value. You define both of them.
                 The following basic restrictions apply to tags:
                  +  Maximum number of tags per resource - 50
@@ -1123,8 +1120,7 @@ class TaskDefinition(pulumi.CustomResource):
     @pulumi.getter(name="runtimePlatform")
     def runtime_platform(self) -> pulumi.Output[Optional['outputs.TaskDefinitionRuntimePlatform']]:
         """
-        The operating system that your tasks definitions run on. A platform family is specified only for tasks using the Fargate launch type. 
-         When you specify a task definition in a service, this value must match the ``runtimePlatform`` value of the service.
+        The operating system that your tasks definitions run on. A platform family is specified only for tasks using the Fargate launch type.
         """
         return pulumi.get(self, "runtime_platform")
 

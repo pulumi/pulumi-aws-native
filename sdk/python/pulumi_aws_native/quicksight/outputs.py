@@ -78199,6 +78199,8 @@ class TopicCalculatedField(dict):
             suggest = "comparative_order"
         elif key == "defaultFormatting":
             suggest = "default_formatting"
+        elif key == "disableIndexing":
+            suggest = "disable_indexing"
         elif key == "isIncludedInTopic":
             suggest = "is_included_in_topic"
         elif key == "neverAggregateInFilter":
@@ -78234,6 +78236,7 @@ class TopicCalculatedField(dict):
                  column_data_role: Optional['TopicColumnDataRole'] = None,
                  comparative_order: Optional['outputs.TopicComparativeOrder'] = None,
                  default_formatting: Optional['outputs.TopicDefaultFormatting'] = None,
+                 disable_indexing: Optional[bool] = None,
                  is_included_in_topic: Optional[bool] = None,
                  never_aggregate_in_filter: Optional[bool] = None,
                  non_additive: Optional[bool] = None,
@@ -78258,6 +78261,8 @@ class TopicCalculatedField(dict):
             pulumi.set(__self__, "comparative_order", comparative_order)
         if default_formatting is not None:
             pulumi.set(__self__, "default_formatting", default_formatting)
+        if disable_indexing is not None:
+            pulumi.set(__self__, "disable_indexing", disable_indexing)
         if is_included_in_topic is not None:
             pulumi.set(__self__, "is_included_in_topic", is_included_in_topic)
         if never_aggregate_in_filter is not None:
@@ -78320,6 +78325,11 @@ class TopicCalculatedField(dict):
     @pulumi.getter(name="defaultFormatting")
     def default_formatting(self) -> Optional['outputs.TopicDefaultFormatting']:
         return pulumi.get(self, "default_formatting")
+
+    @property
+    @pulumi.getter(name="disableIndexing")
+    def disable_indexing(self) -> Optional[bool]:
+        return pulumi.get(self, "disable_indexing")
 
     @property
     @pulumi.getter(name="isIncludedInTopic")
@@ -78549,6 +78559,8 @@ class TopicColumn(dict):
             suggest = "comparative_order"
         elif key == "defaultFormatting":
             suggest = "default_formatting"
+        elif key == "disableIndexing":
+            suggest = "disable_indexing"
         elif key == "isIncludedInTopic":
             suggest = "is_included_in_topic"
         elif key == "neverAggregateInFilter":
@@ -78584,6 +78596,7 @@ class TopicColumn(dict):
                  column_synonyms: Optional[Sequence[str]] = None,
                  comparative_order: Optional['outputs.TopicComparativeOrder'] = None,
                  default_formatting: Optional['outputs.TopicDefaultFormatting'] = None,
+                 disable_indexing: Optional[bool] = None,
                  is_included_in_topic: Optional[bool] = None,
                  never_aggregate_in_filter: Optional[bool] = None,
                  non_additive: Optional[bool] = None,
@@ -78609,6 +78622,8 @@ class TopicColumn(dict):
             pulumi.set(__self__, "comparative_order", comparative_order)
         if default_formatting is not None:
             pulumi.set(__self__, "default_formatting", default_formatting)
+        if disable_indexing is not None:
+            pulumi.set(__self__, "disable_indexing", disable_indexing)
         if is_included_in_topic is not None:
             pulumi.set(__self__, "is_included_in_topic", is_included_in_topic)
         if never_aggregate_in_filter is not None:
@@ -78671,6 +78686,11 @@ class TopicColumn(dict):
     @pulumi.getter(name="defaultFormatting")
     def default_formatting(self) -> Optional['outputs.TopicDefaultFormatting']:
         return pulumi.get(self, "default_formatting")
+
+    @property
+    @pulumi.getter(name="disableIndexing")
+    def disable_indexing(self) -> Optional[bool]:
+        return pulumi.get(self, "disable_indexing")
 
     @property
     @pulumi.getter(name="isIncludedInTopic")

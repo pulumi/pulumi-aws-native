@@ -392,7 +392,7 @@ class RestApi(pulumi.CustomResource):
             http_method="POST",
             resource_id=rest_api.root_resource_id,
             rest_api_id=rest_api.id,
-            authorization_type=aws_native.apigateway.MethodAuthorizationType.NONE,
+            authorization_type="NONE",
             integration=aws_native.apigateway.MethodIntegrationArgs(
                 type=aws_native.apigateway.MethodIntegrationType.MOCK,
                 content_handling=aws_native.apigateway.MethodIntegrationContentHandling(content_handling),
@@ -439,7 +439,7 @@ class RestApi(pulumi.CustomResource):
             http_method="POST",
             resource_id=rest_api.root_resource_id,
             rest_api_id=rest_api.id,
-            authorization_type=aws_native.apigateway.MethodAuthorizationType.NONE,
+            authorization_type="NONE",
             integration=aws_native.apigateway.MethodIntegrationArgs(
                 type=aws_native.apigateway.MethodIntegrationType.MOCK,
                 content_handling=aws_native.apigateway.MethodIntegrationContentHandling(content_handling),
@@ -745,7 +745,7 @@ class RestApi(pulumi.CustomResource):
             http_method="POST",
             resource_id=rest_api.root_resource_id,
             rest_api_id=rest_api.id,
-            authorization_type=aws_native.apigateway.MethodAuthorizationType.NONE,
+            authorization_type="NONE",
             integration=aws_native.apigateway.MethodIntegrationArgs(
                 type=aws_native.apigateway.MethodIntegrationType.MOCK,
                 content_handling=aws_native.apigateway.MethodIntegrationContentHandling(content_handling),
@@ -792,7 +792,7 @@ class RestApi(pulumi.CustomResource):
             http_method="POST",
             resource_id=rest_api.root_resource_id,
             rest_api_id=rest_api.id,
-            authorization_type=aws_native.apigateway.MethodAuthorizationType.NONE,
+            authorization_type="NONE",
             integration=aws_native.apigateway.MethodIntegrationArgs(
                 type=aws_native.apigateway.MethodIntegrationType.MOCK,
                 content_handling=aws_native.apigateway.MethodIntegrationContentHandling(content_handling),

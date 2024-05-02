@@ -92,7 +92,8 @@ type DbInstance struct {
 	//  Not applicable. The associated roles are managed by the DB cluster.
 	AssociatedRoles DbInstanceDbInstanceRoleArrayOutput `pulumi:"associatedRoles"`
 	// A value that indicates whether minor engine upgrades are applied automatically to the DB instance during the maintenance window. By default, minor engine upgrades are applied automatically.
-	AutoMinorVersionUpgrade pulumi.BoolPtrOutput `pulumi:"autoMinorVersionUpgrade"`
+	AutoMinorVersionUpgrade            pulumi.BoolPtrOutput   `pulumi:"autoMinorVersionUpgrade"`
+	AutomaticBackupReplicationKmsKeyId pulumi.StringPtrOutput `pulumi:"automaticBackupReplicationKmsKeyId"`
 	// The destination region for the backup replication of the DB instance. For more info, see [Replicating automated backups to another Region](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html) in the *Amazon RDS User Guide*.
 	AutomaticBackupReplicationRegion pulumi.StringPtrOutput `pulumi:"automaticBackupReplicationRegion"`
 	// The Availability Zone (AZ) where the database will be created. For information on AWS-Regions and Availability Zones, see [Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html).
@@ -740,7 +741,8 @@ type dbInstanceArgs struct {
 	//  Not applicable. The associated roles are managed by the DB cluster.
 	AssociatedRoles []DbInstanceDbInstanceRole `pulumi:"associatedRoles"`
 	// A value that indicates whether minor engine upgrades are applied automatically to the DB instance during the maintenance window. By default, minor engine upgrades are applied automatically.
-	AutoMinorVersionUpgrade *bool `pulumi:"autoMinorVersionUpgrade"`
+	AutoMinorVersionUpgrade            *bool   `pulumi:"autoMinorVersionUpgrade"`
+	AutomaticBackupReplicationKmsKeyId *string `pulumi:"automaticBackupReplicationKmsKeyId"`
 	// The destination region for the backup replication of the DB instance. For more info, see [Replicating automated backups to another Region](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html) in the *Amazon RDS User Guide*.
 	AutomaticBackupReplicationRegion *string `pulumi:"automaticBackupReplicationRegion"`
 	// The Availability Zone (AZ) where the database will be created. For information on AWS-Regions and Availability Zones, see [Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html).
@@ -1330,7 +1332,8 @@ type DbInstanceArgs struct {
 	//  Not applicable. The associated roles are managed by the DB cluster.
 	AssociatedRoles DbInstanceDbInstanceRoleArrayInput
 	// A value that indicates whether minor engine upgrades are applied automatically to the DB instance during the maintenance window. By default, minor engine upgrades are applied automatically.
-	AutoMinorVersionUpgrade pulumi.BoolPtrInput
+	AutoMinorVersionUpgrade            pulumi.BoolPtrInput
+	AutomaticBackupReplicationKmsKeyId pulumi.StringPtrInput
 	// The destination region for the backup replication of the DB instance. For more info, see [Replicating automated backups to another Region](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html) in the *Amazon RDS User Guide*.
 	AutomaticBackupReplicationRegion pulumi.StringPtrInput
 	// The Availability Zone (AZ) where the database will be created. For information on AWS-Regions and Availability Zones, see [Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html).
@@ -1969,6 +1972,10 @@ func (o DbInstanceOutput) AssociatedRoles() DbInstanceDbInstanceRoleArrayOutput 
 // A value that indicates whether minor engine upgrades are applied automatically to the DB instance during the maintenance window. By default, minor engine upgrades are applied automatically.
 func (o DbInstanceOutput) AutoMinorVersionUpgrade() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DbInstance) pulumi.BoolPtrOutput { return v.AutoMinorVersionUpgrade }).(pulumi.BoolPtrOutput)
+}
+
+func (o DbInstanceOutput) AutomaticBackupReplicationKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DbInstance) pulumi.StringPtrOutput { return v.AutomaticBackupReplicationKmsKeyId }).(pulumi.StringPtrOutput)
 }
 
 // The destination region for the backup replication of the DB instance. For more info, see [Replicating automated backups to another Region](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html) in the *Amazon RDS User Guide*.

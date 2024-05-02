@@ -25,6 +25,7 @@ class GeofenceCollectionArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a GeofenceCollection resource.
+        :param pulumi.Input[str] pricing_plan_data_source: This shape is deprecated since 2022-02-01: Deprecated. No longer allowed.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         if collection_name is not None:
@@ -79,6 +80,9 @@ class GeofenceCollectionArgs:
     @property
     @pulumi.getter(name="pricingPlanDataSource")
     def pricing_plan_data_source(self) -> Optional[pulumi.Input[str]]:
+        """
+        This shape is deprecated since 2022-02-01: Deprecated. No longer allowed.
+        """
         return pulumi.get(self, "pricing_plan_data_source")
 
     @pricing_plan_data_source.setter
@@ -115,6 +119,7 @@ class GeofenceCollection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] pricing_plan_data_source: This shape is deprecated since 2022-02-01: Deprecated. No longer allowed.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
@@ -240,6 +245,9 @@ class GeofenceCollection(pulumi.CustomResource):
     @property
     @pulumi.getter(name="pricingPlanDataSource")
     def pricing_plan_data_source(self) -> pulumi.Output[Optional[str]]:
+        """
+        This shape is deprecated since 2022-02-01: Deprecated. No longer allowed.
+        """
         return pulumi.get(self, "pricing_plan_data_source")
 
     @property

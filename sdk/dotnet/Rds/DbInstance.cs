@@ -107,6 +107,9 @@ namespace Pulumi.AwsNative.Rds
         [Output("autoMinorVersionUpgrade")]
         public Output<bool?> AutoMinorVersionUpgrade { get; private set; } = null!;
 
+        [Output("automaticBackupReplicationKmsKeyId")]
+        public Output<string?> AutomaticBackupReplicationKmsKeyId { get; private set; } = null!;
+
         /// <summary>
         /// The destination region for the backup replication of the DB instance. For more info, see [Replicating automated backups to another Region](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html) in the *Amazon RDS User Guide*.
         /// </summary>
@@ -1071,6 +1074,9 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         [Input("autoMinorVersionUpgrade")]
         public Input<bool>? AutoMinorVersionUpgrade { get; set; }
+
+        [Input("automaticBackupReplicationKmsKeyId")]
+        public Input<string>? AutomaticBackupReplicationKmsKeyId { get; set; }
 
         /// <summary>
         /// The destination region for the backup replication of the DB instance. For more info, see [Replicating automated backups to another Region](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html) in the *Amazon RDS User Guide*.

@@ -116,6 +116,7 @@ import * as personalize from "./personalize";
 import * as pinpoint from "./pinpoint";
 import * as pipes from "./pipes";
 import * as proton from "./proton";
+import * as qbusiness from "./qbusiness";
 import * as quicksight from "./quicksight";
 import * as rds from "./rds";
 import * as redshift from "./redshift";
@@ -274,6 +275,7 @@ export {
     pinpoint,
     pipes,
     proton,
+    qbusiness,
     quicksight,
     rds,
     redshift,

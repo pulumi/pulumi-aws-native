@@ -196,178 +196,6 @@ func (in *documentationPartLocationTypePtr) ToDocumentationPartLocationTypePtrOu
 	return pulumi.ToOutputWithContext(ctx, in).(DocumentationPartLocationTypePtrOutput)
 }
 
-// The method's authorization type. This parameter is required. For valid values, see [Method](https://docs.aws.amazon.com/apigateway/latest/api/API_Method.html) in the *API Gateway API Reference*.
-//
-//	If you specify the ``AuthorizerId`` property, specify ``CUSTOM`` or ``COGNITO_USER_POOLS`` for this property.
-type MethodAuthorizationType string
-
-const (
-	MethodAuthorizationTypeNone             = MethodAuthorizationType("NONE")
-	MethodAuthorizationTypeAwsIam           = MethodAuthorizationType("AWS_IAM")
-	MethodAuthorizationTypeCustom           = MethodAuthorizationType("CUSTOM")
-	MethodAuthorizationTypeCognitoUserPools = MethodAuthorizationType("COGNITO_USER_POOLS")
-)
-
-func (MethodAuthorizationType) ElementType() reflect.Type {
-	return reflect.TypeOf((*MethodAuthorizationType)(nil)).Elem()
-}
-
-func (e MethodAuthorizationType) ToMethodAuthorizationTypeOutput() MethodAuthorizationTypeOutput {
-	return pulumi.ToOutput(e).(MethodAuthorizationTypeOutput)
-}
-
-func (e MethodAuthorizationType) ToMethodAuthorizationTypeOutputWithContext(ctx context.Context) MethodAuthorizationTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(MethodAuthorizationTypeOutput)
-}
-
-func (e MethodAuthorizationType) ToMethodAuthorizationTypePtrOutput() MethodAuthorizationTypePtrOutput {
-	return e.ToMethodAuthorizationTypePtrOutputWithContext(context.Background())
-}
-
-func (e MethodAuthorizationType) ToMethodAuthorizationTypePtrOutputWithContext(ctx context.Context) MethodAuthorizationTypePtrOutput {
-	return MethodAuthorizationType(e).ToMethodAuthorizationTypeOutputWithContext(ctx).ToMethodAuthorizationTypePtrOutputWithContext(ctx)
-}
-
-func (e MethodAuthorizationType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e MethodAuthorizationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e MethodAuthorizationType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e MethodAuthorizationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type MethodAuthorizationTypeOutput struct{ *pulumi.OutputState }
-
-func (MethodAuthorizationTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MethodAuthorizationType)(nil)).Elem()
-}
-
-func (o MethodAuthorizationTypeOutput) ToMethodAuthorizationTypeOutput() MethodAuthorizationTypeOutput {
-	return o
-}
-
-func (o MethodAuthorizationTypeOutput) ToMethodAuthorizationTypeOutputWithContext(ctx context.Context) MethodAuthorizationTypeOutput {
-	return o
-}
-
-func (o MethodAuthorizationTypeOutput) ToMethodAuthorizationTypePtrOutput() MethodAuthorizationTypePtrOutput {
-	return o.ToMethodAuthorizationTypePtrOutputWithContext(context.Background())
-}
-
-func (o MethodAuthorizationTypeOutput) ToMethodAuthorizationTypePtrOutputWithContext(ctx context.Context) MethodAuthorizationTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MethodAuthorizationType) *MethodAuthorizationType {
-		return &v
-	}).(MethodAuthorizationTypePtrOutput)
-}
-
-func (o MethodAuthorizationTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o MethodAuthorizationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e MethodAuthorizationType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o MethodAuthorizationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o MethodAuthorizationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e MethodAuthorizationType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type MethodAuthorizationTypePtrOutput struct{ *pulumi.OutputState }
-
-func (MethodAuthorizationTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MethodAuthorizationType)(nil)).Elem()
-}
-
-func (o MethodAuthorizationTypePtrOutput) ToMethodAuthorizationTypePtrOutput() MethodAuthorizationTypePtrOutput {
-	return o
-}
-
-func (o MethodAuthorizationTypePtrOutput) ToMethodAuthorizationTypePtrOutputWithContext(ctx context.Context) MethodAuthorizationTypePtrOutput {
-	return o
-}
-
-func (o MethodAuthorizationTypePtrOutput) Elem() MethodAuthorizationTypeOutput {
-	return o.ApplyT(func(v *MethodAuthorizationType) MethodAuthorizationType {
-		if v != nil {
-			return *v
-		}
-		var ret MethodAuthorizationType
-		return ret
-	}).(MethodAuthorizationTypeOutput)
-}
-
-func (o MethodAuthorizationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o MethodAuthorizationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *MethodAuthorizationType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// MethodAuthorizationTypeInput is an input type that accepts values of the MethodAuthorizationType enum
-// A concrete instance of `MethodAuthorizationTypeInput` can be one of the following:
-//
-//	MethodAuthorizationTypeNone
-//	MethodAuthorizationTypeAwsIam
-//	MethodAuthorizationTypeCustom
-//	MethodAuthorizationTypeCognitoUserPools
-type MethodAuthorizationTypeInput interface {
-	pulumi.Input
-
-	ToMethodAuthorizationTypeOutput() MethodAuthorizationTypeOutput
-	ToMethodAuthorizationTypeOutputWithContext(context.Context) MethodAuthorizationTypeOutput
-}
-
-var methodAuthorizationTypePtrType = reflect.TypeOf((**MethodAuthorizationType)(nil)).Elem()
-
-type MethodAuthorizationTypePtrInput interface {
-	pulumi.Input
-
-	ToMethodAuthorizationTypePtrOutput() MethodAuthorizationTypePtrOutput
-	ToMethodAuthorizationTypePtrOutputWithContext(context.Context) MethodAuthorizationTypePtrOutput
-}
-
-type methodAuthorizationTypePtr string
-
-func MethodAuthorizationTypePtr(v string) MethodAuthorizationTypePtrInput {
-	return (*methodAuthorizationTypePtr)(&v)
-}
-
-func (*methodAuthorizationTypePtr) ElementType() reflect.Type {
-	return methodAuthorizationTypePtrType
-}
-
-func (in *methodAuthorizationTypePtr) ToMethodAuthorizationTypePtrOutput() MethodAuthorizationTypePtrOutput {
-	return pulumi.ToOutput(in).(MethodAuthorizationTypePtrOutput)
-}
-
-func (in *methodAuthorizationTypePtr) ToMethodAuthorizationTypePtrOutputWithContext(ctx context.Context) MethodAuthorizationTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(MethodAuthorizationTypePtrOutput)
-}
-
 // The type of the network connection to the integration endpoint. The valid value is “INTERNET“ for connections through the public routable internet or “VPC_LINK“ for private connections between API Gateway and a network load balancer in a VPC. The default value is “INTERNET“.
 type MethodIntegrationConnectionType string
 
@@ -1379,8 +1207,6 @@ func (in *usagePlanKeyKeyTypePtr) ToUsagePlanKeyKeyTypePtrOutputWithContext(ctx 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DocumentationPartLocationTypeInput)(nil)).Elem(), DocumentationPartLocationType("API"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DocumentationPartLocationTypePtrInput)(nil)).Elem(), DocumentationPartLocationType("API"))
-	pulumi.RegisterInputType(reflect.TypeOf((*MethodAuthorizationTypeInput)(nil)).Elem(), MethodAuthorizationType("NONE"))
-	pulumi.RegisterInputType(reflect.TypeOf((*MethodAuthorizationTypePtrInput)(nil)).Elem(), MethodAuthorizationType("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MethodIntegrationConnectionTypeInput)(nil)).Elem(), MethodIntegrationConnectionType("INTERNET"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MethodIntegrationConnectionTypePtrInput)(nil)).Elem(), MethodIntegrationConnectionType("INTERNET"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MethodIntegrationContentHandlingInput)(nil)).Elem(), MethodIntegrationContentHandling("CONVERT_TO_BINARY"))
@@ -1395,8 +1221,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UsagePlanKeyKeyTypePtrInput)(nil)).Elem(), UsagePlanKeyKeyType("API_KEY"))
 	pulumi.RegisterOutputType(DocumentationPartLocationTypeOutput{})
 	pulumi.RegisterOutputType(DocumentationPartLocationTypePtrOutput{})
-	pulumi.RegisterOutputType(MethodAuthorizationTypeOutput{})
-	pulumi.RegisterOutputType(MethodAuthorizationTypePtrOutput{})
 	pulumi.RegisterOutputType(MethodIntegrationConnectionTypeOutput{})
 	pulumi.RegisterOutputType(MethodIntegrationConnectionTypePtrOutput{})
 	pulumi.RegisterOutputType(MethodIntegrationContentHandlingOutput{})

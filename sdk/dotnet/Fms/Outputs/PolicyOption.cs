@@ -16,15 +16,19 @@ namespace Pulumi.AwsNative.Fms.Outputs
     [OutputType]
     public sealed class PolicyOption
     {
+        public readonly Outputs.PolicyNetworkAclCommonPolicy? NetworkAclCommonPolicy;
         public readonly Outputs.PolicyNetworkFirewallPolicy? NetworkFirewallPolicy;
         public readonly Outputs.PolicyThirdPartyFirewallPolicy? ThirdPartyFirewallPolicy;
 
         [OutputConstructor]
         private PolicyOption(
+            Outputs.PolicyNetworkAclCommonPolicy? networkAclCommonPolicy,
+
             Outputs.PolicyNetworkFirewallPolicy? networkFirewallPolicy,
 
             Outputs.PolicyThirdPartyFirewallPolicy? thirdPartyFirewallPolicy)
         {
+            NetworkAclCommonPolicy = networkAclCommonPolicy;
             NetworkFirewallPolicy = networkFirewallPolicy;
             ThirdPartyFirewallPolicy = thirdPartyFirewallPolicy;
         }

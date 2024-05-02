@@ -142,6 +142,10 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public readonly ImmutableArray<Outputs.InstanceSsmAssociation> SsmAssociations;
         /// <summary>
+        /// The current state of the instance.
+        /// </summary>
+        public readonly Outputs.InstanceState? State;
+        /// <summary>
         /// The tags to add to the instance.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
@@ -206,6 +210,8 @@ namespace Pulumi.AwsNative.Ec2
 
             ImmutableArray<Outputs.InstanceSsmAssociation> ssmAssociations,
 
+            Outputs.InstanceState? state,
+
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? tenancy,
@@ -237,6 +243,7 @@ namespace Pulumi.AwsNative.Ec2
             SecurityGroupIds = securityGroupIds;
             SourceDestCheck = sourceDestCheck;
             SsmAssociations = ssmAssociations;
+            State = state;
             Tags = tags;
             Tenancy = tenancy;
             UserData = userData;

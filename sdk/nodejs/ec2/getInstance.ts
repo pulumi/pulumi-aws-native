@@ -111,6 +111,10 @@ export interface GetInstanceResult {
      */
     readonly ssmAssociations?: outputs.ec2.InstanceSsmAssociation[];
     /**
+     * The current state of the instance.
+     */
+    readonly state?: outputs.ec2.InstanceState;
+    /**
      * The tags to add to the instance.
      */
     readonly tags?: outputs.Tag[];

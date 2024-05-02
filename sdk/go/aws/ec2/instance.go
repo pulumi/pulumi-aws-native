@@ -96,6 +96,8 @@ type Instance struct {
 	SourceDestCheck pulumi.BoolPtrOutput `pulumi:"sourceDestCheck"`
 	// The SSM document and parameter values in AWS Systems Manager to associate with this instance.
 	SsmAssociations InstanceSsmAssociationArrayOutput `pulumi:"ssmAssociations"`
+	// The current state of the instance.
+	State InstanceStateTypeOutput `pulumi:"state"`
 	// [EC2-VPC] The ID of the subnet to launch the instance into.
 	SubnetId pulumi.StringPtrOutput `pulumi:"subnetId"`
 	// The tags to add to the instance.
@@ -574,6 +576,11 @@ func (o InstanceOutput) SourceDestCheck() pulumi.BoolPtrOutput {
 // The SSM document and parameter values in AWS Systems Manager to associate with this instance.
 func (o InstanceOutput) SsmAssociations() InstanceSsmAssociationArrayOutput {
 	return o.ApplyT(func(v *Instance) InstanceSsmAssociationArrayOutput { return v.SsmAssociations }).(InstanceSsmAssociationArrayOutput)
+}
+
+// The current state of the instance.
+func (o InstanceOutput) State() InstanceStateTypeOutput {
+	return o.ApplyT(func(v *Instance) InstanceStateTypeOutput { return v.State }).(InstanceStateTypeOutput)
 }
 
 // [EC2-VPC] The ID of the subnet to launch the instance into.

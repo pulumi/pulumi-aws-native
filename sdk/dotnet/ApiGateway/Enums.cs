@@ -49,40 +49,6 @@ namespace Pulumi.AwsNative.ApiGateway
     }
 
     /// <summary>
-    /// The method's authorization type. This parameter is required. For valid values, see [Method](https://docs.aws.amazon.com/apigateway/latest/api/API_Method.html) in the *API Gateway API Reference*.
-    ///   If you specify the ``AuthorizerId`` property, specify ``CUSTOM`` or ``COGNITO_USER_POOLS`` for this property.
-    /// </summary>
-    [EnumType]
-    public readonly struct MethodAuthorizationType : IEquatable<MethodAuthorizationType>
-    {
-        private readonly string _value;
-
-        private MethodAuthorizationType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static MethodAuthorizationType None { get; } = new MethodAuthorizationType("NONE");
-        public static MethodAuthorizationType AwsIam { get; } = new MethodAuthorizationType("AWS_IAM");
-        public static MethodAuthorizationType Custom { get; } = new MethodAuthorizationType("CUSTOM");
-        public static MethodAuthorizationType CognitoUserPools { get; } = new MethodAuthorizationType("COGNITO_USER_POOLS");
-
-        public static bool operator ==(MethodAuthorizationType left, MethodAuthorizationType right) => left.Equals(right);
-        public static bool operator !=(MethodAuthorizationType left, MethodAuthorizationType right) => !left.Equals(right);
-
-        public static explicit operator string(MethodAuthorizationType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is MethodAuthorizationType other && Equals(other);
-        public bool Equals(MethodAuthorizationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The type of the network connection to the integration endpoint. The valid value is ``INTERNET`` for connections through the public routable internet or ``VPC_LINK`` for private connections between API Gateway and a network load balancer in a VPC. The default value is ``INTERNET``.
     /// </summary>
     [EnumType]

@@ -56,6 +56,9 @@ namespace Pulumi.AwsNative.Location
         public readonly string? CreateTime;
         public readonly string? Description;
         public readonly Pulumi.AwsNative.Location.GeofenceCollectionPricingPlan? PricingPlan;
+        /// <summary>
+        /// This shape is deprecated since 2022-02-01: Deprecated. No longer allowed.
+        /// </summary>
         public readonly string? PricingPlanDataSource;
         /// <summary>
         /// An array of key-value pairs to apply to this resource.

@@ -32,7 +32,7 @@ namespace Pulumi.AwsNative.ApiGateway
         ///   If you specify the ``AuthorizerId`` property, specify ``CUSTOM`` or ``COGNITO_USER_POOLS`` for this property.
         /// </summary>
         [Output("authorizationType")]
-        public Output<Pulumi.AwsNative.ApiGateway.MethodAuthorizationType?> AuthorizationType { get; private set; } = null!;
+        public Output<string?> AuthorizationType { get; private set; } = null!;
 
         /// <summary>
         /// The identifier of an authorizer to use on this method. The method's authorization type must be ``CUSTOM`` or ``COGNITO_USER_POOLS``.
@@ -168,7 +168,7 @@ namespace Pulumi.AwsNative.ApiGateway
         ///   If you specify the ``AuthorizerId`` property, specify ``CUSTOM`` or ``COGNITO_USER_POOLS`` for this property.
         /// </summary>
         [Input("authorizationType")]
-        public Input<Pulumi.AwsNative.ApiGateway.MethodAuthorizationType>? AuthorizationType { get; set; }
+        public Input<string>? AuthorizationType { get; set; }
 
         /// <summary>
         /// The identifier of an authorizer to use on this method. The method's authorization type must be ``CUSTOM`` or ``COGNITO_USER_POOLS``.

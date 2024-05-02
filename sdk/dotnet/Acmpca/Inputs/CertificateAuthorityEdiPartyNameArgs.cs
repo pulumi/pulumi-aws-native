@@ -15,8 +15,8 @@ namespace Pulumi.AwsNative.Acmpca.Inputs
     /// </summary>
     public sealed class CertificateAuthorityEdiPartyNameArgs : global::Pulumi.ResourceArgs
     {
-        [Input("nameAssigner", required: true)]
-        public Input<string> NameAssigner { get; set; } = null!;
+        [Input("nameAssigner")]
+        public Input<string>? NameAssigner { get; set; }
 
         [Input("partyName", required: true)]
         public Input<string> PartyName { get; set; } = null!;

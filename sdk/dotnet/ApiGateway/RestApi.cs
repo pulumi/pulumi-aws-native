@@ -142,7 +142,7 @@ namespace Pulumi.AwsNative.ApiGateway
     ///         HttpMethod = "POST",
     ///         ResourceId = restApi.RootResourceId,
     ///         RestApiId = restApi.Id,
-    ///         AuthorizationType = AwsNative.ApiGateway.MethodAuthorizationType.None,
+    ///         AuthorizationType = "NONE",
     ///         Integration = new AwsNative.ApiGateway.Inputs.MethodIntegrationArgs
     ///         {
     ///             Type = AwsNative.ApiGateway.MethodIntegrationType.Mock,
@@ -202,7 +202,7 @@ namespace Pulumi.AwsNative.ApiGateway
     ///         HttpMethod = "POST",
     ///         ResourceId = restApi.RootResourceId,
     ///         RestApiId = restApi.Id,
-    ///         AuthorizationType = AwsNative.ApiGateway.MethodAuthorizationType.None,
+    ///         AuthorizationType = "NONE",
     ///         Integration = new AwsNative.ApiGateway.Inputs.MethodIntegrationArgs
     ///         {
     ///             Type = AwsNative.ApiGateway.MethodIntegrationType.Mock,

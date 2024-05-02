@@ -39,6 +39,37 @@ namespace Pulumi.AwsNative.Fms
     }
 
     /// <summary>
+    /// Rule Action.
+    /// </summary>
+    [EnumType]
+    public readonly struct PolicyNetworkAclEntryRuleAction : IEquatable<PolicyNetworkAclEntryRuleAction>
+    {
+        private readonly string _value;
+
+        private PolicyNetworkAclEntryRuleAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PolicyNetworkAclEntryRuleAction Allow { get; } = new PolicyNetworkAclEntryRuleAction("allow");
+        public static PolicyNetworkAclEntryRuleAction Deny { get; } = new PolicyNetworkAclEntryRuleAction("deny");
+
+        public static bool operator ==(PolicyNetworkAclEntryRuleAction left, PolicyNetworkAclEntryRuleAction right) => left.Equals(right);
+        public static bool operator !=(PolicyNetworkAclEntryRuleAction left, PolicyNetworkAclEntryRuleAction right) => !left.Equals(right);
+
+        public static explicit operator string(PolicyNetworkAclEntryRuleAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PolicyNetworkAclEntryRuleAction other && Equals(other);
+        public bool Equals(PolicyNetworkAclEntryRuleAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Firewall policy type.
     /// </summary>
     [EnumType]
@@ -61,6 +92,7 @@ namespace Pulumi.AwsNative.Fms
         public static PolicyType ThirdPartyFirewall { get; } = new PolicyType("THIRD_PARTY_FIREWALL");
         public static PolicyType DnsFirewall { get; } = new PolicyType("DNS_FIREWALL");
         public static PolicyType ImportNetworkFirewall { get; } = new PolicyType("IMPORT_NETWORK_FIREWALL");
+        public static PolicyType NetworkAclCommon { get; } = new PolicyType("NETWORK_ACL_COMMON");
 
         public static bool operator ==(PolicyType left, PolicyType right) => left.Equals(right);
         public static bool operator !=(PolicyType left, PolicyType right) => !left.Equals(right);

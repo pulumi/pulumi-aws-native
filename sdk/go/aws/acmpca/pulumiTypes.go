@@ -343,7 +343,7 @@ func (o CertificateAuthorityAccessMethodOutput) CustomObjectIdentifier() pulumi.
 type CertificateAuthorityCrlConfiguration struct {
 	CrlDistributionPointExtensionConfiguration *CertificateAuthorityCrlDistributionPointExtensionConfiguration `pulumi:"crlDistributionPointExtensionConfiguration"`
 	CustomCname                                *string                                                         `pulumi:"customCname"`
-	Enabled                                    *bool                                                           `pulumi:"enabled"`
+	Enabled                                    bool                                                            `pulumi:"enabled"`
 	ExpirationInDays                           *int                                                            `pulumi:"expirationInDays"`
 	S3BucketName                               *string                                                         `pulumi:"s3BucketName"`
 	S3ObjectAcl                                *string                                                         `pulumi:"s3ObjectAcl"`
@@ -364,7 +364,7 @@ type CertificateAuthorityCrlConfigurationInput interface {
 type CertificateAuthorityCrlConfigurationArgs struct {
 	CrlDistributionPointExtensionConfiguration CertificateAuthorityCrlDistributionPointExtensionConfigurationPtrInput `pulumi:"crlDistributionPointExtensionConfiguration"`
 	CustomCname                                pulumi.StringPtrInput                                                  `pulumi:"customCname"`
-	Enabled                                    pulumi.BoolPtrInput                                                    `pulumi:"enabled"`
+	Enabled                                    pulumi.BoolInput                                                       `pulumi:"enabled"`
 	ExpirationInDays                           pulumi.IntPtrInput                                                     `pulumi:"expirationInDays"`
 	S3BucketName                               pulumi.StringPtrInput                                                  `pulumi:"s3BucketName"`
 	S3ObjectAcl                                pulumi.StringPtrInput                                                  `pulumi:"s3ObjectAcl"`
@@ -458,8 +458,8 @@ func (o CertificateAuthorityCrlConfigurationOutput) CustomCname() pulumi.StringP
 	return o.ApplyT(func(v CertificateAuthorityCrlConfiguration) *string { return v.CustomCname }).(pulumi.StringPtrOutput)
 }
 
-func (o CertificateAuthorityCrlConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v CertificateAuthorityCrlConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+func (o CertificateAuthorityCrlConfigurationOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v CertificateAuthorityCrlConfiguration) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 func (o CertificateAuthorityCrlConfigurationOutput) ExpirationInDays() pulumi.IntPtrOutput {
@@ -521,7 +521,7 @@ func (o CertificateAuthorityCrlConfigurationPtrOutput) Enabled() pulumi.BoolPtrO
 		if v == nil {
 			return nil
 		}
-		return v.Enabled
+		return &v.Enabled
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -946,8 +946,8 @@ func (o CertificateAuthorityCustomAttributeArrayOutput) Index(i pulumi.IntInput)
 
 // Structure that contains X.509 EdiPartyName information.
 type CertificateAuthorityEdiPartyName struct {
-	NameAssigner string `pulumi:"nameAssigner"`
-	PartyName    string `pulumi:"partyName"`
+	NameAssigner *string `pulumi:"nameAssigner"`
+	PartyName    string  `pulumi:"partyName"`
 }
 
 // CertificateAuthorityEdiPartyNameInput is an input type that accepts CertificateAuthorityEdiPartyNameArgs and CertificateAuthorityEdiPartyNameOutput values.
@@ -963,8 +963,8 @@ type CertificateAuthorityEdiPartyNameInput interface {
 
 // Structure that contains X.509 EdiPartyName information.
 type CertificateAuthorityEdiPartyNameArgs struct {
-	NameAssigner pulumi.StringInput `pulumi:"nameAssigner"`
-	PartyName    pulumi.StringInput `pulumi:"partyName"`
+	NameAssigner pulumi.StringPtrInput `pulumi:"nameAssigner"`
+	PartyName    pulumi.StringInput    `pulumi:"partyName"`
 }
 
 func (CertificateAuthorityEdiPartyNameArgs) ElementType() reflect.Type {
@@ -1045,8 +1045,8 @@ func (o CertificateAuthorityEdiPartyNameOutput) ToCertificateAuthorityEdiPartyNa
 	}).(CertificateAuthorityEdiPartyNamePtrOutput)
 }
 
-func (o CertificateAuthorityEdiPartyNameOutput) NameAssigner() pulumi.StringOutput {
-	return o.ApplyT(func(v CertificateAuthorityEdiPartyName) string { return v.NameAssigner }).(pulumi.StringOutput)
+func (o CertificateAuthorityEdiPartyNameOutput) NameAssigner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateAuthorityEdiPartyName) *string { return v.NameAssigner }).(pulumi.StringPtrOutput)
 }
 
 func (o CertificateAuthorityEdiPartyNameOutput) PartyName() pulumi.StringOutput {
@@ -1082,7 +1082,7 @@ func (o CertificateAuthorityEdiPartyNamePtrOutput) NameAssigner() pulumi.StringP
 		if v == nil {
 			return nil
 		}
-		return &v.NameAssigner
+		return v.NameAssigner
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1447,7 +1447,7 @@ func (o CertificateAuthorityKeyUsagePtrOutput) NonRepudiation() pulumi.BoolPtrOu
 
 // Helps to configure online certificate status protocol (OCSP) responder for your certificate authority
 type CertificateAuthorityOcspConfiguration struct {
-	Enabled         *bool   `pulumi:"enabled"`
+	Enabled         bool    `pulumi:"enabled"`
 	OcspCustomCname *string `pulumi:"ocspCustomCname"`
 }
 
@@ -1464,7 +1464,7 @@ type CertificateAuthorityOcspConfigurationInput interface {
 
 // Helps to configure online certificate status protocol (OCSP) responder for your certificate authority
 type CertificateAuthorityOcspConfigurationArgs struct {
-	Enabled         pulumi.BoolPtrInput   `pulumi:"enabled"`
+	Enabled         pulumi.BoolInput      `pulumi:"enabled"`
 	OcspCustomCname pulumi.StringPtrInput `pulumi:"ocspCustomCname"`
 }
 
@@ -1546,8 +1546,8 @@ func (o CertificateAuthorityOcspConfigurationOutput) ToCertificateAuthorityOcspC
 	}).(CertificateAuthorityOcspConfigurationPtrOutput)
 }
 
-func (o CertificateAuthorityOcspConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v CertificateAuthorityOcspConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+func (o CertificateAuthorityOcspConfigurationOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v CertificateAuthorityOcspConfiguration) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 func (o CertificateAuthorityOcspConfigurationOutput) OcspCustomCname() pulumi.StringPtrOutput {
@@ -1583,7 +1583,7 @@ func (o CertificateAuthorityOcspConfigurationPtrOutput) Enabled() pulumi.BoolPtr
 		if v == nil {
 			return nil
 		}
-		return v.Enabled
+		return &v.Enabled
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -2249,7 +2249,7 @@ func (o CertificateAuthoritySubjectPtrOutput) Title() pulumi.StringPtrOutput {
 }
 
 type CertificateAuthorityTag struct {
-	Key   *string `pulumi:"key"`
+	Key   string  `pulumi:"key"`
 	Value *string `pulumi:"value"`
 }
 

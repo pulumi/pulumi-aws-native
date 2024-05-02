@@ -198,6 +198,10 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly ssmAssociations!: pulumi.Output<outputs.ec2.InstanceSsmAssociation[] | undefined>;
     /**
+     * The current state of the instance.
+     */
+    public /*out*/ readonly state!: pulumi.Output<outputs.ec2.InstanceState>;
+    /**
      * [EC2-VPC] The ID of the subnet to launch the instance into.
      */
     public readonly subnetId!: pulumi.Output<string | undefined>;
@@ -278,6 +282,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["privateIp"] = undefined /*out*/;
             resourceInputs["publicDnsName"] = undefined /*out*/;
             resourceInputs["publicIp"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
             resourceInputs["vpcId"] = undefined /*out*/;
         } else {
             resourceInputs["additionalInfo"] = undefined /*out*/;
@@ -320,6 +325,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["securityGroups"] = undefined /*out*/;
             resourceInputs["sourceDestCheck"] = undefined /*out*/;
             resourceInputs["ssmAssociations"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
             resourceInputs["subnetId"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["tenancy"] = undefined /*out*/;

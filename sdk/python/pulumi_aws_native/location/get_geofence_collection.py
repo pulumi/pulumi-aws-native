@@ -74,6 +74,9 @@ class GetGeofenceCollectionResult:
     @property
     @pulumi.getter(name="pricingPlanDataSource")
     def pricing_plan_data_source(self) -> Optional[str]:
+        """
+        This shape is deprecated since 2022-02-01: Deprecated. No longer allowed.
+        """
         return pulumi.get(self, "pricing_plan_data_source")
 
     @property

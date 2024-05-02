@@ -16,12 +16,12 @@ namespace Pulumi.AwsNative.Acmpca.Outputs
     [OutputType]
     public sealed class CertificateAuthorityOcspConfiguration
     {
-        public readonly bool? Enabled;
+        public readonly bool Enabled;
         public readonly string? OcspCustomCname;
 
         [OutputConstructor]
         private CertificateAuthorityOcspConfiguration(
-            bool? enabled,
+            bool enabled,
 
             string? ocspCustomCname)
         {

@@ -23,6 +23,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         public readonly ImmutableArray<string> ColumnSynonyms;
         public readonly Outputs.TopicComparativeOrder? ComparativeOrder;
         public readonly Outputs.TopicDefaultFormatting? DefaultFormatting;
+        public readonly bool? DisableIndexing;
         public readonly bool? IsIncludedInTopic;
         public readonly bool? NeverAggregateInFilter;
         public readonly bool? NonAdditive;
@@ -52,6 +53,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Outputs.TopicDefaultFormatting? defaultFormatting,
 
+            bool? disableIndexing,
+
             bool? isIncludedInTopic,
 
             bool? neverAggregateInFilter,
@@ -74,6 +77,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             ColumnSynonyms = columnSynonyms;
             ComparativeOrder = comparativeOrder;
             DefaultFormatting = defaultFormatting;
+            DisableIndexing = disableIndexing;
             IsIncludedInTopic = isIncludedInTopic;
             NeverAggregateInFilter = neverAggregateInFilter;
             NonAdditive = nonAdditive;

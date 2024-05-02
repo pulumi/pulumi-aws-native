@@ -357,7 +357,6 @@ type TaskDefinition struct {
 	// The task launch types the task definition was validated against. The valid values are ``EC2``, ``FARGATE``, and ``EXTERNAL``. For more information, see [Amazon ECS launch types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
 	RequiresCompatibilities pulumi.StringArrayOutput `pulumi:"requiresCompatibilities"`
 	// The operating system that your tasks definitions run on. A platform family is specified only for tasks using the Fargate launch type.
-	//  When you specify a task definition in a service, this value must match the ``runtimePlatform`` value of the service.
 	RuntimePlatform TaskDefinitionRuntimePlatformPtrOutput `pulumi:"runtimePlatform"`
 	// The metadata that you apply to the task definition to help you categorize and organize them. Each tag consists of a key and an optional value. You define both of them.
 	//  The following basic restrictions apply to tags:
@@ -507,7 +506,6 @@ type taskDefinitionArgs struct {
 	// The task launch types the task definition was validated against. The valid values are ``EC2``, ``FARGATE``, and ``EXTERNAL``. For more information, see [Amazon ECS launch types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
 	RequiresCompatibilities []string `pulumi:"requiresCompatibilities"`
 	// The operating system that your tasks definitions run on. A platform family is specified only for tasks using the Fargate launch type.
-	//  When you specify a task definition in a service, this value must match the ``runtimePlatform`` value of the service.
 	RuntimePlatform *TaskDefinitionRuntimePlatform `pulumi:"runtimePlatform"`
 	// The metadata that you apply to the task definition to help you categorize and organize them. Each tag consists of a key and an optional value. You define both of them.
 	//  The following basic restrictions apply to tags:
@@ -599,7 +597,6 @@ type TaskDefinitionArgs struct {
 	// The task launch types the task definition was validated against. The valid values are ``EC2``, ``FARGATE``, and ``EXTERNAL``. For more information, see [Amazon ECS launch types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
 	RequiresCompatibilities pulumi.StringArrayInput
 	// The operating system that your tasks definitions run on. A platform family is specified only for tasks using the Fargate launch type.
-	//  When you specify a task definition in a service, this value must match the ``runtimePlatform`` value of the service.
 	RuntimePlatform TaskDefinitionRuntimePlatformPtrInput
 	// The metadata that you apply to the task definition to help you categorize and organize them. Each tag consists of a key and an optional value. You define both of them.
 	//  The following basic restrictions apply to tags:
@@ -773,8 +770,6 @@ func (o TaskDefinitionOutput) RequiresCompatibilities() pulumi.StringArrayOutput
 }
 
 // The operating system that your tasks definitions run on. A platform family is specified only for tasks using the Fargate launch type.
-//
-//	When you specify a task definition in a service, this value must match the ``runtimePlatform`` value of the service.
 func (o TaskDefinitionOutput) RuntimePlatform() TaskDefinitionRuntimePlatformPtrOutput {
 	return o.ApplyT(func(v *TaskDefinition) TaskDefinitionRuntimePlatformPtrOutput { return v.RuntimePlatform }).(TaskDefinitionRuntimePlatformPtrOutput)
 }

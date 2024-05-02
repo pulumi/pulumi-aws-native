@@ -6,7 +6,6 @@ from enum import Enum
 
 __all__ = [
     'DocumentationPartLocationType',
-    'MethodAuthorizationType',
     'MethodIntegrationConnectionType',
     'MethodIntegrationContentHandling',
     'MethodIntegrationPassthroughBehavior',
@@ -32,17 +31,6 @@ class DocumentationPartLocationType(str, Enum):
     RESPONSE = "RESPONSE"
     RESPONSE_HEADER = "RESPONSE_HEADER"
     RESPONSE_BODY = "RESPONSE_BODY"
-
-
-class MethodAuthorizationType(str, Enum):
-    """
-    The method's authorization type. This parameter is required. For valid values, see [Method](https://docs.aws.amazon.com/apigateway/latest/api/API_Method.html) in the *API Gateway API Reference*.
-      If you specify the ``AuthorizerId`` property, specify ``CUSTOM`` or ``COGNITO_USER_POOLS`` for this property.
-    """
-    NONE = "NONE"
-    AWS_IAM = "AWS_IAM"
-    CUSTOM = "CUSTOM"
-    COGNITO_USER_POOLS = "COGNITO_USER_POOLS"
 
 
 class MethodIntegrationConnectionType(str, Enum):

@@ -26,7 +26,7 @@
   "typeName" : "AWS::EC2::CustomerGateway",
   "readOnlyProperties" : [ "/properties/CustomerGatewayId" ],
   "description" : "Specifies a customer gateway.",
-  "createOnlyProperties" : [ "/properties/CertificateArn", "/properties/BgpAsn", "/properties/BgpAsnExtended", "/properties/Type", "/properties/IpAddress", "/properties/DeviceName" ],
+  "createOnlyProperties" : [ "/properties/CertificateArn", "/properties/BgpAsn", "/properties/Type", "/properties/IpAddress", "/properties/DeviceName" ],
   "additionalProperties" : false,
   "primaryIdentifier" : [ "/properties/CustomerGatewayId" ],
   "definitions" : {
@@ -59,13 +59,6 @@
     "IpAddress" : {
       "description" : "IPv4 address for the customer gateway device's outside interface. The address must be static.",
       "type" : "string"
-    },
-    "BgpAsnExtended" : {
-      "multipleOf" : 1,
-      "maximum" : 4294967294,
-      "description" : "",
-      "type" : "number",
-      "minimum" : 2147483648
     },
     "BgpAsn" : {
       "default" : 65000,

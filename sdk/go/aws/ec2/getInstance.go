@@ -71,6 +71,8 @@ type LookupInstanceResult struct {
 	SourceDestCheck *bool `pulumi:"sourceDestCheck"`
 	// The SSM document and parameter values in AWS Systems Manager to associate with this instance.
 	SsmAssociations []InstanceSsmAssociation `pulumi:"ssmAssociations"`
+	// The current state of the instance.
+	State *InstanceStateType `pulumi:"state"`
 	// The tags to add to the instance.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware.
@@ -222,6 +224,11 @@ func (o LookupInstanceResultOutput) SourceDestCheck() pulumi.BoolPtrOutput {
 // The SSM document and parameter values in AWS Systems Manager to associate with this instance.
 func (o LookupInstanceResultOutput) SsmAssociations() InstanceSsmAssociationArrayOutput {
 	return o.ApplyT(func(v LookupInstanceResult) []InstanceSsmAssociation { return v.SsmAssociations }).(InstanceSsmAssociationArrayOutput)
+}
+
+// The current state of the instance.
+func (o LookupInstanceResultOutput) State() InstanceStateTypePtrOutput {
+	return o.ApplyT(func(v LookupInstanceResult) *InstanceStateType { return v.State }).(InstanceStateTypePtrOutput)
 }
 
 // The tags to add to the instance.

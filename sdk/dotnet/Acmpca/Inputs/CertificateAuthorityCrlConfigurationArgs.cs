@@ -21,8 +21,8 @@ namespace Pulumi.AwsNative.Acmpca.Inputs
         [Input("customCname")]
         public Input<string>? CustomCname { get; set; }
 
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
+        [Input("enabled", required: true)]
+        public Input<bool> Enabled { get; set; } = null!;
 
         [Input("expirationInDays")]
         public Input<int>? ExpirationInDays { get; set; }

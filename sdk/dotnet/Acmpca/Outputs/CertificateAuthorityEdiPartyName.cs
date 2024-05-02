@@ -16,12 +16,12 @@ namespace Pulumi.AwsNative.Acmpca.Outputs
     [OutputType]
     public sealed class CertificateAuthorityEdiPartyName
     {
-        public readonly string NameAssigner;
+        public readonly string? NameAssigner;
         public readonly string PartyName;
 
         [OutputConstructor]
         private CertificateAuthorityEdiPartyName(
-            string nameAssigner,
+            string? nameAssigner,
 
             string partyName)
         {

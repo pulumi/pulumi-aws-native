@@ -256,6 +256,12 @@ namespace Pulumi.AwsNative.Ec2
         public Output<ImmutableArray<Outputs.InstanceSsmAssociation>> SsmAssociations { get; private set; } = null!;
 
         /// <summary>
+        /// The current state of the instance.
+        /// </summary>
+        [Output("state")]
+        public Output<Outputs.InstanceState> State { get; private set; } = null!;
+
+        /// <summary>
         /// [EC2-VPC] The ID of the subnet to launch the instance into.
         /// </summary>
         [Output("subnetId")]

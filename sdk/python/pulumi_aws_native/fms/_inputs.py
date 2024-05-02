@@ -12,6 +12,11 @@ from ._enums import *
 
 __all__ = [
     'PolicyIeMapArgs',
+    'PolicyNetworkAclCommonPolicyArgs',
+    'PolicyNetworkAclEntryIcmpTypeCodePropertiesArgs',
+    'PolicyNetworkAclEntryPortRangePropertiesArgs',
+    'PolicyNetworkAclEntrySetArgs',
+    'PolicyNetworkAclEntryArgs',
     'PolicyNetworkFirewallPolicyArgs',
     'PolicyOptionArgs',
     'PolicyResourceTagArgs',
@@ -52,6 +57,272 @@ class PolicyIeMapArgs:
 
 
 @pulumi.input_type
+class PolicyNetworkAclCommonPolicyArgs:
+    def __init__(__self__, *,
+                 network_acl_entry_set: pulumi.Input['PolicyNetworkAclEntrySetArgs']):
+        """
+        Network ACL common policy.
+        """
+        pulumi.set(__self__, "network_acl_entry_set", network_acl_entry_set)
+
+    @property
+    @pulumi.getter(name="networkAclEntrySet")
+    def network_acl_entry_set(self) -> pulumi.Input['PolicyNetworkAclEntrySetArgs']:
+        return pulumi.get(self, "network_acl_entry_set")
+
+    @network_acl_entry_set.setter
+    def network_acl_entry_set(self, value: pulumi.Input['PolicyNetworkAclEntrySetArgs']):
+        pulumi.set(self, "network_acl_entry_set", value)
+
+
+@pulumi.input_type
+class PolicyNetworkAclEntryIcmpTypeCodePropertiesArgs:
+    def __init__(__self__, *,
+                 code: pulumi.Input[int],
+                 type: pulumi.Input[int]):
+        """
+        ICMP type and code.
+        :param pulumi.Input[int] code: Code.
+        :param pulumi.Input[int] type: Type.
+        """
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def code(self) -> pulumi.Input[int]:
+        """
+        Code.
+        """
+        return pulumi.get(self, "code")
+
+    @code.setter
+    def code(self, value: pulumi.Input[int]):
+        pulumi.set(self, "code", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[int]:
+        """
+        Type.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[int]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class PolicyNetworkAclEntryPortRangePropertiesArgs:
+    def __init__(__self__, *,
+                 from_: pulumi.Input[int],
+                 to: pulumi.Input[int]):
+        """
+        Port range.
+        :param pulumi.Input[int] from_: From Port.
+        :param pulumi.Input[int] to: To Port.
+        """
+        pulumi.set(__self__, "from_", from_)
+        pulumi.set(__self__, "to", to)
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> pulumi.Input[int]:
+        """
+        From Port.
+        """
+        return pulumi.get(self, "from_")
+
+    @from_.setter
+    def from_(self, value: pulumi.Input[int]):
+        pulumi.set(self, "from_", value)
+
+    @property
+    @pulumi.getter
+    def to(self) -> pulumi.Input[int]:
+        """
+        To Port.
+        """
+        return pulumi.get(self, "to")
+
+    @to.setter
+    def to(self, value: pulumi.Input[int]):
+        pulumi.set(self, "to", value)
+
+
+@pulumi.input_type
+class PolicyNetworkAclEntrySetArgs:
+    def __init__(__self__, *,
+                 force_remediate_for_first_entries: pulumi.Input[bool],
+                 force_remediate_for_last_entries: pulumi.Input[bool],
+                 first_entries: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyNetworkAclEntryArgs']]]] = None,
+                 last_entries: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyNetworkAclEntryArgs']]]] = None):
+        """
+        Network ACL entry set.
+        """
+        pulumi.set(__self__, "force_remediate_for_first_entries", force_remediate_for_first_entries)
+        pulumi.set(__self__, "force_remediate_for_last_entries", force_remediate_for_last_entries)
+        if first_entries is not None:
+            pulumi.set(__self__, "first_entries", first_entries)
+        if last_entries is not None:
+            pulumi.set(__self__, "last_entries", last_entries)
+
+    @property
+    @pulumi.getter(name="forceRemediateForFirstEntries")
+    def force_remediate_for_first_entries(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "force_remediate_for_first_entries")
+
+    @force_remediate_for_first_entries.setter
+    def force_remediate_for_first_entries(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "force_remediate_for_first_entries", value)
+
+    @property
+    @pulumi.getter(name="forceRemediateForLastEntries")
+    def force_remediate_for_last_entries(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "force_remediate_for_last_entries")
+
+    @force_remediate_for_last_entries.setter
+    def force_remediate_for_last_entries(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "force_remediate_for_last_entries", value)
+
+    @property
+    @pulumi.getter(name="firstEntries")
+    def first_entries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PolicyNetworkAclEntryArgs']]]]:
+        return pulumi.get(self, "first_entries")
+
+    @first_entries.setter
+    def first_entries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyNetworkAclEntryArgs']]]]):
+        pulumi.set(self, "first_entries", value)
+
+    @property
+    @pulumi.getter(name="lastEntries")
+    def last_entries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PolicyNetworkAclEntryArgs']]]]:
+        return pulumi.get(self, "last_entries")
+
+    @last_entries.setter
+    def last_entries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyNetworkAclEntryArgs']]]]):
+        pulumi.set(self, "last_entries", value)
+
+
+@pulumi.input_type
+class PolicyNetworkAclEntryArgs:
+    def __init__(__self__, *,
+                 egress: pulumi.Input[bool],
+                 protocol: pulumi.Input[str],
+                 rule_action: pulumi.Input['PolicyNetworkAclEntryRuleAction'],
+                 cidr_block: Optional[pulumi.Input[str]] = None,
+                 icmp_type_code: Optional[pulumi.Input['PolicyNetworkAclEntryIcmpTypeCodePropertiesArgs']] = None,
+                 ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
+                 port_range: Optional[pulumi.Input['PolicyNetworkAclEntryPortRangePropertiesArgs']] = None):
+        """
+        Network ACL entry.
+        :param pulumi.Input[bool] egress: Whether the entry is an egress entry.
+        :param pulumi.Input[str] protocol: Protocol.
+        :param pulumi.Input['PolicyNetworkAclEntryRuleAction'] rule_action: Rule Action.
+        :param pulumi.Input[str] cidr_block: CIDR block.
+        :param pulumi.Input['PolicyNetworkAclEntryIcmpTypeCodePropertiesArgs'] icmp_type_code: ICMP type and code.
+        :param pulumi.Input[str] ipv6_cidr_block: IPv6 CIDR block.
+        :param pulumi.Input['PolicyNetworkAclEntryPortRangePropertiesArgs'] port_range: Port range.
+        """
+        pulumi.set(__self__, "egress", egress)
+        pulumi.set(__self__, "protocol", protocol)
+        pulumi.set(__self__, "rule_action", rule_action)
+        if cidr_block is not None:
+            pulumi.set(__self__, "cidr_block", cidr_block)
+        if icmp_type_code is not None:
+            pulumi.set(__self__, "icmp_type_code", icmp_type_code)
+        if ipv6_cidr_block is not None:
+            pulumi.set(__self__, "ipv6_cidr_block", ipv6_cidr_block)
+        if port_range is not None:
+            pulumi.set(__self__, "port_range", port_range)
+
+    @property
+    @pulumi.getter
+    def egress(self) -> pulumi.Input[bool]:
+        """
+        Whether the entry is an egress entry.
+        """
+        return pulumi.get(self, "egress")
+
+    @egress.setter
+    def egress(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "egress", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> pulumi.Input[str]:
+        """
+        Protocol.
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: pulumi.Input[str]):
+        pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter(name="ruleAction")
+    def rule_action(self) -> pulumi.Input['PolicyNetworkAclEntryRuleAction']:
+        """
+        Rule Action.
+        """
+        return pulumi.get(self, "rule_action")
+
+    @rule_action.setter
+    def rule_action(self, value: pulumi.Input['PolicyNetworkAclEntryRuleAction']):
+        pulumi.set(self, "rule_action", value)
+
+    @property
+    @pulumi.getter(name="cidrBlock")
+    def cidr_block(self) -> Optional[pulumi.Input[str]]:
+        """
+        CIDR block.
+        """
+        return pulumi.get(self, "cidr_block")
+
+    @cidr_block.setter
+    def cidr_block(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cidr_block", value)
+
+    @property
+    @pulumi.getter(name="icmpTypeCode")
+    def icmp_type_code(self) -> Optional[pulumi.Input['PolicyNetworkAclEntryIcmpTypeCodePropertiesArgs']]:
+        """
+        ICMP type and code.
+        """
+        return pulumi.get(self, "icmp_type_code")
+
+    @icmp_type_code.setter
+    def icmp_type_code(self, value: Optional[pulumi.Input['PolicyNetworkAclEntryIcmpTypeCodePropertiesArgs']]):
+        pulumi.set(self, "icmp_type_code", value)
+
+    @property
+    @pulumi.getter(name="ipv6CidrBlock")
+    def ipv6_cidr_block(self) -> Optional[pulumi.Input[str]]:
+        """
+        IPv6 CIDR block.
+        """
+        return pulumi.get(self, "ipv6_cidr_block")
+
+    @ipv6_cidr_block.setter
+    def ipv6_cidr_block(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ipv6_cidr_block", value)
+
+    @property
+    @pulumi.getter(name="portRange")
+    def port_range(self) -> Optional[pulumi.Input['PolicyNetworkAclEntryPortRangePropertiesArgs']]:
+        """
+        Port range.
+        """
+        return pulumi.get(self, "port_range")
+
+    @port_range.setter
+    def port_range(self, value: Optional[pulumi.Input['PolicyNetworkAclEntryPortRangePropertiesArgs']]):
+        pulumi.set(self, "port_range", value)
+
+
+@pulumi.input_type
 class PolicyNetworkFirewallPolicyArgs:
     def __init__(__self__, *,
                  firewall_deployment_model: pulumi.Input['PolicyFirewallDeploymentModel']):
@@ -73,15 +344,27 @@ class PolicyNetworkFirewallPolicyArgs:
 @pulumi.input_type
 class PolicyOptionArgs:
     def __init__(__self__, *,
+                 network_acl_common_policy: Optional[pulumi.Input['PolicyNetworkAclCommonPolicyArgs']] = None,
                  network_firewall_policy: Optional[pulumi.Input['PolicyNetworkFirewallPolicyArgs']] = None,
                  third_party_firewall_policy: Optional[pulumi.Input['PolicyThirdPartyFirewallPolicyArgs']] = None):
         """
         Firewall policy option.
         """
+        if network_acl_common_policy is not None:
+            pulumi.set(__self__, "network_acl_common_policy", network_acl_common_policy)
         if network_firewall_policy is not None:
             pulumi.set(__self__, "network_firewall_policy", network_firewall_policy)
         if third_party_firewall_policy is not None:
             pulumi.set(__self__, "third_party_firewall_policy", third_party_firewall_policy)
+
+    @property
+    @pulumi.getter(name="networkAclCommonPolicy")
+    def network_acl_common_policy(self) -> Optional[pulumi.Input['PolicyNetworkAclCommonPolicyArgs']]:
+        return pulumi.get(self, "network_acl_common_policy")
+
+    @network_acl_common_policy.setter
+    def network_acl_common_policy(self, value: Optional[pulumi.Input['PolicyNetworkAclCommonPolicyArgs']]):
+        pulumi.set(self, "network_acl_common_policy", value)
 
     @property
     @pulumi.getter(name="networkFirewallPolicy")

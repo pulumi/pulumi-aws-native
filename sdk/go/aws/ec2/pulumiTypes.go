@@ -6656,6 +6656,83 @@ func (o InstanceSsmAssociationArrayOutput) Index(i pulumi.IntInput) InstanceSsmA
 	}).(InstanceSsmAssociationOutput)
 }
 
+// The current state of the instance
+type InstanceStateType struct {
+	// The state of the instance as a 16-bit unsigned integer.
+	Code *string `pulumi:"code"`
+	// The current state of the instance.
+	Name *string `pulumi:"name"`
+}
+
+// The current state of the instance
+type InstanceStateTypeOutput struct{ *pulumi.OutputState }
+
+func (InstanceStateTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceStateType)(nil)).Elem()
+}
+
+func (o InstanceStateTypeOutput) ToInstanceStateTypeOutput() InstanceStateTypeOutput {
+	return o
+}
+
+func (o InstanceStateTypeOutput) ToInstanceStateTypeOutputWithContext(ctx context.Context) InstanceStateTypeOutput {
+	return o
+}
+
+// The state of the instance as a 16-bit unsigned integer.
+func (o InstanceStateTypeOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceStateType) *string { return v.Code }).(pulumi.StringPtrOutput)
+}
+
+// The current state of the instance.
+func (o InstanceStateTypeOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceStateType) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type InstanceStateTypePtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceStateTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceStateType)(nil)).Elem()
+}
+
+func (o InstanceStateTypePtrOutput) ToInstanceStateTypePtrOutput() InstanceStateTypePtrOutput {
+	return o
+}
+
+func (o InstanceStateTypePtrOutput) ToInstanceStateTypePtrOutputWithContext(ctx context.Context) InstanceStateTypePtrOutput {
+	return o
+}
+
+func (o InstanceStateTypePtrOutput) Elem() InstanceStateTypeOutput {
+	return o.ApplyT(func(v *InstanceStateType) InstanceStateType {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceStateType
+		return ret
+	}).(InstanceStateTypeOutput)
+}
+
+// The state of the instance as a 16-bit unsigned integer.
+func (o InstanceStateTypePtrOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceStateType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Code
+	}).(pulumi.StringPtrOutput)
+}
+
+// The current state of the instance.
+func (o InstanceStateTypePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceStateType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
 type InstanceTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -27707,6 +27784,8 @@ func init() {
 	pulumi.RegisterOutputType(InstancePrivateIpAddressSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(InstanceSsmAssociationOutput{})
 	pulumi.RegisterOutputType(InstanceSsmAssociationArrayOutput{})
+	pulumi.RegisterOutputType(InstanceStateTypeOutput{})
+	pulumi.RegisterOutputType(InstanceStateTypePtrOutput{})
 	pulumi.RegisterOutputType(InstanceVolumeOutput{})
 	pulumi.RegisterOutputType(InstanceVolumeArrayOutput{})
 	pulumi.RegisterOutputType(IpamOperatingRegionOutput{})

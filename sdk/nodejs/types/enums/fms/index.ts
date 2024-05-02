@@ -12,6 +12,16 @@ export const PolicyFirewallDeploymentModel = {
  */
 export type PolicyFirewallDeploymentModel = (typeof PolicyFirewallDeploymentModel)[keyof typeof PolicyFirewallDeploymentModel];
 
+export const PolicyNetworkAclEntryRuleAction = {
+    Allow: "allow",
+    Deny: "deny",
+} as const;
+
+/**
+ * Rule Action.
+ */
+export type PolicyNetworkAclEntryRuleAction = (typeof PolicyNetworkAclEntryRuleAction)[keyof typeof PolicyNetworkAclEntryRuleAction];
+
 export const PolicyType = {
     Waf: "WAF",
     Wafv2: "WAFV2",
@@ -23,6 +33,7 @@ export const PolicyType = {
     ThirdPartyFirewall: "THIRD_PARTY_FIREWALL",
     DnsFirewall: "DNS_FIREWALL",
     ImportNetworkFirewall: "IMPORT_NETWORK_FIREWALL",
+    NetworkAclCommon: "NETWORK_ACL_COMMON",
 } as const;
 
 /**

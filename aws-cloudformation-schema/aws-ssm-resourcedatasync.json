@@ -126,6 +126,9 @@
   "required" : [ "SyncName" ],
   "createOnlyProperties" : [ "/properties/KMSKeyArn", "/properties/SyncFormat", "/properties/BucketPrefix", "/properties/SyncName", "/properties/BucketRegion", "/properties/BucketName", "/properties/S3Destination", "/properties/SyncType" ],
   "primaryIdentifier" : [ "/properties/SyncName" ],
+  "tagging" : {
+    "taggable" : false
+  },
   "readOnlyProperties" : [ "/properties/SyncName" ],
   "handlers" : {
     "create" : {

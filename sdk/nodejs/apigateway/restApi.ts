@@ -94,7 +94,7 @@ import * as utilities from "../utilities";
  *     httpMethod: "POST",
  *     resourceId: restApi.rootResourceId,
  *     restApiId: restApi.id,
- *     authorizationType: aws_native.apigateway.MethodAuthorizationType.None,
+ *     authorizationType: "NONE",
  *     integration: {
  *         type: aws_native.apigateway.MethodIntegrationType.Mock,
  *         contentHandling: aws_native.apigateway.MethodIntegrationContentHandling[contentHandling],
@@ -133,7 +133,7 @@ import * as utilities from "../utilities";
  *     httpMethod: "POST",
  *     resourceId: restApi.rootResourceId,
  *     restApiId: restApi.id,
- *     authorizationType: aws_native.apigateway.MethodAuthorizationType.None,
+ *     authorizationType: "NONE",
  *     integration: {
  *         type: aws_native.apigateway.MethodIntegrationType.Mock,
  *         contentHandling: aws_native.apigateway.MethodIntegrationContentHandling[contentHandling],

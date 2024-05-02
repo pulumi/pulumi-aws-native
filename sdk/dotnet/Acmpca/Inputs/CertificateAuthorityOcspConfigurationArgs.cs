@@ -15,8 +15,8 @@ namespace Pulumi.AwsNative.Acmpca.Inputs
     /// </summary>
     public sealed class CertificateAuthorityOcspConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
+        [Input("enabled", required: true)]
+        public Input<bool> Enabled { get; set; } = null!;
 
         [Input("ocspCustomCname")]
         public Input<string>? OcspCustomCname { get; set; }

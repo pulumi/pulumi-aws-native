@@ -334,6 +334,8 @@ if typing.TYPE_CHECKING:
     pipes = __pipes
     import pulumi_aws_native.proton as __proton
     proton = __proton
+    import pulumi_aws_native.qbusiness as __qbusiness
+    qbusiness = __qbusiness
     import pulumi_aws_native.qldb as __qldb
     qldb = __qldb
     import pulumi_aws_native.quicksight as __quicksight
@@ -601,6 +603,7 @@ else:
     pinpoint = _utilities.lazy_import('pulumi_aws_native.pinpoint')
     pipes = _utilities.lazy_import('pulumi_aws_native.pipes')
     proton = _utilities.lazy_import('pulumi_aws_native.proton')
+    qbusiness = _utilities.lazy_import('pulumi_aws_native.qbusiness')
     qldb = _utilities.lazy_import('pulumi_aws_native.qldb')
     quicksight = _utilities.lazy_import('pulumi_aws_native.quicksight')
     ram = _utilities.lazy_import('pulumi_aws_native.ram')
@@ -2501,6 +2504,19 @@ _utilities.register(
    "aws-native:proton:EnvironmentAccountConnection": "EnvironmentAccountConnection",
    "aws-native:proton:EnvironmentTemplate": "EnvironmentTemplate",
    "aws-native:proton:ServiceTemplate": "ServiceTemplate"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "qbusiness",
+  "fqn": "pulumi_aws_native.qbusiness",
+  "classes": {
+   "aws-native:qbusiness:Application": "Application",
+   "aws-native:qbusiness:DataSource": "DataSource",
+   "aws-native:qbusiness:Index": "Index",
+   "aws-native:qbusiness:Plugin": "Plugin",
+   "aws-native:qbusiness:Retriever": "Retriever",
+   "aws-native:qbusiness:WebExperience": "WebExperience"
   }
  },
  {

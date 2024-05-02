@@ -36,6 +36,9 @@ namespace Pulumi.AwsNative.Location
         [Output("pricingPlan")]
         public Output<Pulumi.AwsNative.Location.GeofenceCollectionPricingPlan?> PricingPlan { get; private set; } = null!;
 
+        /// <summary>
+        /// This shape is deprecated since 2022-02-01: Deprecated. No longer allowed.
+        /// </summary>
         [Output("pricingPlanDataSource")]
         public Output<string?> PricingPlanDataSource { get; private set; } = null!;
 
@@ -110,6 +113,9 @@ namespace Pulumi.AwsNative.Location
         [Input("pricingPlan")]
         public Input<Pulumi.AwsNative.Location.GeofenceCollectionPricingPlan>? PricingPlan { get; set; }
 
+        /// <summary>
+        /// This shape is deprecated since 2022-02-01: Deprecated. No longer allowed.
+        /// </summary>
         [Input("pricingPlanDataSource")]
         public Input<string>? PricingPlanDataSource { get; set; }
 

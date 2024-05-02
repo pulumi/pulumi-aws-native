@@ -48,7 +48,7 @@ export interface GetMethodResult {
      * The method's authorization type. This parameter is required. For valid values, see [Method](https://docs.aws.amazon.com/apigateway/latest/api/API_Method.html) in the *API Gateway API Reference*.
      *   If you specify the ``AuthorizerId`` property, specify ``CUSTOM`` or ``COGNITO_USER_POOLS`` for this property.
      */
-    readonly authorizationType?: enums.apigateway.MethodAuthorizationType;
+    readonly authorizationType?: string;
     /**
      * The identifier of an authorizer to use on this method. The method's authorization type must be ``CUSTOM`` or ``COGNITO_USER_POOLS``.
      */

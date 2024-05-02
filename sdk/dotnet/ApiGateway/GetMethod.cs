@@ -93,7 +93,7 @@ namespace Pulumi.AwsNative.ApiGateway
         /// The method's authorization type. This parameter is required. For valid values, see [Method](https://docs.aws.amazon.com/apigateway/latest/api/API_Method.html) in the *API Gateway API Reference*.
         ///   If you specify the ``AuthorizerId`` property, specify ``CUSTOM`` or ``COGNITO_USER_POOLS`` for this property.
         /// </summary>
-        public readonly Pulumi.AwsNative.ApiGateway.MethodAuthorizationType? AuthorizationType;
+        public readonly string? AuthorizationType;
         /// <summary>
         /// The identifier of an authorizer to use on this method. The method's authorization type must be ``CUSTOM`` or ``COGNITO_USER_POOLS``.
         /// </summary>
@@ -129,7 +129,7 @@ namespace Pulumi.AwsNative.ApiGateway
 
             ImmutableArray<string> authorizationScopes,
 
-            Pulumi.AwsNative.ApiGateway.MethodAuthorizationType? authorizationType,
+            string? authorizationType,
 
             string? authorizerId,
 

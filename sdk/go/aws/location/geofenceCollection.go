@@ -16,14 +16,15 @@ import (
 type GeofenceCollection struct {
 	pulumi.CustomResourceState
 
-	Arn                   pulumi.StringOutput                    `pulumi:"arn"`
-	CollectionArn         pulumi.StringOutput                    `pulumi:"collectionArn"`
-	CollectionName        pulumi.StringOutput                    `pulumi:"collectionName"`
-	CreateTime            pulumi.StringOutput                    `pulumi:"createTime"`
-	Description           pulumi.StringPtrOutput                 `pulumi:"description"`
-	KmsKeyId              pulumi.StringPtrOutput                 `pulumi:"kmsKeyId"`
-	PricingPlan           GeofenceCollectionPricingPlanPtrOutput `pulumi:"pricingPlan"`
-	PricingPlanDataSource pulumi.StringPtrOutput                 `pulumi:"pricingPlanDataSource"`
+	Arn            pulumi.StringOutput                    `pulumi:"arn"`
+	CollectionArn  pulumi.StringOutput                    `pulumi:"collectionArn"`
+	CollectionName pulumi.StringOutput                    `pulumi:"collectionName"`
+	CreateTime     pulumi.StringOutput                    `pulumi:"createTime"`
+	Description    pulumi.StringPtrOutput                 `pulumi:"description"`
+	KmsKeyId       pulumi.StringPtrOutput                 `pulumi:"kmsKeyId"`
+	PricingPlan    GeofenceCollectionPricingPlanPtrOutput `pulumi:"pricingPlan"`
+	// This shape is deprecated since 2022-02-01: Deprecated. No longer allowed.
+	PricingPlanDataSource pulumi.StringPtrOutput `pulumi:"pricingPlanDataSource"`
 	// An array of key-value pairs to apply to this resource.
 	Tags       aws.TagArrayOutput  `pulumi:"tags"`
 	UpdateTime pulumi.StringOutput `pulumi:"updateTime"`
@@ -74,21 +75,23 @@ func (GeofenceCollectionState) ElementType() reflect.Type {
 }
 
 type geofenceCollectionArgs struct {
-	CollectionName        *string                        `pulumi:"collectionName"`
-	Description           *string                        `pulumi:"description"`
-	KmsKeyId              *string                        `pulumi:"kmsKeyId"`
-	PricingPlan           *GeofenceCollectionPricingPlan `pulumi:"pricingPlan"`
-	PricingPlanDataSource *string                        `pulumi:"pricingPlanDataSource"`
+	CollectionName *string                        `pulumi:"collectionName"`
+	Description    *string                        `pulumi:"description"`
+	KmsKeyId       *string                        `pulumi:"kmsKeyId"`
+	PricingPlan    *GeofenceCollectionPricingPlan `pulumi:"pricingPlan"`
+	// This shape is deprecated since 2022-02-01: Deprecated. No longer allowed.
+	PricingPlanDataSource *string `pulumi:"pricingPlanDataSource"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a GeofenceCollection resource.
 type GeofenceCollectionArgs struct {
-	CollectionName        pulumi.StringPtrInput
-	Description           pulumi.StringPtrInput
-	KmsKeyId              pulumi.StringPtrInput
-	PricingPlan           GeofenceCollectionPricingPlanPtrInput
+	CollectionName pulumi.StringPtrInput
+	Description    pulumi.StringPtrInput
+	KmsKeyId       pulumi.StringPtrInput
+	PricingPlan    GeofenceCollectionPricingPlanPtrInput
+	// This shape is deprecated since 2022-02-01: Deprecated. No longer allowed.
 	PricingPlanDataSource pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
@@ -159,6 +162,7 @@ func (o GeofenceCollectionOutput) PricingPlan() GeofenceCollectionPricingPlanPtr
 	return o.ApplyT(func(v *GeofenceCollection) GeofenceCollectionPricingPlanPtrOutput { return v.PricingPlan }).(GeofenceCollectionPricingPlanPtrOutput)
 }
 
+// This shape is deprecated since 2022-02-01: Deprecated. No longer allowed.
 func (o GeofenceCollectionOutput) PricingPlanDataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GeofenceCollection) pulumi.StringPtrOutput { return v.PricingPlanDataSource }).(pulumi.StringPtrOutput)
 }

@@ -44,6 +44,9 @@ export class GeofenceCollection extends pulumi.CustomResource {
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     public readonly pricingPlan!: pulumi.Output<enums.location.GeofenceCollectionPricingPlan | undefined>;
+    /**
+     * This shape is deprecated since 2022-02-01: Deprecated. No longer allowed.
+     */
     public readonly pricingPlanDataSource!: pulumi.Output<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
@@ -99,6 +102,9 @@ export interface GeofenceCollectionArgs {
     description?: pulumi.Input<string>;
     kmsKeyId?: pulumi.Input<string>;
     pricingPlan?: pulumi.Input<enums.location.GeofenceCollectionPricingPlan>;
+    /**
+     * This shape is deprecated since 2022-02-01: Deprecated. No longer allowed.
+     */
     pricingPlanDataSource?: pulumi.Input<string>;
     /**
      * An array of key-value pairs to apply to this resource.

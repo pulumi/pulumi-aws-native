@@ -177,7 +177,7 @@ import (
 //				HttpMethod:        pulumi.String("POST"),
 //				ResourceId:        restApi.RootResourceId,
 //				RestApiId:         restApi.ID(),
-//				AuthorizationType: apigateway.MethodAuthorizationTypeNone,
+//				AuthorizationType: pulumi.String("NONE"),
 //				Integration: &apigateway.MethodIntegrationArgs{
 //					Type:            apigateway.MethodIntegrationTypeMock,
 //					ContentHandling: apigateway.MethodIntegrationContentHandling(contentHandling),
@@ -256,7 +256,7 @@ import (
 //				HttpMethod:        pulumi.String("POST"),
 //				ResourceId:        restApi.RootResourceId,
 //				RestApiId:         restApi.ID(),
-//				AuthorizationType: apigateway.MethodAuthorizationTypeNone,
+//				AuthorizationType: pulumi.String("NONE"),
 //				Integration: &apigateway.MethodIntegrationArgs{
 //					Type:            apigateway.MethodIntegrationTypeMock,
 //					ContentHandling: apigateway.MethodIntegrationContentHandling(contentHandling),

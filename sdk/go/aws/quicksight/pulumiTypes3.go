@@ -11274,6 +11274,7 @@ type TopicCalculatedField struct {
 	ColumnDataRole             *TopicColumnDataRole              `pulumi:"columnDataRole"`
 	ComparativeOrder           *TopicComparativeOrder            `pulumi:"comparativeOrder"`
 	DefaultFormatting          *TopicDefaultFormatting           `pulumi:"defaultFormatting"`
+	DisableIndexing            *bool                             `pulumi:"disableIndexing"`
 	Expression                 string                            `pulumi:"expression"`
 	IsIncludedInTopic          *bool                             `pulumi:"isIncludedInTopic"`
 	NeverAggregateInFilter     *bool                             `pulumi:"neverAggregateInFilter"`
@@ -11304,6 +11305,7 @@ type TopicCalculatedFieldArgs struct {
 	ColumnDataRole             TopicColumnDataRolePtrInput               `pulumi:"columnDataRole"`
 	ComparativeOrder           TopicComparativeOrderPtrInput             `pulumi:"comparativeOrder"`
 	DefaultFormatting          TopicDefaultFormattingPtrInput            `pulumi:"defaultFormatting"`
+	DisableIndexing            pulumi.BoolPtrInput                       `pulumi:"disableIndexing"`
 	Expression                 pulumi.StringInput                        `pulumi:"expression"`
 	IsIncludedInTopic          pulumi.BoolPtrInput                       `pulumi:"isIncludedInTopic"`
 	NeverAggregateInFilter     pulumi.BoolPtrInput                       `pulumi:"neverAggregateInFilter"`
@@ -11398,6 +11400,10 @@ func (o TopicCalculatedFieldOutput) ComparativeOrder() TopicComparativeOrderPtrO
 
 func (o TopicCalculatedFieldOutput) DefaultFormatting() TopicDefaultFormattingPtrOutput {
 	return o.ApplyT(func(v TopicCalculatedField) *TopicDefaultFormatting { return v.DefaultFormatting }).(TopicDefaultFormattingPtrOutput)
+}
+
+func (o TopicCalculatedFieldOutput) DisableIndexing() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TopicCalculatedField) *bool { return v.DisableIndexing }).(pulumi.BoolPtrOutput)
 }
 
 func (o TopicCalculatedFieldOutput) Expression() pulumi.StringOutput {
@@ -12033,6 +12039,7 @@ type TopicColumn struct {
 	ColumnSynonyms         []string                          `pulumi:"columnSynonyms"`
 	ComparativeOrder       *TopicComparativeOrder            `pulumi:"comparativeOrder"`
 	DefaultFormatting      *TopicDefaultFormatting           `pulumi:"defaultFormatting"`
+	DisableIndexing        *bool                             `pulumi:"disableIndexing"`
 	IsIncludedInTopic      *bool                             `pulumi:"isIncludedInTopic"`
 	NeverAggregateInFilter *bool                             `pulumi:"neverAggregateInFilter"`
 	NonAdditive            *bool                             `pulumi:"nonAdditive"`
@@ -12063,6 +12070,7 @@ type TopicColumnArgs struct {
 	ColumnSynonyms         pulumi.StringArrayInput                   `pulumi:"columnSynonyms"`
 	ComparativeOrder       TopicComparativeOrderPtrInput             `pulumi:"comparativeOrder"`
 	DefaultFormatting      TopicDefaultFormattingPtrInput            `pulumi:"defaultFormatting"`
+	DisableIndexing        pulumi.BoolPtrInput                       `pulumi:"disableIndexing"`
 	IsIncludedInTopic      pulumi.BoolPtrInput                       `pulumi:"isIncludedInTopic"`
 	NeverAggregateInFilter pulumi.BoolPtrInput                       `pulumi:"neverAggregateInFilter"`
 	NonAdditive            pulumi.BoolPtrInput                       `pulumi:"nonAdditive"`
@@ -12160,6 +12168,10 @@ func (o TopicColumnOutput) ComparativeOrder() TopicComparativeOrderPtrOutput {
 
 func (o TopicColumnOutput) DefaultFormatting() TopicDefaultFormattingPtrOutput {
 	return o.ApplyT(func(v TopicColumn) *TopicDefaultFormatting { return v.DefaultFormatting }).(TopicDefaultFormattingPtrOutput)
+}
+
+func (o TopicColumnOutput) DisableIndexing() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TopicColumn) *bool { return v.DisableIndexing }).(pulumi.BoolPtrOutput)
 }
 
 func (o TopicColumnOutput) IsIncludedInTopic() pulumi.BoolPtrOutput {

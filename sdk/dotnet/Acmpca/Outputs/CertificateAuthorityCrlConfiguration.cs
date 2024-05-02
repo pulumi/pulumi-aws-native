@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.Acmpca.Outputs
     {
         public readonly Outputs.CertificateAuthorityCrlDistributionPointExtensionConfiguration? CrlDistributionPointExtensionConfiguration;
         public readonly string? CustomCname;
-        public readonly bool? Enabled;
+        public readonly bool Enabled;
         public readonly int? ExpirationInDays;
         public readonly string? S3BucketName;
         public readonly string? S3ObjectAcl;
@@ -29,7 +29,7 @@ namespace Pulumi.AwsNative.Acmpca.Outputs
 
             string? customCname,
 
-            bool? enabled,
+            bool enabled,
 
             int? expirationInDays,
 

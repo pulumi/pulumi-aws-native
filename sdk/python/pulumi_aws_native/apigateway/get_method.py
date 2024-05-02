@@ -70,7 +70,7 @@ class GetMethodResult:
 
     @property
     @pulumi.getter(name="authorizationType")
-    def authorization_type(self) -> Optional['MethodAuthorizationType']:
+    def authorization_type(self) -> Optional[str]:
         """
         The method's authorization type. This parameter is required. For valid values, see [Method](https://docs.aws.amazon.com/apigateway/latest/api/API_Method.html) in the *API Gateway API Reference*.
           If you specify the ``AuthorizerId`` property, specify ``CUSTOM`` or ``COGNITO_USER_POOLS`` for this property.

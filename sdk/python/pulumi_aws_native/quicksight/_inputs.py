@@ -70697,6 +70697,7 @@ class TopicCalculatedFieldArgs:
                  column_data_role: Optional[pulumi.Input['TopicColumnDataRole']] = None,
                  comparative_order: Optional[pulumi.Input['TopicComparativeOrderArgs']] = None,
                  default_formatting: Optional[pulumi.Input['TopicDefaultFormattingArgs']] = None,
+                 disable_indexing: Optional[pulumi.Input[bool]] = None,
                  is_included_in_topic: Optional[pulumi.Input[bool]] = None,
                  never_aggregate_in_filter: Optional[pulumi.Input[bool]] = None,
                  non_additive: Optional[pulumi.Input[bool]] = None,
@@ -70721,6 +70722,8 @@ class TopicCalculatedFieldArgs:
             pulumi.set(__self__, "comparative_order", comparative_order)
         if default_formatting is not None:
             pulumi.set(__self__, "default_formatting", default_formatting)
+        if disable_indexing is not None:
+            pulumi.set(__self__, "disable_indexing", disable_indexing)
         if is_included_in_topic is not None:
             pulumi.set(__self__, "is_included_in_topic", is_included_in_topic)
         if never_aggregate_in_filter is not None:
@@ -70823,6 +70826,15 @@ class TopicCalculatedFieldArgs:
     @default_formatting.setter
     def default_formatting(self, value: Optional[pulumi.Input['TopicDefaultFormattingArgs']]):
         pulumi.set(self, "default_formatting", value)
+
+    @property
+    @pulumi.getter(name="disableIndexing")
+    def disable_indexing(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "disable_indexing")
+
+    @disable_indexing.setter
+    def disable_indexing(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_indexing", value)
 
     @property
     @pulumi.getter(name="isIncludedInTopic")
@@ -71032,6 +71044,7 @@ class TopicColumnArgs:
                  column_synonyms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  comparative_order: Optional[pulumi.Input['TopicComparativeOrderArgs']] = None,
                  default_formatting: Optional[pulumi.Input['TopicDefaultFormattingArgs']] = None,
+                 disable_indexing: Optional[pulumi.Input[bool]] = None,
                  is_included_in_topic: Optional[pulumi.Input[bool]] = None,
                  never_aggregate_in_filter: Optional[pulumi.Input[bool]] = None,
                  non_additive: Optional[pulumi.Input[bool]] = None,
@@ -71057,6 +71070,8 @@ class TopicColumnArgs:
             pulumi.set(__self__, "comparative_order", comparative_order)
         if default_formatting is not None:
             pulumi.set(__self__, "default_formatting", default_formatting)
+        if disable_indexing is not None:
+            pulumi.set(__self__, "disable_indexing", disable_indexing)
         if is_included_in_topic is not None:
             pulumi.set(__self__, "is_included_in_topic", is_included_in_topic)
         if never_aggregate_in_filter is not None:
@@ -71159,6 +71174,15 @@ class TopicColumnArgs:
     @default_formatting.setter
     def default_formatting(self, value: Optional[pulumi.Input['TopicDefaultFormattingArgs']]):
         pulumi.set(self, "default_formatting", value)
+
+    @property
+    @pulumi.getter(name="disableIndexing")
+    def disable_indexing(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "disable_indexing")
+
+    @disable_indexing.setter
+    def disable_indexing(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_indexing", value)
 
     @property
     @pulumi.getter(name="isIncludedInTopic")

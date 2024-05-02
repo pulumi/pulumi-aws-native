@@ -21,7 +21,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetInstanceResult:
-    def __init__(__self__, affinity=None, block_device_mappings=None, credit_specification=None, disable_api_termination=None, ebs_optimized=None, host_id=None, iam_instance_profile=None, instance_id=None, instance_initiated_shutdown_behavior=None, instance_type=None, kernel_id=None, monitoring=None, private_dns_name=None, private_dns_name_options=None, private_ip=None, public_dns_name=None, public_ip=None, ramdisk_id=None, security_group_ids=None, source_dest_check=None, ssm_associations=None, tags=None, tenancy=None, user_data=None, volumes=None, vpc_id=None):
+    def __init__(__self__, affinity=None, block_device_mappings=None, credit_specification=None, disable_api_termination=None, ebs_optimized=None, host_id=None, iam_instance_profile=None, instance_id=None, instance_initiated_shutdown_behavior=None, instance_type=None, kernel_id=None, monitoring=None, private_dns_name=None, private_dns_name_options=None, private_ip=None, public_dns_name=None, public_ip=None, ramdisk_id=None, security_group_ids=None, source_dest_check=None, ssm_associations=None, state=None, tags=None, tenancy=None, user_data=None, volumes=None, vpc_id=None):
         if affinity and not isinstance(affinity, str):
             raise TypeError("Expected argument 'affinity' to be a str")
         pulumi.set(__self__, "affinity", affinity)
@@ -85,6 +85,9 @@ class GetInstanceResult:
         if ssm_associations and not isinstance(ssm_associations, list):
             raise TypeError("Expected argument 'ssm_associations' to be a list")
         pulumi.set(__self__, "ssm_associations", ssm_associations)
+        if state and not isinstance(state, dict):
+            raise TypeError("Expected argument 'state' to be a dict")
+        pulumi.set(__self__, "state", state)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -271,6 +274,14 @@ class GetInstanceResult:
 
     @property
     @pulumi.getter
+    def state(self) -> Optional['outputs.InstanceState']:
+        """
+        The current state of the instance.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
         The tags to add to the instance.
@@ -337,6 +348,7 @@ class AwaitableGetInstanceResult(GetInstanceResult):
             security_group_ids=self.security_group_ids,
             source_dest_check=self.source_dest_check,
             ssm_associations=self.ssm_associations,
+            state=self.state,
             tags=self.tags,
             tenancy=self.tenancy,
             user_data=self.user_data,
@@ -379,6 +391,7 @@ def get_instance(instance_id: Optional[str] = None,
         security_group_ids=pulumi.get(__ret__, 'security_group_ids'),
         source_dest_check=pulumi.get(__ret__, 'source_dest_check'),
         ssm_associations=pulumi.get(__ret__, 'ssm_associations'),
+        state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'),
         tenancy=pulumi.get(__ret__, 'tenancy'),
         user_data=pulumi.get(__ret__, 'user_data'),

@@ -22,19 +22,6 @@ export const DocumentationPartLocationType = {
  */
 export type DocumentationPartLocationType = (typeof DocumentationPartLocationType)[keyof typeof DocumentationPartLocationType];
 
-export const MethodAuthorizationType = {
-    None: "NONE",
-    AwsIam: "AWS_IAM",
-    Custom: "CUSTOM",
-    CognitoUserPools: "COGNITO_USER_POOLS",
-} as const;
-
-/**
- * The method's authorization type. This parameter is required. For valid values, see [Method](https://docs.aws.amazon.com/apigateway/latest/api/API_Method.html) in the *API Gateway API Reference*.
- *   If you specify the ``AuthorizerId`` property, specify ``CUSTOM`` or ``COGNITO_USER_POOLS`` for this property.
- */
-export type MethodAuthorizationType = (typeof MethodAuthorizationType)[keyof typeof MethodAuthorizationType];
-
 export const MethodIntegrationConnectionType = {
     Internet: "INTERNET",
     VpcLink: "VPC_LINK",

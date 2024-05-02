@@ -215,7 +215,7 @@ export namespace acmpca {
     export interface CertificateAuthorityCrlConfigurationArgs {
         crlDistributionPointExtensionConfiguration?: pulumi.Input<inputs.acmpca.CertificateAuthorityCrlDistributionPointExtensionConfigurationArgs>;
         customCname?: pulumi.Input<string>;
-        enabled?: pulumi.Input<boolean>;
+        enabled: pulumi.Input<boolean>;
         expirationInDays?: pulumi.Input<number>;
         s3BucketName?: pulumi.Input<string>;
         s3ObjectAcl?: pulumi.Input<string>;
@@ -248,7 +248,7 @@ export namespace acmpca {
      * Structure that contains X.509 EdiPartyName information.
      */
     export interface CertificateAuthorityEdiPartyNameArgs {
-        nameAssigner: pulumi.Input<string>;
+        nameAssigner?: pulumi.Input<string>;
         partyName: pulumi.Input<string>;
     }
 
@@ -285,7 +285,7 @@ export namespace acmpca {
      * Helps to configure online certificate status protocol (OCSP) responder for your certificate authority
      */
     export interface CertificateAuthorityOcspConfigurationArgs {
-        enabled?: pulumi.Input<boolean>;
+        enabled: pulumi.Input<boolean>;
         ocspCustomCname?: pulumi.Input<string>;
     }
 
@@ -17704,6 +17704,85 @@ export namespace fms {
     }
 
     /**
+     * Network ACL common policy.
+     */
+    export interface PolicyNetworkAclCommonPolicyArgs {
+        networkAclEntrySet: pulumi.Input<inputs.fms.PolicyNetworkAclEntrySetArgs>;
+    }
+
+    /**
+     * Network ACL entry.
+     */
+    export interface PolicyNetworkAclEntryArgs {
+        /**
+         * CIDR block.
+         */
+        cidrBlock?: pulumi.Input<string>;
+        /**
+         * Whether the entry is an egress entry.
+         */
+        egress: pulumi.Input<boolean>;
+        /**
+         * ICMP type and code.
+         */
+        icmpTypeCode?: pulumi.Input<inputs.fms.PolicyNetworkAclEntryIcmpTypeCodePropertiesArgs>;
+        /**
+         * IPv6 CIDR block.
+         */
+        ipv6CidrBlock?: pulumi.Input<string>;
+        /**
+         * Port range.
+         */
+        portRange?: pulumi.Input<inputs.fms.PolicyNetworkAclEntryPortRangePropertiesArgs>;
+        /**
+         * Protocol.
+         */
+        protocol: pulumi.Input<string>;
+        /**
+         * Rule Action.
+         */
+        ruleAction: pulumi.Input<enums.fms.PolicyNetworkAclEntryRuleAction>;
+    }
+
+    /**
+     * ICMP type and code.
+     */
+    export interface PolicyNetworkAclEntryIcmpTypeCodePropertiesArgs {
+        /**
+         * Code.
+         */
+        code: pulumi.Input<number>;
+        /**
+         * Type.
+         */
+        type: pulumi.Input<number>;
+    }
+
+    /**
+     * Port range.
+     */
+    export interface PolicyNetworkAclEntryPortRangePropertiesArgs {
+        /**
+         * From Port.
+         */
+        from: pulumi.Input<number>;
+        /**
+         * To Port.
+         */
+        to: pulumi.Input<number>;
+    }
+
+    /**
+     * Network ACL entry set.
+     */
+    export interface PolicyNetworkAclEntrySetArgs {
+        firstEntries?: pulumi.Input<pulumi.Input<inputs.fms.PolicyNetworkAclEntryArgs>[]>;
+        forceRemediateForFirstEntries: pulumi.Input<boolean>;
+        forceRemediateForLastEntries: pulumi.Input<boolean>;
+        lastEntries?: pulumi.Input<pulumi.Input<inputs.fms.PolicyNetworkAclEntryArgs>[]>;
+    }
+
+    /**
      * Network firewall policy.
      */
     export interface PolicyNetworkFirewallPolicyArgs {
@@ -17714,6 +17793,7 @@ export namespace fms {
      * Firewall policy option.
      */
     export interface PolicyOptionArgs {
+        networkAclCommonPolicy?: pulumi.Input<inputs.fms.PolicyNetworkAclCommonPolicyArgs>;
         networkFirewallPolicy?: pulumi.Input<inputs.fms.PolicyNetworkFirewallPolicyArgs>;
         thirdPartyFirewallPolicy?: pulumi.Input<inputs.fms.PolicyThirdPartyFirewallPolicyArgs>;
     }
@@ -31478,6 +31558,139 @@ export namespace pipes {
 export namespace proton {
 }
 
+export namespace qbusiness {
+    export interface ApplicationAttachmentsConfigurationArgs {
+        attachmentsControlMode: pulumi.Input<enums.qbusiness.ApplicationAttachmentsControlMode>;
+    }
+
+    export interface ApplicationEncryptionConfigurationArgs {
+        kmsKeyId?: pulumi.Input<string>;
+    }
+
+    export interface DataSourceDocumentAttributeConditionArgs {
+        key: pulumi.Input<string>;
+        operator: pulumi.Input<enums.qbusiness.DataSourceDocumentEnrichmentConditionOperator>;
+        value?: pulumi.Input<inputs.qbusiness.DataSourceDocumentAttributeValue0PropertiesArgs | inputs.qbusiness.DataSourceDocumentAttributeValue1PropertiesArgs | inputs.qbusiness.DataSourceDocumentAttributeValue2PropertiesArgs | inputs.qbusiness.DataSourceDocumentAttributeValue3PropertiesArgs>;
+    }
+
+    export interface DataSourceDocumentAttributeTargetArgs {
+        attributeValueOperator?: pulumi.Input<enums.qbusiness.DataSourceAttributeValueOperator>;
+        key: pulumi.Input<string>;
+        value?: pulumi.Input<inputs.qbusiness.DataSourceDocumentAttributeValue0PropertiesArgs | inputs.qbusiness.DataSourceDocumentAttributeValue1PropertiesArgs | inputs.qbusiness.DataSourceDocumentAttributeValue2PropertiesArgs | inputs.qbusiness.DataSourceDocumentAttributeValue3PropertiesArgs>;
+    }
+
+    export interface DataSourceDocumentAttributeValue0PropertiesArgs {
+        stringValue: pulumi.Input<string>;
+    }
+
+    export interface DataSourceDocumentAttributeValue1PropertiesArgs {
+        stringListValue: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface DataSourceDocumentAttributeValue2PropertiesArgs {
+        longValue: pulumi.Input<number>;
+    }
+
+    export interface DataSourceDocumentAttributeValue3PropertiesArgs {
+        dateValue: pulumi.Input<string>;
+    }
+
+    export interface DataSourceDocumentEnrichmentConfigurationArgs {
+        inlineConfigurations?: pulumi.Input<pulumi.Input<inputs.qbusiness.DataSourceInlineDocumentEnrichmentConfigurationArgs>[]>;
+        postExtractionHookConfiguration?: pulumi.Input<inputs.qbusiness.DataSourceHookConfigurationArgs>;
+        preExtractionHookConfiguration?: pulumi.Input<inputs.qbusiness.DataSourceHookConfigurationArgs>;
+    }
+
+    export interface DataSourceHookConfigurationArgs {
+        invocationCondition?: pulumi.Input<inputs.qbusiness.DataSourceDocumentAttributeConditionArgs>;
+        lambdaArn?: pulumi.Input<string>;
+        roleArn?: pulumi.Input<string>;
+        s3BucketName?: pulumi.Input<string>;
+    }
+
+    export interface DataSourceInlineDocumentEnrichmentConfigurationArgs {
+        condition?: pulumi.Input<inputs.qbusiness.DataSourceDocumentAttributeConditionArgs>;
+        documentContentOperator?: pulumi.Input<enums.qbusiness.DataSourceDocumentContentOperator>;
+        target?: pulumi.Input<inputs.qbusiness.DataSourceDocumentAttributeTargetArgs>;
+    }
+
+    export interface DataSourceVpcConfigurationArgs {
+        securityGroupIds: pulumi.Input<pulumi.Input<string>[]>;
+        subnetIds: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface IndexCapacityConfigurationArgs {
+        units?: pulumi.Input<number>;
+    }
+
+    export interface IndexDocumentAttributeConfigurationArgs {
+        name?: pulumi.Input<string>;
+        search?: pulumi.Input<enums.qbusiness.QBusinessIndexStatus>;
+        type?: pulumi.Input<enums.qbusiness.IndexAttributeType>;
+    }
+
+    export interface PluginApiSchema0PropertiesArgs {
+        payload: pulumi.Input<string>;
+    }
+
+    export interface PluginApiSchema1PropertiesArgs {
+        s3: pulumi.Input<inputs.qbusiness.PluginS3Args>;
+    }
+
+    export interface PluginAuthConfiguration0PropertiesArgs {
+        basicAuthConfiguration: pulumi.Input<inputs.qbusiness.PluginBasicAuthConfigurationArgs>;
+    }
+
+    export interface PluginAuthConfiguration1PropertiesArgs {
+        oAuth2ClientCredentialConfiguration: pulumi.Input<inputs.qbusiness.PluginOAuth2ClientCredentialConfigurationArgs>;
+    }
+
+    export interface PluginAuthConfiguration2PropertiesArgs {
+        noAuthConfiguration: pulumi.Input<inputs.qbusiness.PluginNoAuthConfigurationArgs>;
+    }
+
+    export interface PluginBasicAuthConfigurationArgs {
+        roleArn: pulumi.Input<string>;
+        secretArn: pulumi.Input<string>;
+    }
+
+    export interface PluginCustomPluginConfigurationArgs {
+        apiSchema: pulumi.Input<inputs.qbusiness.PluginApiSchema0PropertiesArgs | inputs.qbusiness.PluginApiSchema1PropertiesArgs>;
+        apiSchemaType: pulumi.Input<enums.qbusiness.PluginApiSchemaType>;
+        description: pulumi.Input<string>;
+    }
+
+    export interface PluginNoAuthConfigurationArgs {
+    }
+
+    export interface PluginOAuth2ClientCredentialConfigurationArgs {
+        roleArn: pulumi.Input<string>;
+        secretArn: pulumi.Input<string>;
+    }
+
+    export interface PluginS3Args {
+        bucket: pulumi.Input<string>;
+        key: pulumi.Input<string>;
+    }
+
+    export interface RetrieverConfiguration0PropertiesArgs {
+        nativeIndexConfiguration: pulumi.Input<inputs.qbusiness.RetrieverNativeIndexConfigurationArgs>;
+    }
+
+    export interface RetrieverConfiguration1PropertiesArgs {
+        kendraIndexConfiguration: pulumi.Input<inputs.qbusiness.RetrieverKendraIndexConfigurationArgs>;
+    }
+
+    export interface RetrieverKendraIndexConfigurationArgs {
+        indexId: pulumi.Input<string>;
+    }
+
+    export interface RetrieverNativeIndexConfigurationArgs {
+        indexId: pulumi.Input<string>;
+    }
+
+}
+
 export namespace qldb {
     export interface StreamKinesisConfigurationArgs {
         aggregationEnabled?: pulumi.Input<boolean>;
@@ -42530,6 +42743,7 @@ export namespace quicksight {
         columnDataRole?: pulumi.Input<enums.quicksight.TopicColumnDataRole>;
         comparativeOrder?: pulumi.Input<inputs.quicksight.TopicComparativeOrderArgs>;
         defaultFormatting?: pulumi.Input<inputs.quicksight.TopicDefaultFormattingArgs>;
+        disableIndexing?: pulumi.Input<boolean>;
         expression: pulumi.Input<string>;
         isIncludedInTopic?: pulumi.Input<boolean>;
         neverAggregateInFilter?: pulumi.Input<boolean>;
@@ -42572,6 +42786,7 @@ export namespace quicksight {
         columnSynonyms?: pulumi.Input<pulumi.Input<string>[]>;
         comparativeOrder?: pulumi.Input<inputs.quicksight.TopicComparativeOrderArgs>;
         defaultFormatting?: pulumi.Input<inputs.quicksight.TopicDefaultFormattingArgs>;
+        disableIndexing?: pulumi.Input<boolean>;
         isIncludedInTopic?: pulumi.Input<boolean>;
         neverAggregateInFilter?: pulumi.Input<boolean>;
         nonAdditive?: pulumi.Input<boolean>;

@@ -13,6 +13,11 @@ from ._enums import *
 
 __all__ = [
     'PolicyIeMap',
+    'PolicyNetworkAclCommonPolicy',
+    'PolicyNetworkAclEntry',
+    'PolicyNetworkAclEntryIcmpTypeCodeProperties',
+    'PolicyNetworkAclEntryPortRangeProperties',
+    'PolicyNetworkAclEntrySet',
     'PolicyNetworkFirewallPolicy',
     'PolicyOption',
     'PolicyResourceTag',
@@ -45,6 +50,305 @@ class PolicyIeMap(dict):
     @pulumi.getter
     def orgunit(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "orgunit")
+
+
+@pulumi.output_type
+class PolicyNetworkAclCommonPolicy(dict):
+    """
+    Network ACL common policy.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "networkAclEntrySet":
+            suggest = "network_acl_entry_set"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyNetworkAclCommonPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyNetworkAclCommonPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyNetworkAclCommonPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 network_acl_entry_set: 'outputs.PolicyNetworkAclEntrySet'):
+        """
+        Network ACL common policy.
+        """
+        pulumi.set(__self__, "network_acl_entry_set", network_acl_entry_set)
+
+    @property
+    @pulumi.getter(name="networkAclEntrySet")
+    def network_acl_entry_set(self) -> 'outputs.PolicyNetworkAclEntrySet':
+        return pulumi.get(self, "network_acl_entry_set")
+
+
+@pulumi.output_type
+class PolicyNetworkAclEntry(dict):
+    """
+    Network ACL entry.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleAction":
+            suggest = "rule_action"
+        elif key == "cidrBlock":
+            suggest = "cidr_block"
+        elif key == "icmpTypeCode":
+            suggest = "icmp_type_code"
+        elif key == "ipv6CidrBlock":
+            suggest = "ipv6_cidr_block"
+        elif key == "portRange":
+            suggest = "port_range"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyNetworkAclEntry. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyNetworkAclEntry.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyNetworkAclEntry.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 egress: bool,
+                 protocol: str,
+                 rule_action: 'PolicyNetworkAclEntryRuleAction',
+                 cidr_block: Optional[str] = None,
+                 icmp_type_code: Optional['outputs.PolicyNetworkAclEntryIcmpTypeCodeProperties'] = None,
+                 ipv6_cidr_block: Optional[str] = None,
+                 port_range: Optional['outputs.PolicyNetworkAclEntryPortRangeProperties'] = None):
+        """
+        Network ACL entry.
+        :param bool egress: Whether the entry is an egress entry.
+        :param str protocol: Protocol.
+        :param 'PolicyNetworkAclEntryRuleAction' rule_action: Rule Action.
+        :param str cidr_block: CIDR block.
+        :param 'PolicyNetworkAclEntryIcmpTypeCodeProperties' icmp_type_code: ICMP type and code.
+        :param str ipv6_cidr_block: IPv6 CIDR block.
+        :param 'PolicyNetworkAclEntryPortRangeProperties' port_range: Port range.
+        """
+        pulumi.set(__self__, "egress", egress)
+        pulumi.set(__self__, "protocol", protocol)
+        pulumi.set(__self__, "rule_action", rule_action)
+        if cidr_block is not None:
+            pulumi.set(__self__, "cidr_block", cidr_block)
+        if icmp_type_code is not None:
+            pulumi.set(__self__, "icmp_type_code", icmp_type_code)
+        if ipv6_cidr_block is not None:
+            pulumi.set(__self__, "ipv6_cidr_block", ipv6_cidr_block)
+        if port_range is not None:
+            pulumi.set(__self__, "port_range", port_range)
+
+    @property
+    @pulumi.getter
+    def egress(self) -> bool:
+        """
+        Whether the entry is an egress entry.
+        """
+        return pulumi.get(self, "egress")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> str:
+        """
+        Protocol.
+        """
+        return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter(name="ruleAction")
+    def rule_action(self) -> 'PolicyNetworkAclEntryRuleAction':
+        """
+        Rule Action.
+        """
+        return pulumi.get(self, "rule_action")
+
+    @property
+    @pulumi.getter(name="cidrBlock")
+    def cidr_block(self) -> Optional[str]:
+        """
+        CIDR block.
+        """
+        return pulumi.get(self, "cidr_block")
+
+    @property
+    @pulumi.getter(name="icmpTypeCode")
+    def icmp_type_code(self) -> Optional['outputs.PolicyNetworkAclEntryIcmpTypeCodeProperties']:
+        """
+        ICMP type and code.
+        """
+        return pulumi.get(self, "icmp_type_code")
+
+    @property
+    @pulumi.getter(name="ipv6CidrBlock")
+    def ipv6_cidr_block(self) -> Optional[str]:
+        """
+        IPv6 CIDR block.
+        """
+        return pulumi.get(self, "ipv6_cidr_block")
+
+    @property
+    @pulumi.getter(name="portRange")
+    def port_range(self) -> Optional['outputs.PolicyNetworkAclEntryPortRangeProperties']:
+        """
+        Port range.
+        """
+        return pulumi.get(self, "port_range")
+
+
+@pulumi.output_type
+class PolicyNetworkAclEntryIcmpTypeCodeProperties(dict):
+    """
+    ICMP type and code.
+    """
+    def __init__(__self__, *,
+                 code: int,
+                 type: int):
+        """
+        ICMP type and code.
+        :param int code: Code.
+        :param int type: Type.
+        """
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def code(self) -> int:
+        """
+        Code.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def type(self) -> int:
+        """
+        Type.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class PolicyNetworkAclEntryPortRangeProperties(dict):
+    """
+    Port range.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "from":
+            suggest = "from_"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyNetworkAclEntryPortRangeProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyNetworkAclEntryPortRangeProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyNetworkAclEntryPortRangeProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 from_: int,
+                 to: int):
+        """
+        Port range.
+        :param int from_: From Port.
+        :param int to: To Port.
+        """
+        pulumi.set(__self__, "from_", from_)
+        pulumi.set(__self__, "to", to)
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> int:
+        """
+        From Port.
+        """
+        return pulumi.get(self, "from_")
+
+    @property
+    @pulumi.getter
+    def to(self) -> int:
+        """
+        To Port.
+        """
+        return pulumi.get(self, "to")
+
+
+@pulumi.output_type
+class PolicyNetworkAclEntrySet(dict):
+    """
+    Network ACL entry set.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "forceRemediateForFirstEntries":
+            suggest = "force_remediate_for_first_entries"
+        elif key == "forceRemediateForLastEntries":
+            suggest = "force_remediate_for_last_entries"
+        elif key == "firstEntries":
+            suggest = "first_entries"
+        elif key == "lastEntries":
+            suggest = "last_entries"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyNetworkAclEntrySet. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyNetworkAclEntrySet.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyNetworkAclEntrySet.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 force_remediate_for_first_entries: bool,
+                 force_remediate_for_last_entries: bool,
+                 first_entries: Optional[Sequence['outputs.PolicyNetworkAclEntry']] = None,
+                 last_entries: Optional[Sequence['outputs.PolicyNetworkAclEntry']] = None):
+        """
+        Network ACL entry set.
+        """
+        pulumi.set(__self__, "force_remediate_for_first_entries", force_remediate_for_first_entries)
+        pulumi.set(__self__, "force_remediate_for_last_entries", force_remediate_for_last_entries)
+        if first_entries is not None:
+            pulumi.set(__self__, "first_entries", first_entries)
+        if last_entries is not None:
+            pulumi.set(__self__, "last_entries", last_entries)
+
+    @property
+    @pulumi.getter(name="forceRemediateForFirstEntries")
+    def force_remediate_for_first_entries(self) -> bool:
+        return pulumi.get(self, "force_remediate_for_first_entries")
+
+    @property
+    @pulumi.getter(name="forceRemediateForLastEntries")
+    def force_remediate_for_last_entries(self) -> bool:
+        return pulumi.get(self, "force_remediate_for_last_entries")
+
+    @property
+    @pulumi.getter(name="firstEntries")
+    def first_entries(self) -> Optional[Sequence['outputs.PolicyNetworkAclEntry']]:
+        return pulumi.get(self, "first_entries")
+
+    @property
+    @pulumi.getter(name="lastEntries")
+    def last_entries(self) -> Optional[Sequence['outputs.PolicyNetworkAclEntry']]:
+        return pulumi.get(self, "last_entries")
 
 
 @pulumi.output_type
@@ -90,7 +394,9 @@ class PolicyOption(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "networkFirewallPolicy":
+        if key == "networkAclCommonPolicy":
+            suggest = "network_acl_common_policy"
+        elif key == "networkFirewallPolicy":
             suggest = "network_firewall_policy"
         elif key == "thirdPartyFirewallPolicy":
             suggest = "third_party_firewall_policy"
@@ -107,15 +413,23 @@ class PolicyOption(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 network_acl_common_policy: Optional['outputs.PolicyNetworkAclCommonPolicy'] = None,
                  network_firewall_policy: Optional['outputs.PolicyNetworkFirewallPolicy'] = None,
                  third_party_firewall_policy: Optional['outputs.PolicyThirdPartyFirewallPolicy'] = None):
         """
         Firewall policy option.
         """
+        if network_acl_common_policy is not None:
+            pulumi.set(__self__, "network_acl_common_policy", network_acl_common_policy)
         if network_firewall_policy is not None:
             pulumi.set(__self__, "network_firewall_policy", network_firewall_policy)
         if third_party_firewall_policy is not None:
             pulumi.set(__self__, "third_party_firewall_policy", third_party_firewall_policy)
+
+    @property
+    @pulumi.getter(name="networkAclCommonPolicy")
+    def network_acl_common_policy(self) -> Optional['outputs.PolicyNetworkAclCommonPolicy']:
+        return pulumi.get(self, "network_acl_common_policy")
 
     @property
     @pulumi.getter(name="networkFirewallPolicy")

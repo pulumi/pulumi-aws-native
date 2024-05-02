@@ -23,6 +23,7 @@ class DbInstanceArgs:
                  allow_major_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  associated_roles: Optional[pulumi.Input[Sequence[pulumi.Input['DbInstanceDbInstanceRoleArgs']]]] = None,
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
+                 automatic_backup_replication_kms_key_id: Optional[pulumi.Input[str]] = None,
                  automatic_backup_replication_region: Optional[pulumi.Input[str]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  backup_retention_period: Optional[pulumi.Input[int]] = None,
@@ -616,6 +617,8 @@ class DbInstanceArgs:
             pulumi.set(__self__, "associated_roles", associated_roles)
         if auto_minor_version_upgrade is not None:
             pulumi.set(__self__, "auto_minor_version_upgrade", auto_minor_version_upgrade)
+        if automatic_backup_replication_kms_key_id is not None:
+            pulumi.set(__self__, "automatic_backup_replication_kms_key_id", automatic_backup_replication_kms_key_id)
         if automatic_backup_replication_region is not None:
             pulumi.set(__self__, "automatic_backup_replication_region", automatic_backup_replication_region)
         if availability_zone is not None:
@@ -856,6 +859,15 @@ class DbInstanceArgs:
     @auto_minor_version_upgrade.setter
     def auto_minor_version_upgrade(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "auto_minor_version_upgrade", value)
+
+    @property
+    @pulumi.getter(name="automaticBackupReplicationKmsKeyId")
+    def automatic_backup_replication_kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "automatic_backup_replication_kms_key_id")
+
+    @automatic_backup_replication_kms_key_id.setter
+    def automatic_backup_replication_kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "automatic_backup_replication_kms_key_id", value)
 
     @property
     @pulumi.getter(name="automaticBackupReplicationRegion")
@@ -2113,6 +2125,7 @@ class DbInstance(pulumi.CustomResource):
                  allow_major_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  associated_roles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DbInstanceDbInstanceRoleArgs']]]]] = None,
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
+                 automatic_backup_replication_kms_key_id: Optional[pulumi.Input[str]] = None,
                  automatic_backup_replication_region: Optional[pulumi.Input[str]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  backup_retention_period: Optional[pulumi.Input[int]] = None,
@@ -2770,6 +2783,7 @@ class DbInstance(pulumi.CustomResource):
                  allow_major_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  associated_roles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DbInstanceDbInstanceRoleArgs']]]]] = None,
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
+                 automatic_backup_replication_kms_key_id: Optional[pulumi.Input[str]] = None,
                  automatic_backup_replication_region: Optional[pulumi.Input[str]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  backup_retention_period: Optional[pulumi.Input[int]] = None,
@@ -2855,6 +2869,7 @@ class DbInstance(pulumi.CustomResource):
             __props__.__dict__["allow_major_version_upgrade"] = allow_major_version_upgrade
             __props__.__dict__["associated_roles"] = associated_roles
             __props__.__dict__["auto_minor_version_upgrade"] = auto_minor_version_upgrade
+            __props__.__dict__["automatic_backup_replication_kms_key_id"] = automatic_backup_replication_kms_key_id
             __props__.__dict__["automatic_backup_replication_region"] = automatic_backup_replication_region
             __props__.__dict__["availability_zone"] = availability_zone
             __props__.__dict__["backup_retention_period"] = backup_retention_period
@@ -2958,6 +2973,7 @@ class DbInstance(pulumi.CustomResource):
         __props__.__dict__["allow_major_version_upgrade"] = None
         __props__.__dict__["associated_roles"] = None
         __props__.__dict__["auto_minor_version_upgrade"] = None
+        __props__.__dict__["automatic_backup_replication_kms_key_id"] = None
         __props__.__dict__["automatic_backup_replication_region"] = None
         __props__.__dict__["availability_zone"] = None
         __props__.__dict__["backup_retention_period"] = None
@@ -3114,6 +3130,11 @@ class DbInstance(pulumi.CustomResource):
         A value that indicates whether minor engine upgrades are applied automatically to the DB instance during the maintenance window. By default, minor engine upgrades are applied automatically.
         """
         return pulumi.get(self, "auto_minor_version_upgrade")
+
+    @property
+    @pulumi.getter(name="automaticBackupReplicationKmsKeyId")
+    def automatic_backup_replication_kms_key_id(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "automatic_backup_replication_kms_key_id")
 
     @property
     @pulumi.getter(name="automaticBackupReplicationRegion")
