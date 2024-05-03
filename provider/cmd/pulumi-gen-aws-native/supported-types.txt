@@ -881,6 +881,8 @@ AWS::SSMContacts::Rotation
 AWS::SSMGuiConnect::Preferences
 AWS::SSMIncidents::ReplicationSet
 AWS::SSMIncidents::ResponsePlan
+AWS::SSO::Application
+AWS::SSO::ApplicationAssignment
 AWS::SSO::Assignment
 AWS::SSO::InstanceAccessControlAttributeConfiguration
 AWS::SSO::PermissionSet

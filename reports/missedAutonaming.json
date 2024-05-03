@@ -10850,6 +10850,23 @@
       }
     }
   },
+  "aws-native:sso:ApplicationAssignment": {
+    "cfTypeName": "AWS::SSO::ApplicationAssignment",
+    "properties": {
+      "applicationArn": {
+        "type": "string",
+        "description": "The ARN of the application."
+      },
+      "principalId": {
+        "type": "string",
+        "description": "An identifier for an object in IAM Identity Center, such as a user or group"
+      },
+      "principalType": {
+        "$ref": "#/types/aws-native:sso:ApplicationAssignmentPrincipalType",
+        "description": "The entity type for which the assignment will be created."
+      }
+    }
+  },
   "aws-native:sso:Assignment": {
     "cfTypeName": "AWS::SSO::Assignment",
     "properties": {
