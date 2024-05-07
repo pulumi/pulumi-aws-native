@@ -50,6 +50,9 @@
     "create" : {
       "permissions" : [ "apigateway:PUT", "apigateway:GET" ]
     },
+    "read" : {
+      "permissions" : [ "apigateway:GET" ]
+    },
     "update" : {
       "permissions" : [ "apigateway:GET", "apigateway:PUT" ]
     },
@@ -57,6 +60,14 @@
       "permissions" : [ "apigateway:GET", "apigateway:DELETE" ]
     },
     "list" : {
+      "handlerSchema" : {
+        "properties" : {
+          "RestApiId" : {
+            "$ref" : "resource-schema.json#/properties/RestApiId"
+          }
+        },
+        "required" : [ "RestApiId" ]
+      },
       "permissions" : [ "apigateway:GET" ]
     }
   }
