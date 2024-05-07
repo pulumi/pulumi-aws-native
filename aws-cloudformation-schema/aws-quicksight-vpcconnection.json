@@ -2,8 +2,89 @@
   "typeName" : "AWS::QuickSight::VPCConnection",
   "description" : "Definition of the AWS::QuickSight::VPCConnection Resource Type.",
   "definitions" : {
+    "NetworkInterface" : {
+      "type" : "object",
+      "description" : "<p>The structure that contains information about a network interface.</p>",
+      "properties" : {
+        "SubnetId" : {
+          "type" : "string",
+          "maxLength" : 255,
+          "minLength" : 1,
+          "pattern" : "^subnet-[0-9a-z]*$",
+          "description" : "<p>The subnet ID associated with the network interface.</p>"
+        },
+        "AvailabilityZone" : {
+          "type" : "string",
+          "description" : "<p>The availability zone that the network interface resides in.</p>"
+        },
+        "ErrorMessage" : {
+          "type" : "string",
+          "description" : "<p>An error message.</p>"
+        },
+        "Status" : {
+          "$ref" : "#/definitions/NetworkInterfaceStatus"
+        },
+        "NetworkInterfaceId" : {
+          "type" : "string",
+          "maxLength" : 255,
+          "minLength" : 0,
+          "pattern" : "^eni-[0-9a-z]*$",
+          "description" : "<p>The network interface ID.</p>"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "NetworkInterfaceStatus" : {
+      "type" : "string",
+      "enum" : [ "CREATING", "AVAILABLE", "CREATION_FAILED", "UPDATING", "UPDATE_FAILED", "DELETING", "DELETED", "DELETION_FAILED", "DELETION_SCHEDULED", "ATTACHMENT_FAILED_ROLLBACK_FAILED" ]
+    },
+    "Tag" : {
+      "type" : "object",
+      "description" : "<p>The key or keys of the key-value pairs for the resource tag or tags assigned to the\n            resource.</p>",
+      "properties" : {
+        "Key" : {
+          "type" : "string",
+          "maxLength" : 128,
+          "minLength" : 1,
+          "description" : "<p>Tag key.</p>"
+        },
+        "Value" : {
+          "type" : "string",
+          "maxLength" : 256,
+          "minLength" : 1,
+          "description" : "<p>Tag value.</p>"
+        }
+      },
+      "required" : [ "Key", "Value" ],
+      "additionalProperties" : false
+    },
+    "VPCConnectionAvailabilityStatus" : {
+      "type" : "string",
+      "enum" : [ "AVAILABLE", "UNAVAILABLE", "PARTIALLY_AVAILABLE" ]
+    },
+    "VPCConnectionResourceStatus" : {
+      "type" : "string",
+      "enum" : [ "CREATION_IN_PROGRESS", "CREATION_SUCCESSFUL", "CREATION_FAILED", "UPDATE_IN_PROGRESS", "UPDATE_SUCCESSFUL", "UPDATE_FAILED", "DELETION_IN_PROGRESS", "DELETION_FAILED", "DELETED" ]
+    }
+  },
+  "properties" : {
     "Arn" : {
-      "type" : "string"
+      "type" : "string",
+      "description" : "<p>The Amazon Resource Name (ARN) of the VPC connection.</p>"
+    },
+    "AvailabilityStatus" : {
+      "$ref" : "#/definitions/VPCConnectionAvailabilityStatus"
+    },
+    "AwsAccountId" : {
+      "type" : "string",
+      "maxLength" : 12,
+      "minLength" : 12,
+      "pattern" : "^[0-9]{12}$"
+    },
+    "CreatedTime" : {
+      "type" : "string",
+      "description" : "<p>The time that the VPC connection was created.</p>",
+      "format" : "date-time"
     },
     "DnsResolvers" : {
       "type" : "array",
@@ -12,41 +93,25 @@
       },
       "insertionOrder" : false
     },
+    "LastUpdatedTime" : {
+      "type" : "string",
+      "description" : "<p>The time that the VPC connection was last updated.</p>",
+      "format" : "date-time"
+    },
+    "Name" : {
+      "type" : "string",
+      "maxLength" : 128,
+      "minLength" : 1
+    },
     "NetworkInterfaces" : {
       "type" : "array",
       "items" : {
         "$ref" : "#/definitions/NetworkInterface"
       },
       "maxItems" : 15,
+      "minItems" : 0,
+      "description" : "<p>A list of network interfaces.</p>",
       "insertionOrder" : false
-    },
-    "NetworkInterface" : {
-      "type" : "object",
-      "properties" : {
-        "SubnetId" : {
-          "$ref" : "#/definitions/SubnetId"
-        },
-        "AvailabilityZone" : {
-          "type" : "string"
-        },
-        "ErrorMessage" : {
-          "type" : "string"
-        },
-        "Status" : {
-          "type" : "string",
-          "enum" : [ "CREATING", "AVAILABLE", "CREATION_FAILED", "UPDATING", "UPDATE_FAILED", "DELETING", "DELETED", "DELETION_FAILED", "DELETION_SCHEDULED", "ATTACHMENT_FAILED_ROLLBACK_FAILED" ]
-        },
-        "NetworkInterfaceId" : {
-          "$ref" : "#/definitions/NetworkInterfaceId"
-        }
-      },
-      "additionalProperties" : false,
-      "required" : [ ]
-    },
-    "NetworkInterfaceId" : {
-      "type" : "string",
-      "pattern" : "^eni-[0-9a-z]*$",
-      "maxLength" : 255
     },
     "RoleArn" : {
       "type" : "string"
@@ -54,32 +119,29 @@
     "SecurityGroupIds" : {
       "type" : "array",
       "items" : {
-        "$ref" : "#/definitions/SecurityGroupId"
+        "type" : "string",
+        "maxLength" : 255,
+        "minLength" : 1,
+        "pattern" : "^sg-[0-9a-z]*$"
       },
       "maxItems" : 16,
       "minItems" : 1,
       "insertionOrder" : false
     },
-    "SecurityGroupId" : {
-      "type" : "string",
-      "pattern" : "^sg-[0-9a-z]*$",
-      "maxItems" : 255,
-      "minItems" : 1
+    "Status" : {
+      "$ref" : "#/definitions/VPCConnectionResourceStatus"
     },
     "SubnetIds" : {
       "type" : "array",
       "items" : {
-        "$ref" : "#/definitions/SubnetId"
+        "type" : "string",
+        "maxLength" : 255,
+        "minLength" : 1,
+        "pattern" : "^subnet-[0-9a-z]*$"
       },
       "maxItems" : 15,
       "minItems" : 2,
       "insertionOrder" : false
-    },
-    "SubnetId" : {
-      "type" : "string",
-      "pattern" : "^subnet-[0-9a-z]*$",
-      "maxLength" : 255,
-      "minLength" : 1
     },
     "Tags" : {
       "type" : "array",
@@ -90,23 +152,6 @@
       "minItems" : 1,
       "insertionOrder" : false
     },
-    "Tag" : {
-      "type" : "object",
-      "properties" : {
-        "Value" : {
-          "type" : "string",
-          "maxLength" : 256,
-          "minLength" : 1
-        },
-        "Key" : {
-          "type" : "string",
-          "maxLength" : 128,
-          "minLength" : 1
-        }
-      },
-      "additionalProperties" : false,
-      "required" : [ "Key", "Value" ]
-    },
     "VPCConnectionId" : {
       "type" : "string",
       "maxLength" : 1000,
@@ -114,82 +159,13 @@
       "pattern" : "[\\w\\-]+"
     },
     "VPCId" : {
-      "type" : "string"
-    },
-    "VPCConnectionResourceStatus" : {
       "type" : "string",
-      "enum" : [ "CREATION_IN_PROGRESS", "CREATION_SUCCESSFUL", "CREATION_FAILED", "UPDATE_IN_PROGRESS", "UPDATE_SUCCESSFUL", "UPDATE_FAILED", "DELETION_IN_PROGRESS", "DELETION_FAILED", "DELETED" ]
-    },
-    "VPCConnectionAvailabilityStatus" : {
-      "type" : "string",
-      "enum" : [ "AVAILABLE", "UNAVAILABLE", "PARTIALLY_AVAILABLE" ]
+      "description" : "<p>The Amazon EC2 VPC ID associated with the VPC connection.</p>"
     }
   },
-  "properties" : {
-    "Arn" : {
-      "$ref" : "#/definitions/Arn"
-    },
-    "AwsAccountId" : {
-      "type" : "string",
-      "maxLength" : 12,
-      "minLength" : 12,
-      "pattern" : "^[0-9]{12}$"
-    },
-    "Name" : {
-      "type" : "string",
-      "maxLength" : 128,
-      "minLength" : 1
-    },
-    "VPCConnectionId" : {
-      "$ref" : "#/definitions/VPCConnectionId"
-    },
-    "VPCId" : {
-      "$ref" : "#/definitions/VPCId"
-    },
-    "SecurityGroupIds" : {
-      "$ref" : "#/definitions/SecurityGroupIds"
-    },
-    "SubnetIds" : {
-      "$ref" : "#/definitions/SubnetIds"
-    },
-    "DnsResolvers" : {
-      "$ref" : "#/definitions/DnsResolvers"
-    },
-    "Status" : {
-      "$ref" : "#/definitions/VPCConnectionResourceStatus"
-    },
-    "AvailabilityStatus" : {
-      "$ref" : "#/definitions/VPCConnectionAvailabilityStatus"
-    },
-    "NetworkInterfaces" : {
-      "$ref" : "#/definitions/NetworkInterfaces"
-    },
-    "RoleArn" : {
-      "$ref" : "#/definitions/RoleArn"
-    },
-    "CreatedTime" : {
-      "type" : "string",
-      "format" : "date-time"
-    },
-    "LastUpdatedTime" : {
-      "type" : "string",
-      "format" : "date-time"
-    },
-    "Tags" : {
-      "$ref" : "#/definitions/Tags"
-    }
-  },
-  "additionalProperties" : false,
-  "tagging" : {
-    "taggable" : true,
-    "tagOnCreate" : true,
-    "tagUpdatable" : true,
-    "cloudFormationSystemTags" : true,
-    "tagProperty" : "/properties/Tags"
-  },
-  "createOnlyProperties" : [ "/properties/AwsAccountId", "/properties/VPCConnectionId" ],
-  "writeOnlyProperties" : [ "/properties/SubnetIds" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/CreatedTime", "/properties/LastUpdatedTime", "/properties/NetworkInterfaces", "/properties/Status", "/properties/VPCId" ],
+  "writeOnlyProperties" : [ "/properties/SubnetIds" ],
+  "createOnlyProperties" : [ "/properties/AwsAccountId", "/properties/VPCConnectionId" ],
   "primaryIdentifier" : [ "/properties/AwsAccountId", "/properties/VPCConnectionId" ],
   "handlers" : {
     "create" : {
@@ -207,5 +183,13 @@
     "list" : {
       "permissions" : [ "quicksight:ListVPCConnections" ]
     }
+  },
+  "additionalProperties" : false,
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags"
   }
 }

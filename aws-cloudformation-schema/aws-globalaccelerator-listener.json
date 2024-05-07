@@ -52,6 +52,9 @@
       "enum" : [ "NONE", "SOURCE_IP" ]
     }
   },
+  "tagging" : {
+    "taggable" : false
+  },
   "required" : [ "AcceleratorArn", "PortRanges", "Protocol" ],
   "createOnlyProperties" : [ "/properties/AcceleratorArn" ],
   "readOnlyProperties" : [ "/properties/ListenerArn" ],
