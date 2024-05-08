@@ -267,6 +267,37 @@
       }
     }
   },
+  "aws-native:apigateway:GatewayResponse": {
+    "cfTypeName": "AWS::ApiGateway::GatewayResponse",
+    "properties": {
+      "responseParameters": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Response parameters (paths, query strings and headers) of the GatewayResponse as a string-to-string map of key-value pairs."
+      },
+      "responseTemplates": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Response templates of the GatewayResponse as a string-to-string map of key-value pairs."
+      },
+      "responseType": {
+        "type": "string",
+        "description": "The response type of the associated GatewayResponse."
+      },
+      "restApiId": {
+        "type": "string",
+        "description": "The string identifier of the associated RestApi."
+      },
+      "statusCode": {
+        "type": "string",
+        "description": "The HTTP status code for this GatewayResponse."
+      }
+    }
+  },
   "aws-native:apigateway:Method": {
     "cfTypeName": "AWS::ApiGateway::Method",
     "properties": {
@@ -1129,6 +1160,19 @@
             "name": "BackupSelectionValue"
           }
         }
+      }
+    }
+  },
+  "aws-native:bedrock:GuardrailVersion": {
+    "cfTypeName": "AWS::Bedrock::GuardrailVersion",
+    "properties": {
+      "description": {
+        "type": "string",
+        "description": "Description of the Guardrail version"
+      },
+      "guardrailIdentifier": {
+        "type": "string",
+        "description": "Identifier (GuardrailId or GuardrailArn) for the guardrail"
       }
     }
   },
@@ -10847,6 +10891,23 @@
           "$ref": "#/types/aws-native:index:Tag"
         },
         "description": "The tags to apply to the replication set."
+      }
+    }
+  },
+  "aws-native:sso:ApplicationAssignment": {
+    "cfTypeName": "AWS::SSO::ApplicationAssignment",
+    "properties": {
+      "applicationArn": {
+        "type": "string",
+        "description": "The ARN of the application."
+      },
+      "principalId": {
+        "type": "string",
+        "description": "An identifier for an object in IAM Identity Center, such as a user or group"
+      },
+      "principalType": {
+        "$ref": "#/types/aws-native:sso:ApplicationAssignmentPrincipalType",
+        "description": "The entity type for which the assignment will be created."
       }
     }
   },
