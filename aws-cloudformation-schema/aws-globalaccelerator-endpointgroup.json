@@ -114,6 +114,9 @@
       }
     }
   },
+  "tagging" : {
+    "taggable" : false
+  },
   "required" : [ "ListenerArn", "EndpointGroupRegion" ],
   "createOnlyProperties" : [ "/properties/EndpointGroupRegion", "/properties/ListenerArn" ],
   "writeOnlyProperties" : [ "/properties/EndpointConfigurations/*/AttachmentArn" ],

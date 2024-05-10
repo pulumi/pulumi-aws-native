@@ -267,6 +267,37 @@
       }
     }
   },
+  "aws-native:apigateway:GatewayResponse": {
+    "cfTypeName": "AWS::ApiGateway::GatewayResponse",
+    "properties": {
+      "responseParameters": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Response parameters (paths, query strings and headers) of the GatewayResponse as a string-to-string map of key-value pairs."
+      },
+      "responseTemplates": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Response templates of the GatewayResponse as a string-to-string map of key-value pairs."
+      },
+      "responseType": {
+        "type": "string",
+        "description": "The response type of the associated GatewayResponse."
+      },
+      "restApiId": {
+        "type": "string",
+        "description": "The string identifier of the associated RestApi."
+      },
+      "statusCode": {
+        "type": "string",
+        "description": "The HTTP status code for this GatewayResponse."
+      }
+    }
+  },
   "aws-native:apigateway:Method": {
     "cfTypeName": "AWS::ApiGateway::Method",
     "properties": {
@@ -1132,6 +1163,19 @@
       }
     }
   },
+  "aws-native:bedrock:GuardrailVersion": {
+    "cfTypeName": "AWS::Bedrock::GuardrailVersion",
+    "properties": {
+      "description": {
+        "type": "string",
+        "description": "Description of the Guardrail version"
+      },
+      "guardrailIdentifier": {
+        "type": "string",
+        "description": "Identifier (GuardrailId or GuardrailArn) for the guardrail"
+      }
+    }
+  },
   "aws-native:budgets:BudgetsAction": {
     "cfTypeName": "AWS::Budgets::BudgetsAction",
     "properties": {
@@ -1155,6 +1199,12 @@
       },
       "notificationType": {
         "$ref": "#/types/aws-native:budgets:BudgetsActionNotificationType"
+      },
+      "resourceTags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        }
       },
       "subscribers": {
         "type": "array",
@@ -5860,6 +5910,33 @@
       }
     }
   },
+  "aws-native:elasticache:ParameterGroup": {
+    "cfTypeName": "AWS::ElastiCache::ParameterGroup",
+    "properties": {
+      "cacheParameterGroupFamily": {
+        "type": "string",
+        "description": "The name of the cache parameter group family that this cache parameter group is compatible with."
+      },
+      "description": {
+        "type": "string",
+        "description": "The description for this cache parameter group."
+      },
+      "properties": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "A comma-delimited list of parameter name/value pairs. For more information see ModifyCacheParameterGroup in the Amazon ElastiCache API Reference Guide."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "Tags are composed of a Key/Value pair. You can use tags to categorize and track each parameter group. The tag value null is permitted."
+      }
+    }
+  },
   "aws-native:elasticache:SubnetGroup": {
     "cfTypeName": "AWS::ElastiCache::SubnetGroup",
     "properties": {
@@ -7480,7 +7557,7 @@
       },
       "functionName": {
         "type": "string",
-        "description": "The name of the Lambda function, version, or alias.\n  **Name formats**\n +   *Function name* – ``my-function`` (name-only), ``my-function:v1`` (with alias).\n  +   *Function ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:my-function``.\n  +   *Partial ARN* – ``123456789012:function:my-function``.\n  \n You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length."
+        "description": "The name or ARN of the Lambda function, version, or alias.\n  **Name formats**\n +   *Function name* – ``my-function`` (name-only), ``my-function:v1`` (with alias).\n  +   *Function ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:my-function``.\n  +   *Partial ARN* – ``123456789012:function:my-function``.\n  \n You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length."
       },
       "functionUrlAuthType": {
         "$ref": "#/types/aws-native:lambda:PermissionFunctionUrlAuthType",
@@ -7542,6 +7619,10 @@
       "functionName": {
         "type": "string",
         "description": "The name of the Lambda function."
+      },
+      "policy": {
+        "$ref": "pulumi.json#/Any",
+        "description": "The resource policy of your function\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Lambda::Version` for more information about the expected schema for this property."
       },
       "provisionedConcurrencyConfig": {
         "$ref": "#/types/aws-native:lambda:VersionProvisionedConcurrencyConfiguration",
@@ -10847,6 +10928,23 @@
           "$ref": "#/types/aws-native:index:Tag"
         },
         "description": "The tags to apply to the replication set."
+      }
+    }
+  },
+  "aws-native:sso:ApplicationAssignment": {
+    "cfTypeName": "AWS::SSO::ApplicationAssignment",
+    "properties": {
+      "applicationArn": {
+        "type": "string",
+        "description": "The ARN of the application."
+      },
+      "principalId": {
+        "type": "string",
+        "description": "An identifier for an object in IAM Identity Center, such as a user or group"
+      },
+      "principalType": {
+        "$ref": "#/types/aws-native:sso:ApplicationAssignmentPrincipalType",
+        "description": "The entity type for which the assignment will be created."
       }
     }
   },
