@@ -327,7 +327,13 @@
   "readOnlyProperties" : [ "/properties/WorkflowId", "/properties/Arn" ],
   "createOnlyProperties" : [ "/properties/Steps", "/properties/OnExceptionSteps", "/properties/Description" ],
   "primaryIdentifier" : [ "/properties/WorkflowId" ],
-  "taggable" : true,
+  "tagging" : {
+    "cloudFormationSystemTags" : true,
+    "tagOnCreate" : true,
+    "tagProperty" : "/properties/Tags",
+    "tagUpdatable" : true,
+    "taggable" : true
+  },
   "handlers" : {
     "create" : {
       "permissions" : [ "transfer:CreateWorkflow", "transfer:TagResource" ]

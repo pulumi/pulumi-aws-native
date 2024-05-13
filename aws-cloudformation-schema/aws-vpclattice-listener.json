@@ -109,7 +109,7 @@
     },
     "Protocol" : {
       "type" : "string",
-      "enum" : [ "HTTP", "HTTPS" ]
+      "enum" : [ "HTTP", "HTTPS", "TLS_PASSTHROUGH" ]
     },
     "ServiceArn" : {
       "type" : "string",

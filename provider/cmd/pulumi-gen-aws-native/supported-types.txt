@@ -22,6 +22,7 @@ AWS::ApiGateway::Deployment
 AWS::ApiGateway::DocumentationPart
 AWS::ApiGateway::DocumentationVersion
 AWS::ApiGateway::DomainName
+AWS::ApiGateway::GatewayResponse
 AWS::ApiGateway::Method
 AWS::ApiGateway::Model
 AWS::ApiGateway::RequestValidator
@@ -106,6 +107,7 @@ AWS::Bedrock::Agent
 AWS::Bedrock::AgentAlias
 AWS::Bedrock::DataSource
 AWS::Bedrock::Guardrail
+AWS::Bedrock::GuardrailVersion
 AWS::Bedrock::KnowledgeBase
 AWS::Budgets::BudgetsAction
 AWS::CE::AnomalyMonitor
@@ -390,6 +392,7 @@ AWS::EMR::WALWorkspace
 AWS::EMRContainers::VirtualCluster
 AWS::EMRServerless::Application
 AWS::ElastiCache::GlobalReplicationGroup
+AWS::ElastiCache::ParameterGroup
 AWS::ElastiCache::ServerlessCache
 AWS::ElastiCache::SubnetGroup
 AWS::ElastiCache::User
@@ -881,7 +884,10 @@ AWS::SSMContacts::Rotation
 AWS::SSMGuiConnect::Preferences
 AWS::SSMIncidents::ReplicationSet
 AWS::SSMIncidents::ResponsePlan
+AWS::SSO::Application
+AWS::SSO::ApplicationAssignment
 AWS::SSO::Assignment
+AWS::SSO::Instance
 AWS::SSO::InstanceAccessControlAttributeConfiguration
 AWS::SSO::PermissionSet
 AWS::SageMaker::App

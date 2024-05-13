@@ -269,7 +269,7 @@
   "primaryIdentifier" : [ "/properties/WorkgroupName" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "ec2:DescribeVpcAttribute", "ec2:DescribeSecurityGroups", "ec2:DescribeAddresses", "ec2:DescribeInternetGateways", "ec2:DescribeSubnets", "ec2:DescribeAccountAttributes", "ec2:DescribeAvailabilityZones", "redshift-serverless:CreateNamespace", "redshift-serverless:CreateWorkgroup", "redshift-serverless:GetWorkgroup" ]
+      "permissions" : [ "ec2:DescribeVpcAttribute", "ec2:DescribeSecurityGroups", "ec2:DescribeAddresses", "ec2:DescribeInternetGateways", "ec2:DescribeSubnets", "ec2:DescribeAccountAttributes", "ec2:DescribeAvailabilityZones", "redshift-serverless:CreateNamespace", "redshift-serverless:CreateWorkgroup", "redshift-serverless:GetWorkgroup", "redshift-serverless:GetNamespace" ]
     },
     "read" : {
       "permissions" : [ "ec2:DescribeVpcAttribute", "ec2:DescribeSecurityGroups", "ec2:DescribeAddresses", "ec2:DescribeInternetGateways", "ec2:DescribeSubnets", "ec2:DescribeAccountAttributes", "ec2:DescribeAvailabilityZones", "redshift-serverless:GetWorkgroup" ]
@@ -278,7 +278,7 @@
       "permissions" : [ "ec2:DescribeVpcAttribute", "ec2:DescribeSecurityGroups", "ec2:DescribeAddresses", "ec2:DescribeInternetGateways", "ec2:DescribeSubnets", "ec2:DescribeAccountAttributes", "ec2:DescribeAvailabilityZones", "redshift-serverless:ListTagsForResource", "redshift-serverless:TagResource", "redshift-serverless:UntagResource", "redshift-serverless:GetWorkgroup", "redshift-serverless:UpdateWorkgroup" ]
     },
     "delete" : {
-      "permissions" : [ "ec2:DescribeVpcAttribute", "ec2:DescribeSecurityGroups", "ec2:DescribeAddresses", "ec2:DescribeInternetGateways", "ec2:DescribeSubnets", "ec2:DescribeAccountAttributes", "ec2:DescribeAvailabilityZones", "redshift-serverless:GetWorkgroup", "redshift-serverless:DeleteWorkgroup" ]
+      "permissions" : [ "ec2:DescribeVpcAttribute", "ec2:DescribeSecurityGroups", "ec2:DescribeAddresses", "ec2:DescribeInternetGateways", "ec2:DescribeSubnets", "ec2:DescribeAccountAttributes", "ec2:DescribeAvailabilityZones", "redshift-serverless:GetWorkgroup", "redshift-serverless:GetNamespace", "redshift-serverless:DeleteWorkgroup" ]
     },
     "list" : {
       "permissions" : [ "ec2:DescribeVpcAttribute", "ec2:DescribeSecurityGroups", "ec2:DescribeAddresses", "ec2:DescribeInternetGateways", "ec2:DescribeSubnets", "ec2:DescribeAccountAttributes", "ec2:DescribeAvailabilityZones", "redshift-serverless:ListWorkgroups" ]
