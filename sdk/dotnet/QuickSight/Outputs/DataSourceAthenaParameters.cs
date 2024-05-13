@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
     /// <summary>
-    /// &lt;p&gt;Amazon Athena parameters.&lt;/p&gt;
+    /// &lt;p&gt;Parameters for Amazon Athena.&lt;/p&gt;
     /// </summary>
     [OutputType]
     public sealed class DataSourceAthenaParameters

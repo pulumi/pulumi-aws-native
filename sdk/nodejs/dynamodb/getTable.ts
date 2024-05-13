@@ -77,6 +77,10 @@ export interface GetTableResult {
      */
     readonly localSecondaryIndexes?: outputs.dynamodb.TableLocalSecondaryIndex[];
     /**
+     * Sets the maximum number of read and write units for the specified on-demand table. If you use this property, you must specify ``MaxReadRequestUnits``, ``MaxWriteRequestUnits``, or both.
+     */
+    readonly onDemandThroughput?: outputs.dynamodb.TableOnDemandThroughput;
+    /**
      * The settings used to enable point in time recovery.
      */
     readonly pointInTimeRecoverySpecification?: outputs.dynamodb.TablePointInTimeRecoverySpecification;

@@ -21,7 +21,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetTableResult:
-    def __init__(__self__, arn=None, attribute_definitions=None, billing_mode=None, contributor_insights_specification=None, deletion_protection_enabled=None, global_secondary_indexes=None, key_schema=None, kinesis_stream_specification=None, local_secondary_indexes=None, point_in_time_recovery_specification=None, provisioned_throughput=None, resource_policy=None, sse_specification=None, stream_arn=None, stream_specification=None, table_class=None, tags=None, time_to_live_specification=None):
+    def __init__(__self__, arn=None, attribute_definitions=None, billing_mode=None, contributor_insights_specification=None, deletion_protection_enabled=None, global_secondary_indexes=None, key_schema=None, kinesis_stream_specification=None, local_secondary_indexes=None, on_demand_throughput=None, point_in_time_recovery_specification=None, provisioned_throughput=None, resource_policy=None, sse_specification=None, stream_arn=None, stream_specification=None, table_class=None, tags=None, time_to_live_specification=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -49,6 +49,9 @@ class GetTableResult:
         if local_secondary_indexes and not isinstance(local_secondary_indexes, list):
             raise TypeError("Expected argument 'local_secondary_indexes' to be a list")
         pulumi.set(__self__, "local_secondary_indexes", local_secondary_indexes)
+        if on_demand_throughput and not isinstance(on_demand_throughput, dict):
+            raise TypeError("Expected argument 'on_demand_throughput' to be a dict")
+        pulumi.set(__self__, "on_demand_throughput", on_demand_throughput)
         if point_in_time_recovery_specification and not isinstance(point_in_time_recovery_specification, dict):
             raise TypeError("Expected argument 'point_in_time_recovery_specification' to be a dict")
         pulumi.set(__self__, "point_in_time_recovery_specification", point_in_time_recovery_specification)
@@ -159,6 +162,14 @@ class GetTableResult:
         return pulumi.get(self, "local_secondary_indexes")
 
     @property
+    @pulumi.getter(name="onDemandThroughput")
+    def on_demand_throughput(self) -> Optional['outputs.TableOnDemandThroughput']:
+        """
+        Sets the maximum number of read and write units for the specified on-demand table. If you use this property, you must specify ``MaxReadRequestUnits``, ``MaxWriteRequestUnits``, or both.
+        """
+        return pulumi.get(self, "on_demand_throughput")
+
+    @property
     @pulumi.getter(name="pointInTimeRecoverySpecification")
     def point_in_time_recovery_specification(self) -> Optional['outputs.TablePointInTimeRecoverySpecification']:
         """
@@ -247,6 +258,7 @@ class AwaitableGetTableResult(GetTableResult):
             key_schema=self.key_schema,
             kinesis_stream_specification=self.kinesis_stream_specification,
             local_secondary_indexes=self.local_secondary_indexes,
+            on_demand_throughput=self.on_demand_throughput,
             point_in_time_recovery_specification=self.point_in_time_recovery_specification,
             provisioned_throughput=self.provisioned_throughput,
             resource_policy=self.resource_policy,
@@ -286,6 +298,7 @@ def get_table(table_name: Optional[str] = None,
         key_schema=pulumi.get(__ret__, 'key_schema'),
         kinesis_stream_specification=pulumi.get(__ret__, 'kinesis_stream_specification'),
         local_secondary_indexes=pulumi.get(__ret__, 'local_secondary_indexes'),
+        on_demand_throughput=pulumi.get(__ret__, 'on_demand_throughput'),
         point_in_time_recovery_specification=pulumi.get(__ret__, 'point_in_time_recovery_specification'),
         provisioned_throughput=pulumi.get(__ret__, 'provisioned_throughput'),
         resource_policy=pulumi.get(__ret__, 'resource_policy'),

@@ -134,6 +134,36 @@ namespace Pulumi.AwsNative.Bedrock
     }
 
     /// <summary>
+    /// Custom control of action execution
+    /// </summary>
+    [EnumType]
+    public readonly struct AgentCustomControlMethod : IEquatable<AgentCustomControlMethod>
+    {
+        private readonly string _value;
+
+        private AgentCustomControlMethod(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AgentCustomControlMethod ReturnControl { get; } = new AgentCustomControlMethod("RETURN_CONTROL");
+
+        public static bool operator ==(AgentCustomControlMethod left, AgentCustomControlMethod right) => left.Equals(right);
+        public static bool operator !=(AgentCustomControlMethod left, AgentCustomControlMethod right) => !left.Equals(right);
+
+        public static explicit operator string(AgentCustomControlMethod value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AgentCustomControlMethod other && Equals(other);
+        public bool Equals(AgentCustomControlMethod other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// State of the knowledge base; whether it is enabled or disabled
     /// </summary>
     [EnumType]
@@ -258,6 +288,40 @@ namespace Pulumi.AwsNative.Bedrock
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is AgentStatus other && Equals(other);
         public bool Equals(AgentStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Parameter Type
+    /// </summary>
+    [EnumType]
+    public readonly struct AgentType : IEquatable<AgentType>
+    {
+        private readonly string _value;
+
+        private AgentType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AgentType String { get; } = new AgentType("string");
+        public static AgentType Number { get; } = new AgentType("number");
+        public static AgentType Integer { get; } = new AgentType("integer");
+        public static AgentType Boolean { get; } = new AgentType("boolean");
+        public static AgentType Array { get; } = new AgentType("array");
+
+        public static bool operator ==(AgentType left, AgentType right) => left.Equals(right);
+        public static bool operator !=(AgentType left, AgentType right) => !left.Equals(right);
+
+        public static explicit operator string(AgentType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AgentType other && Equals(other);
+        public bool Equals(AgentType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

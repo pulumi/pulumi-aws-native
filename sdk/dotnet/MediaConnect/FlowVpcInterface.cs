@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.MediaConnect
         public Output<ImmutableArray<string>> NetworkInterfaceIds { get; private set; } = null!;
 
         /// <summary>
-        /// Role Arn MediaConnect can assumes to create ENIs in customer's account.
+        /// Role Arn MediaConnect can assume to create ENIs in customer's account.
         /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
@@ -114,7 +114,7 @@ namespace Pulumi.AwsNative.MediaConnect
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Role Arn MediaConnect can assumes to create ENIs in customer's account.
+        /// Role Arn MediaConnect can assume to create ENIs in customer's account.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.MediaConnect
         public Output<string?> AvailabilityZone { get; private set; } = null!;
 
         /// <summary>
+        /// The IP address from which video will be sent to output destinations.
+        /// </summary>
+        [Output("egressIp")]
+        public Output<string> EgressIp { get; private set; } = null!;
+
+        /// <summary>
         /// The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
         /// </summary>
         [Output("flowArn")]
@@ -32,6 +38,18 @@ namespace Pulumi.AwsNative.MediaConnect
         /// </summary>
         [Output("flowAvailabilityZone")]
         public Output<string> FlowAvailabilityZone { get; private set; } = null!;
+
+        /// <summary>
+        /// The maintenance settings you want to use for the flow. 
+        /// </summary>
+        [Output("maintenance")]
+        public Output<Outputs.FlowMaintenance?> Maintenance { get; private set; } = null!;
+
+        /// <summary>
+        /// The media streams associated with the flow. You can associate any of these media streams with sources and outputs on the flow.
+        /// </summary>
+        [Output("mediaStreams")]
+        public Output<ImmutableArray<Outputs.FlowMediaStream>> MediaStreams { get; private set; } = null!;
 
         /// <summary>
         /// The name of the flow.
@@ -50,6 +68,12 @@ namespace Pulumi.AwsNative.MediaConnect
         /// </summary>
         [Output("sourceFailoverConfig")]
         public Output<Outputs.FlowFailoverConfig?> SourceFailoverConfig { get; private set; } = null!;
+
+        /// <summary>
+        /// The VPC interfaces that you added to this flow.
+        /// </summary>
+        [Output("vpcInterfaces")]
+        public Output<ImmutableArray<Outputs.FlowVpcInterface>> VpcInterfaces { get; private set; } = null!;
 
 
         /// <summary>
@@ -109,6 +133,24 @@ namespace Pulumi.AwsNative.MediaConnect
         public Input<string>? AvailabilityZone { get; set; }
 
         /// <summary>
+        /// The maintenance settings you want to use for the flow. 
+        /// </summary>
+        [Input("maintenance")]
+        public Input<Inputs.FlowMaintenanceArgs>? Maintenance { get; set; }
+
+        [Input("mediaStreams")]
+        private InputList<Inputs.FlowMediaStreamArgs>? _mediaStreams;
+
+        /// <summary>
+        /// The media streams associated with the flow. You can associate any of these media streams with sources and outputs on the flow.
+        /// </summary>
+        public InputList<Inputs.FlowMediaStreamArgs> MediaStreams
+        {
+            get => _mediaStreams ?? (_mediaStreams = new InputList<Inputs.FlowMediaStreamArgs>());
+            set => _mediaStreams = value;
+        }
+
+        /// <summary>
         /// The name of the flow.
         /// </summary>
         [Input("name")]
@@ -125,6 +167,18 @@ namespace Pulumi.AwsNative.MediaConnect
         /// </summary>
         [Input("sourceFailoverConfig")]
         public Input<Inputs.FlowFailoverConfigArgs>? SourceFailoverConfig { get; set; }
+
+        [Input("vpcInterfaces")]
+        private InputList<Inputs.FlowVpcInterfaceArgs>? _vpcInterfaces;
+
+        /// <summary>
+        /// The VPC interfaces that you added to this flow.
+        /// </summary>
+        public InputList<Inputs.FlowVpcInterfaceArgs> VpcInterfaces
+        {
+            get => _vpcInterfaces ?? (_vpcInterfaces = new InputList<Inputs.FlowVpcInterfaceArgs>());
+            set => _vpcInterfaces = value;
+        }
 
         public FlowArgs()
         {

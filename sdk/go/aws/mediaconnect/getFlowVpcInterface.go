@@ -32,7 +32,7 @@ type LookupFlowVpcInterfaceArgs struct {
 type LookupFlowVpcInterfaceResult struct {
 	// IDs of the network interfaces created in customer's account by MediaConnect.
 	NetworkInterfaceIds []string `pulumi:"networkInterfaceIds"`
-	// Role Arn MediaConnect can assumes to create ENIs in customer's account.
+	// Role Arn MediaConnect can assume to create ENIs in customer's account.
 	RoleArn *string `pulumi:"roleArn"`
 	// Security Group IDs to be used on ENI.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
@@ -83,7 +83,7 @@ func (o LookupFlowVpcInterfaceResultOutput) NetworkInterfaceIds() pulumi.StringA
 	return o.ApplyT(func(v LookupFlowVpcInterfaceResult) []string { return v.NetworkInterfaceIds }).(pulumi.StringArrayOutput)
 }
 
-// Role Arn MediaConnect can assumes to create ENIs in customer's account.
+// Role Arn MediaConnect can assume to create ENIs in customer's account.
 func (o LookupFlowVpcInterfaceResultOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFlowVpcInterfaceResult) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }

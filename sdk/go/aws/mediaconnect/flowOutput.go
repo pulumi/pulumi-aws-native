@@ -28,6 +28,8 @@ type FlowOutputResource struct {
 	FlowArn pulumi.StringOutput `pulumi:"flowArn"`
 	// The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
 	MaxLatency pulumi.IntPtrOutput `pulumi:"maxLatency"`
+	// The definition for each media stream that is associated with the output.
+	MediaStreamOutputConfigurations FlowOutputMediaStreamOutputConfigurationArrayOutput `pulumi:"mediaStreamOutputConfigurations"`
 	// The minimum latency in milliseconds.
 	MinLatency pulumi.IntPtrOutput `pulumi:"minLatency"`
 	// The name of the output. This value must be unique within the current flow.
@@ -110,6 +112,8 @@ type flowOutputResourceArgs struct {
 	FlowArn string `pulumi:"flowArn"`
 	// The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
 	MaxLatency *int `pulumi:"maxLatency"`
+	// The definition for each media stream that is associated with the output.
+	MediaStreamOutputConfigurations []FlowOutputMediaStreamOutputConfiguration `pulumi:"mediaStreamOutputConfigurations"`
 	// The minimum latency in milliseconds.
 	MinLatency *int `pulumi:"minLatency"`
 	// The name of the output. This value must be unique within the current flow.
@@ -142,6 +146,8 @@ type FlowOutputResourceArgs struct {
 	FlowArn pulumi.StringInput
 	// The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
 	MaxLatency pulumi.IntPtrInput
+	// The definition for each media stream that is associated with the output.
+	MediaStreamOutputConfigurations FlowOutputMediaStreamOutputConfigurationArrayInput
 	// The minimum latency in milliseconds.
 	MinLatency pulumi.IntPtrInput
 	// The name of the output. This value must be unique within the current flow.
@@ -225,6 +231,13 @@ func (o FlowOutputResourceOutput) FlowArn() pulumi.StringOutput {
 // The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
 func (o FlowOutputResourceOutput) MaxLatency() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FlowOutputResource) pulumi.IntPtrOutput { return v.MaxLatency }).(pulumi.IntPtrOutput)
+}
+
+// The definition for each media stream that is associated with the output.
+func (o FlowOutputResourceOutput) MediaStreamOutputConfigurations() FlowOutputMediaStreamOutputConfigurationArrayOutput {
+	return o.ApplyT(func(v *FlowOutputResource) FlowOutputMediaStreamOutputConfigurationArrayOutput {
+		return v.MediaStreamOutputConfigurations
+	}).(FlowOutputMediaStreamOutputConfigurationArrayOutput)
 }
 
 // The minimum latency in milliseconds.

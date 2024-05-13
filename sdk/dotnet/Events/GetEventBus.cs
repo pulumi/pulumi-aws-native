@@ -62,6 +62,18 @@ namespace Pulumi.AwsNative.Events
         /// </summary>
         public readonly string? Arn;
         /// <summary>
+        /// Dead Letter Queue for the event bus.
+        /// </summary>
+        public readonly Outputs.DeadLetterConfigProperties? DeadLetterConfig;
+        /// <summary>
+        /// The description of the event bus.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// Kms Key Identifier used to encrypt events at rest in the event bus.
+        /// </summary>
+        public readonly string? KmsKeyIdentifier;
+        /// <summary>
         /// A JSON string that describes the permission policy statement for the event bus.
         /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::EventBus` for more information about the expected schema for this property.
@@ -76,11 +88,20 @@ namespace Pulumi.AwsNative.Events
         private GetEventBusResult(
             string? arn,
 
+            Outputs.DeadLetterConfigProperties? deadLetterConfig,
+
+            string? description,
+
+            string? kmsKeyIdentifier,
+
             object? policy,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
+            DeadLetterConfig = deadLetterConfig;
+            Description = description;
+            KmsKeyIdentifier = kmsKeyIdentifier;
             Policy = policy;
             Tags = tags;
         }

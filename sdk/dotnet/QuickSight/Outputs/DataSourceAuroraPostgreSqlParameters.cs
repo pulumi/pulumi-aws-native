@@ -11,21 +11,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
     /// <summary>
-    /// &lt;p&gt;Amazon Aurora with PostgreSQL compatibility parameters.&lt;/p&gt;
+    /// &lt;p&gt;Parameters for Amazon Aurora PostgreSQL-Compatible Edition.&lt;/p&gt;
     /// </summary>
     [OutputType]
     public sealed class DataSourceAuroraPostgreSqlParameters
     {
         /// <summary>
-        /// &lt;p&gt;Database.&lt;/p&gt;
+        /// &lt;p&gt;The Amazon Aurora PostgreSQL database to connect to.&lt;/p&gt;
         /// </summary>
         public readonly string Database;
         /// <summary>
-        /// &lt;p&gt;Host.&lt;/p&gt;
+        /// &lt;p&gt;The Amazon Aurora PostgreSQL-Compatible host to connect to.&lt;/p&gt;
         /// </summary>
         public readonly string Host;
         /// <summary>
-        /// &lt;p&gt;Port.&lt;/p&gt;
+        /// &lt;p&gt;The port that Amazon Aurora PostgreSQL is listening on.&lt;/p&gt;
         /// </summary>
         public readonly double Port;
 

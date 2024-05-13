@@ -43,6 +43,8 @@ type FirewallRuleGroupFirewallRule struct {
 	BlockResponse *FirewallRuleGroupFirewallRuleBlockResponse `pulumi:"blockResponse"`
 	// ResourceId
 	FirewallDomainListId string `pulumi:"firewallDomainListId"`
+	// FirewallDomainRedirectionAction
+	FirewallDomainRedirectionAction *FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction `pulumi:"firewallDomainRedirectionAction"`
 	// Rule Priority
 	Priority int `pulumi:"priority"`
 	// Qtype
@@ -74,6 +76,8 @@ type FirewallRuleGroupFirewallRuleArgs struct {
 	BlockResponse FirewallRuleGroupFirewallRuleBlockResponsePtrInput `pulumi:"blockResponse"`
 	// ResourceId
 	FirewallDomainListId pulumi.StringInput `pulumi:"firewallDomainListId"`
+	// FirewallDomainRedirectionAction
+	FirewallDomainRedirectionAction FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionPtrInput `pulumi:"firewallDomainRedirectionAction"`
 	// Rule Priority
 	Priority pulumi.IntInput `pulumi:"priority"`
 	// Qtype
@@ -164,6 +168,13 @@ func (o FirewallRuleGroupFirewallRuleOutput) BlockResponse() FirewallRuleGroupFi
 // ResourceId
 func (o FirewallRuleGroupFirewallRuleOutput) FirewallDomainListId() pulumi.StringOutput {
 	return o.ApplyT(func(v FirewallRuleGroupFirewallRule) string { return v.FirewallDomainListId }).(pulumi.StringOutput)
+}
+
+// FirewallDomainRedirectionAction
+func (o FirewallRuleGroupFirewallRuleOutput) FirewallDomainRedirectionAction() FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionPtrOutput {
+	return o.ApplyT(func(v FirewallRuleGroupFirewallRule) *FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction {
+		return v.FirewallDomainRedirectionAction
+	}).(FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionPtrOutput)
 }
 
 // Rule Priority

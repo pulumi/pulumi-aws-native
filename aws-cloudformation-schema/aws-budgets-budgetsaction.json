@@ -119,6 +119,19 @@
         }
       },
       "additionalProperties" : false
+    },
+    "ResourceTag" : {
+      "type" : "object",
+      "properties" : {
+        "Key" : {
+          "type" : "string"
+        },
+        "Value" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "Key", "Value" ],
+      "additionalProperties" : false
     }
   },
   "properties" : {
@@ -156,6 +169,12 @@
     },
     "Definition" : {
       "$ref" : "#/definitions/Definition"
+    },
+    "ResourceTags" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/ResourceTag"
+      }
     }
   },
   "additionalProperties" : false,
@@ -165,13 +184,13 @@
   "primaryIdentifier" : [ "/properties/ActionId", "/properties/BudgetName" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "budgets:CreateBudgetAction", "iam:PassRole" ]
+      "permissions" : [ "budgets:CreateBudgetAction", "iam:PassRole", "budgets:TagResource" ]
     },
     "read" : {
-      "permissions" : [ "budgets:DescribeBudgetAction" ]
+      "permissions" : [ "budgets:DescribeBudgetAction", "budgets:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "budgets:UpdateBudgetAction", "iam:PassRole" ]
+      "permissions" : [ "budgets:UpdateBudgetAction", "iam:PassRole", "budgets:TagResource", "budgets:UntagResource", "budgets:ListTagsForResource" ]
     },
     "delete" : {
       "permissions" : [ "budgets:DeleteBudgetAction" ]
@@ -179,5 +198,12 @@
     "list" : {
       "permissions" : [ "budgets:DescribeBudgetActionsForAccount", "budgets:DescribeBudgetActionsForBudget" ]
     }
+  },
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/ResourceTags"
   }
 }

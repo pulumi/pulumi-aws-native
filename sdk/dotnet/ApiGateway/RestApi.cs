@@ -117,6 +117,138 @@ namespace Pulumi.AwsNative.ApiGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
+    ///     var restApi = new AwsNative.ApiGateway.RestApi("restApi", new()
+    ///     {
+    ///         Name = "myRestApi",
+    ///     });
+    /// 
+    ///     var gatewayResponse = new AwsNative.ApiGateway.GatewayResponse("gatewayResponse", new()
+    ///     {
+    ///         ResponseParameters = 
+    ///         {
+    ///             { "gatewayresponse.header.Access-Control-Allow-Origin", "'*'" },
+    ///             { "gatewayresponse.header.Access-Control-Allow-Headers", "'*'" },
+    ///         },
+    ///         ResponseType = "MISSING_AUTHENTICATION_TOKEN",
+    ///         RestApiId = restApi.Id,
+    ///         StatusCode = "404",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Example
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AwsNative = Pulumi.AwsNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var restApi = new AwsNative.ApiGateway.RestApi("restApi", new()
+    ///     {
+    ///         Name = "myRestApi",
+    ///     });
+    /// 
+    ///     var gatewayResponse = new AwsNative.ApiGateway.GatewayResponse("gatewayResponse", new()
+    ///     {
+    ///         ResponseParameters = 
+    ///         {
+    ///             { "gatewayresponse.header.Access-Control-Allow-Origin", "'*'" },
+    ///             { "gatewayresponse.header.Access-Control-Allow-Headers", "'*'" },
+    ///         },
+    ///         ResponseType = "MISSING_AUTHENTICATION_TOKEN",
+    ///         RestApiId = restApi.Id,
+    ///         StatusCode = "404",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Example
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AwsNative = Pulumi.AwsNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var config = new Config();
+    ///     var apiName = config.Require("apiName");
+    ///     var responseParameter1 = config.Require("responseParameter1");
+    ///     var responseParameter2 = config.Require("responseParameter2");
+    ///     var responseType = config.Require("responseType");
+    ///     var statusCode = config.Require("statusCode");
+    ///     var restApi = new AwsNative.ApiGateway.RestApi("restApi", new()
+    ///     {
+    ///         Name = apiName,
+    ///     });
+    /// 
+    ///     var gatewayResponse = new AwsNative.ApiGateway.GatewayResponse("gatewayResponse", new()
+    ///     {
+    ///         ResponseParameters = 
+    ///         {
+    ///             { "gatewayresponse.header.k1", responseParameter1 },
+    ///             { "gatewayresponse.header.k2", responseParameter2 },
+    ///         },
+    ///         ResponseType = responseType,
+    ///         RestApiId = restApi.Id,
+    ///         StatusCode = statusCode,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Example
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AwsNative = Pulumi.AwsNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var config = new Config();
+    ///     var apiName = config.Require("apiName");
+    ///     var responseParameter1 = config.Require("responseParameter1");
+    ///     var responseParameter2 = config.Require("responseParameter2");
+    ///     var responseType = config.Require("responseType");
+    ///     var statusCode = config.Require("statusCode");
+    ///     var restApi = new AwsNative.ApiGateway.RestApi("restApi", new()
+    ///     {
+    ///         Name = apiName,
+    ///     });
+    /// 
+    ///     var gatewayResponse = new AwsNative.ApiGateway.GatewayResponse("gatewayResponse", new()
+    ///     {
+    ///         ResponseParameters = 
+    ///         {
+    ///             { "gatewayresponse.header.k1", responseParameter1 },
+    ///             { "gatewayresponse.header.k2", responseParameter2 },
+    ///         },
+    ///         ResponseType = responseType,
+    ///         RestApiId = restApi.Id,
+    ///         StatusCode = statusCode,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Example
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AwsNative = Pulumi.AwsNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
     ///     var config = new Config();
     ///     var contentHandling = config.Require("contentHandling");
     ///     var operationName = config.Get("operationName") ?? "testoperationName";

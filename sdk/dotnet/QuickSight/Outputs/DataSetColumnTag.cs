@@ -11,7 +11,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
     /// <summary>
-    /// &lt;p&gt;A tag for a column in a &lt;a&gt;TagColumnOperation&lt;/a&gt; structure. This is a
+    /// &lt;p&gt;A tag for a column in a
+    ///             &lt;code&gt;
+    ///                &lt;a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_TagColumnOperation.html"&gt;TagColumnOperation&lt;/a&gt;
+    ///             &lt;/code&gt;
+    ///             structure. This is a
     ///             variant type structure. For this structure to be valid, only one of the attributes can
     ///             be non-null.&lt;/p&gt;
     /// </summary>

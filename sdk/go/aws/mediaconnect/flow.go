@@ -18,16 +18,24 @@ type Flow struct {
 
 	// The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.
 	AvailabilityZone pulumi.StringPtrOutput `pulumi:"availabilityZone"`
+	// The IP address from which video will be sent to output destinations.
+	EgressIp pulumi.StringOutput `pulumi:"egressIp"`
 	// The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
 	FlowArn pulumi.StringOutput `pulumi:"flowArn"`
 	// The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.(ReadOnly)
 	FlowAvailabilityZone pulumi.StringOutput `pulumi:"flowAvailabilityZone"`
+	// The maintenance settings you want to use for the flow.
+	Maintenance FlowMaintenancePtrOutput `pulumi:"maintenance"`
+	// The media streams associated with the flow. You can associate any of these media streams with sources and outputs on the flow.
+	MediaStreams FlowMediaStreamArrayOutput `pulumi:"mediaStreams"`
 	// The name of the flow.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The source of the flow.
 	Source FlowSourceTypeOutput `pulumi:"source"`
 	// The source failover config of the flow.
 	SourceFailoverConfig FlowFailoverConfigPtrOutput `pulumi:"sourceFailoverConfig"`
+	// The VPC interfaces that you added to this flow.
+	VpcInterfaces FlowVpcInterfaceTypeArrayOutput `pulumi:"vpcInterfaces"`
 }
 
 // NewFlow registers a new resource with the given unique name, arguments, and options.
@@ -81,24 +89,36 @@ func (FlowState) ElementType() reflect.Type {
 type flowArgs struct {
 	// The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
+	// The maintenance settings you want to use for the flow.
+	Maintenance *FlowMaintenance `pulumi:"maintenance"`
+	// The media streams associated with the flow. You can associate any of these media streams with sources and outputs on the flow.
+	MediaStreams []FlowMediaStream `pulumi:"mediaStreams"`
 	// The name of the flow.
 	Name *string `pulumi:"name"`
 	// The source of the flow.
 	Source FlowSourceType `pulumi:"source"`
 	// The source failover config of the flow.
 	SourceFailoverConfig *FlowFailoverConfig `pulumi:"sourceFailoverConfig"`
+	// The VPC interfaces that you added to this flow.
+	VpcInterfaces []FlowVpcInterfaceType `pulumi:"vpcInterfaces"`
 }
 
 // The set of arguments for constructing a Flow resource.
 type FlowArgs struct {
 	// The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.
 	AvailabilityZone pulumi.StringPtrInput
+	// The maintenance settings you want to use for the flow.
+	Maintenance FlowMaintenancePtrInput
+	// The media streams associated with the flow. You can associate any of these media streams with sources and outputs on the flow.
+	MediaStreams FlowMediaStreamArrayInput
 	// The name of the flow.
 	Name pulumi.StringPtrInput
 	// The source of the flow.
 	Source FlowSourceTypeInput
 	// The source failover config of the flow.
 	SourceFailoverConfig FlowFailoverConfigPtrInput
+	// The VPC interfaces that you added to this flow.
+	VpcInterfaces FlowVpcInterfaceTypeArrayInput
 }
 
 func (FlowArgs) ElementType() reflect.Type {
@@ -143,6 +163,11 @@ func (o FlowOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Flow) pulumi.StringPtrOutput { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
+// The IP address from which video will be sent to output destinations.
+func (o FlowOutput) EgressIp() pulumi.StringOutput {
+	return o.ApplyT(func(v *Flow) pulumi.StringOutput { return v.EgressIp }).(pulumi.StringOutput)
+}
+
 // The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
 func (o FlowOutput) FlowArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Flow) pulumi.StringOutput { return v.FlowArn }).(pulumi.StringOutput)
@@ -151,6 +176,16 @@ func (o FlowOutput) FlowArn() pulumi.StringOutput {
 // The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.(ReadOnly)
 func (o FlowOutput) FlowAvailabilityZone() pulumi.StringOutput {
 	return o.ApplyT(func(v *Flow) pulumi.StringOutput { return v.FlowAvailabilityZone }).(pulumi.StringOutput)
+}
+
+// The maintenance settings you want to use for the flow.
+func (o FlowOutput) Maintenance() FlowMaintenancePtrOutput {
+	return o.ApplyT(func(v *Flow) FlowMaintenancePtrOutput { return v.Maintenance }).(FlowMaintenancePtrOutput)
+}
+
+// The media streams associated with the flow. You can associate any of these media streams with sources and outputs on the flow.
+func (o FlowOutput) MediaStreams() FlowMediaStreamArrayOutput {
+	return o.ApplyT(func(v *Flow) FlowMediaStreamArrayOutput { return v.MediaStreams }).(FlowMediaStreamArrayOutput)
 }
 
 // The name of the flow.
@@ -166,6 +201,11 @@ func (o FlowOutput) Source() FlowSourceTypeOutput {
 // The source failover config of the flow.
 func (o FlowOutput) SourceFailoverConfig() FlowFailoverConfigPtrOutput {
 	return o.ApplyT(func(v *Flow) FlowFailoverConfigPtrOutput { return v.SourceFailoverConfig }).(FlowFailoverConfigPtrOutput)
+}
+
+// The VPC interfaces that you added to this flow.
+func (o FlowOutput) VpcInterfaces() FlowVpcInterfaceTypeArrayOutput {
+	return o.ApplyT(func(v *Flow) FlowVpcInterfaceTypeArrayOutput { return v.VpcInterfaces }).(FlowVpcInterfaceTypeArrayOutput)
 }
 
 func init() {

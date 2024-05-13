@@ -407,6 +407,310 @@ namespace Pulumi.AwsNative.MediaConnect
     }
 
     /// <summary>
+    /// The format used for the representation of color.
+    /// </summary>
+    [EnumType]
+    public readonly struct FlowFmtpColorimetry : IEquatable<FlowFmtpColorimetry>
+    {
+        private readonly string _value;
+
+        private FlowFmtpColorimetry(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FlowFmtpColorimetry Bt601 { get; } = new FlowFmtpColorimetry("BT601");
+        public static FlowFmtpColorimetry Bt709 { get; } = new FlowFmtpColorimetry("BT709");
+        public static FlowFmtpColorimetry Bt2020 { get; } = new FlowFmtpColorimetry("BT2020");
+        public static FlowFmtpColorimetry Bt2100 { get; } = new FlowFmtpColorimetry("BT2100");
+        public static FlowFmtpColorimetry St20651 { get; } = new FlowFmtpColorimetry("ST2065-1");
+        public static FlowFmtpColorimetry St20653 { get; } = new FlowFmtpColorimetry("ST2065-3");
+        public static FlowFmtpColorimetry Xyz { get; } = new FlowFmtpColorimetry("XYZ");
+
+        public static bool operator ==(FlowFmtpColorimetry left, FlowFmtpColorimetry right) => left.Equals(right);
+        public static bool operator !=(FlowFmtpColorimetry left, FlowFmtpColorimetry right) => !left.Equals(right);
+
+        public static explicit operator string(FlowFmtpColorimetry value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FlowFmtpColorimetry other && Equals(other);
+        public bool Equals(FlowFmtpColorimetry other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The encoding range of the video.
+    /// </summary>
+    [EnumType]
+    public readonly struct FlowFmtpRange : IEquatable<FlowFmtpRange>
+    {
+        private readonly string _value;
+
+        private FlowFmtpRange(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FlowFmtpRange Narrow { get; } = new FlowFmtpRange("NARROW");
+        public static FlowFmtpRange Full { get; } = new FlowFmtpRange("FULL");
+        public static FlowFmtpRange Fullprotect { get; } = new FlowFmtpRange("FULLPROTECT");
+
+        public static bool operator ==(FlowFmtpRange left, FlowFmtpRange right) => left.Equals(right);
+        public static bool operator !=(FlowFmtpRange left, FlowFmtpRange right) => !left.Equals(right);
+
+        public static explicit operator string(FlowFmtpRange value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FlowFmtpRange other && Equals(other);
+        public bool Equals(FlowFmtpRange other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of compression that was used to smooth the video's appearance.
+    /// </summary>
+    [EnumType]
+    public readonly struct FlowFmtpScanMode : IEquatable<FlowFmtpScanMode>
+    {
+        private readonly string _value;
+
+        private FlowFmtpScanMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FlowFmtpScanMode Progressive { get; } = new FlowFmtpScanMode("progressive");
+        public static FlowFmtpScanMode Interlace { get; } = new FlowFmtpScanMode("interlace");
+        public static FlowFmtpScanMode ProgressiveSegmentedFrame { get; } = new FlowFmtpScanMode("progressive-segmented-frame");
+
+        public static bool operator ==(FlowFmtpScanMode left, FlowFmtpScanMode right) => left.Equals(right);
+        public static bool operator !=(FlowFmtpScanMode left, FlowFmtpScanMode right) => !left.Equals(right);
+
+        public static explicit operator string(FlowFmtpScanMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FlowFmtpScanMode other && Equals(other);
+        public bool Equals(FlowFmtpScanMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The transfer characteristic system (TCS) that is used in the video.
+    /// </summary>
+    [EnumType]
+    public readonly struct FlowFmtpTcs : IEquatable<FlowFmtpTcs>
+    {
+        private readonly string _value;
+
+        private FlowFmtpTcs(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FlowFmtpTcs Sdr { get; } = new FlowFmtpTcs("SDR");
+        public static FlowFmtpTcs Pq { get; } = new FlowFmtpTcs("PQ");
+        public static FlowFmtpTcs Hlg { get; } = new FlowFmtpTcs("HLG");
+        public static FlowFmtpTcs Linear { get; } = new FlowFmtpTcs("LINEAR");
+        public static FlowFmtpTcs Bt2100linpq { get; } = new FlowFmtpTcs("BT2100LINPQ");
+        public static FlowFmtpTcs Bt2100linhlg { get; } = new FlowFmtpTcs("BT2100LINHLG");
+        public static FlowFmtpTcs St20651 { get; } = new FlowFmtpTcs("ST2065-1");
+        public static FlowFmtpTcs St4281 { get; } = new FlowFmtpTcs("ST428-1");
+        public static FlowFmtpTcs Density { get; } = new FlowFmtpTcs("DENSITY");
+
+        public static bool operator ==(FlowFmtpTcs left, FlowFmtpTcs right) => left.Equals(right);
+        public static bool operator !=(FlowFmtpTcs left, FlowFmtpTcs right) => !left.Equals(right);
+
+        public static explicit operator string(FlowFmtpTcs value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FlowFmtpTcs other && Equals(other);
+        public bool Equals(FlowFmtpTcs other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// A day of a week when the maintenance will happen. Use Monday/Tuesday/Wednesday/Thursday/Friday/Saturday/Sunday.
+    /// </summary>
+    [EnumType]
+    public readonly struct FlowMaintenanceMaintenanceDay : IEquatable<FlowMaintenanceMaintenanceDay>
+    {
+        private readonly string _value;
+
+        private FlowMaintenanceMaintenanceDay(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FlowMaintenanceMaintenanceDay Monday { get; } = new FlowMaintenanceMaintenanceDay("Monday");
+        public static FlowMaintenanceMaintenanceDay Tuesday { get; } = new FlowMaintenanceMaintenanceDay("Tuesday");
+        public static FlowMaintenanceMaintenanceDay Wednesday { get; } = new FlowMaintenanceMaintenanceDay("Wednesday");
+        public static FlowMaintenanceMaintenanceDay Thursday { get; } = new FlowMaintenanceMaintenanceDay("Thursday");
+        public static FlowMaintenanceMaintenanceDay Friday { get; } = new FlowMaintenanceMaintenanceDay("Friday");
+        public static FlowMaintenanceMaintenanceDay Saturday { get; } = new FlowMaintenanceMaintenanceDay("Saturday");
+        public static FlowMaintenanceMaintenanceDay Sunday { get; } = new FlowMaintenanceMaintenanceDay("Sunday");
+
+        public static bool operator ==(FlowMaintenanceMaintenanceDay left, FlowMaintenanceMaintenanceDay right) => left.Equals(right);
+        public static bool operator !=(FlowMaintenanceMaintenanceDay left, FlowMaintenanceMaintenanceDay right) => !left.Equals(right);
+
+        public static explicit operator string(FlowMaintenanceMaintenanceDay value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FlowMaintenanceMaintenanceDay other && Equals(other);
+        public bool Equals(FlowMaintenanceMaintenanceDay other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of media stream.
+    /// </summary>
+    [EnumType]
+    public readonly struct FlowMediaStreamMediaStreamType : IEquatable<FlowMediaStreamMediaStreamType>
+    {
+        private readonly string _value;
+
+        private FlowMediaStreamMediaStreamType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FlowMediaStreamMediaStreamType Video { get; } = new FlowMediaStreamMediaStreamType("video");
+        public static FlowMediaStreamMediaStreamType Audio { get; } = new FlowMediaStreamMediaStreamType("audio");
+        public static FlowMediaStreamMediaStreamType AncillaryData { get; } = new FlowMediaStreamMediaStreamType("ancillary-data");
+
+        public static bool operator ==(FlowMediaStreamMediaStreamType left, FlowMediaStreamMediaStreamType right) => left.Equals(right);
+        public static bool operator !=(FlowMediaStreamMediaStreamType left, FlowMediaStreamMediaStreamType right) => !left.Equals(right);
+
+        public static explicit operator string(FlowMediaStreamMediaStreamType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FlowMediaStreamMediaStreamType other && Equals(other);
+        public bool Equals(FlowMediaStreamMediaStreamType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The format that was used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video, 2110 streams, set the encoding name to raw. For video, JPEG XS streams, set the encoding name to jxsv.
+    /// </summary>
+    [EnumType]
+    public readonly struct FlowMediaStreamSourceConfigurationEncodingName : IEquatable<FlowMediaStreamSourceConfigurationEncodingName>
+    {
+        private readonly string _value;
+
+        private FlowMediaStreamSourceConfigurationEncodingName(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FlowMediaStreamSourceConfigurationEncodingName Jxsv { get; } = new FlowMediaStreamSourceConfigurationEncodingName("jxsv");
+        public static FlowMediaStreamSourceConfigurationEncodingName Raw { get; } = new FlowMediaStreamSourceConfigurationEncodingName("raw");
+        public static FlowMediaStreamSourceConfigurationEncodingName Smpte291 { get; } = new FlowMediaStreamSourceConfigurationEncodingName("smpte291");
+        public static FlowMediaStreamSourceConfigurationEncodingName Pcm { get; } = new FlowMediaStreamSourceConfigurationEncodingName("pcm");
+
+        public static bool operator ==(FlowMediaStreamSourceConfigurationEncodingName left, FlowMediaStreamSourceConfigurationEncodingName right) => left.Equals(right);
+        public static bool operator !=(FlowMediaStreamSourceConfigurationEncodingName left, FlowMediaStreamSourceConfigurationEncodingName right) => !left.Equals(right);
+
+        public static explicit operator string(FlowMediaStreamSourceConfigurationEncodingName value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FlowMediaStreamSourceConfigurationEncodingName other && Equals(other);
+        public bool Equals(FlowMediaStreamSourceConfigurationEncodingName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The resolution of the video.
+    /// </summary>
+    [EnumType]
+    public readonly struct FlowMediaStreamVideoFormat : IEquatable<FlowMediaStreamVideoFormat>
+    {
+        private readonly string _value;
+
+        private FlowMediaStreamVideoFormat(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FlowMediaStreamVideoFormat FlowMediaStreamVideoFormat_2160p { get; } = new FlowMediaStreamVideoFormat("2160p");
+        public static FlowMediaStreamVideoFormat FlowMediaStreamVideoFormat_1080p { get; } = new FlowMediaStreamVideoFormat("1080p");
+        public static FlowMediaStreamVideoFormat FlowMediaStreamVideoFormat_1080i { get; } = new FlowMediaStreamVideoFormat("1080i");
+        public static FlowMediaStreamVideoFormat FlowMediaStreamVideoFormat_720p { get; } = new FlowMediaStreamVideoFormat("720p");
+        public static FlowMediaStreamVideoFormat FlowMediaStreamVideoFormat_480p { get; } = new FlowMediaStreamVideoFormat("480p");
+
+        public static bool operator ==(FlowMediaStreamVideoFormat left, FlowMediaStreamVideoFormat right) => left.Equals(right);
+        public static bool operator !=(FlowMediaStreamVideoFormat left, FlowMediaStreamVideoFormat right) => !left.Equals(right);
+
+        public static explicit operator string(FlowMediaStreamVideoFormat value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FlowMediaStreamVideoFormat other && Equals(other);
+        public bool Equals(FlowMediaStreamVideoFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// A setting on the encoder that drives compression settings. This property only applies to video media streams associated with outputs that use the ST 2110 JPEG XS protocol, with a flow source that uses the CDI protocol.
+    /// </summary>
+    [EnumType]
+    public readonly struct FlowOutputEncodingParametersEncoderProfile : IEquatable<FlowOutputEncodingParametersEncoderProfile>
+    {
+        private readonly string _value;
+
+        private FlowOutputEncodingParametersEncoderProfile(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FlowOutputEncodingParametersEncoderProfile Main { get; } = new FlowOutputEncodingParametersEncoderProfile("main");
+        public static FlowOutputEncodingParametersEncoderProfile High { get; } = new FlowOutputEncodingParametersEncoderProfile("high");
+
+        public static bool operator ==(FlowOutputEncodingParametersEncoderProfile left, FlowOutputEncodingParametersEncoderProfile right) => left.Equals(right);
+        public static bool operator !=(FlowOutputEncodingParametersEncoderProfile left, FlowOutputEncodingParametersEncoderProfile right) => !left.Equals(right);
+
+        public static explicit operator string(FlowOutputEncodingParametersEncoderProfile value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FlowOutputEncodingParametersEncoderProfile other && Equals(other);
+        public bool Equals(FlowOutputEncodingParametersEncoderProfile other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
     /// </summary>
     [EnumType]
@@ -470,6 +774,39 @@ namespace Pulumi.AwsNative.MediaConnect
     }
 
     /// <summary>
+    /// The format that will be used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video streams on sources or outputs that use the CDI protocol, set the encoding name to raw. For video streams on sources or outputs that use the ST 2110 JPEG XS protocol, set the encoding name to jxsv.
+    /// </summary>
+    [EnumType]
+    public readonly struct FlowOutputMediaStreamOutputConfigurationEncodingName : IEquatable<FlowOutputMediaStreamOutputConfigurationEncodingName>
+    {
+        private readonly string _value;
+
+        private FlowOutputMediaStreamOutputConfigurationEncodingName(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FlowOutputMediaStreamOutputConfigurationEncodingName Jxsv { get; } = new FlowOutputMediaStreamOutputConfigurationEncodingName("jxsv");
+        public static FlowOutputMediaStreamOutputConfigurationEncodingName Raw { get; } = new FlowOutputMediaStreamOutputConfigurationEncodingName("raw");
+        public static FlowOutputMediaStreamOutputConfigurationEncodingName Smpte291 { get; } = new FlowOutputMediaStreamOutputConfigurationEncodingName("smpte291");
+        public static FlowOutputMediaStreamOutputConfigurationEncodingName Pcm { get; } = new FlowOutputMediaStreamOutputConfigurationEncodingName("pcm");
+
+        public static bool operator ==(FlowOutputMediaStreamOutputConfigurationEncodingName left, FlowOutputMediaStreamOutputConfigurationEncodingName right) => left.Equals(right);
+        public static bool operator !=(FlowOutputMediaStreamOutputConfigurationEncodingName left, FlowOutputMediaStreamOutputConfigurationEncodingName right) => !left.Equals(right);
+
+        public static explicit operator string(FlowOutputMediaStreamOutputConfigurationEncodingName value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FlowOutputMediaStreamOutputConfigurationEncodingName other && Equals(other);
+        public bool Equals(FlowOutputMediaStreamOutputConfigurationEncodingName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The protocol that is used by the source or output.
     /// </summary>
     [EnumType]
@@ -490,6 +827,8 @@ namespace Pulumi.AwsNative.MediaConnect
         public static FlowOutputProtocol FujitsuQos { get; } = new FlowOutputProtocol("fujitsu-qos");
         public static FlowOutputProtocol SrtListener { get; } = new FlowOutputProtocol("srt-listener");
         public static FlowOutputProtocol SrtCaller { get; } = new FlowOutputProtocol("srt-caller");
+        public static FlowOutputProtocol St2110Jpegxs { get; } = new FlowOutputProtocol("st2110-jpegxs");
+        public static FlowOutputProtocol Cdi { get; } = new FlowOutputProtocol("cdi");
 
         public static bool operator ==(FlowOutputProtocol left, FlowOutputProtocol right) => left.Equals(right);
         public static bool operator !=(FlowOutputProtocol left, FlowOutputProtocol right) => !left.Equals(right);
@@ -590,6 +929,8 @@ namespace Pulumi.AwsNative.MediaConnect
         public static FlowSourceProtocol FujitsuQos { get; } = new FlowSourceProtocol("fujitsu-qos");
         public static FlowSourceProtocol SrtListener { get; } = new FlowSourceProtocol("srt-listener");
         public static FlowSourceProtocol SrtCaller { get; } = new FlowSourceProtocol("srt-caller");
+        public static FlowSourceProtocol St2110Jpegxs { get; } = new FlowSourceProtocol("st2110-jpegxs");
+        public static FlowSourceProtocol Cdi { get; } = new FlowSourceProtocol("cdi");
 
         public static bool operator ==(FlowSourceProtocol left, FlowSourceProtocol right) => left.Equals(right);
         public static bool operator !=(FlowSourceProtocol left, FlowSourceProtocol right) => !left.Equals(right);
@@ -599,6 +940,37 @@ namespace Pulumi.AwsNative.MediaConnect
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is FlowSourceProtocol other && Equals(other);
         public bool Equals(FlowSourceProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of network adapter that you want MediaConnect to use on this interface. If you don't set this value, it defaults to ENA.
+    /// </summary>
+    [EnumType]
+    public readonly struct FlowVpcInterfaceNetworkInterfaceType : IEquatable<FlowVpcInterfaceNetworkInterfaceType>
+    {
+        private readonly string _value;
+
+        private FlowVpcInterfaceNetworkInterfaceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FlowVpcInterfaceNetworkInterfaceType Ena { get; } = new FlowVpcInterfaceNetworkInterfaceType("ena");
+        public static FlowVpcInterfaceNetworkInterfaceType Efa { get; } = new FlowVpcInterfaceNetworkInterfaceType("efa");
+
+        public static bool operator ==(FlowVpcInterfaceNetworkInterfaceType left, FlowVpcInterfaceNetworkInterfaceType right) => left.Equals(right);
+        public static bool operator !=(FlowVpcInterfaceNetworkInterfaceType left, FlowVpcInterfaceNetworkInterfaceType right) => !left.Equals(right);
+
+        public static explicit operator string(FlowVpcInterfaceNetworkInterfaceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FlowVpcInterfaceNetworkInterfaceType other && Equals(other);
+        public bool Equals(FlowVpcInterfaceNetworkInterfaceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

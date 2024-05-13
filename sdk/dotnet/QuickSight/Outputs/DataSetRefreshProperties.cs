@@ -11,15 +11,15 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
     /// <summary>
-    /// &lt;p&gt;The dataset refresh properties for the dataset.&lt;/p&gt;
+    /// &lt;p&gt;The refresh properties of a dataset.&lt;/p&gt;
     /// </summary>
     [OutputType]
     public sealed class DataSetRefreshProperties
     {
-        public readonly Outputs.DataSetRefreshConfiguration? RefreshConfiguration;
+        public readonly Outputs.DataSetRefreshConfiguration RefreshConfiguration;
 
         [OutputConstructor]
-        private DataSetRefreshProperties(Outputs.DataSetRefreshConfiguration? refreshConfiguration)
+        private DataSetRefreshProperties(Outputs.DataSetRefreshConfiguration refreshConfiguration)
         {
             RefreshConfiguration = refreshConfiguration;
         }

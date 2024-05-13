@@ -89,13 +89,18 @@ class GetDataSetResult:
     @pulumi.getter(name="columnGroups")
     def column_groups(self) -> Optional[Sequence['outputs.DataSetColumnGroup']]:
         """
-        <p>Groupings of columns that work together in certain QuickSight features. Currently, only geospatial hierarchy is supported.</p>
+        <p>Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported.</p>
         """
         return pulumi.get(self, "column_groups")
 
     @property
     @pulumi.getter(name="columnLevelPermissionRules")
     def column_level_permission_rules(self) -> Optional[Sequence['outputs.DataSetColumnLevelPermissionRule']]:
+        """
+        <p>A set of one or more definitions of a <code>
+                       <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html">ColumnLevelPermissionRule</a>
+                    </code>.</p>
+        """
         return pulumi.get(self, "column_level_permission_rules")
 
     @property
@@ -129,7 +134,7 @@ class GetDataSetResult:
     @pulumi.getter(name="datasetParameters")
     def dataset_parameters(self) -> Optional[Sequence['outputs.DataSetDatasetParameter']]:
         """
-        <p>The parameters declared in the dataset.</p>
+        <p>The parameter declarations of the dataset.</p>
         """
         return pulumi.get(self, "dataset_parameters")
 

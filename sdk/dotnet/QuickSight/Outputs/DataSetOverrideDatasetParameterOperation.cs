@@ -11,14 +11,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
     /// <summary>
-    /// &lt;p&gt;A transform operation that overrides the dataset parameter values defined in another dataset.&lt;/p&gt;
+    /// &lt;p&gt;A transform operation that overrides the dataset parameter values that are defined in another dataset.&lt;/p&gt;
     /// </summary>
     [OutputType]
     public sealed class DataSetOverrideDatasetParameterOperation
     {
-        /// <summary>
-        /// &lt;p&gt;The new default values for the parameter.&lt;/p&gt;
-        /// </summary>
         public readonly Outputs.DataSetNewDefaultValues? NewDefaultValues;
         /// <summary>
         /// &lt;p&gt;The new name for the parameter.&lt;/p&gt;

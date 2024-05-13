@@ -40,6 +40,14 @@ namespace Pulumi.AwsNative.Lambda
         public Output<string> FunctionName { get; private set; } = null!;
 
         /// <summary>
+        /// The resource policy of your function
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Lambda::Version` for more information about the expected schema for this property.
+        /// </summary>
+        [Output("policy")]
+        public Output<object?> Policy { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies a provisioned concurrency configuration for a function's version. Updates are not supported for this property.
         /// </summary>
         [Output("provisionedConcurrencyConfig")]
@@ -127,6 +135,14 @@ namespace Pulumi.AwsNative.Lambda
         /// </summary>
         [Input("functionName", required: true)]
         public Input<string> FunctionName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource policy of your function
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Lambda::Version` for more information about the expected schema for this property.
+        /// </summary>
+        [Input("policy")]
+        public Input<object>? Policy { get; set; }
 
         /// <summary>
         /// Specifies a provisioned concurrency configuration for a function's version. Updates are not supported for this property.

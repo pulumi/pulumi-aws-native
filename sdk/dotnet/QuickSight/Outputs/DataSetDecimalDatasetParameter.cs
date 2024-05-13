@@ -11,13 +11,19 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
     /// <summary>
-    /// &lt;p&gt;A parameter created in the dataset of decimal data type.&lt;/p&gt;
+    /// &lt;p&gt;A decimal parameter for a dataset.&lt;/p&gt;
     /// </summary>
     [OutputType]
     public sealed class DataSetDecimalDatasetParameter
     {
         public readonly Outputs.DataSetDecimalDatasetParameterDefaultValues? DefaultValues;
+        /// <summary>
+        /// &lt;p&gt;An identifier for the decimal parameter created in the dataset.&lt;/p&gt;
+        /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// &lt;p&gt;The name of the decimal parameter that is created in the dataset.&lt;/p&gt;
+        /// </summary>
         public readonly string Name;
         public readonly Pulumi.AwsNative.QuickSight.DataSetDatasetParameterValueType ValueType;
 

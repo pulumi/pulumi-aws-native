@@ -1902,6 +1902,13 @@ export const DashboardWordCloudWordScaling = {
 
 export type DashboardWordCloudWordScaling = (typeof DashboardWordCloudWordScaling)[keyof typeof DashboardWordCloudWordScaling];
 
+export const DataSetColumnDataSubType = {
+    Float: "FLOAT",
+    Fixed: "FIXED",
+} as const;
+
+export type DataSetColumnDataSubType = (typeof DataSetColumnDataSubType)[keyof typeof DataSetColumnDataSubType];
+
 export const DataSetColumnDataType = {
     String: "STRING",
     Integer: "INTEGER",
@@ -1911,21 +1918,18 @@ export const DataSetColumnDataType = {
 
 export type DataSetColumnDataType = (typeof DataSetColumnDataType)[keyof typeof DataSetColumnDataType];
 
-export const DataSetColumnSubDataType = {
-    Fixed: "FIXED",
-    Float: "FLOAT",
+export const DataSetColumnTagName = {
+    ColumnGeographicRole: "COLUMN_GEOGRAPHIC_ROLE",
+    ColumnDescription: "COLUMN_DESCRIPTION",
 } as const;
 
-export type DataSetColumnSubDataType = (typeof DataSetColumnSubDataType)[keyof typeof DataSetColumnSubDataType];
+export type DataSetColumnTagName = (typeof DataSetColumnTagName)[keyof typeof DataSetColumnTagName];
 
 export const DataSetDatasetParameterValueType = {
     MultiValued: "MULTI_VALUED",
     SingleValued: "SINGLE_VALUED",
 } as const;
 
-/**
- * <p>Every parameter value could be either a single value or multi value which helps to validate before evaluation.</p>
- */
 export type DataSetDatasetParameterValueType = (typeof DataSetDatasetParameterValueType)[keyof typeof DataSetDatasetParameterValueType];
 
 export const DataSetFileFormat = {
@@ -1954,6 +1958,9 @@ export const DataSetGeoSpatialDataRole = {
     Longitude: "LONGITUDE",
     Latitude: "LATITUDE",
     Political1: "POLITICAL1",
+    CensusTract: "CENSUS_TRACT",
+    CensusBlockGroup: "CENSUS_BLOCK_GROUP",
+    CensusBlock: "CENSUS_BLOCK",
 } as const;
 
 export type DataSetGeoSpatialDataRole = (typeof DataSetGeoSpatialDataRole)[keyof typeof DataSetGeoSpatialDataRole];
@@ -1986,6 +1993,14 @@ export const DataSetJoinType = {
 
 export type DataSetJoinType = (typeof DataSetJoinType)[keyof typeof DataSetJoinType];
 
+export const DataSetLookbackWindowSizeUnit = {
+    Hour: "HOUR",
+    Day: "DAY",
+    Week: "WEEK",
+} as const;
+
+export type DataSetLookbackWindowSizeUnit = (typeof DataSetLookbackWindowSizeUnit)[keyof typeof DataSetLookbackWindowSizeUnit];
+
 export const DataSetRowLevelPermissionFormatVersion = {
     Version1: "VERSION_1",
     Version2: "VERSION_2",
@@ -1999,14 +2014,6 @@ export const DataSetRowLevelPermissionPolicy = {
 } as const;
 
 export type DataSetRowLevelPermissionPolicy = (typeof DataSetRowLevelPermissionPolicy)[keyof typeof DataSetRowLevelPermissionPolicy];
-
-export const DataSetSizeUnit = {
-    Hour: "HOUR",
-    Day: "DAY",
-    Week: "WEEK",
-} as const;
-
-export type DataSetSizeUnit = (typeof DataSetSizeUnit)[keyof typeof DataSetSizeUnit];
 
 export const DataSetStatus = {
     Enabled: "ENABLED",
@@ -2077,6 +2084,13 @@ export const DataSourceType = {
     AuroraPostgresql: "AURORA_POSTGRESQL",
     AwsIotAnalytics: "AWS_IOT_ANALYTICS",
     Databricks: "DATABRICKS",
+    Denodo: "DENODO",
+    Dremio: "DREMIO",
+    Dynamodb: "DYNAMODB",
+    Saphana: "SAPHANA",
+    Db2as400: "DB2_AS400",
+    Exasol: "EXASOL",
+    File: "FILE",
     Github: "GITHUB",
     Jira: "JIRA",
     Mariadb: "MARIADB",
@@ -2092,10 +2106,16 @@ export const DataSourceType = {
     Spark: "SPARK",
     Sqlserver: "SQLSERVER",
     Teradata: "TERADATA",
-    Twitter: "TWITTER",
     Timestream: "TIMESTREAM",
-    Starburst: "STARBURST",
+    Twitter: "TWITTER",
+    Bigquery: "BIGQUERY",
+    GoogleAnalytics: "GOOGLE_ANALYTICS",
     Trino: "TRINO",
+    Starburst: "STARBURST",
+    Mongo: "MONGO",
+    MongoAtlas: "MONGO_ATLAS",
+    Documentdb: "DOCUMENTDB",
+    Appflow: "APPFLOW",
 } as const;
 
 export type DataSourceType = (typeof DataSourceType)[keyof typeof DataSourceType];

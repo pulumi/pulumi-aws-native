@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -24,6 +25,7 @@ type BudgetsAction struct {
 	Definition       BudgetsActionDefinitionOutput       `pulumi:"definition"`
 	ExecutionRoleArn pulumi.StringOutput                 `pulumi:"executionRoleArn"`
 	NotificationType BudgetsActionNotificationTypeOutput `pulumi:"notificationType"`
+	ResourceTags     aws.TagArrayOutput                  `pulumi:"resourceTags"`
 	Subscribers      BudgetsActionSubscriberArrayOutput  `pulumi:"subscribers"`
 }
 
@@ -100,6 +102,7 @@ type budgetsActionArgs struct {
 	Definition       BudgetsActionDefinition       `pulumi:"definition"`
 	ExecutionRoleArn string                        `pulumi:"executionRoleArn"`
 	NotificationType BudgetsActionNotificationType `pulumi:"notificationType"`
+	ResourceTags     []aws.Tag                     `pulumi:"resourceTags"`
 	Subscribers      []BudgetsActionSubscriber     `pulumi:"subscribers"`
 }
 
@@ -112,6 +115,7 @@ type BudgetsActionArgs struct {
 	Definition       BudgetsActionDefinitionInput
 	ExecutionRoleArn pulumi.StringInput
 	NotificationType BudgetsActionNotificationTypeInput
+	ResourceTags     aws.TagArrayInput
 	Subscribers      BudgetsActionSubscriberArrayInput
 }
 
@@ -182,6 +186,10 @@ func (o BudgetsActionOutput) ExecutionRoleArn() pulumi.StringOutput {
 
 func (o BudgetsActionOutput) NotificationType() BudgetsActionNotificationTypeOutput {
 	return o.ApplyT(func(v *BudgetsAction) BudgetsActionNotificationTypeOutput { return v.NotificationType }).(BudgetsActionNotificationTypeOutput)
+}
+
+func (o BudgetsActionOutput) ResourceTags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *BudgetsAction) aws.TagArrayOutput { return v.ResourceTags }).(aws.TagArrayOutput)
 }
 
 func (o BudgetsActionOutput) Subscribers() BudgetsActionSubscriberArrayOutput {

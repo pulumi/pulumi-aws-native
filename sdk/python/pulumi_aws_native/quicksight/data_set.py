@@ -38,8 +38,11 @@ class DataSetArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DataSet resource.
-        :param pulumi.Input[Sequence[pulumi.Input['DataSetColumnGroupArgs']]] column_groups: <p>Groupings of columns that work together in certain QuickSight features. Currently, only geospatial hierarchy is supported.</p>
-        :param pulumi.Input[Sequence[pulumi.Input['DataSetDatasetParameterArgs']]] dataset_parameters: <p>The parameters declared in the dataset.</p>
+        :param pulumi.Input[Sequence[pulumi.Input['DataSetColumnGroupArgs']]] column_groups: <p>Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported.</p>
+        :param pulumi.Input[Sequence[pulumi.Input['DataSetColumnLevelPermissionRuleArgs']]] column_level_permission_rules: <p>A set of one or more definitions of a <code>
+                              <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html">ColumnLevelPermissionRule</a>
+                           </code>.</p>
+        :param pulumi.Input[Sequence[pulumi.Input['DataSetDatasetParameterArgs']]] dataset_parameters: <p>The parameter declarations of the dataset.</p>
         :param pulumi.Input[str] name: <p>The display name for the dataset.</p>
         :param pulumi.Input[Sequence[pulumi.Input['DataSetResourcePermissionArgs']]] permissions: <p>A list of resource permissions on the dataset.</p>
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
@@ -92,7 +95,7 @@ class DataSetArgs:
     @pulumi.getter(name="columnGroups")
     def column_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSetColumnGroupArgs']]]]:
         """
-        <p>Groupings of columns that work together in certain QuickSight features. Currently, only geospatial hierarchy is supported.</p>
+        <p>Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported.</p>
         """
         return pulumi.get(self, "column_groups")
 
@@ -103,6 +106,11 @@ class DataSetArgs:
     @property
     @pulumi.getter(name="columnLevelPermissionRules")
     def column_level_permission_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSetColumnLevelPermissionRuleArgs']]]]:
+        """
+        <p>A set of one or more definitions of a <code>
+                       <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html">ColumnLevelPermissionRule</a>
+                    </code>.</p>
+        """
         return pulumi.get(self, "column_level_permission_rules")
 
     @column_level_permission_rules.setter
@@ -140,7 +148,7 @@ class DataSetArgs:
     @pulumi.getter(name="datasetParameters")
     def dataset_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSetDatasetParameterArgs']]]]:
         """
-        <p>The parameters declared in the dataset.</p>
+        <p>The parameter declarations of the dataset.</p>
         """
         return pulumi.get(self, "dataset_parameters")
 
@@ -276,8 +284,11 @@ class DataSet(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetColumnGroupArgs']]]] column_groups: <p>Groupings of columns that work together in certain QuickSight features. Currently, only geospatial hierarchy is supported.</p>
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetDatasetParameterArgs']]]] dataset_parameters: <p>The parameters declared in the dataset.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetColumnGroupArgs']]]] column_groups: <p>Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetColumnLevelPermissionRuleArgs']]]] column_level_permission_rules: <p>A set of one or more definitions of a <code>
+                              <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html">ColumnLevelPermissionRule</a>
+                           </code>.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetDatasetParameterArgs']]]] dataset_parameters: <p>The parameter declarations of the dataset.</p>
         :param pulumi.Input[str] name: <p>The display name for the dataset.</p>
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetResourcePermissionArgs']]]] permissions: <p>A list of resource permissions on the dataset.</p>
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
@@ -419,13 +430,18 @@ class DataSet(pulumi.CustomResource):
     @pulumi.getter(name="columnGroups")
     def column_groups(self) -> pulumi.Output[Optional[Sequence['outputs.DataSetColumnGroup']]]:
         """
-        <p>Groupings of columns that work together in certain QuickSight features. Currently, only geospatial hierarchy is supported.</p>
+        <p>Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported.</p>
         """
         return pulumi.get(self, "column_groups")
 
     @property
     @pulumi.getter(name="columnLevelPermissionRules")
     def column_level_permission_rules(self) -> pulumi.Output[Optional[Sequence['outputs.DataSetColumnLevelPermissionRule']]]:
+        """
+        <p>A set of one or more definitions of a <code>
+                       <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html">ColumnLevelPermissionRule</a>
+                    </code>.</p>
+        """
         return pulumi.get(self, "column_level_permission_rules")
 
     @property
@@ -464,7 +480,7 @@ class DataSet(pulumi.CustomResource):
     @pulumi.getter(name="datasetParameters")
     def dataset_parameters(self) -> pulumi.Output[Optional[Sequence['outputs.DataSetDatasetParameter']]]:
         """
-        <p>The parameters declared in the dataset.</p>
+        <p>The parameter declarations of the dataset.</p>
         """
         return pulumi.get(self, "dataset_parameters")
 

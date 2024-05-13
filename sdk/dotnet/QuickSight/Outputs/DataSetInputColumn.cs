@@ -20,14 +20,14 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// &lt;p&gt;The name of this column in the underlying data source.&lt;/p&gt;
         /// </summary>
         public readonly string Name;
-        public readonly Pulumi.AwsNative.QuickSight.DataSetColumnSubDataType? SubType;
+        public readonly Pulumi.AwsNative.QuickSight.DataSetColumnDataSubType? SubType;
         public readonly Pulumi.AwsNative.QuickSight.DataSetInputColumnDataType Type;
 
         [OutputConstructor]
         private DataSetInputColumn(
             string name,
 
-            Pulumi.AwsNative.QuickSight.DataSetColumnSubDataType? subType,
+            Pulumi.AwsNative.QuickSight.DataSetColumnDataSubType? subType,
 
             Pulumi.AwsNative.QuickSight.DataSetInputColumnDataType type)
         {

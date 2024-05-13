@@ -507,6 +507,11 @@ func (o GlobalReplicationGroupReshardingConfigurationArrayOutput) Index(i pulumi
 	}).(GlobalReplicationGroupReshardingConfigurationOutput)
 }
 
+type ParameterGroupTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 // The cache capacity limit of the Serverless Cache.
 type ServerlessCacheCacheUsageLimits struct {
 	DataStorage   *ServerlessCacheDataStorage   `pulumi:"dataStorage"`

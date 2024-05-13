@@ -50,6 +50,11 @@ export type DomainName = import("./domainName").DomainName;
 export const DomainName: typeof import("./domainName").DomainName = null as any;
 utilities.lazyLoad(exports, ["DomainName"], () => require("./domainName"));
 
+export { GatewayResponseArgs } from "./gatewayResponse";
+export type GatewayResponse = import("./gatewayResponse").GatewayResponse;
+export const GatewayResponse: typeof import("./gatewayResponse").GatewayResponse = null as any;
+utilities.lazyLoad(exports, ["GatewayResponse"], () => require("./gatewayResponse"));
+
 export { GetAccountArgs, GetAccountResult, GetAccountOutputArgs } from "./getAccount";
 export const getAccount: typeof import("./getAccount").getAccount = null as any;
 export const getAccountOutput: typeof import("./getAccount").getAccountOutput = null as any;
@@ -94,6 +99,11 @@ export { GetDomainNameArgs, GetDomainNameResult, GetDomainNameOutputArgs } from 
 export const getDomainName: typeof import("./getDomainName").getDomainName = null as any;
 export const getDomainNameOutput: typeof import("./getDomainName").getDomainNameOutput = null as any;
 utilities.lazyLoad(exports, ["getDomainName","getDomainNameOutput"], () => require("./getDomainName"));
+
+export { GetGatewayResponseArgs, GetGatewayResponseResult, GetGatewayResponseOutputArgs } from "./getGatewayResponse";
+export const getGatewayResponse: typeof import("./getGatewayResponse").getGatewayResponse = null as any;
+export const getGatewayResponseOutput: typeof import("./getGatewayResponse").getGatewayResponseOutput = null as any;
+utilities.lazyLoad(exports, ["getGatewayResponse","getGatewayResponseOutput"], () => require("./getGatewayResponse"));
 
 export { GetMethodArgs, GetMethodResult, GetMethodOutputArgs } from "./getMethod";
 export const getMethod: typeof import("./getMethod").getMethod = null as any;
@@ -211,6 +221,8 @@ const _module = {
                 return new DocumentationVersion(name, <any>undefined, { urn })
             case "aws-native:apigateway:DomainName":
                 return new DomainName(name, <any>undefined, { urn })
+            case "aws-native:apigateway:GatewayResponse":
+                return new GatewayResponse(name, <any>undefined, { urn })
             case "aws-native:apigateway:Method":
                 return new Method(name, <any>undefined, { urn })
             case "aws-native:apigateway:Model":

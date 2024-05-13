@@ -9,10 +9,12 @@ __all__ = [
     'AgentActionGroupState',
     'AgentAliasStatus',
     'AgentCreationMode',
+    'AgentCustomControlMethod',
     'AgentKnowledgeBaseState',
     'AgentPromptState',
     'AgentPromptType',
     'AgentStatus',
+    'AgentType',
     'DataSourceChunkingStrategy',
     'DataSourceDataDeletionPolicy',
     'DataSourceStatus',
@@ -64,6 +66,13 @@ class AgentCreationMode(str, Enum):
     OVERRIDDEN = "OVERRIDDEN"
 
 
+class AgentCustomControlMethod(str, Enum):
+    """
+    Custom control of action execution
+    """
+    RETURN_CONTROL = "RETURN_CONTROL"
+
+
 class AgentKnowledgeBaseState(str, Enum):
     """
     State of the knowledge base; whether it is enabled or disabled
@@ -102,6 +111,17 @@ class AgentStatus(str, Enum):
     FAILED = "FAILED"
     VERSIONING = "VERSIONING"
     UPDATING = "UPDATING"
+
+
+class AgentType(str, Enum):
+    """
+    Parameter Type
+    """
+    STRING = "string"
+    NUMBER = "number"
+    INTEGER = "integer"
+    BOOLEAN = "boolean"
+    ARRAY = "array"
 
 
 class DataSourceChunkingStrategy(str, Enum):

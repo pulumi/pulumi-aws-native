@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
     /// <summary>
-    /// &lt;p&gt;Teradata parameters.&lt;/p&gt;
+    /// &lt;p&gt;The parameters for Teradata.&lt;/p&gt;
     /// </summary>
     public sealed class DataSourceTeradataParametersArgs : global::Pulumi.ResourceArgs
     {

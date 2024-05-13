@@ -1035,6 +1035,7 @@ __all__ = [
     'DataSetStringDatasetParameterArgs',
     'DataSetTagColumnOperationArgs',
     'DataSetTransformOperationArgs',
+    'DataSetUntagColumnOperationArgs',
     'DataSetUploadSettingsArgs',
     'DataSetUsageConfigurationArgs',
     'DataSourceAmazonElasticsearchParametersArgs',
@@ -1046,6 +1047,7 @@ __all__ = [
     'DataSourceCredentialsArgs',
     'DataSourceDatabricksParametersArgs',
     'DataSourceErrorInfoArgs',
+    'DataSourceIdentityCenterConfigurationArgs',
     'DataSourceManifestFileLocationArgs',
     'DataSourceMariaDbParametersArgs',
     'DataSourceMySqlParametersArgs',
@@ -44940,7 +44942,7 @@ class DataSetCastColumnTypeOperationArgs:
                  column_name: pulumi.Input[str],
                  new_column_type: pulumi.Input['DataSetColumnDataType'],
                  format: Optional[pulumi.Input[str]] = None,
-                 sub_type: Optional[pulumi.Input['DataSetColumnSubDataType']] = None):
+                 sub_type: Optional[pulumi.Input['DataSetColumnDataSubType']] = None):
         """
         <p>A transform operation that casts a column to a different type.</p>
         :param pulumi.Input[str] column_name: <p>Column name.</p>
@@ -44990,11 +44992,11 @@ class DataSetCastColumnTypeOperationArgs:
 
     @property
     @pulumi.getter(name="subType")
-    def sub_type(self) -> Optional[pulumi.Input['DataSetColumnSubDataType']]:
+    def sub_type(self) -> Optional[pulumi.Input['DataSetColumnDataSubType']]:
         return pulumi.get(self, "sub_type")
 
     @sub_type.setter
-    def sub_type(self, value: Optional[pulumi.Input['DataSetColumnSubDataType']]):
+    def sub_type(self, value: Optional[pulumi.Input['DataSetColumnDataSubType']]):
         pulumi.set(self, "sub_type", value)
 
 
@@ -45049,6 +45051,16 @@ class DataSetColumnLevelPermissionRuleArgs:
     def __init__(__self__, *,
                  column_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  principals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        <p>A rule defined to grant access on one or more restricted columns.
+                    Each dataset can have multiple rules.
+                    To create a restricted column, you add it to one or more rules.
+                    Each rule must contain at least one column and at least one user or group.
+                    To be able to see a restricted column, a user or group needs to be added
+                    to a rule for that column.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] column_names: <p>An array of column names.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] principals: <p>An array of Amazon Resource Names (ARNs) for Amazon QuickSight users or groups.</p>
+        """
         if column_names is not None:
             pulumi.set(__self__, "column_names", column_names)
         if principals is not None:
@@ -45057,6 +45069,9 @@ class DataSetColumnLevelPermissionRuleArgs:
     @property
     @pulumi.getter(name="columnNames")
     def column_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        <p>An array of column names.</p>
+        """
         return pulumi.get(self, "column_names")
 
     @column_names.setter
@@ -45066,6 +45081,9 @@ class DataSetColumnLevelPermissionRuleArgs:
     @property
     @pulumi.getter
     def principals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        <p>An array of Amazon Resource Names (ARNs) for Amazon QuickSight users or groups.</p>
+        """
         return pulumi.get(self, "principals")
 
     @principals.setter
@@ -45079,7 +45097,11 @@ class DataSetColumnTagArgs:
                  column_description: Optional[pulumi.Input['DataSetColumnDescriptionArgs']] = None,
                  column_geographic_role: Optional[pulumi.Input['DataSetGeoSpatialDataRole']] = None):
         """
-        <p>A tag for a column in a <a>TagColumnOperation</a> structure. This is a
+        <p>A tag for a column in a
+                    <code>
+                       <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_TagColumnOperation.html">TagColumnOperation</a>
+                    </code>
+                    structure. This is a
                     variant type structure. For this structure to be valid, only one of the attributes can
                     be non-null.</p>
         """
@@ -45207,7 +45229,7 @@ class DataSetDatasetParameterArgs:
                  integer_dataset_parameter: Optional[pulumi.Input['DataSetIntegerDatasetParameterArgs']] = None,
                  string_dataset_parameter: Optional[pulumi.Input['DataSetStringDatasetParameterArgs']] = None):
         """
-        <p>A parameter created in the dataset that could be of any one data type such as string, integer, decimal or datetime.</p>
+        <p>A dataset parameter.</p>
         """
         if date_time_dataset_parameter is not None:
             pulumi.set(__self__, "date_time_dataset_parameter", date_time_dataset_parameter)
@@ -45260,8 +45282,8 @@ class DataSetDateTimeDatasetParameterDefaultValuesArgs:
     def __init__(__self__, *,
                  static_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        <p>List of default values defined for a given string date time parameter type. Currently only static values are supported.</p>
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] static_values: <p>List of static default values defined for a given string date time parameter type.</p>
+        <p>The default values of a date time parameter.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] static_values: <p>A list of static default values for a given date time parameter.</p>
         """
         if static_values is not None:
             pulumi.set(__self__, "static_values", static_values)
@@ -45270,7 +45292,7 @@ class DataSetDateTimeDatasetParameterDefaultValuesArgs:
     @pulumi.getter(name="staticValues")
     def static_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        <p>List of static default values defined for a given string date time parameter type.</p>
+        <p>A list of static default values for a given date time parameter.</p>
         """
         return pulumi.get(self, "static_values")
 
@@ -45288,7 +45310,9 @@ class DataSetDateTimeDatasetParameterArgs:
                  default_values: Optional[pulumi.Input['DataSetDateTimeDatasetParameterDefaultValuesArgs']] = None,
                  time_granularity: Optional[pulumi.Input['DataSetTimeGranularity']] = None):
         """
-        <p>A parameter created in the dataset of date time data type.</p>
+        <p>A date time parameter for a dataset.</p>
+        :param pulumi.Input[str] id: <p>An identifier for the parameter that is created in the dataset.</p>
+        :param pulumi.Input[str] name: <p>The name of the date time parameter that is created in the dataset.</p>
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -45301,6 +45325,9 @@ class DataSetDateTimeDatasetParameterArgs:
     @property
     @pulumi.getter
     def id(self) -> pulumi.Input[str]:
+        """
+        <p>An identifier for the parameter that is created in the dataset.</p>
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -45310,6 +45337,9 @@ class DataSetDateTimeDatasetParameterArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
+        """
+        <p>The name of the date time parameter that is created in the dataset.</p>
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -45349,8 +45379,8 @@ class DataSetDecimalDatasetParameterDefaultValuesArgs:
     def __init__(__self__, *,
                  static_values: Optional[pulumi.Input[Sequence[pulumi.Input[float]]]] = None):
         """
-        <p>List of default values defined for a given decimal dataset parameter type. Currently only static values are supported.</p>
-        :param pulumi.Input[Sequence[pulumi.Input[float]]] static_values: <p>List of static default values defined for a given decimal dataset parameter type.</p>
+        <p>The default values of a decimal parameter.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[float]]] static_values: <p>A list of static default values for a given decimal parameter.</p>
         """
         if static_values is not None:
             pulumi.set(__self__, "static_values", static_values)
@@ -45359,7 +45389,7 @@ class DataSetDecimalDatasetParameterDefaultValuesArgs:
     @pulumi.getter(name="staticValues")
     def static_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[float]]]]:
         """
-        <p>List of static default values defined for a given decimal dataset parameter type.</p>
+        <p>A list of static default values for a given decimal parameter.</p>
         """
         return pulumi.get(self, "static_values")
 
@@ -45376,7 +45406,9 @@ class DataSetDecimalDatasetParameterArgs:
                  value_type: pulumi.Input['DataSetDatasetParameterValueType'],
                  default_values: Optional[pulumi.Input['DataSetDecimalDatasetParameterDefaultValuesArgs']] = None):
         """
-        <p>A parameter created in the dataset of decimal data type.</p>
+        <p>A decimal parameter for a dataset.</p>
+        :param pulumi.Input[str] id: <p>An identifier for the decimal parameter created in the dataset.</p>
+        :param pulumi.Input[str] name: <p>The name of the decimal parameter that is created in the dataset.</p>
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -45387,6 +45419,9 @@ class DataSetDecimalDatasetParameterArgs:
     @property
     @pulumi.getter
     def id(self) -> pulumi.Input[str]:
+        """
+        <p>An identifier for the decimal parameter created in the dataset.</p>
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -45396,6 +45431,9 @@ class DataSetDecimalDatasetParameterArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
+        """
+        <p>The name of the decimal parameter that is created in the dataset.</p>
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -45426,6 +45464,11 @@ class DataSetFieldFolderArgs:
     def __init__(__self__, *,
                  columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None):
+        """
+        <p>A FieldFolder element is a folder that contains fields and nested subfolders.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] columns: <p>A folder has a list of columns. A column can only be in one folder.</p>
+        :param pulumi.Input[str] description: <p>The description for a field folder.</p>
+        """
         if columns is not None:
             pulumi.set(__self__, "columns", columns)
         if description is not None:
@@ -45434,6 +45477,9 @@ class DataSetFieldFolderArgs:
     @property
     @pulumi.getter
     def columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        <p>A folder has a list of columns. A column can only be in one folder.</p>
+        """
         return pulumi.get(self, "columns")
 
     @columns.setter
@@ -45443,6 +45489,9 @@ class DataSetFieldFolderArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        <p>The description for a field folder.</p>
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -45528,20 +45577,19 @@ class DataSetGeoSpatialColumnGroupArgs:
 @pulumi.input_type
 class DataSetIncrementalRefreshArgs:
     def __init__(__self__, *,
-                 lookback_window: Optional[pulumi.Input['DataSetLookbackWindowArgs']] = None):
+                 lookback_window: pulumi.Input['DataSetLookbackWindowArgs']):
         """
-        <p>Incremental Refresh</p>
+        <p>The incremental refresh configuration for a dataset.</p>
         """
-        if lookback_window is not None:
-            pulumi.set(__self__, "lookback_window", lookback_window)
+        pulumi.set(__self__, "lookback_window", lookback_window)
 
     @property
     @pulumi.getter(name="lookbackWindow")
-    def lookback_window(self) -> Optional[pulumi.Input['DataSetLookbackWindowArgs']]:
+    def lookback_window(self) -> pulumi.Input['DataSetLookbackWindowArgs']:
         return pulumi.get(self, "lookback_window")
 
     @lookback_window.setter
-    def lookback_window(self, value: Optional[pulumi.Input['DataSetLookbackWindowArgs']]):
+    def lookback_window(self, value: pulumi.Input['DataSetLookbackWindowArgs']):
         pulumi.set(self, "lookback_window", value)
 
 
@@ -45594,7 +45642,7 @@ class DataSetInputColumnArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  type: pulumi.Input['DataSetInputColumnDataType'],
-                 sub_type: Optional[pulumi.Input['DataSetColumnSubDataType']] = None):
+                 sub_type: Optional[pulumi.Input['DataSetColumnDataSubType']] = None):
         """
         <p>Metadata for a column that is used as the input of a transform operation.</p>
         :param pulumi.Input[str] name: <p>The name of this column in the underlying data source.</p>
@@ -45627,11 +45675,11 @@ class DataSetInputColumnArgs:
 
     @property
     @pulumi.getter(name="subType")
-    def sub_type(self) -> Optional[pulumi.Input['DataSetColumnSubDataType']]:
+    def sub_type(self) -> Optional[pulumi.Input['DataSetColumnDataSubType']]:
         return pulumi.get(self, "sub_type")
 
     @sub_type.setter
-    def sub_type(self, value: Optional[pulumi.Input['DataSetColumnSubDataType']]):
+    def sub_type(self, value: Optional[pulumi.Input['DataSetColumnDataSubType']]):
         pulumi.set(self, "sub_type", value)
 
 
@@ -45640,8 +45688,8 @@ class DataSetIntegerDatasetParameterDefaultValuesArgs:
     def __init__(__self__, *,
                  static_values: Optional[pulumi.Input[Sequence[pulumi.Input[float]]]] = None):
         """
-        <p>List of default values defined for a given integer dataset parameter type. Currently only static values are supported.</p>
-        :param pulumi.Input[Sequence[pulumi.Input[float]]] static_values: <p>List of static default values defined for a given integer dataset parameter type.</p>
+        <p>The default values of an integer parameter.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[float]]] static_values: <p>A list of static default values for a given integer parameter.</p>
         """
         if static_values is not None:
             pulumi.set(__self__, "static_values", static_values)
@@ -45650,7 +45698,7 @@ class DataSetIntegerDatasetParameterDefaultValuesArgs:
     @pulumi.getter(name="staticValues")
     def static_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[float]]]]:
         """
-        <p>List of static default values defined for a given integer dataset parameter type.</p>
+        <p>A list of static default values for a given integer parameter.</p>
         """
         return pulumi.get(self, "static_values")
 
@@ -45667,7 +45715,9 @@ class DataSetIntegerDatasetParameterArgs:
                  value_type: pulumi.Input['DataSetDatasetParameterValueType'],
                  default_values: Optional[pulumi.Input['DataSetIntegerDatasetParameterDefaultValuesArgs']] = None):
         """
-        <p>A parameter created in the dataset of integer data type.</p>
+        <p>An integer parameter for a dataset.</p>
+        :param pulumi.Input[str] id: <p>An identifier for the integer parameter created in the dataset.</p>
+        :param pulumi.Input[str] name: <p>The name of the integer parameter that is created in the dataset.</p>
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -45678,6 +45728,9 @@ class DataSetIntegerDatasetParameterArgs:
     @property
     @pulumi.getter
     def id(self) -> pulumi.Input[str]:
+        """
+        <p>An identifier for the integer parameter created in the dataset.</p>
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -45687,6 +45740,9 @@ class DataSetIntegerDatasetParameterArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
+        """
+        <p>The name of the integer parameter that is created in the dataset.</p>
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -45722,10 +45778,10 @@ class DataSetJoinInstructionArgs:
                  left_join_key_properties: Optional[pulumi.Input['DataSetJoinKeyPropertiesArgs']] = None,
                  right_join_key_properties: Optional[pulumi.Input['DataSetJoinKeyPropertiesArgs']] = None):
         """
-        <p>Join instruction.</p>
-        :param pulumi.Input[str] left_operand: <p>Left operand.</p>
-        :param pulumi.Input[str] on_clause: <p>On Clause.</p>
-        :param pulumi.Input[str] right_operand: <p>Right operand.</p>
+        <p>The instructions associated with a join. </p>
+        :param pulumi.Input[str] left_operand: <p>The operand on the left side of a join.</p>
+        :param pulumi.Input[str] on_clause: <p>The join instructions provided in the <code>ON</code> clause of a join.</p>
+        :param pulumi.Input[str] right_operand: <p>The operand on the right side of a join.</p>
         """
         pulumi.set(__self__, "left_operand", left_operand)
         pulumi.set(__self__, "on_clause", on_clause)
@@ -45740,7 +45796,7 @@ class DataSetJoinInstructionArgs:
     @pulumi.getter(name="leftOperand")
     def left_operand(self) -> pulumi.Input[str]:
         """
-        <p>Left operand.</p>
+        <p>The operand on the left side of a join.</p>
         """
         return pulumi.get(self, "left_operand")
 
@@ -45752,7 +45808,7 @@ class DataSetJoinInstructionArgs:
     @pulumi.getter(name="onClause")
     def on_clause(self) -> pulumi.Input[str]:
         """
-        <p>On Clause.</p>
+        <p>The join instructions provided in the <code>ON</code> clause of a join.</p>
         """
         return pulumi.get(self, "on_clause")
 
@@ -45764,7 +45820,7 @@ class DataSetJoinInstructionArgs:
     @pulumi.getter(name="rightOperand")
     def right_operand(self) -> pulumi.Input[str]:
         """
-        <p>Right operand.</p>
+        <p>The operand on the right side of a join.</p>
         """
         return pulumi.get(self, "right_operand")
 
@@ -45804,12 +45860,21 @@ class DataSetJoinInstructionArgs:
 class DataSetJoinKeyPropertiesArgs:
     def __init__(__self__, *,
                  unique_key: Optional[pulumi.Input[bool]] = None):
+        """
+        <p>Properties associated with the columns participating in a join.</p>
+        :param pulumi.Input[bool] unique_key: <p>A value that indicates that a row in a table is uniquely identified by the columns in
+                           a join key. This is used by Amazon QuickSight to optimize query performance.</p>
+        """
         if unique_key is not None:
             pulumi.set(__self__, "unique_key", unique_key)
 
     @property
     @pulumi.getter(name="uniqueKey")
     def unique_key(self) -> Optional[pulumi.Input[bool]]:
+        """
+        <p>A value that indicates that a row in a table is uniquely identified by the columns in
+                    a join key. This is used by Amazon QuickSight to optimize query performance.</p>
+        """
         return pulumi.get(self, "unique_key")
 
     @unique_key.setter
@@ -45826,7 +45891,7 @@ class DataSetLogicalTableSourceArgs:
         """
         <p>Information about the source of a logical table. This is a variant type structure. For
                     this structure to be valid, only one of the attributes can be non-null.</p>
-        :param pulumi.Input[str] data_set_arn: <p>The Amazon Resource Name (ARN) for the dataset.</p>
+        :param pulumi.Input[str] data_set_arn: <p>The Amazon Resource Number (ARN) of the parent dataset.</p>
         :param pulumi.Input[str] physical_table_id: <p>Physical table ID.</p>
         """
         if data_set_arn is not None:
@@ -45840,7 +45905,7 @@ class DataSetLogicalTableSourceArgs:
     @pulumi.getter(name="dataSetArn")
     def data_set_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        <p>The Amazon Resource Name (ARN) for the dataset.</p>
+        <p>The Amazon Resource Number (ARN) of the parent dataset.</p>
         """
         return pulumi.get(self, "data_set_arn")
 
@@ -45882,7 +45947,7 @@ class DataSetLogicalTableArgs:
                     table or result of a join. When a logical table points to a physical table, the logical
                     table acts as a mutable copy of that physical table through transform operations.</p>
         :param pulumi.Input[str] alias: <p>A display name for the logical table.</p>
-        :param pulumi.Input[Sequence[pulumi.Input['DataSetTransformOperationArgs']]] data_transforms: <p>Transform operations that act on this logical table.</p>
+        :param pulumi.Input[Sequence[pulumi.Input['DataSetTransformOperationArgs']]] data_transforms: <p>Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. </p>
         """
         pulumi.set(__self__, "alias", alias)
         pulumi.set(__self__, "source", source)
@@ -45914,7 +45979,7 @@ class DataSetLogicalTableArgs:
     @pulumi.getter(name="dataTransforms")
     def data_transforms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSetTransformOperationArgs']]]]:
         """
-        <p>Transform operations that act on this logical table.</p>
+        <p>Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. </p>
         """
         return pulumi.get(self, "data_transforms")
 
@@ -45926,51 +45991,49 @@ class DataSetLogicalTableArgs:
 @pulumi.input_type
 class DataSetLookbackWindowArgs:
     def __init__(__self__, *,
-                 column_name: Optional[pulumi.Input[str]] = None,
-                 size: Optional[pulumi.Input[float]] = None,
-                 size_unit: Optional[pulumi.Input['DataSetSizeUnit']] = None):
+                 column_name: pulumi.Input[str],
+                 size: pulumi.Input[float],
+                 size_unit: pulumi.Input['DataSetLookbackWindowSizeUnit']):
         """
-        :param pulumi.Input[str] column_name: <p>Column Name</p>
-        :param pulumi.Input[float] size: <p>Size</p>
+        <p>The lookback window setup of an incremental refresh configuration.</p>
+        :param pulumi.Input[str] column_name: <p>The name of the lookback window column.</p>
+        :param pulumi.Input[float] size: <p>The lookback window column size.</p>
         """
-        if column_name is not None:
-            pulumi.set(__self__, "column_name", column_name)
-        if size is not None:
-            pulumi.set(__self__, "size", size)
-        if size_unit is not None:
-            pulumi.set(__self__, "size_unit", size_unit)
+        pulumi.set(__self__, "column_name", column_name)
+        pulumi.set(__self__, "size", size)
+        pulumi.set(__self__, "size_unit", size_unit)
 
     @property
     @pulumi.getter(name="columnName")
-    def column_name(self) -> Optional[pulumi.Input[str]]:
+    def column_name(self) -> pulumi.Input[str]:
         """
-        <p>Column Name</p>
+        <p>The name of the lookback window column.</p>
         """
         return pulumi.get(self, "column_name")
 
     @column_name.setter
-    def column_name(self, value: Optional[pulumi.Input[str]]):
+    def column_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "column_name", value)
 
     @property
     @pulumi.getter
-    def size(self) -> Optional[pulumi.Input[float]]:
+    def size(self) -> pulumi.Input[float]:
         """
-        <p>Size</p>
+        <p>The lookback window column size.</p>
         """
         return pulumi.get(self, "size")
 
     @size.setter
-    def size(self, value: Optional[pulumi.Input[float]]):
+    def size(self, value: pulumi.Input[float]):
         pulumi.set(self, "size", value)
 
     @property
     @pulumi.getter(name="sizeUnit")
-    def size_unit(self) -> Optional[pulumi.Input['DataSetSizeUnit']]:
+    def size_unit(self) -> pulumi.Input['DataSetLookbackWindowSizeUnit']:
         return pulumi.get(self, "size_unit")
 
     @size_unit.setter
-    def size_unit(self, value: Optional[pulumi.Input['DataSetSizeUnit']]):
+    def size_unit(self, value: pulumi.Input['DataSetLookbackWindowSizeUnit']):
         pulumi.set(self, "size_unit", value)
 
 
@@ -45981,6 +46044,13 @@ class DataSetNewDefaultValuesArgs:
                  decimal_static_values: Optional[pulumi.Input[Sequence[pulumi.Input[float]]]] = None,
                  integer_static_values: Optional[pulumi.Input[Sequence[pulumi.Input[float]]]] = None,
                  string_static_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        <p>The configuration that overrides the existing default values for a dataset parameter that is inherited from another dataset.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] date_time_static_values: <p>A list of static default values for a given date time parameter.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[float]]] decimal_static_values: <p>A list of static default values for a given decimal parameter.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[float]]] integer_static_values: <p>A list of static default values for a given integer parameter.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] string_static_values: <p>A list of static default values for a given string parameter.</p>
+        """
         if date_time_static_values is not None:
             pulumi.set(__self__, "date_time_static_values", date_time_static_values)
         if decimal_static_values is not None:
@@ -45993,6 +46063,9 @@ class DataSetNewDefaultValuesArgs:
     @property
     @pulumi.getter(name="dateTimeStaticValues")
     def date_time_static_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        <p>A list of static default values for a given date time parameter.</p>
+        """
         return pulumi.get(self, "date_time_static_values")
 
     @date_time_static_values.setter
@@ -46002,6 +46075,9 @@ class DataSetNewDefaultValuesArgs:
     @property
     @pulumi.getter(name="decimalStaticValues")
     def decimal_static_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[float]]]]:
+        """
+        <p>A list of static default values for a given decimal parameter.</p>
+        """
         return pulumi.get(self, "decimal_static_values")
 
     @decimal_static_values.setter
@@ -46011,6 +46087,9 @@ class DataSetNewDefaultValuesArgs:
     @property
     @pulumi.getter(name="integerStaticValues")
     def integer_static_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[float]]]]:
+        """
+        <p>A list of static default values for a given integer parameter.</p>
+        """
         return pulumi.get(self, "integer_static_values")
 
     @integer_static_values.setter
@@ -46020,6 +46099,9 @@ class DataSetNewDefaultValuesArgs:
     @property
     @pulumi.getter(name="stringStaticValues")
     def string_static_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        <p>A list of static default values for a given string parameter.</p>
+        """
         return pulumi.get(self, "string_static_values")
 
     @string_static_values.setter
@@ -46034,9 +46116,8 @@ class DataSetOverrideDatasetParameterOperationArgs:
                  new_default_values: Optional[pulumi.Input['DataSetNewDefaultValuesArgs']] = None,
                  new_parameter_name: Optional[pulumi.Input[str]] = None):
         """
-        <p>A transform operation that overrides the dataset parameter values defined in another dataset.</p>
+        <p>A transform operation that overrides the dataset parameter values that are defined in another dataset.</p>
         :param pulumi.Input[str] parameter_name: <p>The name of the parameter to be overridden with different values.</p>
-        :param pulumi.Input['DataSetNewDefaultValuesArgs'] new_default_values: <p>The new default values for the parameter.</p>
         :param pulumi.Input[str] new_parameter_name: <p>The new name for the parameter.</p>
         """
         pulumi.set(__self__, "parameter_name", parameter_name)
@@ -46060,9 +46141,6 @@ class DataSetOverrideDatasetParameterOperationArgs:
     @property
     @pulumi.getter(name="newDefaultValues")
     def new_default_values(self) -> Optional[pulumi.Input['DataSetNewDefaultValuesArgs']]:
-        """
-        <p>The new default values for the parameter.</p>
-        """
         return pulumi.get(self, "new_default_values")
 
     @new_default_values.setter
@@ -46155,40 +46233,38 @@ class DataSetProjectOperationArgs:
 @pulumi.input_type
 class DataSetRefreshConfigurationArgs:
     def __init__(__self__, *,
-                 incremental_refresh: Optional[pulumi.Input['DataSetIncrementalRefreshArgs']] = None):
+                 incremental_refresh: pulumi.Input['DataSetIncrementalRefreshArgs']):
         """
-        <p> Refresh Configuration.</p>
+        <p>The refresh configuration of a dataset.</p>
         """
-        if incremental_refresh is not None:
-            pulumi.set(__self__, "incremental_refresh", incremental_refresh)
+        pulumi.set(__self__, "incremental_refresh", incremental_refresh)
 
     @property
     @pulumi.getter(name="incrementalRefresh")
-    def incremental_refresh(self) -> Optional[pulumi.Input['DataSetIncrementalRefreshArgs']]:
+    def incremental_refresh(self) -> pulumi.Input['DataSetIncrementalRefreshArgs']:
         return pulumi.get(self, "incremental_refresh")
 
     @incremental_refresh.setter
-    def incremental_refresh(self, value: Optional[pulumi.Input['DataSetIncrementalRefreshArgs']]):
+    def incremental_refresh(self, value: pulumi.Input['DataSetIncrementalRefreshArgs']):
         pulumi.set(self, "incremental_refresh", value)
 
 
 @pulumi.input_type
 class DataSetRefreshPropertiesArgs:
     def __init__(__self__, *,
-                 refresh_configuration: Optional[pulumi.Input['DataSetRefreshConfigurationArgs']] = None):
+                 refresh_configuration: pulumi.Input['DataSetRefreshConfigurationArgs']):
         """
-        <p>The dataset refresh properties for the dataset.</p>
+        <p>The refresh properties of a dataset.</p>
         """
-        if refresh_configuration is not None:
-            pulumi.set(__self__, "refresh_configuration", refresh_configuration)
+        pulumi.set(__self__, "refresh_configuration", refresh_configuration)
 
     @property
     @pulumi.getter(name="refreshConfiguration")
-    def refresh_configuration(self) -> Optional[pulumi.Input['DataSetRefreshConfigurationArgs']]:
+    def refresh_configuration(self) -> pulumi.Input['DataSetRefreshConfigurationArgs']:
         return pulumi.get(self, "refresh_configuration")
 
     @refresh_configuration.setter
-    def refresh_configuration(self, value: Optional[pulumi.Input['DataSetRefreshConfigurationArgs']]):
+    def refresh_configuration(self, value: pulumi.Input['DataSetRefreshConfigurationArgs']):
         pulumi.set(self, "refresh_configuration", value)
 
 
@@ -46325,16 +46401,16 @@ class DataSetResourcePermissionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] actions: <p>The IAM action to grant or revoke permissions on.</p>
         :param pulumi.Input[str] principal: <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
                            following:</p>
-                       <ul>
+                        <ul>
                            <li>
-                               <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+                              <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
                            </li>
                            <li>
-                               <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+                              <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
                            </li>
                            <li>
-                               <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
-                                   ARN. Use this option only to share resources (templates) across AWS accounts.
+                              <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
+                                   ARN. Use this option only to share resources (templates) across Amazon Web Services accounts.
                                    (This is less common.) </p>
                            </li>
                         </ul>
@@ -46360,16 +46436,16 @@ class DataSetResourcePermissionArgs:
         """
         <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
                     following:</p>
-                <ul>
+                 <ul>
                     <li>
-                        <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+                       <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
                     </li>
                     <li>
-                        <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+                       <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
                     </li>
                     <li>
-                        <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
-                            ARN. Use this option only to share resources (templates) across AWS accounts.
+                       <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
+                            ARN. Use this option only to share resources (templates) across Amazon Web Services accounts.
                             (This is less common.) </p>
                     </li>
                  </ul>
@@ -46390,9 +46466,14 @@ class DataSetRowLevelPermissionDataSetArgs:
                  namespace: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input['DataSetStatus']] = None):
         """
-        <p>The row-level security configuration for the dataset.</p>
-        :param pulumi.Input[str] arn: <p>The Amazon Resource Name (ARN) of the permission dataset.</p>
-        :param pulumi.Input[str] namespace: <p>The namespace associated with the row-level permissions dataset.</p>
+        <p>Information about a dataset that contains permissions for row-level security (RLS).
+                    The permissions dataset maps fields to users or groups. For more information, see
+                    <a href="https://docs.aws.amazon.com/quicksight/latest/user/restrict-access-to-a-data-set-using-row-level-security.html">Using Row-Level Security (RLS) to Restrict Access to a Dataset</a> in the <i>Amazon QuickSight User
+                        Guide</i>.</p>
+                 <p>The option to deny permissions by setting <code>PermissionPolicy</code> to <code>DENY_ACCESS</code> is
+                    not supported for new RLS datasets.</p>
+        :param pulumi.Input[str] arn: <p>The Amazon Resource Name (ARN) of the dataset that contains permissions for RLS.</p>
+        :param pulumi.Input[str] namespace: <p>The namespace associated with the dataset that contains permissions for RLS.</p>
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "permission_policy", permission_policy)
@@ -46407,7 +46488,7 @@ class DataSetRowLevelPermissionDataSetArgs:
     @pulumi.getter
     def arn(self) -> pulumi.Input[str]:
         """
-        <p>The Amazon Resource Name (ARN) of the permission dataset.</p>
+        <p>The Amazon Resource Name (ARN) of the dataset that contains permissions for RLS.</p>
         """
         return pulumi.get(self, "arn")
 
@@ -46437,7 +46518,7 @@ class DataSetRowLevelPermissionDataSetArgs:
     @pulumi.getter
     def namespace(self) -> Optional[pulumi.Input[str]]:
         """
-        <p>The namespace associated with the row-level permissions dataset.</p>
+        <p>The namespace associated with the dataset that contains permissions for RLS.</p>
         """
         return pulumi.get(self, "namespace")
 
@@ -46462,7 +46543,7 @@ class DataSetRowLevelPermissionTagConfigurationArgs:
                  status: Optional[pulumi.Input['DataSetStatus']] = None,
                  tag_rule_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[str]]]]]] = None):
         """
-        <p>The configuration of tags on a dataset to set row-level security.</p>
+        <p>The configuration of tags on a dataset to set row-level security. </p>
         :param pulumi.Input[Sequence[pulumi.Input['DataSetRowLevelPermissionTagRuleArgs']]] tag_rules: <p>A set of rules associated with row-level security, such as the tag names and columns that they are assigned to.</p>
         :param pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[str]]]]] tag_rule_configurations: <p>A list of tag configuration rules to apply to a dataset. All tag configurations have the OR condition. Tags within each tile will be joined (AND). At least one rule in this structure must have all tag values assigned to it to apply Row-level security (RLS) to the dataset.</p>
         """
@@ -46514,7 +46595,7 @@ class DataSetRowLevelPermissionTagRuleArgs:
                  match_all_value: Optional[pulumi.Input[str]] = None,
                  tag_multi_value_delimiter: Optional[pulumi.Input[str]] = None):
         """
-        <p>Permission for the resource.</p>
+        <p>A set of rules associated with a tag.</p>
         :param pulumi.Input[str] column_name: <p>The column name that a tag key is assigned to.</p>
         :param pulumi.Input[str] tag_key: <p>The unique key for a tag.</p>
         :param pulumi.Input[str] match_all_value: <p>A string that you want to use to filter by all the values in a column in the dataset and don’t want to list the values one by one. For example, you can use an asterisk as your match all value.</p>
@@ -46583,9 +46664,12 @@ class DataSetS3SourceArgs:
                  input_columns: pulumi.Input[Sequence[pulumi.Input['DataSetInputColumnArgs']]],
                  upload_settings: Optional[pulumi.Input['DataSetUploadSettingsArgs']] = None):
         """
-        <p>A physical table type for as S3 data source.</p>
-        :param pulumi.Input[str] data_source_arn: <p>The amazon Resource Name (ARN) for the data source.</p>
-        :param pulumi.Input[Sequence[pulumi.Input['DataSetInputColumnArgs']]] input_columns: <p>A physical table type for as S3 data source.</p>
+        <p>A physical table type for an S3 data source.</p>
+        :param pulumi.Input[str] data_source_arn: <p>The Amazon Resource Name (ARN) for the data source.</p>
+        :param pulumi.Input[Sequence[pulumi.Input['DataSetInputColumnArgs']]] input_columns: <p>A physical table type for an S3 data source.</p>
+                        <note>
+                           <p>For files that aren't JSON, only <code>STRING</code> data types are supported in input columns.</p>
+                        </note>
         """
         pulumi.set(__self__, "data_source_arn", data_source_arn)
         pulumi.set(__self__, "input_columns", input_columns)
@@ -46596,7 +46680,7 @@ class DataSetS3SourceArgs:
     @pulumi.getter(name="dataSourceArn")
     def data_source_arn(self) -> pulumi.Input[str]:
         """
-        <p>The amazon Resource Name (ARN) for the data source.</p>
+        <p>The Amazon Resource Name (ARN) for the data source.</p>
         """
         return pulumi.get(self, "data_source_arn")
 
@@ -46608,7 +46692,10 @@ class DataSetS3SourceArgs:
     @pulumi.getter(name="inputColumns")
     def input_columns(self) -> pulumi.Input[Sequence[pulumi.Input['DataSetInputColumnArgs']]]:
         """
-        <p>A physical table type for as S3 data source.</p>
+        <p>A physical table type for an S3 data source.</p>
+                 <note>
+                    <p>For files that aren't JSON, only <code>STRING</code> data types are supported in input columns.</p>
+                 </note>
         """
         return pulumi.get(self, "input_columns")
 
@@ -46631,8 +46718,8 @@ class DataSetStringDatasetParameterDefaultValuesArgs:
     def __init__(__self__, *,
                  static_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        <p>List of default values defined for a given string dataset parameter type. Currently only static values are supported.</p>
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] static_values: <p>List of static default values defined for a given string dataset parameter type.</p>
+        <p>The default values of a string parameter.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] static_values: <p>A list of static default values for a given string parameter.</p>
         """
         if static_values is not None:
             pulumi.set(__self__, "static_values", static_values)
@@ -46641,7 +46728,7 @@ class DataSetStringDatasetParameterDefaultValuesArgs:
     @pulumi.getter(name="staticValues")
     def static_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        <p>List of static default values defined for a given string dataset parameter type.</p>
+        <p>A list of static default values for a given string parameter.</p>
         """
         return pulumi.get(self, "static_values")
 
@@ -46658,7 +46745,9 @@ class DataSetStringDatasetParameterArgs:
                  value_type: pulumi.Input['DataSetDatasetParameterValueType'],
                  default_values: Optional[pulumi.Input['DataSetStringDatasetParameterDefaultValuesArgs']] = None):
         """
-        <p>A parameter created in the dataset of string data type.</p>
+        <p>A string parameter for a dataset.</p>
+        :param pulumi.Input[str] id: <p>An identifier for the string parameter that is created in the dataset.</p>
+        :param pulumi.Input[str] name: <p>The name of the string parameter that is created in the dataset.</p>
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -46669,6 +46758,9 @@ class DataSetStringDatasetParameterArgs:
     @property
     @pulumi.getter
     def id(self) -> pulumi.Input[str]:
+        """
+        <p>An identifier for the string parameter that is created in the dataset.</p>
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -46678,6 +46770,9 @@ class DataSetStringDatasetParameterArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
+        """
+        <p>The name of the string parameter that is created in the dataset.</p>
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -46711,10 +46806,10 @@ class DataSetTagColumnOperationArgs:
         """
         <p>A transform operation that tags a column with additional information.</p>
         :param pulumi.Input[str] column_name: <p>The column that this operation acts on.</p>
-        :param pulumi.Input[Sequence[pulumi.Input['DataSetColumnTagArgs']]] tags: <p>The dataset column tag, currently only used for geospatial type tagging. .</p>
-                       <note>
-                           <p>This is not tags for the AWS tagging feature. .</p>
-                       </note>
+        :param pulumi.Input[Sequence[pulumi.Input['DataSetColumnTagArgs']]] tags: <p>The dataset column tag, currently only used for geospatial type tagging.</p>
+                        <note>
+                           <p>This is not tags for the Amazon Web Services tagging feature.</p>
+                        </note>
         """
         pulumi.set(__self__, "column_name", column_name)
         pulumi.set(__self__, "tags", tags)
@@ -46735,10 +46830,10 @@ class DataSetTagColumnOperationArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Sequence[pulumi.Input['DataSetColumnTagArgs']]]:
         """
-        <p>The dataset column tag, currently only used for geospatial type tagging. .</p>
-                <note>
-                    <p>This is not tags for the AWS tagging feature. .</p>
-                </note>
+        <p>The dataset column tag, currently only used for geospatial type tagging.</p>
+                 <note>
+                    <p>This is not tags for the Amazon Web Services tagging feature.</p>
+                 </note>
         """
         return pulumi.get(self, "tags")
 
@@ -46756,7 +46851,8 @@ class DataSetTransformOperationArgs:
                  override_dataset_parameter_operation: Optional[pulumi.Input['DataSetOverrideDatasetParameterOperationArgs']] = None,
                  project_operation: Optional[pulumi.Input['DataSetProjectOperationArgs']] = None,
                  rename_column_operation: Optional[pulumi.Input['DataSetRenameColumnOperationArgs']] = None,
-                 tag_column_operation: Optional[pulumi.Input['DataSetTagColumnOperationArgs']] = None):
+                 tag_column_operation: Optional[pulumi.Input['DataSetTagColumnOperationArgs']] = None,
+                 untag_column_operation: Optional[pulumi.Input['DataSetUntagColumnOperationArgs']] = None):
         """
         <p>A data transformation on a logical table. This is a variant type structure. For this
                     structure to be valid, only one of the attributes can be non-null.</p>
@@ -46775,6 +46871,8 @@ class DataSetTransformOperationArgs:
             pulumi.set(__self__, "rename_column_operation", rename_column_operation)
         if tag_column_operation is not None:
             pulumi.set(__self__, "tag_column_operation", tag_column_operation)
+        if untag_column_operation is not None:
+            pulumi.set(__self__, "untag_column_operation", untag_column_operation)
 
     @property
     @pulumi.getter(name="castColumnTypeOperation")
@@ -46838,6 +46936,53 @@ class DataSetTransformOperationArgs:
     @tag_column_operation.setter
     def tag_column_operation(self, value: Optional[pulumi.Input['DataSetTagColumnOperationArgs']]):
         pulumi.set(self, "tag_column_operation", value)
+
+    @property
+    @pulumi.getter(name="untagColumnOperation")
+    def untag_column_operation(self) -> Optional[pulumi.Input['DataSetUntagColumnOperationArgs']]:
+        return pulumi.get(self, "untag_column_operation")
+
+    @untag_column_operation.setter
+    def untag_column_operation(self, value: Optional[pulumi.Input['DataSetUntagColumnOperationArgs']]):
+        pulumi.set(self, "untag_column_operation", value)
+
+
+@pulumi.input_type
+class DataSetUntagColumnOperationArgs:
+    def __init__(__self__, *,
+                 column_name: pulumi.Input[str],
+                 tag_names: pulumi.Input[Sequence[pulumi.Input['DataSetColumnTagName']]]):
+        """
+        <p>A transform operation that removes tags associated with a column.</p>
+        :param pulumi.Input[str] column_name: <p>The column that this operation acts on.</p>
+        :param pulumi.Input[Sequence[pulumi.Input['DataSetColumnTagName']]] tag_names: <p>The column tags to remove from this column.</p>
+        """
+        pulumi.set(__self__, "column_name", column_name)
+        pulumi.set(__self__, "tag_names", tag_names)
+
+    @property
+    @pulumi.getter(name="columnName")
+    def column_name(self) -> pulumi.Input[str]:
+        """
+        <p>The column that this operation acts on.</p>
+        """
+        return pulumi.get(self, "column_name")
+
+    @column_name.setter
+    def column_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "column_name", value)
+
+    @property
+    @pulumi.getter(name="tagNames")
+    def tag_names(self) -> pulumi.Input[Sequence[pulumi.Input['DataSetColumnTagName']]]:
+        """
+        <p>The column tags to remove from this column.</p>
+        """
+        return pulumi.get(self, "tag_names")
+
+    @tag_names.setter
+    def tag_names(self, value: pulumi.Input[Sequence[pulumi.Input['DataSetColumnTagName']]]):
+        pulumi.set(self, "tag_names", value)
 
 
 @pulumi.input_type
@@ -46926,7 +47071,9 @@ class DataSetUsageConfigurationArgs:
                  disable_use_as_direct_query_source: Optional[pulumi.Input[bool]] = None,
                  disable_use_as_imported_source: Optional[pulumi.Input[bool]] = None):
         """
-        <p>The dataset usage configuration for the dataset.</p>
+        <p>The usage configuration to apply to child datasets that reference this dataset as a source.</p>
+        :param pulumi.Input[bool] disable_use_as_direct_query_source: <p>An option that controls whether a child dataset of a direct query can use this dataset as a source.</p>
+        :param pulumi.Input[bool] disable_use_as_imported_source: <p>An option that controls whether a child dataset that's stored in QuickSight can use this dataset as a source.</p>
         """
         if disable_use_as_direct_query_source is not None:
             pulumi.set(__self__, "disable_use_as_direct_query_source", disable_use_as_direct_query_source)
@@ -46936,6 +47083,9 @@ class DataSetUsageConfigurationArgs:
     @property
     @pulumi.getter(name="disableUseAsDirectQuerySource")
     def disable_use_as_direct_query_source(self) -> Optional[pulumi.Input[bool]]:
+        """
+        <p>An option that controls whether a child dataset of a direct query can use this dataset as a source.</p>
+        """
         return pulumi.get(self, "disable_use_as_direct_query_source")
 
     @disable_use_as_direct_query_source.setter
@@ -46945,6 +47095,9 @@ class DataSetUsageConfigurationArgs:
     @property
     @pulumi.getter(name="disableUseAsImportedSource")
     def disable_use_as_imported_source(self) -> Optional[pulumi.Input[bool]]:
+        """
+        <p>An option that controls whether a child dataset that's stored in QuickSight can use this dataset as a source.</p>
+        """
         return pulumi.get(self, "disable_use_as_imported_source")
 
     @disable_use_as_imported_source.setter
@@ -46957,8 +47110,8 @@ class DataSourceAmazonElasticsearchParametersArgs:
     def __init__(__self__, *,
                  domain: pulumi.Input[str]):
         """
-        <p>Amazon Elasticsearch Service parameters.</p>
-        :param pulumi.Input[str] domain: <p>The Amazon Elasticsearch Service domain.</p>
+        <p>The parameters for OpenSearch.</p>
+        :param pulumi.Input[str] domain: <p>The OpenSearch domain.</p>
         """
         pulumi.set(__self__, "domain", domain)
 
@@ -46966,7 +47119,7 @@ class DataSourceAmazonElasticsearchParametersArgs:
     @pulumi.getter
     def domain(self) -> pulumi.Input[str]:
         """
-        <p>The Amazon Elasticsearch Service domain.</p>
+        <p>The OpenSearch domain.</p>
         """
         return pulumi.get(self, "domain")
 
@@ -46980,8 +47133,8 @@ class DataSourceAmazonOpenSearchParametersArgs:
     def __init__(__self__, *,
                  domain: pulumi.Input[str]):
         """
-        <p>Amazon OpenSearch Service parameters.</p>
-        :param pulumi.Input[str] domain: <p>The Amazon OpenSearch Service domain.</p>
+        <p>The parameters for OpenSearch.</p>
+        :param pulumi.Input[str] domain: <p>The OpenSearch domain.</p>
         """
         pulumi.set(__self__, "domain", domain)
 
@@ -46989,7 +47142,7 @@ class DataSourceAmazonOpenSearchParametersArgs:
     @pulumi.getter
     def domain(self) -> pulumi.Input[str]:
         """
-        <p>The Amazon OpenSearch Service domain.</p>
+        <p>The OpenSearch domain.</p>
         """
         return pulumi.get(self, "domain")
 
@@ -47004,7 +47157,7 @@ class DataSourceAthenaParametersArgs:
                  role_arn: Optional[pulumi.Input[str]] = None,
                  work_group: Optional[pulumi.Input[str]] = None):
         """
-        <p>Amazon Athena parameters.</p>
+        <p>Parameters for Amazon Athena.</p>
         :param pulumi.Input[str] role_arn: <p>Use the <code>RoleArn</code> structure to override an account-wide role for a specific Athena data source. For example, say an account administrator has turned off all Athena access with an account-wide role. The administrator can then use <code>RoleArn</code> to bypass the account-wide role and allow Athena access for the single Athena data source that is specified in the structure, even if the account-wide role forbidding Athena access is still active.</p>
         :param pulumi.Input[str] work_group: <p>The workgroup that Amazon Athena uses.</p>
         """
@@ -47045,7 +47198,7 @@ class DataSourceAuroraParametersArgs:
                  host: pulumi.Input[str],
                  port: pulumi.Input[float]):
         """
-        <p>Amazon Aurora parameters.</p>
+        <p>Parameters for Amazon Aurora.</p>
         :param pulumi.Input[str] database: <p>Database.</p>
         :param pulumi.Input[str] host: <p>Host.</p>
         :param pulumi.Input[float] port: <p>Port.</p>
@@ -47098,10 +47251,10 @@ class DataSourceAuroraPostgreSqlParametersArgs:
                  host: pulumi.Input[str],
                  port: pulumi.Input[float]):
         """
-        <p>Amazon Aurora with PostgreSQL compatibility parameters.</p>
-        :param pulumi.Input[str] database: <p>Database.</p>
-        :param pulumi.Input[str] host: <p>Host.</p>
-        :param pulumi.Input[float] port: <p>Port.</p>
+        <p>Parameters for Amazon Aurora PostgreSQL-Compatible Edition.</p>
+        :param pulumi.Input[str] database: <p>The Amazon Aurora PostgreSQL database to connect to.</p>
+        :param pulumi.Input[str] host: <p>The Amazon Aurora PostgreSQL-Compatible host to connect to.</p>
+        :param pulumi.Input[float] port: <p>The port that Amazon Aurora PostgreSQL is listening on.</p>
         """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "host", host)
@@ -47111,7 +47264,7 @@ class DataSourceAuroraPostgreSqlParametersArgs:
     @pulumi.getter
     def database(self) -> pulumi.Input[str]:
         """
-        <p>Database.</p>
+        <p>The Amazon Aurora PostgreSQL database to connect to.</p>
         """
         return pulumi.get(self, "database")
 
@@ -47123,7 +47276,7 @@ class DataSourceAuroraPostgreSqlParametersArgs:
     @pulumi.getter
     def host(self) -> pulumi.Input[str]:
         """
-        <p>Host.</p>
+        <p>The Amazon Aurora PostgreSQL-Compatible host to connect to.</p>
         """
         return pulumi.get(self, "host")
 
@@ -47135,7 +47288,7 @@ class DataSourceAuroraPostgreSqlParametersArgs:
     @pulumi.getter
     def port(self) -> pulumi.Input[float]:
         """
-        <p>Port.</p>
+        <p>The port that Amazon Aurora PostgreSQL is listening on.</p>
         """
         return pulumi.get(self, "port")
 
@@ -47280,10 +47433,10 @@ class DataSourceDatabricksParametersArgs:
                  port: pulumi.Input[float],
                  sql_endpoint_path: pulumi.Input[str]):
         """
-        <p>Databricks parameters.</p>
-        :param pulumi.Input[str] host: <p>Host.</p>
-        :param pulumi.Input[float] port: <p>Port.</p>
-        :param pulumi.Input[str] sql_endpoint_path: <p>The HTTP Path of the Databricks data source.</p>
+        <p>The parameters that are required to connect to a Databricks data source.</p>
+        :param pulumi.Input[str] host: <p>The host name of the Databricks data source.</p>
+        :param pulumi.Input[float] port: <p>The port for the Databricks data source.</p>
+        :param pulumi.Input[str] sql_endpoint_path: <p>The HTTP path of the Databricks data source.</p>
         """
         pulumi.set(__self__, "host", host)
         pulumi.set(__self__, "port", port)
@@ -47293,7 +47446,7 @@ class DataSourceDatabricksParametersArgs:
     @pulumi.getter
     def host(self) -> pulumi.Input[str]:
         """
-        <p>Host.</p>
+        <p>The host name of the Databricks data source.</p>
         """
         return pulumi.get(self, "host")
 
@@ -47305,7 +47458,7 @@ class DataSourceDatabricksParametersArgs:
     @pulumi.getter
     def port(self) -> pulumi.Input[float]:
         """
-        <p>Port.</p>
+        <p>The port for the Databricks data source.</p>
         """
         return pulumi.get(self, "port")
 
@@ -47317,7 +47470,7 @@ class DataSourceDatabricksParametersArgs:
     @pulumi.getter(name="sqlEndpointPath")
     def sql_endpoint_path(self) -> pulumi.Input[str]:
         """
-        <p>The HTTP Path of the Databricks data source.</p>
+        <p>The HTTP path of the Databricks data source.</p>
         """
         return pulumi.get(self, "sql_endpoint_path")
 
@@ -47360,6 +47513,30 @@ class DataSourceErrorInfoArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input['DataSourceErrorInfoType']]):
         pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class DataSourceIdentityCenterConfigurationArgs:
+    def __init__(__self__, *,
+                 enable_identity_propagation: Optional[pulumi.Input[bool]] = None):
+        """
+        <p>The parameters for an IAM Identity Center configuration.</p>
+        :param pulumi.Input[bool] enable_identity_propagation: <p>A Boolean option that controls whether Trusted Identity Propagation should be used.</p>
+        """
+        if enable_identity_propagation is not None:
+            pulumi.set(__self__, "enable_identity_propagation", enable_identity_propagation)
+
+    @property
+    @pulumi.getter(name="enableIdentityPropagation")
+    def enable_identity_propagation(self) -> Optional[pulumi.Input[bool]]:
+        """
+        <p>A Boolean option that controls whether Trusted Identity Propagation should be used.</p>
+        """
+        return pulumi.get(self, "enable_identity_propagation")
+
+    @enable_identity_propagation.setter
+    def enable_identity_propagation(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_identity_propagation", value)
 
 
 @pulumi.input_type
@@ -47407,7 +47584,7 @@ class DataSourceMariaDbParametersArgs:
                  host: pulumi.Input[str],
                  port: pulumi.Input[float]):
         """
-        <p>MariaDB parameters.</p>
+        <p>The parameters for MariaDB.</p>
         :param pulumi.Input[str] database: <p>Database.</p>
         :param pulumi.Input[str] host: <p>Host.</p>
         :param pulumi.Input[float] port: <p>Port.</p>
@@ -47460,7 +47637,7 @@ class DataSourceMySqlParametersArgs:
                  host: pulumi.Input[str],
                  port: pulumi.Input[float]):
         """
-        <p>MySQL parameters.</p>
+        <p>The parameters for MySQL.</p>
         :param pulumi.Input[str] database: <p>Database.</p>
         :param pulumi.Input[str] host: <p>Host.</p>
         :param pulumi.Input[float] port: <p>Port.</p>
@@ -47512,6 +47689,12 @@ class DataSourceOracleParametersArgs:
                  database: pulumi.Input[str],
                  host: pulumi.Input[str],
                  port: pulumi.Input[float]):
+        """
+        <p>The parameters for Oracle.</p>
+        :param pulumi.Input[str] database: <p>The database.</p>
+        :param pulumi.Input[str] host: <p>An Oracle host.</p>
+        :param pulumi.Input[float] port: <p>The port.</p>
+        """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "host", host)
         pulumi.set(__self__, "port", port)
@@ -47519,6 +47702,9 @@ class DataSourceOracleParametersArgs:
     @property
     @pulumi.getter
     def database(self) -> pulumi.Input[str]:
+        """
+        <p>The database.</p>
+        """
         return pulumi.get(self, "database")
 
     @database.setter
@@ -47528,6 +47714,9 @@ class DataSourceOracleParametersArgs:
     @property
     @pulumi.getter
     def host(self) -> pulumi.Input[str]:
+        """
+        <p>An Oracle host.</p>
+        """
         return pulumi.get(self, "host")
 
     @host.setter
@@ -47537,6 +47726,9 @@ class DataSourceOracleParametersArgs:
     @property
     @pulumi.getter
     def port(self) -> pulumi.Input[float]:
+        """
+        <p>The port.</p>
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -47801,7 +47993,7 @@ class DataSourcePostgreSqlParametersArgs:
                  host: pulumi.Input[str],
                  port: pulumi.Input[float]):
         """
-        <p>PostgreSQL parameters.</p>
+        <p>The parameters for PostgreSQL.</p>
         :param pulumi.Input[str] database: <p>Database.</p>
         :param pulumi.Input[str] host: <p>Host.</p>
         :param pulumi.Input[float] port: <p>Port.</p>
@@ -47854,7 +48046,7 @@ class DataSourcePrestoParametersArgs:
                  host: pulumi.Input[str],
                  port: pulumi.Input[float]):
         """
-        <p>Presto parameters.</p>
+        <p>The parameters for Presto.</p>
         :param pulumi.Input[str] catalog: <p>Catalog.</p>
         :param pulumi.Input[str] host: <p>Host.</p>
         :param pulumi.Input[float] port: <p>Port.</p>
@@ -47906,7 +48098,7 @@ class DataSourceRdsParametersArgs:
                  database: pulumi.Input[str],
                  instance_id: pulumi.Input[str]):
         """
-        <p>Amazon RDS parameters.</p>
+        <p>The parameters for Amazon RDS.</p>
         :param pulumi.Input[str] database: <p>Database.</p>
         :param pulumi.Input[str] instance_id: <p>Instance ID.</p>
         """
@@ -47944,11 +48136,11 @@ class DataSourceRedshiftParametersArgs:
                  database: pulumi.Input[str],
                  cluster_id: Optional[pulumi.Input[str]] = None,
                  host: Optional[pulumi.Input[str]] = None,
+                 identity_center_configuration: Optional[pulumi.Input['DataSourceIdentityCenterConfigurationArgs']] = None,
                  port: Optional[pulumi.Input[float]] = None):
         """
-        <p>Amazon Redshift parameters. The <code>ClusterId</code> field can be blank if
-                    <code>Host</code> and <code>Port</code> are both set. The <code>Host</code> and
-                    <code>Port</code> fields can be blank if the <code>ClusterId</code> field is set.</p>
+        <p>The parameters for Amazon Redshift. The <code>ClusterId</code> field can be blank if
+                    <code>Host</code> and <code>Port</code> are both set. The <code>Host</code> and <code>Port</code> fields can be blank if the <code>ClusterId</code> field is set.</p>
         :param pulumi.Input[str] database: <p>Database.</p>
         :param pulumi.Input[str] cluster_id: <p>Cluster ID. This field can be blank if the <code>Host</code> and <code>Port</code> are
                            provided.</p>
@@ -47960,6 +48152,8 @@ class DataSourceRedshiftParametersArgs:
             pulumi.set(__self__, "cluster_id", cluster_id)
         if host is not None:
             pulumi.set(__self__, "host", host)
+        if identity_center_configuration is not None:
+            pulumi.set(__self__, "identity_center_configuration", identity_center_configuration)
         if port is not None:
             pulumi.set(__self__, "port", port)
 
@@ -48001,6 +48195,15 @@ class DataSourceRedshiftParametersArgs:
         pulumi.set(self, "host", value)
 
     @property
+    @pulumi.getter(name="identityCenterConfiguration")
+    def identity_center_configuration(self) -> Optional[pulumi.Input['DataSourceIdentityCenterConfigurationArgs']]:
+        return pulumi.get(self, "identity_center_configuration")
+
+    @identity_center_configuration.setter
+    def identity_center_configuration(self, value: Optional[pulumi.Input['DataSourceIdentityCenterConfigurationArgs']]):
+        pulumi.set(self, "identity_center_configuration", value)
+
+    @property
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[float]]:
         """
@@ -48017,28 +48220,31 @@ class DataSourceRedshiftParametersArgs:
 class DataSourceResourcePermissionArgs:
     def __init__(__self__, *,
                  actions: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 principal: pulumi.Input[str]):
+                 principal: pulumi.Input[str],
+                 resource: Optional[pulumi.Input[str]] = None):
         """
         <p>Permission for the resource.</p>
         :param pulumi.Input[Sequence[pulumi.Input[str]]] actions: <p>The IAM action to grant or revoke permissions on.</p>
         :param pulumi.Input[str] principal: <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
                            following:</p>
-                       <ul>
+                        <ul>
                            <li>
-                               <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+                              <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
                            </li>
                            <li>
-                               <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+                              <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
                            </li>
                            <li>
-                               <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
-                                   ARN. Use this option only to share resources (templates) across AWS accounts.
+                              <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
+                                   ARN. Use this option only to share resources (templates) across Amazon Web Services accounts.
                                    (This is less common.) </p>
                            </li>
                         </ul>
         """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "principal", principal)
+        if resource is not None:
+            pulumi.set(__self__, "resource", resource)
 
     @property
     @pulumi.getter
@@ -48058,16 +48264,16 @@ class DataSourceResourcePermissionArgs:
         """
         <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
                     following:</p>
-                <ul>
+                 <ul>
                     <li>
-                        <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+                       <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
                     </li>
                     <li>
-                        <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+                       <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
                     </li>
                     <li>
-                        <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
-                            ARN. Use this option only to share resources (templates) across AWS accounts.
+                       <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
+                            ARN. Use this option only to share resources (templates) across Amazon Web Services accounts.
                             (This is less common.) </p>
                     </li>
                  </ul>
@@ -48078,6 +48284,15 @@ class DataSourceResourcePermissionArgs:
     def principal(self, value: pulumi.Input[str]):
         pulumi.set(self, "principal", value)
 
+    @property
+    @pulumi.getter
+    def resource(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "resource")
+
+    @resource.setter
+    def resource(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource", value)
+
 
 @pulumi.input_type
 class DataSourceS3ParametersArgs:
@@ -48085,7 +48300,7 @@ class DataSourceS3ParametersArgs:
                  manifest_file_location: pulumi.Input['DataSourceManifestFileLocationArgs'],
                  role_arn: Optional[pulumi.Input[str]] = None):
         """
-        <p>S3 parameters.</p>
+        <p>The parameters for S3.</p>
         :param pulumi.Input[str] role_arn: <p>Use the <code>RoleArn</code> structure to override an account-wide role for a specific S3 data source. For example, say an account administrator has turned off all S3 access with an account-wide role. The administrator can then use <code>RoleArn</code> to bypass the account-wide role and allow S3 access for the single S3 data source that is specified in the structure, even if the account-wide role forbidding S3 access is still active.</p>
         """
         pulumi.set(__self__, "manifest_file_location", manifest_file_location)
@@ -48121,7 +48336,7 @@ class DataSourceSnowflakeParametersArgs:
                  host: pulumi.Input[str],
                  warehouse: pulumi.Input[str]):
         """
-        <p>Snowflake parameters.</p>
+        <p>The parameters for Snowflake.</p>
         :param pulumi.Input[str] database: <p>Database.</p>
         :param pulumi.Input[str] host: <p>Host.</p>
         :param pulumi.Input[str] warehouse: <p>Warehouse.</p>
@@ -48173,7 +48388,7 @@ class DataSourceSparkParametersArgs:
                  host: pulumi.Input[str],
                  port: pulumi.Input[float]):
         """
-        <p>Spark parameters.</p>
+        <p>The parameters for Spark.</p>
         :param pulumi.Input[str] host: <p>Host.</p>
         :param pulumi.Input[float] port: <p>Port.</p>
         """
@@ -48212,7 +48427,7 @@ class DataSourceSqlServerParametersArgs:
                  host: pulumi.Input[str],
                  port: pulumi.Input[float]):
         """
-        <p>SQL Server parameters.</p>
+        <p>The parameters for SQL Server.</p>
         :param pulumi.Input[str] database: <p>Database.</p>
         :param pulumi.Input[str] host: <p>Host.</p>
         :param pulumi.Input[float] port: <p>Port.</p>
@@ -48263,7 +48478,7 @@ class DataSourceSslPropertiesArgs:
     def __init__(__self__, *,
                  disable_ssl: Optional[pulumi.Input[bool]] = None):
         """
-        <p>Secure Socket Layer (SSL) properties that apply when QuickSight connects to your
+        <p>Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your
                     underlying data source.</p>
         :param pulumi.Input[bool] disable_ssl: <p>A Boolean option to control whether SSL should be disabled.</p>
         """
@@ -48291,10 +48506,10 @@ class DataSourceStarburstParametersArgs:
                  port: pulumi.Input[float],
                  product_type: Optional[pulumi.Input['DataSourceStarburstProductType']] = None):
         """
-        <p>Starburst parameters.</p>
-        :param pulumi.Input[str] catalog: <p>Catalog.</p>
-        :param pulumi.Input[str] host: <p>Host.</p>
-        :param pulumi.Input[float] port: <p>Port.</p>
+        <p>The parameters that are required to connect to a Starburst data source.</p>
+        :param pulumi.Input[str] catalog: <p>The catalog name for the Starburst data source.</p>
+        :param pulumi.Input[str] host: <p>The host name of the Starburst data source.</p>
+        :param pulumi.Input[float] port: <p>The port for the Starburst data source.</p>
         """
         pulumi.set(__self__, "catalog", catalog)
         pulumi.set(__self__, "host", host)
@@ -48306,7 +48521,7 @@ class DataSourceStarburstParametersArgs:
     @pulumi.getter
     def catalog(self) -> pulumi.Input[str]:
         """
-        <p>Catalog.</p>
+        <p>The catalog name for the Starburst data source.</p>
         """
         return pulumi.get(self, "catalog")
 
@@ -48318,7 +48533,7 @@ class DataSourceStarburstParametersArgs:
     @pulumi.getter
     def host(self) -> pulumi.Input[str]:
         """
-        <p>Host.</p>
+        <p>The host name of the Starburst data source.</p>
         """
         return pulumi.get(self, "host")
 
@@ -48330,7 +48545,7 @@ class DataSourceStarburstParametersArgs:
     @pulumi.getter
     def port(self) -> pulumi.Input[float]:
         """
-        <p>Port.</p>
+        <p>The port for the Starburst data source.</p>
         """
         return pulumi.get(self, "port")
 
@@ -48355,7 +48570,7 @@ class DataSourceTeradataParametersArgs:
                  host: pulumi.Input[str],
                  port: pulumi.Input[float]):
         """
-        <p>Teradata parameters.</p>
+        <p>The parameters for Teradata.</p>
         :param pulumi.Input[str] database: <p>Database.</p>
         :param pulumi.Input[str] host: <p>Host.</p>
         :param pulumi.Input[float] port: <p>Port.</p>
@@ -48408,10 +48623,10 @@ class DataSourceTrinoParametersArgs:
                  host: pulumi.Input[str],
                  port: pulumi.Input[float]):
         """
-        <p>Trino parameters.</p>
-        :param pulumi.Input[str] catalog: <p>Catalog.</p>
-        :param pulumi.Input[str] host: <p>Host.</p>
-        :param pulumi.Input[float] port: <p>Port.</p>
+        <p>The parameters that are required to connect to a Trino data source.</p>
+        :param pulumi.Input[str] catalog: <p>The catalog name for the Trino data source.</p>
+        :param pulumi.Input[str] host: <p>The host name of the Trino data source.</p>
+        :param pulumi.Input[float] port: <p>The port for the Trino data source.</p>
         """
         pulumi.set(__self__, "catalog", catalog)
         pulumi.set(__self__, "host", host)
@@ -48421,7 +48636,7 @@ class DataSourceTrinoParametersArgs:
     @pulumi.getter
     def catalog(self) -> pulumi.Input[str]:
         """
-        <p>Catalog.</p>
+        <p>The catalog name for the Trino data source.</p>
         """
         return pulumi.get(self, "catalog")
 
@@ -48433,7 +48648,7 @@ class DataSourceTrinoParametersArgs:
     @pulumi.getter
     def host(self) -> pulumi.Input[str]:
         """
-        <p>Host.</p>
+        <p>The host name of the Trino data source.</p>
         """
         return pulumi.get(self, "host")
 
@@ -48445,7 +48660,7 @@ class DataSourceTrinoParametersArgs:
     @pulumi.getter
     def port(self) -> pulumi.Input[float]:
         """
-        <p>Port.</p>
+        <p>The port for the Trino data source.</p>
         """
         return pulumi.get(self, "port")
 

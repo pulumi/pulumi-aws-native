@@ -69,6 +69,16 @@ export const FirewallRuleGroupFirewallRuleBlockResponse = {
  */
 export type FirewallRuleGroupFirewallRuleBlockResponse = (typeof FirewallRuleGroupFirewallRuleBlockResponse)[keyof typeof FirewallRuleGroupFirewallRuleBlockResponse];
 
+export const FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction = {
+    InspectRedirectionDomain: "INSPECT_REDIRECTION_DOMAIN",
+    TrustRedirectionDomain: "TRUST_REDIRECTION_DOMAIN",
+} as const;
+
+/**
+ * FirewallDomainRedirectionAction
+ */
+export type FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction = (typeof FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction)[keyof typeof FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction];
+
 export const FirewallRuleGroupShareStatus = {
     NotShared: "NOT_SHARED",
     SharedWithMe: "SHARED_WITH_ME",

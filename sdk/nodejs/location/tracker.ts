@@ -45,6 +45,9 @@ export class Tracker extends pulumi.CustomResource {
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     public readonly positionFiltering!: pulumi.Output<enums.location.TrackerPositionFiltering | undefined>;
     public readonly pricingPlan!: pulumi.Output<enums.location.TrackerPricingPlan | undefined>;
+    /**
+     * This shape is deprecated since 2022-02-01: Deprecated. No longer allowed.
+     */
     public readonly pricingPlanDataSource!: pulumi.Output<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
@@ -110,6 +113,9 @@ export interface TrackerArgs {
     kmsKeyId?: pulumi.Input<string>;
     positionFiltering?: pulumi.Input<enums.location.TrackerPositionFiltering>;
     pricingPlan?: pulumi.Input<enums.location.TrackerPricingPlan>;
+    /**
+     * This shape is deprecated since 2022-02-01: Deprecated. No longer allowed.
+     */
     pricingPlanDataSource?: pulumi.Input<string>;
     /**
      * An array of key-value pairs to apply to this resource.

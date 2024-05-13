@@ -28,6 +28,7 @@ class TableArgs:
                  import_source_specification: Optional[pulumi.Input['TableImportSourceSpecificationArgs']] = None,
                  kinesis_stream_specification: Optional[pulumi.Input['TableKinesisStreamSpecificationArgs']] = None,
                  local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['TableLocalSecondaryIndexArgs']]]] = None,
+                 on_demand_throughput: Optional[pulumi.Input['TableOnDemandThroughputArgs']] = None,
                  point_in_time_recovery_specification: Optional[pulumi.Input['TablePointInTimeRecoverySpecificationArgs']] = None,
                  provisioned_throughput: Optional[pulumi.Input['TableProvisionedThroughputArgs']] = None,
                  resource_policy: Optional[pulumi.Input['TableResourcePolicyArgs']] = None,
@@ -61,6 +62,7 @@ class TableArgs:
                  If you specify the ``ImportSourceSpecification`` property, and also specify either the ``StreamSpecification``, the ``TableClass`` property, or the ``DeletionProtectionEnabled`` property, the IAM entity creating/updating stack must have ``UpdateTable`` permission.
         :param pulumi.Input['TableKinesisStreamSpecificationArgs'] kinesis_stream_specification: The Kinesis Data Streams configuration for the specified table.
         :param pulumi.Input[Sequence[pulumi.Input['TableLocalSecondaryIndexArgs']]] local_secondary_indexes: Local secondary indexes to be created on the table. You can create up to 5 local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes.
+        :param pulumi.Input['TableOnDemandThroughputArgs'] on_demand_throughput: Sets the maximum number of read and write units for the specified on-demand table. If you use this property, you must specify ``MaxReadRequestUnits``, ``MaxWriteRequestUnits``, or both.
         :param pulumi.Input['TablePointInTimeRecoverySpecificationArgs'] point_in_time_recovery_specification: The settings used to enable point in time recovery.
         :param pulumi.Input['TableProvisionedThroughputArgs'] provisioned_throughput: Throughput for the specified table, which consists of values for ``ReadCapacityUnits`` and ``WriteCapacityUnits``. For more information about the contents of a provisioned throughput structure, see [Amazon DynamoDB Table ProvisionedThroughput](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ProvisionedThroughput.html). 
                 If you set ``BillingMode`` as ``PROVISIONED``, you must specify this property. If you set ``BillingMode`` as ``PAY_PER_REQUEST``, you cannot specify this property.
@@ -93,6 +95,8 @@ class TableArgs:
             pulumi.set(__self__, "kinesis_stream_specification", kinesis_stream_specification)
         if local_secondary_indexes is not None:
             pulumi.set(__self__, "local_secondary_indexes", local_secondary_indexes)
+        if on_demand_throughput is not None:
+            pulumi.set(__self__, "on_demand_throughput", on_demand_throughput)
         if point_in_time_recovery_specification is not None:
             pulumi.set(__self__, "point_in_time_recovery_specification", point_in_time_recovery_specification)
         if provisioned_throughput is not None:
@@ -234,6 +238,18 @@ class TableArgs:
         pulumi.set(self, "local_secondary_indexes", value)
 
     @property
+    @pulumi.getter(name="onDemandThroughput")
+    def on_demand_throughput(self) -> Optional[pulumi.Input['TableOnDemandThroughputArgs']]:
+        """
+        Sets the maximum number of read and write units for the specified on-demand table. If you use this property, you must specify ``MaxReadRequestUnits``, ``MaxWriteRequestUnits``, or both.
+        """
+        return pulumi.get(self, "on_demand_throughput")
+
+    @on_demand_throughput.setter
+    def on_demand_throughput(self, value: Optional[pulumi.Input['TableOnDemandThroughputArgs']]):
+        pulumi.set(self, "on_demand_throughput", value)
+
+    @property
     @pulumi.getter(name="pointInTimeRecoverySpecification")
     def point_in_time_recovery_specification(self) -> Optional[pulumi.Input['TablePointInTimeRecoverySpecificationArgs']]:
         """
@@ -361,6 +377,7 @@ class Table(pulumi.CustomResource):
                  key_schema: Optional[pulumi.Input[Union[Sequence[pulumi.Input[pulumi.InputType['TableKeySchemaArgs']]], Any]]] = None,
                  kinesis_stream_specification: Optional[pulumi.Input[pulumi.InputType['TableKinesisStreamSpecificationArgs']]] = None,
                  local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableLocalSecondaryIndexArgs']]]]] = None,
+                 on_demand_throughput: Optional[pulumi.Input[pulumi.InputType['TableOnDemandThroughputArgs']]] = None,
                  point_in_time_recovery_specification: Optional[pulumi.Input[pulumi.InputType['TablePointInTimeRecoverySpecificationArgs']]] = None,
                  provisioned_throughput: Optional[pulumi.Input[pulumi.InputType['TableProvisionedThroughputArgs']]] = None,
                  resource_policy: Optional[pulumi.Input[pulumi.InputType['TableResourcePolicyArgs']]] = None,
@@ -628,6 +645,7 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[Union[Sequence[pulumi.Input[pulumi.InputType['TableKeySchemaArgs']]], Any]] key_schema: Specifies the attributes that make up the primary key for the table. The attributes in the ``KeySchema`` property must also be defined in the ``AttributeDefinitions`` property.
         :param pulumi.Input[pulumi.InputType['TableKinesisStreamSpecificationArgs']] kinesis_stream_specification: The Kinesis Data Streams configuration for the specified table.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableLocalSecondaryIndexArgs']]]] local_secondary_indexes: Local secondary indexes to be created on the table. You can create up to 5 local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes.
+        :param pulumi.Input[pulumi.InputType['TableOnDemandThroughputArgs']] on_demand_throughput: Sets the maximum number of read and write units for the specified on-demand table. If you use this property, you must specify ``MaxReadRequestUnits``, ``MaxWriteRequestUnits``, or both.
         :param pulumi.Input[pulumi.InputType['TablePointInTimeRecoverySpecificationArgs']] point_in_time_recovery_specification: The settings used to enable point in time recovery.
         :param pulumi.Input[pulumi.InputType['TableProvisionedThroughputArgs']] provisioned_throughput: Throughput for the specified table, which consists of values for ``ReadCapacityUnits`` and ``WriteCapacityUnits``. For more information about the contents of a provisioned throughput structure, see [Amazon DynamoDB Table ProvisionedThroughput](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ProvisionedThroughput.html). 
                 If you set ``BillingMode`` as ``PROVISIONED``, you must specify this property. If you set ``BillingMode`` as ``PAY_PER_REQUEST``, you cannot specify this property.
@@ -906,6 +924,7 @@ class Table(pulumi.CustomResource):
                  key_schema: Optional[pulumi.Input[Union[Sequence[pulumi.Input[pulumi.InputType['TableKeySchemaArgs']]], Any]]] = None,
                  kinesis_stream_specification: Optional[pulumi.Input[pulumi.InputType['TableKinesisStreamSpecificationArgs']]] = None,
                  local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableLocalSecondaryIndexArgs']]]]] = None,
+                 on_demand_throughput: Optional[pulumi.Input[pulumi.InputType['TableOnDemandThroughputArgs']]] = None,
                  point_in_time_recovery_specification: Optional[pulumi.Input[pulumi.InputType['TablePointInTimeRecoverySpecificationArgs']]] = None,
                  provisioned_throughput: Optional[pulumi.Input[pulumi.InputType['TableProvisionedThroughputArgs']]] = None,
                  resource_policy: Optional[pulumi.Input[pulumi.InputType['TableResourcePolicyArgs']]] = None,
@@ -935,6 +954,7 @@ class Table(pulumi.CustomResource):
             __props__.__dict__["key_schema"] = key_schema
             __props__.__dict__["kinesis_stream_specification"] = kinesis_stream_specification
             __props__.__dict__["local_secondary_indexes"] = local_secondary_indexes
+            __props__.__dict__["on_demand_throughput"] = on_demand_throughput
             __props__.__dict__["point_in_time_recovery_specification"] = point_in_time_recovery_specification
             __props__.__dict__["provisioned_throughput"] = provisioned_throughput
             __props__.__dict__["resource_policy"] = resource_policy
@@ -980,6 +1000,7 @@ class Table(pulumi.CustomResource):
         __props__.__dict__["key_schema"] = None
         __props__.__dict__["kinesis_stream_specification"] = None
         __props__.__dict__["local_secondary_indexes"] = None
+        __props__.__dict__["on_demand_throughput"] = None
         __props__.__dict__["point_in_time_recovery_specification"] = None
         __props__.__dict__["provisioned_throughput"] = None
         __props__.__dict__["resource_policy"] = None
@@ -1081,6 +1102,14 @@ class Table(pulumi.CustomResource):
         Local secondary indexes to be created on the table. You can create up to 5 local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes.
         """
         return pulumi.get(self, "local_secondary_indexes")
+
+    @property
+    @pulumi.getter(name="onDemandThroughput")
+    def on_demand_throughput(self) -> pulumi.Output[Optional['outputs.TableOnDemandThroughput']]:
+        """
+        Sets the maximum number of read and write units for the specified on-demand table. If you use this property, you must specify ``MaxReadRequestUnits``, ``MaxWriteRequestUnits``, or both.
+        """
+        return pulumi.get(self, "on_demand_throughput")
 
     @property
     @pulumi.getter(name="pointInTimeRecoverySpecification")

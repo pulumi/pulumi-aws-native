@@ -11,6 +11,7 @@ __all__ = [
     'FirewallRuleGroupFirewallRuleAction',
     'FirewallRuleGroupFirewallRuleBlockOverrideDnsType',
     'FirewallRuleGroupFirewallRuleBlockResponse',
+    'FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction',
     'FirewallRuleGroupShareStatus',
     'FirewallRuleGroupStatus',
     'OutpostResolverStatus',
@@ -79,6 +80,14 @@ class FirewallRuleGroupFirewallRuleBlockResponse(str, Enum):
     NODATA = "NODATA"
     NXDOMAIN = "NXDOMAIN"
     OVERRIDE = "OVERRIDE"
+
+
+class FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction(str, Enum):
+    """
+    FirewallDomainRedirectionAction
+    """
+    INSPECT_REDIRECTION_DOMAIN = "INSPECT_REDIRECTION_DOMAIN"
+    TRUST_REDIRECTION_DOMAIN = "TRUST_REDIRECTION_DOMAIN"
 
 
 class FirewallRuleGroupShareStatus(str, Enum):

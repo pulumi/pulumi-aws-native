@@ -31,6 +31,18 @@ export interface GetEventBusResult {
      */
     readonly arn?: string;
     /**
+     * Dead Letter Queue for the event bus.
+     */
+    readonly deadLetterConfig?: outputs.events.DeadLetterConfigProperties;
+    /**
+     * The description of the event bus.
+     */
+    readonly description?: string;
+    /**
+     * Kms Key Identifier used to encrypt events at rest in the event bus.
+     */
+    readonly kmsKeyIdentifier?: string;
+    /**
      * A JSON string that describes the permission policy statement for the event bus.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::EventBus` for more information about the expected schema for this property.

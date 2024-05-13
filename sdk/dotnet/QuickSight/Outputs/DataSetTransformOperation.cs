@@ -24,6 +24,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         public readonly Outputs.DataSetProjectOperation? ProjectOperation;
         public readonly Outputs.DataSetRenameColumnOperation? RenameColumnOperation;
         public readonly Outputs.DataSetTagColumnOperation? TagColumnOperation;
+        public readonly Outputs.DataSetUntagColumnOperation? UntagColumnOperation;
 
         [OutputConstructor]
         private DataSetTransformOperation(
@@ -39,7 +40,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Outputs.DataSetRenameColumnOperation? renameColumnOperation,
 
-            Outputs.DataSetTagColumnOperation? tagColumnOperation)
+            Outputs.DataSetTagColumnOperation? tagColumnOperation,
+
+            Outputs.DataSetUntagColumnOperation? untagColumnOperation)
         {
             CastColumnTypeOperation = castColumnTypeOperation;
             CreateColumnsOperation = createColumnsOperation;
@@ -48,6 +51,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             ProjectOperation = projectOperation;
             RenameColumnOperation = renameColumnOperation;
             TagColumnOperation = tagColumnOperation;
+            UntagColumnOperation = untagColumnOperation;
         }
     }
 }

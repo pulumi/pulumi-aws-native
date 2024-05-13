@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class DataSetLogicalTableSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// &lt;p&gt;The Amazon Resource Name (ARN) for the dataset.&lt;/p&gt;
+        /// &lt;p&gt;The Amazon Resource Number (ARN) of the parent dataset.&lt;/p&gt;
         /// </summary>
         [Input("dataSetArn")]
         public Input<string>? DataSetArn { get; set; }

@@ -30,6 +30,10 @@ type LookupVersionArgs struct {
 type LookupVersionResult struct {
 	// The ARN of the version.
 	FunctionArn *string `pulumi:"functionArn"`
+	// The resource policy of your function
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Lambda::Version` for more information about the expected schema for this property.
+	Policy interface{} `pulumi:"policy"`
 	// The version number.
 	Version *string `pulumi:"version"`
 }
@@ -73,6 +77,13 @@ func (o LookupVersionResultOutput) ToLookupVersionResultOutputWithContext(ctx co
 // The ARN of the version.
 func (o LookupVersionResultOutput) FunctionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVersionResult) *string { return v.FunctionArn }).(pulumi.StringPtrOutput)
+}
+
+// The resource policy of your function
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Lambda::Version` for more information about the expected schema for this property.
+func (o LookupVersionResultOutput) Policy() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupVersionResult) interface{} { return v.Policy }).(pulumi.AnyOutput)
 }
 
 // The version number.

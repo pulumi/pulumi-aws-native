@@ -237,8 +237,9 @@ __all__ = [
     'DashboardWordCloudWordOrientation',
     'DashboardWordCloudWordPadding',
     'DashboardWordCloudWordScaling',
+    'DataSetColumnDataSubType',
     'DataSetColumnDataType',
-    'DataSetColumnSubDataType',
+    'DataSetColumnTagName',
     'DataSetDatasetParameterValueType',
     'DataSetFileFormat',
     'DataSetGeoSpatialCountryCode',
@@ -246,9 +247,9 @@ __all__ = [
     'DataSetImportMode',
     'DataSetInputColumnDataType',
     'DataSetJoinType',
+    'DataSetLookbackWindowSizeUnit',
     'DataSetRowLevelPermissionFormatVersion',
     'DataSetRowLevelPermissionPolicy',
-    'DataSetSizeUnit',
     'DataSetStatus',
     'DataSetTextQualifier',
     'DataSetTimeGranularity',
@@ -1839,6 +1840,11 @@ class DashboardWordCloudWordScaling(str, Enum):
     NORMAL = "NORMAL"
 
 
+class DataSetColumnDataSubType(str, Enum):
+    FLOAT = "FLOAT"
+    FIXED = "FIXED"
+
+
 class DataSetColumnDataType(str, Enum):
     STRING = "STRING"
     INTEGER = "INTEGER"
@@ -1846,15 +1852,12 @@ class DataSetColumnDataType(str, Enum):
     DATETIME = "DATETIME"
 
 
-class DataSetColumnSubDataType(str, Enum):
-    FIXED = "FIXED"
-    FLOAT = "FLOAT"
+class DataSetColumnTagName(str, Enum):
+    COLUMN_GEOGRAPHIC_ROLE = "COLUMN_GEOGRAPHIC_ROLE"
+    COLUMN_DESCRIPTION = "COLUMN_DESCRIPTION"
 
 
 class DataSetDatasetParameterValueType(str, Enum):
-    """
-    <p>Every parameter value could be either a single value or multi value which helps to validate before evaluation.</p>
-    """
     MULTI_VALUED = "MULTI_VALUED"
     SINGLE_VALUED = "SINGLE_VALUED"
 
@@ -1881,6 +1884,9 @@ class DataSetGeoSpatialDataRole(str, Enum):
     LONGITUDE = "LONGITUDE"
     LATITUDE = "LATITUDE"
     POLITICAL1 = "POLITICAL1"
+    CENSUS_TRACT = "CENSUS_TRACT"
+    CENSUS_BLOCK_GROUP = "CENSUS_BLOCK_GROUP"
+    CENSUS_BLOCK = "CENSUS_BLOCK"
 
 
 class DataSetImportMode(str, Enum):
@@ -1905,6 +1911,12 @@ class DataSetJoinType(str, Enum):
     RIGHT = "RIGHT"
 
 
+class DataSetLookbackWindowSizeUnit(str, Enum):
+    HOUR = "HOUR"
+    DAY = "DAY"
+    WEEK = "WEEK"
+
+
 class DataSetRowLevelPermissionFormatVersion(str, Enum):
     VERSION1 = "VERSION_1"
     VERSION2 = "VERSION_2"
@@ -1913,12 +1925,6 @@ class DataSetRowLevelPermissionFormatVersion(str, Enum):
 class DataSetRowLevelPermissionPolicy(str, Enum):
     GRANT_ACCESS = "GRANT_ACCESS"
     DENY_ACCESS = "DENY_ACCESS"
-
-
-class DataSetSizeUnit(str, Enum):
-    HOUR = "HOUR"
-    DAY = "DAY"
-    WEEK = "WEEK"
 
 
 class DataSetStatus(str, Enum):
@@ -1978,6 +1984,13 @@ class DataSourceType(str, Enum):
     AURORA_POSTGRESQL = "AURORA_POSTGRESQL"
     AWS_IOT_ANALYTICS = "AWS_IOT_ANALYTICS"
     DATABRICKS = "DATABRICKS"
+    DENODO = "DENODO"
+    DREMIO = "DREMIO"
+    DYNAMODB = "DYNAMODB"
+    SAPHANA = "SAPHANA"
+    DB2AS400 = "DB2_AS400"
+    EXASOL = "EXASOL"
+    FILE = "FILE"
     GITHUB = "GITHUB"
     JIRA = "JIRA"
     MARIADB = "MARIADB"
@@ -1993,10 +2006,16 @@ class DataSourceType(str, Enum):
     SPARK = "SPARK"
     SQLSERVER = "SQLSERVER"
     TERADATA = "TERADATA"
-    TWITTER = "TWITTER"
     TIMESTREAM = "TIMESTREAM"
-    STARBURST = "STARBURST"
+    TWITTER = "TWITTER"
+    BIGQUERY = "BIGQUERY"
+    GOOGLE_ANALYTICS = "GOOGLE_ANALYTICS"
     TRINO = "TRINO"
+    STARBURST = "STARBURST"
+    MONGO = "MONGO"
+    MONGO_ATLAS = "MONGO_ATLAS"
+    DOCUMENTDB = "DOCUMENTDB"
+    APPFLOW = "APPFLOW"
 
 
 class RefreshScheduleMapRefreshType(str, Enum):

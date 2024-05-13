@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 from ._enums import *
 
 __all__ = [
@@ -20,7 +21,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetBudgetsActionResult:
-    def __init__(__self__, action_id=None, action_threshold=None, approval_model=None, definition=None, execution_role_arn=None, notification_type=None, subscribers=None):
+    def __init__(__self__, action_id=None, action_threshold=None, approval_model=None, definition=None, execution_role_arn=None, notification_type=None, resource_tags=None, subscribers=None):
         if action_id and not isinstance(action_id, str):
             raise TypeError("Expected argument 'action_id' to be a str")
         pulumi.set(__self__, "action_id", action_id)
@@ -39,6 +40,9 @@ class GetBudgetsActionResult:
         if notification_type and not isinstance(notification_type, str):
             raise TypeError("Expected argument 'notification_type' to be a str")
         pulumi.set(__self__, "notification_type", notification_type)
+        if resource_tags and not isinstance(resource_tags, list):
+            raise TypeError("Expected argument 'resource_tags' to be a list")
+        pulumi.set(__self__, "resource_tags", resource_tags)
         if subscribers and not isinstance(subscribers, list):
             raise TypeError("Expected argument 'subscribers' to be a list")
         pulumi.set(__self__, "subscribers", subscribers)
@@ -74,6 +78,11 @@ class GetBudgetsActionResult:
         return pulumi.get(self, "notification_type")
 
     @property
+    @pulumi.getter(name="resourceTags")
+    def resource_tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        return pulumi.get(self, "resource_tags")
+
+    @property
     @pulumi.getter
     def subscribers(self) -> Optional[Sequence['outputs.BudgetsActionSubscriber']]:
         return pulumi.get(self, "subscribers")
@@ -91,6 +100,7 @@ class AwaitableGetBudgetsActionResult(GetBudgetsActionResult):
             definition=self.definition,
             execution_role_arn=self.execution_role_arn,
             notification_type=self.notification_type,
+            resource_tags=self.resource_tags,
             subscribers=self.subscribers)
 
 
@@ -113,6 +123,7 @@ def get_budgets_action(action_id: Optional[str] = None,
         definition=pulumi.get(__ret__, 'definition'),
         execution_role_arn=pulumi.get(__ret__, 'execution_role_arn'),
         notification_type=pulumi.get(__ret__, 'notification_type'),
+        resource_tags=pulumi.get(__ret__, 'resource_tags'),
         subscribers=pulumi.get(__ret__, 'subscribers'))
 
 

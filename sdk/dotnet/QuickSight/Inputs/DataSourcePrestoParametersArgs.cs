@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
     /// <summary>
-    /// &lt;p&gt;Presto parameters.&lt;/p&gt;
+    /// &lt;p&gt;The parameters for Presto.&lt;/p&gt;
     /// </summary>
     public sealed class DataSourcePrestoParametersArgs : global::Pulumi.ResourceArgs
     {

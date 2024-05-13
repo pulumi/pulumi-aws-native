@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
     /// <summary>
-    /// &lt;p&gt;List of default values defined for a given string date time parameter type. Currently only static values are supported.&lt;/p&gt;
+    /// &lt;p&gt;The default values of a date time parameter.&lt;/p&gt;
     /// </summary>
     public sealed class DataSetDateTimeDatasetParameterDefaultValuesArgs : global::Pulumi.ResourceArgs
     {
@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<string>? _staticValues;
 
         /// <summary>
-        /// &lt;p&gt;List of static default values defined for a given string date time parameter type.&lt;/p&gt;
+        /// &lt;p&gt;A list of static default values for a given date time parameter.&lt;/p&gt;
         /// </summary>
         public InputList<string> StaticValues
         {

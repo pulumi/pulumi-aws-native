@@ -62,6 +62,12 @@ namespace Pulumi.AwsNative.Lambda
         /// </summary>
         public readonly string? FunctionArn;
         /// <summary>
+        /// The resource policy of your function
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Lambda::Version` for more information about the expected schema for this property.
+        /// </summary>
+        public readonly object? Policy;
+        /// <summary>
         /// The version number.
         /// </summary>
         public readonly string? VersionValue;
@@ -70,9 +76,12 @@ namespace Pulumi.AwsNative.Lambda
         private GetVersionResult(
             string? functionArn,
 
+            object? policy,
+
             string? version)
         {
             FunctionArn = functionArn;
+            Policy = policy;
             VersionValue = version;
         }
     }

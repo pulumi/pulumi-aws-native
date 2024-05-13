@@ -11,13 +11,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
     /// <summary>
-    /// &lt;p&gt;Amazon OpenSearch Service parameters.&lt;/p&gt;
+    /// &lt;p&gt;The parameters for OpenSearch.&lt;/p&gt;
     /// </summary>
     [OutputType]
     public sealed class DataSourceAmazonOpenSearchParameters
     {
         /// <summary>
-        /// &lt;p&gt;The Amazon OpenSearch Service domain.&lt;/p&gt;
+        /// &lt;p&gt;The OpenSearch domain.&lt;/p&gt;
         /// </summary>
         public readonly string Domain;
 

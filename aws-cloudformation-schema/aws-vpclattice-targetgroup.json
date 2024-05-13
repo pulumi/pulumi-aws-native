@@ -78,7 +78,7 @@
         },
         "Protocol" : {
           "type" : "string",
-          "enum" : [ "HTTP", "HTTPS" ]
+          "enum" : [ "HTTP", "HTTPS", "TCP" ]
         },
         "ProtocolVersion" : {
           "type" : "string",

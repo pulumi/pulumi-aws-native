@@ -66,21 +66,12 @@ export class DataSource extends pulumi.CustomResource {
      * <p>The last time that this data source was updated.</p>
      */
     public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
-    /**
-     * <p>A display name for the data source.</p>
-     */
-    public readonly name!: pulumi.Output<string | undefined>;
-    /**
-     * <p>A list of resource permissions on the data source.</p>
-     */
+    public readonly name!: pulumi.Output<string>;
     public readonly permissions!: pulumi.Output<outputs.quicksight.DataSourceResourcePermission[] | undefined>;
     public readonly sslProperties!: pulumi.Output<outputs.quicksight.DataSourceSslProperties | undefined>;
     public /*out*/ readonly status!: pulumi.Output<enums.quicksight.DataSourceResourceStatus>;
-    /**
-     * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.</p>
-     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
-    public readonly type!: pulumi.Output<enums.quicksight.DataSourceType | undefined>;
+    public readonly type!: pulumi.Output<enums.quicksight.DataSourceType>;
     public readonly vpcConnectionProperties!: pulumi.Output<outputs.quicksight.DataSourceVpcConnectionProperties | undefined>;
 
     /**
@@ -90,10 +81,13 @@ export class DataSource extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: DataSourceArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: DataSourceArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.type === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'type'");
+            }
             resourceInputs["alternateDataSourceParameters"] = args ? args.alternateDataSourceParameters : undefined;
             resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
             resourceInputs["credentials"] = args ? args.credentials : undefined;
@@ -156,19 +150,10 @@ export interface DataSourceArgs {
     dataSourceId?: pulumi.Input<string>;
     dataSourceParameters?: pulumi.Input<inputs.quicksight.DataSourceParametersArgs>;
     errorInfo?: pulumi.Input<inputs.quicksight.DataSourceErrorInfoArgs>;
-    /**
-     * <p>A display name for the data source.</p>
-     */
     name?: pulumi.Input<string>;
-    /**
-     * <p>A list of resource permissions on the data source.</p>
-     */
     permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSourceResourcePermissionArgs>[]>;
     sslProperties?: pulumi.Input<inputs.quicksight.DataSourceSslPropertiesArgs>;
-    /**
-     * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.</p>
-     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
-    type?: pulumi.Input<enums.quicksight.DataSourceType>;
+    type: pulumi.Input<enums.quicksight.DataSourceType>;
     vpcConnectionProperties?: pulumi.Input<inputs.quicksight.DataSourceVpcConnectionPropertiesArgs>;
 }

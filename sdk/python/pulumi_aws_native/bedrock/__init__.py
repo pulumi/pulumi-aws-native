@@ -13,8 +13,10 @@ from .get_agent import *
 from .get_agent_alias import *
 from .get_data_source import *
 from .get_guardrail import *
+from .get_guardrail_version import *
 from .get_knowledge_base import *
 from .guardrail import *
+from .guardrail_version import *
 from .knowledge_base import *
 from ._inputs import *
 from . import outputs

@@ -11,13 +11,19 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
     /// <summary>
-    /// &lt;p&gt;The dataset usage configuration for the dataset.&lt;/p&gt;
+    /// &lt;p&gt;The usage configuration to apply to child datasets that reference this dataset as a source.&lt;/p&gt;
     /// </summary>
     public sealed class DataSetUsageConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// &lt;p&gt;An option that controls whether a child dataset of a direct query can use this dataset as a source.&lt;/p&gt;
+        /// </summary>
         [Input("disableUseAsDirectQuerySource")]
         public Input<bool>? DisableUseAsDirectQuerySource { get; set; }
 
+        /// <summary>
+        /// &lt;p&gt;An option that controls whether a child dataset that's stored in QuickSight can use this dataset as a source.&lt;/p&gt;
+        /// </summary>
         [Input("disableUseAsImportedSource")]
         public Input<bool>? DisableUseAsImportedSource { get; set; }
 

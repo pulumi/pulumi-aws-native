@@ -10,10 +10,24 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;A rule defined to grant access on one or more restricted columns.
+    ///             Each dataset can have multiple rules.
+    ///             To create a restricted column, you add it to one or more rules.
+    ///             Each rule must contain at least one column and at least one user or group.
+    ///             To be able to see a restricted column, a user or group needs to be added
+    ///             to a rule for that column.&lt;/p&gt;
+    /// </summary>
     [OutputType]
     public sealed class DataSetColumnLevelPermissionRule
     {
+        /// <summary>
+        /// &lt;p&gt;An array of column names.&lt;/p&gt;
+        /// </summary>
         public readonly ImmutableArray<string> ColumnNames;
+        /// <summary>
+        /// &lt;p&gt;An array of Amazon Resource Names (ARNs) for Amazon QuickSight users or groups.&lt;/p&gt;
+        /// </summary>
         public readonly ImmutableArray<string> Principals;
 
         [OutputConstructor]

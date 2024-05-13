@@ -18,8 +18,14 @@ type EventBus struct {
 
 	// The Amazon Resource Name (ARN) for the event bus.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Dead Letter Queue for the event bus.
+	DeadLetterConfig DeadLetterConfigPropertiesPtrOutput `pulumi:"deadLetterConfig"`
+	// The description of the event bus.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// If you are creating a partner event bus, this specifies the partner event source that the new event bus will be matched with.
 	EventSourceName pulumi.StringPtrOutput `pulumi:"eventSourceName"`
+	// Kms Key Identifier used to encrypt events at rest in the event bus.
+	KmsKeyIdentifier pulumi.StringPtrOutput `pulumi:"kmsKeyIdentifier"`
 	// The name of the event bus.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A JSON string that describes the permission policy statement for the event bus.
@@ -74,8 +80,14 @@ func (EventBusState) ElementType() reflect.Type {
 }
 
 type eventBusArgs struct {
+	// Dead Letter Queue for the event bus.
+	DeadLetterConfig *DeadLetterConfigProperties `pulumi:"deadLetterConfig"`
+	// The description of the event bus.
+	Description *string `pulumi:"description"`
 	// If you are creating a partner event bus, this specifies the partner event source that the new event bus will be matched with.
 	EventSourceName *string `pulumi:"eventSourceName"`
+	// Kms Key Identifier used to encrypt events at rest in the event bus.
+	KmsKeyIdentifier *string `pulumi:"kmsKeyIdentifier"`
 	// The name of the event bus.
 	Name *string `pulumi:"name"`
 	// A JSON string that describes the permission policy statement for the event bus.
@@ -88,8 +100,14 @@ type eventBusArgs struct {
 
 // The set of arguments for constructing a EventBus resource.
 type EventBusArgs struct {
+	// Dead Letter Queue for the event bus.
+	DeadLetterConfig DeadLetterConfigPropertiesPtrInput
+	// The description of the event bus.
+	Description pulumi.StringPtrInput
 	// If you are creating a partner event bus, this specifies the partner event source that the new event bus will be matched with.
 	EventSourceName pulumi.StringPtrInput
+	// Kms Key Identifier used to encrypt events at rest in the event bus.
+	KmsKeyIdentifier pulumi.StringPtrInput
 	// The name of the event bus.
 	Name pulumi.StringPtrInput
 	// A JSON string that describes the permission policy statement for the event bus.
@@ -142,9 +160,24 @@ func (o EventBusOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventBus) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Dead Letter Queue for the event bus.
+func (o EventBusOutput) DeadLetterConfig() DeadLetterConfigPropertiesPtrOutput {
+	return o.ApplyT(func(v *EventBus) DeadLetterConfigPropertiesPtrOutput { return v.DeadLetterConfig }).(DeadLetterConfigPropertiesPtrOutput)
+}
+
+// The description of the event bus.
+func (o EventBusOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventBus) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
 // If you are creating a partner event bus, this specifies the partner event source that the new event bus will be matched with.
 func (o EventBusOutput) EventSourceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventBus) pulumi.StringPtrOutput { return v.EventSourceName }).(pulumi.StringPtrOutput)
+}
+
+// Kms Key Identifier used to encrypt events at rest in the event bus.
+func (o EventBusOutput) KmsKeyIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventBus) pulumi.StringPtrOutput { return v.KmsKeyIdentifier }).(pulumi.StringPtrOutput)
 }
 
 // The name of the event bus.

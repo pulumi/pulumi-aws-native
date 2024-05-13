@@ -21,8 +21,14 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:sso:Application":
+		r = &Application{}
+	case "aws-native:sso:ApplicationAssignment":
+		r = &ApplicationAssignment{}
 	case "aws-native:sso:Assignment":
 		r = &Assignment{}
+	case "aws-native:sso:Instance":
+		r = &Instance{}
 	case "aws-native:sso:InstanceAccessControlAttributeConfiguration":
 		r = &InstanceAccessControlAttributeConfiguration{}
 	case "aws-native:sso:PermissionSet":

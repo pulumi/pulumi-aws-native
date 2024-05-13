@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
     /// <summary>
-    /// &lt;p&gt;The configuration of tags on a dataset to set row-level security.&lt;/p&gt;
+    /// &lt;p&gt;The configuration of tags on a dataset to set row-level security. &lt;/p&gt;
     /// </summary>
     public sealed class DataSetRowLevelPermissionTagConfigurationArgs : global::Pulumi.ResourceArgs
     {

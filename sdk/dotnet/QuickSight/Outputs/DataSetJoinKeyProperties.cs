@@ -10,9 +10,16 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;Properties associated with the columns participating in a join.&lt;/p&gt;
+    /// </summary>
     [OutputType]
     public sealed class DataSetJoinKeyProperties
     {
+        /// <summary>
+        /// &lt;p&gt;A value that indicates that a row in a table is uniquely identified by the columns in
+        ///             a join key. This is used by Amazon QuickSight to optimize query performance.&lt;/p&gt;
+        /// </summary>
         public readonly bool? UniqueKey;
 
         [OutputConstructor]

@@ -62,9 +62,14 @@ namespace Pulumi.AwsNative.QuickSight
         /// </summary>
         public readonly string? Arn;
         /// <summary>
-        /// &lt;p&gt;Groupings of columns that work together in certain QuickSight features. Currently, only geospatial hierarchy is supported.&lt;/p&gt;
+        /// &lt;p&gt;Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported.&lt;/p&gt;
         /// </summary>
         public readonly ImmutableArray<Outputs.DataSetColumnGroup> ColumnGroups;
+        /// <summary>
+        /// &lt;p&gt;A set of one or more definitions of a &lt;code&gt;
+        ///                &lt;a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html"&gt;ColumnLevelPermissionRule&lt;/a&gt;
+        ///             &lt;/code&gt;.&lt;/p&gt;
+        /// </summary>
         public readonly ImmutableArray<Outputs.DataSetColumnLevelPermissionRule> ColumnLevelPermissionRules;
         /// <summary>
         /// &lt;p&gt;The amount of SPICE capacity used by this dataset. This is 0 if the dataset isn't
@@ -78,7 +83,7 @@ namespace Pulumi.AwsNative.QuickSight
         public readonly Outputs.DataSetRefreshProperties? DataSetRefreshProperties;
         public readonly Outputs.DataSetUsageConfiguration? DataSetUsageConfiguration;
         /// <summary>
-        /// &lt;p&gt;The parameters declared in the dataset.&lt;/p&gt;
+        /// &lt;p&gt;The parameter declarations of the dataset.&lt;/p&gt;
         /// </summary>
         public readonly ImmutableArray<Outputs.DataSetDatasetParameter> DatasetParameters;
         public readonly Pulumi.AwsNative.QuickSight.DataSetImportMode? ImportMode;

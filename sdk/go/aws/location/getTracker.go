@@ -35,7 +35,8 @@ type LookupTrackerResult struct {
 	KmsKeyEnableGeospatialQueries *bool                     `pulumi:"kmsKeyEnableGeospatialQueries"`
 	PositionFiltering             *TrackerPositionFiltering `pulumi:"positionFiltering"`
 	PricingPlan                   *TrackerPricingPlan       `pulumi:"pricingPlan"`
-	PricingPlanDataSource         *string                   `pulumi:"pricingPlanDataSource"`
+	// This shape is deprecated since 2022-02-01: Deprecated. No longer allowed.
+	PricingPlanDataSource *string `pulumi:"pricingPlanDataSource"`
 	// An array of key-value pairs to apply to this resource.
 	Tags       []aws.Tag `pulumi:"tags"`
 	TrackerArn *string   `pulumi:"trackerArn"`
@@ -105,6 +106,7 @@ func (o LookupTrackerResultOutput) PricingPlan() TrackerPricingPlanPtrOutput {
 	return o.ApplyT(func(v LookupTrackerResult) *TrackerPricingPlan { return v.PricingPlan }).(TrackerPricingPlanPtrOutput)
 }
 
+// This shape is deprecated since 2022-02-01: Deprecated. No longer allowed.
 func (o LookupTrackerResultOutput) PricingPlanDataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTrackerResult) *string { return v.PricingPlanDataSource }).(pulumi.StringPtrOutput)
 }

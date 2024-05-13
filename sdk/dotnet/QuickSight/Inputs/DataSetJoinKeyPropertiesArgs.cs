@@ -10,8 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;Properties associated with the columns participating in a join.&lt;/p&gt;
+    /// </summary>
     public sealed class DataSetJoinKeyPropertiesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// &lt;p&gt;A value that indicates that a row in a table is uniquely identified by the columns in
+        ///             a join key. This is used by Amazon QuickSight to optimize query performance.&lt;/p&gt;
+        /// </summary>
         [Input("uniqueKey")]
         public Input<bool>? UniqueKey { get; set; }
 

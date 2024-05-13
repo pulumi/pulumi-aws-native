@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
     /// <summary>
-    /// &lt;p&gt;Permission for the resource.&lt;/p&gt;
+    /// &lt;p&gt;A set of rules associated with a tag.&lt;/p&gt;
     /// </summary>
     public sealed class DataSetRowLevelPermissionTagRuleArgs : global::Pulumi.ResourceArgs
     {

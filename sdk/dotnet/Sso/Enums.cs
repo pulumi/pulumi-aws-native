@@ -8,6 +8,130 @@ using Pulumi;
 namespace Pulumi.AwsNative.Sso
 {
     /// <summary>
+    /// The entity type for which the assignment will be created.
+    /// </summary>
+    [EnumType]
+    public readonly struct ApplicationAssignmentPrincipalType : IEquatable<ApplicationAssignmentPrincipalType>
+    {
+        private readonly string _value;
+
+        private ApplicationAssignmentPrincipalType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ApplicationAssignmentPrincipalType User { get; } = new ApplicationAssignmentPrincipalType("USER");
+        public static ApplicationAssignmentPrincipalType Group { get; } = new ApplicationAssignmentPrincipalType("GROUP");
+
+        public static bool operator ==(ApplicationAssignmentPrincipalType left, ApplicationAssignmentPrincipalType right) => left.Equals(right);
+        public static bool operator !=(ApplicationAssignmentPrincipalType left, ApplicationAssignmentPrincipalType right) => !left.Equals(right);
+
+        public static explicit operator string(ApplicationAssignmentPrincipalType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ApplicationAssignmentPrincipalType other && Equals(other);
+        public bool Equals(ApplicationAssignmentPrincipalType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates whether this application is visible in the access portal
+    /// </summary>
+    [EnumType]
+    public readonly struct ApplicationPortalOptionsConfigurationVisibility : IEquatable<ApplicationPortalOptionsConfigurationVisibility>
+    {
+        private readonly string _value;
+
+        private ApplicationPortalOptionsConfigurationVisibility(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ApplicationPortalOptionsConfigurationVisibility Enabled { get; } = new ApplicationPortalOptionsConfigurationVisibility("ENABLED");
+        public static ApplicationPortalOptionsConfigurationVisibility Disabled { get; } = new ApplicationPortalOptionsConfigurationVisibility("DISABLED");
+
+        public static bool operator ==(ApplicationPortalOptionsConfigurationVisibility left, ApplicationPortalOptionsConfigurationVisibility right) => left.Equals(right);
+        public static bool operator !=(ApplicationPortalOptionsConfigurationVisibility left, ApplicationPortalOptionsConfigurationVisibility right) => !left.Equals(right);
+
+        public static explicit operator string(ApplicationPortalOptionsConfigurationVisibility value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ApplicationPortalOptionsConfigurationVisibility other && Equals(other);
+        public bool Equals(ApplicationPortalOptionsConfigurationVisibility other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// This determines how IAM Identity Center navigates the user to the target application
+    /// </summary>
+    [EnumType]
+    public readonly struct ApplicationSignInOptionsOrigin : IEquatable<ApplicationSignInOptionsOrigin>
+    {
+        private readonly string _value;
+
+        private ApplicationSignInOptionsOrigin(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ApplicationSignInOptionsOrigin IdentityCenter { get; } = new ApplicationSignInOptionsOrigin("IDENTITY_CENTER");
+        public static ApplicationSignInOptionsOrigin Application { get; } = new ApplicationSignInOptionsOrigin("APPLICATION");
+
+        public static bool operator ==(ApplicationSignInOptionsOrigin left, ApplicationSignInOptionsOrigin right) => left.Equals(right);
+        public static bool operator !=(ApplicationSignInOptionsOrigin left, ApplicationSignInOptionsOrigin right) => !left.Equals(right);
+
+        public static explicit operator string(ApplicationSignInOptionsOrigin value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ApplicationSignInOptionsOrigin other && Equals(other);
+        public bool Equals(ApplicationSignInOptionsOrigin other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies whether the application is enabled or disabled
+    /// </summary>
+    [EnumType]
+    public readonly struct ApplicationStatus : IEquatable<ApplicationStatus>
+    {
+        private readonly string _value;
+
+        private ApplicationStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ApplicationStatus Enabled { get; } = new ApplicationStatus("ENABLED");
+        public static ApplicationStatus Disabled { get; } = new ApplicationStatus("DISABLED");
+
+        public static bool operator ==(ApplicationStatus left, ApplicationStatus right) => left.Equals(right);
+        public static bool operator !=(ApplicationStatus left, ApplicationStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ApplicationStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ApplicationStatus other && Equals(other);
+        public bool Equals(ApplicationStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The assignee's type, user/group
     /// </summary>
     [EnumType]
@@ -61,6 +185,38 @@ namespace Pulumi.AwsNative.Sso
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is AssignmentTargetType other && Equals(other);
         public bool Equals(AssignmentTargetType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The status of the Identity Center (SSO) Instance, create_in_progress/delete_in_progress/active
+    /// </summary>
+    [EnumType]
+    public readonly struct InstanceStatus : IEquatable<InstanceStatus>
+    {
+        private readonly string _value;
+
+        private InstanceStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static InstanceStatus CreateInProgress { get; } = new InstanceStatus("CREATE_IN_PROGRESS");
+        public static InstanceStatus DeleteInProgress { get; } = new InstanceStatus("DELETE_IN_PROGRESS");
+        public static InstanceStatus Active { get; } = new InstanceStatus("ACTIVE");
+
+        public static bool operator ==(InstanceStatus left, InstanceStatus right) => left.Equals(right);
+        public static bool operator !=(InstanceStatus left, InstanceStatus right) => !left.Equals(right);
+
+        public static explicit operator string(InstanceStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InstanceStatus other && Equals(other);
+        public bool Equals(InstanceStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

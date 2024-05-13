@@ -26,6 +26,9 @@ namespace Pulumi.AwsNative.DynamoDb.Inputs
         [Input("projection", required: true)]
         public Input<Inputs.GlobalTableProjectionArgs> Projection { get; set; } = null!;
 
+        [Input("writeOnDemandThroughputSettings")]
+        public Input<Inputs.GlobalTableWriteOnDemandThroughputSettingsArgs>? WriteOnDemandThroughputSettings { get; set; }
+
         [Input("writeProvisionedThroughputSettings")]
         public Input<Inputs.GlobalTableWriteProvisionedThroughputSettingsArgs>? WriteProvisionedThroughputSettings { get; set; }
 

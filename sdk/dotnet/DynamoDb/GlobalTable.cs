@@ -54,6 +54,9 @@ namespace Pulumi.AwsNative.DynamoDb
         [Output("timeToLiveSpecification")]
         public Output<Outputs.GlobalTableTimeToLiveSpecification?> TimeToLiveSpecification { get; private set; } = null!;
 
+        [Output("writeOnDemandThroughputSettings")]
+        public Output<Outputs.GlobalTableWriteOnDemandThroughputSettings?> WriteOnDemandThroughputSettings { get; private set; } = null!;
+
         [Output("writeProvisionedThroughputSettings")]
         public Output<Outputs.GlobalTableWriteProvisionedThroughputSettings?> WriteProvisionedThroughputSettings { get; private set; } = null!;
 
@@ -162,6 +165,9 @@ namespace Pulumi.AwsNative.DynamoDb
 
         [Input("timeToLiveSpecification")]
         public Input<Inputs.GlobalTableTimeToLiveSpecificationArgs>? TimeToLiveSpecification { get; set; }
+
+        [Input("writeOnDemandThroughputSettings")]
+        public Input<Inputs.GlobalTableWriteOnDemandThroughputSettingsArgs>? WriteOnDemandThroughputSettings { get; set; }
 
         [Input("writeProvisionedThroughputSettings")]
         public Input<Inputs.GlobalTableWriteProvisionedThroughputSettingsArgs>? WriteProvisionedThroughputSettings { get; set; }

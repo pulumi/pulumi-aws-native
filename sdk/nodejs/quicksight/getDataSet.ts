@@ -30,9 +30,14 @@ export interface GetDataSetResult {
      */
     readonly arn?: string;
     /**
-     * <p>Groupings of columns that work together in certain QuickSight features. Currently, only geospatial hierarchy is supported.</p>
+     * <p>Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported.</p>
      */
     readonly columnGroups?: outputs.quicksight.DataSetColumnGroup[];
+    /**
+     * <p>A set of one or more definitions of a <code>
+     *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html">ColumnLevelPermissionRule</a>
+     *             </code>.</p>
+     */
     readonly columnLevelPermissionRules?: outputs.quicksight.DataSetColumnLevelPermissionRule[];
     /**
      * <p>The amount of SPICE capacity used by this dataset. This is 0 if the dataset isn't
@@ -46,7 +51,7 @@ export interface GetDataSetResult {
     readonly dataSetRefreshProperties?: outputs.quicksight.DataSetRefreshProperties;
     readonly dataSetUsageConfiguration?: outputs.quicksight.DataSetUsageConfiguration;
     /**
-     * <p>The parameters declared in the dataset.</p>
+     * <p>The parameter declarations of the dataset.</p>
      */
     readonly datasetParameters?: outputs.quicksight.DataSetDatasetParameter[];
     readonly importMode?: enums.quicksight.DataSetImportMode;

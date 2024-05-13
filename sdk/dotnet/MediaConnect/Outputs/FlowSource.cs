@@ -49,6 +49,14 @@ namespace Pulumi.AwsNative.MediaConnect.Outputs
         /// </summary>
         public readonly int? MaxLatency;
         /// <summary>
+        /// The size of the buffer (in milliseconds) to use to sync incoming source data.
+        /// </summary>
+        public readonly int? MaxSyncBuffer;
+        /// <summary>
+        /// The media stream that is associated with the source, and the parameters for that association.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.FlowMediaStreamSourceConfiguration> MediaStreamSourceConfigurations;
+        /// <summary>
         /// The minimum latency in milliseconds.
         /// </summary>
         public readonly int? MinLatency;
@@ -115,6 +123,10 @@ namespace Pulumi.AwsNative.MediaConnect.Outputs
 
             int? maxLatency,
 
+            int? maxSyncBuffer,
+
+            ImmutableArray<Outputs.FlowMediaStreamSourceConfiguration> mediaStreamSourceConfigurations,
+
             int? minLatency,
 
             string? name,
@@ -147,6 +159,8 @@ namespace Pulumi.AwsNative.MediaConnect.Outputs
             IngestPort = ingestPort;
             MaxBitrate = maxBitrate;
             MaxLatency = maxLatency;
+            MaxSyncBuffer = maxSyncBuffer;
+            MediaStreamSourceConfigurations = mediaStreamSourceConfigurations;
             MinLatency = minLatency;
             Name = name;
             Protocol = protocol;

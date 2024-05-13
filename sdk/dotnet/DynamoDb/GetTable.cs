@@ -113,6 +113,10 @@ namespace Pulumi.AwsNative.DynamoDb
         /// </summary>
         public readonly ImmutableArray<Outputs.TableLocalSecondaryIndex> LocalSecondaryIndexes;
         /// <summary>
+        /// Sets the maximum number of read and write units for the specified on-demand table. If you use this property, you must specify ``MaxReadRequestUnits``, ``MaxWriteRequestUnits``, or both.
+        /// </summary>
+        public readonly Outputs.TableOnDemandThroughput? OnDemandThroughput;
+        /// <summary>
         /// The settings used to enable point in time recovery.
         /// </summary>
         public readonly Outputs.TablePointInTimeRecoverySpecification? PointInTimeRecoverySpecification;
@@ -170,6 +174,8 @@ namespace Pulumi.AwsNative.DynamoDb
 
             ImmutableArray<Outputs.TableLocalSecondaryIndex> localSecondaryIndexes,
 
+            Outputs.TableOnDemandThroughput? onDemandThroughput,
+
             Outputs.TablePointInTimeRecoverySpecification? pointInTimeRecoverySpecification,
 
             Outputs.TableProvisionedThroughput? provisionedThroughput,
@@ -197,6 +203,7 @@ namespace Pulumi.AwsNative.DynamoDb
             KeySchema = keySchema;
             KinesisStreamSpecification = kinesisStreamSpecification;
             LocalSecondaryIndexes = localSecondaryIndexes;
+            OnDemandThroughput = onDemandThroughput;
             PointInTimeRecoverySpecification = pointInTimeRecoverySpecification;
             ProvisionedThroughput = provisionedThroughput;
             ResourcePolicy = resourcePolicy;

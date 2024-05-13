@@ -42,6 +42,10 @@ export class Flow extends pulumi.CustomResource {
      */
     public readonly availabilityZone!: pulumi.Output<string | undefined>;
     /**
+     * The IP address from which video will be sent to output destinations.
+     */
+    public /*out*/ readonly egressIp!: pulumi.Output<string>;
+    /**
      * The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
      */
     public /*out*/ readonly flowArn!: pulumi.Output<string>;
@@ -49,6 +53,14 @@ export class Flow extends pulumi.CustomResource {
      * The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.(ReadOnly)
      */
     public /*out*/ readonly flowAvailabilityZone!: pulumi.Output<string>;
+    /**
+     * The maintenance settings you want to use for the flow. 
+     */
+    public readonly maintenance!: pulumi.Output<outputs.mediaconnect.FlowMaintenance | undefined>;
+    /**
+     * The media streams associated with the flow. You can associate any of these media streams with sources and outputs on the flow.
+     */
+    public readonly mediaStreams!: pulumi.Output<outputs.mediaconnect.FlowMediaStream[] | undefined>;
     /**
      * The name of the flow.
      */
@@ -61,6 +73,10 @@ export class Flow extends pulumi.CustomResource {
      * The source failover config of the flow.
      */
     public readonly sourceFailoverConfig!: pulumi.Output<outputs.mediaconnect.FlowFailoverConfig | undefined>;
+    /**
+     * The VPC interfaces that you added to this flow.
+     */
+    public readonly vpcInterfaces!: pulumi.Output<outputs.mediaconnect.FlowVpcInterface[] | undefined>;
 
     /**
      * Create a Flow resource with the given unique name, arguments, and options.
@@ -77,18 +93,26 @@ export class Flow extends pulumi.CustomResource {
                 throw new Error("Missing required property 'source'");
             }
             resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
+            resourceInputs["maintenance"] = args ? args.maintenance : undefined;
+            resourceInputs["mediaStreams"] = args ? args.mediaStreams : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["source"] = args ? args.source : undefined;
             resourceInputs["sourceFailoverConfig"] = args ? args.sourceFailoverConfig : undefined;
+            resourceInputs["vpcInterfaces"] = args ? args.vpcInterfaces : undefined;
+            resourceInputs["egressIp"] = undefined /*out*/;
             resourceInputs["flowArn"] = undefined /*out*/;
             resourceInputs["flowAvailabilityZone"] = undefined /*out*/;
         } else {
             resourceInputs["availabilityZone"] = undefined /*out*/;
+            resourceInputs["egressIp"] = undefined /*out*/;
             resourceInputs["flowArn"] = undefined /*out*/;
             resourceInputs["flowAvailabilityZone"] = undefined /*out*/;
+            resourceInputs["maintenance"] = undefined /*out*/;
+            resourceInputs["mediaStreams"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["source"] = undefined /*out*/;
             resourceInputs["sourceFailoverConfig"] = undefined /*out*/;
+            resourceInputs["vpcInterfaces"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["availabilityZone", "name", "source.name"] };
@@ -106,6 +130,14 @@ export interface FlowArgs {
      */
     availabilityZone?: pulumi.Input<string>;
     /**
+     * The maintenance settings you want to use for the flow. 
+     */
+    maintenance?: pulumi.Input<inputs.mediaconnect.FlowMaintenanceArgs>;
+    /**
+     * The media streams associated with the flow. You can associate any of these media streams with sources and outputs on the flow.
+     */
+    mediaStreams?: pulumi.Input<pulumi.Input<inputs.mediaconnect.FlowMediaStreamArgs>[]>;
+    /**
      * The name of the flow.
      */
     name?: pulumi.Input<string>;
@@ -117,4 +149,8 @@ export interface FlowArgs {
      * The source failover config of the flow.
      */
     sourceFailoverConfig?: pulumi.Input<inputs.mediaconnect.FlowFailoverConfigArgs>;
+    /**
+     * The VPC interfaces that you added to this flow.
+     */
+    vpcInterfaces?: pulumi.Input<pulumi.Input<inputs.mediaconnect.FlowVpcInterfaceArgs>[]>;
 }

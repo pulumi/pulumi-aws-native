@@ -10,12 +10,27 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;The configuration that overrides the existing default values for a dataset parameter that is inherited from another dataset.&lt;/p&gt;
+    /// </summary>
     [OutputType]
     public sealed class DataSetNewDefaultValues
     {
+        /// <summary>
+        /// &lt;p&gt;A list of static default values for a given date time parameter.&lt;/p&gt;
+        /// </summary>
         public readonly ImmutableArray<string> DateTimeStaticValues;
+        /// <summary>
+        /// &lt;p&gt;A list of static default values for a given decimal parameter.&lt;/p&gt;
+        /// </summary>
         public readonly ImmutableArray<double> DecimalStaticValues;
+        /// <summary>
+        /// &lt;p&gt;A list of static default values for a given integer parameter.&lt;/p&gt;
+        /// </summary>
         public readonly ImmutableArray<double> IntegerStaticValues;
+        /// <summary>
+        /// &lt;p&gt;A list of static default values for a given string parameter.&lt;/p&gt;
+        /// </summary>
         public readonly ImmutableArray<string> StringStaticValues;
 
         [OutputConstructor]

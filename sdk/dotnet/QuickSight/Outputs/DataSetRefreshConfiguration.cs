@@ -11,15 +11,15 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
     /// <summary>
-    /// &lt;p&gt; Refresh Configuration.&lt;/p&gt;
+    /// &lt;p&gt;The refresh configuration of a dataset.&lt;/p&gt;
     /// </summary>
     [OutputType]
     public sealed class DataSetRefreshConfiguration
     {
-        public readonly Outputs.DataSetIncrementalRefresh? IncrementalRefresh;
+        public readonly Outputs.DataSetIncrementalRefresh IncrementalRefresh;
 
         [OutputConstructor]
-        private DataSetRefreshConfiguration(Outputs.DataSetIncrementalRefresh? incrementalRefresh)
+        private DataSetRefreshConfiguration(Outputs.DataSetIncrementalRefresh incrementalRefresh)
         {
             IncrementalRefresh = incrementalRefresh;
         }

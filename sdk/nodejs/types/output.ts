@@ -5301,7 +5301,7 @@ export namespace bedrock {
      * Contains the information of an Agent Action Group
      */
     export interface AgentActionGroup {
-        actionGroupExecutor?: outputs.bedrock.AgentActionGroupExecutor;
+        actionGroupExecutor?: outputs.bedrock.AgentActionGroupExecutor0Properties | outputs.bedrock.AgentActionGroupExecutor1Properties;
         /**
          * Name of the action group
          */
@@ -5312,6 +5312,7 @@ export namespace bedrock {
          * Description of action group
          */
         description?: string;
+        functionSchema?: outputs.bedrock.AgentFunctionSchema;
         parentActionGroupSignature?: enums.bedrock.AgentActionGroupSignature;
         /**
          * Specifies whether to allow deleting action group while it is in use.
@@ -5319,11 +5320,21 @@ export namespace bedrock {
         skipResourceInUseCheckOnDelete?: boolean;
     }
 
-    export interface AgentActionGroupExecutor {
+    /**
+     * Type of Executors for an Action Group
+     */
+    export interface AgentActionGroupExecutor0Properties {
         /**
          * ARN of a Lambda.
          */
         lambda: string;
+    }
+
+    /**
+     * Type of Executors for an Action Group
+     */
+    export interface AgentActionGroupExecutor1Properties {
+        customControl: enums.bedrock.AgentCustomControlMethod;
     }
 
     /**
@@ -5372,6 +5383,31 @@ export namespace bedrock {
     }
 
     /**
+     * Function definition
+     */
+    export interface AgentFunction {
+        /**
+         * Description of function
+         */
+        description?: string;
+        /**
+         * Name for a resource.
+         */
+        name: string;
+        parameters?: {[key: string]: outputs.bedrock.AgentParameterDetail};
+    }
+
+    /**
+     * Schema of Functions
+     */
+    export interface AgentFunctionSchema {
+        /**
+         * List of Function definitions
+         */
+        functions: outputs.bedrock.AgentFunction[];
+    }
+
+    /**
      * Configuration for inference in prompt configuration
      */
     export interface AgentInferenceConfiguration {
@@ -5410,6 +5446,21 @@ export namespace bedrock {
          */
         knowledgeBaseId: string;
         knowledgeBaseState?: enums.bedrock.AgentKnowledgeBaseState;
+    }
+
+    /**
+     * Parameter detail
+     */
+    export interface AgentParameterDetail {
+        /**
+         * Description of function parameter.
+         */
+        description?: string;
+        /**
+         * Information about if a parameter is required for function call. Default to false.
+         */
+        required?: boolean;
+        type: enums.bedrock.AgentType;
     }
 
     /**
@@ -11179,6 +11230,7 @@ export namespace dynamodb {
         indexName: string;
         keySchema: outputs.dynamodb.GlobalTableKeySchema[];
         projection: outputs.dynamodb.GlobalTableProjection;
+        writeOnDemandThroughputSettings?: outputs.dynamodb.GlobalTableWriteOnDemandThroughputSettings;
         writeProvisionedThroughputSettings?: outputs.dynamodb.GlobalTableWriteProvisionedThroughputSettings;
     }
 
@@ -11207,6 +11259,10 @@ export namespace dynamodb {
         projectionType?: string;
     }
 
+    export interface GlobalTableReadOnDemandThroughputSettings {
+        maxReadRequestUnits?: number;
+    }
+
     export interface GlobalTableReadProvisionedThroughputSettings {
         readCapacityAutoScalingSettings?: outputs.dynamodb.GlobalTableCapacityAutoScalingSettings;
         readCapacityUnits?: number;
@@ -11215,6 +11271,7 @@ export namespace dynamodb {
     export interface GlobalTableReplicaGlobalSecondaryIndexSpecification {
         contributorInsightsSpecification?: outputs.dynamodb.GlobalTableContributorInsightsSpecification;
         indexName: string;
+        readOnDemandThroughputSettings?: outputs.dynamodb.GlobalTableReadOnDemandThroughputSettings;
         readProvisionedThroughputSettings?: outputs.dynamodb.GlobalTableReadProvisionedThroughputSettings;
     }
 
@@ -11224,6 +11281,7 @@ export namespace dynamodb {
         globalSecondaryIndexes?: outputs.dynamodb.GlobalTableReplicaGlobalSecondaryIndexSpecification[];
         kinesisStreamSpecification?: outputs.dynamodb.GlobalTableKinesisStreamSpecification;
         pointInTimeRecoverySpecification?: outputs.dynamodb.GlobalTablePointInTimeRecoverySpecification;
+        readOnDemandThroughputSettings?: outputs.dynamodb.GlobalTableReadOnDemandThroughputSettings;
         readProvisionedThroughputSettings?: outputs.dynamodb.GlobalTableReadProvisionedThroughputSettings;
         region: string;
         replicaStreamSpecification?: outputs.dynamodb.GlobalTableReplicaStreamSpecification;
@@ -11269,6 +11327,10 @@ export namespace dynamodb {
     export interface GlobalTableTimeToLiveSpecification {
         attributeName?: string;
         enabled: boolean;
+    }
+
+    export interface GlobalTableWriteOnDemandThroughputSettings {
+        maxWriteRequestUnits?: number;
     }
 
     export interface GlobalTableWriteProvisionedThroughputSettings {
@@ -11337,6 +11399,10 @@ export namespace dynamodb {
          *  The sort key of an item is also known as its *range attribute*. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
          */
         keySchema: outputs.dynamodb.TableKeySchema[];
+        /**
+         * The maximum number of read and write units for the specified global secondary index. If you use this parameter, you must specify ``MaxReadRequestUnits``, ``MaxWriteRequestUnits``, or both.
+         */
+        onDemandThroughput?: outputs.dynamodb.TableOnDemandThroughput;
         /**
          * Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
          */
@@ -11437,6 +11503,22 @@ export namespace dynamodb {
          * Represents attributes that are copied (projected) from the table into the local secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
          */
         projection: outputs.dynamodb.TableProjection;
+    }
+
+    /**
+     * Sets the maximum number of read and write units for the specified on-demand table. If you use this property, you must specify ``MaxReadRequestUnits``, ``MaxWriteRequestUnits``, or both.
+     */
+    export interface TableOnDemandThroughput {
+        /**
+         * Maximum number of read request units for the specified table.
+         *  To specify a maximum ``OnDemandThroughput`` on your table, set the value of ``MaxReadRequestUnits`` as greater than or equal to 1. To remove the maximum ``OnDemandThroughput`` that is currently set on your table, set the value of ``MaxReadRequestUnits`` to -1.
+         */
+        maxReadRequestUnits?: number;
+        /**
+         * Maximum number of write request units for the specified table.
+         *  To specify a maximum ``OnDemandThroughput`` on your table, set the value of ``MaxWriteRequestUnits`` as greater than or equal to 1. To remove the maximum ``OnDemandThroughput`` that is currently set on your table, set the value of ``MaxWriteRequestUnits`` to -1.
+         */
+        maxWriteRequestUnits?: number;
     }
 
     /**
@@ -12909,7 +12991,7 @@ export namespace ec2 {
          */
         description?: string;
         /**
-         * The device index for the network interface attachment.
+         * The device index for the network interface attachment. Each network interface requires a device index. If you create a launch template that includes secondary network interfaces but not a primary network interface, then you must add a primary network interface as a launch parameter when you launch an instance from the template.
          */
         deviceIndex?: number;
         /**
@@ -17523,6 +17605,13 @@ export namespace events {
         isValueSecret?: boolean;
         key: string;
         value: string;
+    }
+
+    /**
+     * Dead Letter Queue for the event bus.
+     */
+    export interface DeadLetterConfigProperties {
+        arn?: string;
     }
 
     export interface EndpointEventBus {
@@ -28148,6 +28237,40 @@ export namespace mediaconnect {
     }
 
     /**
+     * A set of parameters that define the media stream.
+     */
+    export interface FlowFmtp {
+        /**
+         * The format of the audio channel.
+         */
+        channelOrder?: string;
+        /**
+         * The format used for the representation of color.
+         */
+        colorimetry?: enums.mediaconnect.FlowFmtpColorimetry;
+        /**
+         * The frame rate for the video stream, in frames/second. For example: 60000/1001.
+         */
+        exactFramerate?: string;
+        /**
+         * The pixel aspect ratio (PAR) of the video.
+         */
+        par?: string;
+        /**
+         * The encoding range of the video.
+         */
+        range?: enums.mediaconnect.FlowFmtpRange;
+        /**
+         * The type of compression that was used to smooth the video's appearance.
+         */
+        scanMode?: enums.mediaconnect.FlowFmtpScanMode;
+        /**
+         * The transfer characteristic system (TCS) that is used in the video.
+         */
+        tcs?: enums.mediaconnect.FlowFmtpTcs;
+    }
+
+    /**
      * The source configuration for cloud flows receiving a stream from a bridge.
      */
     export interface FlowGatewayBridgeSource {
@@ -28159,6 +28282,146 @@ export namespace mediaconnect {
          * The name of the VPC interface attachment to use for this bridge source.
          */
         vpcInterfaceAttachment?: outputs.mediaconnect.FlowVpcInterfaceAttachment;
+    }
+
+    /**
+     * The transport parameters associated with an incoming media stream.
+     */
+    export interface FlowInputConfiguration {
+        /**
+         * The port that the flow listens on for an incoming media stream.
+         */
+        inputPort: number;
+        /**
+         * The VPC interface where the media stream comes in from.
+         */
+        interface: outputs.mediaconnect.FlowInterface;
+    }
+
+    /**
+     * The VPC interface that you want to use for the media stream associated with the output.
+     */
+    export interface FlowInterface {
+        /**
+         * The name of the VPC interface that you want to use for the media stream associated with the output.
+         */
+        name: string;
+    }
+
+    /**
+     * The maintenance setting of a flow.
+     */
+    export interface FlowMaintenance {
+        /**
+         * A day of a week when the maintenance will happen. Use Monday/Tuesday/Wednesday/Thursday/Friday/Saturday/Sunday.
+         */
+        maintenanceDay: enums.mediaconnect.FlowMaintenanceMaintenanceDay;
+        /**
+         * UTC time when the maintenance will happen. Use 24-hour HH:MM format. Minutes must be 00. Example: 13:00. The default value is 02:00.
+         */
+        maintenanceStartHour: string;
+    }
+
+    /**
+     * A single track or stream of media that contains video, audio, or ancillary data. After you add a media stream to a flow, you can associate it with sources and outputs on that flow, as long as they use the CDI protocol or the ST 2110 JPEG XS protocol. Each source or output can consist of one or many media streams.
+     */
+    export interface FlowMediaStream {
+        /**
+         * Attributes that are related to the media stream.
+         */
+        attributes?: outputs.mediaconnect.FlowMediaStreamAttributes;
+        /**
+         * The sample rate for the stream. This value in measured in kHz.
+         */
+        clockRate?: number;
+        /**
+         * A description that can help you quickly identify what your media stream is used for.
+         */
+        description?: string;
+        /**
+         * The format type number (sometimes referred to as RTP payload type) of the media stream. MediaConnect assigns this value to the media stream. For ST 2110 JPEG XS outputs, you need to provide this value to the receiver.
+         */
+        fmt?: number;
+        /**
+         * A unique identifier for the media stream.
+         */
+        mediaStreamId: number;
+        /**
+         * A name that helps you distinguish one media stream from another.
+         */
+        mediaStreamName: string;
+        /**
+         * The type of media stream.
+         */
+        mediaStreamType: enums.mediaconnect.FlowMediaStreamMediaStreamType;
+        /**
+         * The resolution of the video.
+         */
+        videoFormat?: enums.mediaconnect.FlowMediaStreamVideoFormat;
+    }
+
+    /**
+     * Attributes that are related to the media stream.
+     */
+    export interface FlowMediaStreamAttributes {
+        /**
+         * A set of parameters that define the media stream.
+         */
+        fmtp?: outputs.mediaconnect.FlowFmtp;
+        /**
+         * The audio language, in a format that is recognized by the receiver.
+         */
+        lang?: string;
+    }
+
+    /**
+     * The media stream that is associated with the source, and the parameters for that association.
+     */
+    export interface FlowMediaStreamSourceConfiguration {
+        /**
+         * The format that was used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video, 2110 streams, set the encoding name to raw. For video, JPEG XS streams, set the encoding name to jxsv.
+         */
+        encodingName: enums.mediaconnect.FlowMediaStreamSourceConfigurationEncodingName;
+        /**
+         * The media streams that you want to associate with the source.
+         */
+        inputConfigurations?: outputs.mediaconnect.FlowInputConfiguration[];
+        /**
+         * A name that helps you distinguish one media stream from another.
+         */
+        mediaStreamName: string;
+    }
+
+    /**
+     * The definition of a media stream that is associated with the output.
+     */
+    export interface FlowOutputDestinationConfiguration {
+        /**
+         * The IP address where contents of the media stream will be sent.
+         */
+        destinationIp: string;
+        /**
+         * The port to use when the content of the media stream is distributed to the output.
+         */
+        destinationPort: number;
+        /**
+         * The VPC interface that is used for the media stream associated with the output.
+         */
+        interface: outputs.mediaconnect.FlowOutputInterface;
+    }
+
+    /**
+     * A collection of parameters that determine how MediaConnect will convert the content. These fields only apply to outputs on flows that have a CDI source.
+     */
+    export interface FlowOutputEncodingParameters {
+        /**
+         * A value that is used to calculate compression for an output. The bitrate of the output is calculated as follows: Output bitrate = (1 / compressionFactor) * (source bitrate) This property only applies to outputs that use the ST 2110 JPEG XS protocol, with a flow source that uses the CDI protocol. Valid values are in the range of 3.0 to 10.0, inclusive.
+         */
+        compressionFactor: number;
+        /**
+         * A setting on the encoder that drives compression settings. This property only applies to video media streams associated with outputs that use the ST 2110 JPEG XS protocol, with a flow source that uses the CDI protocol.
+         */
+        encoderProfile?: enums.mediaconnect.FlowOutputEncodingParametersEncoderProfile;
     }
 
     /**
@@ -28181,6 +28444,38 @@ export namespace mediaconnect {
          *  The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
          */
         secretArn: string;
+    }
+
+    /**
+     * The VPC interface that you want to use for the media stream associated with the output.
+     */
+    export interface FlowOutputInterface {
+        /**
+         * The name of the VPC interface that you want to use for the media stream associated with the output.
+         */
+        name: string;
+    }
+
+    /**
+     * The media stream that is associated with the output, and the parameters for that association.
+     */
+    export interface FlowOutputMediaStreamOutputConfiguration {
+        /**
+         * The media streams that you want to associate with the output.
+         */
+        destinationConfigurations?: outputs.mediaconnect.FlowOutputDestinationConfiguration[];
+        /**
+         * The format that will be used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video streams on sources or outputs that use the CDI protocol, set the encoding name to raw. For video streams on sources or outputs that use the ST 2110 JPEG XS protocol, set the encoding name to jxsv.
+         */
+        encodingName: enums.mediaconnect.FlowOutputMediaStreamOutputConfigurationEncodingName;
+        /**
+         * A collection of parameters that determine how MediaConnect will convert the content. These fields only apply to outputs on flows that have a CDI source.
+         */
+        encodingParameters?: outputs.mediaconnect.FlowOutputEncodingParameters;
+        /**
+         * A name that helps you distinguish one media stream from another.
+         */
+        mediaStreamName: string;
     }
 
     /**
@@ -28229,6 +28524,14 @@ export namespace mediaconnect {
          * The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
          */
         maxLatency?: number;
+        /**
+         * The size of the buffer (in milliseconds) to use to sync incoming source data.
+         */
+        maxSyncBuffer?: number;
+        /**
+         * The media stream that is associated with the source, and the parameters for that association.
+         */
+        mediaStreamSourceConfigurations?: outputs.mediaconnect.FlowMediaStreamSourceConfiguration[];
         /**
          * The minimum latency in milliseconds.
          */
@@ -28343,6 +28646,36 @@ export namespace mediaconnect {
          * The name of the VPC interface to use for this resource.
          */
         vpcInterfaceName?: string;
+    }
+
+    /**
+     * The details of a VPC interface.
+     */
+    export interface FlowVpcInterface {
+        /**
+         * Immutable and has to be a unique against other VpcInterfaces in this Flow.
+         */
+        name: string;
+        /**
+         * IDs of the network interfaces created in customer's account by MediaConnect.
+         */
+        networkInterfaceIds?: string[];
+        /**
+         * The type of network adapter that you want MediaConnect to use on this interface. If you don't set this value, it defaults to ENA.
+         */
+        networkInterfaceType?: enums.mediaconnect.FlowVpcInterfaceNetworkInterfaceType;
+        /**
+         * Role Arn MediaConnect can assume to create ENIs in customer's account.
+         */
+        roleArn: string;
+        /**
+         * Security Group IDs to be used on ENI.
+         */
+        securityGroupIds: string[];
+        /**
+         * Subnet must be in the AZ of the Flow
+         */
+        subnetId: string;
     }
 
     /**
@@ -38847,7 +39180,7 @@ export namespace quicksight {
          */
         format?: string;
         newColumnType: enums.quicksight.DataSetColumnDataType;
-        subType?: enums.quicksight.DataSetColumnSubDataType;
+        subType?: enums.quicksight.DataSetColumnDataSubType;
     }
 
     /**
@@ -38869,13 +39202,31 @@ export namespace quicksight {
         geoSpatialColumnGroup?: outputs.quicksight.DataSetGeoSpatialColumnGroup;
     }
 
+    /**
+     * <p>A rule defined to grant access on one or more restricted columns.
+     *             Each dataset can have multiple rules.
+     *             To create a restricted column, you add it to one or more rules.
+     *             Each rule must contain at least one column and at least one user or group.
+     *             To be able to see a restricted column, a user or group needs to be added
+     *             to a rule for that column.</p>
+     */
     export interface DataSetColumnLevelPermissionRule {
+        /**
+         * <p>An array of column names.</p>
+         */
         columnNames?: string[];
+        /**
+         * <p>An array of Amazon Resource Names (ARNs) for Amazon QuickSight users or groups.</p>
+         */
         principals?: string[];
     }
 
     /**
-     * <p>A tag for a column in a <a>TagColumnOperation</a> structure. This is a
+     * <p>A tag for a column in a
+     *             <code>
+     *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_TagColumnOperation.html">TagColumnOperation</a>
+     *             </code>
+     *             structure. This is a
      *             variant type structure. For this structure to be valid, only one of the attributes can
      *             be non-null.</p>
      */
@@ -38918,7 +39269,7 @@ export namespace quicksight {
     }
 
     /**
-     * <p>A parameter created in the dataset that could be of any one data type such as string, integer, decimal or datetime.</p>
+     * <p>A dataset parameter.</p>
      */
     export interface DataSetDatasetParameter {
         dateTimeDatasetParameter?: outputs.quicksight.DataSetDateTimeDatasetParameter;
@@ -38928,48 +39279,69 @@ export namespace quicksight {
     }
 
     /**
-     * <p>A parameter created in the dataset of date time data type.</p>
+     * <p>A date time parameter for a dataset.</p>
      */
     export interface DataSetDateTimeDatasetParameter {
         defaultValues?: outputs.quicksight.DataSetDateTimeDatasetParameterDefaultValues;
+        /**
+         * <p>An identifier for the parameter that is created in the dataset.</p>
+         */
         id: string;
+        /**
+         * <p>The name of the date time parameter that is created in the dataset.</p>
+         */
         name: string;
         timeGranularity?: enums.quicksight.DataSetTimeGranularity;
         valueType: enums.quicksight.DataSetDatasetParameterValueType;
     }
 
     /**
-     * <p>List of default values defined for a given string date time parameter type. Currently only static values are supported.</p>
+     * <p>The default values of a date time parameter.</p>
      */
     export interface DataSetDateTimeDatasetParameterDefaultValues {
         /**
-         * <p>List of static default values defined for a given string date time parameter type.</p>
+         * <p>A list of static default values for a given date time parameter.</p>
          */
         staticValues?: string[];
     }
 
     /**
-     * <p>A parameter created in the dataset of decimal data type.</p>
+     * <p>A decimal parameter for a dataset.</p>
      */
     export interface DataSetDecimalDatasetParameter {
         defaultValues?: outputs.quicksight.DataSetDecimalDatasetParameterDefaultValues;
+        /**
+         * <p>An identifier for the decimal parameter created in the dataset.</p>
+         */
         id: string;
+        /**
+         * <p>The name of the decimal parameter that is created in the dataset.</p>
+         */
         name: string;
         valueType: enums.quicksight.DataSetDatasetParameterValueType;
     }
 
     /**
-     * <p>List of default values defined for a given decimal dataset parameter type. Currently only static values are supported.</p>
+     * <p>The default values of a decimal parameter.</p>
      */
     export interface DataSetDecimalDatasetParameterDefaultValues {
         /**
-         * <p>List of static default values defined for a given decimal dataset parameter type.</p>
+         * <p>A list of static default values for a given decimal parameter.</p>
          */
         staticValues?: number[];
     }
 
+    /**
+     * <p>A FieldFolder element is a folder that contains fields and nested subfolders.</p>
+     */
     export interface DataSetFieldFolder {
+        /**
+         * <p>A folder has a list of columns. A column can only be in one folder.</p>
+         */
         columns?: string[];
+        /**
+         * <p>The description for a field folder.</p>
+         */
         description?: string;
     }
 
@@ -39000,10 +39372,10 @@ export namespace quicksight {
     }
 
     /**
-     * <p>Incremental Refresh</p>
+     * <p>The incremental refresh configuration for a dataset.</p>
      */
     export interface DataSetIncrementalRefresh {
-        lookbackWindow?: outputs.quicksight.DataSetLookbackWindow;
+        lookbackWindow: outputs.quicksight.DataSetLookbackWindow;
     }
 
     /**
@@ -39030,52 +39402,65 @@ export namespace quicksight {
          * <p>The name of this column in the underlying data source.</p>
          */
         name: string;
-        subType?: enums.quicksight.DataSetColumnSubDataType;
+        subType?: enums.quicksight.DataSetColumnDataSubType;
         type: enums.quicksight.DataSetInputColumnDataType;
     }
 
     /**
-     * <p>A parameter created in the dataset of integer data type.</p>
+     * <p>An integer parameter for a dataset.</p>
      */
     export interface DataSetIntegerDatasetParameter {
         defaultValues?: outputs.quicksight.DataSetIntegerDatasetParameterDefaultValues;
+        /**
+         * <p>An identifier for the integer parameter created in the dataset.</p>
+         */
         id: string;
+        /**
+         * <p>The name of the integer parameter that is created in the dataset.</p>
+         */
         name: string;
         valueType: enums.quicksight.DataSetDatasetParameterValueType;
     }
 
     /**
-     * <p>List of default values defined for a given integer dataset parameter type. Currently only static values are supported.</p>
+     * <p>The default values of an integer parameter.</p>
      */
     export interface DataSetIntegerDatasetParameterDefaultValues {
         /**
-         * <p>List of static default values defined for a given integer dataset parameter type.</p>
+         * <p>A list of static default values for a given integer parameter.</p>
          */
         staticValues?: number[];
     }
 
     /**
-     * <p>Join instruction.</p>
+     * <p>The instructions associated with a join. </p>
      */
     export interface DataSetJoinInstruction {
         leftJoinKeyProperties?: outputs.quicksight.DataSetJoinKeyProperties;
         /**
-         * <p>Left operand.</p>
+         * <p>The operand on the left side of a join.</p>
          */
         leftOperand: string;
         /**
-         * <p>On Clause.</p>
+         * <p>The join instructions provided in the <code>ON</code> clause of a join.</p>
          */
         onClause: string;
         rightJoinKeyProperties?: outputs.quicksight.DataSetJoinKeyProperties;
         /**
-         * <p>Right operand.</p>
+         * <p>The operand on the right side of a join.</p>
          */
         rightOperand: string;
         type: enums.quicksight.DataSetJoinType;
     }
 
+    /**
+     * <p>Properties associated with the columns participating in a join.</p>
+     */
     export interface DataSetJoinKeyProperties {
+        /**
+         * <p>A value that indicates that a row in a table is uniquely identified by the columns in
+         *             a join key. This is used by Amazon QuickSight to optimize query performance.</p>
+         */
         uniqueKey?: boolean;
     }
 
@@ -39091,7 +39476,7 @@ export namespace quicksight {
          */
         alias: string;
         /**
-         * <p>Transform operations that act on this logical table.</p>
+         * <p>Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. </p>
          */
         dataTransforms?: outputs.quicksight.DataSetTransformOperation[];
         source: outputs.quicksight.DataSetLogicalTableSource;
@@ -39103,7 +39488,7 @@ export namespace quicksight {
      */
     export interface DataSetLogicalTableSource {
         /**
-         * <p>The Amazon Resource Name (ARN) for the dataset.</p>
+         * <p>The Amazon Resource Number (ARN) of the parent dataset.</p>
          */
         dataSetArn?: string;
         joinInstruction?: outputs.quicksight.DataSetJoinInstruction;
@@ -39113,22 +39498,40 @@ export namespace quicksight {
         physicalTableId?: string;
     }
 
+    /**
+     * <p>The lookback window setup of an incremental refresh configuration.</p>
+     */
     export interface DataSetLookbackWindow {
         /**
-         * <p>Column Name</p>
+         * <p>The name of the lookback window column.</p>
          */
-        columnName?: string;
+        columnName: string;
         /**
-         * <p>Size</p>
+         * <p>The lookback window column size.</p>
          */
-        size?: number;
-        sizeUnit?: enums.quicksight.DataSetSizeUnit;
+        size: number;
+        sizeUnit: enums.quicksight.DataSetLookbackWindowSizeUnit;
     }
 
+    /**
+     * <p>The configuration that overrides the existing default values for a dataset parameter that is inherited from another dataset.</p>
+     */
     export interface DataSetNewDefaultValues {
+        /**
+         * <p>A list of static default values for a given date time parameter.</p>
+         */
         dateTimeStaticValues?: string[];
+        /**
+         * <p>A list of static default values for a given decimal parameter.</p>
+         */
         decimalStaticValues?: number[];
+        /**
+         * <p>A list of static default values for a given integer parameter.</p>
+         */
         integerStaticValues?: number[];
+        /**
+         * <p>A list of static default values for a given string parameter.</p>
+         */
         stringStaticValues?: string[];
     }
 
@@ -39141,20 +39544,17 @@ export namespace quicksight {
          */
         description?: string;
         /**
-         * <p>A display name for the dataset.</p>
+         * <p>The display name of the column..</p>
          */
         name?: string;
-        subType?: enums.quicksight.DataSetColumnSubDataType;
+        subType?: enums.quicksight.DataSetColumnDataSubType;
         type?: enums.quicksight.DataSetColumnDataType;
     }
 
     /**
-     * <p>A transform operation that overrides the dataset parameter values defined in another dataset.</p>
+     * <p>A transform operation that overrides the dataset parameter values that are defined in another dataset.</p>
      */
     export interface DataSetOverrideDatasetParameterOperation {
-        /**
-         * <p>The new default values for the parameter.</p>
-         */
         newDefaultValues?: outputs.quicksight.DataSetNewDefaultValues;
         /**
          * <p>The new name for the parameter.</p>
@@ -39189,17 +39589,17 @@ export namespace quicksight {
     }
 
     /**
-     * <p> Refresh Configuration.</p>
+     * <p>The refresh configuration of a dataset.</p>
      */
     export interface DataSetRefreshConfiguration {
-        incrementalRefresh?: outputs.quicksight.DataSetIncrementalRefresh;
+        incrementalRefresh: outputs.quicksight.DataSetIncrementalRefresh;
     }
 
     /**
-     * <p>The dataset refresh properties for the dataset.</p>
+     * <p>The refresh properties of a dataset.</p>
      */
     export interface DataSetRefreshProperties {
-        refreshConfiguration?: outputs.quicksight.DataSetRefreshConfiguration;
+        refreshConfiguration: outputs.quicksight.DataSetRefreshConfiguration;
     }
 
     /**
@@ -39253,16 +39653,16 @@ export namespace quicksight {
         /**
          * <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
          *             following:</p>
-         *         <ul>
+         *          <ul>
          *             <li>
-         *                 <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+         *                <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
          *             </li>
          *             <li>
-         *                 <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+         *                <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
          *             </li>
          *             <li>
-         *                 <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
-         *                     ARN. Use this option only to share resources (templates) across AWS accounts.
+         *                <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
+         *                     ARN. Use this option only to share resources (templates) across Amazon Web Services accounts.
          *                     (This is less common.) </p>
          *             </li>
          *          </ul>
@@ -39271,16 +39671,21 @@ export namespace quicksight {
     }
 
     /**
-     * <p>The row-level security configuration for the dataset.</p>
+     * <p>Information about a dataset that contains permissions for row-level security (RLS).
+     *             The permissions dataset maps fields to users or groups. For more information, see
+     *             <a href="https://docs.aws.amazon.com/quicksight/latest/user/restrict-access-to-a-data-set-using-row-level-security.html">Using Row-Level Security (RLS) to Restrict Access to a Dataset</a> in the <i>Amazon QuickSight User
+     *                 Guide</i>.</p>
+     *          <p>The option to deny permissions by setting <code>PermissionPolicy</code> to <code>DENY_ACCESS</code> is
+     *             not supported for new RLS datasets.</p>
      */
     export interface DataSetRowLevelPermissionDataSet {
         /**
-         * <p>The Amazon Resource Name (ARN) of the permission dataset.</p>
+         * <p>The Amazon Resource Name (ARN) of the dataset that contains permissions for RLS.</p>
          */
         arn: string;
         formatVersion?: enums.quicksight.DataSetRowLevelPermissionFormatVersion;
         /**
-         * <p>The namespace associated with the row-level permissions dataset.</p>
+         * <p>The namespace associated with the dataset that contains permissions for RLS.</p>
          */
         namespace?: string;
         permissionPolicy: enums.quicksight.DataSetRowLevelPermissionPolicy;
@@ -39288,7 +39693,7 @@ export namespace quicksight {
     }
 
     /**
-     * <p>The configuration of tags on a dataset to set row-level security.</p>
+     * <p>The configuration of tags on a dataset to set row-level security. </p>
      */
     export interface DataSetRowLevelPermissionTagConfiguration {
         status?: enums.quicksight.DataSetStatus;
@@ -39303,7 +39708,7 @@ export namespace quicksight {
     }
 
     /**
-     * <p>Permission for the resource.</p>
+     * <p>A set of rules associated with a tag.</p>
      */
     export interface DataSetRowLevelPermissionTagRule {
         /**
@@ -39325,36 +39730,45 @@ export namespace quicksight {
     }
 
     /**
-     * <p>A physical table type for as S3 data source.</p>
+     * <p>A physical table type for an S3 data source.</p>
      */
     export interface DataSetS3Source {
         /**
-         * <p>The amazon Resource Name (ARN) for the data source.</p>
+         * <p>The Amazon Resource Name (ARN) for the data source.</p>
          */
         dataSourceArn: string;
         /**
-         * <p>A physical table type for as S3 data source.</p>
+         * <p>A physical table type for an S3 data source.</p>
+         *          <note>
+         *             <p>For files that aren't JSON, only <code>STRING</code> data types are supported in input columns.</p>
+         *          </note>
          */
         inputColumns: outputs.quicksight.DataSetInputColumn[];
         uploadSettings?: outputs.quicksight.DataSetUploadSettings;
     }
 
     /**
-     * <p>A parameter created in the dataset of string data type.</p>
+     * <p>A string parameter for a dataset.</p>
      */
     export interface DataSetStringDatasetParameter {
         defaultValues?: outputs.quicksight.DataSetStringDatasetParameterDefaultValues;
+        /**
+         * <p>An identifier for the string parameter that is created in the dataset.</p>
+         */
         id: string;
+        /**
+         * <p>The name of the string parameter that is created in the dataset.</p>
+         */
         name: string;
         valueType: enums.quicksight.DataSetDatasetParameterValueType;
     }
 
     /**
-     * <p>List of default values defined for a given string dataset parameter type. Currently only static values are supported.</p>
+     * <p>The default values of a string parameter.</p>
      */
     export interface DataSetStringDatasetParameterDefaultValues {
         /**
-         * <p>List of static default values defined for a given string dataset parameter type.</p>
+         * <p>A list of static default values for a given string parameter.</p>
          */
         staticValues?: string[];
     }
@@ -39368,10 +39782,10 @@ export namespace quicksight {
          */
         columnName: string;
         /**
-         * <p>The dataset column tag, currently only used for geospatial type tagging. .</p>
-         *         <note>
-         *             <p>This is not tags for the AWS tagging feature. .</p>
-         *         </note>
+         * <p>The dataset column tag, currently only used for geospatial type tagging.</p>
+         *          <note>
+         *             <p>This is not tags for the Amazon Web Services tagging feature.</p>
+         *          </note>
          */
         tags: outputs.quicksight.DataSetColumnTag[];
     }
@@ -39388,6 +39802,21 @@ export namespace quicksight {
         projectOperation?: outputs.quicksight.DataSetProjectOperation;
         renameColumnOperation?: outputs.quicksight.DataSetRenameColumnOperation;
         tagColumnOperation?: outputs.quicksight.DataSetTagColumnOperation;
+        untagColumnOperation?: outputs.quicksight.DataSetUntagColumnOperation;
+    }
+
+    /**
+     * <p>A transform operation that removes tags associated with a column.</p>
+     */
+    export interface DataSetUntagColumnOperation {
+        /**
+         * <p>The column that this operation acts on.</p>
+         */
+        columnName: string;
+        /**
+         * <p>The column tags to remove from this column.</p>
+         */
+        tagNames: enums.quicksight.DataSetColumnTagName[];
     }
 
     /**
@@ -39411,35 +39840,41 @@ export namespace quicksight {
     }
 
     /**
-     * <p>The dataset usage configuration for the dataset.</p>
+     * <p>The usage configuration to apply to child datasets that reference this dataset as a source.</p>
      */
     export interface DataSetUsageConfiguration {
+        /**
+         * <p>An option that controls whether a child dataset of a direct query can use this dataset as a source.</p>
+         */
         disableUseAsDirectQuerySource?: boolean;
+        /**
+         * <p>An option that controls whether a child dataset that's stored in QuickSight can use this dataset as a source.</p>
+         */
         disableUseAsImportedSource?: boolean;
     }
 
     /**
-     * <p>Amazon Elasticsearch Service parameters.</p>
+     * <p>The parameters for OpenSearch.</p>
      */
     export interface DataSourceAmazonElasticsearchParameters {
         /**
-         * <p>The Amazon Elasticsearch Service domain.</p>
+         * <p>The OpenSearch domain.</p>
          */
         domain: string;
     }
 
     /**
-     * <p>Amazon OpenSearch Service parameters.</p>
+     * <p>The parameters for OpenSearch.</p>
      */
     export interface DataSourceAmazonOpenSearchParameters {
         /**
-         * <p>The Amazon OpenSearch Service domain.</p>
+         * <p>The OpenSearch domain.</p>
          */
         domain: string;
     }
 
     /**
-     * <p>Amazon Athena parameters.</p>
+     * <p>Parameters for Amazon Athena.</p>
      */
     export interface DataSourceAthenaParameters {
         /**
@@ -39453,7 +39888,7 @@ export namespace quicksight {
     }
 
     /**
-     * <p>Amazon Aurora parameters.</p>
+     * <p>Parameters for Amazon Aurora.</p>
      */
     export interface DataSourceAuroraParameters {
         /**
@@ -39471,19 +39906,19 @@ export namespace quicksight {
     }
 
     /**
-     * <p>Amazon Aurora with PostgreSQL compatibility parameters.</p>
+     * <p>Parameters for Amazon Aurora PostgreSQL-Compatible Edition.</p>
      */
     export interface DataSourceAuroraPostgreSqlParameters {
         /**
-         * <p>Database.</p>
+         * <p>The Amazon Aurora PostgreSQL database to connect to.</p>
          */
         database: string;
         /**
-         * <p>Host.</p>
+         * <p>The Amazon Aurora PostgreSQL-Compatible host to connect to.</p>
          */
         host: string;
         /**
-         * <p>Port.</p>
+         * <p>The port that Amazon Aurora PostgreSQL is listening on.</p>
          */
         port: number;
     }
@@ -39534,19 +39969,19 @@ export namespace quicksight {
     }
 
     /**
-     * <p>Databricks parameters.</p>
+     * <p>The parameters that are required to connect to a Databricks data source.</p>
      */
     export interface DataSourceDatabricksParameters {
         /**
-         * <p>Host.</p>
+         * <p>The host name of the Databricks data source.</p>
          */
         host: string;
         /**
-         * <p>Port.</p>
+         * <p>The port for the Databricks data source.</p>
          */
         port: number;
         /**
-         * <p>The HTTP Path of the Databricks data source.</p>
+         * <p>The HTTP path of the Databricks data source.</p>
          */
         sqlEndpointPath: string;
     }
@@ -39560,6 +39995,16 @@ export namespace quicksight {
          */
         message?: string;
         type?: enums.quicksight.DataSourceErrorInfoType;
+    }
+
+    /**
+     * <p>The parameters for an IAM Identity Center configuration.</p>
+     */
+    export interface DataSourceIdentityCenterConfiguration {
+        /**
+         * <p>A Boolean option that controls whether Trusted Identity Propagation should be used.</p>
+         */
+        enableIdentityPropagation?: boolean;
     }
 
     /**
@@ -39577,7 +40022,7 @@ export namespace quicksight {
     }
 
     /**
-     * <p>MariaDB parameters.</p>
+     * <p>The parameters for MariaDB.</p>
      */
     export interface DataSourceMariaDbParameters {
         /**
@@ -39595,7 +40040,7 @@ export namespace quicksight {
     }
 
     /**
-     * <p>MySQL parameters.</p>
+     * <p>The parameters for MySQL.</p>
      */
     export interface DataSourceMySqlParameters {
         /**
@@ -39612,9 +40057,21 @@ export namespace quicksight {
         port: number;
     }
 
+    /**
+     * <p>The parameters for Oracle.</p>
+     */
     export interface DataSourceOracleParameters {
+        /**
+         * <p>The database.</p>
+         */
         database: string;
+        /**
+         * <p>An Oracle host.</p>
+         */
         host: string;
+        /**
+         * <p>The port.</p>
+         */
         port: number;
     }
 
@@ -39647,7 +40104,7 @@ export namespace quicksight {
     }
 
     /**
-     * <p>PostgreSQL parameters.</p>
+     * <p>The parameters for PostgreSQL.</p>
      */
     export interface DataSourcePostgreSqlParameters {
         /**
@@ -39665,7 +40122,7 @@ export namespace quicksight {
     }
 
     /**
-     * <p>Presto parameters.</p>
+     * <p>The parameters for Presto.</p>
      */
     export interface DataSourcePrestoParameters {
         /**
@@ -39683,7 +40140,7 @@ export namespace quicksight {
     }
 
     /**
-     * <p>Amazon RDS parameters.</p>
+     * <p>The parameters for Amazon RDS.</p>
      */
     export interface DataSourceRdsParameters {
         /**
@@ -39697,9 +40154,8 @@ export namespace quicksight {
     }
 
     /**
-     * <p>Amazon Redshift parameters. The <code>ClusterId</code> field can be blank if
-     *             <code>Host</code> and <code>Port</code> are both set. The <code>Host</code> and
-     *             <code>Port</code> fields can be blank if the <code>ClusterId</code> field is set.</p>
+     * <p>The parameters for Amazon Redshift. The <code>ClusterId</code> field can be blank if
+     *             <code>Host</code> and <code>Port</code> are both set. The <code>Host</code> and <code>Port</code> fields can be blank if the <code>ClusterId</code> field is set.</p>
      */
     export interface DataSourceRedshiftParameters {
         /**
@@ -39715,6 +40171,7 @@ export namespace quicksight {
          * <p>Host. This field can be blank if <code>ClusterId</code> is provided.</p>
          */
         host?: string;
+        identityCenterConfiguration?: outputs.quicksight.DataSourceIdentityCenterConfiguration;
         /**
          * <p>Port. This field can be blank if the <code>ClusterId</code> is provided.</p>
          */
@@ -39732,25 +40189,26 @@ export namespace quicksight {
         /**
          * <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
          *             following:</p>
-         *         <ul>
+         *          <ul>
          *             <li>
-         *                 <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+         *                <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
          *             </li>
          *             <li>
-         *                 <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+         *                <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
          *             </li>
          *             <li>
-         *                 <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
-         *                     ARN. Use this option only to share resources (templates) across AWS accounts.
+         *                <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
+         *                     ARN. Use this option only to share resources (templates) across Amazon Web Services accounts.
          *                     (This is less common.) </p>
          *             </li>
          *          </ul>
          */
         principal: string;
+        resource?: string;
     }
 
     /**
-     * <p>S3 parameters.</p>
+     * <p>The parameters for S3.</p>
      */
     export interface DataSourceS3Parameters {
         manifestFileLocation: outputs.quicksight.DataSourceManifestFileLocation;
@@ -39761,7 +40219,7 @@ export namespace quicksight {
     }
 
     /**
-     * <p>Snowflake parameters.</p>
+     * <p>The parameters for Snowflake.</p>
      */
     export interface DataSourceSnowflakeParameters {
         /**
@@ -39779,7 +40237,7 @@ export namespace quicksight {
     }
 
     /**
-     * <p>Spark parameters.</p>
+     * <p>The parameters for Spark.</p>
      */
     export interface DataSourceSparkParameters {
         /**
@@ -39793,7 +40251,7 @@ export namespace quicksight {
     }
 
     /**
-     * <p>SQL Server parameters.</p>
+     * <p>The parameters for SQL Server.</p>
      */
     export interface DataSourceSqlServerParameters {
         /**
@@ -39811,7 +40269,7 @@ export namespace quicksight {
     }
 
     /**
-     * <p>Secure Socket Layer (SSL) properties that apply when QuickSight connects to your
+     * <p>Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your
      *             underlying data source.</p>
      */
     export interface DataSourceSslProperties {
@@ -39822,26 +40280,26 @@ export namespace quicksight {
     }
 
     /**
-     * <p>Starburst parameters.</p>
+     * <p>The parameters that are required to connect to a Starburst data source.</p>
      */
     export interface DataSourceStarburstParameters {
         /**
-         * <p>Catalog.</p>
+         * <p>The catalog name for the Starburst data source.</p>
          */
         catalog: string;
         /**
-         * <p>Host.</p>
+         * <p>The host name of the Starburst data source.</p>
          */
         host: string;
         /**
-         * <p>Port.</p>
+         * <p>The port for the Starburst data source.</p>
          */
         port: number;
         productType?: enums.quicksight.DataSourceStarburstProductType;
     }
 
     /**
-     * <p>Teradata parameters.</p>
+     * <p>The parameters for Teradata.</p>
      */
     export interface DataSourceTeradataParameters {
         /**
@@ -39859,19 +40317,19 @@ export namespace quicksight {
     }
 
     /**
-     * <p>Trino parameters.</p>
+     * <p>The parameters that are required to connect to a Trino data source.</p>
      */
     export interface DataSourceTrinoParameters {
         /**
-         * <p>Catalog.</p>
+         * <p>The catalog name for the Trino data source.</p>
          */
         catalog: string;
         /**
-         * <p>Host.</p>
+         * <p>The host name of the Trino data source.</p>
          */
         host: string;
         /**
-         * <p>Port.</p>
+         * <p>The port for the Trino data source.</p>
          */
         port: number;
     }
@@ -43652,11 +44110,26 @@ export namespace quicksight {
         singularConstant?: string;
     }
 
+    /**
+     * <p>The structure that contains information about a network interface.</p>
+     */
     export interface VpcConnectionNetworkInterface {
+        /**
+         * <p>The availability zone that the network interface resides in.</p>
+         */
         availabilityZone?: string;
+        /**
+         * <p>An error message.</p>
+         */
         errorMessage?: string;
+        /**
+         * <p>The network interface ID.</p>
+         */
         networkInterfaceId?: string;
         status?: enums.quicksight.VpcConnectionNetworkInterfaceStatus;
+        /**
+         * <p>The subnet ID associated with the network interface.</p>
+         */
         subnetId?: string;
     }
 
@@ -44740,6 +45213,10 @@ export namespace route53resolver {
          * ResourceId
          */
         firewallDomainListId: string;
+        /**
+         * FirewallDomainRedirectionAction
+         */
+        firewallDomainRedirectionAction?: enums.route53resolver.FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction;
         /**
          * Rule Priority
          */
@@ -51658,6 +52135,34 @@ export namespace ssmincidents {
 }
 
 export namespace sso {
+    /**
+     * A structure that describes the options for the access portal associated with an application
+     */
+    export interface ApplicationPortalOptionsConfiguration {
+        /**
+         * A structure that describes the sign-in options for the access portal
+         */
+        signInOptions?: outputs.sso.ApplicationSignInOptions;
+        /**
+         * Indicates whether this application is visible in the access portal
+         */
+        visibility?: enums.sso.ApplicationPortalOptionsConfigurationVisibility;
+    }
+
+    /**
+     * A structure that describes the sign-in options for an application portal
+     */
+    export interface ApplicationSignInOptions {
+        /**
+         * The URL that accepts authentication requests for an application, this is a required parameter if the Origin parameter is APPLICATION
+         */
+        applicationUrl?: string;
+        /**
+         * This determines how IAM Identity Center navigates the user to the target application
+         */
+        origin: enums.sso.ApplicationSignInOptionsOrigin;
+    }
+
     export interface InstanceAccessControlAttributeConfigurationAccessControlAttribute {
         key: string;
         value: outputs.sso.InstanceAccessControlAttributeConfigurationAccessControlAttributeValue;

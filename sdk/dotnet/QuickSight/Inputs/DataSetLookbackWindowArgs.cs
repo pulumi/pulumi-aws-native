@@ -10,22 +10,25 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;The lookback window setup of an incremental refresh configuration.&lt;/p&gt;
+    /// </summary>
     public sealed class DataSetLookbackWindowArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// &lt;p&gt;Column Name&lt;/p&gt;
+        /// &lt;p&gt;The name of the lookback window column.&lt;/p&gt;
         /// </summary>
-        [Input("columnName")]
-        public Input<string>? ColumnName { get; set; }
+        [Input("columnName", required: true)]
+        public Input<string> ColumnName { get; set; } = null!;
 
         /// <summary>
-        /// &lt;p&gt;Size&lt;/p&gt;
+        /// &lt;p&gt;The lookback window column size.&lt;/p&gt;
         /// </summary>
-        [Input("size")]
-        public Input<double>? Size { get; set; }
+        [Input("size", required: true)]
+        public Input<double> Size { get; set; } = null!;
 
-        [Input("sizeUnit")]
-        public Input<Pulumi.AwsNative.QuickSight.DataSetSizeUnit>? SizeUnit { get; set; }
+        [Input("sizeUnit", required: true)]
+        public Input<Pulumi.AwsNative.QuickSight.DataSetLookbackWindowSizeUnit> SizeUnit { get; set; } = null!;
 
         public DataSetLookbackWindowArgs()
         {

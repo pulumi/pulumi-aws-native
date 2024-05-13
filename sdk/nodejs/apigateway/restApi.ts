@@ -76,6 +76,90 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws_native from "@pulumi/aws-native";
  *
+ * const restApi = new aws_native.apigateway.RestApi("restApi", {name: "myRestApi"});
+ * const gatewayResponse = new aws_native.apigateway.GatewayResponse("gatewayResponse", {
+ *     responseParameters: {
+ *         "gatewayresponse.header.Access-Control-Allow-Origin": "'*'",
+ *         "gatewayresponse.header.Access-Control-Allow-Headers": "'*'",
+ *     },
+ *     responseType: "MISSING_AUTHENTICATION_TOKEN",
+ *     restApiId: restApi.id,
+ *     statusCode: "404",
+ * });
+ *
+ * ```
+ * ### Example
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws_native from "@pulumi/aws-native";
+ *
+ * const restApi = new aws_native.apigateway.RestApi("restApi", {name: "myRestApi"});
+ * const gatewayResponse = new aws_native.apigateway.GatewayResponse("gatewayResponse", {
+ *     responseParameters: {
+ *         "gatewayresponse.header.Access-Control-Allow-Origin": "'*'",
+ *         "gatewayresponse.header.Access-Control-Allow-Headers": "'*'",
+ *     },
+ *     responseType: "MISSING_AUTHENTICATION_TOKEN",
+ *     restApiId: restApi.id,
+ *     statusCode: "404",
+ * });
+ *
+ * ```
+ * ### Example
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws_native from "@pulumi/aws-native";
+ *
+ * const config = new pulumi.Config();
+ * const apiName = config.require("apiName");
+ * const responseParameter1 = config.require("responseParameter1");
+ * const responseParameter2 = config.require("responseParameter2");
+ * const responseType = config.require("responseType");
+ * const statusCode = config.require("statusCode");
+ * const restApi = new aws_native.apigateway.RestApi("restApi", {name: apiName});
+ * const gatewayResponse = new aws_native.apigateway.GatewayResponse("gatewayResponse", {
+ *     responseParameters: {
+ *         "gatewayresponse.header.k1": responseParameter1,
+ *         "gatewayresponse.header.k2": responseParameter2,
+ *     },
+ *     responseType: responseType,
+ *     restApiId: restApi.id,
+ *     statusCode: statusCode,
+ * });
+ *
+ * ```
+ * ### Example
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws_native from "@pulumi/aws-native";
+ *
+ * const config = new pulumi.Config();
+ * const apiName = config.require("apiName");
+ * const responseParameter1 = config.require("responseParameter1");
+ * const responseParameter2 = config.require("responseParameter2");
+ * const responseType = config.require("responseType");
+ * const statusCode = config.require("statusCode");
+ * const restApi = new aws_native.apigateway.RestApi("restApi", {name: apiName});
+ * const gatewayResponse = new aws_native.apigateway.GatewayResponse("gatewayResponse", {
+ *     responseParameters: {
+ *         "gatewayresponse.header.k1": responseParameter1,
+ *         "gatewayresponse.header.k2": responseParameter2,
+ *     },
+ *     responseType: responseType,
+ *     restApiId: restApi.id,
+ *     statusCode: statusCode,
+ * });
+ *
+ * ```
+ * ### Example
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws_native from "@pulumi/aws-native";
+ *
  * const config = new pulumi.Config();
  * const contentHandling = config.require("contentHandling");
  * const operationName = config.get("operationName") || "testoperationName";

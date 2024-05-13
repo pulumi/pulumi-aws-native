@@ -52,6 +52,12 @@ namespace Pulumi.AwsNative.MediaConnect
         public Output<int?> MaxLatency { get; private set; } = null!;
 
         /// <summary>
+        /// The definition for each media stream that is associated with the output.
+        /// </summary>
+        [Output("mediaStreamOutputConfigurations")]
+        public Output<ImmutableArray<Outputs.FlowOutputMediaStreamOutputConfiguration>> MediaStreamOutputConfigurations { get; private set; } = null!;
+
+        /// <summary>
         /// The minimum latency in milliseconds.
         /// </summary>
         [Output("minLatency")]
@@ -195,6 +201,18 @@ namespace Pulumi.AwsNative.MediaConnect
         /// </summary>
         [Input("maxLatency")]
         public Input<int>? MaxLatency { get; set; }
+
+        [Input("mediaStreamOutputConfigurations")]
+        private InputList<Inputs.FlowOutputMediaStreamOutputConfigurationArgs>? _mediaStreamOutputConfigurations;
+
+        /// <summary>
+        /// The definition for each media stream that is associated with the output.
+        /// </summary>
+        public InputList<Inputs.FlowOutputMediaStreamOutputConfigurationArgs> MediaStreamOutputConfigurations
+        {
+            get => _mediaStreamOutputConfigurations ?? (_mediaStreamOutputConfigurations = new InputList<Inputs.FlowOutputMediaStreamOutputConfigurationArgs>());
+            set => _mediaStreamOutputConfigurations = value;
+        }
 
         /// <summary>
         /// The minimum latency in milliseconds.

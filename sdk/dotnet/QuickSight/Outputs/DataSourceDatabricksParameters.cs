@@ -11,21 +11,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
     /// <summary>
-    /// &lt;p&gt;Databricks parameters.&lt;/p&gt;
+    /// &lt;p&gt;The parameters that are required to connect to a Databricks data source.&lt;/p&gt;
     /// </summary>
     [OutputType]
     public sealed class DataSourceDatabricksParameters
     {
         /// <summary>
-        /// &lt;p&gt;Host.&lt;/p&gt;
+        /// &lt;p&gt;The host name of the Databricks data source.&lt;/p&gt;
         /// </summary>
         public readonly string Host;
         /// <summary>
-        /// &lt;p&gt;Port.&lt;/p&gt;
+        /// &lt;p&gt;The port for the Databricks data source.&lt;/p&gt;
         /// </summary>
         public readonly double Port;
         /// <summary>
-        /// &lt;p&gt;The HTTP Path of the Databricks data source.&lt;/p&gt;
+        /// &lt;p&gt;The HTTP path of the Databricks data source.&lt;/p&gt;
         /// </summary>
         public readonly string SqlEndpointPath;
 

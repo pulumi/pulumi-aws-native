@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
     /// <summary>
-    /// &lt;p&gt;Join instruction.&lt;/p&gt;
+    /// &lt;p&gt;The instructions associated with a join. &lt;/p&gt;
     /// </summary>
     public sealed class DataSetJoinInstructionArgs : global::Pulumi.ResourceArgs
     {
@@ -19,13 +19,13 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Inputs.DataSetJoinKeyPropertiesArgs>? LeftJoinKeyProperties { get; set; }
 
         /// <summary>
-        /// &lt;p&gt;Left operand.&lt;/p&gt;
+        /// &lt;p&gt;The operand on the left side of a join.&lt;/p&gt;
         /// </summary>
         [Input("leftOperand", required: true)]
         public Input<string> LeftOperand { get; set; } = null!;
 
         /// <summary>
-        /// &lt;p&gt;On Clause.&lt;/p&gt;
+        /// &lt;p&gt;The join instructions provided in the &lt;code&gt;ON&lt;/code&gt; clause of a join.&lt;/p&gt;
         /// </summary>
         [Input("onClause", required: true)]
         public Input<string> OnClause { get; set; } = null!;
@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Inputs.DataSetJoinKeyPropertiesArgs>? RightJoinKeyProperties { get; set; }
 
         /// <summary>
-        /// &lt;p&gt;Right operand.&lt;/p&gt;
+        /// &lt;p&gt;The operand on the right side of a join.&lt;/p&gt;
         /// </summary>
         [Input("rightOperand", required: true)]
         public Input<string> RightOperand { get; set; } = null!;

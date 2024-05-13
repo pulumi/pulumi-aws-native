@@ -5046,7 +5046,7 @@ class LaunchTemplateNetworkInterfaceArgs:
         :param pulumi.Input['LaunchTemplateConnectionTrackingSpecificationArgs'] connection_tracking_specification: A connection tracking specification for the network interface.
         :param pulumi.Input[bool] delete_on_termination: Indicates whether the network interface is deleted when the instance is terminated.
         :param pulumi.Input[str] description: A description for the network interface.
-        :param pulumi.Input[int] device_index: The device index for the network interface attachment.
+        :param pulumi.Input[int] device_index: The device index for the network interface attachment. Each network interface requires a device index. If you create a launch template that includes secondary network interfaces but not a primary network interface, then you must add a primary network interface as a launch parameter when you launch an instance from the template.
         :param pulumi.Input['LaunchTemplateEnaSrdSpecificationArgs'] ena_srd_specification: The ENA Express configuration for the network interface.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: The IDs of one or more security groups.
         :param pulumi.Input[str] interface_type: The type of network interface. To create an Elastic Fabric Adapter (EFA), specify ``efa``. For more information, see [Elastic Fabric Adapter](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html) in the *Amazon Elastic Compute Cloud User Guide*.
@@ -5177,7 +5177,7 @@ class LaunchTemplateNetworkInterfaceArgs:
     @pulumi.getter(name="deviceIndex")
     def device_index(self) -> Optional[pulumi.Input[int]]:
         """
-        The device index for the network interface attachment.
+        The device index for the network interface attachment. Each network interface requires a device index. If you create a launch template that includes secondary network interfaces but not a primary network interface, then you must add a primary network interface as a launch parameter when you launch an instance from the template.
         """
         return pulumi.get(self, "device_index")
 

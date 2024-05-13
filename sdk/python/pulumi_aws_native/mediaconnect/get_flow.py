@@ -20,19 +20,39 @@ __all__ = [
 
 @pulumi.output_type
 class GetFlowResult:
-    def __init__(__self__, flow_arn=None, flow_availability_zone=None, source=None, source_failover_config=None):
+    def __init__(__self__, egress_ip=None, flow_arn=None, flow_availability_zone=None, maintenance=None, media_streams=None, source=None, source_failover_config=None, vpc_interfaces=None):
+        if egress_ip and not isinstance(egress_ip, str):
+            raise TypeError("Expected argument 'egress_ip' to be a str")
+        pulumi.set(__self__, "egress_ip", egress_ip)
         if flow_arn and not isinstance(flow_arn, str):
             raise TypeError("Expected argument 'flow_arn' to be a str")
         pulumi.set(__self__, "flow_arn", flow_arn)
         if flow_availability_zone and not isinstance(flow_availability_zone, str):
             raise TypeError("Expected argument 'flow_availability_zone' to be a str")
         pulumi.set(__self__, "flow_availability_zone", flow_availability_zone)
+        if maintenance and not isinstance(maintenance, dict):
+            raise TypeError("Expected argument 'maintenance' to be a dict")
+        pulumi.set(__self__, "maintenance", maintenance)
+        if media_streams and not isinstance(media_streams, list):
+            raise TypeError("Expected argument 'media_streams' to be a list")
+        pulumi.set(__self__, "media_streams", media_streams)
         if source and not isinstance(source, dict):
             raise TypeError("Expected argument 'source' to be a dict")
         pulumi.set(__self__, "source", source)
         if source_failover_config and not isinstance(source_failover_config, dict):
             raise TypeError("Expected argument 'source_failover_config' to be a dict")
         pulumi.set(__self__, "source_failover_config", source_failover_config)
+        if vpc_interfaces and not isinstance(vpc_interfaces, list):
+            raise TypeError("Expected argument 'vpc_interfaces' to be a list")
+        pulumi.set(__self__, "vpc_interfaces", vpc_interfaces)
+
+    @property
+    @pulumi.getter(name="egressIp")
+    def egress_ip(self) -> Optional[str]:
+        """
+        The IP address from which video will be sent to output destinations.
+        """
+        return pulumi.get(self, "egress_ip")
 
     @property
     @pulumi.getter(name="flowArn")
@@ -52,6 +72,22 @@ class GetFlowResult:
 
     @property
     @pulumi.getter
+    def maintenance(self) -> Optional['outputs.FlowMaintenance']:
+        """
+        The maintenance settings you want to use for the flow. 
+        """
+        return pulumi.get(self, "maintenance")
+
+    @property
+    @pulumi.getter(name="mediaStreams")
+    def media_streams(self) -> Optional[Sequence['outputs.FlowMediaStream']]:
+        """
+        The media streams associated with the flow. You can associate any of these media streams with sources and outputs on the flow.
+        """
+        return pulumi.get(self, "media_streams")
+
+    @property
+    @pulumi.getter
     def source(self) -> Optional['outputs.FlowSource']:
         """
         The source of the flow.
@@ -66,6 +102,14 @@ class GetFlowResult:
         """
         return pulumi.get(self, "source_failover_config")
 
+    @property
+    @pulumi.getter(name="vpcInterfaces")
+    def vpc_interfaces(self) -> Optional[Sequence['outputs.FlowVpcInterface']]:
+        """
+        The VPC interfaces that you added to this flow.
+        """
+        return pulumi.get(self, "vpc_interfaces")
+
 
 class AwaitableGetFlowResult(GetFlowResult):
     # pylint: disable=using-constant-test
@@ -73,10 +117,14 @@ class AwaitableGetFlowResult(GetFlowResult):
         if False:
             yield self
         return GetFlowResult(
+            egress_ip=self.egress_ip,
             flow_arn=self.flow_arn,
             flow_availability_zone=self.flow_availability_zone,
+            maintenance=self.maintenance,
+            media_streams=self.media_streams,
             source=self.source,
-            source_failover_config=self.source_failover_config)
+            source_failover_config=self.source_failover_config,
+            vpc_interfaces=self.vpc_interfaces)
 
 
 def get_flow(flow_arn: Optional[str] = None,
@@ -93,10 +141,14 @@ def get_flow(flow_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:mediaconnect:getFlow', __args__, opts=opts, typ=GetFlowResult).value
 
     return AwaitableGetFlowResult(
+        egress_ip=pulumi.get(__ret__, 'egress_ip'),
         flow_arn=pulumi.get(__ret__, 'flow_arn'),
         flow_availability_zone=pulumi.get(__ret__, 'flow_availability_zone'),
+        maintenance=pulumi.get(__ret__, 'maintenance'),
+        media_streams=pulumi.get(__ret__, 'media_streams'),
         source=pulumi.get(__ret__, 'source'),
-        source_failover_config=pulumi.get(__ret__, 'source_failover_config'))
+        source_failover_config=pulumi.get(__ret__, 'source_failover_config'),
+        vpc_interfaces=pulumi.get(__ret__, 'vpc_interfaces'))
 
 
 @_utilities.lift_output_func(get_flow)

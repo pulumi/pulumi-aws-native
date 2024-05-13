@@ -51,19 +51,10 @@ export interface GetDataSourceResult {
      * <p>The last time that this data source was updated.</p>
      */
     readonly lastUpdatedTime?: string;
-    /**
-     * <p>A display name for the data source.</p>
-     */
     readonly name?: string;
-    /**
-     * <p>A list of resource permissions on the data source.</p>
-     */
     readonly permissions?: outputs.quicksight.DataSourceResourcePermission[];
     readonly sslProperties?: outputs.quicksight.DataSourceSslProperties;
     readonly status?: enums.quicksight.DataSourceResourceStatus;
-    /**
-     * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.</p>
-     */
     readonly tags?: outputs.Tag[];
     readonly vpcConnectionProperties?: outputs.quicksight.DataSourceVpcConnectionProperties;
 }

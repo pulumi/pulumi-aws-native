@@ -112,17 +112,11 @@ class GetDataSourceResult:
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
-        """
-        <p>A display name for the data source.</p>
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def permissions(self) -> Optional[Sequence['outputs.DataSourceResourcePermission']]:
-        """
-        <p>A list of resource permissions on the data source.</p>
-        """
         return pulumi.get(self, "permissions")
 
     @property
@@ -138,9 +132,6 @@ class GetDataSourceResult:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
-        """
-        <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.</p>
-        """
         return pulumi.get(self, "tags")
 
     @property

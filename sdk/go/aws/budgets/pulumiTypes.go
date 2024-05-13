@@ -400,6 +400,11 @@ func (o BudgetsActionIamActionDefinitionPtrOutput) Users() pulumi.StringArrayOut
 	}).(pulumi.StringArrayOutput)
 }
 
+type BudgetsActionResourceTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 type BudgetsActionScpActionDefinition struct {
 	PolicyId  string   `pulumi:"policyId"`
 	TargetIds []string `pulumi:"targetIds"`

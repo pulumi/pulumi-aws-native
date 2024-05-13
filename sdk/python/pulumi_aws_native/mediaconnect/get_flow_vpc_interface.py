@@ -44,7 +44,7 @@ class GetFlowVpcInterfaceResult:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[str]:
         """
-        Role Arn MediaConnect can assumes to create ENIs in customer's account.
+        Role Arn MediaConnect can assume to create ENIs in customer's account.
         """
         return pulumi.get(self, "role_arn")
 

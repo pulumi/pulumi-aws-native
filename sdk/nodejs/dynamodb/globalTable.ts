@@ -50,6 +50,7 @@ export class GlobalTable extends pulumi.CustomResource {
     public /*out*/ readonly tableId!: pulumi.Output<string>;
     public readonly tableName!: pulumi.Output<string | undefined>;
     public readonly timeToLiveSpecification!: pulumi.Output<outputs.dynamodb.GlobalTableTimeToLiveSpecification | undefined>;
+    public readonly writeOnDemandThroughputSettings!: pulumi.Output<outputs.dynamodb.GlobalTableWriteOnDemandThroughputSettings | undefined>;
     public readonly writeProvisionedThroughputSettings!: pulumi.Output<outputs.dynamodb.GlobalTableWriteProvisionedThroughputSettings | undefined>;
 
     /**
@@ -82,6 +83,7 @@ export class GlobalTable extends pulumi.CustomResource {
             resourceInputs["streamSpecification"] = args ? args.streamSpecification : undefined;
             resourceInputs["tableName"] = args ? args.tableName : undefined;
             resourceInputs["timeToLiveSpecification"] = args ? args.timeToLiveSpecification : undefined;
+            resourceInputs["writeOnDemandThroughputSettings"] = args ? args.writeOnDemandThroughputSettings : undefined;
             resourceInputs["writeProvisionedThroughputSettings"] = args ? args.writeProvisionedThroughputSettings : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["streamArn"] = undefined /*out*/;
@@ -100,6 +102,7 @@ export class GlobalTable extends pulumi.CustomResource {
             resourceInputs["tableId"] = undefined /*out*/;
             resourceInputs["tableName"] = undefined /*out*/;
             resourceInputs["timeToLiveSpecification"] = undefined /*out*/;
+            resourceInputs["writeOnDemandThroughputSettings"] = undefined /*out*/;
             resourceInputs["writeProvisionedThroughputSettings"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -123,5 +126,6 @@ export interface GlobalTableArgs {
     streamSpecification?: pulumi.Input<inputs.dynamodb.GlobalTableStreamSpecificationArgs>;
     tableName?: pulumi.Input<string>;
     timeToLiveSpecification?: pulumi.Input<inputs.dynamodb.GlobalTableTimeToLiveSpecificationArgs>;
+    writeOnDemandThroughputSettings?: pulumi.Input<inputs.dynamodb.GlobalTableWriteOnDemandThroughputSettingsArgs>;
     writeProvisionedThroughputSettings?: pulumi.Input<inputs.dynamodb.GlobalTableWriteProvisionedThroughputSettingsArgs>;
 }

@@ -28,14 +28,22 @@ type LookupFlowArgs struct {
 }
 
 type LookupFlowResult struct {
+	// The IP address from which video will be sent to output destinations.
+	EgressIp *string `pulumi:"egressIp"`
 	// The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
 	FlowArn *string `pulumi:"flowArn"`
 	// The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.(ReadOnly)
 	FlowAvailabilityZone *string `pulumi:"flowAvailabilityZone"`
+	// The maintenance settings you want to use for the flow.
+	Maintenance *FlowMaintenance `pulumi:"maintenance"`
+	// The media streams associated with the flow. You can associate any of these media streams with sources and outputs on the flow.
+	MediaStreams []FlowMediaStream `pulumi:"mediaStreams"`
 	// The source of the flow.
 	Source *FlowSourceType `pulumi:"source"`
 	// The source failover config of the flow.
 	SourceFailoverConfig *FlowFailoverConfig `pulumi:"sourceFailoverConfig"`
+	// The VPC interfaces that you added to this flow.
+	VpcInterfaces []FlowVpcInterfaceType `pulumi:"vpcInterfaces"`
 }
 
 func LookupFlowOutput(ctx *pulumi.Context, args LookupFlowOutputArgs, opts ...pulumi.InvokeOption) LookupFlowResultOutput {
@@ -74,6 +82,11 @@ func (o LookupFlowResultOutput) ToLookupFlowResultOutputWithContext(ctx context.
 	return o
 }
 
+// The IP address from which video will be sent to output destinations.
+func (o LookupFlowResultOutput) EgressIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFlowResult) *string { return v.EgressIp }).(pulumi.StringPtrOutput)
+}
+
 // The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
 func (o LookupFlowResultOutput) FlowArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFlowResult) *string { return v.FlowArn }).(pulumi.StringPtrOutput)
@@ -84,6 +97,16 @@ func (o LookupFlowResultOutput) FlowAvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFlowResult) *string { return v.FlowAvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
+// The maintenance settings you want to use for the flow.
+func (o LookupFlowResultOutput) Maintenance() FlowMaintenancePtrOutput {
+	return o.ApplyT(func(v LookupFlowResult) *FlowMaintenance { return v.Maintenance }).(FlowMaintenancePtrOutput)
+}
+
+// The media streams associated with the flow. You can associate any of these media streams with sources and outputs on the flow.
+func (o LookupFlowResultOutput) MediaStreams() FlowMediaStreamArrayOutput {
+	return o.ApplyT(func(v LookupFlowResult) []FlowMediaStream { return v.MediaStreams }).(FlowMediaStreamArrayOutput)
+}
+
 // The source of the flow.
 func (o LookupFlowResultOutput) Source() FlowSourceTypePtrOutput {
 	return o.ApplyT(func(v LookupFlowResult) *FlowSourceType { return v.Source }).(FlowSourceTypePtrOutput)
@@ -92,6 +115,11 @@ func (o LookupFlowResultOutput) Source() FlowSourceTypePtrOutput {
 // The source failover config of the flow.
 func (o LookupFlowResultOutput) SourceFailoverConfig() FlowFailoverConfigPtrOutput {
 	return o.ApplyT(func(v LookupFlowResult) *FlowFailoverConfig { return v.SourceFailoverConfig }).(FlowFailoverConfigPtrOutput)
+}
+
+// The VPC interfaces that you added to this flow.
+func (o LookupFlowResultOutput) VpcInterfaces() FlowVpcInterfaceTypeArrayOutput {
+	return o.ApplyT(func(v LookupFlowResult) []FlowVpcInterfaceType { return v.VpcInterfaces }).(FlowVpcInterfaceTypeArrayOutput)
 }
 
 func init() {

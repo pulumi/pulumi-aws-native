@@ -11,13 +11,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
     /// <summary>
-    /// &lt;p&gt;List of default values defined for a given decimal dataset parameter type. Currently only static values are supported.&lt;/p&gt;
+    /// &lt;p&gt;The default values of a decimal parameter.&lt;/p&gt;
     /// </summary>
     [OutputType]
     public sealed class DataSetDecimalDatasetParameterDefaultValues
     {
         /// <summary>
-        /// &lt;p&gt;List of static default values defined for a given decimal dataset parameter type.&lt;/p&gt;
+        /// &lt;p&gt;A list of static default values for a given decimal parameter.&lt;/p&gt;
         /// </summary>
         public readonly ImmutableArray<double> StaticValues;
 

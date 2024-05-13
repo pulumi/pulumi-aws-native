@@ -11,13 +11,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
     /// <summary>
-    /// &lt;p&gt;A transform operation that overrides the dataset parameter values defined in another dataset.&lt;/p&gt;
+    /// &lt;p&gt;A transform operation that overrides the dataset parameter values that are defined in another dataset.&lt;/p&gt;
     /// </summary>
     public sealed class DataSetOverrideDatasetParameterOperationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// &lt;p&gt;The new default values for the parameter.&lt;/p&gt;
-        /// </summary>
         [Input("newDefaultValues")]
         public Input<Inputs.DataSetNewDefaultValuesArgs>? NewDefaultValues { get; set; }
 

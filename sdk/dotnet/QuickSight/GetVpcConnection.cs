@@ -57,17 +57,32 @@ namespace Pulumi.AwsNative.QuickSight
     [OutputType]
     public sealed class GetVpcConnectionResult
     {
+        /// <summary>
+        /// &lt;p&gt;The Amazon Resource Name (ARN) of the VPC connection.&lt;/p&gt;
+        /// </summary>
         public readonly string? Arn;
         public readonly Pulumi.AwsNative.QuickSight.VpcConnectionVpcConnectionAvailabilityStatus? AvailabilityStatus;
+        /// <summary>
+        /// &lt;p&gt;The time that the VPC connection was created.&lt;/p&gt;
+        /// </summary>
         public readonly string? CreatedTime;
         public readonly ImmutableArray<string> DnsResolvers;
+        /// <summary>
+        /// &lt;p&gt;The time that the VPC connection was last updated.&lt;/p&gt;
+        /// </summary>
         public readonly string? LastUpdatedTime;
         public readonly string? Name;
+        /// <summary>
+        /// &lt;p&gt;A list of network interfaces.&lt;/p&gt;
+        /// </summary>
         public readonly ImmutableArray<Outputs.VpcConnectionNetworkInterface> NetworkInterfaces;
         public readonly string? RoleArn;
         public readonly ImmutableArray<string> SecurityGroupIds;
         public readonly Pulumi.AwsNative.QuickSight.VpcConnectionVpcConnectionResourceStatus? Status;
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// &lt;p&gt;The Amazon EC2 VPC ID associated with the VPC connection.&lt;/p&gt;
+        /// </summary>
         public readonly string? VpcId;
 
         [OutputConstructor]

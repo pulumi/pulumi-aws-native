@@ -37,6 +37,7 @@ type LookupGlobalTableResult struct {
 	StreamSpecification                *GlobalTableStreamSpecification                `pulumi:"streamSpecification"`
 	TableId                            *string                                        `pulumi:"tableId"`
 	TimeToLiveSpecification            *GlobalTableTimeToLiveSpecification            `pulumi:"timeToLiveSpecification"`
+	WriteOnDemandThroughputSettings    *GlobalTableWriteOnDemandThroughputSettings    `pulumi:"writeOnDemandThroughputSettings"`
 	WriteProvisionedThroughputSettings *GlobalTableWriteProvisionedThroughputSettings `pulumi:"writeProvisionedThroughputSettings"`
 }
 
@@ -113,6 +114,12 @@ func (o LookupGlobalTableResultOutput) TableId() pulumi.StringPtrOutput {
 
 func (o LookupGlobalTableResultOutput) TimeToLiveSpecification() GlobalTableTimeToLiveSpecificationPtrOutput {
 	return o.ApplyT(func(v LookupGlobalTableResult) *GlobalTableTimeToLiveSpecification { return v.TimeToLiveSpecification }).(GlobalTableTimeToLiveSpecificationPtrOutput)
+}
+
+func (o LookupGlobalTableResultOutput) WriteOnDemandThroughputSettings() GlobalTableWriteOnDemandThroughputSettingsPtrOutput {
+	return o.ApplyT(func(v LookupGlobalTableResult) *GlobalTableWriteOnDemandThroughputSettings {
+		return v.WriteOnDemandThroughputSettings
+	}).(GlobalTableWriteOnDemandThroughputSettingsPtrOutput)
 }
 
 func (o LookupGlobalTableResultOutput) WriteProvisionedThroughputSettings() GlobalTableWriteProvisionedThroughputSettingsPtrOutput {

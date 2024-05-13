@@ -13,6 +13,224 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type TemplateTableVisual struct {
+	Actions               []TemplateVisualCustomAction        `pulumi:"actions"`
+	ChartConfiguration    *TemplateTableConfiguration         `pulumi:"chartConfiguration"`
+	ConditionalFormatting *TemplateTableConditionalFormatting `pulumi:"conditionalFormatting"`
+	Subtitle              *TemplateVisualSubtitleLabelOptions `pulumi:"subtitle"`
+	Title                 *TemplateVisualTitleLabelOptions    `pulumi:"title"`
+	VisualId              string                              `pulumi:"visualId"`
+}
+
+// TemplateTableVisualInput is an input type that accepts TemplateTableVisualArgs and TemplateTableVisualOutput values.
+// You can construct a concrete instance of `TemplateTableVisualInput` via:
+//
+//	TemplateTableVisualArgs{...}
+type TemplateTableVisualInput interface {
+	pulumi.Input
+
+	ToTemplateTableVisualOutput() TemplateTableVisualOutput
+	ToTemplateTableVisualOutputWithContext(context.Context) TemplateTableVisualOutput
+}
+
+type TemplateTableVisualArgs struct {
+	Actions               TemplateVisualCustomActionArrayInput       `pulumi:"actions"`
+	ChartConfiguration    TemplateTableConfigurationPtrInput         `pulumi:"chartConfiguration"`
+	ConditionalFormatting TemplateTableConditionalFormattingPtrInput `pulumi:"conditionalFormatting"`
+	Subtitle              TemplateVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
+	Title                 TemplateVisualTitleLabelOptionsPtrInput    `pulumi:"title"`
+	VisualId              pulumi.StringInput                         `pulumi:"visualId"`
+}
+
+func (TemplateTableVisualArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateTableVisual)(nil)).Elem()
+}
+
+func (i TemplateTableVisualArgs) ToTemplateTableVisualOutput() TemplateTableVisualOutput {
+	return i.ToTemplateTableVisualOutputWithContext(context.Background())
+}
+
+func (i TemplateTableVisualArgs) ToTemplateTableVisualOutputWithContext(ctx context.Context) TemplateTableVisualOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableVisualOutput)
+}
+
+func (i TemplateTableVisualArgs) ToTemplateTableVisualPtrOutput() TemplateTableVisualPtrOutput {
+	return i.ToTemplateTableVisualPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateTableVisualArgs) ToTemplateTableVisualPtrOutputWithContext(ctx context.Context) TemplateTableVisualPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableVisualOutput).ToTemplateTableVisualPtrOutputWithContext(ctx)
+}
+
+// TemplateTableVisualPtrInput is an input type that accepts TemplateTableVisualArgs, TemplateTableVisualPtr and TemplateTableVisualPtrOutput values.
+// You can construct a concrete instance of `TemplateTableVisualPtrInput` via:
+//
+//	        TemplateTableVisualArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateTableVisualPtrInput interface {
+	pulumi.Input
+
+	ToTemplateTableVisualPtrOutput() TemplateTableVisualPtrOutput
+	ToTemplateTableVisualPtrOutputWithContext(context.Context) TemplateTableVisualPtrOutput
+}
+
+type templateTableVisualPtrType TemplateTableVisualArgs
+
+func TemplateTableVisualPtr(v *TemplateTableVisualArgs) TemplateTableVisualPtrInput {
+	return (*templateTableVisualPtrType)(v)
+}
+
+func (*templateTableVisualPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateTableVisual)(nil)).Elem()
+}
+
+func (i *templateTableVisualPtrType) ToTemplateTableVisualPtrOutput() TemplateTableVisualPtrOutput {
+	return i.ToTemplateTableVisualPtrOutputWithContext(context.Background())
+}
+
+func (i *templateTableVisualPtrType) ToTemplateTableVisualPtrOutputWithContext(ctx context.Context) TemplateTableVisualPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableVisualPtrOutput)
+}
+
+type TemplateTableVisualOutput struct{ *pulumi.OutputState }
+
+func (TemplateTableVisualOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateTableVisual)(nil)).Elem()
+}
+
+func (o TemplateTableVisualOutput) ToTemplateTableVisualOutput() TemplateTableVisualOutput {
+	return o
+}
+
+func (o TemplateTableVisualOutput) ToTemplateTableVisualOutputWithContext(ctx context.Context) TemplateTableVisualOutput {
+	return o
+}
+
+func (o TemplateTableVisualOutput) ToTemplateTableVisualPtrOutput() TemplateTableVisualPtrOutput {
+	return o.ToTemplateTableVisualPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateTableVisualOutput) ToTemplateTableVisualPtrOutputWithContext(ctx context.Context) TemplateTableVisualPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateTableVisual) *TemplateTableVisual {
+		return &v
+	}).(TemplateTableVisualPtrOutput)
+}
+
+func (o TemplateTableVisualOutput) Actions() TemplateVisualCustomActionArrayOutput {
+	return o.ApplyT(func(v TemplateTableVisual) []TemplateVisualCustomAction { return v.Actions }).(TemplateVisualCustomActionArrayOutput)
+}
+
+func (o TemplateTableVisualOutput) ChartConfiguration() TemplateTableConfigurationPtrOutput {
+	return o.ApplyT(func(v TemplateTableVisual) *TemplateTableConfiguration { return v.ChartConfiguration }).(TemplateTableConfigurationPtrOutput)
+}
+
+func (o TemplateTableVisualOutput) ConditionalFormatting() TemplateTableConditionalFormattingPtrOutput {
+	return o.ApplyT(func(v TemplateTableVisual) *TemplateTableConditionalFormatting { return v.ConditionalFormatting }).(TemplateTableConditionalFormattingPtrOutput)
+}
+
+func (o TemplateTableVisualOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateTableVisual) *TemplateVisualSubtitleLabelOptions { return v.Subtitle }).(TemplateVisualSubtitleLabelOptionsPtrOutput)
+}
+
+func (o TemplateTableVisualOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateTableVisual) *TemplateVisualTitleLabelOptions { return v.Title }).(TemplateVisualTitleLabelOptionsPtrOutput)
+}
+
+func (o TemplateTableVisualOutput) VisualId() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateTableVisual) string { return v.VisualId }).(pulumi.StringOutput)
+}
+
+type TemplateTableVisualPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateTableVisualPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateTableVisual)(nil)).Elem()
+}
+
+func (o TemplateTableVisualPtrOutput) ToTemplateTableVisualPtrOutput() TemplateTableVisualPtrOutput {
+	return o
+}
+
+func (o TemplateTableVisualPtrOutput) ToTemplateTableVisualPtrOutputWithContext(ctx context.Context) TemplateTableVisualPtrOutput {
+	return o
+}
+
+func (o TemplateTableVisualPtrOutput) Elem() TemplateTableVisualOutput {
+	return o.ApplyT(func(v *TemplateTableVisual) TemplateTableVisual {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateTableVisual
+		return ret
+	}).(TemplateTableVisualOutput)
+}
+
+func (o TemplateTableVisualPtrOutput) Actions() TemplateVisualCustomActionArrayOutput {
+	return o.ApplyT(func(v *TemplateTableVisual) []TemplateVisualCustomAction {
+		if v == nil {
+			return nil
+		}
+		return v.Actions
+	}).(TemplateVisualCustomActionArrayOutput)
+}
+
+func (o TemplateTableVisualPtrOutput) ChartConfiguration() TemplateTableConfigurationPtrOutput {
+	return o.ApplyT(func(v *TemplateTableVisual) *TemplateTableConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ChartConfiguration
+	}).(TemplateTableConfigurationPtrOutput)
+}
+
+func (o TemplateTableVisualPtrOutput) ConditionalFormatting() TemplateTableConditionalFormattingPtrOutput {
+	return o.ApplyT(func(v *TemplateTableVisual) *TemplateTableConditionalFormatting {
+		if v == nil {
+			return nil
+		}
+		return v.ConditionalFormatting
+	}).(TemplateTableConditionalFormattingPtrOutput)
+}
+
+func (o TemplateTableVisualPtrOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateTableVisual) *TemplateVisualSubtitleLabelOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Subtitle
+	}).(TemplateVisualSubtitleLabelOptionsPtrOutput)
+}
+
+func (o TemplateTableVisualPtrOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateTableVisual) *TemplateVisualTitleLabelOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Title
+	}).(TemplateVisualTitleLabelOptionsPtrOutput)
+}
+
+func (o TemplateTableVisualPtrOutput) VisualId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateTableVisual) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VisualId
+	}).(pulumi.StringPtrOutput)
+}
+
+// <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
+//
+//	resource.</p>
+type TemplateTag struct {
+	// <p>Tag key.</p>
+	Key string `pulumi:"key"`
+	// <p>Tag value.</p>
+	Value string `pulumi:"value"`
+}
+
 type TemplateTextAreaControlDisplayOptions struct {
 	InfoIconLabelOptions *TemplateSheetControlInfoIconLabelOptions `pulumi:"infoIconLabelOptions"`
 	PlaceholderOptions   *TemplateTextControlPlaceholderOptions    `pulumi:"placeholderOptions"`
@@ -15251,14 +15469,20 @@ func (o TopicSingularFilterConstantPtrOutput) SingularConstant() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// <p>The structure that contains information about a network interface.</p>
 type VpcConnectionNetworkInterface struct {
-	AvailabilityZone   *string                              `pulumi:"availabilityZone"`
-	ErrorMessage       *string                              `pulumi:"errorMessage"`
+	// <p>The availability zone that the network interface resides in.</p>
+	AvailabilityZone *string `pulumi:"availabilityZone"`
+	// <p>An error message.</p>
+	ErrorMessage *string `pulumi:"errorMessage"`
+	// <p>The network interface ID.</p>
 	NetworkInterfaceId *string                              `pulumi:"networkInterfaceId"`
 	Status             *VpcConnectionNetworkInterfaceStatus `pulumi:"status"`
-	SubnetId           *string                              `pulumi:"subnetId"`
+	// <p>The subnet ID associated with the network interface.</p>
+	SubnetId *string `pulumi:"subnetId"`
 }
 
+// <p>The structure that contains information about a network interface.</p>
 type VpcConnectionNetworkInterfaceOutput struct{ *pulumi.OutputState }
 
 func (VpcConnectionNetworkInterfaceOutput) ElementType() reflect.Type {
@@ -15273,14 +15497,17 @@ func (o VpcConnectionNetworkInterfaceOutput) ToVpcConnectionNetworkInterfaceOutp
 	return o
 }
 
+// <p>The availability zone that the network interface resides in.</p>
 func (o VpcConnectionNetworkInterfaceOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VpcConnectionNetworkInterface) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
+// <p>An error message.</p>
 func (o VpcConnectionNetworkInterfaceOutput) ErrorMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VpcConnectionNetworkInterface) *string { return v.ErrorMessage }).(pulumi.StringPtrOutput)
 }
 
+// <p>The network interface ID.</p>
 func (o VpcConnectionNetworkInterfaceOutput) NetworkInterfaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VpcConnectionNetworkInterface) *string { return v.NetworkInterfaceId }).(pulumi.StringPtrOutput)
 }
@@ -15289,6 +15516,7 @@ func (o VpcConnectionNetworkInterfaceOutput) Status() VpcConnectionNetworkInterf
 	return o.ApplyT(func(v VpcConnectionNetworkInterface) *VpcConnectionNetworkInterfaceStatus { return v.Status }).(VpcConnectionNetworkInterfaceStatusPtrOutput)
 }
 
+// <p>The subnet ID associated with the network interface.</p>
 func (o VpcConnectionNetworkInterfaceOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VpcConnectionNetworkInterface) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
@@ -15313,12 +15541,19 @@ func (o VpcConnectionNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) VpcCo
 	}).(VpcConnectionNetworkInterfaceOutput)
 }
 
+// <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
+//
+//	resource.</p>
 type VpcConnectionTag struct {
-	Key   string `pulumi:"key"`
+	// <p>Tag key.</p>
+	Key string `pulumi:"key"`
+	// <p>Tag value.</p>
 	Value string `pulumi:"value"`
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableVisualInput)(nil)).Elem(), TemplateTableVisualArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableVisualPtrInput)(nil)).Elem(), TemplateTableVisualArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTextAreaControlDisplayOptionsInput)(nil)).Elem(), TemplateTextAreaControlDisplayOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTextAreaControlDisplayOptionsPtrInput)(nil)).Elem(), TemplateTextAreaControlDisplayOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTextConditionalFormatInput)(nil)).Elem(), TemplateTextConditionalFormatArgs{})
@@ -15495,6 +15730,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSemanticTypePtrInput)(nil)).Elem(), TopicSemanticTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSingularFilterConstantInput)(nil)).Elem(), TopicSingularFilterConstantArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSingularFilterConstantPtrInput)(nil)).Elem(), TopicSingularFilterConstantArgs{})
+	pulumi.RegisterOutputType(TemplateTableVisualOutput{})
+	pulumi.RegisterOutputType(TemplateTableVisualPtrOutput{})
 	pulumi.RegisterOutputType(TemplateTextAreaControlDisplayOptionsOutput{})
 	pulumi.RegisterOutputType(TemplateTextAreaControlDisplayOptionsPtrOutput{})
 	pulumi.RegisterOutputType(TemplateTextConditionalFormatOutput{})

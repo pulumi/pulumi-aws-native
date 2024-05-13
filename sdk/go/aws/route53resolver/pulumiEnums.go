@@ -864,6 +864,172 @@ func (in *firewallRuleGroupFirewallRuleBlockResponsePtr) ToFirewallRuleGroupFire
 	return pulumi.ToOutputWithContext(ctx, in).(FirewallRuleGroupFirewallRuleBlockResponsePtrOutput)
 }
 
+// FirewallDomainRedirectionAction
+type FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction string
+
+const (
+	FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionInspectRedirectionDomain = FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction("INSPECT_REDIRECTION_DOMAIN")
+	FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionTrustRedirectionDomain   = FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction("TRUST_REDIRECTION_DOMAIN")
+)
+
+func (FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction)(nil)).Elem()
+}
+
+func (e FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction) ToFirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionOutput() FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionOutput {
+	return pulumi.ToOutput(e).(FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionOutput)
+}
+
+func (e FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction) ToFirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionOutputWithContext(ctx context.Context) FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionOutput)
+}
+
+func (e FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction) ToFirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionPtrOutput() FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionPtrOutput {
+	return e.ToFirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionPtrOutputWithContext(context.Background())
+}
+
+func (e FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction) ToFirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionPtrOutputWithContext(ctx context.Context) FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionPtrOutput {
+	return FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction(e).ToFirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionOutputWithContext(ctx).ToFirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionPtrOutputWithContext(ctx)
+}
+
+func (e FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionOutput struct{ *pulumi.OutputState }
+
+func (FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction)(nil)).Elem()
+}
+
+func (o FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionOutput) ToFirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionOutput() FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionOutput {
+	return o
+}
+
+func (o FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionOutput) ToFirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionOutputWithContext(ctx context.Context) FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionOutput {
+	return o
+}
+
+func (o FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionOutput) ToFirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionPtrOutput() FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionPtrOutput {
+	return o.ToFirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionPtrOutputWithContext(context.Background())
+}
+
+func (o FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionOutput) ToFirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionPtrOutputWithContext(ctx context.Context) FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction) *FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction {
+		return &v
+	}).(FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionPtrOutput)
+}
+
+func (o FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionPtrOutput struct{ *pulumi.OutputState }
+
+func (FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction)(nil)).Elem()
+}
+
+func (o FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionPtrOutput) ToFirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionPtrOutput() FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionPtrOutput {
+	return o
+}
+
+func (o FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionPtrOutput) ToFirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionPtrOutputWithContext(ctx context.Context) FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionPtrOutput {
+	return o
+}
+
+func (o FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionPtrOutput) Elem() FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionOutput {
+	return o.ApplyT(func(v *FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction) FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction {
+		if v != nil {
+			return *v
+		}
+		var ret FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction
+		return ret
+	}).(FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionOutput)
+}
+
+func (o FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionInput is an input type that accepts values of the FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction enum
+// A concrete instance of `FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionInput` can be one of the following:
+//
+//	FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionInspectRedirectionDomain
+//	FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionTrustRedirectionDomain
+type FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionInput interface {
+	pulumi.Input
+
+	ToFirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionOutput() FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionOutput
+	ToFirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionOutputWithContext(context.Context) FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionOutput
+}
+
+var firewallRuleGroupFirewallRuleFirewallDomainRedirectionActionPtrType = reflect.TypeOf((**FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction)(nil)).Elem()
+
+type FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionPtrInput interface {
+	pulumi.Input
+
+	ToFirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionPtrOutput() FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionPtrOutput
+	ToFirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionPtrOutputWithContext(context.Context) FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionPtrOutput
+}
+
+type firewallRuleGroupFirewallRuleFirewallDomainRedirectionActionPtr string
+
+func FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionPtr(v string) FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionPtrInput {
+	return (*firewallRuleGroupFirewallRuleFirewallDomainRedirectionActionPtr)(&v)
+}
+
+func (*firewallRuleGroupFirewallRuleFirewallDomainRedirectionActionPtr) ElementType() reflect.Type {
+	return firewallRuleGroupFirewallRuleFirewallDomainRedirectionActionPtrType
+}
+
+func (in *firewallRuleGroupFirewallRuleFirewallDomainRedirectionActionPtr) ToFirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionPtrOutput() FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionPtrOutput {
+	return pulumi.ToOutput(in).(FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionPtrOutput)
+}
+
+func (in *firewallRuleGroupFirewallRuleFirewallDomainRedirectionActionPtr) ToFirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionPtrOutputWithContext(ctx context.Context) FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionPtrOutput)
+}
+
 // ShareStatus, possible values are NOT_SHARED, SHARED_WITH_ME, SHARED_BY_ME.
 type FirewallRuleGroupShareStatus string
 
@@ -2210,6 +2376,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupFirewallRuleBlockOverrideDnsTypePtrInput)(nil)).Elem(), FirewallRuleGroupFirewallRuleBlockOverrideDnsType("CNAME"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupFirewallRuleBlockResponseInput)(nil)).Elem(), FirewallRuleGroupFirewallRuleBlockResponse("NODATA"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupFirewallRuleBlockResponsePtrInput)(nil)).Elem(), FirewallRuleGroupFirewallRuleBlockResponse("NODATA"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionInput)(nil)).Elem(), FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction("INSPECT_REDIRECTION_DOMAIN"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionPtrInput)(nil)).Elem(), FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction("INSPECT_REDIRECTION_DOMAIN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverConfigAutodefinedReverseFlagInput)(nil)).Elem(), ResolverConfigAutodefinedReverseFlag("DISABLE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverConfigAutodefinedReverseFlagPtrInput)(nil)).Elem(), ResolverConfigAutodefinedReverseFlag("DISABLE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverRuleRuleTypeInput)(nil)).Elem(), ResolverRuleRuleType("FORWARD"))
@@ -2228,6 +2396,8 @@ func init() {
 	pulumi.RegisterOutputType(FirewallRuleGroupFirewallRuleBlockOverrideDnsTypePtrOutput{})
 	pulumi.RegisterOutputType(FirewallRuleGroupFirewallRuleBlockResponseOutput{})
 	pulumi.RegisterOutputType(FirewallRuleGroupFirewallRuleBlockResponsePtrOutput{})
+	pulumi.RegisterOutputType(FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionOutput{})
+	pulumi.RegisterOutputType(FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionPtrOutput{})
 	pulumi.RegisterOutputType(FirewallRuleGroupShareStatusOutput{})
 	pulumi.RegisterOutputType(FirewallRuleGroupShareStatusPtrOutput{})
 	pulumi.RegisterOutputType(FirewallRuleGroupStatusOutput{})

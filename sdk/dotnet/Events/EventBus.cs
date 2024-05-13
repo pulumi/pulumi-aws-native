@@ -22,10 +22,28 @@ namespace Pulumi.AwsNative.Events
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// Dead Letter Queue for the event bus.
+        /// </summary>
+        [Output("deadLetterConfig")]
+        public Output<Outputs.DeadLetterConfigProperties?> DeadLetterConfig { get; private set; } = null!;
+
+        /// <summary>
+        /// The description of the event bus.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
         /// If you are creating a partner event bus, this specifies the partner event source that the new event bus will be matched with.
         /// </summary>
         [Output("eventSourceName")]
         public Output<string?> EventSourceName { get; private set; } = null!;
+
+        /// <summary>
+        /// Kms Key Identifier used to encrypt events at rest in the event bus.
+        /// </summary>
+        [Output("kmsKeyIdentifier")]
+        public Output<string?> KmsKeyIdentifier { get; private set; } = null!;
 
         /// <summary>
         /// The name of the event bus.
@@ -97,10 +115,28 @@ namespace Pulumi.AwsNative.Events
     public sealed class EventBusArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Dead Letter Queue for the event bus.
+        /// </summary>
+        [Input("deadLetterConfig")]
+        public Input<Inputs.DeadLetterConfigPropertiesArgs>? DeadLetterConfig { get; set; }
+
+        /// <summary>
+        /// The description of the event bus.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
         /// If you are creating a partner event bus, this specifies the partner event source that the new event bus will be matched with.
         /// </summary>
         [Input("eventSourceName")]
         public Input<string>? EventSourceName { get; set; }
+
+        /// <summary>
+        /// Kms Key Identifier used to encrypt events at rest in the event bus.
+        /// </summary>
+        [Input("kmsKeyIdentifier")]
+        public Input<string>? KmsKeyIdentifier { get; set; }
 
         /// <summary>
         /// The name of the event bus.

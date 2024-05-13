@@ -11,24 +11,24 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
     /// <summary>
-    /// &lt;p&gt;Starburst parameters.&lt;/p&gt;
+    /// &lt;p&gt;The parameters that are required to connect to a Starburst data source.&lt;/p&gt;
     /// </summary>
     public sealed class DataSourceStarburstParametersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// &lt;p&gt;Catalog.&lt;/p&gt;
+        /// &lt;p&gt;The catalog name for the Starburst data source.&lt;/p&gt;
         /// </summary>
         [Input("catalog", required: true)]
         public Input<string> Catalog { get; set; } = null!;
 
         /// <summary>
-        /// &lt;p&gt;Host.&lt;/p&gt;
+        /// &lt;p&gt;The host name of the Starburst data source.&lt;/p&gt;
         /// </summary>
         [Input("host", required: true)]
         public Input<string> Host { get; set; } = null!;
 
         /// <summary>
-        /// &lt;p&gt;Port.&lt;/p&gt;
+        /// &lt;p&gt;The port for the Starburst data source.&lt;/p&gt;
         /// </summary>
         [Input("port", required: true)]
         public Input<double> Port { get; set; } = null!;

@@ -8,35 +8,73 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
+from ._inputs import *
 
 __all__ = ['EventBusArgs', 'EventBus']
 
 @pulumi.input_type
 class EventBusArgs:
     def __init__(__self__, *,
+                 dead_letter_config: Optional[pulumi.Input['DeadLetterConfigPropertiesArgs']] = None,
+                 description: Optional[pulumi.Input[str]] = None,
                  event_source_name: Optional[pulumi.Input[str]] = None,
+                 kms_key_identifier: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  policy: Optional[Any] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a EventBus resource.
+        :param pulumi.Input['DeadLetterConfigPropertiesArgs'] dead_letter_config: Dead Letter Queue for the event bus.
+        :param pulumi.Input[str] description: The description of the event bus.
         :param pulumi.Input[str] event_source_name: If you are creating a partner event bus, this specifies the partner event source that the new event bus will be matched with.
+        :param pulumi.Input[str] kms_key_identifier: Kms Key Identifier used to encrypt events at rest in the event bus.
         :param pulumi.Input[str] name: The name of the event bus.
         :param Any policy: A JSON string that describes the permission policy statement for the event bus.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::EventBus` for more information about the expected schema for this property.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Any tags assigned to the event bus.
         """
+        if dead_letter_config is not None:
+            pulumi.set(__self__, "dead_letter_config", dead_letter_config)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if event_source_name is not None:
             pulumi.set(__self__, "event_source_name", event_source_name)
+        if kms_key_identifier is not None:
+            pulumi.set(__self__, "kms_key_identifier", kms_key_identifier)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="deadLetterConfig")
+    def dead_letter_config(self) -> Optional[pulumi.Input['DeadLetterConfigPropertiesArgs']]:
+        """
+        Dead Letter Queue for the event bus.
+        """
+        return pulumi.get(self, "dead_letter_config")
+
+    @dead_letter_config.setter
+    def dead_letter_config(self, value: Optional[pulumi.Input['DeadLetterConfigPropertiesArgs']]):
+        pulumi.set(self, "dead_letter_config", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the event bus.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter(name="eventSourceName")
@@ -49,6 +87,18 @@ class EventBusArgs:
     @event_source_name.setter
     def event_source_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "event_source_name", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyIdentifier")
+    def kms_key_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        Kms Key Identifier used to encrypt events at rest in the event bus.
+        """
+        return pulumi.get(self, "kms_key_identifier")
+
+    @kms_key_identifier.setter
+    def kms_key_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_identifier", value)
 
     @property
     @pulumi.getter
@@ -94,7 +144,10 @@ class EventBus(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 dead_letter_config: Optional[pulumi.Input[pulumi.InputType['DeadLetterConfigPropertiesArgs']]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
                  event_source_name: Optional[pulumi.Input[str]] = None,
+                 kms_key_identifier: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  policy: Optional[Any] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
@@ -104,7 +157,10 @@ class EventBus(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['DeadLetterConfigPropertiesArgs']] dead_letter_config: Dead Letter Queue for the event bus.
+        :param pulumi.Input[str] description: The description of the event bus.
         :param pulumi.Input[str] event_source_name: If you are creating a partner event bus, this specifies the partner event source that the new event bus will be matched with.
+        :param pulumi.Input[str] kms_key_identifier: Kms Key Identifier used to encrypt events at rest in the event bus.
         :param pulumi.Input[str] name: The name of the event bus.
         :param Any policy: A JSON string that describes the permission policy statement for the event bus.
                
@@ -135,7 +191,10 @@ class EventBus(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 dead_letter_config: Optional[pulumi.Input[pulumi.InputType['DeadLetterConfigPropertiesArgs']]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
                  event_source_name: Optional[pulumi.Input[str]] = None,
+                 kms_key_identifier: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  policy: Optional[Any] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
@@ -148,7 +207,10 @@ class EventBus(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EventBusArgs.__new__(EventBusArgs)
 
+            __props__.__dict__["dead_letter_config"] = dead_letter_config
+            __props__.__dict__["description"] = description
             __props__.__dict__["event_source_name"] = event_source_name
+            __props__.__dict__["kms_key_identifier"] = kms_key_identifier
             __props__.__dict__["name"] = name
             __props__.__dict__["policy"] = policy
             __props__.__dict__["tags"] = tags
@@ -178,7 +240,10 @@ class EventBus(pulumi.CustomResource):
         __props__ = EventBusArgs.__new__(EventBusArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["dead_letter_config"] = None
+        __props__.__dict__["description"] = None
         __props__.__dict__["event_source_name"] = None
+        __props__.__dict__["kms_key_identifier"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["policy"] = None
         __props__.__dict__["tags"] = None
@@ -193,12 +258,36 @@ class EventBus(pulumi.CustomResource):
         return pulumi.get(self, "arn")
 
     @property
+    @pulumi.getter(name="deadLetterConfig")
+    def dead_letter_config(self) -> pulumi.Output[Optional['outputs.DeadLetterConfigProperties']]:
+        """
+        Dead Letter Queue for the event bus.
+        """
+        return pulumi.get(self, "dead_letter_config")
+
+    @property
+    @pulumi.getter
+    def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The description of the event bus.
+        """
+        return pulumi.get(self, "description")
+
+    @property
     @pulumi.getter(name="eventSourceName")
     def event_source_name(self) -> pulumi.Output[Optional[str]]:
         """
         If you are creating a partner event bus, this specifies the partner event source that the new event bus will be matched with.
         """
         return pulumi.get(self, "event_source_name")
+
+    @property
+    @pulumi.getter(name="kmsKeyIdentifier")
+    def kms_key_identifier(self) -> pulumi.Output[Optional[str]]:
+        """
+        Kms Key Identifier used to encrypt events at rest in the event bus.
+        """
+        return pulumi.get(self, "kms_key_identifier")
 
     @property
     @pulumi.getter

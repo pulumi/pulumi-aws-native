@@ -320,6 +320,10 @@ export class Table extends pulumi.CustomResource {
      */
     public readonly localSecondaryIndexes!: pulumi.Output<outputs.dynamodb.TableLocalSecondaryIndex[] | undefined>;
     /**
+     * Sets the maximum number of read and write units for the specified on-demand table. If you use this property, you must specify ``MaxReadRequestUnits``, ``MaxWriteRequestUnits``, or both.
+     */
+    public readonly onDemandThroughput!: pulumi.Output<outputs.dynamodb.TableOnDemandThroughput | undefined>;
+    /**
      * The settings used to enable point in time recovery.
      */
     public readonly pointInTimeRecoverySpecification!: pulumi.Output<outputs.dynamodb.TablePointInTimeRecoverySpecification | undefined>;
@@ -385,6 +389,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["keySchema"] = args ? args.keySchema : undefined;
             resourceInputs["kinesisStreamSpecification"] = args ? args.kinesisStreamSpecification : undefined;
             resourceInputs["localSecondaryIndexes"] = args ? args.localSecondaryIndexes : undefined;
+            resourceInputs["onDemandThroughput"] = args ? args.onDemandThroughput : undefined;
             resourceInputs["pointInTimeRecoverySpecification"] = args ? args.pointInTimeRecoverySpecification : undefined;
             resourceInputs["provisionedThroughput"] = args ? args.provisionedThroughput : undefined;
             resourceInputs["resourcePolicy"] = args ? args.resourcePolicy : undefined;
@@ -407,6 +412,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["keySchema"] = undefined /*out*/;
             resourceInputs["kinesisStreamSpecification"] = undefined /*out*/;
             resourceInputs["localSecondaryIndexes"] = undefined /*out*/;
+            resourceInputs["onDemandThroughput"] = undefined /*out*/;
             resourceInputs["pointInTimeRecoverySpecification"] = undefined /*out*/;
             resourceInputs["provisionedThroughput"] = undefined /*out*/;
             resourceInputs["resourcePolicy"] = undefined /*out*/;
@@ -478,6 +484,10 @@ export interface TableArgs {
      * Local secondary indexes to be created on the table. You can create up to 5 local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes.
      */
     localSecondaryIndexes?: pulumi.Input<pulumi.Input<inputs.dynamodb.TableLocalSecondaryIndexArgs>[]>;
+    /**
+     * Sets the maximum number of read and write units for the specified on-demand table. If you use this property, you must specify ``MaxReadRequestUnits``, ``MaxWriteRequestUnits``, or both.
+     */
+    onDemandThroughput?: pulumi.Input<inputs.dynamodb.TableOnDemandThroughputArgs>;
     /**
      * The settings used to enable point in time recovery.
      */

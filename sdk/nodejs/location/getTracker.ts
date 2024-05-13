@@ -30,6 +30,9 @@ export interface GetTrackerResult {
     readonly kmsKeyEnableGeospatialQueries?: boolean;
     readonly positionFiltering?: enums.location.TrackerPositionFiltering;
     readonly pricingPlan?: enums.location.TrackerPricingPlan;
+    /**
+     * This shape is deprecated since 2022-02-01: Deprecated. No longer allowed.
+     */
     readonly pricingPlanDataSource?: string;
     /**
      * An array of key-value pairs to apply to this resource.

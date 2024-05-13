@@ -11,13 +11,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
     /// <summary>
-    /// &lt;p&gt;List of default values defined for a given integer dataset parameter type. Currently only static values are supported.&lt;/p&gt;
+    /// &lt;p&gt;The default values of an integer parameter.&lt;/p&gt;
     /// </summary>
     [OutputType]
     public sealed class DataSetIntegerDatasetParameterDefaultValues
     {
         /// <summary>
-        /// &lt;p&gt;List of static default values defined for a given integer dataset parameter type.&lt;/p&gt;
+        /// &lt;p&gt;A list of static default values for a given integer parameter.&lt;/p&gt;
         /// </summary>
         public readonly ImmutableArray<double> StaticValues;
 

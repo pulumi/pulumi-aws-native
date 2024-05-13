@@ -29,18 +29,23 @@ type LookupVpcConnectionArgs struct {
 }
 
 type LookupVpcConnectionResult struct {
+	// <p>The Amazon Resource Name (ARN) of the VPC connection.</p>
 	Arn                *string                                       `pulumi:"arn"`
 	AvailabilityStatus *VpcConnectionVpcConnectionAvailabilityStatus `pulumi:"availabilityStatus"`
-	CreatedTime        *string                                       `pulumi:"createdTime"`
-	DnsResolvers       []string                                      `pulumi:"dnsResolvers"`
-	LastUpdatedTime    *string                                       `pulumi:"lastUpdatedTime"`
-	Name               *string                                       `pulumi:"name"`
-	NetworkInterfaces  []VpcConnectionNetworkInterface               `pulumi:"networkInterfaces"`
-	RoleArn            *string                                       `pulumi:"roleArn"`
-	SecurityGroupIds   []string                                      `pulumi:"securityGroupIds"`
-	Status             *VpcConnectionVpcConnectionResourceStatus     `pulumi:"status"`
-	Tags               []aws.Tag                                     `pulumi:"tags"`
-	VpcId              *string                                       `pulumi:"vpcId"`
+	// <p>The time that the VPC connection was created.</p>
+	CreatedTime  *string  `pulumi:"createdTime"`
+	DnsResolvers []string `pulumi:"dnsResolvers"`
+	// <p>The time that the VPC connection was last updated.</p>
+	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
+	Name            *string `pulumi:"name"`
+	// <p>A list of network interfaces.</p>
+	NetworkInterfaces []VpcConnectionNetworkInterface           `pulumi:"networkInterfaces"`
+	RoleArn           *string                                   `pulumi:"roleArn"`
+	SecurityGroupIds  []string                                  `pulumi:"securityGroupIds"`
+	Status            *VpcConnectionVpcConnectionResourceStatus `pulumi:"status"`
+	Tags              []aws.Tag                                 `pulumi:"tags"`
+	// <p>The Amazon EC2 VPC ID associated with the VPC connection.</p>
+	VpcId *string `pulumi:"vpcId"`
 }
 
 func LookupVpcConnectionOutput(ctx *pulumi.Context, args LookupVpcConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupVpcConnectionResultOutput {
@@ -79,6 +84,7 @@ func (o LookupVpcConnectionResultOutput) ToLookupVpcConnectionResultOutputWithCo
 	return o
 }
 
+// <p>The Amazon Resource Name (ARN) of the VPC connection.</p>
 func (o LookupVpcConnectionResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVpcConnectionResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -89,6 +95,7 @@ func (o LookupVpcConnectionResultOutput) AvailabilityStatus() VpcConnectionVpcCo
 	}).(VpcConnectionVpcConnectionAvailabilityStatusPtrOutput)
 }
 
+// <p>The time that the VPC connection was created.</p>
 func (o LookupVpcConnectionResultOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVpcConnectionResult) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
@@ -97,6 +104,7 @@ func (o LookupVpcConnectionResultOutput) DnsResolvers() pulumi.StringArrayOutput
 	return o.ApplyT(func(v LookupVpcConnectionResult) []string { return v.DnsResolvers }).(pulumi.StringArrayOutput)
 }
 
+// <p>The time that the VPC connection was last updated.</p>
 func (o LookupVpcConnectionResultOutput) LastUpdatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVpcConnectionResult) *string { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
 }
@@ -105,6 +113,7 @@ func (o LookupVpcConnectionResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVpcConnectionResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// <p>A list of network interfaces.</p>
 func (o LookupVpcConnectionResultOutput) NetworkInterfaces() VpcConnectionNetworkInterfaceArrayOutput {
 	return o.ApplyT(func(v LookupVpcConnectionResult) []VpcConnectionNetworkInterface { return v.NetworkInterfaces }).(VpcConnectionNetworkInterfaceArrayOutput)
 }
@@ -125,6 +134,7 @@ func (o LookupVpcConnectionResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupVpcConnectionResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// <p>The Amazon EC2 VPC ID associated with the VPC connection.</p>
 func (o LookupVpcConnectionResultOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVpcConnectionResult) *string { return v.VpcId }).(pulumi.StringPtrOutput)
 }

@@ -18,10 +18,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetVersionResult:
-    def __init__(__self__, function_arn=None, version=None):
+    def __init__(__self__, function_arn=None, policy=None, version=None):
         if function_arn and not isinstance(function_arn, str):
             raise TypeError("Expected argument 'function_arn' to be a str")
         pulumi.set(__self__, "function_arn", function_arn)
+        if policy and not isinstance(policy, dict):
+            raise TypeError("Expected argument 'policy' to be a dict")
+        pulumi.set(__self__, "policy", policy)
         if version and not isinstance(version, str):
             raise TypeError("Expected argument 'version' to be a str")
         pulumi.set(__self__, "version", version)
@@ -33,6 +36,16 @@ class GetVersionResult:
         The ARN of the version.
         """
         return pulumi.get(self, "function_arn")
+
+    @property
+    @pulumi.getter
+    def policy(self) -> Optional[Any]:
+        """
+        The resource policy of your function
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Lambda::Version` for more information about the expected schema for this property.
+        """
+        return pulumi.get(self, "policy")
 
     @property
     @pulumi.getter
@@ -50,6 +63,7 @@ class AwaitableGetVersionResult(GetVersionResult):
             yield self
         return GetVersionResult(
             function_arn=self.function_arn,
+            policy=self.policy,
             version=self.version)
 
 
@@ -68,6 +82,7 @@ def get_version(function_arn: Optional[str] = None,
 
     return AwaitableGetVersionResult(
         function_arn=pulumi.get(__ret__, 'function_arn'),
+        policy=pulumi.get(__ret__, 'policy'),
         version=pulumi.get(__ret__, 'version'))
 
 

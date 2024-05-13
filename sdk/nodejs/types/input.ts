@@ -5385,7 +5385,7 @@ export namespace bedrock {
      * Contains the information of an Agent Action Group
      */
     export interface AgentActionGroupArgs {
-        actionGroupExecutor?: pulumi.Input<inputs.bedrock.AgentActionGroupExecutorArgs>;
+        actionGroupExecutor?: pulumi.Input<inputs.bedrock.AgentActionGroupExecutor0PropertiesArgs | inputs.bedrock.AgentActionGroupExecutor1PropertiesArgs>;
         /**
          * Name of the action group
          */
@@ -5396,6 +5396,7 @@ export namespace bedrock {
          * Description of action group
          */
         description?: pulumi.Input<string>;
+        functionSchema?: pulumi.Input<inputs.bedrock.AgentFunctionSchemaArgs>;
         parentActionGroupSignature?: pulumi.Input<enums.bedrock.AgentActionGroupSignature>;
         /**
          * Specifies whether to allow deleting action group while it is in use.
@@ -5403,11 +5404,21 @@ export namespace bedrock {
         skipResourceInUseCheckOnDelete?: pulumi.Input<boolean>;
     }
 
-    export interface AgentActionGroupExecutorArgs {
+    /**
+     * Type of Executors for an Action Group
+     */
+    export interface AgentActionGroupExecutor0PropertiesArgs {
         /**
          * ARN of a Lambda.
          */
         lambda: pulumi.Input<string>;
+    }
+
+    /**
+     * Type of Executors for an Action Group
+     */
+    export interface AgentActionGroupExecutor1PropertiesArgs {
+        customControl: pulumi.Input<enums.bedrock.AgentCustomControlMethod>;
     }
 
     /**
@@ -5435,6 +5446,31 @@ export namespace bedrock {
          * String OpenAPI Payload
          */
         payload: pulumi.Input<string>;
+    }
+
+    /**
+     * Function definition
+     */
+    export interface AgentFunctionArgs {
+        /**
+         * Description of function
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Name for a resource.
+         */
+        name: pulumi.Input<string>;
+        parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.bedrock.AgentParameterDetailArgs>}>;
+    }
+
+    /**
+     * Schema of Functions
+     */
+    export interface AgentFunctionSchemaArgs {
+        /**
+         * List of Function definitions
+         */
+        functions: pulumi.Input<pulumi.Input<inputs.bedrock.AgentFunctionArgs>[]>;
     }
 
     /**
@@ -5476,6 +5512,21 @@ export namespace bedrock {
          */
         knowledgeBaseId: pulumi.Input<string>;
         knowledgeBaseState?: pulumi.Input<enums.bedrock.AgentKnowledgeBaseState>;
+    }
+
+    /**
+     * Parameter detail
+     */
+    export interface AgentParameterDetailArgs {
+        /**
+         * Description of function parameter.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Information about if a parameter is required for function call. Default to false.
+         */
+        required?: pulumi.Input<boolean>;
+        type: pulumi.Input<enums.bedrock.AgentType>;
     }
 
     /**
@@ -11094,6 +11145,7 @@ export namespace dynamodb {
         indexName: pulumi.Input<string>;
         keySchema: pulumi.Input<pulumi.Input<inputs.dynamodb.GlobalTableKeySchemaArgs>[]>;
         projection: pulumi.Input<inputs.dynamodb.GlobalTableProjectionArgs>;
+        writeOnDemandThroughputSettings?: pulumi.Input<inputs.dynamodb.GlobalTableWriteOnDemandThroughputSettingsArgs>;
         writeProvisionedThroughputSettings?: pulumi.Input<inputs.dynamodb.GlobalTableWriteProvisionedThroughputSettingsArgs>;
     }
 
@@ -11122,6 +11174,10 @@ export namespace dynamodb {
         projectionType?: pulumi.Input<string>;
     }
 
+    export interface GlobalTableReadOnDemandThroughputSettingsArgs {
+        maxReadRequestUnits?: pulumi.Input<number>;
+    }
+
     export interface GlobalTableReadProvisionedThroughputSettingsArgs {
         readCapacityAutoScalingSettings?: pulumi.Input<inputs.dynamodb.GlobalTableCapacityAutoScalingSettingsArgs>;
         readCapacityUnits?: pulumi.Input<number>;
@@ -11130,6 +11186,7 @@ export namespace dynamodb {
     export interface GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs {
         contributorInsightsSpecification?: pulumi.Input<inputs.dynamodb.GlobalTableContributorInsightsSpecificationArgs>;
         indexName: pulumi.Input<string>;
+        readOnDemandThroughputSettings?: pulumi.Input<inputs.dynamodb.GlobalTableReadOnDemandThroughputSettingsArgs>;
         readProvisionedThroughputSettings?: pulumi.Input<inputs.dynamodb.GlobalTableReadProvisionedThroughputSettingsArgs>;
     }
 
@@ -11139,6 +11196,7 @@ export namespace dynamodb {
         globalSecondaryIndexes?: pulumi.Input<pulumi.Input<inputs.dynamodb.GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs>[]>;
         kinesisStreamSpecification?: pulumi.Input<inputs.dynamodb.GlobalTableKinesisStreamSpecificationArgs>;
         pointInTimeRecoverySpecification?: pulumi.Input<inputs.dynamodb.GlobalTablePointInTimeRecoverySpecificationArgs>;
+        readOnDemandThroughputSettings?: pulumi.Input<inputs.dynamodb.GlobalTableReadOnDemandThroughputSettingsArgs>;
         readProvisionedThroughputSettings?: pulumi.Input<inputs.dynamodb.GlobalTableReadProvisionedThroughputSettingsArgs>;
         region: pulumi.Input<string>;
         replicaStreamSpecification?: pulumi.Input<inputs.dynamodb.GlobalTableReplicaStreamSpecificationArgs>;
@@ -11184,6 +11242,10 @@ export namespace dynamodb {
     export interface GlobalTableTimeToLiveSpecificationArgs {
         attributeName?: pulumi.Input<string>;
         enabled: pulumi.Input<boolean>;
+    }
+
+    export interface GlobalTableWriteOnDemandThroughputSettingsArgs {
+        maxWriteRequestUnits?: pulumi.Input<number>;
     }
 
     export interface GlobalTableWriteProvisionedThroughputSettingsArgs {
@@ -11252,6 +11314,10 @@ export namespace dynamodb {
          *  The sort key of an item is also known as its *range attribute*. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
          */
         keySchema: pulumi.Input<pulumi.Input<inputs.dynamodb.TableKeySchemaArgs>[]>;
+        /**
+         * The maximum number of read and write units for the specified global secondary index. If you use this parameter, you must specify ``MaxReadRequestUnits``, ``MaxWriteRequestUnits``, or both.
+         */
+        onDemandThroughput?: pulumi.Input<inputs.dynamodb.TableOnDemandThroughputArgs>;
         /**
          * Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
          */
@@ -11352,6 +11418,22 @@ export namespace dynamodb {
          * Represents attributes that are copied (projected) from the table into the local secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
          */
         projection: pulumi.Input<inputs.dynamodb.TableProjectionArgs>;
+    }
+
+    /**
+     * Sets the maximum number of read and write units for the specified on-demand table. If you use this property, you must specify ``MaxReadRequestUnits``, ``MaxWriteRequestUnits``, or both.
+     */
+    export interface TableOnDemandThroughputArgs {
+        /**
+         * Maximum number of read request units for the specified table.
+         *  To specify a maximum ``OnDemandThroughput`` on your table, set the value of ``MaxReadRequestUnits`` as greater than or equal to 1. To remove the maximum ``OnDemandThroughput`` that is currently set on your table, set the value of ``MaxReadRequestUnits`` to -1.
+         */
+        maxReadRequestUnits?: pulumi.Input<number>;
+        /**
+         * Maximum number of write request units for the specified table.
+         *  To specify a maximum ``OnDemandThroughput`` on your table, set the value of ``MaxWriteRequestUnits`` as greater than or equal to 1. To remove the maximum ``OnDemandThroughput`` that is currently set on your table, set the value of ``MaxWriteRequestUnits`` to -1.
+         */
+        maxWriteRequestUnits?: pulumi.Input<number>;
     }
 
     /**
@@ -12809,7 +12891,7 @@ export namespace ec2 {
          */
         description?: pulumi.Input<string>;
         /**
-         * The device index for the network interface attachment.
+         * The device index for the network interface attachment. Each network interface requires a device index. If you create a launch template that includes secondary network interfaces but not a primary network interface, then you must add a primary network interface as a launch parameter when you launch an instance from the template.
          */
         deviceIndex?: pulumi.Input<number>;
         /**
@@ -17244,6 +17326,13 @@ export namespace events {
         isValueSecret?: pulumi.Input<boolean>;
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
+    }
+
+    /**
+     * Dead Letter Queue for the event bus.
+     */
+    export interface DeadLetterConfigPropertiesArgs {
+        arn?: pulumi.Input<string>;
     }
 
     export interface EndpointEventBusArgs {
@@ -27785,6 +27874,40 @@ export namespace mediaconnect {
     }
 
     /**
+     * A set of parameters that define the media stream.
+     */
+    export interface FlowFmtpArgs {
+        /**
+         * The format of the audio channel.
+         */
+        channelOrder?: pulumi.Input<string>;
+        /**
+         * The format used for the representation of color.
+         */
+        colorimetry?: pulumi.Input<enums.mediaconnect.FlowFmtpColorimetry>;
+        /**
+         * The frame rate for the video stream, in frames/second. For example: 60000/1001.
+         */
+        exactFramerate?: pulumi.Input<string>;
+        /**
+         * The pixel aspect ratio (PAR) of the video.
+         */
+        par?: pulumi.Input<string>;
+        /**
+         * The encoding range of the video.
+         */
+        range?: pulumi.Input<enums.mediaconnect.FlowFmtpRange>;
+        /**
+         * The type of compression that was used to smooth the video's appearance.
+         */
+        scanMode?: pulumi.Input<enums.mediaconnect.FlowFmtpScanMode>;
+        /**
+         * The transfer characteristic system (TCS) that is used in the video.
+         */
+        tcs?: pulumi.Input<enums.mediaconnect.FlowFmtpTcs>;
+    }
+
+    /**
      * The source configuration for cloud flows receiving a stream from a bridge.
      */
     export interface FlowGatewayBridgeSourceArgs {
@@ -27796,6 +27919,146 @@ export namespace mediaconnect {
          * The name of the VPC interface attachment to use for this bridge source.
          */
         vpcInterfaceAttachment?: pulumi.Input<inputs.mediaconnect.FlowVpcInterfaceAttachmentArgs>;
+    }
+
+    /**
+     * The transport parameters associated with an incoming media stream.
+     */
+    export interface FlowInputConfigurationArgs {
+        /**
+         * The port that the flow listens on for an incoming media stream.
+         */
+        inputPort: pulumi.Input<number>;
+        /**
+         * The VPC interface where the media stream comes in from.
+         */
+        interface: pulumi.Input<inputs.mediaconnect.FlowInterfaceArgs>;
+    }
+
+    /**
+     * The VPC interface that you want to use for the media stream associated with the output.
+     */
+    export interface FlowInterfaceArgs {
+        /**
+         * The name of the VPC interface that you want to use for the media stream associated with the output.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    /**
+     * The maintenance setting of a flow.
+     */
+    export interface FlowMaintenanceArgs {
+        /**
+         * A day of a week when the maintenance will happen. Use Monday/Tuesday/Wednesday/Thursday/Friday/Saturday/Sunday.
+         */
+        maintenanceDay: pulumi.Input<enums.mediaconnect.FlowMaintenanceMaintenanceDay>;
+        /**
+         * UTC time when the maintenance will happen. Use 24-hour HH:MM format. Minutes must be 00. Example: 13:00. The default value is 02:00.
+         */
+        maintenanceStartHour: pulumi.Input<string>;
+    }
+
+    /**
+     * A single track or stream of media that contains video, audio, or ancillary data. After you add a media stream to a flow, you can associate it with sources and outputs on that flow, as long as they use the CDI protocol or the ST 2110 JPEG XS protocol. Each source or output can consist of one or many media streams.
+     */
+    export interface FlowMediaStreamArgs {
+        /**
+         * Attributes that are related to the media stream.
+         */
+        attributes?: pulumi.Input<inputs.mediaconnect.FlowMediaStreamAttributesArgs>;
+        /**
+         * The sample rate for the stream. This value in measured in kHz.
+         */
+        clockRate?: pulumi.Input<number>;
+        /**
+         * A description that can help you quickly identify what your media stream is used for.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * The format type number (sometimes referred to as RTP payload type) of the media stream. MediaConnect assigns this value to the media stream. For ST 2110 JPEG XS outputs, you need to provide this value to the receiver.
+         */
+        fmt?: pulumi.Input<number>;
+        /**
+         * A unique identifier for the media stream.
+         */
+        mediaStreamId: pulumi.Input<number>;
+        /**
+         * A name that helps you distinguish one media stream from another.
+         */
+        mediaStreamName: pulumi.Input<string>;
+        /**
+         * The type of media stream.
+         */
+        mediaStreamType: pulumi.Input<enums.mediaconnect.FlowMediaStreamMediaStreamType>;
+        /**
+         * The resolution of the video.
+         */
+        videoFormat?: pulumi.Input<enums.mediaconnect.FlowMediaStreamVideoFormat>;
+    }
+
+    /**
+     * Attributes that are related to the media stream.
+     */
+    export interface FlowMediaStreamAttributesArgs {
+        /**
+         * A set of parameters that define the media stream.
+         */
+        fmtp?: pulumi.Input<inputs.mediaconnect.FlowFmtpArgs>;
+        /**
+         * The audio language, in a format that is recognized by the receiver.
+         */
+        lang?: pulumi.Input<string>;
+    }
+
+    /**
+     * The media stream that is associated with the source, and the parameters for that association.
+     */
+    export interface FlowMediaStreamSourceConfigurationArgs {
+        /**
+         * The format that was used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video, 2110 streams, set the encoding name to raw. For video, JPEG XS streams, set the encoding name to jxsv.
+         */
+        encodingName: pulumi.Input<enums.mediaconnect.FlowMediaStreamSourceConfigurationEncodingName>;
+        /**
+         * The media streams that you want to associate with the source.
+         */
+        inputConfigurations?: pulumi.Input<pulumi.Input<inputs.mediaconnect.FlowInputConfigurationArgs>[]>;
+        /**
+         * A name that helps you distinguish one media stream from another.
+         */
+        mediaStreamName: pulumi.Input<string>;
+    }
+
+    /**
+     * The definition of a media stream that is associated with the output.
+     */
+    export interface FlowOutputDestinationConfigurationArgs {
+        /**
+         * The IP address where contents of the media stream will be sent.
+         */
+        destinationIp: pulumi.Input<string>;
+        /**
+         * The port to use when the content of the media stream is distributed to the output.
+         */
+        destinationPort: pulumi.Input<number>;
+        /**
+         * The VPC interface that is used for the media stream associated with the output.
+         */
+        interface: pulumi.Input<inputs.mediaconnect.FlowOutputInterfaceArgs>;
+    }
+
+    /**
+     * A collection of parameters that determine how MediaConnect will convert the content. These fields only apply to outputs on flows that have a CDI source.
+     */
+    export interface FlowOutputEncodingParametersArgs {
+        /**
+         * A value that is used to calculate compression for an output. The bitrate of the output is calculated as follows: Output bitrate = (1 / compressionFactor) * (source bitrate) This property only applies to outputs that use the ST 2110 JPEG XS protocol, with a flow source that uses the CDI protocol. Valid values are in the range of 3.0 to 10.0, inclusive.
+         */
+        compressionFactor: pulumi.Input<number>;
+        /**
+         * A setting on the encoder that drives compression settings. This property only applies to video media streams associated with outputs that use the ST 2110 JPEG XS protocol, with a flow source that uses the CDI protocol.
+         */
+        encoderProfile?: pulumi.Input<enums.mediaconnect.FlowOutputEncodingParametersEncoderProfile>;
     }
 
     /**
@@ -27818,6 +28081,38 @@ export namespace mediaconnect {
          *  The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
          */
         secretArn: pulumi.Input<string>;
+    }
+
+    /**
+     * The VPC interface that you want to use for the media stream associated with the output.
+     */
+    export interface FlowOutputInterfaceArgs {
+        /**
+         * The name of the VPC interface that you want to use for the media stream associated with the output.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    /**
+     * The media stream that is associated with the output, and the parameters for that association.
+     */
+    export interface FlowOutputMediaStreamOutputConfigurationArgs {
+        /**
+         * The media streams that you want to associate with the output.
+         */
+        destinationConfigurations?: pulumi.Input<pulumi.Input<inputs.mediaconnect.FlowOutputDestinationConfigurationArgs>[]>;
+        /**
+         * The format that will be used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video streams on sources or outputs that use the CDI protocol, set the encoding name to raw. For video streams on sources or outputs that use the ST 2110 JPEG XS protocol, set the encoding name to jxsv.
+         */
+        encodingName: pulumi.Input<enums.mediaconnect.FlowOutputMediaStreamOutputConfigurationEncodingName>;
+        /**
+         * A collection of parameters that determine how MediaConnect will convert the content. These fields only apply to outputs on flows that have a CDI source.
+         */
+        encodingParameters?: pulumi.Input<inputs.mediaconnect.FlowOutputEncodingParametersArgs>;
+        /**
+         * A name that helps you distinguish one media stream from another.
+         */
+        mediaStreamName: pulumi.Input<string>;
     }
 
     /**
@@ -27866,6 +28161,14 @@ export namespace mediaconnect {
          * The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
          */
         maxLatency?: pulumi.Input<number>;
+        /**
+         * The size of the buffer (in milliseconds) to use to sync incoming source data.
+         */
+        maxSyncBuffer?: pulumi.Input<number>;
+        /**
+         * The media stream that is associated with the source, and the parameters for that association.
+         */
+        mediaStreamSourceConfigurations?: pulumi.Input<pulumi.Input<inputs.mediaconnect.FlowMediaStreamSourceConfigurationArgs>[]>;
         /**
          * The minimum latency in milliseconds.
          */
@@ -27980,6 +28283,36 @@ export namespace mediaconnect {
          * The name of the VPC interface to use for this resource.
          */
         vpcInterfaceName?: pulumi.Input<string>;
+    }
+
+    /**
+     * The details of a VPC interface.
+     */
+    export interface FlowVpcInterfaceArgs {
+        /**
+         * Immutable and has to be a unique against other VpcInterfaces in this Flow.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * IDs of the network interfaces created in customer's account by MediaConnect.
+         */
+        networkInterfaceIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The type of network adapter that you want MediaConnect to use on this interface. If you don't set this value, it defaults to ENA.
+         */
+        networkInterfaceType?: pulumi.Input<enums.mediaconnect.FlowVpcInterfaceNetworkInterfaceType>;
+        /**
+         * Role Arn MediaConnect can assume to create ENIs in customer's account.
+         */
+        roleArn: pulumi.Input<string>;
+        /**
+         * Security Group IDs to be used on ENI.
+         */
+        securityGroupIds: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Subnet must be in the AZ of the Flow
+         */
+        subnetId: pulumi.Input<string>;
     }
 
     /**
@@ -38265,7 +38598,7 @@ export namespace quicksight {
          */
         format?: pulumi.Input<string>;
         newColumnType: pulumi.Input<enums.quicksight.DataSetColumnDataType>;
-        subType?: pulumi.Input<enums.quicksight.DataSetColumnSubDataType>;
+        subType?: pulumi.Input<enums.quicksight.DataSetColumnDataSubType>;
     }
 
     /**
@@ -38287,13 +38620,31 @@ export namespace quicksight {
         geoSpatialColumnGroup?: pulumi.Input<inputs.quicksight.DataSetGeoSpatialColumnGroupArgs>;
     }
 
+    /**
+     * <p>A rule defined to grant access on one or more restricted columns.
+     *             Each dataset can have multiple rules.
+     *             To create a restricted column, you add it to one or more rules.
+     *             Each rule must contain at least one column and at least one user or group.
+     *             To be able to see a restricted column, a user or group needs to be added
+     *             to a rule for that column.</p>
+     */
     export interface DataSetColumnLevelPermissionRuleArgs {
+        /**
+         * <p>An array of column names.</p>
+         */
         columnNames?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * <p>An array of Amazon Resource Names (ARNs) for Amazon QuickSight users or groups.</p>
+         */
         principals?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     /**
-     * <p>A tag for a column in a <a>TagColumnOperation</a> structure. This is a
+     * <p>A tag for a column in a
+     *             <code>
+     *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_TagColumnOperation.html">TagColumnOperation</a>
+     *             </code>
+     *             structure. This is a
      *             variant type structure. For this structure to be valid, only one of the attributes can
      *             be non-null.</p>
      */
@@ -38336,7 +38687,7 @@ export namespace quicksight {
     }
 
     /**
-     * <p>A parameter created in the dataset that could be of any one data type such as string, integer, decimal or datetime.</p>
+     * <p>A dataset parameter.</p>
      */
     export interface DataSetDatasetParameterArgs {
         dateTimeDatasetParameter?: pulumi.Input<inputs.quicksight.DataSetDateTimeDatasetParameterArgs>;
@@ -38346,48 +38697,69 @@ export namespace quicksight {
     }
 
     /**
-     * <p>A parameter created in the dataset of date time data type.</p>
+     * <p>A date time parameter for a dataset.</p>
      */
     export interface DataSetDateTimeDatasetParameterArgs {
         defaultValues?: pulumi.Input<inputs.quicksight.DataSetDateTimeDatasetParameterDefaultValuesArgs>;
+        /**
+         * <p>An identifier for the parameter that is created in the dataset.</p>
+         */
         id: pulumi.Input<string>;
+        /**
+         * <p>The name of the date time parameter that is created in the dataset.</p>
+         */
         name: pulumi.Input<string>;
         timeGranularity?: pulumi.Input<enums.quicksight.DataSetTimeGranularity>;
         valueType: pulumi.Input<enums.quicksight.DataSetDatasetParameterValueType>;
     }
 
     /**
-     * <p>List of default values defined for a given string date time parameter type. Currently only static values are supported.</p>
+     * <p>The default values of a date time parameter.</p>
      */
     export interface DataSetDateTimeDatasetParameterDefaultValuesArgs {
         /**
-         * <p>List of static default values defined for a given string date time parameter type.</p>
+         * <p>A list of static default values for a given date time parameter.</p>
          */
         staticValues?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     /**
-     * <p>A parameter created in the dataset of decimal data type.</p>
+     * <p>A decimal parameter for a dataset.</p>
      */
     export interface DataSetDecimalDatasetParameterArgs {
         defaultValues?: pulumi.Input<inputs.quicksight.DataSetDecimalDatasetParameterDefaultValuesArgs>;
+        /**
+         * <p>An identifier for the decimal parameter created in the dataset.</p>
+         */
         id: pulumi.Input<string>;
+        /**
+         * <p>The name of the decimal parameter that is created in the dataset.</p>
+         */
         name: pulumi.Input<string>;
         valueType: pulumi.Input<enums.quicksight.DataSetDatasetParameterValueType>;
     }
 
     /**
-     * <p>List of default values defined for a given decimal dataset parameter type. Currently only static values are supported.</p>
+     * <p>The default values of a decimal parameter.</p>
      */
     export interface DataSetDecimalDatasetParameterDefaultValuesArgs {
         /**
-         * <p>List of static default values defined for a given decimal dataset parameter type.</p>
+         * <p>A list of static default values for a given decimal parameter.</p>
          */
         staticValues?: pulumi.Input<pulumi.Input<number>[]>;
     }
 
+    /**
+     * <p>A FieldFolder element is a folder that contains fields and nested subfolders.</p>
+     */
     export interface DataSetFieldFolderArgs {
+        /**
+         * <p>A folder has a list of columns. A column can only be in one folder.</p>
+         */
         columns?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * <p>The description for a field folder.</p>
+         */
         description?: pulumi.Input<string>;
     }
 
@@ -38418,10 +38790,10 @@ export namespace quicksight {
     }
 
     /**
-     * <p>Incremental Refresh</p>
+     * <p>The incremental refresh configuration for a dataset.</p>
      */
     export interface DataSetIncrementalRefreshArgs {
-        lookbackWindow?: pulumi.Input<inputs.quicksight.DataSetLookbackWindowArgs>;
+        lookbackWindow: pulumi.Input<inputs.quicksight.DataSetLookbackWindowArgs>;
     }
 
     /**
@@ -38448,52 +38820,65 @@ export namespace quicksight {
          * <p>The name of this column in the underlying data source.</p>
          */
         name: pulumi.Input<string>;
-        subType?: pulumi.Input<enums.quicksight.DataSetColumnSubDataType>;
+        subType?: pulumi.Input<enums.quicksight.DataSetColumnDataSubType>;
         type: pulumi.Input<enums.quicksight.DataSetInputColumnDataType>;
     }
 
     /**
-     * <p>A parameter created in the dataset of integer data type.</p>
+     * <p>An integer parameter for a dataset.</p>
      */
     export interface DataSetIntegerDatasetParameterArgs {
         defaultValues?: pulumi.Input<inputs.quicksight.DataSetIntegerDatasetParameterDefaultValuesArgs>;
+        /**
+         * <p>An identifier for the integer parameter created in the dataset.</p>
+         */
         id: pulumi.Input<string>;
+        /**
+         * <p>The name of the integer parameter that is created in the dataset.</p>
+         */
         name: pulumi.Input<string>;
         valueType: pulumi.Input<enums.quicksight.DataSetDatasetParameterValueType>;
     }
 
     /**
-     * <p>List of default values defined for a given integer dataset parameter type. Currently only static values are supported.</p>
+     * <p>The default values of an integer parameter.</p>
      */
     export interface DataSetIntegerDatasetParameterDefaultValuesArgs {
         /**
-         * <p>List of static default values defined for a given integer dataset parameter type.</p>
+         * <p>A list of static default values for a given integer parameter.</p>
          */
         staticValues?: pulumi.Input<pulumi.Input<number>[]>;
     }
 
     /**
-     * <p>Join instruction.</p>
+     * <p>The instructions associated with a join. </p>
      */
     export interface DataSetJoinInstructionArgs {
         leftJoinKeyProperties?: pulumi.Input<inputs.quicksight.DataSetJoinKeyPropertiesArgs>;
         /**
-         * <p>Left operand.</p>
+         * <p>The operand on the left side of a join.</p>
          */
         leftOperand: pulumi.Input<string>;
         /**
-         * <p>On Clause.</p>
+         * <p>The join instructions provided in the <code>ON</code> clause of a join.</p>
          */
         onClause: pulumi.Input<string>;
         rightJoinKeyProperties?: pulumi.Input<inputs.quicksight.DataSetJoinKeyPropertiesArgs>;
         /**
-         * <p>Right operand.</p>
+         * <p>The operand on the right side of a join.</p>
          */
         rightOperand: pulumi.Input<string>;
         type: pulumi.Input<enums.quicksight.DataSetJoinType>;
     }
 
+    /**
+     * <p>Properties associated with the columns participating in a join.</p>
+     */
     export interface DataSetJoinKeyPropertiesArgs {
+        /**
+         * <p>A value that indicates that a row in a table is uniquely identified by the columns in
+         *             a join key. This is used by Amazon QuickSight to optimize query performance.</p>
+         */
         uniqueKey?: pulumi.Input<boolean>;
     }
 
@@ -38509,7 +38894,7 @@ export namespace quicksight {
          */
         alias: pulumi.Input<string>;
         /**
-         * <p>Transform operations that act on this logical table.</p>
+         * <p>Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. </p>
          */
         dataTransforms?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetTransformOperationArgs>[]>;
         source: pulumi.Input<inputs.quicksight.DataSetLogicalTableSourceArgs>;
@@ -38521,7 +38906,7 @@ export namespace quicksight {
      */
     export interface DataSetLogicalTableSourceArgs {
         /**
-         * <p>The Amazon Resource Name (ARN) for the dataset.</p>
+         * <p>The Amazon Resource Number (ARN) of the parent dataset.</p>
          */
         dataSetArn?: pulumi.Input<string>;
         joinInstruction?: pulumi.Input<inputs.quicksight.DataSetJoinInstructionArgs>;
@@ -38531,32 +38916,47 @@ export namespace quicksight {
         physicalTableId?: pulumi.Input<string>;
     }
 
+    /**
+     * <p>The lookback window setup of an incremental refresh configuration.</p>
+     */
     export interface DataSetLookbackWindowArgs {
         /**
-         * <p>Column Name</p>
+         * <p>The name of the lookback window column.</p>
          */
-        columnName?: pulumi.Input<string>;
+        columnName: pulumi.Input<string>;
         /**
-         * <p>Size</p>
+         * <p>The lookback window column size.</p>
          */
-        size?: pulumi.Input<number>;
-        sizeUnit?: pulumi.Input<enums.quicksight.DataSetSizeUnit>;
+        size: pulumi.Input<number>;
+        sizeUnit: pulumi.Input<enums.quicksight.DataSetLookbackWindowSizeUnit>;
     }
 
+    /**
+     * <p>The configuration that overrides the existing default values for a dataset parameter that is inherited from another dataset.</p>
+     */
     export interface DataSetNewDefaultValuesArgs {
+        /**
+         * <p>A list of static default values for a given date time parameter.</p>
+         */
         dateTimeStaticValues?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * <p>A list of static default values for a given decimal parameter.</p>
+         */
         decimalStaticValues?: pulumi.Input<pulumi.Input<number>[]>;
+        /**
+         * <p>A list of static default values for a given integer parameter.</p>
+         */
         integerStaticValues?: pulumi.Input<pulumi.Input<number>[]>;
+        /**
+         * <p>A list of static default values for a given string parameter.</p>
+         */
         stringStaticValues?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     /**
-     * <p>A transform operation that overrides the dataset parameter values defined in another dataset.</p>
+     * <p>A transform operation that overrides the dataset parameter values that are defined in another dataset.</p>
      */
     export interface DataSetOverrideDatasetParameterOperationArgs {
-        /**
-         * <p>The new default values for the parameter.</p>
-         */
         newDefaultValues?: pulumi.Input<inputs.quicksight.DataSetNewDefaultValuesArgs>;
         /**
          * <p>The new name for the parameter.</p>
@@ -38591,17 +38991,17 @@ export namespace quicksight {
     }
 
     /**
-     * <p> Refresh Configuration.</p>
+     * <p>The refresh configuration of a dataset.</p>
      */
     export interface DataSetRefreshConfigurationArgs {
-        incrementalRefresh?: pulumi.Input<inputs.quicksight.DataSetIncrementalRefreshArgs>;
+        incrementalRefresh: pulumi.Input<inputs.quicksight.DataSetIncrementalRefreshArgs>;
     }
 
     /**
-     * <p>The dataset refresh properties for the dataset.</p>
+     * <p>The refresh properties of a dataset.</p>
      */
     export interface DataSetRefreshPropertiesArgs {
-        refreshConfiguration?: pulumi.Input<inputs.quicksight.DataSetRefreshConfigurationArgs>;
+        refreshConfiguration: pulumi.Input<inputs.quicksight.DataSetRefreshConfigurationArgs>;
     }
 
     /**
@@ -38655,16 +39055,16 @@ export namespace quicksight {
         /**
          * <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
          *             following:</p>
-         *         <ul>
+         *          <ul>
          *             <li>
-         *                 <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+         *                <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
          *             </li>
          *             <li>
-         *                 <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+         *                <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
          *             </li>
          *             <li>
-         *                 <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
-         *                     ARN. Use this option only to share resources (templates) across AWS accounts.
+         *                <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
+         *                     ARN. Use this option only to share resources (templates) across Amazon Web Services accounts.
          *                     (This is less common.) </p>
          *             </li>
          *          </ul>
@@ -38673,16 +39073,21 @@ export namespace quicksight {
     }
 
     /**
-     * <p>The row-level security configuration for the dataset.</p>
+     * <p>Information about a dataset that contains permissions for row-level security (RLS).
+     *             The permissions dataset maps fields to users or groups. For more information, see
+     *             <a href="https://docs.aws.amazon.com/quicksight/latest/user/restrict-access-to-a-data-set-using-row-level-security.html">Using Row-Level Security (RLS) to Restrict Access to a Dataset</a> in the <i>Amazon QuickSight User
+     *                 Guide</i>.</p>
+     *          <p>The option to deny permissions by setting <code>PermissionPolicy</code> to <code>DENY_ACCESS</code> is
+     *             not supported for new RLS datasets.</p>
      */
     export interface DataSetRowLevelPermissionDataSetArgs {
         /**
-         * <p>The Amazon Resource Name (ARN) of the permission dataset.</p>
+         * <p>The Amazon Resource Name (ARN) of the dataset that contains permissions for RLS.</p>
          */
         arn: pulumi.Input<string>;
         formatVersion?: pulumi.Input<enums.quicksight.DataSetRowLevelPermissionFormatVersion>;
         /**
-         * <p>The namespace associated with the row-level permissions dataset.</p>
+         * <p>The namespace associated with the dataset that contains permissions for RLS.</p>
          */
         namespace?: pulumi.Input<string>;
         permissionPolicy: pulumi.Input<enums.quicksight.DataSetRowLevelPermissionPolicy>;
@@ -38690,7 +39095,7 @@ export namespace quicksight {
     }
 
     /**
-     * <p>The configuration of tags on a dataset to set row-level security.</p>
+     * <p>The configuration of tags on a dataset to set row-level security. </p>
      */
     export interface DataSetRowLevelPermissionTagConfigurationArgs {
         status?: pulumi.Input<enums.quicksight.DataSetStatus>;
@@ -38705,7 +39110,7 @@ export namespace quicksight {
     }
 
     /**
-     * <p>Permission for the resource.</p>
+     * <p>A set of rules associated with a tag.</p>
      */
     export interface DataSetRowLevelPermissionTagRuleArgs {
         /**
@@ -38727,36 +39132,45 @@ export namespace quicksight {
     }
 
     /**
-     * <p>A physical table type for as S3 data source.</p>
+     * <p>A physical table type for an S3 data source.</p>
      */
     export interface DataSetS3SourceArgs {
         /**
-         * <p>The amazon Resource Name (ARN) for the data source.</p>
+         * <p>The Amazon Resource Name (ARN) for the data source.</p>
          */
         dataSourceArn: pulumi.Input<string>;
         /**
-         * <p>A physical table type for as S3 data source.</p>
+         * <p>A physical table type for an S3 data source.</p>
+         *          <note>
+         *             <p>For files that aren't JSON, only <code>STRING</code> data types are supported in input columns.</p>
+         *          </note>
          */
         inputColumns: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetInputColumnArgs>[]>;
         uploadSettings?: pulumi.Input<inputs.quicksight.DataSetUploadSettingsArgs>;
     }
 
     /**
-     * <p>A parameter created in the dataset of string data type.</p>
+     * <p>A string parameter for a dataset.</p>
      */
     export interface DataSetStringDatasetParameterArgs {
         defaultValues?: pulumi.Input<inputs.quicksight.DataSetStringDatasetParameterDefaultValuesArgs>;
+        /**
+         * <p>An identifier for the string parameter that is created in the dataset.</p>
+         */
         id: pulumi.Input<string>;
+        /**
+         * <p>The name of the string parameter that is created in the dataset.</p>
+         */
         name: pulumi.Input<string>;
         valueType: pulumi.Input<enums.quicksight.DataSetDatasetParameterValueType>;
     }
 
     /**
-     * <p>List of default values defined for a given string dataset parameter type. Currently only static values are supported.</p>
+     * <p>The default values of a string parameter.</p>
      */
     export interface DataSetStringDatasetParameterDefaultValuesArgs {
         /**
-         * <p>List of static default values defined for a given string dataset parameter type.</p>
+         * <p>A list of static default values for a given string parameter.</p>
          */
         staticValues?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -38770,10 +39184,10 @@ export namespace quicksight {
          */
         columnName: pulumi.Input<string>;
         /**
-         * <p>The dataset column tag, currently only used for geospatial type tagging. .</p>
-         *         <note>
-         *             <p>This is not tags for the AWS tagging feature. .</p>
-         *         </note>
+         * <p>The dataset column tag, currently only used for geospatial type tagging.</p>
+         *          <note>
+         *             <p>This is not tags for the Amazon Web Services tagging feature.</p>
+         *          </note>
          */
         tags: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetColumnTagArgs>[]>;
     }
@@ -38790,6 +39204,21 @@ export namespace quicksight {
         projectOperation?: pulumi.Input<inputs.quicksight.DataSetProjectOperationArgs>;
         renameColumnOperation?: pulumi.Input<inputs.quicksight.DataSetRenameColumnOperationArgs>;
         tagColumnOperation?: pulumi.Input<inputs.quicksight.DataSetTagColumnOperationArgs>;
+        untagColumnOperation?: pulumi.Input<inputs.quicksight.DataSetUntagColumnOperationArgs>;
+    }
+
+    /**
+     * <p>A transform operation that removes tags associated with a column.</p>
+     */
+    export interface DataSetUntagColumnOperationArgs {
+        /**
+         * <p>The column that this operation acts on.</p>
+         */
+        columnName: pulumi.Input<string>;
+        /**
+         * <p>The column tags to remove from this column.</p>
+         */
+        tagNames: pulumi.Input<pulumi.Input<enums.quicksight.DataSetColumnTagName>[]>;
     }
 
     /**
@@ -38813,35 +39242,41 @@ export namespace quicksight {
     }
 
     /**
-     * <p>The dataset usage configuration for the dataset.</p>
+     * <p>The usage configuration to apply to child datasets that reference this dataset as a source.</p>
      */
     export interface DataSetUsageConfigurationArgs {
+        /**
+         * <p>An option that controls whether a child dataset of a direct query can use this dataset as a source.</p>
+         */
         disableUseAsDirectQuerySource?: pulumi.Input<boolean>;
+        /**
+         * <p>An option that controls whether a child dataset that's stored in QuickSight can use this dataset as a source.</p>
+         */
         disableUseAsImportedSource?: pulumi.Input<boolean>;
     }
 
     /**
-     * <p>Amazon Elasticsearch Service parameters.</p>
+     * <p>The parameters for OpenSearch.</p>
      */
     export interface DataSourceAmazonElasticsearchParametersArgs {
         /**
-         * <p>The Amazon Elasticsearch Service domain.</p>
+         * <p>The OpenSearch domain.</p>
          */
         domain: pulumi.Input<string>;
     }
 
     /**
-     * <p>Amazon OpenSearch Service parameters.</p>
+     * <p>The parameters for OpenSearch.</p>
      */
     export interface DataSourceAmazonOpenSearchParametersArgs {
         /**
-         * <p>The Amazon OpenSearch Service domain.</p>
+         * <p>The OpenSearch domain.</p>
          */
         domain: pulumi.Input<string>;
     }
 
     /**
-     * <p>Amazon Athena parameters.</p>
+     * <p>Parameters for Amazon Athena.</p>
      */
     export interface DataSourceAthenaParametersArgs {
         /**
@@ -38855,7 +39290,7 @@ export namespace quicksight {
     }
 
     /**
-     * <p>Amazon Aurora parameters.</p>
+     * <p>Parameters for Amazon Aurora.</p>
      */
     export interface DataSourceAuroraParametersArgs {
         /**
@@ -38873,19 +39308,19 @@ export namespace quicksight {
     }
 
     /**
-     * <p>Amazon Aurora with PostgreSQL compatibility parameters.</p>
+     * <p>Parameters for Amazon Aurora PostgreSQL-Compatible Edition.</p>
      */
     export interface DataSourceAuroraPostgreSqlParametersArgs {
         /**
-         * <p>Database.</p>
+         * <p>The Amazon Aurora PostgreSQL database to connect to.</p>
          */
         database: pulumi.Input<string>;
         /**
-         * <p>Host.</p>
+         * <p>The Amazon Aurora PostgreSQL-Compatible host to connect to.</p>
          */
         host: pulumi.Input<string>;
         /**
-         * <p>Port.</p>
+         * <p>The port that Amazon Aurora PostgreSQL is listening on.</p>
          */
         port: pulumi.Input<number>;
     }
@@ -38936,19 +39371,19 @@ export namespace quicksight {
     }
 
     /**
-     * <p>Databricks parameters.</p>
+     * <p>The parameters that are required to connect to a Databricks data source.</p>
      */
     export interface DataSourceDatabricksParametersArgs {
         /**
-         * <p>Host.</p>
+         * <p>The host name of the Databricks data source.</p>
          */
         host: pulumi.Input<string>;
         /**
-         * <p>Port.</p>
+         * <p>The port for the Databricks data source.</p>
          */
         port: pulumi.Input<number>;
         /**
-         * <p>The HTTP Path of the Databricks data source.</p>
+         * <p>The HTTP path of the Databricks data source.</p>
          */
         sqlEndpointPath: pulumi.Input<string>;
     }
@@ -38962,6 +39397,16 @@ export namespace quicksight {
          */
         message?: pulumi.Input<string>;
         type?: pulumi.Input<enums.quicksight.DataSourceErrorInfoType>;
+    }
+
+    /**
+     * <p>The parameters for an IAM Identity Center configuration.</p>
+     */
+    export interface DataSourceIdentityCenterConfigurationArgs {
+        /**
+         * <p>A Boolean option that controls whether Trusted Identity Propagation should be used.</p>
+         */
+        enableIdentityPropagation?: pulumi.Input<boolean>;
     }
 
     /**
@@ -38979,7 +39424,7 @@ export namespace quicksight {
     }
 
     /**
-     * <p>MariaDB parameters.</p>
+     * <p>The parameters for MariaDB.</p>
      */
     export interface DataSourceMariaDbParametersArgs {
         /**
@@ -38997,7 +39442,7 @@ export namespace quicksight {
     }
 
     /**
-     * <p>MySQL parameters.</p>
+     * <p>The parameters for MySQL.</p>
      */
     export interface DataSourceMySqlParametersArgs {
         /**
@@ -39014,9 +39459,21 @@ export namespace quicksight {
         port: pulumi.Input<number>;
     }
 
+    /**
+     * <p>The parameters for Oracle.</p>
+     */
     export interface DataSourceOracleParametersArgs {
+        /**
+         * <p>The database.</p>
+         */
         database: pulumi.Input<string>;
+        /**
+         * <p>An Oracle host.</p>
+         */
         host: pulumi.Input<string>;
+        /**
+         * <p>The port.</p>
+         */
         port: pulumi.Input<number>;
     }
 
@@ -39049,7 +39506,7 @@ export namespace quicksight {
     }
 
     /**
-     * <p>PostgreSQL parameters.</p>
+     * <p>The parameters for PostgreSQL.</p>
      */
     export interface DataSourcePostgreSqlParametersArgs {
         /**
@@ -39067,7 +39524,7 @@ export namespace quicksight {
     }
 
     /**
-     * <p>Presto parameters.</p>
+     * <p>The parameters for Presto.</p>
      */
     export interface DataSourcePrestoParametersArgs {
         /**
@@ -39085,7 +39542,7 @@ export namespace quicksight {
     }
 
     /**
-     * <p>Amazon RDS parameters.</p>
+     * <p>The parameters for Amazon RDS.</p>
      */
     export interface DataSourceRdsParametersArgs {
         /**
@@ -39099,9 +39556,8 @@ export namespace quicksight {
     }
 
     /**
-     * <p>Amazon Redshift parameters. The <code>ClusterId</code> field can be blank if
-     *             <code>Host</code> and <code>Port</code> are both set. The <code>Host</code> and
-     *             <code>Port</code> fields can be blank if the <code>ClusterId</code> field is set.</p>
+     * <p>The parameters for Amazon Redshift. The <code>ClusterId</code> field can be blank if
+     *             <code>Host</code> and <code>Port</code> are both set. The <code>Host</code> and <code>Port</code> fields can be blank if the <code>ClusterId</code> field is set.</p>
      */
     export interface DataSourceRedshiftParametersArgs {
         /**
@@ -39117,6 +39573,7 @@ export namespace quicksight {
          * <p>Host. This field can be blank if <code>ClusterId</code> is provided.</p>
          */
         host?: pulumi.Input<string>;
+        identityCenterConfiguration?: pulumi.Input<inputs.quicksight.DataSourceIdentityCenterConfigurationArgs>;
         /**
          * <p>Port. This field can be blank if the <code>ClusterId</code> is provided.</p>
          */
@@ -39134,25 +39591,26 @@ export namespace quicksight {
         /**
          * <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
          *             following:</p>
-         *         <ul>
+         *          <ul>
          *             <li>
-         *                 <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+         *                <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
          *             </li>
          *             <li>
-         *                 <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+         *                <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
          *             </li>
          *             <li>
-         *                 <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
-         *                     ARN. Use this option only to share resources (templates) across AWS accounts.
+         *                <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
+         *                     ARN. Use this option only to share resources (templates) across Amazon Web Services accounts.
          *                     (This is less common.) </p>
          *             </li>
          *          </ul>
          */
         principal: pulumi.Input<string>;
+        resource?: pulumi.Input<string>;
     }
 
     /**
-     * <p>S3 parameters.</p>
+     * <p>The parameters for S3.</p>
      */
     export interface DataSourceS3ParametersArgs {
         manifestFileLocation: pulumi.Input<inputs.quicksight.DataSourceManifestFileLocationArgs>;
@@ -39163,7 +39621,7 @@ export namespace quicksight {
     }
 
     /**
-     * <p>Snowflake parameters.</p>
+     * <p>The parameters for Snowflake.</p>
      */
     export interface DataSourceSnowflakeParametersArgs {
         /**
@@ -39181,7 +39639,7 @@ export namespace quicksight {
     }
 
     /**
-     * <p>Spark parameters.</p>
+     * <p>The parameters for Spark.</p>
      */
     export interface DataSourceSparkParametersArgs {
         /**
@@ -39195,7 +39653,7 @@ export namespace quicksight {
     }
 
     /**
-     * <p>SQL Server parameters.</p>
+     * <p>The parameters for SQL Server.</p>
      */
     export interface DataSourceSqlServerParametersArgs {
         /**
@@ -39213,7 +39671,7 @@ export namespace quicksight {
     }
 
     /**
-     * <p>Secure Socket Layer (SSL) properties that apply when QuickSight connects to your
+     * <p>Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your
      *             underlying data source.</p>
      */
     export interface DataSourceSslPropertiesArgs {
@@ -39224,26 +39682,26 @@ export namespace quicksight {
     }
 
     /**
-     * <p>Starburst parameters.</p>
+     * <p>The parameters that are required to connect to a Starburst data source.</p>
      */
     export interface DataSourceStarburstParametersArgs {
         /**
-         * <p>Catalog.</p>
+         * <p>The catalog name for the Starburst data source.</p>
          */
         catalog: pulumi.Input<string>;
         /**
-         * <p>Host.</p>
+         * <p>The host name of the Starburst data source.</p>
          */
         host: pulumi.Input<string>;
         /**
-         * <p>Port.</p>
+         * <p>The port for the Starburst data source.</p>
          */
         port: pulumi.Input<number>;
         productType?: pulumi.Input<enums.quicksight.DataSourceStarburstProductType>;
     }
 
     /**
-     * <p>Teradata parameters.</p>
+     * <p>The parameters for Teradata.</p>
      */
     export interface DataSourceTeradataParametersArgs {
         /**
@@ -39261,19 +39719,19 @@ export namespace quicksight {
     }
 
     /**
-     * <p>Trino parameters.</p>
+     * <p>The parameters that are required to connect to a Trino data source.</p>
      */
     export interface DataSourceTrinoParametersArgs {
         /**
-         * <p>Catalog.</p>
+         * <p>The catalog name for the Trino data source.</p>
          */
         catalog: pulumi.Input<string>;
         /**
-         * <p>Host.</p>
+         * <p>The host name of the Trino data source.</p>
          */
         host: pulumi.Input<string>;
         /**
-         * <p>Port.</p>
+         * <p>The port for the Trino data source.</p>
          */
         port: pulumi.Input<number>;
     }
@@ -43881,6 +44339,10 @@ export namespace route53resolver {
          * ResourceId
          */
         firewallDomainListId: pulumi.Input<string>;
+        /**
+         * FirewallDomainRedirectionAction
+         */
+        firewallDomainRedirectionAction?: pulumi.Input<enums.route53resolver.FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction>;
         /**
          * Rule Priority
          */
@@ -50711,6 +51173,34 @@ export namespace ssmincidents {
 }
 
 export namespace sso {
+    /**
+     * A structure that describes the options for the access portal associated with an application
+     */
+    export interface ApplicationPortalOptionsConfigurationArgs {
+        /**
+         * A structure that describes the sign-in options for the access portal
+         */
+        signInOptions?: pulumi.Input<inputs.sso.ApplicationSignInOptionsArgs>;
+        /**
+         * Indicates whether this application is visible in the access portal
+         */
+        visibility?: pulumi.Input<enums.sso.ApplicationPortalOptionsConfigurationVisibility>;
+    }
+
+    /**
+     * A structure that describes the sign-in options for an application portal
+     */
+    export interface ApplicationSignInOptionsArgs {
+        /**
+         * The URL that accepts authentication requests for an application, this is a required parameter if the Origin parameter is APPLICATION
+         */
+        applicationUrl?: pulumi.Input<string>;
+        /**
+         * This determines how IAM Identity Center navigates the user to the target application
+         */
+        origin: pulumi.Input<enums.sso.ApplicationSignInOptionsOrigin>;
+    }
+
     export interface InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs {
         key: pulumi.Input<string>;
         value: pulumi.Input<inputs.sso.InstanceAccessControlAttributeConfigurationAccessControlAttributeValueArgs>;

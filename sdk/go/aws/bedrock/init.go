@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DataSource{}
 	case "aws-native:bedrock:Guardrail":
 		r = &Guardrail{}
+	case "aws-native:bedrock:GuardrailVersion":
+		r = &GuardrailVersion{}
 	case "aws-native:bedrock:KnowledgeBase":
 		r = &KnowledgeBase{}
 	default:

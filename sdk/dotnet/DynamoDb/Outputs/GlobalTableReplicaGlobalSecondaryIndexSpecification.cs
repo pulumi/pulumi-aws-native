@@ -15,6 +15,7 @@ namespace Pulumi.AwsNative.DynamoDb.Outputs
     {
         public readonly Outputs.GlobalTableContributorInsightsSpecification? ContributorInsightsSpecification;
         public readonly string IndexName;
+        public readonly Outputs.GlobalTableReadOnDemandThroughputSettings? ReadOnDemandThroughputSettings;
         public readonly Outputs.GlobalTableReadProvisionedThroughputSettings? ReadProvisionedThroughputSettings;
 
         [OutputConstructor]
@@ -23,10 +24,13 @@ namespace Pulumi.AwsNative.DynamoDb.Outputs
 
             string indexName,
 
+            Outputs.GlobalTableReadOnDemandThroughputSettings? readOnDemandThroughputSettings,
+
             Outputs.GlobalTableReadProvisionedThroughputSettings? readProvisionedThroughputSettings)
         {
             ContributorInsightsSpecification = contributorInsightsSpecification;
             IndexName = indexName;
+            ReadOnDemandThroughputSettings = readOnDemandThroughputSettings;
             ReadProvisionedThroughputSettings = readProvisionedThroughputSettings;
         }
     }

@@ -16,21 +16,26 @@ import (
 type VpcConnection struct {
 	pulumi.CustomResourceState
 
+	// <p>The Amazon Resource Name (ARN) of the VPC connection.</p>
 	Arn                pulumi.StringOutput                                   `pulumi:"arn"`
 	AvailabilityStatus VpcConnectionVpcConnectionAvailabilityStatusPtrOutput `pulumi:"availabilityStatus"`
 	AwsAccountId       pulumi.StringPtrOutput                                `pulumi:"awsAccountId"`
-	CreatedTime        pulumi.StringOutput                                   `pulumi:"createdTime"`
-	DnsResolvers       pulumi.StringArrayOutput                              `pulumi:"dnsResolvers"`
-	LastUpdatedTime    pulumi.StringOutput                                   `pulumi:"lastUpdatedTime"`
-	Name               pulumi.StringPtrOutput                                `pulumi:"name"`
-	NetworkInterfaces  VpcConnectionNetworkInterfaceArrayOutput              `pulumi:"networkInterfaces"`
-	RoleArn            pulumi.StringPtrOutput                                `pulumi:"roleArn"`
-	SecurityGroupIds   pulumi.StringArrayOutput                              `pulumi:"securityGroupIds"`
-	Status             VpcConnectionVpcConnectionResourceStatusOutput        `pulumi:"status"`
-	SubnetIds          pulumi.StringArrayOutput                              `pulumi:"subnetIds"`
-	Tags               aws.TagArrayOutput                                    `pulumi:"tags"`
-	VpcConnectionId    pulumi.StringPtrOutput                                `pulumi:"vpcConnectionId"`
-	VpcId              pulumi.StringOutput                                   `pulumi:"vpcId"`
+	// <p>The time that the VPC connection was created.</p>
+	CreatedTime  pulumi.StringOutput      `pulumi:"createdTime"`
+	DnsResolvers pulumi.StringArrayOutput `pulumi:"dnsResolvers"`
+	// <p>The time that the VPC connection was last updated.</p>
+	LastUpdatedTime pulumi.StringOutput    `pulumi:"lastUpdatedTime"`
+	Name            pulumi.StringPtrOutput `pulumi:"name"`
+	// <p>A list of network interfaces.</p>
+	NetworkInterfaces VpcConnectionNetworkInterfaceArrayOutput       `pulumi:"networkInterfaces"`
+	RoleArn           pulumi.StringPtrOutput                         `pulumi:"roleArn"`
+	SecurityGroupIds  pulumi.StringArrayOutput                       `pulumi:"securityGroupIds"`
+	Status            VpcConnectionVpcConnectionResourceStatusOutput `pulumi:"status"`
+	SubnetIds         pulumi.StringArrayOutput                       `pulumi:"subnetIds"`
+	Tags              aws.TagArrayOutput                             `pulumi:"tags"`
+	VpcConnectionId   pulumi.StringPtrOutput                         `pulumi:"vpcConnectionId"`
+	// <p>The Amazon EC2 VPC ID associated with the VPC connection.</p>
+	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
 // NewVpcConnection registers a new resource with the given unique name, arguments, and options.
@@ -139,6 +144,7 @@ func (o VpcConnectionOutput) ToVpcConnectionOutputWithContext(ctx context.Contex
 	return o
 }
 
+// <p>The Amazon Resource Name (ARN) of the VPC connection.</p>
 func (o VpcConnectionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcConnection) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -153,6 +159,7 @@ func (o VpcConnectionOutput) AwsAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcConnection) pulumi.StringPtrOutput { return v.AwsAccountId }).(pulumi.StringPtrOutput)
 }
 
+// <p>The time that the VPC connection was created.</p>
 func (o VpcConnectionOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcConnection) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
 }
@@ -161,6 +168,7 @@ func (o VpcConnectionOutput) DnsResolvers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpcConnection) pulumi.StringArrayOutput { return v.DnsResolvers }).(pulumi.StringArrayOutput)
 }
 
+// <p>The time that the VPC connection was last updated.</p>
 func (o VpcConnectionOutput) LastUpdatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcConnection) pulumi.StringOutput { return v.LastUpdatedTime }).(pulumi.StringOutput)
 }
@@ -169,6 +177,7 @@ func (o VpcConnectionOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcConnection) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// <p>A list of network interfaces.</p>
 func (o VpcConnectionOutput) NetworkInterfaces() VpcConnectionNetworkInterfaceArrayOutput {
 	return o.ApplyT(func(v *VpcConnection) VpcConnectionNetworkInterfaceArrayOutput { return v.NetworkInterfaces }).(VpcConnectionNetworkInterfaceArrayOutput)
 }
@@ -197,6 +206,7 @@ func (o VpcConnectionOutput) VpcConnectionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcConnection) pulumi.StringPtrOutput { return v.VpcConnectionId }).(pulumi.StringPtrOutput)
 }
 
+// <p>The Amazon EC2 VPC ID associated with the VPC connection.</p>
 func (o VpcConnectionOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcConnection) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }

@@ -201,6 +201,37 @@ namespace Pulumi.AwsNative.Route53Resolver
     }
 
     /// <summary>
+    /// FirewallDomainRedirectionAction
+    /// </summary>
+    [EnumType]
+    public readonly struct FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction : IEquatable<FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction>
+    {
+        private readonly string _value;
+
+        private FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction InspectRedirectionDomain { get; } = new FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction("INSPECT_REDIRECTION_DOMAIN");
+        public static FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction TrustRedirectionDomain { get; } = new FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction("TRUST_REDIRECTION_DOMAIN");
+
+        public static bool operator ==(FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction left, FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction right) => left.Equals(right);
+        public static bool operator !=(FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction left, FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction right) => !left.Equals(right);
+
+        public static explicit operator string(FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction other && Equals(other);
+        public bool Equals(FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// ShareStatus, possible values are NOT_SHARED, SHARED_WITH_ME, SHARED_BY_ME.
     /// </summary>
     [EnumType]

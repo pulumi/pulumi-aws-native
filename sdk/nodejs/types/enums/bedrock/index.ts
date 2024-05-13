@@ -44,6 +44,15 @@ export const AgentCreationMode = {
  */
 export type AgentCreationMode = (typeof AgentCreationMode)[keyof typeof AgentCreationMode];
 
+export const AgentCustomControlMethod = {
+    ReturnControl: "RETURN_CONTROL",
+} as const;
+
+/**
+ * Custom control of action execution
+ */
+export type AgentCustomControlMethod = (typeof AgentCustomControlMethod)[keyof typeof AgentCustomControlMethod];
+
 export const AgentKnowledgeBaseState = {
     Enabled: "ENABLED",
     Disabled: "DISABLED",
@@ -91,6 +100,19 @@ export const AgentStatus = {
  * Schema Type for Action APIs.
  */
 export type AgentStatus = (typeof AgentStatus)[keyof typeof AgentStatus];
+
+export const AgentType = {
+    String: "string",
+    Number: "number",
+    Integer: "integer",
+    Boolean: "boolean",
+    Array: "array",
+} as const;
+
+/**
+ * Parameter Type
+ */
+export type AgentType = (typeof AgentType)[keyof typeof AgentType];
 
 export const DataSourceChunkingStrategy = {
     FixedSize: "FIXED_SIZE",

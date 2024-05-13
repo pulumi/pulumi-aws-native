@@ -20,6 +20,7 @@ __all__ = [
     'GlobalTableLocalSecondaryIndexArgs',
     'GlobalTablePointInTimeRecoverySpecificationArgs',
     'GlobalTableProjectionArgs',
+    'GlobalTableReadOnDemandThroughputSettingsArgs',
     'GlobalTableReadProvisionedThroughputSettingsArgs',
     'GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs',
     'GlobalTableReplicaSpecificationArgs',
@@ -31,6 +32,7 @@ __all__ = [
     'GlobalTableTagArgs',
     'GlobalTableTargetTrackingScalingPolicyConfigurationArgs',
     'GlobalTableTimeToLiveSpecificationArgs',
+    'GlobalTableWriteOnDemandThroughputSettingsArgs',
     'GlobalTableWriteProvisionedThroughputSettingsArgs',
     'TableAttributeDefinitionArgs',
     'TableContributorInsightsSpecificationArgs',
@@ -41,6 +43,7 @@ __all__ = [
     'TableKeySchemaArgs',
     'TableKinesisStreamSpecificationArgs',
     'TableLocalSecondaryIndexArgs',
+    'TableOnDemandThroughputArgs',
     'TablePointInTimeRecoverySpecificationArgs',
     'TableProjectionArgs',
     'TableProvisionedThroughputArgs',
@@ -150,10 +153,13 @@ class GlobalTableGlobalSecondaryIndexArgs:
                  index_name: pulumi.Input[str],
                  key_schema: pulumi.Input[Sequence[pulumi.Input['GlobalTableKeySchemaArgs']]],
                  projection: pulumi.Input['GlobalTableProjectionArgs'],
+                 write_on_demand_throughput_settings: Optional[pulumi.Input['GlobalTableWriteOnDemandThroughputSettingsArgs']] = None,
                  write_provisioned_throughput_settings: Optional[pulumi.Input['GlobalTableWriteProvisionedThroughputSettingsArgs']] = None):
         pulumi.set(__self__, "index_name", index_name)
         pulumi.set(__self__, "key_schema", key_schema)
         pulumi.set(__self__, "projection", projection)
+        if write_on_demand_throughput_settings is not None:
+            pulumi.set(__self__, "write_on_demand_throughput_settings", write_on_demand_throughput_settings)
         if write_provisioned_throughput_settings is not None:
             pulumi.set(__self__, "write_provisioned_throughput_settings", write_provisioned_throughput_settings)
 
@@ -183,6 +189,15 @@ class GlobalTableGlobalSecondaryIndexArgs:
     @projection.setter
     def projection(self, value: pulumi.Input['GlobalTableProjectionArgs']):
         pulumi.set(self, "projection", value)
+
+    @property
+    @pulumi.getter(name="writeOnDemandThroughputSettings")
+    def write_on_demand_throughput_settings(self) -> Optional[pulumi.Input['GlobalTableWriteOnDemandThroughputSettingsArgs']]:
+        return pulumi.get(self, "write_on_demand_throughput_settings")
+
+    @write_on_demand_throughput_settings.setter
+    def write_on_demand_throughput_settings(self, value: Optional[pulumi.Input['GlobalTableWriteOnDemandThroughputSettingsArgs']]):
+        pulumi.set(self, "write_on_demand_throughput_settings", value)
 
     @property
     @pulumi.getter(name="writeProvisionedThroughputSettings")
@@ -334,6 +349,23 @@ class GlobalTableProjectionArgs:
 
 
 @pulumi.input_type
+class GlobalTableReadOnDemandThroughputSettingsArgs:
+    def __init__(__self__, *,
+                 max_read_request_units: Optional[pulumi.Input[int]] = None):
+        if max_read_request_units is not None:
+            pulumi.set(__self__, "max_read_request_units", max_read_request_units)
+
+    @property
+    @pulumi.getter(name="maxReadRequestUnits")
+    def max_read_request_units(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "max_read_request_units")
+
+    @max_read_request_units.setter
+    def max_read_request_units(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_read_request_units", value)
+
+
+@pulumi.input_type
 class GlobalTableReadProvisionedThroughputSettingsArgs:
     def __init__(__self__, *,
                  read_capacity_auto_scaling_settings: Optional[pulumi.Input['GlobalTableCapacityAutoScalingSettingsArgs']] = None,
@@ -367,10 +399,13 @@ class GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs:
     def __init__(__self__, *,
                  index_name: pulumi.Input[str],
                  contributor_insights_specification: Optional[pulumi.Input['GlobalTableContributorInsightsSpecificationArgs']] = None,
+                 read_on_demand_throughput_settings: Optional[pulumi.Input['GlobalTableReadOnDemandThroughputSettingsArgs']] = None,
                  read_provisioned_throughput_settings: Optional[pulumi.Input['GlobalTableReadProvisionedThroughputSettingsArgs']] = None):
         pulumi.set(__self__, "index_name", index_name)
         if contributor_insights_specification is not None:
             pulumi.set(__self__, "contributor_insights_specification", contributor_insights_specification)
+        if read_on_demand_throughput_settings is not None:
+            pulumi.set(__self__, "read_on_demand_throughput_settings", read_on_demand_throughput_settings)
         if read_provisioned_throughput_settings is not None:
             pulumi.set(__self__, "read_provisioned_throughput_settings", read_provisioned_throughput_settings)
 
@@ -393,6 +428,15 @@ class GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs:
         pulumi.set(self, "contributor_insights_specification", value)
 
     @property
+    @pulumi.getter(name="readOnDemandThroughputSettings")
+    def read_on_demand_throughput_settings(self) -> Optional[pulumi.Input['GlobalTableReadOnDemandThroughputSettingsArgs']]:
+        return pulumi.get(self, "read_on_demand_throughput_settings")
+
+    @read_on_demand_throughput_settings.setter
+    def read_on_demand_throughput_settings(self, value: Optional[pulumi.Input['GlobalTableReadOnDemandThroughputSettingsArgs']]):
+        pulumi.set(self, "read_on_demand_throughput_settings", value)
+
+    @property
     @pulumi.getter(name="readProvisionedThroughputSettings")
     def read_provisioned_throughput_settings(self) -> Optional[pulumi.Input['GlobalTableReadProvisionedThroughputSettingsArgs']]:
         return pulumi.get(self, "read_provisioned_throughput_settings")
@@ -411,6 +455,7 @@ class GlobalTableReplicaSpecificationArgs:
                  global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs']]]] = None,
                  kinesis_stream_specification: Optional[pulumi.Input['GlobalTableKinesisStreamSpecificationArgs']] = None,
                  point_in_time_recovery_specification: Optional[pulumi.Input['GlobalTablePointInTimeRecoverySpecificationArgs']] = None,
+                 read_on_demand_throughput_settings: Optional[pulumi.Input['GlobalTableReadOnDemandThroughputSettingsArgs']] = None,
                  read_provisioned_throughput_settings: Optional[pulumi.Input['GlobalTableReadProvisionedThroughputSettingsArgs']] = None,
                  replica_stream_specification: Optional[pulumi.Input['GlobalTableReplicaStreamSpecificationArgs']] = None,
                  resource_policy: Optional[pulumi.Input['GlobalTableResourcePolicyArgs']] = None,
@@ -428,6 +473,8 @@ class GlobalTableReplicaSpecificationArgs:
             pulumi.set(__self__, "kinesis_stream_specification", kinesis_stream_specification)
         if point_in_time_recovery_specification is not None:
             pulumi.set(__self__, "point_in_time_recovery_specification", point_in_time_recovery_specification)
+        if read_on_demand_throughput_settings is not None:
+            pulumi.set(__self__, "read_on_demand_throughput_settings", read_on_demand_throughput_settings)
         if read_provisioned_throughput_settings is not None:
             pulumi.set(__self__, "read_provisioned_throughput_settings", read_provisioned_throughput_settings)
         if replica_stream_specification is not None:
@@ -494,6 +541,15 @@ class GlobalTableReplicaSpecificationArgs:
     @point_in_time_recovery_specification.setter
     def point_in_time_recovery_specification(self, value: Optional[pulumi.Input['GlobalTablePointInTimeRecoverySpecificationArgs']]):
         pulumi.set(self, "point_in_time_recovery_specification", value)
+
+    @property
+    @pulumi.getter(name="readOnDemandThroughputSettings")
+    def read_on_demand_throughput_settings(self) -> Optional[pulumi.Input['GlobalTableReadOnDemandThroughputSettingsArgs']]:
+        return pulumi.get(self, "read_on_demand_throughput_settings")
+
+    @read_on_demand_throughput_settings.setter
+    def read_on_demand_throughput_settings(self, value: Optional[pulumi.Input['GlobalTableReadOnDemandThroughputSettingsArgs']]):
+        pulumi.set(self, "read_on_demand_throughput_settings", value)
 
     @property
     @pulumi.getter(name="readProvisionedThroughputSettings")
@@ -750,6 +806,23 @@ class GlobalTableTimeToLiveSpecificationArgs:
 
 
 @pulumi.input_type
+class GlobalTableWriteOnDemandThroughputSettingsArgs:
+    def __init__(__self__, *,
+                 max_write_request_units: Optional[pulumi.Input[int]] = None):
+        if max_write_request_units is not None:
+            pulumi.set(__self__, "max_write_request_units", max_write_request_units)
+
+    @property
+    @pulumi.getter(name="maxWriteRequestUnits")
+    def max_write_request_units(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "max_write_request_units")
+
+    @max_write_request_units.setter
+    def max_write_request_units(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_write_request_units", value)
+
+
+@pulumi.input_type
 class GlobalTableWriteProvisionedThroughputSettingsArgs:
     def __init__(__self__, *,
                  write_capacity_auto_scaling_settings: Optional[pulumi.Input['GlobalTableCapacityAutoScalingSettingsArgs']] = None):
@@ -880,6 +953,7 @@ class TableGlobalSecondaryIndexArgs:
                  key_schema: pulumi.Input[Sequence[pulumi.Input['TableKeySchemaArgs']]],
                  projection: pulumi.Input['TableProjectionArgs'],
                  contributor_insights_specification: Optional[pulumi.Input['TableContributorInsightsSpecificationArgs']] = None,
+                 on_demand_throughput: Optional[pulumi.Input['TableOnDemandThroughputArgs']] = None,
                  provisioned_throughput: Optional[pulumi.Input['TableProvisionedThroughputArgs']] = None):
         """
         Represents the properties of a global secondary index.
@@ -892,6 +966,7 @@ class TableGlobalSecondaryIndexArgs:
                 The sort key of an item is also known as its *range attribute*. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
         :param pulumi.Input['TableProjectionArgs'] projection: Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
         :param pulumi.Input['TableContributorInsightsSpecificationArgs'] contributor_insights_specification: The settings used to enable or disable CloudWatch Contributor Insights for the specified global secondary index.
+        :param pulumi.Input['TableOnDemandThroughputArgs'] on_demand_throughput: The maximum number of read and write units for the specified global secondary index. If you use this parameter, you must specify ``MaxReadRequestUnits``, ``MaxWriteRequestUnits``, or both.
         :param pulumi.Input['TableProvisionedThroughputArgs'] provisioned_throughput: Represents the provisioned throughput settings for the specified global secondary index.
                 For current minimum and maximum provisioned throughput values, see [Service, Account, and Table Quotas](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the *Amazon DynamoDB Developer Guide*.
         """
@@ -900,6 +975,8 @@ class TableGlobalSecondaryIndexArgs:
         pulumi.set(__self__, "projection", projection)
         if contributor_insights_specification is not None:
             pulumi.set(__self__, "contributor_insights_specification", contributor_insights_specification)
+        if on_demand_throughput is not None:
+            pulumi.set(__self__, "on_demand_throughput", on_demand_throughput)
         if provisioned_throughput is not None:
             pulumi.set(__self__, "provisioned_throughput", provisioned_throughput)
 
@@ -955,6 +1032,18 @@ class TableGlobalSecondaryIndexArgs:
     @contributor_insights_specification.setter
     def contributor_insights_specification(self, value: Optional[pulumi.Input['TableContributorInsightsSpecificationArgs']]):
         pulumi.set(self, "contributor_insights_specification", value)
+
+    @property
+    @pulumi.getter(name="onDemandThroughput")
+    def on_demand_throughput(self) -> Optional[pulumi.Input['TableOnDemandThroughputArgs']]:
+        """
+        The maximum number of read and write units for the specified global secondary index. If you use this parameter, you must specify ``MaxReadRequestUnits``, ``MaxWriteRequestUnits``, or both.
+        """
+        return pulumi.get(self, "on_demand_throughput")
+
+    @on_demand_throughput.setter
+    def on_demand_throughput(self, value: Optional[pulumi.Input['TableOnDemandThroughputArgs']]):
+        pulumi.set(self, "on_demand_throughput", value)
 
     @property
     @pulumi.getter(name="provisionedThroughput")
@@ -1216,6 +1305,50 @@ class TableLocalSecondaryIndexArgs:
     @projection.setter
     def projection(self, value: pulumi.Input['TableProjectionArgs']):
         pulumi.set(self, "projection", value)
+
+
+@pulumi.input_type
+class TableOnDemandThroughputArgs:
+    def __init__(__self__, *,
+                 max_read_request_units: Optional[pulumi.Input[int]] = None,
+                 max_write_request_units: Optional[pulumi.Input[int]] = None):
+        """
+        Sets the maximum number of read and write units for the specified on-demand table. If you use this property, you must specify ``MaxReadRequestUnits``, ``MaxWriteRequestUnits``, or both.
+        :param pulumi.Input[int] max_read_request_units: Maximum number of read request units for the specified table.
+                To specify a maximum ``OnDemandThroughput`` on your table, set the value of ``MaxReadRequestUnits`` as greater than or equal to 1. To remove the maximum ``OnDemandThroughput`` that is currently set on your table, set the value of ``MaxReadRequestUnits`` to -1.
+        :param pulumi.Input[int] max_write_request_units: Maximum number of write request units for the specified table.
+                To specify a maximum ``OnDemandThroughput`` on your table, set the value of ``MaxWriteRequestUnits`` as greater than or equal to 1. To remove the maximum ``OnDemandThroughput`` that is currently set on your table, set the value of ``MaxWriteRequestUnits`` to -1.
+        """
+        if max_read_request_units is not None:
+            pulumi.set(__self__, "max_read_request_units", max_read_request_units)
+        if max_write_request_units is not None:
+            pulumi.set(__self__, "max_write_request_units", max_write_request_units)
+
+    @property
+    @pulumi.getter(name="maxReadRequestUnits")
+    def max_read_request_units(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum number of read request units for the specified table.
+         To specify a maximum ``OnDemandThroughput`` on your table, set the value of ``MaxReadRequestUnits`` as greater than or equal to 1. To remove the maximum ``OnDemandThroughput`` that is currently set on your table, set the value of ``MaxReadRequestUnits`` to -1.
+        """
+        return pulumi.get(self, "max_read_request_units")
+
+    @max_read_request_units.setter
+    def max_read_request_units(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_read_request_units", value)
+
+    @property
+    @pulumi.getter(name="maxWriteRequestUnits")
+    def max_write_request_units(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum number of write request units for the specified table.
+         To specify a maximum ``OnDemandThroughput`` on your table, set the value of ``MaxWriteRequestUnits`` as greater than or equal to 1. To remove the maximum ``OnDemandThroughput`` that is currently set on your table, set the value of ``MaxWriteRequestUnits`` to -1.
+        """
+        return pulumi.get(self, "max_write_request_units")
+
+    @max_write_request_units.setter
+    def max_write_request_units(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_write_request_units", value)
 
 
 @pulumi.input_type

@@ -11,12 +11,12 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
     /// <summary>
-    /// &lt;p&gt; Refresh Configuration.&lt;/p&gt;
+    /// &lt;p&gt;The refresh configuration of a dataset.&lt;/p&gt;
     /// </summary>
     public sealed class DataSetRefreshConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        [Input("incrementalRefresh")]
-        public Input<Inputs.DataSetIncrementalRefreshArgs>? IncrementalRefresh { get; set; }
+        [Input("incrementalRefresh", required: true)]
+        public Input<Inputs.DataSetIncrementalRefreshArgs> IncrementalRefresh { get; set; } = null!;
 
         public DataSetRefreshConfigurationArgs()
         {

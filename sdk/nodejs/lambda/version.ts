@@ -54,6 +54,12 @@ export class Version extends pulumi.CustomResource {
      */
     public readonly functionName!: pulumi.Output<string>;
     /**
+     * The resource policy of your function
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Lambda::Version` for more information about the expected schema for this property.
+     */
+    public readonly policy!: pulumi.Output<any | undefined>;
+    /**
      * Specifies a provisioned concurrency configuration for a function's version. Updates are not supported for this property.
      */
     public readonly provisionedConcurrencyConfig!: pulumi.Output<outputs.lambda.VersionProvisionedConcurrencyConfiguration | undefined>;
@@ -83,6 +89,7 @@ export class Version extends pulumi.CustomResource {
             resourceInputs["codeSha256"] = args ? args.codeSha256 : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["functionName"] = args ? args.functionName : undefined;
+            resourceInputs["policy"] = args ? args.policy : undefined;
             resourceInputs["provisionedConcurrencyConfig"] = args ? args.provisionedConcurrencyConfig : undefined;
             resourceInputs["runtimePolicy"] = args ? args.runtimePolicy : undefined;
             resourceInputs["functionArn"] = undefined /*out*/;
@@ -92,6 +99,7 @@ export class Version extends pulumi.CustomResource {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["functionArn"] = undefined /*out*/;
             resourceInputs["functionName"] = undefined /*out*/;
+            resourceInputs["policy"] = undefined /*out*/;
             resourceInputs["provisionedConcurrencyConfig"] = undefined /*out*/;
             resourceInputs["runtimePolicy"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
@@ -119,6 +127,12 @@ export interface VersionArgs {
      * The name of the Lambda function.
      */
     functionName: pulumi.Input<string>;
+    /**
+     * The resource policy of your function
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Lambda::Version` for more information about the expected schema for this property.
+     */
+    policy?: any;
     /**
      * Specifies a provisioned concurrency configuration for a function's version. Updates are not supported for this property.
      */

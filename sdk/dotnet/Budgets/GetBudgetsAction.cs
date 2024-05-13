@@ -63,6 +63,7 @@ namespace Pulumi.AwsNative.Budgets
         public readonly Outputs.BudgetsActionDefinition? Definition;
         public readonly string? ExecutionRoleArn;
         public readonly Pulumi.AwsNative.Budgets.BudgetsActionNotificationType? NotificationType;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> ResourceTags;
         public readonly ImmutableArray<Outputs.BudgetsActionSubscriber> Subscribers;
 
         [OutputConstructor]
@@ -79,6 +80,8 @@ namespace Pulumi.AwsNative.Budgets
 
             Pulumi.AwsNative.Budgets.BudgetsActionNotificationType? notificationType,
 
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> resourceTags,
+
             ImmutableArray<Outputs.BudgetsActionSubscriber> subscribers)
         {
             ActionId = actionId;
@@ -87,6 +90,7 @@ namespace Pulumi.AwsNative.Budgets
             Definition = definition;
             ExecutionRoleArn = executionRoleArn;
             NotificationType = notificationType;
+            ResourceTags = resourceTags;
             Subscribers = subscribers;
         }
     }

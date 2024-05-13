@@ -11,12 +11,93 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'ApplicationPortalOptionsConfigurationArgs',
+    'ApplicationSignInOptionsArgs',
     'InstanceAccessControlAttributeConfigurationAccessControlAttributeValueArgs',
     'InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs',
     'InstanceAccessControlAttributeConfigurationPropertiesArgs',
     'PermissionSetCustomerManagedPolicyReferenceArgs',
     'PermissionSetPermissionsBoundaryArgs',
 ]
+
+@pulumi.input_type
+class ApplicationPortalOptionsConfigurationArgs:
+    def __init__(__self__, *,
+                 sign_in_options: Optional[pulumi.Input['ApplicationSignInOptionsArgs']] = None,
+                 visibility: Optional[pulumi.Input['ApplicationPortalOptionsConfigurationVisibility']] = None):
+        """
+        A structure that describes the options for the access portal associated with an application
+        :param pulumi.Input['ApplicationSignInOptionsArgs'] sign_in_options: A structure that describes the sign-in options for the access portal
+        :param pulumi.Input['ApplicationPortalOptionsConfigurationVisibility'] visibility: Indicates whether this application is visible in the access portal
+        """
+        if sign_in_options is not None:
+            pulumi.set(__self__, "sign_in_options", sign_in_options)
+        if visibility is not None:
+            pulumi.set(__self__, "visibility", visibility)
+
+    @property
+    @pulumi.getter(name="signInOptions")
+    def sign_in_options(self) -> Optional[pulumi.Input['ApplicationSignInOptionsArgs']]:
+        """
+        A structure that describes the sign-in options for the access portal
+        """
+        return pulumi.get(self, "sign_in_options")
+
+    @sign_in_options.setter
+    def sign_in_options(self, value: Optional[pulumi.Input['ApplicationSignInOptionsArgs']]):
+        pulumi.set(self, "sign_in_options", value)
+
+    @property
+    @pulumi.getter
+    def visibility(self) -> Optional[pulumi.Input['ApplicationPortalOptionsConfigurationVisibility']]:
+        """
+        Indicates whether this application is visible in the access portal
+        """
+        return pulumi.get(self, "visibility")
+
+    @visibility.setter
+    def visibility(self, value: Optional[pulumi.Input['ApplicationPortalOptionsConfigurationVisibility']]):
+        pulumi.set(self, "visibility", value)
+
+
+@pulumi.input_type
+class ApplicationSignInOptionsArgs:
+    def __init__(__self__, *,
+                 origin: pulumi.Input['ApplicationSignInOptionsOrigin'],
+                 application_url: Optional[pulumi.Input[str]] = None):
+        """
+        A structure that describes the sign-in options for an application portal
+        :param pulumi.Input['ApplicationSignInOptionsOrigin'] origin: This determines how IAM Identity Center navigates the user to the target application
+        :param pulumi.Input[str] application_url: The URL that accepts authentication requests for an application, this is a required parameter if the Origin parameter is APPLICATION
+        """
+        pulumi.set(__self__, "origin", origin)
+        if application_url is not None:
+            pulumi.set(__self__, "application_url", application_url)
+
+    @property
+    @pulumi.getter
+    def origin(self) -> pulumi.Input['ApplicationSignInOptionsOrigin']:
+        """
+        This determines how IAM Identity Center navigates the user to the target application
+        """
+        return pulumi.get(self, "origin")
+
+    @origin.setter
+    def origin(self, value: pulumi.Input['ApplicationSignInOptionsOrigin']):
+        pulumi.set(self, "origin", value)
+
+    @property
+    @pulumi.getter(name="applicationUrl")
+    def application_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL that accepts authentication requests for an application, this is a required parameter if the Origin parameter is APPLICATION
+        """
+        return pulumi.get(self, "application_url")
+
+    @application_url.setter
+    def application_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "application_url", value)
+
 
 @pulumi.input_type
 class InstanceAccessControlAttributeConfigurationAccessControlAttributeValueArgs:

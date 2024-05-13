@@ -11,24 +11,24 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
     /// <summary>
-    /// &lt;p&gt;Trino parameters.&lt;/p&gt;
+    /// &lt;p&gt;The parameters that are required to connect to a Trino data source.&lt;/p&gt;
     /// </summary>
     public sealed class DataSourceTrinoParametersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// &lt;p&gt;Catalog.&lt;/p&gt;
+        /// &lt;p&gt;The catalog name for the Trino data source.&lt;/p&gt;
         /// </summary>
         [Input("catalog", required: true)]
         public Input<string> Catalog { get; set; } = null!;
 
         /// <summary>
-        /// &lt;p&gt;Host.&lt;/p&gt;
+        /// &lt;p&gt;The host name of the Trino data source.&lt;/p&gt;
         /// </summary>
         [Input("host", required: true)]
         public Input<string> Host { get; set; } = null!;
 
         /// <summary>
-        /// &lt;p&gt;Port.&lt;/p&gt;
+        /// &lt;p&gt;The port for the Trino data source.&lt;/p&gt;
         /// </summary>
         [Input("port", required: true)]
         public Input<double> Port { get; set; } = null!;

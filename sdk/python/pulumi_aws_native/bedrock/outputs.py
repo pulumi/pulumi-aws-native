@@ -13,13 +13,17 @@ from ._enums import *
 
 __all__ = [
     'AgentActionGroup',
-    'AgentActionGroupExecutor',
+    'AgentActionGroupExecutor0Properties',
+    'AgentActionGroupExecutor1Properties',
     'AgentAliasHistoryEvent',
     'AgentAliasRoutingConfigurationListItem',
     'AgentApiSchema0Properties',
     'AgentApiSchema1Properties',
+    'AgentFunction',
+    'AgentFunctionSchema',
     'AgentInferenceConfiguration',
     'AgentKnowledgeBase',
+    'AgentParameterDetail',
     'AgentPromptConfiguration',
     'AgentPromptOverrideConfiguration',
     'AgentS3Identifier',
@@ -66,6 +70,8 @@ class AgentActionGroup(dict):
             suggest = "action_group_state"
         elif key == "apiSchema":
             suggest = "api_schema"
+        elif key == "functionSchema":
+            suggest = "function_schema"
         elif key == "parentActionGroupSignature":
             suggest = "parent_action_group_signature"
         elif key == "skipResourceInUseCheckOnDelete":
@@ -84,10 +90,11 @@ class AgentActionGroup(dict):
 
     def __init__(__self__, *,
                  action_group_name: str,
-                 action_group_executor: Optional['outputs.AgentActionGroupExecutor'] = None,
+                 action_group_executor: Optional[Any] = None,
                  action_group_state: Optional['AgentActionGroupState'] = None,
                  api_schema: Optional[Any] = None,
                  description: Optional[str] = None,
+                 function_schema: Optional['outputs.AgentFunctionSchema'] = None,
                  parent_action_group_signature: Optional['AgentActionGroupSignature'] = None,
                  skip_resource_in_use_check_on_delete: Optional[bool] = None):
         """
@@ -105,6 +112,8 @@ class AgentActionGroup(dict):
             pulumi.set(__self__, "api_schema", api_schema)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if function_schema is not None:
+            pulumi.set(__self__, "function_schema", function_schema)
         if parent_action_group_signature is not None:
             pulumi.set(__self__, "parent_action_group_signature", parent_action_group_signature)
         if skip_resource_in_use_check_on_delete is not None:
@@ -120,7 +129,7 @@ class AgentActionGroup(dict):
 
     @property
     @pulumi.getter(name="actionGroupExecutor")
-    def action_group_executor(self) -> Optional['outputs.AgentActionGroupExecutor']:
+    def action_group_executor(self) -> Optional[Any]:
         return pulumi.get(self, "action_group_executor")
 
     @property
@@ -142,6 +151,11 @@ class AgentActionGroup(dict):
         return pulumi.get(self, "description")
 
     @property
+    @pulumi.getter(name="functionSchema")
+    def function_schema(self) -> Optional['outputs.AgentFunctionSchema']:
+        return pulumi.get(self, "function_schema")
+
+    @property
     @pulumi.getter(name="parentActionGroupSignature")
     def parent_action_group_signature(self) -> Optional['AgentActionGroupSignature']:
         return pulumi.get(self, "parent_action_group_signature")
@@ -156,7 +170,10 @@ class AgentActionGroup(dict):
 
 
 @pulumi.output_type
-class AgentActionGroupExecutor(dict):
+class AgentActionGroupExecutor0Properties(dict):
+    """
+    Type of Executors for an Action Group
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -164,19 +181,20 @@ class AgentActionGroupExecutor(dict):
             suggest = "lambda_"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AgentActionGroupExecutor. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in AgentActionGroupExecutor0Properties. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        AgentActionGroupExecutor.__key_warning(key)
+        AgentActionGroupExecutor0Properties.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        AgentActionGroupExecutor.__key_warning(key)
+        AgentActionGroupExecutor0Properties.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
                  lambda_: str):
         """
+        Type of Executors for an Action Group
         :param str lambda_: ARN of a Lambda.
         """
         pulumi.set(__self__, "lambda_", lambda_)
@@ -188,6 +206,41 @@ class AgentActionGroupExecutor(dict):
         ARN of a Lambda.
         """
         return pulumi.get(self, "lambda_")
+
+
+@pulumi.output_type
+class AgentActionGroupExecutor1Properties(dict):
+    """
+    Type of Executors for an Action Group
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customControl":
+            suggest = "custom_control"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentActionGroupExecutor1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentActionGroupExecutor1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentActionGroupExecutor1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_control: 'AgentCustomControlMethod'):
+        """
+        Type of Executors for an Action Group
+        """
+        pulumi.set(__self__, "custom_control", custom_control)
+
+    @property
+    @pulumi.getter(name="customControl")
+    def custom_control(self) -> 'AgentCustomControlMethod':
+        return pulumi.get(self, "custom_control")
 
 
 @pulumi.output_type
@@ -335,6 +388,70 @@ class AgentApiSchema1Properties(dict):
         String OpenAPI Payload
         """
         return pulumi.get(self, "payload")
+
+
+@pulumi.output_type
+class AgentFunction(dict):
+    """
+    Function definition
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 description: Optional[str] = None,
+                 parameters: Optional[Mapping[str, 'outputs.AgentParameterDetail']] = None):
+        """
+        Function definition
+        :param str name: Name for a resource.
+        :param str description: Description of function
+        """
+        pulumi.set(__self__, "name", name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name for a resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Description of function
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, 'outputs.AgentParameterDetail']]:
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
+class AgentFunctionSchema(dict):
+    """
+    Schema of Functions
+    """
+    def __init__(__self__, *,
+                 functions: Sequence['outputs.AgentFunction']):
+        """
+        Schema of Functions
+        :param Sequence['AgentFunction'] functions: List of Function definitions
+        """
+        pulumi.set(__self__, "functions", functions)
+
+    @property
+    @pulumi.getter
+    def functions(self) -> Sequence['outputs.AgentFunction']:
+        """
+        List of Function definitions
+        """
+        return pulumi.get(self, "functions")
 
 
 @pulumi.output_type
@@ -489,6 +606,48 @@ class AgentKnowledgeBase(dict):
     @pulumi.getter(name="knowledgeBaseState")
     def knowledge_base_state(self) -> Optional['AgentKnowledgeBaseState']:
         return pulumi.get(self, "knowledge_base_state")
+
+
+@pulumi.output_type
+class AgentParameterDetail(dict):
+    """
+    Parameter detail
+    """
+    def __init__(__self__, *,
+                 type: 'AgentType',
+                 description: Optional[str] = None,
+                 required: Optional[bool] = None):
+        """
+        Parameter detail
+        :param str description: Description of function parameter.
+        :param bool required: Information about if a parameter is required for function call. Default to false.
+        """
+        pulumi.set(__self__, "type", type)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if required is not None:
+            pulumi.set(__self__, "required", required)
+
+    @property
+    @pulumi.getter
+    def type(self) -> 'AgentType':
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Description of function parameter.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def required(self) -> Optional[bool]:
+        """
+        Information about if a parameter is required for function call. Default to false.
+        """
+        return pulumi.get(self, "required")
 
 
 @pulumi.output_type

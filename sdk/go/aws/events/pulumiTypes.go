@@ -971,6 +971,142 @@ func (o ConnectionParameterArrayOutput) Index(i pulumi.IntInput) ConnectionParam
 	}).(ConnectionParameterOutput)
 }
 
+// Dead Letter Queue for the event bus.
+type DeadLetterConfigProperties struct {
+	Arn *string `pulumi:"arn"`
+}
+
+// DeadLetterConfigPropertiesInput is an input type that accepts DeadLetterConfigPropertiesArgs and DeadLetterConfigPropertiesOutput values.
+// You can construct a concrete instance of `DeadLetterConfigPropertiesInput` via:
+//
+//	DeadLetterConfigPropertiesArgs{...}
+type DeadLetterConfigPropertiesInput interface {
+	pulumi.Input
+
+	ToDeadLetterConfigPropertiesOutput() DeadLetterConfigPropertiesOutput
+	ToDeadLetterConfigPropertiesOutputWithContext(context.Context) DeadLetterConfigPropertiesOutput
+}
+
+// Dead Letter Queue for the event bus.
+type DeadLetterConfigPropertiesArgs struct {
+	Arn pulumi.StringPtrInput `pulumi:"arn"`
+}
+
+func (DeadLetterConfigPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeadLetterConfigProperties)(nil)).Elem()
+}
+
+func (i DeadLetterConfigPropertiesArgs) ToDeadLetterConfigPropertiesOutput() DeadLetterConfigPropertiesOutput {
+	return i.ToDeadLetterConfigPropertiesOutputWithContext(context.Background())
+}
+
+func (i DeadLetterConfigPropertiesArgs) ToDeadLetterConfigPropertiesOutputWithContext(ctx context.Context) DeadLetterConfigPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeadLetterConfigPropertiesOutput)
+}
+
+func (i DeadLetterConfigPropertiesArgs) ToDeadLetterConfigPropertiesPtrOutput() DeadLetterConfigPropertiesPtrOutput {
+	return i.ToDeadLetterConfigPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i DeadLetterConfigPropertiesArgs) ToDeadLetterConfigPropertiesPtrOutputWithContext(ctx context.Context) DeadLetterConfigPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeadLetterConfigPropertiesOutput).ToDeadLetterConfigPropertiesPtrOutputWithContext(ctx)
+}
+
+// DeadLetterConfigPropertiesPtrInput is an input type that accepts DeadLetterConfigPropertiesArgs, DeadLetterConfigPropertiesPtr and DeadLetterConfigPropertiesPtrOutput values.
+// You can construct a concrete instance of `DeadLetterConfigPropertiesPtrInput` via:
+//
+//	        DeadLetterConfigPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeadLetterConfigPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToDeadLetterConfigPropertiesPtrOutput() DeadLetterConfigPropertiesPtrOutput
+	ToDeadLetterConfigPropertiesPtrOutputWithContext(context.Context) DeadLetterConfigPropertiesPtrOutput
+}
+
+type deadLetterConfigPropertiesPtrType DeadLetterConfigPropertiesArgs
+
+func DeadLetterConfigPropertiesPtr(v *DeadLetterConfigPropertiesArgs) DeadLetterConfigPropertiesPtrInput {
+	return (*deadLetterConfigPropertiesPtrType)(v)
+}
+
+func (*deadLetterConfigPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeadLetterConfigProperties)(nil)).Elem()
+}
+
+func (i *deadLetterConfigPropertiesPtrType) ToDeadLetterConfigPropertiesPtrOutput() DeadLetterConfigPropertiesPtrOutput {
+	return i.ToDeadLetterConfigPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *deadLetterConfigPropertiesPtrType) ToDeadLetterConfigPropertiesPtrOutputWithContext(ctx context.Context) DeadLetterConfigPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeadLetterConfigPropertiesPtrOutput)
+}
+
+// Dead Letter Queue for the event bus.
+type DeadLetterConfigPropertiesOutput struct{ *pulumi.OutputState }
+
+func (DeadLetterConfigPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeadLetterConfigProperties)(nil)).Elem()
+}
+
+func (o DeadLetterConfigPropertiesOutput) ToDeadLetterConfigPropertiesOutput() DeadLetterConfigPropertiesOutput {
+	return o
+}
+
+func (o DeadLetterConfigPropertiesOutput) ToDeadLetterConfigPropertiesOutputWithContext(ctx context.Context) DeadLetterConfigPropertiesOutput {
+	return o
+}
+
+func (o DeadLetterConfigPropertiesOutput) ToDeadLetterConfigPropertiesPtrOutput() DeadLetterConfigPropertiesPtrOutput {
+	return o.ToDeadLetterConfigPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o DeadLetterConfigPropertiesOutput) ToDeadLetterConfigPropertiesPtrOutputWithContext(ctx context.Context) DeadLetterConfigPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeadLetterConfigProperties) *DeadLetterConfigProperties {
+		return &v
+	}).(DeadLetterConfigPropertiesPtrOutput)
+}
+
+func (o DeadLetterConfigPropertiesOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeadLetterConfigProperties) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+type DeadLetterConfigPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (DeadLetterConfigPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeadLetterConfigProperties)(nil)).Elem()
+}
+
+func (o DeadLetterConfigPropertiesPtrOutput) ToDeadLetterConfigPropertiesPtrOutput() DeadLetterConfigPropertiesPtrOutput {
+	return o
+}
+
+func (o DeadLetterConfigPropertiesPtrOutput) ToDeadLetterConfigPropertiesPtrOutputWithContext(ctx context.Context) DeadLetterConfigPropertiesPtrOutput {
+	return o
+}
+
+func (o DeadLetterConfigPropertiesPtrOutput) Elem() DeadLetterConfigPropertiesOutput {
+	return o.ApplyT(func(v *DeadLetterConfigProperties) DeadLetterConfigProperties {
+		if v != nil {
+			return *v
+		}
+		var ret DeadLetterConfigProperties
+		return ret
+	}).(DeadLetterConfigPropertiesOutput)
+}
+
+func (o DeadLetterConfigPropertiesPtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeadLetterConfigProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
 type EndpointEventBus struct {
 	EventBusArn string `pulumi:"eventBusArn"`
 }
@@ -4906,6 +5042,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionOAuthParametersPtrInput)(nil)).Elem(), ConnectionOAuthParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionParameterInput)(nil)).Elem(), ConnectionParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionParameterArrayInput)(nil)).Elem(), ConnectionParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeadLetterConfigPropertiesInput)(nil)).Elem(), DeadLetterConfigPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeadLetterConfigPropertiesPtrInput)(nil)).Elem(), DeadLetterConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointEventBusInput)(nil)).Elem(), EndpointEventBusArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointEventBusArrayInput)(nil)).Elem(), EndpointEventBusArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointFailoverConfigInput)(nil)).Elem(), EndpointFailoverConfigArgs{})
@@ -4973,6 +5111,8 @@ func init() {
 	pulumi.RegisterOutputType(ConnectionOAuthParametersPtrOutput{})
 	pulumi.RegisterOutputType(ConnectionParameterOutput{})
 	pulumi.RegisterOutputType(ConnectionParameterArrayOutput{})
+	pulumi.RegisterOutputType(DeadLetterConfigPropertiesOutput{})
+	pulumi.RegisterOutputType(DeadLetterConfigPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(EndpointEventBusOutput{})
 	pulumi.RegisterOutputType(EndpointEventBusArrayOutput{})
 	pulumi.RegisterOutputType(EndpointFailoverConfigOutput{})

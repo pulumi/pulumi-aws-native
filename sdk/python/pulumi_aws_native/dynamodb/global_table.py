@@ -27,6 +27,7 @@ class GlobalTableArgs:
                  stream_specification: Optional[pulumi.Input['GlobalTableStreamSpecificationArgs']] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  time_to_live_specification: Optional[pulumi.Input['GlobalTableTimeToLiveSpecificationArgs']] = None,
+                 write_on_demand_throughput_settings: Optional[pulumi.Input['GlobalTableWriteOnDemandThroughputSettingsArgs']] = None,
                  write_provisioned_throughput_settings: Optional[pulumi.Input['GlobalTableWriteProvisionedThroughputSettingsArgs']] = None):
         """
         The set of arguments for constructing a GlobalTable resource.
@@ -48,6 +49,8 @@ class GlobalTableArgs:
             pulumi.set(__self__, "table_name", table_name)
         if time_to_live_specification is not None:
             pulumi.set(__self__, "time_to_live_specification", time_to_live_specification)
+        if write_on_demand_throughput_settings is not None:
+            pulumi.set(__self__, "write_on_demand_throughput_settings", write_on_demand_throughput_settings)
         if write_provisioned_throughput_settings is not None:
             pulumi.set(__self__, "write_provisioned_throughput_settings", write_provisioned_throughput_settings)
 
@@ -142,6 +145,15 @@ class GlobalTableArgs:
         pulumi.set(self, "time_to_live_specification", value)
 
     @property
+    @pulumi.getter(name="writeOnDemandThroughputSettings")
+    def write_on_demand_throughput_settings(self) -> Optional[pulumi.Input['GlobalTableWriteOnDemandThroughputSettingsArgs']]:
+        return pulumi.get(self, "write_on_demand_throughput_settings")
+
+    @write_on_demand_throughput_settings.setter
+    def write_on_demand_throughput_settings(self, value: Optional[pulumi.Input['GlobalTableWriteOnDemandThroughputSettingsArgs']]):
+        pulumi.set(self, "write_on_demand_throughput_settings", value)
+
+    @property
     @pulumi.getter(name="writeProvisionedThroughputSettings")
     def write_provisioned_throughput_settings(self) -> Optional[pulumi.Input['GlobalTableWriteProvisionedThroughputSettingsArgs']]:
         return pulumi.get(self, "write_provisioned_throughput_settings")
@@ -166,6 +178,7 @@ class GlobalTable(pulumi.CustomResource):
                  stream_specification: Optional[pulumi.Input[pulumi.InputType['GlobalTableStreamSpecificationArgs']]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  time_to_live_specification: Optional[pulumi.Input[pulumi.InputType['GlobalTableTimeToLiveSpecificationArgs']]] = None,
+                 write_on_demand_throughput_settings: Optional[pulumi.Input[pulumi.InputType['GlobalTableWriteOnDemandThroughputSettingsArgs']]] = None,
                  write_provisioned_throughput_settings: Optional[pulumi.Input[pulumi.InputType['GlobalTableWriteProvisionedThroughputSettingsArgs']]] = None,
                  __props__=None):
         """
@@ -208,6 +221,7 @@ class GlobalTable(pulumi.CustomResource):
                  stream_specification: Optional[pulumi.Input[pulumi.InputType['GlobalTableStreamSpecificationArgs']]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  time_to_live_specification: Optional[pulumi.Input[pulumi.InputType['GlobalTableTimeToLiveSpecificationArgs']]] = None,
+                 write_on_demand_throughput_settings: Optional[pulumi.Input[pulumi.InputType['GlobalTableWriteOnDemandThroughputSettingsArgs']]] = None,
                  write_provisioned_throughput_settings: Optional[pulumi.Input[pulumi.InputType['GlobalTableWriteProvisionedThroughputSettingsArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -234,6 +248,7 @@ class GlobalTable(pulumi.CustomResource):
             __props__.__dict__["stream_specification"] = stream_specification
             __props__.__dict__["table_name"] = table_name
             __props__.__dict__["time_to_live_specification"] = time_to_live_specification
+            __props__.__dict__["write_on_demand_throughput_settings"] = write_on_demand_throughput_settings
             __props__.__dict__["write_provisioned_throughput_settings"] = write_provisioned_throughput_settings
             __props__.__dict__["arn"] = None
             __props__.__dict__["stream_arn"] = None
@@ -275,6 +290,7 @@ class GlobalTable(pulumi.CustomResource):
         __props__.__dict__["table_id"] = None
         __props__.__dict__["table_name"] = None
         __props__.__dict__["time_to_live_specification"] = None
+        __props__.__dict__["write_on_demand_throughput_settings"] = None
         __props__.__dict__["write_provisioned_throughput_settings"] = None
         return GlobalTable(resource_name, opts=opts, __props__=__props__)
 
@@ -342,6 +358,11 @@ class GlobalTable(pulumi.CustomResource):
     @pulumi.getter(name="timeToLiveSpecification")
     def time_to_live_specification(self) -> pulumi.Output[Optional['outputs.GlobalTableTimeToLiveSpecification']]:
         return pulumi.get(self, "time_to_live_specification")
+
+    @property
+    @pulumi.getter(name="writeOnDemandThroughputSettings")
+    def write_on_demand_throughput_settings(self) -> pulumi.Output[Optional['outputs.GlobalTableWriteOnDemandThroughputSettings']]:
+        return pulumi.get(self, "write_on_demand_throughput_settings")
 
     @property
     @pulumi.getter(name="writeProvisionedThroughputSettings")

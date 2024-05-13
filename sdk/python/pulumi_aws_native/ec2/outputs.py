@@ -5287,7 +5287,7 @@ class LaunchTemplateNetworkInterface(dict):
         :param 'LaunchTemplateConnectionTrackingSpecification' connection_tracking_specification: A connection tracking specification for the network interface.
         :param bool delete_on_termination: Indicates whether the network interface is deleted when the instance is terminated.
         :param str description: A description for the network interface.
-        :param int device_index: The device index for the network interface attachment.
+        :param int device_index: The device index for the network interface attachment. Each network interface requires a device index. If you create a launch template that includes secondary network interfaces but not a primary network interface, then you must add a primary network interface as a launch parameter when you launch an instance from the template.
         :param 'LaunchTemplateEnaSrdSpecification' ena_srd_specification: The ENA Express configuration for the network interface.
         :param Sequence[str] groups: The IDs of one or more security groups.
         :param str interface_type: The type of network interface. To create an Elastic Fabric Adapter (EFA), specify ``efa``. For more information, see [Elastic Fabric Adapter](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html) in the *Amazon Elastic Compute Cloud User Guide*.
@@ -5398,7 +5398,7 @@ class LaunchTemplateNetworkInterface(dict):
     @pulumi.getter(name="deviceIndex")
     def device_index(self) -> Optional[int]:
         """
-        The device index for the network interface attachment.
+        The device index for the network interface attachment. Each network interface requires a device index. If you create a launch template that includes secondary network interfaces but not a primary network interface, then you must add a primary network interface as a launch parameter when you launch an instance from the template.
         """
         return pulumi.get(self, "device_index")
 

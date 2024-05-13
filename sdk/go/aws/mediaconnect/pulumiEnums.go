@@ -2106,6 +2106,1550 @@ func (in *flowFailoverConfigStatePtr) ToFlowFailoverConfigStatePtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(FlowFailoverConfigStatePtrOutput)
 }
 
+// The format used for the representation of color.
+type FlowFmtpColorimetry string
+
+const (
+	FlowFmtpColorimetryBt601   = FlowFmtpColorimetry("BT601")
+	FlowFmtpColorimetryBt709   = FlowFmtpColorimetry("BT709")
+	FlowFmtpColorimetryBt2020  = FlowFmtpColorimetry("BT2020")
+	FlowFmtpColorimetryBt2100  = FlowFmtpColorimetry("BT2100")
+	FlowFmtpColorimetrySt20651 = FlowFmtpColorimetry("ST2065-1")
+	FlowFmtpColorimetrySt20653 = FlowFmtpColorimetry("ST2065-3")
+	FlowFmtpColorimetryXyz     = FlowFmtpColorimetry("XYZ")
+)
+
+func (FlowFmtpColorimetry) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowFmtpColorimetry)(nil)).Elem()
+}
+
+func (e FlowFmtpColorimetry) ToFlowFmtpColorimetryOutput() FlowFmtpColorimetryOutput {
+	return pulumi.ToOutput(e).(FlowFmtpColorimetryOutput)
+}
+
+func (e FlowFmtpColorimetry) ToFlowFmtpColorimetryOutputWithContext(ctx context.Context) FlowFmtpColorimetryOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FlowFmtpColorimetryOutput)
+}
+
+func (e FlowFmtpColorimetry) ToFlowFmtpColorimetryPtrOutput() FlowFmtpColorimetryPtrOutput {
+	return e.ToFlowFmtpColorimetryPtrOutputWithContext(context.Background())
+}
+
+func (e FlowFmtpColorimetry) ToFlowFmtpColorimetryPtrOutputWithContext(ctx context.Context) FlowFmtpColorimetryPtrOutput {
+	return FlowFmtpColorimetry(e).ToFlowFmtpColorimetryOutputWithContext(ctx).ToFlowFmtpColorimetryPtrOutputWithContext(ctx)
+}
+
+func (e FlowFmtpColorimetry) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowFmtpColorimetry) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowFmtpColorimetry) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FlowFmtpColorimetry) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FlowFmtpColorimetryOutput struct{ *pulumi.OutputState }
+
+func (FlowFmtpColorimetryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowFmtpColorimetry)(nil)).Elem()
+}
+
+func (o FlowFmtpColorimetryOutput) ToFlowFmtpColorimetryOutput() FlowFmtpColorimetryOutput {
+	return o
+}
+
+func (o FlowFmtpColorimetryOutput) ToFlowFmtpColorimetryOutputWithContext(ctx context.Context) FlowFmtpColorimetryOutput {
+	return o
+}
+
+func (o FlowFmtpColorimetryOutput) ToFlowFmtpColorimetryPtrOutput() FlowFmtpColorimetryPtrOutput {
+	return o.ToFlowFmtpColorimetryPtrOutputWithContext(context.Background())
+}
+
+func (o FlowFmtpColorimetryOutput) ToFlowFmtpColorimetryPtrOutputWithContext(ctx context.Context) FlowFmtpColorimetryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowFmtpColorimetry) *FlowFmtpColorimetry {
+		return &v
+	}).(FlowFmtpColorimetryPtrOutput)
+}
+
+func (o FlowFmtpColorimetryOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FlowFmtpColorimetryOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowFmtpColorimetry) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FlowFmtpColorimetryOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowFmtpColorimetryOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowFmtpColorimetry) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlowFmtpColorimetryPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowFmtpColorimetryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowFmtpColorimetry)(nil)).Elem()
+}
+
+func (o FlowFmtpColorimetryPtrOutput) ToFlowFmtpColorimetryPtrOutput() FlowFmtpColorimetryPtrOutput {
+	return o
+}
+
+func (o FlowFmtpColorimetryPtrOutput) ToFlowFmtpColorimetryPtrOutputWithContext(ctx context.Context) FlowFmtpColorimetryPtrOutput {
+	return o
+}
+
+func (o FlowFmtpColorimetryPtrOutput) Elem() FlowFmtpColorimetryOutput {
+	return o.ApplyT(func(v *FlowFmtpColorimetry) FlowFmtpColorimetry {
+		if v != nil {
+			return *v
+		}
+		var ret FlowFmtpColorimetry
+		return ret
+	}).(FlowFmtpColorimetryOutput)
+}
+
+func (o FlowFmtpColorimetryPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowFmtpColorimetryPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FlowFmtpColorimetry) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FlowFmtpColorimetryInput is an input type that accepts values of the FlowFmtpColorimetry enum
+// A concrete instance of `FlowFmtpColorimetryInput` can be one of the following:
+//
+//	FlowFmtpColorimetryBt601
+//	FlowFmtpColorimetryBt709
+//	FlowFmtpColorimetryBt2020
+//	FlowFmtpColorimetryBt2100
+//	FlowFmtpColorimetrySt20651
+//	FlowFmtpColorimetrySt20653
+//	FlowFmtpColorimetryXyz
+type FlowFmtpColorimetryInput interface {
+	pulumi.Input
+
+	ToFlowFmtpColorimetryOutput() FlowFmtpColorimetryOutput
+	ToFlowFmtpColorimetryOutputWithContext(context.Context) FlowFmtpColorimetryOutput
+}
+
+var flowFmtpColorimetryPtrType = reflect.TypeOf((**FlowFmtpColorimetry)(nil)).Elem()
+
+type FlowFmtpColorimetryPtrInput interface {
+	pulumi.Input
+
+	ToFlowFmtpColorimetryPtrOutput() FlowFmtpColorimetryPtrOutput
+	ToFlowFmtpColorimetryPtrOutputWithContext(context.Context) FlowFmtpColorimetryPtrOutput
+}
+
+type flowFmtpColorimetryPtr string
+
+func FlowFmtpColorimetryPtr(v string) FlowFmtpColorimetryPtrInput {
+	return (*flowFmtpColorimetryPtr)(&v)
+}
+
+func (*flowFmtpColorimetryPtr) ElementType() reflect.Type {
+	return flowFmtpColorimetryPtrType
+}
+
+func (in *flowFmtpColorimetryPtr) ToFlowFmtpColorimetryPtrOutput() FlowFmtpColorimetryPtrOutput {
+	return pulumi.ToOutput(in).(FlowFmtpColorimetryPtrOutput)
+}
+
+func (in *flowFmtpColorimetryPtr) ToFlowFmtpColorimetryPtrOutputWithContext(ctx context.Context) FlowFmtpColorimetryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FlowFmtpColorimetryPtrOutput)
+}
+
+// The encoding range of the video.
+type FlowFmtpRange string
+
+const (
+	FlowFmtpRangeNarrow      = FlowFmtpRange("NARROW")
+	FlowFmtpRangeFull        = FlowFmtpRange("FULL")
+	FlowFmtpRangeFullprotect = FlowFmtpRange("FULLPROTECT")
+)
+
+func (FlowFmtpRange) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowFmtpRange)(nil)).Elem()
+}
+
+func (e FlowFmtpRange) ToFlowFmtpRangeOutput() FlowFmtpRangeOutput {
+	return pulumi.ToOutput(e).(FlowFmtpRangeOutput)
+}
+
+func (e FlowFmtpRange) ToFlowFmtpRangeOutputWithContext(ctx context.Context) FlowFmtpRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FlowFmtpRangeOutput)
+}
+
+func (e FlowFmtpRange) ToFlowFmtpRangePtrOutput() FlowFmtpRangePtrOutput {
+	return e.ToFlowFmtpRangePtrOutputWithContext(context.Background())
+}
+
+func (e FlowFmtpRange) ToFlowFmtpRangePtrOutputWithContext(ctx context.Context) FlowFmtpRangePtrOutput {
+	return FlowFmtpRange(e).ToFlowFmtpRangeOutputWithContext(ctx).ToFlowFmtpRangePtrOutputWithContext(ctx)
+}
+
+func (e FlowFmtpRange) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowFmtpRange) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowFmtpRange) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FlowFmtpRange) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FlowFmtpRangeOutput struct{ *pulumi.OutputState }
+
+func (FlowFmtpRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowFmtpRange)(nil)).Elem()
+}
+
+func (o FlowFmtpRangeOutput) ToFlowFmtpRangeOutput() FlowFmtpRangeOutput {
+	return o
+}
+
+func (o FlowFmtpRangeOutput) ToFlowFmtpRangeOutputWithContext(ctx context.Context) FlowFmtpRangeOutput {
+	return o
+}
+
+func (o FlowFmtpRangeOutput) ToFlowFmtpRangePtrOutput() FlowFmtpRangePtrOutput {
+	return o.ToFlowFmtpRangePtrOutputWithContext(context.Background())
+}
+
+func (o FlowFmtpRangeOutput) ToFlowFmtpRangePtrOutputWithContext(ctx context.Context) FlowFmtpRangePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowFmtpRange) *FlowFmtpRange {
+		return &v
+	}).(FlowFmtpRangePtrOutput)
+}
+
+func (o FlowFmtpRangeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FlowFmtpRangeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowFmtpRange) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FlowFmtpRangeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowFmtpRangeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowFmtpRange) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlowFmtpRangePtrOutput struct{ *pulumi.OutputState }
+
+func (FlowFmtpRangePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowFmtpRange)(nil)).Elem()
+}
+
+func (o FlowFmtpRangePtrOutput) ToFlowFmtpRangePtrOutput() FlowFmtpRangePtrOutput {
+	return o
+}
+
+func (o FlowFmtpRangePtrOutput) ToFlowFmtpRangePtrOutputWithContext(ctx context.Context) FlowFmtpRangePtrOutput {
+	return o
+}
+
+func (o FlowFmtpRangePtrOutput) Elem() FlowFmtpRangeOutput {
+	return o.ApplyT(func(v *FlowFmtpRange) FlowFmtpRange {
+		if v != nil {
+			return *v
+		}
+		var ret FlowFmtpRange
+		return ret
+	}).(FlowFmtpRangeOutput)
+}
+
+func (o FlowFmtpRangePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowFmtpRangePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FlowFmtpRange) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FlowFmtpRangeInput is an input type that accepts values of the FlowFmtpRange enum
+// A concrete instance of `FlowFmtpRangeInput` can be one of the following:
+//
+//	FlowFmtpRangeNarrow
+//	FlowFmtpRangeFull
+//	FlowFmtpRangeFullprotect
+type FlowFmtpRangeInput interface {
+	pulumi.Input
+
+	ToFlowFmtpRangeOutput() FlowFmtpRangeOutput
+	ToFlowFmtpRangeOutputWithContext(context.Context) FlowFmtpRangeOutput
+}
+
+var flowFmtpRangePtrType = reflect.TypeOf((**FlowFmtpRange)(nil)).Elem()
+
+type FlowFmtpRangePtrInput interface {
+	pulumi.Input
+
+	ToFlowFmtpRangePtrOutput() FlowFmtpRangePtrOutput
+	ToFlowFmtpRangePtrOutputWithContext(context.Context) FlowFmtpRangePtrOutput
+}
+
+type flowFmtpRangePtr string
+
+func FlowFmtpRangePtr(v string) FlowFmtpRangePtrInput {
+	return (*flowFmtpRangePtr)(&v)
+}
+
+func (*flowFmtpRangePtr) ElementType() reflect.Type {
+	return flowFmtpRangePtrType
+}
+
+func (in *flowFmtpRangePtr) ToFlowFmtpRangePtrOutput() FlowFmtpRangePtrOutput {
+	return pulumi.ToOutput(in).(FlowFmtpRangePtrOutput)
+}
+
+func (in *flowFmtpRangePtr) ToFlowFmtpRangePtrOutputWithContext(ctx context.Context) FlowFmtpRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FlowFmtpRangePtrOutput)
+}
+
+// The type of compression that was used to smooth the video's appearance.
+type FlowFmtpScanMode string
+
+const (
+	FlowFmtpScanModeProgressive               = FlowFmtpScanMode("progressive")
+	FlowFmtpScanModeInterlace                 = FlowFmtpScanMode("interlace")
+	FlowFmtpScanModeProgressiveSegmentedFrame = FlowFmtpScanMode("progressive-segmented-frame")
+)
+
+func (FlowFmtpScanMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowFmtpScanMode)(nil)).Elem()
+}
+
+func (e FlowFmtpScanMode) ToFlowFmtpScanModeOutput() FlowFmtpScanModeOutput {
+	return pulumi.ToOutput(e).(FlowFmtpScanModeOutput)
+}
+
+func (e FlowFmtpScanMode) ToFlowFmtpScanModeOutputWithContext(ctx context.Context) FlowFmtpScanModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FlowFmtpScanModeOutput)
+}
+
+func (e FlowFmtpScanMode) ToFlowFmtpScanModePtrOutput() FlowFmtpScanModePtrOutput {
+	return e.ToFlowFmtpScanModePtrOutputWithContext(context.Background())
+}
+
+func (e FlowFmtpScanMode) ToFlowFmtpScanModePtrOutputWithContext(ctx context.Context) FlowFmtpScanModePtrOutput {
+	return FlowFmtpScanMode(e).ToFlowFmtpScanModeOutputWithContext(ctx).ToFlowFmtpScanModePtrOutputWithContext(ctx)
+}
+
+func (e FlowFmtpScanMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowFmtpScanMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowFmtpScanMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FlowFmtpScanMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FlowFmtpScanModeOutput struct{ *pulumi.OutputState }
+
+func (FlowFmtpScanModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowFmtpScanMode)(nil)).Elem()
+}
+
+func (o FlowFmtpScanModeOutput) ToFlowFmtpScanModeOutput() FlowFmtpScanModeOutput {
+	return o
+}
+
+func (o FlowFmtpScanModeOutput) ToFlowFmtpScanModeOutputWithContext(ctx context.Context) FlowFmtpScanModeOutput {
+	return o
+}
+
+func (o FlowFmtpScanModeOutput) ToFlowFmtpScanModePtrOutput() FlowFmtpScanModePtrOutput {
+	return o.ToFlowFmtpScanModePtrOutputWithContext(context.Background())
+}
+
+func (o FlowFmtpScanModeOutput) ToFlowFmtpScanModePtrOutputWithContext(ctx context.Context) FlowFmtpScanModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowFmtpScanMode) *FlowFmtpScanMode {
+		return &v
+	}).(FlowFmtpScanModePtrOutput)
+}
+
+func (o FlowFmtpScanModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FlowFmtpScanModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowFmtpScanMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FlowFmtpScanModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowFmtpScanModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowFmtpScanMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlowFmtpScanModePtrOutput struct{ *pulumi.OutputState }
+
+func (FlowFmtpScanModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowFmtpScanMode)(nil)).Elem()
+}
+
+func (o FlowFmtpScanModePtrOutput) ToFlowFmtpScanModePtrOutput() FlowFmtpScanModePtrOutput {
+	return o
+}
+
+func (o FlowFmtpScanModePtrOutput) ToFlowFmtpScanModePtrOutputWithContext(ctx context.Context) FlowFmtpScanModePtrOutput {
+	return o
+}
+
+func (o FlowFmtpScanModePtrOutput) Elem() FlowFmtpScanModeOutput {
+	return o.ApplyT(func(v *FlowFmtpScanMode) FlowFmtpScanMode {
+		if v != nil {
+			return *v
+		}
+		var ret FlowFmtpScanMode
+		return ret
+	}).(FlowFmtpScanModeOutput)
+}
+
+func (o FlowFmtpScanModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowFmtpScanModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FlowFmtpScanMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FlowFmtpScanModeInput is an input type that accepts values of the FlowFmtpScanMode enum
+// A concrete instance of `FlowFmtpScanModeInput` can be one of the following:
+//
+//	FlowFmtpScanModeProgressive
+//	FlowFmtpScanModeInterlace
+//	FlowFmtpScanModeProgressiveSegmentedFrame
+type FlowFmtpScanModeInput interface {
+	pulumi.Input
+
+	ToFlowFmtpScanModeOutput() FlowFmtpScanModeOutput
+	ToFlowFmtpScanModeOutputWithContext(context.Context) FlowFmtpScanModeOutput
+}
+
+var flowFmtpScanModePtrType = reflect.TypeOf((**FlowFmtpScanMode)(nil)).Elem()
+
+type FlowFmtpScanModePtrInput interface {
+	pulumi.Input
+
+	ToFlowFmtpScanModePtrOutput() FlowFmtpScanModePtrOutput
+	ToFlowFmtpScanModePtrOutputWithContext(context.Context) FlowFmtpScanModePtrOutput
+}
+
+type flowFmtpScanModePtr string
+
+func FlowFmtpScanModePtr(v string) FlowFmtpScanModePtrInput {
+	return (*flowFmtpScanModePtr)(&v)
+}
+
+func (*flowFmtpScanModePtr) ElementType() reflect.Type {
+	return flowFmtpScanModePtrType
+}
+
+func (in *flowFmtpScanModePtr) ToFlowFmtpScanModePtrOutput() FlowFmtpScanModePtrOutput {
+	return pulumi.ToOutput(in).(FlowFmtpScanModePtrOutput)
+}
+
+func (in *flowFmtpScanModePtr) ToFlowFmtpScanModePtrOutputWithContext(ctx context.Context) FlowFmtpScanModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FlowFmtpScanModePtrOutput)
+}
+
+// The transfer characteristic system (TCS) that is used in the video.
+type FlowFmtpTcs string
+
+const (
+	FlowFmtpTcsSdr          = FlowFmtpTcs("SDR")
+	FlowFmtpTcsPq           = FlowFmtpTcs("PQ")
+	FlowFmtpTcsHlg          = FlowFmtpTcs("HLG")
+	FlowFmtpTcsLinear       = FlowFmtpTcs("LINEAR")
+	FlowFmtpTcsBt2100linpq  = FlowFmtpTcs("BT2100LINPQ")
+	FlowFmtpTcsBt2100linhlg = FlowFmtpTcs("BT2100LINHLG")
+	FlowFmtpTcsSt20651      = FlowFmtpTcs("ST2065-1")
+	FlowFmtpTcsSt4281       = FlowFmtpTcs("ST428-1")
+	FlowFmtpTcsDensity      = FlowFmtpTcs("DENSITY")
+)
+
+func (FlowFmtpTcs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowFmtpTcs)(nil)).Elem()
+}
+
+func (e FlowFmtpTcs) ToFlowFmtpTcsOutput() FlowFmtpTcsOutput {
+	return pulumi.ToOutput(e).(FlowFmtpTcsOutput)
+}
+
+func (e FlowFmtpTcs) ToFlowFmtpTcsOutputWithContext(ctx context.Context) FlowFmtpTcsOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FlowFmtpTcsOutput)
+}
+
+func (e FlowFmtpTcs) ToFlowFmtpTcsPtrOutput() FlowFmtpTcsPtrOutput {
+	return e.ToFlowFmtpTcsPtrOutputWithContext(context.Background())
+}
+
+func (e FlowFmtpTcs) ToFlowFmtpTcsPtrOutputWithContext(ctx context.Context) FlowFmtpTcsPtrOutput {
+	return FlowFmtpTcs(e).ToFlowFmtpTcsOutputWithContext(ctx).ToFlowFmtpTcsPtrOutputWithContext(ctx)
+}
+
+func (e FlowFmtpTcs) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowFmtpTcs) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowFmtpTcs) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FlowFmtpTcs) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FlowFmtpTcsOutput struct{ *pulumi.OutputState }
+
+func (FlowFmtpTcsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowFmtpTcs)(nil)).Elem()
+}
+
+func (o FlowFmtpTcsOutput) ToFlowFmtpTcsOutput() FlowFmtpTcsOutput {
+	return o
+}
+
+func (o FlowFmtpTcsOutput) ToFlowFmtpTcsOutputWithContext(ctx context.Context) FlowFmtpTcsOutput {
+	return o
+}
+
+func (o FlowFmtpTcsOutput) ToFlowFmtpTcsPtrOutput() FlowFmtpTcsPtrOutput {
+	return o.ToFlowFmtpTcsPtrOutputWithContext(context.Background())
+}
+
+func (o FlowFmtpTcsOutput) ToFlowFmtpTcsPtrOutputWithContext(ctx context.Context) FlowFmtpTcsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowFmtpTcs) *FlowFmtpTcs {
+		return &v
+	}).(FlowFmtpTcsPtrOutput)
+}
+
+func (o FlowFmtpTcsOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FlowFmtpTcsOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowFmtpTcs) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FlowFmtpTcsOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowFmtpTcsOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowFmtpTcs) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlowFmtpTcsPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowFmtpTcsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowFmtpTcs)(nil)).Elem()
+}
+
+func (o FlowFmtpTcsPtrOutput) ToFlowFmtpTcsPtrOutput() FlowFmtpTcsPtrOutput {
+	return o
+}
+
+func (o FlowFmtpTcsPtrOutput) ToFlowFmtpTcsPtrOutputWithContext(ctx context.Context) FlowFmtpTcsPtrOutput {
+	return o
+}
+
+func (o FlowFmtpTcsPtrOutput) Elem() FlowFmtpTcsOutput {
+	return o.ApplyT(func(v *FlowFmtpTcs) FlowFmtpTcs {
+		if v != nil {
+			return *v
+		}
+		var ret FlowFmtpTcs
+		return ret
+	}).(FlowFmtpTcsOutput)
+}
+
+func (o FlowFmtpTcsPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowFmtpTcsPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FlowFmtpTcs) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FlowFmtpTcsInput is an input type that accepts values of the FlowFmtpTcs enum
+// A concrete instance of `FlowFmtpTcsInput` can be one of the following:
+//
+//	FlowFmtpTcsSdr
+//	FlowFmtpTcsPq
+//	FlowFmtpTcsHlg
+//	FlowFmtpTcsLinear
+//	FlowFmtpTcsBt2100linpq
+//	FlowFmtpTcsBt2100linhlg
+//	FlowFmtpTcsSt20651
+//	FlowFmtpTcsSt4281
+//	FlowFmtpTcsDensity
+type FlowFmtpTcsInput interface {
+	pulumi.Input
+
+	ToFlowFmtpTcsOutput() FlowFmtpTcsOutput
+	ToFlowFmtpTcsOutputWithContext(context.Context) FlowFmtpTcsOutput
+}
+
+var flowFmtpTcsPtrType = reflect.TypeOf((**FlowFmtpTcs)(nil)).Elem()
+
+type FlowFmtpTcsPtrInput interface {
+	pulumi.Input
+
+	ToFlowFmtpTcsPtrOutput() FlowFmtpTcsPtrOutput
+	ToFlowFmtpTcsPtrOutputWithContext(context.Context) FlowFmtpTcsPtrOutput
+}
+
+type flowFmtpTcsPtr string
+
+func FlowFmtpTcsPtr(v string) FlowFmtpTcsPtrInput {
+	return (*flowFmtpTcsPtr)(&v)
+}
+
+func (*flowFmtpTcsPtr) ElementType() reflect.Type {
+	return flowFmtpTcsPtrType
+}
+
+func (in *flowFmtpTcsPtr) ToFlowFmtpTcsPtrOutput() FlowFmtpTcsPtrOutput {
+	return pulumi.ToOutput(in).(FlowFmtpTcsPtrOutput)
+}
+
+func (in *flowFmtpTcsPtr) ToFlowFmtpTcsPtrOutputWithContext(ctx context.Context) FlowFmtpTcsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FlowFmtpTcsPtrOutput)
+}
+
+// A day of a week when the maintenance will happen. Use Monday/Tuesday/Wednesday/Thursday/Friday/Saturday/Sunday.
+type FlowMaintenanceMaintenanceDay string
+
+const (
+	FlowMaintenanceMaintenanceDayMonday    = FlowMaintenanceMaintenanceDay("Monday")
+	FlowMaintenanceMaintenanceDayTuesday   = FlowMaintenanceMaintenanceDay("Tuesday")
+	FlowMaintenanceMaintenanceDayWednesday = FlowMaintenanceMaintenanceDay("Wednesday")
+	FlowMaintenanceMaintenanceDayThursday  = FlowMaintenanceMaintenanceDay("Thursday")
+	FlowMaintenanceMaintenanceDayFriday    = FlowMaintenanceMaintenanceDay("Friday")
+	FlowMaintenanceMaintenanceDaySaturday  = FlowMaintenanceMaintenanceDay("Saturday")
+	FlowMaintenanceMaintenanceDaySunday    = FlowMaintenanceMaintenanceDay("Sunday")
+)
+
+func (FlowMaintenanceMaintenanceDay) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowMaintenanceMaintenanceDay)(nil)).Elem()
+}
+
+func (e FlowMaintenanceMaintenanceDay) ToFlowMaintenanceMaintenanceDayOutput() FlowMaintenanceMaintenanceDayOutput {
+	return pulumi.ToOutput(e).(FlowMaintenanceMaintenanceDayOutput)
+}
+
+func (e FlowMaintenanceMaintenanceDay) ToFlowMaintenanceMaintenanceDayOutputWithContext(ctx context.Context) FlowMaintenanceMaintenanceDayOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FlowMaintenanceMaintenanceDayOutput)
+}
+
+func (e FlowMaintenanceMaintenanceDay) ToFlowMaintenanceMaintenanceDayPtrOutput() FlowMaintenanceMaintenanceDayPtrOutput {
+	return e.ToFlowMaintenanceMaintenanceDayPtrOutputWithContext(context.Background())
+}
+
+func (e FlowMaintenanceMaintenanceDay) ToFlowMaintenanceMaintenanceDayPtrOutputWithContext(ctx context.Context) FlowMaintenanceMaintenanceDayPtrOutput {
+	return FlowMaintenanceMaintenanceDay(e).ToFlowMaintenanceMaintenanceDayOutputWithContext(ctx).ToFlowMaintenanceMaintenanceDayPtrOutputWithContext(ctx)
+}
+
+func (e FlowMaintenanceMaintenanceDay) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowMaintenanceMaintenanceDay) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowMaintenanceMaintenanceDay) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FlowMaintenanceMaintenanceDay) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FlowMaintenanceMaintenanceDayOutput struct{ *pulumi.OutputState }
+
+func (FlowMaintenanceMaintenanceDayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowMaintenanceMaintenanceDay)(nil)).Elem()
+}
+
+func (o FlowMaintenanceMaintenanceDayOutput) ToFlowMaintenanceMaintenanceDayOutput() FlowMaintenanceMaintenanceDayOutput {
+	return o
+}
+
+func (o FlowMaintenanceMaintenanceDayOutput) ToFlowMaintenanceMaintenanceDayOutputWithContext(ctx context.Context) FlowMaintenanceMaintenanceDayOutput {
+	return o
+}
+
+func (o FlowMaintenanceMaintenanceDayOutput) ToFlowMaintenanceMaintenanceDayPtrOutput() FlowMaintenanceMaintenanceDayPtrOutput {
+	return o.ToFlowMaintenanceMaintenanceDayPtrOutputWithContext(context.Background())
+}
+
+func (o FlowMaintenanceMaintenanceDayOutput) ToFlowMaintenanceMaintenanceDayPtrOutputWithContext(ctx context.Context) FlowMaintenanceMaintenanceDayPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowMaintenanceMaintenanceDay) *FlowMaintenanceMaintenanceDay {
+		return &v
+	}).(FlowMaintenanceMaintenanceDayPtrOutput)
+}
+
+func (o FlowMaintenanceMaintenanceDayOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FlowMaintenanceMaintenanceDayOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowMaintenanceMaintenanceDay) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FlowMaintenanceMaintenanceDayOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowMaintenanceMaintenanceDayOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowMaintenanceMaintenanceDay) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlowMaintenanceMaintenanceDayPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowMaintenanceMaintenanceDayPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowMaintenanceMaintenanceDay)(nil)).Elem()
+}
+
+func (o FlowMaintenanceMaintenanceDayPtrOutput) ToFlowMaintenanceMaintenanceDayPtrOutput() FlowMaintenanceMaintenanceDayPtrOutput {
+	return o
+}
+
+func (o FlowMaintenanceMaintenanceDayPtrOutput) ToFlowMaintenanceMaintenanceDayPtrOutputWithContext(ctx context.Context) FlowMaintenanceMaintenanceDayPtrOutput {
+	return o
+}
+
+func (o FlowMaintenanceMaintenanceDayPtrOutput) Elem() FlowMaintenanceMaintenanceDayOutput {
+	return o.ApplyT(func(v *FlowMaintenanceMaintenanceDay) FlowMaintenanceMaintenanceDay {
+		if v != nil {
+			return *v
+		}
+		var ret FlowMaintenanceMaintenanceDay
+		return ret
+	}).(FlowMaintenanceMaintenanceDayOutput)
+}
+
+func (o FlowMaintenanceMaintenanceDayPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowMaintenanceMaintenanceDayPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FlowMaintenanceMaintenanceDay) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FlowMaintenanceMaintenanceDayInput is an input type that accepts values of the FlowMaintenanceMaintenanceDay enum
+// A concrete instance of `FlowMaintenanceMaintenanceDayInput` can be one of the following:
+//
+//	FlowMaintenanceMaintenanceDayMonday
+//	FlowMaintenanceMaintenanceDayTuesday
+//	FlowMaintenanceMaintenanceDayWednesday
+//	FlowMaintenanceMaintenanceDayThursday
+//	FlowMaintenanceMaintenanceDayFriday
+//	FlowMaintenanceMaintenanceDaySaturday
+//	FlowMaintenanceMaintenanceDaySunday
+type FlowMaintenanceMaintenanceDayInput interface {
+	pulumi.Input
+
+	ToFlowMaintenanceMaintenanceDayOutput() FlowMaintenanceMaintenanceDayOutput
+	ToFlowMaintenanceMaintenanceDayOutputWithContext(context.Context) FlowMaintenanceMaintenanceDayOutput
+}
+
+var flowMaintenanceMaintenanceDayPtrType = reflect.TypeOf((**FlowMaintenanceMaintenanceDay)(nil)).Elem()
+
+type FlowMaintenanceMaintenanceDayPtrInput interface {
+	pulumi.Input
+
+	ToFlowMaintenanceMaintenanceDayPtrOutput() FlowMaintenanceMaintenanceDayPtrOutput
+	ToFlowMaintenanceMaintenanceDayPtrOutputWithContext(context.Context) FlowMaintenanceMaintenanceDayPtrOutput
+}
+
+type flowMaintenanceMaintenanceDayPtr string
+
+func FlowMaintenanceMaintenanceDayPtr(v string) FlowMaintenanceMaintenanceDayPtrInput {
+	return (*flowMaintenanceMaintenanceDayPtr)(&v)
+}
+
+func (*flowMaintenanceMaintenanceDayPtr) ElementType() reflect.Type {
+	return flowMaintenanceMaintenanceDayPtrType
+}
+
+func (in *flowMaintenanceMaintenanceDayPtr) ToFlowMaintenanceMaintenanceDayPtrOutput() FlowMaintenanceMaintenanceDayPtrOutput {
+	return pulumi.ToOutput(in).(FlowMaintenanceMaintenanceDayPtrOutput)
+}
+
+func (in *flowMaintenanceMaintenanceDayPtr) ToFlowMaintenanceMaintenanceDayPtrOutputWithContext(ctx context.Context) FlowMaintenanceMaintenanceDayPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FlowMaintenanceMaintenanceDayPtrOutput)
+}
+
+// The type of media stream.
+type FlowMediaStreamMediaStreamType string
+
+const (
+	FlowMediaStreamMediaStreamTypeVideo         = FlowMediaStreamMediaStreamType("video")
+	FlowMediaStreamMediaStreamTypeAudio         = FlowMediaStreamMediaStreamType("audio")
+	FlowMediaStreamMediaStreamTypeAncillaryData = FlowMediaStreamMediaStreamType("ancillary-data")
+)
+
+func (FlowMediaStreamMediaStreamType) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowMediaStreamMediaStreamType)(nil)).Elem()
+}
+
+func (e FlowMediaStreamMediaStreamType) ToFlowMediaStreamMediaStreamTypeOutput() FlowMediaStreamMediaStreamTypeOutput {
+	return pulumi.ToOutput(e).(FlowMediaStreamMediaStreamTypeOutput)
+}
+
+func (e FlowMediaStreamMediaStreamType) ToFlowMediaStreamMediaStreamTypeOutputWithContext(ctx context.Context) FlowMediaStreamMediaStreamTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FlowMediaStreamMediaStreamTypeOutput)
+}
+
+func (e FlowMediaStreamMediaStreamType) ToFlowMediaStreamMediaStreamTypePtrOutput() FlowMediaStreamMediaStreamTypePtrOutput {
+	return e.ToFlowMediaStreamMediaStreamTypePtrOutputWithContext(context.Background())
+}
+
+func (e FlowMediaStreamMediaStreamType) ToFlowMediaStreamMediaStreamTypePtrOutputWithContext(ctx context.Context) FlowMediaStreamMediaStreamTypePtrOutput {
+	return FlowMediaStreamMediaStreamType(e).ToFlowMediaStreamMediaStreamTypeOutputWithContext(ctx).ToFlowMediaStreamMediaStreamTypePtrOutputWithContext(ctx)
+}
+
+func (e FlowMediaStreamMediaStreamType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowMediaStreamMediaStreamType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowMediaStreamMediaStreamType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FlowMediaStreamMediaStreamType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FlowMediaStreamMediaStreamTypeOutput struct{ *pulumi.OutputState }
+
+func (FlowMediaStreamMediaStreamTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowMediaStreamMediaStreamType)(nil)).Elem()
+}
+
+func (o FlowMediaStreamMediaStreamTypeOutput) ToFlowMediaStreamMediaStreamTypeOutput() FlowMediaStreamMediaStreamTypeOutput {
+	return o
+}
+
+func (o FlowMediaStreamMediaStreamTypeOutput) ToFlowMediaStreamMediaStreamTypeOutputWithContext(ctx context.Context) FlowMediaStreamMediaStreamTypeOutput {
+	return o
+}
+
+func (o FlowMediaStreamMediaStreamTypeOutput) ToFlowMediaStreamMediaStreamTypePtrOutput() FlowMediaStreamMediaStreamTypePtrOutput {
+	return o.ToFlowMediaStreamMediaStreamTypePtrOutputWithContext(context.Background())
+}
+
+func (o FlowMediaStreamMediaStreamTypeOutput) ToFlowMediaStreamMediaStreamTypePtrOutputWithContext(ctx context.Context) FlowMediaStreamMediaStreamTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowMediaStreamMediaStreamType) *FlowMediaStreamMediaStreamType {
+		return &v
+	}).(FlowMediaStreamMediaStreamTypePtrOutput)
+}
+
+func (o FlowMediaStreamMediaStreamTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FlowMediaStreamMediaStreamTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowMediaStreamMediaStreamType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FlowMediaStreamMediaStreamTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowMediaStreamMediaStreamTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowMediaStreamMediaStreamType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlowMediaStreamMediaStreamTypePtrOutput struct{ *pulumi.OutputState }
+
+func (FlowMediaStreamMediaStreamTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowMediaStreamMediaStreamType)(nil)).Elem()
+}
+
+func (o FlowMediaStreamMediaStreamTypePtrOutput) ToFlowMediaStreamMediaStreamTypePtrOutput() FlowMediaStreamMediaStreamTypePtrOutput {
+	return o
+}
+
+func (o FlowMediaStreamMediaStreamTypePtrOutput) ToFlowMediaStreamMediaStreamTypePtrOutputWithContext(ctx context.Context) FlowMediaStreamMediaStreamTypePtrOutput {
+	return o
+}
+
+func (o FlowMediaStreamMediaStreamTypePtrOutput) Elem() FlowMediaStreamMediaStreamTypeOutput {
+	return o.ApplyT(func(v *FlowMediaStreamMediaStreamType) FlowMediaStreamMediaStreamType {
+		if v != nil {
+			return *v
+		}
+		var ret FlowMediaStreamMediaStreamType
+		return ret
+	}).(FlowMediaStreamMediaStreamTypeOutput)
+}
+
+func (o FlowMediaStreamMediaStreamTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowMediaStreamMediaStreamTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FlowMediaStreamMediaStreamType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FlowMediaStreamMediaStreamTypeInput is an input type that accepts values of the FlowMediaStreamMediaStreamType enum
+// A concrete instance of `FlowMediaStreamMediaStreamTypeInput` can be one of the following:
+//
+//	FlowMediaStreamMediaStreamTypeVideo
+//	FlowMediaStreamMediaStreamTypeAudio
+//	FlowMediaStreamMediaStreamTypeAncillaryData
+type FlowMediaStreamMediaStreamTypeInput interface {
+	pulumi.Input
+
+	ToFlowMediaStreamMediaStreamTypeOutput() FlowMediaStreamMediaStreamTypeOutput
+	ToFlowMediaStreamMediaStreamTypeOutputWithContext(context.Context) FlowMediaStreamMediaStreamTypeOutput
+}
+
+var flowMediaStreamMediaStreamTypePtrType = reflect.TypeOf((**FlowMediaStreamMediaStreamType)(nil)).Elem()
+
+type FlowMediaStreamMediaStreamTypePtrInput interface {
+	pulumi.Input
+
+	ToFlowMediaStreamMediaStreamTypePtrOutput() FlowMediaStreamMediaStreamTypePtrOutput
+	ToFlowMediaStreamMediaStreamTypePtrOutputWithContext(context.Context) FlowMediaStreamMediaStreamTypePtrOutput
+}
+
+type flowMediaStreamMediaStreamTypePtr string
+
+func FlowMediaStreamMediaStreamTypePtr(v string) FlowMediaStreamMediaStreamTypePtrInput {
+	return (*flowMediaStreamMediaStreamTypePtr)(&v)
+}
+
+func (*flowMediaStreamMediaStreamTypePtr) ElementType() reflect.Type {
+	return flowMediaStreamMediaStreamTypePtrType
+}
+
+func (in *flowMediaStreamMediaStreamTypePtr) ToFlowMediaStreamMediaStreamTypePtrOutput() FlowMediaStreamMediaStreamTypePtrOutput {
+	return pulumi.ToOutput(in).(FlowMediaStreamMediaStreamTypePtrOutput)
+}
+
+func (in *flowMediaStreamMediaStreamTypePtr) ToFlowMediaStreamMediaStreamTypePtrOutputWithContext(ctx context.Context) FlowMediaStreamMediaStreamTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FlowMediaStreamMediaStreamTypePtrOutput)
+}
+
+// The format that was used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video, 2110 streams, set the encoding name to raw. For video, JPEG XS streams, set the encoding name to jxsv.
+type FlowMediaStreamSourceConfigurationEncodingName string
+
+const (
+	FlowMediaStreamSourceConfigurationEncodingNameJxsv     = FlowMediaStreamSourceConfigurationEncodingName("jxsv")
+	FlowMediaStreamSourceConfigurationEncodingNameRaw      = FlowMediaStreamSourceConfigurationEncodingName("raw")
+	FlowMediaStreamSourceConfigurationEncodingNameSmpte291 = FlowMediaStreamSourceConfigurationEncodingName("smpte291")
+	FlowMediaStreamSourceConfigurationEncodingNamePcm      = FlowMediaStreamSourceConfigurationEncodingName("pcm")
+)
+
+func (FlowMediaStreamSourceConfigurationEncodingName) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowMediaStreamSourceConfigurationEncodingName)(nil)).Elem()
+}
+
+func (e FlowMediaStreamSourceConfigurationEncodingName) ToFlowMediaStreamSourceConfigurationEncodingNameOutput() FlowMediaStreamSourceConfigurationEncodingNameOutput {
+	return pulumi.ToOutput(e).(FlowMediaStreamSourceConfigurationEncodingNameOutput)
+}
+
+func (e FlowMediaStreamSourceConfigurationEncodingName) ToFlowMediaStreamSourceConfigurationEncodingNameOutputWithContext(ctx context.Context) FlowMediaStreamSourceConfigurationEncodingNameOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FlowMediaStreamSourceConfigurationEncodingNameOutput)
+}
+
+func (e FlowMediaStreamSourceConfigurationEncodingName) ToFlowMediaStreamSourceConfigurationEncodingNamePtrOutput() FlowMediaStreamSourceConfigurationEncodingNamePtrOutput {
+	return e.ToFlowMediaStreamSourceConfigurationEncodingNamePtrOutputWithContext(context.Background())
+}
+
+func (e FlowMediaStreamSourceConfigurationEncodingName) ToFlowMediaStreamSourceConfigurationEncodingNamePtrOutputWithContext(ctx context.Context) FlowMediaStreamSourceConfigurationEncodingNamePtrOutput {
+	return FlowMediaStreamSourceConfigurationEncodingName(e).ToFlowMediaStreamSourceConfigurationEncodingNameOutputWithContext(ctx).ToFlowMediaStreamSourceConfigurationEncodingNamePtrOutputWithContext(ctx)
+}
+
+func (e FlowMediaStreamSourceConfigurationEncodingName) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowMediaStreamSourceConfigurationEncodingName) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowMediaStreamSourceConfigurationEncodingName) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FlowMediaStreamSourceConfigurationEncodingName) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FlowMediaStreamSourceConfigurationEncodingNameOutput struct{ *pulumi.OutputState }
+
+func (FlowMediaStreamSourceConfigurationEncodingNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowMediaStreamSourceConfigurationEncodingName)(nil)).Elem()
+}
+
+func (o FlowMediaStreamSourceConfigurationEncodingNameOutput) ToFlowMediaStreamSourceConfigurationEncodingNameOutput() FlowMediaStreamSourceConfigurationEncodingNameOutput {
+	return o
+}
+
+func (o FlowMediaStreamSourceConfigurationEncodingNameOutput) ToFlowMediaStreamSourceConfigurationEncodingNameOutputWithContext(ctx context.Context) FlowMediaStreamSourceConfigurationEncodingNameOutput {
+	return o
+}
+
+func (o FlowMediaStreamSourceConfigurationEncodingNameOutput) ToFlowMediaStreamSourceConfigurationEncodingNamePtrOutput() FlowMediaStreamSourceConfigurationEncodingNamePtrOutput {
+	return o.ToFlowMediaStreamSourceConfigurationEncodingNamePtrOutputWithContext(context.Background())
+}
+
+func (o FlowMediaStreamSourceConfigurationEncodingNameOutput) ToFlowMediaStreamSourceConfigurationEncodingNamePtrOutputWithContext(ctx context.Context) FlowMediaStreamSourceConfigurationEncodingNamePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowMediaStreamSourceConfigurationEncodingName) *FlowMediaStreamSourceConfigurationEncodingName {
+		return &v
+	}).(FlowMediaStreamSourceConfigurationEncodingNamePtrOutput)
+}
+
+func (o FlowMediaStreamSourceConfigurationEncodingNameOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FlowMediaStreamSourceConfigurationEncodingNameOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowMediaStreamSourceConfigurationEncodingName) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FlowMediaStreamSourceConfigurationEncodingNameOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowMediaStreamSourceConfigurationEncodingNameOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowMediaStreamSourceConfigurationEncodingName) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlowMediaStreamSourceConfigurationEncodingNamePtrOutput struct{ *pulumi.OutputState }
+
+func (FlowMediaStreamSourceConfigurationEncodingNamePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowMediaStreamSourceConfigurationEncodingName)(nil)).Elem()
+}
+
+func (o FlowMediaStreamSourceConfigurationEncodingNamePtrOutput) ToFlowMediaStreamSourceConfigurationEncodingNamePtrOutput() FlowMediaStreamSourceConfigurationEncodingNamePtrOutput {
+	return o
+}
+
+func (o FlowMediaStreamSourceConfigurationEncodingNamePtrOutput) ToFlowMediaStreamSourceConfigurationEncodingNamePtrOutputWithContext(ctx context.Context) FlowMediaStreamSourceConfigurationEncodingNamePtrOutput {
+	return o
+}
+
+func (o FlowMediaStreamSourceConfigurationEncodingNamePtrOutput) Elem() FlowMediaStreamSourceConfigurationEncodingNameOutput {
+	return o.ApplyT(func(v *FlowMediaStreamSourceConfigurationEncodingName) FlowMediaStreamSourceConfigurationEncodingName {
+		if v != nil {
+			return *v
+		}
+		var ret FlowMediaStreamSourceConfigurationEncodingName
+		return ret
+	}).(FlowMediaStreamSourceConfigurationEncodingNameOutput)
+}
+
+func (o FlowMediaStreamSourceConfigurationEncodingNamePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowMediaStreamSourceConfigurationEncodingNamePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FlowMediaStreamSourceConfigurationEncodingName) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FlowMediaStreamSourceConfigurationEncodingNameInput is an input type that accepts values of the FlowMediaStreamSourceConfigurationEncodingName enum
+// A concrete instance of `FlowMediaStreamSourceConfigurationEncodingNameInput` can be one of the following:
+//
+//	FlowMediaStreamSourceConfigurationEncodingNameJxsv
+//	FlowMediaStreamSourceConfigurationEncodingNameRaw
+//	FlowMediaStreamSourceConfigurationEncodingNameSmpte291
+//	FlowMediaStreamSourceConfigurationEncodingNamePcm
+type FlowMediaStreamSourceConfigurationEncodingNameInput interface {
+	pulumi.Input
+
+	ToFlowMediaStreamSourceConfigurationEncodingNameOutput() FlowMediaStreamSourceConfigurationEncodingNameOutput
+	ToFlowMediaStreamSourceConfigurationEncodingNameOutputWithContext(context.Context) FlowMediaStreamSourceConfigurationEncodingNameOutput
+}
+
+var flowMediaStreamSourceConfigurationEncodingNamePtrType = reflect.TypeOf((**FlowMediaStreamSourceConfigurationEncodingName)(nil)).Elem()
+
+type FlowMediaStreamSourceConfigurationEncodingNamePtrInput interface {
+	pulumi.Input
+
+	ToFlowMediaStreamSourceConfigurationEncodingNamePtrOutput() FlowMediaStreamSourceConfigurationEncodingNamePtrOutput
+	ToFlowMediaStreamSourceConfigurationEncodingNamePtrOutputWithContext(context.Context) FlowMediaStreamSourceConfigurationEncodingNamePtrOutput
+}
+
+type flowMediaStreamSourceConfigurationEncodingNamePtr string
+
+func FlowMediaStreamSourceConfigurationEncodingNamePtr(v string) FlowMediaStreamSourceConfigurationEncodingNamePtrInput {
+	return (*flowMediaStreamSourceConfigurationEncodingNamePtr)(&v)
+}
+
+func (*flowMediaStreamSourceConfigurationEncodingNamePtr) ElementType() reflect.Type {
+	return flowMediaStreamSourceConfigurationEncodingNamePtrType
+}
+
+func (in *flowMediaStreamSourceConfigurationEncodingNamePtr) ToFlowMediaStreamSourceConfigurationEncodingNamePtrOutput() FlowMediaStreamSourceConfigurationEncodingNamePtrOutput {
+	return pulumi.ToOutput(in).(FlowMediaStreamSourceConfigurationEncodingNamePtrOutput)
+}
+
+func (in *flowMediaStreamSourceConfigurationEncodingNamePtr) ToFlowMediaStreamSourceConfigurationEncodingNamePtrOutputWithContext(ctx context.Context) FlowMediaStreamSourceConfigurationEncodingNamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FlowMediaStreamSourceConfigurationEncodingNamePtrOutput)
+}
+
+// The resolution of the video.
+type FlowMediaStreamVideoFormat string
+
+const (
+	FlowMediaStreamVideoFormat_2160p = FlowMediaStreamVideoFormat("2160p")
+	FlowMediaStreamVideoFormat_1080p = FlowMediaStreamVideoFormat("1080p")
+	FlowMediaStreamVideoFormat_1080i = FlowMediaStreamVideoFormat("1080i")
+	FlowMediaStreamVideoFormat_720p  = FlowMediaStreamVideoFormat("720p")
+	FlowMediaStreamVideoFormat_480p  = FlowMediaStreamVideoFormat("480p")
+)
+
+func (FlowMediaStreamVideoFormat) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowMediaStreamVideoFormat)(nil)).Elem()
+}
+
+func (e FlowMediaStreamVideoFormat) ToFlowMediaStreamVideoFormatOutput() FlowMediaStreamVideoFormatOutput {
+	return pulumi.ToOutput(e).(FlowMediaStreamVideoFormatOutput)
+}
+
+func (e FlowMediaStreamVideoFormat) ToFlowMediaStreamVideoFormatOutputWithContext(ctx context.Context) FlowMediaStreamVideoFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FlowMediaStreamVideoFormatOutput)
+}
+
+func (e FlowMediaStreamVideoFormat) ToFlowMediaStreamVideoFormatPtrOutput() FlowMediaStreamVideoFormatPtrOutput {
+	return e.ToFlowMediaStreamVideoFormatPtrOutputWithContext(context.Background())
+}
+
+func (e FlowMediaStreamVideoFormat) ToFlowMediaStreamVideoFormatPtrOutputWithContext(ctx context.Context) FlowMediaStreamVideoFormatPtrOutput {
+	return FlowMediaStreamVideoFormat(e).ToFlowMediaStreamVideoFormatOutputWithContext(ctx).ToFlowMediaStreamVideoFormatPtrOutputWithContext(ctx)
+}
+
+func (e FlowMediaStreamVideoFormat) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowMediaStreamVideoFormat) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowMediaStreamVideoFormat) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FlowMediaStreamVideoFormat) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FlowMediaStreamVideoFormatOutput struct{ *pulumi.OutputState }
+
+func (FlowMediaStreamVideoFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowMediaStreamVideoFormat)(nil)).Elem()
+}
+
+func (o FlowMediaStreamVideoFormatOutput) ToFlowMediaStreamVideoFormatOutput() FlowMediaStreamVideoFormatOutput {
+	return o
+}
+
+func (o FlowMediaStreamVideoFormatOutput) ToFlowMediaStreamVideoFormatOutputWithContext(ctx context.Context) FlowMediaStreamVideoFormatOutput {
+	return o
+}
+
+func (o FlowMediaStreamVideoFormatOutput) ToFlowMediaStreamVideoFormatPtrOutput() FlowMediaStreamVideoFormatPtrOutput {
+	return o.ToFlowMediaStreamVideoFormatPtrOutputWithContext(context.Background())
+}
+
+func (o FlowMediaStreamVideoFormatOutput) ToFlowMediaStreamVideoFormatPtrOutputWithContext(ctx context.Context) FlowMediaStreamVideoFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowMediaStreamVideoFormat) *FlowMediaStreamVideoFormat {
+		return &v
+	}).(FlowMediaStreamVideoFormatPtrOutput)
+}
+
+func (o FlowMediaStreamVideoFormatOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FlowMediaStreamVideoFormatOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowMediaStreamVideoFormat) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FlowMediaStreamVideoFormatOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowMediaStreamVideoFormatOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowMediaStreamVideoFormat) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlowMediaStreamVideoFormatPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowMediaStreamVideoFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowMediaStreamVideoFormat)(nil)).Elem()
+}
+
+func (o FlowMediaStreamVideoFormatPtrOutput) ToFlowMediaStreamVideoFormatPtrOutput() FlowMediaStreamVideoFormatPtrOutput {
+	return o
+}
+
+func (o FlowMediaStreamVideoFormatPtrOutput) ToFlowMediaStreamVideoFormatPtrOutputWithContext(ctx context.Context) FlowMediaStreamVideoFormatPtrOutput {
+	return o
+}
+
+func (o FlowMediaStreamVideoFormatPtrOutput) Elem() FlowMediaStreamVideoFormatOutput {
+	return o.ApplyT(func(v *FlowMediaStreamVideoFormat) FlowMediaStreamVideoFormat {
+		if v != nil {
+			return *v
+		}
+		var ret FlowMediaStreamVideoFormat
+		return ret
+	}).(FlowMediaStreamVideoFormatOutput)
+}
+
+func (o FlowMediaStreamVideoFormatPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowMediaStreamVideoFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FlowMediaStreamVideoFormat) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FlowMediaStreamVideoFormatInput is an input type that accepts values of the FlowMediaStreamVideoFormat enum
+// A concrete instance of `FlowMediaStreamVideoFormatInput` can be one of the following:
+//
+//	FlowMediaStreamVideoFormat_2160p
+//	FlowMediaStreamVideoFormat_1080p
+//	FlowMediaStreamVideoFormat_1080i
+//	FlowMediaStreamVideoFormat_720p
+//	FlowMediaStreamVideoFormat_480p
+type FlowMediaStreamVideoFormatInput interface {
+	pulumi.Input
+
+	ToFlowMediaStreamVideoFormatOutput() FlowMediaStreamVideoFormatOutput
+	ToFlowMediaStreamVideoFormatOutputWithContext(context.Context) FlowMediaStreamVideoFormatOutput
+}
+
+var flowMediaStreamVideoFormatPtrType = reflect.TypeOf((**FlowMediaStreamVideoFormat)(nil)).Elem()
+
+type FlowMediaStreamVideoFormatPtrInput interface {
+	pulumi.Input
+
+	ToFlowMediaStreamVideoFormatPtrOutput() FlowMediaStreamVideoFormatPtrOutput
+	ToFlowMediaStreamVideoFormatPtrOutputWithContext(context.Context) FlowMediaStreamVideoFormatPtrOutput
+}
+
+type flowMediaStreamVideoFormatPtr string
+
+func FlowMediaStreamVideoFormatPtr(v string) FlowMediaStreamVideoFormatPtrInput {
+	return (*flowMediaStreamVideoFormatPtr)(&v)
+}
+
+func (*flowMediaStreamVideoFormatPtr) ElementType() reflect.Type {
+	return flowMediaStreamVideoFormatPtrType
+}
+
+func (in *flowMediaStreamVideoFormatPtr) ToFlowMediaStreamVideoFormatPtrOutput() FlowMediaStreamVideoFormatPtrOutput {
+	return pulumi.ToOutput(in).(FlowMediaStreamVideoFormatPtrOutput)
+}
+
+func (in *flowMediaStreamVideoFormatPtr) ToFlowMediaStreamVideoFormatPtrOutputWithContext(ctx context.Context) FlowMediaStreamVideoFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FlowMediaStreamVideoFormatPtrOutput)
+}
+
+// A setting on the encoder that drives compression settings. This property only applies to video media streams associated with outputs that use the ST 2110 JPEG XS protocol, with a flow source that uses the CDI protocol.
+type FlowOutputEncodingParametersEncoderProfile string
+
+const (
+	FlowOutputEncodingParametersEncoderProfileMain = FlowOutputEncodingParametersEncoderProfile("main")
+	FlowOutputEncodingParametersEncoderProfileHigh = FlowOutputEncodingParametersEncoderProfile("high")
+)
+
+func (FlowOutputEncodingParametersEncoderProfile) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowOutputEncodingParametersEncoderProfile)(nil)).Elem()
+}
+
+func (e FlowOutputEncodingParametersEncoderProfile) ToFlowOutputEncodingParametersEncoderProfileOutput() FlowOutputEncodingParametersEncoderProfileOutput {
+	return pulumi.ToOutput(e).(FlowOutputEncodingParametersEncoderProfileOutput)
+}
+
+func (e FlowOutputEncodingParametersEncoderProfile) ToFlowOutputEncodingParametersEncoderProfileOutputWithContext(ctx context.Context) FlowOutputEncodingParametersEncoderProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FlowOutputEncodingParametersEncoderProfileOutput)
+}
+
+func (e FlowOutputEncodingParametersEncoderProfile) ToFlowOutputEncodingParametersEncoderProfilePtrOutput() FlowOutputEncodingParametersEncoderProfilePtrOutput {
+	return e.ToFlowOutputEncodingParametersEncoderProfilePtrOutputWithContext(context.Background())
+}
+
+func (e FlowOutputEncodingParametersEncoderProfile) ToFlowOutputEncodingParametersEncoderProfilePtrOutputWithContext(ctx context.Context) FlowOutputEncodingParametersEncoderProfilePtrOutput {
+	return FlowOutputEncodingParametersEncoderProfile(e).ToFlowOutputEncodingParametersEncoderProfileOutputWithContext(ctx).ToFlowOutputEncodingParametersEncoderProfilePtrOutputWithContext(ctx)
+}
+
+func (e FlowOutputEncodingParametersEncoderProfile) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowOutputEncodingParametersEncoderProfile) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowOutputEncodingParametersEncoderProfile) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FlowOutputEncodingParametersEncoderProfile) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FlowOutputEncodingParametersEncoderProfileOutput struct{ *pulumi.OutputState }
+
+func (FlowOutputEncodingParametersEncoderProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowOutputEncodingParametersEncoderProfile)(nil)).Elem()
+}
+
+func (o FlowOutputEncodingParametersEncoderProfileOutput) ToFlowOutputEncodingParametersEncoderProfileOutput() FlowOutputEncodingParametersEncoderProfileOutput {
+	return o
+}
+
+func (o FlowOutputEncodingParametersEncoderProfileOutput) ToFlowOutputEncodingParametersEncoderProfileOutputWithContext(ctx context.Context) FlowOutputEncodingParametersEncoderProfileOutput {
+	return o
+}
+
+func (o FlowOutputEncodingParametersEncoderProfileOutput) ToFlowOutputEncodingParametersEncoderProfilePtrOutput() FlowOutputEncodingParametersEncoderProfilePtrOutput {
+	return o.ToFlowOutputEncodingParametersEncoderProfilePtrOutputWithContext(context.Background())
+}
+
+func (o FlowOutputEncodingParametersEncoderProfileOutput) ToFlowOutputEncodingParametersEncoderProfilePtrOutputWithContext(ctx context.Context) FlowOutputEncodingParametersEncoderProfilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowOutputEncodingParametersEncoderProfile) *FlowOutputEncodingParametersEncoderProfile {
+		return &v
+	}).(FlowOutputEncodingParametersEncoderProfilePtrOutput)
+}
+
+func (o FlowOutputEncodingParametersEncoderProfileOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FlowOutputEncodingParametersEncoderProfileOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowOutputEncodingParametersEncoderProfile) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FlowOutputEncodingParametersEncoderProfileOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowOutputEncodingParametersEncoderProfileOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowOutputEncodingParametersEncoderProfile) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlowOutputEncodingParametersEncoderProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (FlowOutputEncodingParametersEncoderProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowOutputEncodingParametersEncoderProfile)(nil)).Elem()
+}
+
+func (o FlowOutputEncodingParametersEncoderProfilePtrOutput) ToFlowOutputEncodingParametersEncoderProfilePtrOutput() FlowOutputEncodingParametersEncoderProfilePtrOutput {
+	return o
+}
+
+func (o FlowOutputEncodingParametersEncoderProfilePtrOutput) ToFlowOutputEncodingParametersEncoderProfilePtrOutputWithContext(ctx context.Context) FlowOutputEncodingParametersEncoderProfilePtrOutput {
+	return o
+}
+
+func (o FlowOutputEncodingParametersEncoderProfilePtrOutput) Elem() FlowOutputEncodingParametersEncoderProfileOutput {
+	return o.ApplyT(func(v *FlowOutputEncodingParametersEncoderProfile) FlowOutputEncodingParametersEncoderProfile {
+		if v != nil {
+			return *v
+		}
+		var ret FlowOutputEncodingParametersEncoderProfile
+		return ret
+	}).(FlowOutputEncodingParametersEncoderProfileOutput)
+}
+
+func (o FlowOutputEncodingParametersEncoderProfilePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowOutputEncodingParametersEncoderProfilePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FlowOutputEncodingParametersEncoderProfile) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FlowOutputEncodingParametersEncoderProfileInput is an input type that accepts values of the FlowOutputEncodingParametersEncoderProfile enum
+// A concrete instance of `FlowOutputEncodingParametersEncoderProfileInput` can be one of the following:
+//
+//	FlowOutputEncodingParametersEncoderProfileMain
+//	FlowOutputEncodingParametersEncoderProfileHigh
+type FlowOutputEncodingParametersEncoderProfileInput interface {
+	pulumi.Input
+
+	ToFlowOutputEncodingParametersEncoderProfileOutput() FlowOutputEncodingParametersEncoderProfileOutput
+	ToFlowOutputEncodingParametersEncoderProfileOutputWithContext(context.Context) FlowOutputEncodingParametersEncoderProfileOutput
+}
+
+var flowOutputEncodingParametersEncoderProfilePtrType = reflect.TypeOf((**FlowOutputEncodingParametersEncoderProfile)(nil)).Elem()
+
+type FlowOutputEncodingParametersEncoderProfilePtrInput interface {
+	pulumi.Input
+
+	ToFlowOutputEncodingParametersEncoderProfilePtrOutput() FlowOutputEncodingParametersEncoderProfilePtrOutput
+	ToFlowOutputEncodingParametersEncoderProfilePtrOutputWithContext(context.Context) FlowOutputEncodingParametersEncoderProfilePtrOutput
+}
+
+type flowOutputEncodingParametersEncoderProfilePtr string
+
+func FlowOutputEncodingParametersEncoderProfilePtr(v string) FlowOutputEncodingParametersEncoderProfilePtrInput {
+	return (*flowOutputEncodingParametersEncoderProfilePtr)(&v)
+}
+
+func (*flowOutputEncodingParametersEncoderProfilePtr) ElementType() reflect.Type {
+	return flowOutputEncodingParametersEncoderProfilePtrType
+}
+
+func (in *flowOutputEncodingParametersEncoderProfilePtr) ToFlowOutputEncodingParametersEncoderProfilePtrOutput() FlowOutputEncodingParametersEncoderProfilePtrOutput {
+	return pulumi.ToOutput(in).(FlowOutputEncodingParametersEncoderProfilePtrOutput)
+}
+
+func (in *flowOutputEncodingParametersEncoderProfilePtr) ToFlowOutputEncodingParametersEncoderProfilePtrOutputWithContext(ctx context.Context) FlowOutputEncodingParametersEncoderProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FlowOutputEncodingParametersEncoderProfilePtrOutput)
+}
+
 // The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
 type FlowOutputEncryptionAlgorithm string
 
@@ -2440,18 +3984,190 @@ func (in *flowOutputEncryptionKeyTypePtr) ToFlowOutputEncryptionKeyTypePtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(FlowOutputEncryptionKeyTypePtrOutput)
 }
 
+// The format that will be used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video streams on sources or outputs that use the CDI protocol, set the encoding name to raw. For video streams on sources or outputs that use the ST 2110 JPEG XS protocol, set the encoding name to jxsv.
+type FlowOutputMediaStreamOutputConfigurationEncodingName string
+
+const (
+	FlowOutputMediaStreamOutputConfigurationEncodingNameJxsv     = FlowOutputMediaStreamOutputConfigurationEncodingName("jxsv")
+	FlowOutputMediaStreamOutputConfigurationEncodingNameRaw      = FlowOutputMediaStreamOutputConfigurationEncodingName("raw")
+	FlowOutputMediaStreamOutputConfigurationEncodingNameSmpte291 = FlowOutputMediaStreamOutputConfigurationEncodingName("smpte291")
+	FlowOutputMediaStreamOutputConfigurationEncodingNamePcm      = FlowOutputMediaStreamOutputConfigurationEncodingName("pcm")
+)
+
+func (FlowOutputMediaStreamOutputConfigurationEncodingName) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowOutputMediaStreamOutputConfigurationEncodingName)(nil)).Elem()
+}
+
+func (e FlowOutputMediaStreamOutputConfigurationEncodingName) ToFlowOutputMediaStreamOutputConfigurationEncodingNameOutput() FlowOutputMediaStreamOutputConfigurationEncodingNameOutput {
+	return pulumi.ToOutput(e).(FlowOutputMediaStreamOutputConfigurationEncodingNameOutput)
+}
+
+func (e FlowOutputMediaStreamOutputConfigurationEncodingName) ToFlowOutputMediaStreamOutputConfigurationEncodingNameOutputWithContext(ctx context.Context) FlowOutputMediaStreamOutputConfigurationEncodingNameOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FlowOutputMediaStreamOutputConfigurationEncodingNameOutput)
+}
+
+func (e FlowOutputMediaStreamOutputConfigurationEncodingName) ToFlowOutputMediaStreamOutputConfigurationEncodingNamePtrOutput() FlowOutputMediaStreamOutputConfigurationEncodingNamePtrOutput {
+	return e.ToFlowOutputMediaStreamOutputConfigurationEncodingNamePtrOutputWithContext(context.Background())
+}
+
+func (e FlowOutputMediaStreamOutputConfigurationEncodingName) ToFlowOutputMediaStreamOutputConfigurationEncodingNamePtrOutputWithContext(ctx context.Context) FlowOutputMediaStreamOutputConfigurationEncodingNamePtrOutput {
+	return FlowOutputMediaStreamOutputConfigurationEncodingName(e).ToFlowOutputMediaStreamOutputConfigurationEncodingNameOutputWithContext(ctx).ToFlowOutputMediaStreamOutputConfigurationEncodingNamePtrOutputWithContext(ctx)
+}
+
+func (e FlowOutputMediaStreamOutputConfigurationEncodingName) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowOutputMediaStreamOutputConfigurationEncodingName) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowOutputMediaStreamOutputConfigurationEncodingName) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FlowOutputMediaStreamOutputConfigurationEncodingName) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FlowOutputMediaStreamOutputConfigurationEncodingNameOutput struct{ *pulumi.OutputState }
+
+func (FlowOutputMediaStreamOutputConfigurationEncodingNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowOutputMediaStreamOutputConfigurationEncodingName)(nil)).Elem()
+}
+
+func (o FlowOutputMediaStreamOutputConfigurationEncodingNameOutput) ToFlowOutputMediaStreamOutputConfigurationEncodingNameOutput() FlowOutputMediaStreamOutputConfigurationEncodingNameOutput {
+	return o
+}
+
+func (o FlowOutputMediaStreamOutputConfigurationEncodingNameOutput) ToFlowOutputMediaStreamOutputConfigurationEncodingNameOutputWithContext(ctx context.Context) FlowOutputMediaStreamOutputConfigurationEncodingNameOutput {
+	return o
+}
+
+func (o FlowOutputMediaStreamOutputConfigurationEncodingNameOutput) ToFlowOutputMediaStreamOutputConfigurationEncodingNamePtrOutput() FlowOutputMediaStreamOutputConfigurationEncodingNamePtrOutput {
+	return o.ToFlowOutputMediaStreamOutputConfigurationEncodingNamePtrOutputWithContext(context.Background())
+}
+
+func (o FlowOutputMediaStreamOutputConfigurationEncodingNameOutput) ToFlowOutputMediaStreamOutputConfigurationEncodingNamePtrOutputWithContext(ctx context.Context) FlowOutputMediaStreamOutputConfigurationEncodingNamePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowOutputMediaStreamOutputConfigurationEncodingName) *FlowOutputMediaStreamOutputConfigurationEncodingName {
+		return &v
+	}).(FlowOutputMediaStreamOutputConfigurationEncodingNamePtrOutput)
+}
+
+func (o FlowOutputMediaStreamOutputConfigurationEncodingNameOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FlowOutputMediaStreamOutputConfigurationEncodingNameOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowOutputMediaStreamOutputConfigurationEncodingName) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FlowOutputMediaStreamOutputConfigurationEncodingNameOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowOutputMediaStreamOutputConfigurationEncodingNameOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowOutputMediaStreamOutputConfigurationEncodingName) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlowOutputMediaStreamOutputConfigurationEncodingNamePtrOutput struct{ *pulumi.OutputState }
+
+func (FlowOutputMediaStreamOutputConfigurationEncodingNamePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowOutputMediaStreamOutputConfigurationEncodingName)(nil)).Elem()
+}
+
+func (o FlowOutputMediaStreamOutputConfigurationEncodingNamePtrOutput) ToFlowOutputMediaStreamOutputConfigurationEncodingNamePtrOutput() FlowOutputMediaStreamOutputConfigurationEncodingNamePtrOutput {
+	return o
+}
+
+func (o FlowOutputMediaStreamOutputConfigurationEncodingNamePtrOutput) ToFlowOutputMediaStreamOutputConfigurationEncodingNamePtrOutputWithContext(ctx context.Context) FlowOutputMediaStreamOutputConfigurationEncodingNamePtrOutput {
+	return o
+}
+
+func (o FlowOutputMediaStreamOutputConfigurationEncodingNamePtrOutput) Elem() FlowOutputMediaStreamOutputConfigurationEncodingNameOutput {
+	return o.ApplyT(func(v *FlowOutputMediaStreamOutputConfigurationEncodingName) FlowOutputMediaStreamOutputConfigurationEncodingName {
+		if v != nil {
+			return *v
+		}
+		var ret FlowOutputMediaStreamOutputConfigurationEncodingName
+		return ret
+	}).(FlowOutputMediaStreamOutputConfigurationEncodingNameOutput)
+}
+
+func (o FlowOutputMediaStreamOutputConfigurationEncodingNamePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowOutputMediaStreamOutputConfigurationEncodingNamePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FlowOutputMediaStreamOutputConfigurationEncodingName) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FlowOutputMediaStreamOutputConfigurationEncodingNameInput is an input type that accepts values of the FlowOutputMediaStreamOutputConfigurationEncodingName enum
+// A concrete instance of `FlowOutputMediaStreamOutputConfigurationEncodingNameInput` can be one of the following:
+//
+//	FlowOutputMediaStreamOutputConfigurationEncodingNameJxsv
+//	FlowOutputMediaStreamOutputConfigurationEncodingNameRaw
+//	FlowOutputMediaStreamOutputConfigurationEncodingNameSmpte291
+//	FlowOutputMediaStreamOutputConfigurationEncodingNamePcm
+type FlowOutputMediaStreamOutputConfigurationEncodingNameInput interface {
+	pulumi.Input
+
+	ToFlowOutputMediaStreamOutputConfigurationEncodingNameOutput() FlowOutputMediaStreamOutputConfigurationEncodingNameOutput
+	ToFlowOutputMediaStreamOutputConfigurationEncodingNameOutputWithContext(context.Context) FlowOutputMediaStreamOutputConfigurationEncodingNameOutput
+}
+
+var flowOutputMediaStreamOutputConfigurationEncodingNamePtrType = reflect.TypeOf((**FlowOutputMediaStreamOutputConfigurationEncodingName)(nil)).Elem()
+
+type FlowOutputMediaStreamOutputConfigurationEncodingNamePtrInput interface {
+	pulumi.Input
+
+	ToFlowOutputMediaStreamOutputConfigurationEncodingNamePtrOutput() FlowOutputMediaStreamOutputConfigurationEncodingNamePtrOutput
+	ToFlowOutputMediaStreamOutputConfigurationEncodingNamePtrOutputWithContext(context.Context) FlowOutputMediaStreamOutputConfigurationEncodingNamePtrOutput
+}
+
+type flowOutputMediaStreamOutputConfigurationEncodingNamePtr string
+
+func FlowOutputMediaStreamOutputConfigurationEncodingNamePtr(v string) FlowOutputMediaStreamOutputConfigurationEncodingNamePtrInput {
+	return (*flowOutputMediaStreamOutputConfigurationEncodingNamePtr)(&v)
+}
+
+func (*flowOutputMediaStreamOutputConfigurationEncodingNamePtr) ElementType() reflect.Type {
+	return flowOutputMediaStreamOutputConfigurationEncodingNamePtrType
+}
+
+func (in *flowOutputMediaStreamOutputConfigurationEncodingNamePtr) ToFlowOutputMediaStreamOutputConfigurationEncodingNamePtrOutput() FlowOutputMediaStreamOutputConfigurationEncodingNamePtrOutput {
+	return pulumi.ToOutput(in).(FlowOutputMediaStreamOutputConfigurationEncodingNamePtrOutput)
+}
+
+func (in *flowOutputMediaStreamOutputConfigurationEncodingNamePtr) ToFlowOutputMediaStreamOutputConfigurationEncodingNamePtrOutputWithContext(ctx context.Context) FlowOutputMediaStreamOutputConfigurationEncodingNamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FlowOutputMediaStreamOutputConfigurationEncodingNamePtrOutput)
+}
+
 // The protocol that is used by the source or output.
 type FlowOutputProtocol string
 
 const (
-	FlowOutputProtocolZixiPush    = FlowOutputProtocol("zixi-push")
-	FlowOutputProtocolRtpFec      = FlowOutputProtocol("rtp-fec")
-	FlowOutputProtocolRtp         = FlowOutputProtocol("rtp")
-	FlowOutputProtocolZixiPull    = FlowOutputProtocol("zixi-pull")
-	FlowOutputProtocolRist        = FlowOutputProtocol("rist")
-	FlowOutputProtocolFujitsuQos  = FlowOutputProtocol("fujitsu-qos")
-	FlowOutputProtocolSrtListener = FlowOutputProtocol("srt-listener")
-	FlowOutputProtocolSrtCaller   = FlowOutputProtocol("srt-caller")
+	FlowOutputProtocolZixiPush     = FlowOutputProtocol("zixi-push")
+	FlowOutputProtocolRtpFec       = FlowOutputProtocol("rtp-fec")
+	FlowOutputProtocolRtp          = FlowOutputProtocol("rtp")
+	FlowOutputProtocolZixiPull     = FlowOutputProtocol("zixi-pull")
+	FlowOutputProtocolRist         = FlowOutputProtocol("rist")
+	FlowOutputProtocolFujitsuQos   = FlowOutputProtocol("fujitsu-qos")
+	FlowOutputProtocolSrtListener  = FlowOutputProtocol("srt-listener")
+	FlowOutputProtocolSrtCaller    = FlowOutputProtocol("srt-caller")
+	FlowOutputProtocolSt2110Jpegxs = FlowOutputProtocol("st2110-jpegxs")
+	FlowOutputProtocolCdi          = FlowOutputProtocol("cdi")
 )
 
 func (FlowOutputProtocol) ElementType() reflect.Type {
@@ -2584,6 +4300,8 @@ func (o FlowOutputProtocolPtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 //	FlowOutputProtocolFujitsuQos
 //	FlowOutputProtocolSrtListener
 //	FlowOutputProtocolSrtCaller
+//	FlowOutputProtocolSt2110Jpegxs
+//	FlowOutputProtocolCdi
 type FlowOutputProtocolInput interface {
 	pulumi.Input
 
@@ -2958,13 +4676,15 @@ func (in *flowSourceEncryptionKeyTypePtr) ToFlowSourceEncryptionKeyTypePtrOutput
 type FlowSourceProtocol string
 
 const (
-	FlowSourceProtocolZixiPush    = FlowSourceProtocol("zixi-push")
-	FlowSourceProtocolRtpFec      = FlowSourceProtocol("rtp-fec")
-	FlowSourceProtocolRtp         = FlowSourceProtocol("rtp")
-	FlowSourceProtocolRist        = FlowSourceProtocol("rist")
-	FlowSourceProtocolFujitsuQos  = FlowSourceProtocol("fujitsu-qos")
-	FlowSourceProtocolSrtListener = FlowSourceProtocol("srt-listener")
-	FlowSourceProtocolSrtCaller   = FlowSourceProtocol("srt-caller")
+	FlowSourceProtocolZixiPush     = FlowSourceProtocol("zixi-push")
+	FlowSourceProtocolRtpFec       = FlowSourceProtocol("rtp-fec")
+	FlowSourceProtocolRtp          = FlowSourceProtocol("rtp")
+	FlowSourceProtocolRist         = FlowSourceProtocol("rist")
+	FlowSourceProtocolFujitsuQos   = FlowSourceProtocol("fujitsu-qos")
+	FlowSourceProtocolSrtListener  = FlowSourceProtocol("srt-listener")
+	FlowSourceProtocolSrtCaller    = FlowSourceProtocol("srt-caller")
+	FlowSourceProtocolSt2110Jpegxs = FlowSourceProtocol("st2110-jpegxs")
+	FlowSourceProtocolCdi          = FlowSourceProtocol("cdi")
 )
 
 func (FlowSourceProtocol) ElementType() reflect.Type {
@@ -3096,6 +4816,8 @@ func (o FlowSourceProtocolPtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 //	FlowSourceProtocolFujitsuQos
 //	FlowSourceProtocolSrtListener
 //	FlowSourceProtocolSrtCaller
+//	FlowSourceProtocolSt2110Jpegxs
+//	FlowSourceProtocolCdi
 type FlowSourceProtocolInput interface {
 	pulumi.Input
 
@@ -3128,6 +4850,172 @@ func (in *flowSourceProtocolPtr) ToFlowSourceProtocolPtrOutput() FlowSourceProto
 
 func (in *flowSourceProtocolPtr) ToFlowSourceProtocolPtrOutputWithContext(ctx context.Context) FlowSourceProtocolPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FlowSourceProtocolPtrOutput)
+}
+
+// The type of network adapter that you want MediaConnect to use on this interface. If you don't set this value, it defaults to ENA.
+type FlowVpcInterfaceNetworkInterfaceType string
+
+const (
+	FlowVpcInterfaceNetworkInterfaceTypeEna = FlowVpcInterfaceNetworkInterfaceType("ena")
+	FlowVpcInterfaceNetworkInterfaceTypeEfa = FlowVpcInterfaceNetworkInterfaceType("efa")
+)
+
+func (FlowVpcInterfaceNetworkInterfaceType) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowVpcInterfaceNetworkInterfaceType)(nil)).Elem()
+}
+
+func (e FlowVpcInterfaceNetworkInterfaceType) ToFlowVpcInterfaceNetworkInterfaceTypeOutput() FlowVpcInterfaceNetworkInterfaceTypeOutput {
+	return pulumi.ToOutput(e).(FlowVpcInterfaceNetworkInterfaceTypeOutput)
+}
+
+func (e FlowVpcInterfaceNetworkInterfaceType) ToFlowVpcInterfaceNetworkInterfaceTypeOutputWithContext(ctx context.Context) FlowVpcInterfaceNetworkInterfaceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FlowVpcInterfaceNetworkInterfaceTypeOutput)
+}
+
+func (e FlowVpcInterfaceNetworkInterfaceType) ToFlowVpcInterfaceNetworkInterfaceTypePtrOutput() FlowVpcInterfaceNetworkInterfaceTypePtrOutput {
+	return e.ToFlowVpcInterfaceNetworkInterfaceTypePtrOutputWithContext(context.Background())
+}
+
+func (e FlowVpcInterfaceNetworkInterfaceType) ToFlowVpcInterfaceNetworkInterfaceTypePtrOutputWithContext(ctx context.Context) FlowVpcInterfaceNetworkInterfaceTypePtrOutput {
+	return FlowVpcInterfaceNetworkInterfaceType(e).ToFlowVpcInterfaceNetworkInterfaceTypeOutputWithContext(ctx).ToFlowVpcInterfaceNetworkInterfaceTypePtrOutputWithContext(ctx)
+}
+
+func (e FlowVpcInterfaceNetworkInterfaceType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowVpcInterfaceNetworkInterfaceType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowVpcInterfaceNetworkInterfaceType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FlowVpcInterfaceNetworkInterfaceType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FlowVpcInterfaceNetworkInterfaceTypeOutput struct{ *pulumi.OutputState }
+
+func (FlowVpcInterfaceNetworkInterfaceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowVpcInterfaceNetworkInterfaceType)(nil)).Elem()
+}
+
+func (o FlowVpcInterfaceNetworkInterfaceTypeOutput) ToFlowVpcInterfaceNetworkInterfaceTypeOutput() FlowVpcInterfaceNetworkInterfaceTypeOutput {
+	return o
+}
+
+func (o FlowVpcInterfaceNetworkInterfaceTypeOutput) ToFlowVpcInterfaceNetworkInterfaceTypeOutputWithContext(ctx context.Context) FlowVpcInterfaceNetworkInterfaceTypeOutput {
+	return o
+}
+
+func (o FlowVpcInterfaceNetworkInterfaceTypeOutput) ToFlowVpcInterfaceNetworkInterfaceTypePtrOutput() FlowVpcInterfaceNetworkInterfaceTypePtrOutput {
+	return o.ToFlowVpcInterfaceNetworkInterfaceTypePtrOutputWithContext(context.Background())
+}
+
+func (o FlowVpcInterfaceNetworkInterfaceTypeOutput) ToFlowVpcInterfaceNetworkInterfaceTypePtrOutputWithContext(ctx context.Context) FlowVpcInterfaceNetworkInterfaceTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowVpcInterfaceNetworkInterfaceType) *FlowVpcInterfaceNetworkInterfaceType {
+		return &v
+	}).(FlowVpcInterfaceNetworkInterfaceTypePtrOutput)
+}
+
+func (o FlowVpcInterfaceNetworkInterfaceTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FlowVpcInterfaceNetworkInterfaceTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowVpcInterfaceNetworkInterfaceType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FlowVpcInterfaceNetworkInterfaceTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowVpcInterfaceNetworkInterfaceTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowVpcInterfaceNetworkInterfaceType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlowVpcInterfaceNetworkInterfaceTypePtrOutput struct{ *pulumi.OutputState }
+
+func (FlowVpcInterfaceNetworkInterfaceTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowVpcInterfaceNetworkInterfaceType)(nil)).Elem()
+}
+
+func (o FlowVpcInterfaceNetworkInterfaceTypePtrOutput) ToFlowVpcInterfaceNetworkInterfaceTypePtrOutput() FlowVpcInterfaceNetworkInterfaceTypePtrOutput {
+	return o
+}
+
+func (o FlowVpcInterfaceNetworkInterfaceTypePtrOutput) ToFlowVpcInterfaceNetworkInterfaceTypePtrOutputWithContext(ctx context.Context) FlowVpcInterfaceNetworkInterfaceTypePtrOutput {
+	return o
+}
+
+func (o FlowVpcInterfaceNetworkInterfaceTypePtrOutput) Elem() FlowVpcInterfaceNetworkInterfaceTypeOutput {
+	return o.ApplyT(func(v *FlowVpcInterfaceNetworkInterfaceType) FlowVpcInterfaceNetworkInterfaceType {
+		if v != nil {
+			return *v
+		}
+		var ret FlowVpcInterfaceNetworkInterfaceType
+		return ret
+	}).(FlowVpcInterfaceNetworkInterfaceTypeOutput)
+}
+
+func (o FlowVpcInterfaceNetworkInterfaceTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowVpcInterfaceNetworkInterfaceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FlowVpcInterfaceNetworkInterfaceType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FlowVpcInterfaceNetworkInterfaceTypeInput is an input type that accepts values of the FlowVpcInterfaceNetworkInterfaceType enum
+// A concrete instance of `FlowVpcInterfaceNetworkInterfaceTypeInput` can be one of the following:
+//
+//	FlowVpcInterfaceNetworkInterfaceTypeEna
+//	FlowVpcInterfaceNetworkInterfaceTypeEfa
+type FlowVpcInterfaceNetworkInterfaceTypeInput interface {
+	pulumi.Input
+
+	ToFlowVpcInterfaceNetworkInterfaceTypeOutput() FlowVpcInterfaceNetworkInterfaceTypeOutput
+	ToFlowVpcInterfaceNetworkInterfaceTypeOutputWithContext(context.Context) FlowVpcInterfaceNetworkInterfaceTypeOutput
+}
+
+var flowVpcInterfaceNetworkInterfaceTypePtrType = reflect.TypeOf((**FlowVpcInterfaceNetworkInterfaceType)(nil)).Elem()
+
+type FlowVpcInterfaceNetworkInterfaceTypePtrInput interface {
+	pulumi.Input
+
+	ToFlowVpcInterfaceNetworkInterfaceTypePtrOutput() FlowVpcInterfaceNetworkInterfaceTypePtrOutput
+	ToFlowVpcInterfaceNetworkInterfaceTypePtrOutputWithContext(context.Context) FlowVpcInterfaceNetworkInterfaceTypePtrOutput
+}
+
+type flowVpcInterfaceNetworkInterfaceTypePtr string
+
+func FlowVpcInterfaceNetworkInterfaceTypePtr(v string) FlowVpcInterfaceNetworkInterfaceTypePtrInput {
+	return (*flowVpcInterfaceNetworkInterfaceTypePtr)(&v)
+}
+
+func (*flowVpcInterfaceNetworkInterfaceTypePtr) ElementType() reflect.Type {
+	return flowVpcInterfaceNetworkInterfaceTypePtrType
+}
+
+func (in *flowVpcInterfaceNetworkInterfaceTypePtr) ToFlowVpcInterfaceNetworkInterfaceTypePtrOutput() FlowVpcInterfaceNetworkInterfaceTypePtrOutput {
+	return pulumi.ToOutput(in).(FlowVpcInterfaceNetworkInterfaceTypePtrOutput)
+}
+
+func (in *flowVpcInterfaceNetworkInterfaceTypePtr) ToFlowVpcInterfaceNetworkInterfaceTypePtrOutputWithContext(ctx context.Context) FlowVpcInterfaceNetworkInterfaceTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FlowVpcInterfaceNetworkInterfaceTypePtrOutput)
 }
 
 // The current status of the gateway.
@@ -3250,10 +5138,30 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowFailoverConfigFailoverModePtrInput)(nil)).Elem(), FlowFailoverConfigFailoverMode("MERGE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowFailoverConfigStateInput)(nil)).Elem(), FlowFailoverConfigState("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowFailoverConfigStatePtrInput)(nil)).Elem(), FlowFailoverConfigState("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowFmtpColorimetryInput)(nil)).Elem(), FlowFmtpColorimetry("BT601"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowFmtpColorimetryPtrInput)(nil)).Elem(), FlowFmtpColorimetry("BT601"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowFmtpRangeInput)(nil)).Elem(), FlowFmtpRange("NARROW"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowFmtpRangePtrInput)(nil)).Elem(), FlowFmtpRange("NARROW"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowFmtpScanModeInput)(nil)).Elem(), FlowFmtpScanMode("progressive"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowFmtpScanModePtrInput)(nil)).Elem(), FlowFmtpScanMode("progressive"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowFmtpTcsInput)(nil)).Elem(), FlowFmtpTcs("SDR"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowFmtpTcsPtrInput)(nil)).Elem(), FlowFmtpTcs("SDR"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowMaintenanceMaintenanceDayInput)(nil)).Elem(), FlowMaintenanceMaintenanceDay("Monday"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowMaintenanceMaintenanceDayPtrInput)(nil)).Elem(), FlowMaintenanceMaintenanceDay("Monday"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowMediaStreamMediaStreamTypeInput)(nil)).Elem(), FlowMediaStreamMediaStreamType("video"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowMediaStreamMediaStreamTypePtrInput)(nil)).Elem(), FlowMediaStreamMediaStreamType("video"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowMediaStreamSourceConfigurationEncodingNameInput)(nil)).Elem(), FlowMediaStreamSourceConfigurationEncodingName("jxsv"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowMediaStreamSourceConfigurationEncodingNamePtrInput)(nil)).Elem(), FlowMediaStreamSourceConfigurationEncodingName("jxsv"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowMediaStreamVideoFormatInput)(nil)).Elem(), FlowMediaStreamVideoFormat("2160p"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowMediaStreamVideoFormatPtrInput)(nil)).Elem(), FlowMediaStreamVideoFormat("2160p"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputEncodingParametersEncoderProfileInput)(nil)).Elem(), FlowOutputEncodingParametersEncoderProfile("main"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputEncodingParametersEncoderProfilePtrInput)(nil)).Elem(), FlowOutputEncodingParametersEncoderProfile("main"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputEncryptionAlgorithmInput)(nil)).Elem(), FlowOutputEncryptionAlgorithm("aes128"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputEncryptionAlgorithmPtrInput)(nil)).Elem(), FlowOutputEncryptionAlgorithm("aes128"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputEncryptionKeyTypeInput)(nil)).Elem(), FlowOutputEncryptionKeyType("static-key"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputEncryptionKeyTypePtrInput)(nil)).Elem(), FlowOutputEncryptionKeyType("static-key"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputMediaStreamOutputConfigurationEncodingNameInput)(nil)).Elem(), FlowOutputMediaStreamOutputConfigurationEncodingName("jxsv"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputMediaStreamOutputConfigurationEncodingNamePtrInput)(nil)).Elem(), FlowOutputMediaStreamOutputConfigurationEncodingName("jxsv"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputProtocolInput)(nil)).Elem(), FlowOutputProtocol("zixi-push"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputProtocolPtrInput)(nil)).Elem(), FlowOutputProtocol("zixi-push"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceEncryptionAlgorithmInput)(nil)).Elem(), FlowSourceEncryptionAlgorithm("aes128"))
@@ -3262,6 +5170,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceEncryptionKeyTypePtrInput)(nil)).Elem(), FlowSourceEncryptionKeyType("speke"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceProtocolInput)(nil)).Elem(), FlowSourceProtocol("zixi-push"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceProtocolPtrInput)(nil)).Elem(), FlowSourceProtocol("zixi-push"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowVpcInterfaceNetworkInterfaceTypeInput)(nil)).Elem(), FlowVpcInterfaceNetworkInterfaceType("ena"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowVpcInterfaceNetworkInterfaceTypePtrInput)(nil)).Elem(), FlowVpcInterfaceNetworkInterfaceType("ena"))
 	pulumi.RegisterOutputType(BridgeFailoverConfigStateEnumOutput{})
 	pulumi.RegisterOutputType(BridgeFailoverConfigStateEnumPtrOutput{})
 	pulumi.RegisterOutputType(BridgeFailoverModeEnumOutput{})
@@ -3288,10 +5198,30 @@ func init() {
 	pulumi.RegisterOutputType(FlowFailoverConfigFailoverModePtrOutput{})
 	pulumi.RegisterOutputType(FlowFailoverConfigStateOutput{})
 	pulumi.RegisterOutputType(FlowFailoverConfigStatePtrOutput{})
+	pulumi.RegisterOutputType(FlowFmtpColorimetryOutput{})
+	pulumi.RegisterOutputType(FlowFmtpColorimetryPtrOutput{})
+	pulumi.RegisterOutputType(FlowFmtpRangeOutput{})
+	pulumi.RegisterOutputType(FlowFmtpRangePtrOutput{})
+	pulumi.RegisterOutputType(FlowFmtpScanModeOutput{})
+	pulumi.RegisterOutputType(FlowFmtpScanModePtrOutput{})
+	pulumi.RegisterOutputType(FlowFmtpTcsOutput{})
+	pulumi.RegisterOutputType(FlowFmtpTcsPtrOutput{})
+	pulumi.RegisterOutputType(FlowMaintenanceMaintenanceDayOutput{})
+	pulumi.RegisterOutputType(FlowMaintenanceMaintenanceDayPtrOutput{})
+	pulumi.RegisterOutputType(FlowMediaStreamMediaStreamTypeOutput{})
+	pulumi.RegisterOutputType(FlowMediaStreamMediaStreamTypePtrOutput{})
+	pulumi.RegisterOutputType(FlowMediaStreamSourceConfigurationEncodingNameOutput{})
+	pulumi.RegisterOutputType(FlowMediaStreamSourceConfigurationEncodingNamePtrOutput{})
+	pulumi.RegisterOutputType(FlowMediaStreamVideoFormatOutput{})
+	pulumi.RegisterOutputType(FlowMediaStreamVideoFormatPtrOutput{})
+	pulumi.RegisterOutputType(FlowOutputEncodingParametersEncoderProfileOutput{})
+	pulumi.RegisterOutputType(FlowOutputEncodingParametersEncoderProfilePtrOutput{})
 	pulumi.RegisterOutputType(FlowOutputEncryptionAlgorithmOutput{})
 	pulumi.RegisterOutputType(FlowOutputEncryptionAlgorithmPtrOutput{})
 	pulumi.RegisterOutputType(FlowOutputEncryptionKeyTypeOutput{})
 	pulumi.RegisterOutputType(FlowOutputEncryptionKeyTypePtrOutput{})
+	pulumi.RegisterOutputType(FlowOutputMediaStreamOutputConfigurationEncodingNameOutput{})
+	pulumi.RegisterOutputType(FlowOutputMediaStreamOutputConfigurationEncodingNamePtrOutput{})
 	pulumi.RegisterOutputType(FlowOutputProtocolOutput{})
 	pulumi.RegisterOutputType(FlowOutputProtocolPtrOutput{})
 	pulumi.RegisterOutputType(FlowSourceEncryptionAlgorithmOutput{})
@@ -3300,6 +5230,8 @@ func init() {
 	pulumi.RegisterOutputType(FlowSourceEncryptionKeyTypePtrOutput{})
 	pulumi.RegisterOutputType(FlowSourceProtocolOutput{})
 	pulumi.RegisterOutputType(FlowSourceProtocolPtrOutput{})
+	pulumi.RegisterOutputType(FlowVpcInterfaceNetworkInterfaceTypeOutput{})
+	pulumi.RegisterOutputType(FlowVpcInterfaceNetworkInterfaceTypePtrOutput{})
 	pulumi.RegisterOutputType(GatewayStateEnumOutput{})
 	pulumi.RegisterOutputType(GatewayStateEnumPtrOutput{})
 }

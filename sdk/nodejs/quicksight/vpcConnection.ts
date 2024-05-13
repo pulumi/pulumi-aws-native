@@ -37,13 +37,25 @@ export class VpcConnection extends pulumi.CustomResource {
         return obj['__pulumiType'] === VpcConnection.__pulumiType;
     }
 
+    /**
+     * <p>The Amazon Resource Name (ARN) of the VPC connection.</p>
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly availabilityStatus!: pulumi.Output<enums.quicksight.VpcConnectionVpcConnectionAvailabilityStatus | undefined>;
     public readonly awsAccountId!: pulumi.Output<string | undefined>;
+    /**
+     * <p>The time that the VPC connection was created.</p>
+     */
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
     public readonly dnsResolvers!: pulumi.Output<string[] | undefined>;
+    /**
+     * <p>The time that the VPC connection was last updated.</p>
+     */
     public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string | undefined>;
+    /**
+     * <p>A list of network interfaces.</p>
+     */
     public /*out*/ readonly networkInterfaces!: pulumi.Output<outputs.quicksight.VpcConnectionNetworkInterface[]>;
     public readonly roleArn!: pulumi.Output<string | undefined>;
     public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
@@ -51,6 +63,9 @@ export class VpcConnection extends pulumi.CustomResource {
     public readonly subnetIds!: pulumi.Output<string[] | undefined>;
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly vpcConnectionId!: pulumi.Output<string | undefined>;
+    /**
+     * <p>The Amazon EC2 VPC ID associated with the VPC connection.</p>
+     */
     public /*out*/ readonly vpcId!: pulumi.Output<string>;
 
     /**

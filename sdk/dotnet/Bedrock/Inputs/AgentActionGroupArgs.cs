@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
     public sealed class AgentActionGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("actionGroupExecutor")]
-        public Input<Inputs.AgentActionGroupExecutorArgs>? ActionGroupExecutor { get; set; }
+        public InputUnion<Inputs.AgentActionGroupExecutor0PropertiesArgs, Inputs.AgentActionGroupExecutor1PropertiesArgs>? ActionGroupExecutor { get; set; }
 
         /// <summary>
         /// Name of the action group
@@ -35,6 +35,9 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        [Input("functionSchema")]
+        public Input<Inputs.AgentFunctionSchemaArgs>? FunctionSchema { get; set; }
 
         [Input("parentActionGroupSignature")]
         public Input<Pulumi.AwsNative.Bedrock.AgentActionGroupSignature>? ParentActionGroupSignature { get; set; }

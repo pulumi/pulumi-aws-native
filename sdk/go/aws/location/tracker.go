@@ -24,7 +24,8 @@ type Tracker struct {
 	KmsKeyId                      pulumi.StringPtrOutput            `pulumi:"kmsKeyId"`
 	PositionFiltering             TrackerPositionFilteringPtrOutput `pulumi:"positionFiltering"`
 	PricingPlan                   TrackerPricingPlanPtrOutput       `pulumi:"pricingPlan"`
-	PricingPlanDataSource         pulumi.StringPtrOutput            `pulumi:"pricingPlanDataSource"`
+	// This shape is deprecated since 2022-02-01: Deprecated. No longer allowed.
+	PricingPlanDataSource pulumi.StringPtrOutput `pulumi:"pricingPlanDataSource"`
 	// An array of key-value pairs to apply to this resource.
 	Tags        aws.TagArrayOutput  `pulumi:"tags"`
 	TrackerArn  pulumi.StringOutput `pulumi:"trackerArn"`
@@ -83,7 +84,8 @@ type trackerArgs struct {
 	KmsKeyId                      *string                   `pulumi:"kmsKeyId"`
 	PositionFiltering             *TrackerPositionFiltering `pulumi:"positionFiltering"`
 	PricingPlan                   *TrackerPricingPlan       `pulumi:"pricingPlan"`
-	PricingPlanDataSource         *string                   `pulumi:"pricingPlanDataSource"`
+	// This shape is deprecated since 2022-02-01: Deprecated. No longer allowed.
+	PricingPlanDataSource *string `pulumi:"pricingPlanDataSource"`
 	// An array of key-value pairs to apply to this resource.
 	Tags        []aws.Tag `pulumi:"tags"`
 	TrackerName *string   `pulumi:"trackerName"`
@@ -97,7 +99,8 @@ type TrackerArgs struct {
 	KmsKeyId                      pulumi.StringPtrInput
 	PositionFiltering             TrackerPositionFilteringPtrInput
 	PricingPlan                   TrackerPricingPlanPtrInput
-	PricingPlanDataSource         pulumi.StringPtrInput
+	// This shape is deprecated since 2022-02-01: Deprecated. No longer allowed.
+	PricingPlanDataSource pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags        aws.TagArrayInput
 	TrackerName pulumi.StringPtrInput
@@ -172,6 +175,7 @@ func (o TrackerOutput) PricingPlan() TrackerPricingPlanPtrOutput {
 	return o.ApplyT(func(v *Tracker) TrackerPricingPlanPtrOutput { return v.PricingPlan }).(TrackerPricingPlanPtrOutput)
 }
 
+// This shape is deprecated since 2022-02-01: Deprecated. No longer allowed.
 func (o TrackerOutput) PricingPlanDataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Tracker) pulumi.StringPtrOutput { return v.PricingPlanDataSource }).(pulumi.StringPtrOutput)
 }

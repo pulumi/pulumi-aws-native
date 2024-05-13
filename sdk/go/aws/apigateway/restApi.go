@@ -130,6 +130,168 @@ import (
 //
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/apigateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			restApi, err := apigateway.NewRestApi(ctx, "restApi", &apigateway.RestApiArgs{
+//				Name: pulumi.String("myRestApi"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apigateway.NewGatewayResponse(ctx, "gatewayResponse", &apigateway.GatewayResponseArgs{
+//				ResponseParameters: pulumi.StringMap{
+//					"gatewayresponse.header.Access-Control-Allow-Origin":  pulumi.String("'*'"),
+//					"gatewayresponse.header.Access-Control-Allow-Headers": pulumi.String("'*'"),
+//				},
+//				ResponseType: pulumi.String("MISSING_AUTHENTICATION_TOKEN"),
+//				RestApiId:    restApi.ID(),
+//				StatusCode:   pulumi.String("404"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Example
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/apigateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			restApi, err := apigateway.NewRestApi(ctx, "restApi", &apigateway.RestApiArgs{
+//				Name: pulumi.String("myRestApi"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apigateway.NewGatewayResponse(ctx, "gatewayResponse", &apigateway.GatewayResponseArgs{
+//				ResponseParameters: pulumi.StringMap{
+//					"gatewayresponse.header.Access-Control-Allow-Origin":  pulumi.String("'*'"),
+//					"gatewayresponse.header.Access-Control-Allow-Headers": pulumi.String("'*'"),
+//				},
+//				ResponseType: pulumi.String("MISSING_AUTHENTICATION_TOKEN"),
+//				RestApiId:    restApi.ID(),
+//				StatusCode:   pulumi.String("404"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Example
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/apigateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			cfg := config.New(ctx, "")
+//			apiName := cfg.Require("apiName")
+//			responseParameter1 := cfg.Require("responseParameter1")
+//			responseParameter2 := cfg.Require("responseParameter2")
+//			responseType := cfg.Require("responseType")
+//			statusCode := cfg.Require("statusCode")
+//			restApi, err := apigateway.NewRestApi(ctx, "restApi", &apigateway.RestApiArgs{
+//				Name: pulumi.String(apiName),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apigateway.NewGatewayResponse(ctx, "gatewayResponse", &apigateway.GatewayResponseArgs{
+//				ResponseParameters: pulumi.StringMap{
+//					"gatewayresponse.header.k1": pulumi.String(responseParameter1),
+//					"gatewayresponse.header.k2": pulumi.String(responseParameter2),
+//				},
+//				ResponseType: pulumi.String(responseType),
+//				RestApiId:    restApi.ID(),
+//				StatusCode:   pulumi.String(statusCode),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Example
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/apigateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			cfg := config.New(ctx, "")
+//			apiName := cfg.Require("apiName")
+//			responseParameter1 := cfg.Require("responseParameter1")
+//			responseParameter2 := cfg.Require("responseParameter2")
+//			responseType := cfg.Require("responseType")
+//			statusCode := cfg.Require("statusCode")
+//			restApi, err := apigateway.NewRestApi(ctx, "restApi", &apigateway.RestApiArgs{
+//				Name: pulumi.String(apiName),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apigateway.NewGatewayResponse(ctx, "gatewayResponse", &apigateway.GatewayResponseArgs{
+//				ResponseParameters: pulumi.StringMap{
+//					"gatewayresponse.header.k1": pulumi.String(responseParameter1),
+//					"gatewayresponse.header.k2": pulumi.String(responseParameter2),
+//				},
+//				ResponseType: pulumi.String(responseType),
+//				RestApiId:    restApi.ID(),
+//				StatusCode:   pulumi.String(statusCode),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Example
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/apigateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 //
 // )

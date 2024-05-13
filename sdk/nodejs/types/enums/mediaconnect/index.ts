@@ -128,6 +128,121 @@ export const FlowFailoverConfigState = {
 
 export type FlowFailoverConfigState = (typeof FlowFailoverConfigState)[keyof typeof FlowFailoverConfigState];
 
+export const FlowFmtpColorimetry = {
+    Bt601: "BT601",
+    Bt709: "BT709",
+    Bt2020: "BT2020",
+    Bt2100: "BT2100",
+    St20651: "ST2065-1",
+    St20653: "ST2065-3",
+    Xyz: "XYZ",
+} as const;
+
+/**
+ * The format used for the representation of color.
+ */
+export type FlowFmtpColorimetry = (typeof FlowFmtpColorimetry)[keyof typeof FlowFmtpColorimetry];
+
+export const FlowFmtpRange = {
+    Narrow: "NARROW",
+    Full: "FULL",
+    Fullprotect: "FULLPROTECT",
+} as const;
+
+/**
+ * The encoding range of the video.
+ */
+export type FlowFmtpRange = (typeof FlowFmtpRange)[keyof typeof FlowFmtpRange];
+
+export const FlowFmtpScanMode = {
+    Progressive: "progressive",
+    Interlace: "interlace",
+    ProgressiveSegmentedFrame: "progressive-segmented-frame",
+} as const;
+
+/**
+ * The type of compression that was used to smooth the video's appearance.
+ */
+export type FlowFmtpScanMode = (typeof FlowFmtpScanMode)[keyof typeof FlowFmtpScanMode];
+
+export const FlowFmtpTcs = {
+    Sdr: "SDR",
+    Pq: "PQ",
+    Hlg: "HLG",
+    Linear: "LINEAR",
+    Bt2100linpq: "BT2100LINPQ",
+    Bt2100linhlg: "BT2100LINHLG",
+    St20651: "ST2065-1",
+    St4281: "ST428-1",
+    Density: "DENSITY",
+} as const;
+
+/**
+ * The transfer characteristic system (TCS) that is used in the video.
+ */
+export type FlowFmtpTcs = (typeof FlowFmtpTcs)[keyof typeof FlowFmtpTcs];
+
+export const FlowMaintenanceMaintenanceDay = {
+    Monday: "Monday",
+    Tuesday: "Tuesday",
+    Wednesday: "Wednesday",
+    Thursday: "Thursday",
+    Friday: "Friday",
+    Saturday: "Saturday",
+    Sunday: "Sunday",
+} as const;
+
+/**
+ * A day of a week when the maintenance will happen. Use Monday/Tuesday/Wednesday/Thursday/Friday/Saturday/Sunday.
+ */
+export type FlowMaintenanceMaintenanceDay = (typeof FlowMaintenanceMaintenanceDay)[keyof typeof FlowMaintenanceMaintenanceDay];
+
+export const FlowMediaStreamMediaStreamType = {
+    Video: "video",
+    Audio: "audio",
+    AncillaryData: "ancillary-data",
+} as const;
+
+/**
+ * The type of media stream.
+ */
+export type FlowMediaStreamMediaStreamType = (typeof FlowMediaStreamMediaStreamType)[keyof typeof FlowMediaStreamMediaStreamType];
+
+export const FlowMediaStreamSourceConfigurationEncodingName = {
+    Jxsv: "jxsv",
+    Raw: "raw",
+    Smpte291: "smpte291",
+    Pcm: "pcm",
+} as const;
+
+/**
+ * The format that was used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video, 2110 streams, set the encoding name to raw. For video, JPEG XS streams, set the encoding name to jxsv.
+ */
+export type FlowMediaStreamSourceConfigurationEncodingName = (typeof FlowMediaStreamSourceConfigurationEncodingName)[keyof typeof FlowMediaStreamSourceConfigurationEncodingName];
+
+export const FlowMediaStreamVideoFormat = {
+    FlowMediaStreamVideoFormat_2160p: "2160p",
+    FlowMediaStreamVideoFormat_1080p: "1080p",
+    FlowMediaStreamVideoFormat_1080i: "1080i",
+    FlowMediaStreamVideoFormat_720p: "720p",
+    FlowMediaStreamVideoFormat_480p: "480p",
+} as const;
+
+/**
+ * The resolution of the video.
+ */
+export type FlowMediaStreamVideoFormat = (typeof FlowMediaStreamVideoFormat)[keyof typeof FlowMediaStreamVideoFormat];
+
+export const FlowOutputEncodingParametersEncoderProfile = {
+    Main: "main",
+    High: "high",
+} as const;
+
+/**
+ * A setting on the encoder that drives compression settings. This property only applies to video media streams associated with outputs that use the ST 2110 JPEG XS protocol, with a flow source that uses the CDI protocol.
+ */
+export type FlowOutputEncodingParametersEncoderProfile = (typeof FlowOutputEncodingParametersEncoderProfile)[keyof typeof FlowOutputEncodingParametersEncoderProfile];
+
 export const FlowOutputEncryptionAlgorithm = {
     Aes128: "aes128",
     Aes192: "aes192",
@@ -149,6 +264,18 @@ export const FlowOutputEncryptionKeyType = {
  */
 export type FlowOutputEncryptionKeyType = (typeof FlowOutputEncryptionKeyType)[keyof typeof FlowOutputEncryptionKeyType];
 
+export const FlowOutputMediaStreamOutputConfigurationEncodingName = {
+    Jxsv: "jxsv",
+    Raw: "raw",
+    Smpte291: "smpte291",
+    Pcm: "pcm",
+} as const;
+
+/**
+ * The format that will be used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video streams on sources or outputs that use the CDI protocol, set the encoding name to raw. For video streams on sources or outputs that use the ST 2110 JPEG XS protocol, set the encoding name to jxsv.
+ */
+export type FlowOutputMediaStreamOutputConfigurationEncodingName = (typeof FlowOutputMediaStreamOutputConfigurationEncodingName)[keyof typeof FlowOutputMediaStreamOutputConfigurationEncodingName];
+
 export const FlowOutputProtocol = {
     ZixiPush: "zixi-push",
     RtpFec: "rtp-fec",
@@ -158,6 +285,8 @@ export const FlowOutputProtocol = {
     FujitsuQos: "fujitsu-qos",
     SrtListener: "srt-listener",
     SrtCaller: "srt-caller",
+    St2110Jpegxs: "st2110-jpegxs",
+    Cdi: "cdi",
 } as const;
 
 /**
@@ -195,12 +324,24 @@ export const FlowSourceProtocol = {
     FujitsuQos: "fujitsu-qos",
     SrtListener: "srt-listener",
     SrtCaller: "srt-caller",
+    St2110Jpegxs: "st2110-jpegxs",
+    Cdi: "cdi",
 } as const;
 
 /**
  * The protocol that is used by the source.
  */
 export type FlowSourceProtocol = (typeof FlowSourceProtocol)[keyof typeof FlowSourceProtocol];
+
+export const FlowVpcInterfaceNetworkInterfaceType = {
+    Ena: "ena",
+    Efa: "efa",
+} as const;
+
+/**
+ * The type of network adapter that you want MediaConnect to use on this interface. If you don't set this value, it defaults to ENA.
+ */
+export type FlowVpcInterfaceNetworkInterfaceType = (typeof FlowVpcInterfaceNetworkInterfaceType)[keyof typeof FlowVpcInterfaceNetworkInterfaceType];
 
 export const GatewayState = {
     Creating: "CREATING",

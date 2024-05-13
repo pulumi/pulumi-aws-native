@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
     /// <summary>
-    /// &lt;p&gt;Spark parameters.&lt;/p&gt;
+    /// &lt;p&gt;The parameters for Spark.&lt;/p&gt;
     /// </summary>
     public sealed class DataSourceSparkParametersArgs : global::Pulumi.ResourceArgs
     {

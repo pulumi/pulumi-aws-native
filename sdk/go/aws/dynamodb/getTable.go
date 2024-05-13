@@ -64,6 +64,8 @@ type LookupTableResult struct {
 	KinesisStreamSpecification *TableKinesisStreamSpecification `pulumi:"kinesisStreamSpecification"`
 	// Local secondary indexes to be created on the table. You can create up to 5 local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes.
 	LocalSecondaryIndexes []TableLocalSecondaryIndex `pulumi:"localSecondaryIndexes"`
+	// Sets the maximum number of read and write units for the specified on-demand table. If you use this property, you must specify ``MaxReadRequestUnits``, ``MaxWriteRequestUnits``, or both.
+	OnDemandThroughput *TableOnDemandThroughput `pulumi:"onDemandThroughput"`
 	// The settings used to enable point in time recovery.
 	PointInTimeRecoverySpecification *TablePointInTimeRecoverySpecification `pulumi:"pointInTimeRecoverySpecification"`
 	// Throughput for the specified table, which consists of values for ``ReadCapacityUnits`` and ``WriteCapacityUnits``. For more information about the contents of a provisioned throughput structure, see [Amazon DynamoDB Table ProvisionedThroughput](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ProvisionedThroughput.html).
@@ -183,6 +185,11 @@ func (o LookupTableResultOutput) KinesisStreamSpecification() TableKinesisStream
 // Local secondary indexes to be created on the table. You can create up to 5 local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes.
 func (o LookupTableResultOutput) LocalSecondaryIndexes() TableLocalSecondaryIndexArrayOutput {
 	return o.ApplyT(func(v LookupTableResult) []TableLocalSecondaryIndex { return v.LocalSecondaryIndexes }).(TableLocalSecondaryIndexArrayOutput)
+}
+
+// Sets the maximum number of read and write units for the specified on-demand table. If you use this property, you must specify “MaxReadRequestUnits“, “MaxWriteRequestUnits“, or both.
+func (o LookupTableResultOutput) OnDemandThroughput() TableOnDemandThroughputPtrOutput {
+	return o.ApplyT(func(v LookupTableResult) *TableOnDemandThroughput { return v.OnDemandThroughput }).(TableOnDemandThroughputPtrOutput)
 }
 
 // The settings used to enable point in time recovery.

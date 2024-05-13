@@ -33,6 +33,7 @@ export interface GetGlobalTableResult {
     readonly streamSpecification?: outputs.dynamodb.GlobalTableStreamSpecification;
     readonly tableId?: string;
     readonly timeToLiveSpecification?: outputs.dynamodb.GlobalTableTimeToLiveSpecification;
+    readonly writeOnDemandThroughputSettings?: outputs.dynamodb.GlobalTableWriteOnDemandThroughputSettings;
     readonly writeProvisionedThroughputSettings?: outputs.dynamodb.GlobalTableWriteProvisionedThroughputSettings;
 }
 /**

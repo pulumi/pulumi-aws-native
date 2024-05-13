@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class DataSetLogicalTableSource
     {
         /// <summary>
-        /// &lt;p&gt;The Amazon Resource Name (ARN) for the dataset.&lt;/p&gt;
+        /// &lt;p&gt;The Amazon Resource Number (ARN) of the parent dataset.&lt;/p&gt;
         /// </summary>
         public readonly string? DataSetArn;
         public readonly Outputs.DataSetJoinInstruction? JoinInstruction;

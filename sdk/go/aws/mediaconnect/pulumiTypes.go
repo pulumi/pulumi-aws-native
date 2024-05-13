@@ -3171,6 +3171,260 @@ func (o FlowFailoverConfigSourcePriorityPropertiesPtrOutput) PrimarySource() pul
 	}).(pulumi.StringPtrOutput)
 }
 
+// A set of parameters that define the media stream.
+type FlowFmtp struct {
+	// The format of the audio channel.
+	ChannelOrder *string `pulumi:"channelOrder"`
+	// The format used for the representation of color.
+	Colorimetry *FlowFmtpColorimetry `pulumi:"colorimetry"`
+	// The frame rate for the video stream, in frames/second. For example: 60000/1001.
+	ExactFramerate *string `pulumi:"exactFramerate"`
+	// The pixel aspect ratio (PAR) of the video.
+	Par *string `pulumi:"par"`
+	// The encoding range of the video.
+	Range *FlowFmtpRange `pulumi:"range"`
+	// The type of compression that was used to smooth the video's appearance.
+	ScanMode *FlowFmtpScanMode `pulumi:"scanMode"`
+	// The transfer characteristic system (TCS) that is used in the video.
+	Tcs *FlowFmtpTcs `pulumi:"tcs"`
+}
+
+// FlowFmtpInput is an input type that accepts FlowFmtpArgs and FlowFmtpOutput values.
+// You can construct a concrete instance of `FlowFmtpInput` via:
+//
+//	FlowFmtpArgs{...}
+type FlowFmtpInput interface {
+	pulumi.Input
+
+	ToFlowFmtpOutput() FlowFmtpOutput
+	ToFlowFmtpOutputWithContext(context.Context) FlowFmtpOutput
+}
+
+// A set of parameters that define the media stream.
+type FlowFmtpArgs struct {
+	// The format of the audio channel.
+	ChannelOrder pulumi.StringPtrInput `pulumi:"channelOrder"`
+	// The format used for the representation of color.
+	Colorimetry FlowFmtpColorimetryPtrInput `pulumi:"colorimetry"`
+	// The frame rate for the video stream, in frames/second. For example: 60000/1001.
+	ExactFramerate pulumi.StringPtrInput `pulumi:"exactFramerate"`
+	// The pixel aspect ratio (PAR) of the video.
+	Par pulumi.StringPtrInput `pulumi:"par"`
+	// The encoding range of the video.
+	Range FlowFmtpRangePtrInput `pulumi:"range"`
+	// The type of compression that was used to smooth the video's appearance.
+	ScanMode FlowFmtpScanModePtrInput `pulumi:"scanMode"`
+	// The transfer characteristic system (TCS) that is used in the video.
+	Tcs FlowFmtpTcsPtrInput `pulumi:"tcs"`
+}
+
+func (FlowFmtpArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowFmtp)(nil)).Elem()
+}
+
+func (i FlowFmtpArgs) ToFlowFmtpOutput() FlowFmtpOutput {
+	return i.ToFlowFmtpOutputWithContext(context.Background())
+}
+
+func (i FlowFmtpArgs) ToFlowFmtpOutputWithContext(ctx context.Context) FlowFmtpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowFmtpOutput)
+}
+
+func (i FlowFmtpArgs) ToFlowFmtpPtrOutput() FlowFmtpPtrOutput {
+	return i.ToFlowFmtpPtrOutputWithContext(context.Background())
+}
+
+func (i FlowFmtpArgs) ToFlowFmtpPtrOutputWithContext(ctx context.Context) FlowFmtpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowFmtpOutput).ToFlowFmtpPtrOutputWithContext(ctx)
+}
+
+// FlowFmtpPtrInput is an input type that accepts FlowFmtpArgs, FlowFmtpPtr and FlowFmtpPtrOutput values.
+// You can construct a concrete instance of `FlowFmtpPtrInput` via:
+//
+//	        FlowFmtpArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowFmtpPtrInput interface {
+	pulumi.Input
+
+	ToFlowFmtpPtrOutput() FlowFmtpPtrOutput
+	ToFlowFmtpPtrOutputWithContext(context.Context) FlowFmtpPtrOutput
+}
+
+type flowFmtpPtrType FlowFmtpArgs
+
+func FlowFmtpPtr(v *FlowFmtpArgs) FlowFmtpPtrInput {
+	return (*flowFmtpPtrType)(v)
+}
+
+func (*flowFmtpPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowFmtp)(nil)).Elem()
+}
+
+func (i *flowFmtpPtrType) ToFlowFmtpPtrOutput() FlowFmtpPtrOutput {
+	return i.ToFlowFmtpPtrOutputWithContext(context.Background())
+}
+
+func (i *flowFmtpPtrType) ToFlowFmtpPtrOutputWithContext(ctx context.Context) FlowFmtpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowFmtpPtrOutput)
+}
+
+// A set of parameters that define the media stream.
+type FlowFmtpOutput struct{ *pulumi.OutputState }
+
+func (FlowFmtpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowFmtp)(nil)).Elem()
+}
+
+func (o FlowFmtpOutput) ToFlowFmtpOutput() FlowFmtpOutput {
+	return o
+}
+
+func (o FlowFmtpOutput) ToFlowFmtpOutputWithContext(ctx context.Context) FlowFmtpOutput {
+	return o
+}
+
+func (o FlowFmtpOutput) ToFlowFmtpPtrOutput() FlowFmtpPtrOutput {
+	return o.ToFlowFmtpPtrOutputWithContext(context.Background())
+}
+
+func (o FlowFmtpOutput) ToFlowFmtpPtrOutputWithContext(ctx context.Context) FlowFmtpPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowFmtp) *FlowFmtp {
+		return &v
+	}).(FlowFmtpPtrOutput)
+}
+
+// The format of the audio channel.
+func (o FlowFmtpOutput) ChannelOrder() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlowFmtp) *string { return v.ChannelOrder }).(pulumi.StringPtrOutput)
+}
+
+// The format used for the representation of color.
+func (o FlowFmtpOutput) Colorimetry() FlowFmtpColorimetryPtrOutput {
+	return o.ApplyT(func(v FlowFmtp) *FlowFmtpColorimetry { return v.Colorimetry }).(FlowFmtpColorimetryPtrOutput)
+}
+
+// The frame rate for the video stream, in frames/second. For example: 60000/1001.
+func (o FlowFmtpOutput) ExactFramerate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlowFmtp) *string { return v.ExactFramerate }).(pulumi.StringPtrOutput)
+}
+
+// The pixel aspect ratio (PAR) of the video.
+func (o FlowFmtpOutput) Par() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlowFmtp) *string { return v.Par }).(pulumi.StringPtrOutput)
+}
+
+// The encoding range of the video.
+func (o FlowFmtpOutput) Range() FlowFmtpRangePtrOutput {
+	return o.ApplyT(func(v FlowFmtp) *FlowFmtpRange { return v.Range }).(FlowFmtpRangePtrOutput)
+}
+
+// The type of compression that was used to smooth the video's appearance.
+func (o FlowFmtpOutput) ScanMode() FlowFmtpScanModePtrOutput {
+	return o.ApplyT(func(v FlowFmtp) *FlowFmtpScanMode { return v.ScanMode }).(FlowFmtpScanModePtrOutput)
+}
+
+// The transfer characteristic system (TCS) that is used in the video.
+func (o FlowFmtpOutput) Tcs() FlowFmtpTcsPtrOutput {
+	return o.ApplyT(func(v FlowFmtp) *FlowFmtpTcs { return v.Tcs }).(FlowFmtpTcsPtrOutput)
+}
+
+type FlowFmtpPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowFmtpPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowFmtp)(nil)).Elem()
+}
+
+func (o FlowFmtpPtrOutput) ToFlowFmtpPtrOutput() FlowFmtpPtrOutput {
+	return o
+}
+
+func (o FlowFmtpPtrOutput) ToFlowFmtpPtrOutputWithContext(ctx context.Context) FlowFmtpPtrOutput {
+	return o
+}
+
+func (o FlowFmtpPtrOutput) Elem() FlowFmtpOutput {
+	return o.ApplyT(func(v *FlowFmtp) FlowFmtp {
+		if v != nil {
+			return *v
+		}
+		var ret FlowFmtp
+		return ret
+	}).(FlowFmtpOutput)
+}
+
+// The format of the audio channel.
+func (o FlowFmtpPtrOutput) ChannelOrder() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowFmtp) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ChannelOrder
+	}).(pulumi.StringPtrOutput)
+}
+
+// The format used for the representation of color.
+func (o FlowFmtpPtrOutput) Colorimetry() FlowFmtpColorimetryPtrOutput {
+	return o.ApplyT(func(v *FlowFmtp) *FlowFmtpColorimetry {
+		if v == nil {
+			return nil
+		}
+		return v.Colorimetry
+	}).(FlowFmtpColorimetryPtrOutput)
+}
+
+// The frame rate for the video stream, in frames/second. For example: 60000/1001.
+func (o FlowFmtpPtrOutput) ExactFramerate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowFmtp) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExactFramerate
+	}).(pulumi.StringPtrOutput)
+}
+
+// The pixel aspect ratio (PAR) of the video.
+func (o FlowFmtpPtrOutput) Par() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowFmtp) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Par
+	}).(pulumi.StringPtrOutput)
+}
+
+// The encoding range of the video.
+func (o FlowFmtpPtrOutput) Range() FlowFmtpRangePtrOutput {
+	return o.ApplyT(func(v *FlowFmtp) *FlowFmtpRange {
+		if v == nil {
+			return nil
+		}
+		return v.Range
+	}).(FlowFmtpRangePtrOutput)
+}
+
+// The type of compression that was used to smooth the video's appearance.
+func (o FlowFmtpPtrOutput) ScanMode() FlowFmtpScanModePtrOutput {
+	return o.ApplyT(func(v *FlowFmtp) *FlowFmtpScanMode {
+		if v == nil {
+			return nil
+		}
+		return v.ScanMode
+	}).(FlowFmtpScanModePtrOutput)
+}
+
+// The transfer characteristic system (TCS) that is used in the video.
+func (o FlowFmtpPtrOutput) Tcs() FlowFmtpTcsPtrOutput {
+	return o.ApplyT(func(v *FlowFmtp) *FlowFmtpTcs {
+		if v == nil {
+			return nil
+		}
+		return v.Tcs
+	}).(FlowFmtpTcsPtrOutput)
+}
+
 // The source configuration for cloud flows receiving a stream from a bridge.
 type FlowGatewayBridgeSource struct {
 	// The ARN of the bridge feeding this flow.
@@ -3328,6 +3582,1050 @@ func (o FlowGatewayBridgeSourcePtrOutput) VpcInterfaceAttachment() FlowVpcInterf
 		}
 		return v.VpcInterfaceAttachment
 	}).(FlowVpcInterfaceAttachmentPtrOutput)
+}
+
+// The transport parameters associated with an incoming media stream.
+type FlowInputConfiguration struct {
+	// The port that the flow listens on for an incoming media stream.
+	InputPort int `pulumi:"inputPort"`
+	// The VPC interface where the media stream comes in from.
+	Interface FlowInterface `pulumi:"interface"`
+}
+
+// FlowInputConfigurationInput is an input type that accepts FlowInputConfigurationArgs and FlowInputConfigurationOutput values.
+// You can construct a concrete instance of `FlowInputConfigurationInput` via:
+//
+//	FlowInputConfigurationArgs{...}
+type FlowInputConfigurationInput interface {
+	pulumi.Input
+
+	ToFlowInputConfigurationOutput() FlowInputConfigurationOutput
+	ToFlowInputConfigurationOutputWithContext(context.Context) FlowInputConfigurationOutput
+}
+
+// The transport parameters associated with an incoming media stream.
+type FlowInputConfigurationArgs struct {
+	// The port that the flow listens on for an incoming media stream.
+	InputPort pulumi.IntInput `pulumi:"inputPort"`
+	// The VPC interface where the media stream comes in from.
+	Interface FlowInterfaceInput `pulumi:"interface"`
+}
+
+func (FlowInputConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowInputConfiguration)(nil)).Elem()
+}
+
+func (i FlowInputConfigurationArgs) ToFlowInputConfigurationOutput() FlowInputConfigurationOutput {
+	return i.ToFlowInputConfigurationOutputWithContext(context.Background())
+}
+
+func (i FlowInputConfigurationArgs) ToFlowInputConfigurationOutputWithContext(ctx context.Context) FlowInputConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowInputConfigurationOutput)
+}
+
+// FlowInputConfigurationArrayInput is an input type that accepts FlowInputConfigurationArray and FlowInputConfigurationArrayOutput values.
+// You can construct a concrete instance of `FlowInputConfigurationArrayInput` via:
+//
+//	FlowInputConfigurationArray{ FlowInputConfigurationArgs{...} }
+type FlowInputConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToFlowInputConfigurationArrayOutput() FlowInputConfigurationArrayOutput
+	ToFlowInputConfigurationArrayOutputWithContext(context.Context) FlowInputConfigurationArrayOutput
+}
+
+type FlowInputConfigurationArray []FlowInputConfigurationInput
+
+func (FlowInputConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FlowInputConfiguration)(nil)).Elem()
+}
+
+func (i FlowInputConfigurationArray) ToFlowInputConfigurationArrayOutput() FlowInputConfigurationArrayOutput {
+	return i.ToFlowInputConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i FlowInputConfigurationArray) ToFlowInputConfigurationArrayOutputWithContext(ctx context.Context) FlowInputConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowInputConfigurationArrayOutput)
+}
+
+// The transport parameters associated with an incoming media stream.
+type FlowInputConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FlowInputConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowInputConfiguration)(nil)).Elem()
+}
+
+func (o FlowInputConfigurationOutput) ToFlowInputConfigurationOutput() FlowInputConfigurationOutput {
+	return o
+}
+
+func (o FlowInputConfigurationOutput) ToFlowInputConfigurationOutputWithContext(ctx context.Context) FlowInputConfigurationOutput {
+	return o
+}
+
+// The port that the flow listens on for an incoming media stream.
+func (o FlowInputConfigurationOutput) InputPort() pulumi.IntOutput {
+	return o.ApplyT(func(v FlowInputConfiguration) int { return v.InputPort }).(pulumi.IntOutput)
+}
+
+// The VPC interface where the media stream comes in from.
+func (o FlowInputConfigurationOutput) Interface() FlowInterfaceOutput {
+	return o.ApplyT(func(v FlowInputConfiguration) FlowInterface { return v.Interface }).(FlowInterfaceOutput)
+}
+
+type FlowInputConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (FlowInputConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FlowInputConfiguration)(nil)).Elem()
+}
+
+func (o FlowInputConfigurationArrayOutput) ToFlowInputConfigurationArrayOutput() FlowInputConfigurationArrayOutput {
+	return o
+}
+
+func (o FlowInputConfigurationArrayOutput) ToFlowInputConfigurationArrayOutputWithContext(ctx context.Context) FlowInputConfigurationArrayOutput {
+	return o
+}
+
+func (o FlowInputConfigurationArrayOutput) Index(i pulumi.IntInput) FlowInputConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FlowInputConfiguration {
+		return vs[0].([]FlowInputConfiguration)[vs[1].(int)]
+	}).(FlowInputConfigurationOutput)
+}
+
+// The VPC interface that you want to use for the media stream associated with the output.
+type FlowInterface struct {
+	// The name of the VPC interface that you want to use for the media stream associated with the output.
+	Name string `pulumi:"name"`
+}
+
+// FlowInterfaceInput is an input type that accepts FlowInterfaceArgs and FlowInterfaceOutput values.
+// You can construct a concrete instance of `FlowInterfaceInput` via:
+//
+//	FlowInterfaceArgs{...}
+type FlowInterfaceInput interface {
+	pulumi.Input
+
+	ToFlowInterfaceOutput() FlowInterfaceOutput
+	ToFlowInterfaceOutputWithContext(context.Context) FlowInterfaceOutput
+}
+
+// The VPC interface that you want to use for the media stream associated with the output.
+type FlowInterfaceArgs struct {
+	// The name of the VPC interface that you want to use for the media stream associated with the output.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (FlowInterfaceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowInterface)(nil)).Elem()
+}
+
+func (i FlowInterfaceArgs) ToFlowInterfaceOutput() FlowInterfaceOutput {
+	return i.ToFlowInterfaceOutputWithContext(context.Background())
+}
+
+func (i FlowInterfaceArgs) ToFlowInterfaceOutputWithContext(ctx context.Context) FlowInterfaceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowInterfaceOutput)
+}
+
+// The VPC interface that you want to use for the media stream associated with the output.
+type FlowInterfaceOutput struct{ *pulumi.OutputState }
+
+func (FlowInterfaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowInterface)(nil)).Elem()
+}
+
+func (o FlowInterfaceOutput) ToFlowInterfaceOutput() FlowInterfaceOutput {
+	return o
+}
+
+func (o FlowInterfaceOutput) ToFlowInterfaceOutputWithContext(ctx context.Context) FlowInterfaceOutput {
+	return o
+}
+
+// The name of the VPC interface that you want to use for the media stream associated with the output.
+func (o FlowInterfaceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowInterface) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The maintenance setting of a flow.
+type FlowMaintenance struct {
+	// A day of a week when the maintenance will happen. Use Monday/Tuesday/Wednesday/Thursday/Friday/Saturday/Sunday.
+	MaintenanceDay FlowMaintenanceMaintenanceDay `pulumi:"maintenanceDay"`
+	// UTC time when the maintenance will happen. Use 24-hour HH:MM format. Minutes must be 00. Example: 13:00. The default value is 02:00.
+	MaintenanceStartHour string `pulumi:"maintenanceStartHour"`
+}
+
+// FlowMaintenanceInput is an input type that accepts FlowMaintenanceArgs and FlowMaintenanceOutput values.
+// You can construct a concrete instance of `FlowMaintenanceInput` via:
+//
+//	FlowMaintenanceArgs{...}
+type FlowMaintenanceInput interface {
+	pulumi.Input
+
+	ToFlowMaintenanceOutput() FlowMaintenanceOutput
+	ToFlowMaintenanceOutputWithContext(context.Context) FlowMaintenanceOutput
+}
+
+// The maintenance setting of a flow.
+type FlowMaintenanceArgs struct {
+	// A day of a week when the maintenance will happen. Use Monday/Tuesday/Wednesday/Thursday/Friday/Saturday/Sunday.
+	MaintenanceDay FlowMaintenanceMaintenanceDayInput `pulumi:"maintenanceDay"`
+	// UTC time when the maintenance will happen. Use 24-hour HH:MM format. Minutes must be 00. Example: 13:00. The default value is 02:00.
+	MaintenanceStartHour pulumi.StringInput `pulumi:"maintenanceStartHour"`
+}
+
+func (FlowMaintenanceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowMaintenance)(nil)).Elem()
+}
+
+func (i FlowMaintenanceArgs) ToFlowMaintenanceOutput() FlowMaintenanceOutput {
+	return i.ToFlowMaintenanceOutputWithContext(context.Background())
+}
+
+func (i FlowMaintenanceArgs) ToFlowMaintenanceOutputWithContext(ctx context.Context) FlowMaintenanceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowMaintenanceOutput)
+}
+
+func (i FlowMaintenanceArgs) ToFlowMaintenancePtrOutput() FlowMaintenancePtrOutput {
+	return i.ToFlowMaintenancePtrOutputWithContext(context.Background())
+}
+
+func (i FlowMaintenanceArgs) ToFlowMaintenancePtrOutputWithContext(ctx context.Context) FlowMaintenancePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowMaintenanceOutput).ToFlowMaintenancePtrOutputWithContext(ctx)
+}
+
+// FlowMaintenancePtrInput is an input type that accepts FlowMaintenanceArgs, FlowMaintenancePtr and FlowMaintenancePtrOutput values.
+// You can construct a concrete instance of `FlowMaintenancePtrInput` via:
+//
+//	        FlowMaintenanceArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowMaintenancePtrInput interface {
+	pulumi.Input
+
+	ToFlowMaintenancePtrOutput() FlowMaintenancePtrOutput
+	ToFlowMaintenancePtrOutputWithContext(context.Context) FlowMaintenancePtrOutput
+}
+
+type flowMaintenancePtrType FlowMaintenanceArgs
+
+func FlowMaintenancePtr(v *FlowMaintenanceArgs) FlowMaintenancePtrInput {
+	return (*flowMaintenancePtrType)(v)
+}
+
+func (*flowMaintenancePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowMaintenance)(nil)).Elem()
+}
+
+func (i *flowMaintenancePtrType) ToFlowMaintenancePtrOutput() FlowMaintenancePtrOutput {
+	return i.ToFlowMaintenancePtrOutputWithContext(context.Background())
+}
+
+func (i *flowMaintenancePtrType) ToFlowMaintenancePtrOutputWithContext(ctx context.Context) FlowMaintenancePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowMaintenancePtrOutput)
+}
+
+// The maintenance setting of a flow.
+type FlowMaintenanceOutput struct{ *pulumi.OutputState }
+
+func (FlowMaintenanceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowMaintenance)(nil)).Elem()
+}
+
+func (o FlowMaintenanceOutput) ToFlowMaintenanceOutput() FlowMaintenanceOutput {
+	return o
+}
+
+func (o FlowMaintenanceOutput) ToFlowMaintenanceOutputWithContext(ctx context.Context) FlowMaintenanceOutput {
+	return o
+}
+
+func (o FlowMaintenanceOutput) ToFlowMaintenancePtrOutput() FlowMaintenancePtrOutput {
+	return o.ToFlowMaintenancePtrOutputWithContext(context.Background())
+}
+
+func (o FlowMaintenanceOutput) ToFlowMaintenancePtrOutputWithContext(ctx context.Context) FlowMaintenancePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowMaintenance) *FlowMaintenance {
+		return &v
+	}).(FlowMaintenancePtrOutput)
+}
+
+// A day of a week when the maintenance will happen. Use Monday/Tuesday/Wednesday/Thursday/Friday/Saturday/Sunday.
+func (o FlowMaintenanceOutput) MaintenanceDay() FlowMaintenanceMaintenanceDayOutput {
+	return o.ApplyT(func(v FlowMaintenance) FlowMaintenanceMaintenanceDay { return v.MaintenanceDay }).(FlowMaintenanceMaintenanceDayOutput)
+}
+
+// UTC time when the maintenance will happen. Use 24-hour HH:MM format. Minutes must be 00. Example: 13:00. The default value is 02:00.
+func (o FlowMaintenanceOutput) MaintenanceStartHour() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowMaintenance) string { return v.MaintenanceStartHour }).(pulumi.StringOutput)
+}
+
+type FlowMaintenancePtrOutput struct{ *pulumi.OutputState }
+
+func (FlowMaintenancePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowMaintenance)(nil)).Elem()
+}
+
+func (o FlowMaintenancePtrOutput) ToFlowMaintenancePtrOutput() FlowMaintenancePtrOutput {
+	return o
+}
+
+func (o FlowMaintenancePtrOutput) ToFlowMaintenancePtrOutputWithContext(ctx context.Context) FlowMaintenancePtrOutput {
+	return o
+}
+
+func (o FlowMaintenancePtrOutput) Elem() FlowMaintenanceOutput {
+	return o.ApplyT(func(v *FlowMaintenance) FlowMaintenance {
+		if v != nil {
+			return *v
+		}
+		var ret FlowMaintenance
+		return ret
+	}).(FlowMaintenanceOutput)
+}
+
+// A day of a week when the maintenance will happen. Use Monday/Tuesday/Wednesday/Thursday/Friday/Saturday/Sunday.
+func (o FlowMaintenancePtrOutput) MaintenanceDay() FlowMaintenanceMaintenanceDayPtrOutput {
+	return o.ApplyT(func(v *FlowMaintenance) *FlowMaintenanceMaintenanceDay {
+		if v == nil {
+			return nil
+		}
+		return &v.MaintenanceDay
+	}).(FlowMaintenanceMaintenanceDayPtrOutput)
+}
+
+// UTC time when the maintenance will happen. Use 24-hour HH:MM format. Minutes must be 00. Example: 13:00. The default value is 02:00.
+func (o FlowMaintenancePtrOutput) MaintenanceStartHour() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowMaintenance) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MaintenanceStartHour
+	}).(pulumi.StringPtrOutput)
+}
+
+// A single track or stream of media that contains video, audio, or ancillary data. After you add a media stream to a flow, you can associate it with sources and outputs on that flow, as long as they use the CDI protocol or the ST 2110 JPEG XS protocol. Each source or output can consist of one or many media streams.
+type FlowMediaStream struct {
+	// Attributes that are related to the media stream.
+	Attributes *FlowMediaStreamAttributes `pulumi:"attributes"`
+	// The sample rate for the stream. This value in measured in kHz.
+	ClockRate *int `pulumi:"clockRate"`
+	// A description that can help you quickly identify what your media stream is used for.
+	Description *string `pulumi:"description"`
+	// The format type number (sometimes referred to as RTP payload type) of the media stream. MediaConnect assigns this value to the media stream. For ST 2110 JPEG XS outputs, you need to provide this value to the receiver.
+	Fmt *int `pulumi:"fmt"`
+	// A unique identifier for the media stream.
+	MediaStreamId int `pulumi:"mediaStreamId"`
+	// A name that helps you distinguish one media stream from another.
+	MediaStreamName string `pulumi:"mediaStreamName"`
+	// The type of media stream.
+	MediaStreamType FlowMediaStreamMediaStreamType `pulumi:"mediaStreamType"`
+	// The resolution of the video.
+	VideoFormat *FlowMediaStreamVideoFormat `pulumi:"videoFormat"`
+}
+
+// FlowMediaStreamInput is an input type that accepts FlowMediaStreamArgs and FlowMediaStreamOutput values.
+// You can construct a concrete instance of `FlowMediaStreamInput` via:
+//
+//	FlowMediaStreamArgs{...}
+type FlowMediaStreamInput interface {
+	pulumi.Input
+
+	ToFlowMediaStreamOutput() FlowMediaStreamOutput
+	ToFlowMediaStreamOutputWithContext(context.Context) FlowMediaStreamOutput
+}
+
+// A single track or stream of media that contains video, audio, or ancillary data. After you add a media stream to a flow, you can associate it with sources and outputs on that flow, as long as they use the CDI protocol or the ST 2110 JPEG XS protocol. Each source or output can consist of one or many media streams.
+type FlowMediaStreamArgs struct {
+	// Attributes that are related to the media stream.
+	Attributes FlowMediaStreamAttributesPtrInput `pulumi:"attributes"`
+	// The sample rate for the stream. This value in measured in kHz.
+	ClockRate pulumi.IntPtrInput `pulumi:"clockRate"`
+	// A description that can help you quickly identify what your media stream is used for.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The format type number (sometimes referred to as RTP payload type) of the media stream. MediaConnect assigns this value to the media stream. For ST 2110 JPEG XS outputs, you need to provide this value to the receiver.
+	Fmt pulumi.IntPtrInput `pulumi:"fmt"`
+	// A unique identifier for the media stream.
+	MediaStreamId pulumi.IntInput `pulumi:"mediaStreamId"`
+	// A name that helps you distinguish one media stream from another.
+	MediaStreamName pulumi.StringInput `pulumi:"mediaStreamName"`
+	// The type of media stream.
+	MediaStreamType FlowMediaStreamMediaStreamTypeInput `pulumi:"mediaStreamType"`
+	// The resolution of the video.
+	VideoFormat FlowMediaStreamVideoFormatPtrInput `pulumi:"videoFormat"`
+}
+
+func (FlowMediaStreamArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowMediaStream)(nil)).Elem()
+}
+
+func (i FlowMediaStreamArgs) ToFlowMediaStreamOutput() FlowMediaStreamOutput {
+	return i.ToFlowMediaStreamOutputWithContext(context.Background())
+}
+
+func (i FlowMediaStreamArgs) ToFlowMediaStreamOutputWithContext(ctx context.Context) FlowMediaStreamOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowMediaStreamOutput)
+}
+
+// FlowMediaStreamArrayInput is an input type that accepts FlowMediaStreamArray and FlowMediaStreamArrayOutput values.
+// You can construct a concrete instance of `FlowMediaStreamArrayInput` via:
+//
+//	FlowMediaStreamArray{ FlowMediaStreamArgs{...} }
+type FlowMediaStreamArrayInput interface {
+	pulumi.Input
+
+	ToFlowMediaStreamArrayOutput() FlowMediaStreamArrayOutput
+	ToFlowMediaStreamArrayOutputWithContext(context.Context) FlowMediaStreamArrayOutput
+}
+
+type FlowMediaStreamArray []FlowMediaStreamInput
+
+func (FlowMediaStreamArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FlowMediaStream)(nil)).Elem()
+}
+
+func (i FlowMediaStreamArray) ToFlowMediaStreamArrayOutput() FlowMediaStreamArrayOutput {
+	return i.ToFlowMediaStreamArrayOutputWithContext(context.Background())
+}
+
+func (i FlowMediaStreamArray) ToFlowMediaStreamArrayOutputWithContext(ctx context.Context) FlowMediaStreamArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowMediaStreamArrayOutput)
+}
+
+// A single track or stream of media that contains video, audio, or ancillary data. After you add a media stream to a flow, you can associate it with sources and outputs on that flow, as long as they use the CDI protocol or the ST 2110 JPEG XS protocol. Each source or output can consist of one or many media streams.
+type FlowMediaStreamOutput struct{ *pulumi.OutputState }
+
+func (FlowMediaStreamOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowMediaStream)(nil)).Elem()
+}
+
+func (o FlowMediaStreamOutput) ToFlowMediaStreamOutput() FlowMediaStreamOutput {
+	return o
+}
+
+func (o FlowMediaStreamOutput) ToFlowMediaStreamOutputWithContext(ctx context.Context) FlowMediaStreamOutput {
+	return o
+}
+
+// Attributes that are related to the media stream.
+func (o FlowMediaStreamOutput) Attributes() FlowMediaStreamAttributesPtrOutput {
+	return o.ApplyT(func(v FlowMediaStream) *FlowMediaStreamAttributes { return v.Attributes }).(FlowMediaStreamAttributesPtrOutput)
+}
+
+// The sample rate for the stream. This value in measured in kHz.
+func (o FlowMediaStreamOutput) ClockRate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FlowMediaStream) *int { return v.ClockRate }).(pulumi.IntPtrOutput)
+}
+
+// A description that can help you quickly identify what your media stream is used for.
+func (o FlowMediaStreamOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlowMediaStream) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The format type number (sometimes referred to as RTP payload type) of the media stream. MediaConnect assigns this value to the media stream. For ST 2110 JPEG XS outputs, you need to provide this value to the receiver.
+func (o FlowMediaStreamOutput) Fmt() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FlowMediaStream) *int { return v.Fmt }).(pulumi.IntPtrOutput)
+}
+
+// A unique identifier for the media stream.
+func (o FlowMediaStreamOutput) MediaStreamId() pulumi.IntOutput {
+	return o.ApplyT(func(v FlowMediaStream) int { return v.MediaStreamId }).(pulumi.IntOutput)
+}
+
+// A name that helps you distinguish one media stream from another.
+func (o FlowMediaStreamOutput) MediaStreamName() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowMediaStream) string { return v.MediaStreamName }).(pulumi.StringOutput)
+}
+
+// The type of media stream.
+func (o FlowMediaStreamOutput) MediaStreamType() FlowMediaStreamMediaStreamTypeOutput {
+	return o.ApplyT(func(v FlowMediaStream) FlowMediaStreamMediaStreamType { return v.MediaStreamType }).(FlowMediaStreamMediaStreamTypeOutput)
+}
+
+// The resolution of the video.
+func (o FlowMediaStreamOutput) VideoFormat() FlowMediaStreamVideoFormatPtrOutput {
+	return o.ApplyT(func(v FlowMediaStream) *FlowMediaStreamVideoFormat { return v.VideoFormat }).(FlowMediaStreamVideoFormatPtrOutput)
+}
+
+type FlowMediaStreamArrayOutput struct{ *pulumi.OutputState }
+
+func (FlowMediaStreamArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FlowMediaStream)(nil)).Elem()
+}
+
+func (o FlowMediaStreamArrayOutput) ToFlowMediaStreamArrayOutput() FlowMediaStreamArrayOutput {
+	return o
+}
+
+func (o FlowMediaStreamArrayOutput) ToFlowMediaStreamArrayOutputWithContext(ctx context.Context) FlowMediaStreamArrayOutput {
+	return o
+}
+
+func (o FlowMediaStreamArrayOutput) Index(i pulumi.IntInput) FlowMediaStreamOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FlowMediaStream {
+		return vs[0].([]FlowMediaStream)[vs[1].(int)]
+	}).(FlowMediaStreamOutput)
+}
+
+// Attributes that are related to the media stream.
+type FlowMediaStreamAttributes struct {
+	// A set of parameters that define the media stream.
+	Fmtp *FlowFmtp `pulumi:"fmtp"`
+	// The audio language, in a format that is recognized by the receiver.
+	Lang *string `pulumi:"lang"`
+}
+
+// FlowMediaStreamAttributesInput is an input type that accepts FlowMediaStreamAttributesArgs and FlowMediaStreamAttributesOutput values.
+// You can construct a concrete instance of `FlowMediaStreamAttributesInput` via:
+//
+//	FlowMediaStreamAttributesArgs{...}
+type FlowMediaStreamAttributesInput interface {
+	pulumi.Input
+
+	ToFlowMediaStreamAttributesOutput() FlowMediaStreamAttributesOutput
+	ToFlowMediaStreamAttributesOutputWithContext(context.Context) FlowMediaStreamAttributesOutput
+}
+
+// Attributes that are related to the media stream.
+type FlowMediaStreamAttributesArgs struct {
+	// A set of parameters that define the media stream.
+	Fmtp FlowFmtpPtrInput `pulumi:"fmtp"`
+	// The audio language, in a format that is recognized by the receiver.
+	Lang pulumi.StringPtrInput `pulumi:"lang"`
+}
+
+func (FlowMediaStreamAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowMediaStreamAttributes)(nil)).Elem()
+}
+
+func (i FlowMediaStreamAttributesArgs) ToFlowMediaStreamAttributesOutput() FlowMediaStreamAttributesOutput {
+	return i.ToFlowMediaStreamAttributesOutputWithContext(context.Background())
+}
+
+func (i FlowMediaStreamAttributesArgs) ToFlowMediaStreamAttributesOutputWithContext(ctx context.Context) FlowMediaStreamAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowMediaStreamAttributesOutput)
+}
+
+func (i FlowMediaStreamAttributesArgs) ToFlowMediaStreamAttributesPtrOutput() FlowMediaStreamAttributesPtrOutput {
+	return i.ToFlowMediaStreamAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i FlowMediaStreamAttributesArgs) ToFlowMediaStreamAttributesPtrOutputWithContext(ctx context.Context) FlowMediaStreamAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowMediaStreamAttributesOutput).ToFlowMediaStreamAttributesPtrOutputWithContext(ctx)
+}
+
+// FlowMediaStreamAttributesPtrInput is an input type that accepts FlowMediaStreamAttributesArgs, FlowMediaStreamAttributesPtr and FlowMediaStreamAttributesPtrOutput values.
+// You can construct a concrete instance of `FlowMediaStreamAttributesPtrInput` via:
+//
+//	        FlowMediaStreamAttributesArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowMediaStreamAttributesPtrInput interface {
+	pulumi.Input
+
+	ToFlowMediaStreamAttributesPtrOutput() FlowMediaStreamAttributesPtrOutput
+	ToFlowMediaStreamAttributesPtrOutputWithContext(context.Context) FlowMediaStreamAttributesPtrOutput
+}
+
+type flowMediaStreamAttributesPtrType FlowMediaStreamAttributesArgs
+
+func FlowMediaStreamAttributesPtr(v *FlowMediaStreamAttributesArgs) FlowMediaStreamAttributesPtrInput {
+	return (*flowMediaStreamAttributesPtrType)(v)
+}
+
+func (*flowMediaStreamAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowMediaStreamAttributes)(nil)).Elem()
+}
+
+func (i *flowMediaStreamAttributesPtrType) ToFlowMediaStreamAttributesPtrOutput() FlowMediaStreamAttributesPtrOutput {
+	return i.ToFlowMediaStreamAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *flowMediaStreamAttributesPtrType) ToFlowMediaStreamAttributesPtrOutputWithContext(ctx context.Context) FlowMediaStreamAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowMediaStreamAttributesPtrOutput)
+}
+
+// Attributes that are related to the media stream.
+type FlowMediaStreamAttributesOutput struct{ *pulumi.OutputState }
+
+func (FlowMediaStreamAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowMediaStreamAttributes)(nil)).Elem()
+}
+
+func (o FlowMediaStreamAttributesOutput) ToFlowMediaStreamAttributesOutput() FlowMediaStreamAttributesOutput {
+	return o
+}
+
+func (o FlowMediaStreamAttributesOutput) ToFlowMediaStreamAttributesOutputWithContext(ctx context.Context) FlowMediaStreamAttributesOutput {
+	return o
+}
+
+func (o FlowMediaStreamAttributesOutput) ToFlowMediaStreamAttributesPtrOutput() FlowMediaStreamAttributesPtrOutput {
+	return o.ToFlowMediaStreamAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o FlowMediaStreamAttributesOutput) ToFlowMediaStreamAttributesPtrOutputWithContext(ctx context.Context) FlowMediaStreamAttributesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowMediaStreamAttributes) *FlowMediaStreamAttributes {
+		return &v
+	}).(FlowMediaStreamAttributesPtrOutput)
+}
+
+// A set of parameters that define the media stream.
+func (o FlowMediaStreamAttributesOutput) Fmtp() FlowFmtpPtrOutput {
+	return o.ApplyT(func(v FlowMediaStreamAttributes) *FlowFmtp { return v.Fmtp }).(FlowFmtpPtrOutput)
+}
+
+// The audio language, in a format that is recognized by the receiver.
+func (o FlowMediaStreamAttributesOutput) Lang() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlowMediaStreamAttributes) *string { return v.Lang }).(pulumi.StringPtrOutput)
+}
+
+type FlowMediaStreamAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowMediaStreamAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowMediaStreamAttributes)(nil)).Elem()
+}
+
+func (o FlowMediaStreamAttributesPtrOutput) ToFlowMediaStreamAttributesPtrOutput() FlowMediaStreamAttributesPtrOutput {
+	return o
+}
+
+func (o FlowMediaStreamAttributesPtrOutput) ToFlowMediaStreamAttributesPtrOutputWithContext(ctx context.Context) FlowMediaStreamAttributesPtrOutput {
+	return o
+}
+
+func (o FlowMediaStreamAttributesPtrOutput) Elem() FlowMediaStreamAttributesOutput {
+	return o.ApplyT(func(v *FlowMediaStreamAttributes) FlowMediaStreamAttributes {
+		if v != nil {
+			return *v
+		}
+		var ret FlowMediaStreamAttributes
+		return ret
+	}).(FlowMediaStreamAttributesOutput)
+}
+
+// A set of parameters that define the media stream.
+func (o FlowMediaStreamAttributesPtrOutput) Fmtp() FlowFmtpPtrOutput {
+	return o.ApplyT(func(v *FlowMediaStreamAttributes) *FlowFmtp {
+		if v == nil {
+			return nil
+		}
+		return v.Fmtp
+	}).(FlowFmtpPtrOutput)
+}
+
+// The audio language, in a format that is recognized by the receiver.
+func (o FlowMediaStreamAttributesPtrOutput) Lang() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowMediaStreamAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Lang
+	}).(pulumi.StringPtrOutput)
+}
+
+// The media stream that is associated with the source, and the parameters for that association.
+type FlowMediaStreamSourceConfiguration struct {
+	// The format that was used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video, 2110 streams, set the encoding name to raw. For video, JPEG XS streams, set the encoding name to jxsv.
+	EncodingName FlowMediaStreamSourceConfigurationEncodingName `pulumi:"encodingName"`
+	// The media streams that you want to associate with the source.
+	InputConfigurations []FlowInputConfiguration `pulumi:"inputConfigurations"`
+	// A name that helps you distinguish one media stream from another.
+	MediaStreamName string `pulumi:"mediaStreamName"`
+}
+
+// FlowMediaStreamSourceConfigurationInput is an input type that accepts FlowMediaStreamSourceConfigurationArgs and FlowMediaStreamSourceConfigurationOutput values.
+// You can construct a concrete instance of `FlowMediaStreamSourceConfigurationInput` via:
+//
+//	FlowMediaStreamSourceConfigurationArgs{...}
+type FlowMediaStreamSourceConfigurationInput interface {
+	pulumi.Input
+
+	ToFlowMediaStreamSourceConfigurationOutput() FlowMediaStreamSourceConfigurationOutput
+	ToFlowMediaStreamSourceConfigurationOutputWithContext(context.Context) FlowMediaStreamSourceConfigurationOutput
+}
+
+// The media stream that is associated with the source, and the parameters for that association.
+type FlowMediaStreamSourceConfigurationArgs struct {
+	// The format that was used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video, 2110 streams, set the encoding name to raw. For video, JPEG XS streams, set the encoding name to jxsv.
+	EncodingName FlowMediaStreamSourceConfigurationEncodingNameInput `pulumi:"encodingName"`
+	// The media streams that you want to associate with the source.
+	InputConfigurations FlowInputConfigurationArrayInput `pulumi:"inputConfigurations"`
+	// A name that helps you distinguish one media stream from another.
+	MediaStreamName pulumi.StringInput `pulumi:"mediaStreamName"`
+}
+
+func (FlowMediaStreamSourceConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowMediaStreamSourceConfiguration)(nil)).Elem()
+}
+
+func (i FlowMediaStreamSourceConfigurationArgs) ToFlowMediaStreamSourceConfigurationOutput() FlowMediaStreamSourceConfigurationOutput {
+	return i.ToFlowMediaStreamSourceConfigurationOutputWithContext(context.Background())
+}
+
+func (i FlowMediaStreamSourceConfigurationArgs) ToFlowMediaStreamSourceConfigurationOutputWithContext(ctx context.Context) FlowMediaStreamSourceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowMediaStreamSourceConfigurationOutput)
+}
+
+// FlowMediaStreamSourceConfigurationArrayInput is an input type that accepts FlowMediaStreamSourceConfigurationArray and FlowMediaStreamSourceConfigurationArrayOutput values.
+// You can construct a concrete instance of `FlowMediaStreamSourceConfigurationArrayInput` via:
+//
+//	FlowMediaStreamSourceConfigurationArray{ FlowMediaStreamSourceConfigurationArgs{...} }
+type FlowMediaStreamSourceConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToFlowMediaStreamSourceConfigurationArrayOutput() FlowMediaStreamSourceConfigurationArrayOutput
+	ToFlowMediaStreamSourceConfigurationArrayOutputWithContext(context.Context) FlowMediaStreamSourceConfigurationArrayOutput
+}
+
+type FlowMediaStreamSourceConfigurationArray []FlowMediaStreamSourceConfigurationInput
+
+func (FlowMediaStreamSourceConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FlowMediaStreamSourceConfiguration)(nil)).Elem()
+}
+
+func (i FlowMediaStreamSourceConfigurationArray) ToFlowMediaStreamSourceConfigurationArrayOutput() FlowMediaStreamSourceConfigurationArrayOutput {
+	return i.ToFlowMediaStreamSourceConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i FlowMediaStreamSourceConfigurationArray) ToFlowMediaStreamSourceConfigurationArrayOutputWithContext(ctx context.Context) FlowMediaStreamSourceConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowMediaStreamSourceConfigurationArrayOutput)
+}
+
+// The media stream that is associated with the source, and the parameters for that association.
+type FlowMediaStreamSourceConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FlowMediaStreamSourceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowMediaStreamSourceConfiguration)(nil)).Elem()
+}
+
+func (o FlowMediaStreamSourceConfigurationOutput) ToFlowMediaStreamSourceConfigurationOutput() FlowMediaStreamSourceConfigurationOutput {
+	return o
+}
+
+func (o FlowMediaStreamSourceConfigurationOutput) ToFlowMediaStreamSourceConfigurationOutputWithContext(ctx context.Context) FlowMediaStreamSourceConfigurationOutput {
+	return o
+}
+
+// The format that was used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video, 2110 streams, set the encoding name to raw. For video, JPEG XS streams, set the encoding name to jxsv.
+func (o FlowMediaStreamSourceConfigurationOutput) EncodingName() FlowMediaStreamSourceConfigurationEncodingNameOutput {
+	return o.ApplyT(func(v FlowMediaStreamSourceConfiguration) FlowMediaStreamSourceConfigurationEncodingName {
+		return v.EncodingName
+	}).(FlowMediaStreamSourceConfigurationEncodingNameOutput)
+}
+
+// The media streams that you want to associate with the source.
+func (o FlowMediaStreamSourceConfigurationOutput) InputConfigurations() FlowInputConfigurationArrayOutput {
+	return o.ApplyT(func(v FlowMediaStreamSourceConfiguration) []FlowInputConfiguration { return v.InputConfigurations }).(FlowInputConfigurationArrayOutput)
+}
+
+// A name that helps you distinguish one media stream from another.
+func (o FlowMediaStreamSourceConfigurationOutput) MediaStreamName() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowMediaStreamSourceConfiguration) string { return v.MediaStreamName }).(pulumi.StringOutput)
+}
+
+type FlowMediaStreamSourceConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (FlowMediaStreamSourceConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FlowMediaStreamSourceConfiguration)(nil)).Elem()
+}
+
+func (o FlowMediaStreamSourceConfigurationArrayOutput) ToFlowMediaStreamSourceConfigurationArrayOutput() FlowMediaStreamSourceConfigurationArrayOutput {
+	return o
+}
+
+func (o FlowMediaStreamSourceConfigurationArrayOutput) ToFlowMediaStreamSourceConfigurationArrayOutputWithContext(ctx context.Context) FlowMediaStreamSourceConfigurationArrayOutput {
+	return o
+}
+
+func (o FlowMediaStreamSourceConfigurationArrayOutput) Index(i pulumi.IntInput) FlowMediaStreamSourceConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FlowMediaStreamSourceConfiguration {
+		return vs[0].([]FlowMediaStreamSourceConfiguration)[vs[1].(int)]
+	}).(FlowMediaStreamSourceConfigurationOutput)
+}
+
+// The definition of a media stream that is associated with the output.
+type FlowOutputDestinationConfiguration struct {
+	// The IP address where contents of the media stream will be sent.
+	DestinationIp string `pulumi:"destinationIp"`
+	// The port to use when the content of the media stream is distributed to the output.
+	DestinationPort int `pulumi:"destinationPort"`
+	// The VPC interface that is used for the media stream associated with the output.
+	Interface FlowOutputInterface `pulumi:"interface"`
+}
+
+// FlowOutputDestinationConfigurationInput is an input type that accepts FlowOutputDestinationConfigurationArgs and FlowOutputDestinationConfigurationOutput values.
+// You can construct a concrete instance of `FlowOutputDestinationConfigurationInput` via:
+//
+//	FlowOutputDestinationConfigurationArgs{...}
+type FlowOutputDestinationConfigurationInput interface {
+	pulumi.Input
+
+	ToFlowOutputDestinationConfigurationOutput() FlowOutputDestinationConfigurationOutput
+	ToFlowOutputDestinationConfigurationOutputWithContext(context.Context) FlowOutputDestinationConfigurationOutput
+}
+
+// The definition of a media stream that is associated with the output.
+type FlowOutputDestinationConfigurationArgs struct {
+	// The IP address where contents of the media stream will be sent.
+	DestinationIp pulumi.StringInput `pulumi:"destinationIp"`
+	// The port to use when the content of the media stream is distributed to the output.
+	DestinationPort pulumi.IntInput `pulumi:"destinationPort"`
+	// The VPC interface that is used for the media stream associated with the output.
+	Interface FlowOutputInterfaceInput `pulumi:"interface"`
+}
+
+func (FlowOutputDestinationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowOutputDestinationConfiguration)(nil)).Elem()
+}
+
+func (i FlowOutputDestinationConfigurationArgs) ToFlowOutputDestinationConfigurationOutput() FlowOutputDestinationConfigurationOutput {
+	return i.ToFlowOutputDestinationConfigurationOutputWithContext(context.Background())
+}
+
+func (i FlowOutputDestinationConfigurationArgs) ToFlowOutputDestinationConfigurationOutputWithContext(ctx context.Context) FlowOutputDestinationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowOutputDestinationConfigurationOutput)
+}
+
+// FlowOutputDestinationConfigurationArrayInput is an input type that accepts FlowOutputDestinationConfigurationArray and FlowOutputDestinationConfigurationArrayOutput values.
+// You can construct a concrete instance of `FlowOutputDestinationConfigurationArrayInput` via:
+//
+//	FlowOutputDestinationConfigurationArray{ FlowOutputDestinationConfigurationArgs{...} }
+type FlowOutputDestinationConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToFlowOutputDestinationConfigurationArrayOutput() FlowOutputDestinationConfigurationArrayOutput
+	ToFlowOutputDestinationConfigurationArrayOutputWithContext(context.Context) FlowOutputDestinationConfigurationArrayOutput
+}
+
+type FlowOutputDestinationConfigurationArray []FlowOutputDestinationConfigurationInput
+
+func (FlowOutputDestinationConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FlowOutputDestinationConfiguration)(nil)).Elem()
+}
+
+func (i FlowOutputDestinationConfigurationArray) ToFlowOutputDestinationConfigurationArrayOutput() FlowOutputDestinationConfigurationArrayOutput {
+	return i.ToFlowOutputDestinationConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i FlowOutputDestinationConfigurationArray) ToFlowOutputDestinationConfigurationArrayOutputWithContext(ctx context.Context) FlowOutputDestinationConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowOutputDestinationConfigurationArrayOutput)
+}
+
+// The definition of a media stream that is associated with the output.
+type FlowOutputDestinationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FlowOutputDestinationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowOutputDestinationConfiguration)(nil)).Elem()
+}
+
+func (o FlowOutputDestinationConfigurationOutput) ToFlowOutputDestinationConfigurationOutput() FlowOutputDestinationConfigurationOutput {
+	return o
+}
+
+func (o FlowOutputDestinationConfigurationOutput) ToFlowOutputDestinationConfigurationOutputWithContext(ctx context.Context) FlowOutputDestinationConfigurationOutput {
+	return o
+}
+
+// The IP address where contents of the media stream will be sent.
+func (o FlowOutputDestinationConfigurationOutput) DestinationIp() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowOutputDestinationConfiguration) string { return v.DestinationIp }).(pulumi.StringOutput)
+}
+
+// The port to use when the content of the media stream is distributed to the output.
+func (o FlowOutputDestinationConfigurationOutput) DestinationPort() pulumi.IntOutput {
+	return o.ApplyT(func(v FlowOutputDestinationConfiguration) int { return v.DestinationPort }).(pulumi.IntOutput)
+}
+
+// The VPC interface that is used for the media stream associated with the output.
+func (o FlowOutputDestinationConfigurationOutput) Interface() FlowOutputInterfaceOutput {
+	return o.ApplyT(func(v FlowOutputDestinationConfiguration) FlowOutputInterface { return v.Interface }).(FlowOutputInterfaceOutput)
+}
+
+type FlowOutputDestinationConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (FlowOutputDestinationConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FlowOutputDestinationConfiguration)(nil)).Elem()
+}
+
+func (o FlowOutputDestinationConfigurationArrayOutput) ToFlowOutputDestinationConfigurationArrayOutput() FlowOutputDestinationConfigurationArrayOutput {
+	return o
+}
+
+func (o FlowOutputDestinationConfigurationArrayOutput) ToFlowOutputDestinationConfigurationArrayOutputWithContext(ctx context.Context) FlowOutputDestinationConfigurationArrayOutput {
+	return o
+}
+
+func (o FlowOutputDestinationConfigurationArrayOutput) Index(i pulumi.IntInput) FlowOutputDestinationConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FlowOutputDestinationConfiguration {
+		return vs[0].([]FlowOutputDestinationConfiguration)[vs[1].(int)]
+	}).(FlowOutputDestinationConfigurationOutput)
+}
+
+// A collection of parameters that determine how MediaConnect will convert the content. These fields only apply to outputs on flows that have a CDI source.
+type FlowOutputEncodingParameters struct {
+	// A value that is used to calculate compression for an output. The bitrate of the output is calculated as follows: Output bitrate = (1 / compressionFactor) * (source bitrate) This property only applies to outputs that use the ST 2110 JPEG XS protocol, with a flow source that uses the CDI protocol. Valid values are in the range of 3.0 to 10.0, inclusive.
+	CompressionFactor float64 `pulumi:"compressionFactor"`
+	// A setting on the encoder that drives compression settings. This property only applies to video media streams associated with outputs that use the ST 2110 JPEG XS protocol, with a flow source that uses the CDI protocol.
+	EncoderProfile *FlowOutputEncodingParametersEncoderProfile `pulumi:"encoderProfile"`
+}
+
+// FlowOutputEncodingParametersInput is an input type that accepts FlowOutputEncodingParametersArgs and FlowOutputEncodingParametersOutput values.
+// You can construct a concrete instance of `FlowOutputEncodingParametersInput` via:
+//
+//	FlowOutputEncodingParametersArgs{...}
+type FlowOutputEncodingParametersInput interface {
+	pulumi.Input
+
+	ToFlowOutputEncodingParametersOutput() FlowOutputEncodingParametersOutput
+	ToFlowOutputEncodingParametersOutputWithContext(context.Context) FlowOutputEncodingParametersOutput
+}
+
+// A collection of parameters that determine how MediaConnect will convert the content. These fields only apply to outputs on flows that have a CDI source.
+type FlowOutputEncodingParametersArgs struct {
+	// A value that is used to calculate compression for an output. The bitrate of the output is calculated as follows: Output bitrate = (1 / compressionFactor) * (source bitrate) This property only applies to outputs that use the ST 2110 JPEG XS protocol, with a flow source that uses the CDI protocol. Valid values are in the range of 3.0 to 10.0, inclusive.
+	CompressionFactor pulumi.Float64Input `pulumi:"compressionFactor"`
+	// A setting on the encoder that drives compression settings. This property only applies to video media streams associated with outputs that use the ST 2110 JPEG XS protocol, with a flow source that uses the CDI protocol.
+	EncoderProfile FlowOutputEncodingParametersEncoderProfilePtrInput `pulumi:"encoderProfile"`
+}
+
+func (FlowOutputEncodingParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowOutputEncodingParameters)(nil)).Elem()
+}
+
+func (i FlowOutputEncodingParametersArgs) ToFlowOutputEncodingParametersOutput() FlowOutputEncodingParametersOutput {
+	return i.ToFlowOutputEncodingParametersOutputWithContext(context.Background())
+}
+
+func (i FlowOutputEncodingParametersArgs) ToFlowOutputEncodingParametersOutputWithContext(ctx context.Context) FlowOutputEncodingParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowOutputEncodingParametersOutput)
+}
+
+func (i FlowOutputEncodingParametersArgs) ToFlowOutputEncodingParametersPtrOutput() FlowOutputEncodingParametersPtrOutput {
+	return i.ToFlowOutputEncodingParametersPtrOutputWithContext(context.Background())
+}
+
+func (i FlowOutputEncodingParametersArgs) ToFlowOutputEncodingParametersPtrOutputWithContext(ctx context.Context) FlowOutputEncodingParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowOutputEncodingParametersOutput).ToFlowOutputEncodingParametersPtrOutputWithContext(ctx)
+}
+
+// FlowOutputEncodingParametersPtrInput is an input type that accepts FlowOutputEncodingParametersArgs, FlowOutputEncodingParametersPtr and FlowOutputEncodingParametersPtrOutput values.
+// You can construct a concrete instance of `FlowOutputEncodingParametersPtrInput` via:
+//
+//	        FlowOutputEncodingParametersArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowOutputEncodingParametersPtrInput interface {
+	pulumi.Input
+
+	ToFlowOutputEncodingParametersPtrOutput() FlowOutputEncodingParametersPtrOutput
+	ToFlowOutputEncodingParametersPtrOutputWithContext(context.Context) FlowOutputEncodingParametersPtrOutput
+}
+
+type flowOutputEncodingParametersPtrType FlowOutputEncodingParametersArgs
+
+func FlowOutputEncodingParametersPtr(v *FlowOutputEncodingParametersArgs) FlowOutputEncodingParametersPtrInput {
+	return (*flowOutputEncodingParametersPtrType)(v)
+}
+
+func (*flowOutputEncodingParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowOutputEncodingParameters)(nil)).Elem()
+}
+
+func (i *flowOutputEncodingParametersPtrType) ToFlowOutputEncodingParametersPtrOutput() FlowOutputEncodingParametersPtrOutput {
+	return i.ToFlowOutputEncodingParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *flowOutputEncodingParametersPtrType) ToFlowOutputEncodingParametersPtrOutputWithContext(ctx context.Context) FlowOutputEncodingParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowOutputEncodingParametersPtrOutput)
+}
+
+// A collection of parameters that determine how MediaConnect will convert the content. These fields only apply to outputs on flows that have a CDI source.
+type FlowOutputEncodingParametersOutput struct{ *pulumi.OutputState }
+
+func (FlowOutputEncodingParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowOutputEncodingParameters)(nil)).Elem()
+}
+
+func (o FlowOutputEncodingParametersOutput) ToFlowOutputEncodingParametersOutput() FlowOutputEncodingParametersOutput {
+	return o
+}
+
+func (o FlowOutputEncodingParametersOutput) ToFlowOutputEncodingParametersOutputWithContext(ctx context.Context) FlowOutputEncodingParametersOutput {
+	return o
+}
+
+func (o FlowOutputEncodingParametersOutput) ToFlowOutputEncodingParametersPtrOutput() FlowOutputEncodingParametersPtrOutput {
+	return o.ToFlowOutputEncodingParametersPtrOutputWithContext(context.Background())
+}
+
+func (o FlowOutputEncodingParametersOutput) ToFlowOutputEncodingParametersPtrOutputWithContext(ctx context.Context) FlowOutputEncodingParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowOutputEncodingParameters) *FlowOutputEncodingParameters {
+		return &v
+	}).(FlowOutputEncodingParametersPtrOutput)
+}
+
+// A value that is used to calculate compression for an output. The bitrate of the output is calculated as follows: Output bitrate = (1 / compressionFactor) * (source bitrate) This property only applies to outputs that use the ST 2110 JPEG XS protocol, with a flow source that uses the CDI protocol. Valid values are in the range of 3.0 to 10.0, inclusive.
+func (o FlowOutputEncodingParametersOutput) CompressionFactor() pulumi.Float64Output {
+	return o.ApplyT(func(v FlowOutputEncodingParameters) float64 { return v.CompressionFactor }).(pulumi.Float64Output)
+}
+
+// A setting on the encoder that drives compression settings. This property only applies to video media streams associated with outputs that use the ST 2110 JPEG XS protocol, with a flow source that uses the CDI protocol.
+func (o FlowOutputEncodingParametersOutput) EncoderProfile() FlowOutputEncodingParametersEncoderProfilePtrOutput {
+	return o.ApplyT(func(v FlowOutputEncodingParameters) *FlowOutputEncodingParametersEncoderProfile {
+		return v.EncoderProfile
+	}).(FlowOutputEncodingParametersEncoderProfilePtrOutput)
+}
+
+type FlowOutputEncodingParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowOutputEncodingParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowOutputEncodingParameters)(nil)).Elem()
+}
+
+func (o FlowOutputEncodingParametersPtrOutput) ToFlowOutputEncodingParametersPtrOutput() FlowOutputEncodingParametersPtrOutput {
+	return o
+}
+
+func (o FlowOutputEncodingParametersPtrOutput) ToFlowOutputEncodingParametersPtrOutputWithContext(ctx context.Context) FlowOutputEncodingParametersPtrOutput {
+	return o
+}
+
+func (o FlowOutputEncodingParametersPtrOutput) Elem() FlowOutputEncodingParametersOutput {
+	return o.ApplyT(func(v *FlowOutputEncodingParameters) FlowOutputEncodingParameters {
+		if v != nil {
+			return *v
+		}
+		var ret FlowOutputEncodingParameters
+		return ret
+	}).(FlowOutputEncodingParametersOutput)
+}
+
+// A value that is used to calculate compression for an output. The bitrate of the output is calculated as follows: Output bitrate = (1 / compressionFactor) * (source bitrate) This property only applies to outputs that use the ST 2110 JPEG XS protocol, with a flow source that uses the CDI protocol. Valid values are in the range of 3.0 to 10.0, inclusive.
+func (o FlowOutputEncodingParametersPtrOutput) CompressionFactor() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *FlowOutputEncodingParameters) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.CompressionFactor
+	}).(pulumi.Float64PtrOutput)
+}
+
+// A setting on the encoder that drives compression settings. This property only applies to video media streams associated with outputs that use the ST 2110 JPEG XS protocol, with a flow source that uses the CDI protocol.
+func (o FlowOutputEncodingParametersPtrOutput) EncoderProfile() FlowOutputEncodingParametersEncoderProfilePtrOutput {
+	return o.ApplyT(func(v *FlowOutputEncodingParameters) *FlowOutputEncodingParametersEncoderProfile {
+		if v == nil {
+			return nil
+		}
+		return v.EncoderProfile
+	}).(FlowOutputEncodingParametersEncoderProfilePtrOutput)
 }
 
 // Information about the encryption of the flow.
@@ -3527,6 +4825,194 @@ func (o FlowOutputEncryptionPtrOutput) SecretArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The VPC interface that you want to use for the media stream associated with the output.
+type FlowOutputInterface struct {
+	// The name of the VPC interface that you want to use for the media stream associated with the output.
+	Name string `pulumi:"name"`
+}
+
+// FlowOutputInterfaceInput is an input type that accepts FlowOutputInterfaceArgs and FlowOutputInterfaceOutput values.
+// You can construct a concrete instance of `FlowOutputInterfaceInput` via:
+//
+//	FlowOutputInterfaceArgs{...}
+type FlowOutputInterfaceInput interface {
+	pulumi.Input
+
+	ToFlowOutputInterfaceOutput() FlowOutputInterfaceOutput
+	ToFlowOutputInterfaceOutputWithContext(context.Context) FlowOutputInterfaceOutput
+}
+
+// The VPC interface that you want to use for the media stream associated with the output.
+type FlowOutputInterfaceArgs struct {
+	// The name of the VPC interface that you want to use for the media stream associated with the output.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (FlowOutputInterfaceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowOutputInterface)(nil)).Elem()
+}
+
+func (i FlowOutputInterfaceArgs) ToFlowOutputInterfaceOutput() FlowOutputInterfaceOutput {
+	return i.ToFlowOutputInterfaceOutputWithContext(context.Background())
+}
+
+func (i FlowOutputInterfaceArgs) ToFlowOutputInterfaceOutputWithContext(ctx context.Context) FlowOutputInterfaceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowOutputInterfaceOutput)
+}
+
+// The VPC interface that you want to use for the media stream associated with the output.
+type FlowOutputInterfaceOutput struct{ *pulumi.OutputState }
+
+func (FlowOutputInterfaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowOutputInterface)(nil)).Elem()
+}
+
+func (o FlowOutputInterfaceOutput) ToFlowOutputInterfaceOutput() FlowOutputInterfaceOutput {
+	return o
+}
+
+func (o FlowOutputInterfaceOutput) ToFlowOutputInterfaceOutputWithContext(ctx context.Context) FlowOutputInterfaceOutput {
+	return o
+}
+
+// The name of the VPC interface that you want to use for the media stream associated with the output.
+func (o FlowOutputInterfaceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowOutputInterface) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The media stream that is associated with the output, and the parameters for that association.
+type FlowOutputMediaStreamOutputConfiguration struct {
+	// The media streams that you want to associate with the output.
+	DestinationConfigurations []FlowOutputDestinationConfiguration `pulumi:"destinationConfigurations"`
+	// The format that will be used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video streams on sources or outputs that use the CDI protocol, set the encoding name to raw. For video streams on sources or outputs that use the ST 2110 JPEG XS protocol, set the encoding name to jxsv.
+	EncodingName FlowOutputMediaStreamOutputConfigurationEncodingName `pulumi:"encodingName"`
+	// A collection of parameters that determine how MediaConnect will convert the content. These fields only apply to outputs on flows that have a CDI source.
+	EncodingParameters *FlowOutputEncodingParameters `pulumi:"encodingParameters"`
+	// A name that helps you distinguish one media stream from another.
+	MediaStreamName string `pulumi:"mediaStreamName"`
+}
+
+// FlowOutputMediaStreamOutputConfigurationInput is an input type that accepts FlowOutputMediaStreamOutputConfigurationArgs and FlowOutputMediaStreamOutputConfigurationOutput values.
+// You can construct a concrete instance of `FlowOutputMediaStreamOutputConfigurationInput` via:
+//
+//	FlowOutputMediaStreamOutputConfigurationArgs{...}
+type FlowOutputMediaStreamOutputConfigurationInput interface {
+	pulumi.Input
+
+	ToFlowOutputMediaStreamOutputConfigurationOutput() FlowOutputMediaStreamOutputConfigurationOutput
+	ToFlowOutputMediaStreamOutputConfigurationOutputWithContext(context.Context) FlowOutputMediaStreamOutputConfigurationOutput
+}
+
+// The media stream that is associated with the output, and the parameters for that association.
+type FlowOutputMediaStreamOutputConfigurationArgs struct {
+	// The media streams that you want to associate with the output.
+	DestinationConfigurations FlowOutputDestinationConfigurationArrayInput `pulumi:"destinationConfigurations"`
+	// The format that will be used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video streams on sources or outputs that use the CDI protocol, set the encoding name to raw. For video streams on sources or outputs that use the ST 2110 JPEG XS protocol, set the encoding name to jxsv.
+	EncodingName FlowOutputMediaStreamOutputConfigurationEncodingNameInput `pulumi:"encodingName"`
+	// A collection of parameters that determine how MediaConnect will convert the content. These fields only apply to outputs on flows that have a CDI source.
+	EncodingParameters FlowOutputEncodingParametersPtrInput `pulumi:"encodingParameters"`
+	// A name that helps you distinguish one media stream from another.
+	MediaStreamName pulumi.StringInput `pulumi:"mediaStreamName"`
+}
+
+func (FlowOutputMediaStreamOutputConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowOutputMediaStreamOutputConfiguration)(nil)).Elem()
+}
+
+func (i FlowOutputMediaStreamOutputConfigurationArgs) ToFlowOutputMediaStreamOutputConfigurationOutput() FlowOutputMediaStreamOutputConfigurationOutput {
+	return i.ToFlowOutputMediaStreamOutputConfigurationOutputWithContext(context.Background())
+}
+
+func (i FlowOutputMediaStreamOutputConfigurationArgs) ToFlowOutputMediaStreamOutputConfigurationOutputWithContext(ctx context.Context) FlowOutputMediaStreamOutputConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowOutputMediaStreamOutputConfigurationOutput)
+}
+
+// FlowOutputMediaStreamOutputConfigurationArrayInput is an input type that accepts FlowOutputMediaStreamOutputConfigurationArray and FlowOutputMediaStreamOutputConfigurationArrayOutput values.
+// You can construct a concrete instance of `FlowOutputMediaStreamOutputConfigurationArrayInput` via:
+//
+//	FlowOutputMediaStreamOutputConfigurationArray{ FlowOutputMediaStreamOutputConfigurationArgs{...} }
+type FlowOutputMediaStreamOutputConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToFlowOutputMediaStreamOutputConfigurationArrayOutput() FlowOutputMediaStreamOutputConfigurationArrayOutput
+	ToFlowOutputMediaStreamOutputConfigurationArrayOutputWithContext(context.Context) FlowOutputMediaStreamOutputConfigurationArrayOutput
+}
+
+type FlowOutputMediaStreamOutputConfigurationArray []FlowOutputMediaStreamOutputConfigurationInput
+
+func (FlowOutputMediaStreamOutputConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FlowOutputMediaStreamOutputConfiguration)(nil)).Elem()
+}
+
+func (i FlowOutputMediaStreamOutputConfigurationArray) ToFlowOutputMediaStreamOutputConfigurationArrayOutput() FlowOutputMediaStreamOutputConfigurationArrayOutput {
+	return i.ToFlowOutputMediaStreamOutputConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i FlowOutputMediaStreamOutputConfigurationArray) ToFlowOutputMediaStreamOutputConfigurationArrayOutputWithContext(ctx context.Context) FlowOutputMediaStreamOutputConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowOutputMediaStreamOutputConfigurationArrayOutput)
+}
+
+// The media stream that is associated with the output, and the parameters for that association.
+type FlowOutputMediaStreamOutputConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FlowOutputMediaStreamOutputConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowOutputMediaStreamOutputConfiguration)(nil)).Elem()
+}
+
+func (o FlowOutputMediaStreamOutputConfigurationOutput) ToFlowOutputMediaStreamOutputConfigurationOutput() FlowOutputMediaStreamOutputConfigurationOutput {
+	return o
+}
+
+func (o FlowOutputMediaStreamOutputConfigurationOutput) ToFlowOutputMediaStreamOutputConfigurationOutputWithContext(ctx context.Context) FlowOutputMediaStreamOutputConfigurationOutput {
+	return o
+}
+
+// The media streams that you want to associate with the output.
+func (o FlowOutputMediaStreamOutputConfigurationOutput) DestinationConfigurations() FlowOutputDestinationConfigurationArrayOutput {
+	return o.ApplyT(func(v FlowOutputMediaStreamOutputConfiguration) []FlowOutputDestinationConfiguration {
+		return v.DestinationConfigurations
+	}).(FlowOutputDestinationConfigurationArrayOutput)
+}
+
+// The format that will be used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video streams on sources or outputs that use the CDI protocol, set the encoding name to raw. For video streams on sources or outputs that use the ST 2110 JPEG XS protocol, set the encoding name to jxsv.
+func (o FlowOutputMediaStreamOutputConfigurationOutput) EncodingName() FlowOutputMediaStreamOutputConfigurationEncodingNameOutput {
+	return o.ApplyT(func(v FlowOutputMediaStreamOutputConfiguration) FlowOutputMediaStreamOutputConfigurationEncodingName {
+		return v.EncodingName
+	}).(FlowOutputMediaStreamOutputConfigurationEncodingNameOutput)
+}
+
+// A collection of parameters that determine how MediaConnect will convert the content. These fields only apply to outputs on flows that have a CDI source.
+func (o FlowOutputMediaStreamOutputConfigurationOutput) EncodingParameters() FlowOutputEncodingParametersPtrOutput {
+	return o.ApplyT(func(v FlowOutputMediaStreamOutputConfiguration) *FlowOutputEncodingParameters {
+		return v.EncodingParameters
+	}).(FlowOutputEncodingParametersPtrOutput)
+}
+
+// A name that helps you distinguish one media stream from another.
+func (o FlowOutputMediaStreamOutputConfigurationOutput) MediaStreamName() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowOutputMediaStreamOutputConfiguration) string { return v.MediaStreamName }).(pulumi.StringOutput)
+}
+
+type FlowOutputMediaStreamOutputConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (FlowOutputMediaStreamOutputConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FlowOutputMediaStreamOutputConfiguration)(nil)).Elem()
+}
+
+func (o FlowOutputMediaStreamOutputConfigurationArrayOutput) ToFlowOutputMediaStreamOutputConfigurationArrayOutput() FlowOutputMediaStreamOutputConfigurationArrayOutput {
+	return o
+}
+
+func (o FlowOutputMediaStreamOutputConfigurationArrayOutput) ToFlowOutputMediaStreamOutputConfigurationArrayOutputWithContext(ctx context.Context) FlowOutputMediaStreamOutputConfigurationArrayOutput {
+	return o
+}
+
+func (o FlowOutputMediaStreamOutputConfigurationArrayOutput) Index(i pulumi.IntInput) FlowOutputMediaStreamOutputConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FlowOutputMediaStreamOutputConfiguration {
+		return vs[0].([]FlowOutputMediaStreamOutputConfiguration)[vs[1].(int)]
+	}).(FlowOutputMediaStreamOutputConfigurationOutput)
+}
+
 // The settings for attaching a VPC interface to an output.
 type FlowOutputVpcInterfaceAttachment struct {
 	// The name of the VPC interface to use for this output.
@@ -3685,6 +5171,10 @@ type FlowSourceType struct {
 	MaxBitrate *int `pulumi:"maxBitrate"`
 	// The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
 	MaxLatency *int `pulumi:"maxLatency"`
+	// The size of the buffer (in milliseconds) to use to sync incoming source data.
+	MaxSyncBuffer *int `pulumi:"maxSyncBuffer"`
+	// The media stream that is associated with the source, and the parameters for that association.
+	MediaStreamSourceConfigurations []FlowMediaStreamSourceConfiguration `pulumi:"mediaStreamSourceConfigurations"`
 	// The minimum latency in milliseconds.
 	MinLatency *int `pulumi:"minLatency"`
 	// The name of the source.
@@ -3740,6 +5230,10 @@ type FlowSourceTypeArgs struct {
 	MaxBitrate pulumi.IntPtrInput `pulumi:"maxBitrate"`
 	// The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
 	MaxLatency pulumi.IntPtrInput `pulumi:"maxLatency"`
+	// The size of the buffer (in milliseconds) to use to sync incoming source data.
+	MaxSyncBuffer pulumi.IntPtrInput `pulumi:"maxSyncBuffer"`
+	// The media stream that is associated with the source, and the parameters for that association.
+	MediaStreamSourceConfigurations FlowMediaStreamSourceConfigurationArrayInput `pulumi:"mediaStreamSourceConfigurations"`
 	// The minimum latency in milliseconds.
 	MinLatency pulumi.IntPtrInput `pulumi:"minLatency"`
 	// The name of the source.
@@ -3831,6 +5325,16 @@ func (o FlowSourceTypeOutput) MaxBitrate() pulumi.IntPtrOutput {
 // The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
 func (o FlowSourceTypeOutput) MaxLatency() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FlowSourceType) *int { return v.MaxLatency }).(pulumi.IntPtrOutput)
+}
+
+// The size of the buffer (in milliseconds) to use to sync incoming source data.
+func (o FlowSourceTypeOutput) MaxSyncBuffer() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FlowSourceType) *int { return v.MaxSyncBuffer }).(pulumi.IntPtrOutput)
+}
+
+// The media stream that is associated with the source, and the parameters for that association.
+func (o FlowSourceTypeOutput) MediaStreamSourceConfigurations() FlowMediaStreamSourceConfigurationArrayOutput {
+	return o.ApplyT(func(v FlowSourceType) []FlowMediaStreamSourceConfiguration { return v.MediaStreamSourceConfigurations }).(FlowMediaStreamSourceConfigurationArrayOutput)
 }
 
 // The minimum latency in milliseconds.
@@ -3995,6 +5499,26 @@ func (o FlowSourceTypePtrOutput) MaxLatency() pulumi.IntPtrOutput {
 		}
 		return v.MaxLatency
 	}).(pulumi.IntPtrOutput)
+}
+
+// The size of the buffer (in milliseconds) to use to sync incoming source data.
+func (o FlowSourceTypePtrOutput) MaxSyncBuffer() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FlowSourceType) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxSyncBuffer
+	}).(pulumi.IntPtrOutput)
+}
+
+// The media stream that is associated with the source, and the parameters for that association.
+func (o FlowSourceTypePtrOutput) MediaStreamSourceConfigurations() FlowMediaStreamSourceConfigurationArrayOutput {
+	return o.ApplyT(func(v *FlowSourceType) []FlowMediaStreamSourceConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.MediaStreamSourceConfigurations
+	}).(FlowMediaStreamSourceConfigurationArrayOutput)
 }
 
 // The minimum latency in milliseconds.
@@ -4710,6 +6234,151 @@ func (o FlowSourceVpcInterfaceAttachmentPtrOutput) VpcInterfaceName() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+// The details of a VPC interface.
+type FlowVpcInterfaceType struct {
+	// Immutable and has to be a unique against other VpcInterfaces in this Flow.
+	Name string `pulumi:"name"`
+	// IDs of the network interfaces created in customer's account by MediaConnect.
+	NetworkInterfaceIds []string `pulumi:"networkInterfaceIds"`
+	// The type of network adapter that you want MediaConnect to use on this interface. If you don't set this value, it defaults to ENA.
+	NetworkInterfaceType *FlowVpcInterfaceNetworkInterfaceType `pulumi:"networkInterfaceType"`
+	// Role Arn MediaConnect can assume to create ENIs in customer's account.
+	RoleArn string `pulumi:"roleArn"`
+	// Security Group IDs to be used on ENI.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// Subnet must be in the AZ of the Flow
+	SubnetId string `pulumi:"subnetId"`
+}
+
+// FlowVpcInterfaceTypeInput is an input type that accepts FlowVpcInterfaceTypeArgs and FlowVpcInterfaceTypeOutput values.
+// You can construct a concrete instance of `FlowVpcInterfaceTypeInput` via:
+//
+//	FlowVpcInterfaceTypeArgs{...}
+type FlowVpcInterfaceTypeInput interface {
+	pulumi.Input
+
+	ToFlowVpcInterfaceTypeOutput() FlowVpcInterfaceTypeOutput
+	ToFlowVpcInterfaceTypeOutputWithContext(context.Context) FlowVpcInterfaceTypeOutput
+}
+
+// The details of a VPC interface.
+type FlowVpcInterfaceTypeArgs struct {
+	// Immutable and has to be a unique against other VpcInterfaces in this Flow.
+	Name pulumi.StringInput `pulumi:"name"`
+	// IDs of the network interfaces created in customer's account by MediaConnect.
+	NetworkInterfaceIds pulumi.StringArrayInput `pulumi:"networkInterfaceIds"`
+	// The type of network adapter that you want MediaConnect to use on this interface. If you don't set this value, it defaults to ENA.
+	NetworkInterfaceType FlowVpcInterfaceNetworkInterfaceTypePtrInput `pulumi:"networkInterfaceType"`
+	// Role Arn MediaConnect can assume to create ENIs in customer's account.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// Security Group IDs to be used on ENI.
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// Subnet must be in the AZ of the Flow
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+}
+
+func (FlowVpcInterfaceTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowVpcInterfaceType)(nil)).Elem()
+}
+
+func (i FlowVpcInterfaceTypeArgs) ToFlowVpcInterfaceTypeOutput() FlowVpcInterfaceTypeOutput {
+	return i.ToFlowVpcInterfaceTypeOutputWithContext(context.Background())
+}
+
+func (i FlowVpcInterfaceTypeArgs) ToFlowVpcInterfaceTypeOutputWithContext(ctx context.Context) FlowVpcInterfaceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowVpcInterfaceTypeOutput)
+}
+
+// FlowVpcInterfaceTypeArrayInput is an input type that accepts FlowVpcInterfaceTypeArray and FlowVpcInterfaceTypeArrayOutput values.
+// You can construct a concrete instance of `FlowVpcInterfaceTypeArrayInput` via:
+//
+//	FlowVpcInterfaceTypeArray{ FlowVpcInterfaceTypeArgs{...} }
+type FlowVpcInterfaceTypeArrayInput interface {
+	pulumi.Input
+
+	ToFlowVpcInterfaceTypeArrayOutput() FlowVpcInterfaceTypeArrayOutput
+	ToFlowVpcInterfaceTypeArrayOutputWithContext(context.Context) FlowVpcInterfaceTypeArrayOutput
+}
+
+type FlowVpcInterfaceTypeArray []FlowVpcInterfaceTypeInput
+
+func (FlowVpcInterfaceTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FlowVpcInterfaceType)(nil)).Elem()
+}
+
+func (i FlowVpcInterfaceTypeArray) ToFlowVpcInterfaceTypeArrayOutput() FlowVpcInterfaceTypeArrayOutput {
+	return i.ToFlowVpcInterfaceTypeArrayOutputWithContext(context.Background())
+}
+
+func (i FlowVpcInterfaceTypeArray) ToFlowVpcInterfaceTypeArrayOutputWithContext(ctx context.Context) FlowVpcInterfaceTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowVpcInterfaceTypeArrayOutput)
+}
+
+// The details of a VPC interface.
+type FlowVpcInterfaceTypeOutput struct{ *pulumi.OutputState }
+
+func (FlowVpcInterfaceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowVpcInterfaceType)(nil)).Elem()
+}
+
+func (o FlowVpcInterfaceTypeOutput) ToFlowVpcInterfaceTypeOutput() FlowVpcInterfaceTypeOutput {
+	return o
+}
+
+func (o FlowVpcInterfaceTypeOutput) ToFlowVpcInterfaceTypeOutputWithContext(ctx context.Context) FlowVpcInterfaceTypeOutput {
+	return o
+}
+
+// Immutable and has to be a unique against other VpcInterfaces in this Flow.
+func (o FlowVpcInterfaceTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowVpcInterfaceType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// IDs of the network interfaces created in customer's account by MediaConnect.
+func (o FlowVpcInterfaceTypeOutput) NetworkInterfaceIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FlowVpcInterfaceType) []string { return v.NetworkInterfaceIds }).(pulumi.StringArrayOutput)
+}
+
+// The type of network adapter that you want MediaConnect to use on this interface. If you don't set this value, it defaults to ENA.
+func (o FlowVpcInterfaceTypeOutput) NetworkInterfaceType() FlowVpcInterfaceNetworkInterfaceTypePtrOutput {
+	return o.ApplyT(func(v FlowVpcInterfaceType) *FlowVpcInterfaceNetworkInterfaceType { return v.NetworkInterfaceType }).(FlowVpcInterfaceNetworkInterfaceTypePtrOutput)
+}
+
+// Role Arn MediaConnect can assume to create ENIs in customer's account.
+func (o FlowVpcInterfaceTypeOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowVpcInterfaceType) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+// Security Group IDs to be used on ENI.
+func (o FlowVpcInterfaceTypeOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FlowVpcInterfaceType) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+// Subnet must be in the AZ of the Flow
+func (o FlowVpcInterfaceTypeOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowVpcInterfaceType) string { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+type FlowVpcInterfaceTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (FlowVpcInterfaceTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FlowVpcInterfaceType)(nil)).Elem()
+}
+
+func (o FlowVpcInterfaceTypeArrayOutput) ToFlowVpcInterfaceTypeArrayOutput() FlowVpcInterfaceTypeArrayOutput {
+	return o
+}
+
+func (o FlowVpcInterfaceTypeArrayOutput) ToFlowVpcInterfaceTypeArrayOutputWithContext(ctx context.Context) FlowVpcInterfaceTypeArrayOutput {
+	return o
+}
+
+func (o FlowVpcInterfaceTypeArrayOutput) Index(i pulumi.IntInput) FlowVpcInterfaceTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FlowVpcInterfaceType {
+		return vs[0].([]FlowVpcInterfaceType)[vs[1].(int)]
+	}).(FlowVpcInterfaceTypeOutput)
+}
+
 // The settings for attaching a VPC interface to an resource.
 type FlowVpcInterfaceAttachment struct {
 	// The name of the VPC interface to use for this resource.
@@ -4995,10 +6664,30 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowFailoverConfigPtrInput)(nil)).Elem(), FlowFailoverConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowFailoverConfigSourcePriorityPropertiesInput)(nil)).Elem(), FlowFailoverConfigSourcePriorityPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowFailoverConfigSourcePriorityPropertiesPtrInput)(nil)).Elem(), FlowFailoverConfigSourcePriorityPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowFmtpInput)(nil)).Elem(), FlowFmtpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowFmtpPtrInput)(nil)).Elem(), FlowFmtpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowGatewayBridgeSourceInput)(nil)).Elem(), FlowGatewayBridgeSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowGatewayBridgeSourcePtrInput)(nil)).Elem(), FlowGatewayBridgeSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowInputConfigurationInput)(nil)).Elem(), FlowInputConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowInputConfigurationArrayInput)(nil)).Elem(), FlowInputConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowInterfaceInput)(nil)).Elem(), FlowInterfaceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowMaintenanceInput)(nil)).Elem(), FlowMaintenanceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowMaintenancePtrInput)(nil)).Elem(), FlowMaintenanceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowMediaStreamInput)(nil)).Elem(), FlowMediaStreamArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowMediaStreamArrayInput)(nil)).Elem(), FlowMediaStreamArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowMediaStreamAttributesInput)(nil)).Elem(), FlowMediaStreamAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowMediaStreamAttributesPtrInput)(nil)).Elem(), FlowMediaStreamAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowMediaStreamSourceConfigurationInput)(nil)).Elem(), FlowMediaStreamSourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowMediaStreamSourceConfigurationArrayInput)(nil)).Elem(), FlowMediaStreamSourceConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputDestinationConfigurationInput)(nil)).Elem(), FlowOutputDestinationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputDestinationConfigurationArrayInput)(nil)).Elem(), FlowOutputDestinationConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputEncodingParametersInput)(nil)).Elem(), FlowOutputEncodingParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputEncodingParametersPtrInput)(nil)).Elem(), FlowOutputEncodingParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputEncryptionInput)(nil)).Elem(), FlowOutputEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputEncryptionPtrInput)(nil)).Elem(), FlowOutputEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputInterfaceInput)(nil)).Elem(), FlowOutputInterfaceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputMediaStreamOutputConfigurationInput)(nil)).Elem(), FlowOutputMediaStreamOutputConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputMediaStreamOutputConfigurationArrayInput)(nil)).Elem(), FlowOutputMediaStreamOutputConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputVpcInterfaceAttachmentInput)(nil)).Elem(), FlowOutputVpcInterfaceAttachmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputVpcInterfaceAttachmentPtrInput)(nil)).Elem(), FlowOutputVpcInterfaceAttachmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceTypeInput)(nil)).Elem(), FlowSourceTypeArgs{})
@@ -5008,6 +6697,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceGatewayBridgeSourcePtrInput)(nil)).Elem(), FlowSourceGatewayBridgeSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceVpcInterfaceAttachmentInput)(nil)).Elem(), FlowSourceVpcInterfaceAttachmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceVpcInterfaceAttachmentPtrInput)(nil)).Elem(), FlowSourceVpcInterfaceAttachmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowVpcInterfaceTypeInput)(nil)).Elem(), FlowVpcInterfaceTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowVpcInterfaceTypeArrayInput)(nil)).Elem(), FlowVpcInterfaceTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowVpcInterfaceAttachmentInput)(nil)).Elem(), FlowVpcInterfaceAttachmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowVpcInterfaceAttachmentPtrInput)(nil)).Elem(), FlowVpcInterfaceAttachmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayNetworkInput)(nil)).Elem(), GatewayNetworkArgs{})
@@ -5048,10 +6739,30 @@ func init() {
 	pulumi.RegisterOutputType(FlowFailoverConfigPtrOutput{})
 	pulumi.RegisterOutputType(FlowFailoverConfigSourcePriorityPropertiesOutput{})
 	pulumi.RegisterOutputType(FlowFailoverConfigSourcePriorityPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(FlowFmtpOutput{})
+	pulumi.RegisterOutputType(FlowFmtpPtrOutput{})
 	pulumi.RegisterOutputType(FlowGatewayBridgeSourceOutput{})
 	pulumi.RegisterOutputType(FlowGatewayBridgeSourcePtrOutput{})
+	pulumi.RegisterOutputType(FlowInputConfigurationOutput{})
+	pulumi.RegisterOutputType(FlowInputConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(FlowInterfaceOutput{})
+	pulumi.RegisterOutputType(FlowMaintenanceOutput{})
+	pulumi.RegisterOutputType(FlowMaintenancePtrOutput{})
+	pulumi.RegisterOutputType(FlowMediaStreamOutput{})
+	pulumi.RegisterOutputType(FlowMediaStreamArrayOutput{})
+	pulumi.RegisterOutputType(FlowMediaStreamAttributesOutput{})
+	pulumi.RegisterOutputType(FlowMediaStreamAttributesPtrOutput{})
+	pulumi.RegisterOutputType(FlowMediaStreamSourceConfigurationOutput{})
+	pulumi.RegisterOutputType(FlowMediaStreamSourceConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(FlowOutputDestinationConfigurationOutput{})
+	pulumi.RegisterOutputType(FlowOutputDestinationConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(FlowOutputEncodingParametersOutput{})
+	pulumi.RegisterOutputType(FlowOutputEncodingParametersPtrOutput{})
 	pulumi.RegisterOutputType(FlowOutputEncryptionOutput{})
 	pulumi.RegisterOutputType(FlowOutputEncryptionPtrOutput{})
+	pulumi.RegisterOutputType(FlowOutputInterfaceOutput{})
+	pulumi.RegisterOutputType(FlowOutputMediaStreamOutputConfigurationOutput{})
+	pulumi.RegisterOutputType(FlowOutputMediaStreamOutputConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(FlowOutputVpcInterfaceAttachmentOutput{})
 	pulumi.RegisterOutputType(FlowOutputVpcInterfaceAttachmentPtrOutput{})
 	pulumi.RegisterOutputType(FlowSourceTypeOutput{})
@@ -5062,6 +6773,8 @@ func init() {
 	pulumi.RegisterOutputType(FlowSourceGatewayBridgeSourcePtrOutput{})
 	pulumi.RegisterOutputType(FlowSourceVpcInterfaceAttachmentOutput{})
 	pulumi.RegisterOutputType(FlowSourceVpcInterfaceAttachmentPtrOutput{})
+	pulumi.RegisterOutputType(FlowVpcInterfaceTypeOutput{})
+	pulumi.RegisterOutputType(FlowVpcInterfaceTypeArrayOutput{})
 	pulumi.RegisterOutputType(FlowVpcInterfaceAttachmentOutput{})
 	pulumi.RegisterOutputType(FlowVpcInterfaceAttachmentPtrOutput{})
 	pulumi.RegisterOutputType(GatewayNetworkOutput{})

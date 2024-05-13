@@ -11,12 +11,12 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
     /// <summary>
-    /// &lt;p&gt;Incremental Refresh&lt;/p&gt;
+    /// &lt;p&gt;The incremental refresh configuration for a dataset.&lt;/p&gt;
     /// </summary>
     public sealed class DataSetIncrementalRefreshArgs : global::Pulumi.ResourceArgs
     {
-        [Input("lookbackWindow")]
-        public Input<Inputs.DataSetLookbackWindowArgs>? LookbackWindow { get; set; }
+        [Input("lookbackWindow", required: true)]
+        public Input<Inputs.DataSetLookbackWindowArgs> LookbackWindow { get; set; } = null!;
 
         public DataSetIncrementalRefreshArgs()
         {

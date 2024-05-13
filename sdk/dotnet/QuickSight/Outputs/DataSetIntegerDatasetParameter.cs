@@ -11,13 +11,19 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
     /// <summary>
-    /// &lt;p&gt;A parameter created in the dataset of integer data type.&lt;/p&gt;
+    /// &lt;p&gt;An integer parameter for a dataset.&lt;/p&gt;
     /// </summary>
     [OutputType]
     public sealed class DataSetIntegerDatasetParameter
     {
         public readonly Outputs.DataSetIntegerDatasetParameterDefaultValues? DefaultValues;
+        /// <summary>
+        /// &lt;p&gt;An identifier for the integer parameter created in the dataset.&lt;/p&gt;
+        /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// &lt;p&gt;The name of the integer parameter that is created in the dataset.&lt;/p&gt;
+        /// </summary>
         public readonly string Name;
         public readonly Pulumi.AwsNative.QuickSight.DataSetDatasetParameterValueType ValueType;
 

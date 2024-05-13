@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.QuickSight
     [AwsNativeResourceType("aws-native:quicksight:VpcConnection")]
     public partial class VpcConnection : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// &lt;p&gt;The Amazon Resource Name (ARN) of the VPC connection.&lt;/p&gt;
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
@@ -24,18 +27,27 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("awsAccountId")]
         public Output<string?> AwsAccountId { get; private set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;The time that the VPC connection was created.&lt;/p&gt;
+        /// </summary>
         [Output("createdTime")]
         public Output<string> CreatedTime { get; private set; } = null!;
 
         [Output("dnsResolvers")]
         public Output<ImmutableArray<string>> DnsResolvers { get; private set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;The time that the VPC connection was last updated.&lt;/p&gt;
+        /// </summary>
         [Output("lastUpdatedTime")]
         public Output<string> LastUpdatedTime { get; private set; } = null!;
 
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;A list of network interfaces.&lt;/p&gt;
+        /// </summary>
         [Output("networkInterfaces")]
         public Output<ImmutableArray<Outputs.VpcConnectionNetworkInterface>> NetworkInterfaces { get; private set; } = null!;
 
@@ -57,6 +69,9 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("vpcConnectionId")]
         public Output<string?> VpcConnectionId { get; private set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;The Amazon EC2 VPC ID associated with the VPC connection.&lt;/p&gt;
+        /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
 

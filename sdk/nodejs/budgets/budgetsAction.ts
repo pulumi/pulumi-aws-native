@@ -45,6 +45,7 @@ export class BudgetsAction extends pulumi.CustomResource {
     public readonly definition!: pulumi.Output<outputs.budgets.BudgetsActionDefinition>;
     public readonly executionRoleArn!: pulumi.Output<string>;
     public readonly notificationType!: pulumi.Output<enums.budgets.BudgetsActionNotificationType>;
+    public readonly resourceTags!: pulumi.Output<outputs.Tag[] | undefined>;
     public readonly subscribers!: pulumi.Output<outputs.budgets.BudgetsActionSubscriber[]>;
 
     /**
@@ -86,6 +87,7 @@ export class BudgetsAction extends pulumi.CustomResource {
             resourceInputs["definition"] = args ? args.definition : undefined;
             resourceInputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
             resourceInputs["notificationType"] = args ? args.notificationType : undefined;
+            resourceInputs["resourceTags"] = args ? args.resourceTags : undefined;
             resourceInputs["subscribers"] = args ? args.subscribers : undefined;
             resourceInputs["actionId"] = undefined /*out*/;
         } else {
@@ -97,6 +99,7 @@ export class BudgetsAction extends pulumi.CustomResource {
             resourceInputs["definition"] = undefined /*out*/;
             resourceInputs["executionRoleArn"] = undefined /*out*/;
             resourceInputs["notificationType"] = undefined /*out*/;
+            resourceInputs["resourceTags"] = undefined /*out*/;
             resourceInputs["subscribers"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -117,5 +120,6 @@ export interface BudgetsActionArgs {
     definition: pulumi.Input<inputs.budgets.BudgetsActionDefinitionArgs>;
     executionRoleArn: pulumi.Input<string>;
     notificationType: pulumi.Input<enums.budgets.BudgetsActionNotificationType>;
+    resourceTags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     subscribers: pulumi.Input<pulumi.Input<inputs.budgets.BudgetsActionSubscriberArgs>[]>;
 }

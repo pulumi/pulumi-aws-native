@@ -77512,7 +77512,7 @@ type DataSetCastColumnTypeOperation struct {
 	//             format supported by Amazon QuickSight to denote the source data format.</p>
 	Format        *string                   `pulumi:"format"`
 	NewColumnType DataSetColumnDataType     `pulumi:"newColumnType"`
-	SubType       *DataSetColumnSubDataType `pulumi:"subType"`
+	SubType       *DataSetColumnDataSubType `pulumi:"subType"`
 }
 
 // DataSetCastColumnTypeOperationInput is an input type that accepts DataSetCastColumnTypeOperationArgs and DataSetCastColumnTypeOperationOutput values.
@@ -77534,7 +77534,7 @@ type DataSetCastColumnTypeOperationArgs struct {
 	//             format supported by Amazon QuickSight to denote the source data format.</p>
 	Format        pulumi.StringPtrInput            `pulumi:"format"`
 	NewColumnType DataSetColumnDataTypeInput       `pulumi:"newColumnType"`
-	SubType       DataSetColumnSubDataTypePtrInput `pulumi:"subType"`
+	SubType       DataSetColumnDataSubTypePtrInput `pulumi:"subType"`
 }
 
 func (DataSetCastColumnTypeOperationArgs) ElementType() reflect.Type {
@@ -77631,8 +77631,8 @@ func (o DataSetCastColumnTypeOperationOutput) NewColumnType() DataSetColumnDataT
 	return o.ApplyT(func(v DataSetCastColumnTypeOperation) DataSetColumnDataType { return v.NewColumnType }).(DataSetColumnDataTypeOutput)
 }
 
-func (o DataSetCastColumnTypeOperationOutput) SubType() DataSetColumnSubDataTypePtrOutput {
-	return o.ApplyT(func(v DataSetCastColumnTypeOperation) *DataSetColumnSubDataType { return v.SubType }).(DataSetColumnSubDataTypePtrOutput)
+func (o DataSetCastColumnTypeOperationOutput) SubType() DataSetColumnDataSubTypePtrOutput {
+	return o.ApplyT(func(v DataSetCastColumnTypeOperation) *DataSetColumnDataSubType { return v.SubType }).(DataSetColumnDataSubTypePtrOutput)
 }
 
 type DataSetCastColumnTypeOperationPtrOutput struct{ *pulumi.OutputState }
@@ -77690,13 +77690,13 @@ func (o DataSetCastColumnTypeOperationPtrOutput) NewColumnType() DataSetColumnDa
 	}).(DataSetColumnDataTypePtrOutput)
 }
 
-func (o DataSetCastColumnTypeOperationPtrOutput) SubType() DataSetColumnSubDataTypePtrOutput {
-	return o.ApplyT(func(v *DataSetCastColumnTypeOperation) *DataSetColumnSubDataType {
+func (o DataSetCastColumnTypeOperationPtrOutput) SubType() DataSetColumnDataSubTypePtrOutput {
+	return o.ApplyT(func(v *DataSetCastColumnTypeOperation) *DataSetColumnDataSubType {
 		if v == nil {
 			return nil
 		}
 		return v.SubType
-	}).(DataSetColumnSubDataTypePtrOutput)
+	}).(DataSetColumnDataSubTypePtrOutput)
 }
 
 // <p>Metadata that contains a description for a column.</p>
@@ -77945,9 +77945,18 @@ func (o DataSetColumnGroupArrayOutput) Index(i pulumi.IntInput) DataSetColumnGro
 	}).(DataSetColumnGroupOutput)
 }
 
+// <p>A rule defined to grant access on one or more restricted columns.
+//
+//	Each dataset can have multiple rules.
+//	To create a restricted column, you add it to one or more rules.
+//	Each rule must contain at least one column and at least one user or group.
+//	To be able to see a restricted column, a user or group needs to be added
+//	to a rule for that column.</p>
 type DataSetColumnLevelPermissionRule struct {
+	// <p>An array of column names.</p>
 	ColumnNames []string `pulumi:"columnNames"`
-	Principals  []string `pulumi:"principals"`
+	// <p>An array of Amazon Resource Names (ARNs) for Amazon QuickSight users or groups.</p>
+	Principals []string `pulumi:"principals"`
 }
 
 // DataSetColumnLevelPermissionRuleInput is an input type that accepts DataSetColumnLevelPermissionRuleArgs and DataSetColumnLevelPermissionRuleOutput values.
@@ -77961,9 +77970,18 @@ type DataSetColumnLevelPermissionRuleInput interface {
 	ToDataSetColumnLevelPermissionRuleOutputWithContext(context.Context) DataSetColumnLevelPermissionRuleOutput
 }
 
+// <p>A rule defined to grant access on one or more restricted columns.
+//
+//	Each dataset can have multiple rules.
+//	To create a restricted column, you add it to one or more rules.
+//	Each rule must contain at least one column and at least one user or group.
+//	To be able to see a restricted column, a user or group needs to be added
+//	to a rule for that column.</p>
 type DataSetColumnLevelPermissionRuleArgs struct {
+	// <p>An array of column names.</p>
 	ColumnNames pulumi.StringArrayInput `pulumi:"columnNames"`
-	Principals  pulumi.StringArrayInput `pulumi:"principals"`
+	// <p>An array of Amazon Resource Names (ARNs) for Amazon QuickSight users or groups.</p>
+	Principals pulumi.StringArrayInput `pulumi:"principals"`
 }
 
 func (DataSetColumnLevelPermissionRuleArgs) ElementType() reflect.Type {
@@ -78003,6 +78021,13 @@ func (i DataSetColumnLevelPermissionRuleArray) ToDataSetColumnLevelPermissionRul
 	return pulumi.ToOutputWithContext(ctx, i).(DataSetColumnLevelPermissionRuleArrayOutput)
 }
 
+// <p>A rule defined to grant access on one or more restricted columns.
+//
+//	Each dataset can have multiple rules.
+//	To create a restricted column, you add it to one or more rules.
+//	Each rule must contain at least one column and at least one user or group.
+//	To be able to see a restricted column, a user or group needs to be added
+//	to a rule for that column.</p>
 type DataSetColumnLevelPermissionRuleOutput struct{ *pulumi.OutputState }
 
 func (DataSetColumnLevelPermissionRuleOutput) ElementType() reflect.Type {
@@ -78017,10 +78042,12 @@ func (o DataSetColumnLevelPermissionRuleOutput) ToDataSetColumnLevelPermissionRu
 	return o
 }
 
+// <p>An array of column names.</p>
 func (o DataSetColumnLevelPermissionRuleOutput) ColumnNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSetColumnLevelPermissionRule) []string { return v.ColumnNames }).(pulumi.StringArrayOutput)
 }
 
+// <p>An array of Amazon Resource Names (ARNs) for Amazon QuickSight users or groups.</p>
 func (o DataSetColumnLevelPermissionRuleOutput) Principals() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSetColumnLevelPermissionRule) []string { return v.Principals }).(pulumi.StringArrayOutput)
 }
@@ -78045,8 +78072,12 @@ func (o DataSetColumnLevelPermissionRuleArrayOutput) Index(i pulumi.IntInput) Da
 	}).(DataSetColumnLevelPermissionRuleOutput)
 }
 
-// <p>A tag for a column in a <a>TagColumnOperation</a> structure. This is a
+// <p>A tag for a column in a
 //
+//	<code>
+//	   <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_TagColumnOperation.html">TagColumnOperation</a>
+//	</code>
+//	structure. This is a
 //	variant type structure. For this structure to be valid, only one of the attributes can
 //	be non-null.</p>
 type DataSetColumnTag struct {
@@ -78065,8 +78096,12 @@ type DataSetColumnTagInput interface {
 	ToDataSetColumnTagOutputWithContext(context.Context) DataSetColumnTagOutput
 }
 
-// <p>A tag for a column in a <a>TagColumnOperation</a> structure. This is a
+// <p>A tag for a column in a
 //
+//	<code>
+//	   <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_TagColumnOperation.html">TagColumnOperation</a>
+//	</code>
+//	structure. This is a
 //	variant type structure. For this structure to be valid, only one of the attributes can
 //	be non-null.</p>
 type DataSetColumnTagArgs struct {
@@ -78111,8 +78146,12 @@ func (i DataSetColumnTagArray) ToDataSetColumnTagArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(DataSetColumnTagArrayOutput)
 }
 
-// <p>A tag for a column in a <a>TagColumnOperation</a> structure. This is a
+// <p>A tag for a column in a
 //
+//	<code>
+//	   <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_TagColumnOperation.html">TagColumnOperation</a>
+//	</code>
+//	structure. This is a
 //	variant type structure. For this structure to be valid, only one of the attributes can
 //	be non-null.</p>
 type DataSetColumnTagOutput struct{ *pulumi.OutputState }
@@ -78500,7 +78539,7 @@ func (o DataSetCustomSqlPtrOutput) SqlQuery() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// <p>A parameter created in the dataset that could be of any one data type such as string, integer, decimal or datetime.</p>
+// <p>A dataset parameter.</p>
 type DataSetDatasetParameter struct {
 	DateTimeDatasetParameter *DataSetDateTimeDatasetParameter `pulumi:"dateTimeDatasetParameter"`
 	DecimalDatasetParameter  *DataSetDecimalDatasetParameter  `pulumi:"decimalDatasetParameter"`
@@ -78519,7 +78558,7 @@ type DataSetDatasetParameterInput interface {
 	ToDataSetDatasetParameterOutputWithContext(context.Context) DataSetDatasetParameterOutput
 }
 
-// <p>A parameter created in the dataset that could be of any one data type such as string, integer, decimal or datetime.</p>
+// <p>A dataset parameter.</p>
 type DataSetDatasetParameterArgs struct {
 	DateTimeDatasetParameter DataSetDateTimeDatasetParameterPtrInput `pulumi:"dateTimeDatasetParameter"`
 	DecimalDatasetParameter  DataSetDecimalDatasetParameterPtrInput  `pulumi:"decimalDatasetParameter"`
@@ -78564,7 +78603,7 @@ func (i DataSetDatasetParameterArray) ToDataSetDatasetParameterArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(DataSetDatasetParameterArrayOutput)
 }
 
-// <p>A parameter created in the dataset that could be of any one data type such as string, integer, decimal or datetime.</p>
+// <p>A dataset parameter.</p>
 type DataSetDatasetParameterOutput struct{ *pulumi.OutputState }
 
 func (DataSetDatasetParameterOutput) ElementType() reflect.Type {
@@ -78615,13 +78654,15 @@ func (o DataSetDatasetParameterArrayOutput) Index(i pulumi.IntInput) DataSetData
 	}).(DataSetDatasetParameterOutput)
 }
 
-// <p>A parameter created in the dataset of date time data type.</p>
+// <p>A date time parameter for a dataset.</p>
 type DataSetDateTimeDatasetParameter struct {
-	DefaultValues   *DataSetDateTimeDatasetParameterDefaultValues `pulumi:"defaultValues"`
-	Id              string                                        `pulumi:"id"`
-	Name            string                                        `pulumi:"name"`
-	TimeGranularity *DataSetTimeGranularity                       `pulumi:"timeGranularity"`
-	ValueType       DataSetDatasetParameterValueType              `pulumi:"valueType"`
+	DefaultValues *DataSetDateTimeDatasetParameterDefaultValues `pulumi:"defaultValues"`
+	// <p>An identifier for the parameter that is created in the dataset.</p>
+	Id string `pulumi:"id"`
+	// <p>The name of the date time parameter that is created in the dataset.</p>
+	Name            string                           `pulumi:"name"`
+	TimeGranularity *DataSetTimeGranularity          `pulumi:"timeGranularity"`
+	ValueType       DataSetDatasetParameterValueType `pulumi:"valueType"`
 }
 
 // DataSetDateTimeDatasetParameterInput is an input type that accepts DataSetDateTimeDatasetParameterArgs and DataSetDateTimeDatasetParameterOutput values.
@@ -78635,13 +78676,15 @@ type DataSetDateTimeDatasetParameterInput interface {
 	ToDataSetDateTimeDatasetParameterOutputWithContext(context.Context) DataSetDateTimeDatasetParameterOutput
 }
 
-// <p>A parameter created in the dataset of date time data type.</p>
+// <p>A date time parameter for a dataset.</p>
 type DataSetDateTimeDatasetParameterArgs struct {
-	DefaultValues   DataSetDateTimeDatasetParameterDefaultValuesPtrInput `pulumi:"defaultValues"`
-	Id              pulumi.StringInput                                   `pulumi:"id"`
-	Name            pulumi.StringInput                                   `pulumi:"name"`
-	TimeGranularity DataSetTimeGranularityPtrInput                       `pulumi:"timeGranularity"`
-	ValueType       DataSetDatasetParameterValueTypeInput                `pulumi:"valueType"`
+	DefaultValues DataSetDateTimeDatasetParameterDefaultValuesPtrInput `pulumi:"defaultValues"`
+	// <p>An identifier for the parameter that is created in the dataset.</p>
+	Id pulumi.StringInput `pulumi:"id"`
+	// <p>The name of the date time parameter that is created in the dataset.</p>
+	Name            pulumi.StringInput                    `pulumi:"name"`
+	TimeGranularity DataSetTimeGranularityPtrInput        `pulumi:"timeGranularity"`
+	ValueType       DataSetDatasetParameterValueTypeInput `pulumi:"valueType"`
 }
 
 func (DataSetDateTimeDatasetParameterArgs) ElementType() reflect.Type {
@@ -78697,7 +78740,7 @@ func (i *dataSetDateTimeDatasetParameterPtrType) ToDataSetDateTimeDatasetParamet
 	return pulumi.ToOutputWithContext(ctx, i).(DataSetDateTimeDatasetParameterPtrOutput)
 }
 
-// <p>A parameter created in the dataset of date time data type.</p>
+// <p>A date time parameter for a dataset.</p>
 type DataSetDateTimeDatasetParameterOutput struct{ *pulumi.OutputState }
 
 func (DataSetDateTimeDatasetParameterOutput) ElementType() reflect.Type {
@@ -78728,10 +78771,12 @@ func (o DataSetDateTimeDatasetParameterOutput) DefaultValues() DataSetDateTimeDa
 	}).(DataSetDateTimeDatasetParameterDefaultValuesPtrOutput)
 }
 
+// <p>An identifier for the parameter that is created in the dataset.</p>
 func (o DataSetDateTimeDatasetParameterOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSetDateTimeDatasetParameter) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// <p>The name of the date time parameter that is created in the dataset.</p>
 func (o DataSetDateTimeDatasetParameterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSetDateTimeDatasetParameter) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -78777,6 +78822,7 @@ func (o DataSetDateTimeDatasetParameterPtrOutput) DefaultValues() DataSetDateTim
 	}).(DataSetDateTimeDatasetParameterDefaultValuesPtrOutput)
 }
 
+// <p>An identifier for the parameter that is created in the dataset.</p>
 func (o DataSetDateTimeDatasetParameterPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSetDateTimeDatasetParameter) *string {
 		if v == nil {
@@ -78786,6 +78832,7 @@ func (o DataSetDateTimeDatasetParameterPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// <p>The name of the date time parameter that is created in the dataset.</p>
 func (o DataSetDateTimeDatasetParameterPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSetDateTimeDatasetParameter) *string {
 		if v == nil {
@@ -78813,9 +78860,9 @@ func (o DataSetDateTimeDatasetParameterPtrOutput) ValueType() DataSetDatasetPara
 	}).(DataSetDatasetParameterValueTypePtrOutput)
 }
 
-// <p>List of default values defined for a given string date time parameter type. Currently only static values are supported.</p>
+// <p>The default values of a date time parameter.</p>
 type DataSetDateTimeDatasetParameterDefaultValues struct {
-	// <p>List of static default values defined for a given string date time parameter type.</p>
+	// <p>A list of static default values for a given date time parameter.</p>
 	StaticValues []string `pulumi:"staticValues"`
 }
 
@@ -78830,9 +78877,9 @@ type DataSetDateTimeDatasetParameterDefaultValuesInput interface {
 	ToDataSetDateTimeDatasetParameterDefaultValuesOutputWithContext(context.Context) DataSetDateTimeDatasetParameterDefaultValuesOutput
 }
 
-// <p>List of default values defined for a given string date time parameter type. Currently only static values are supported.</p>
+// <p>The default values of a date time parameter.</p>
 type DataSetDateTimeDatasetParameterDefaultValuesArgs struct {
-	// <p>List of static default values defined for a given string date time parameter type.</p>
+	// <p>A list of static default values for a given date time parameter.</p>
 	StaticValues pulumi.StringArrayInput `pulumi:"staticValues"`
 }
 
@@ -78889,7 +78936,7 @@ func (i *dataSetDateTimeDatasetParameterDefaultValuesPtrType) ToDataSetDateTimeD
 	return pulumi.ToOutputWithContext(ctx, i).(DataSetDateTimeDatasetParameterDefaultValuesPtrOutput)
 }
 
-// <p>List of default values defined for a given string date time parameter type. Currently only static values are supported.</p>
+// <p>The default values of a date time parameter.</p>
 type DataSetDateTimeDatasetParameterDefaultValuesOutput struct{ *pulumi.OutputState }
 
 func (DataSetDateTimeDatasetParameterDefaultValuesOutput) ElementType() reflect.Type {
@@ -78914,7 +78961,7 @@ func (o DataSetDateTimeDatasetParameterDefaultValuesOutput) ToDataSetDateTimeDat
 	}).(DataSetDateTimeDatasetParameterDefaultValuesPtrOutput)
 }
 
-// <p>List of static default values defined for a given string date time parameter type.</p>
+// <p>A list of static default values for a given date time parameter.</p>
 func (o DataSetDateTimeDatasetParameterDefaultValuesOutput) StaticValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSetDateTimeDatasetParameterDefaultValues) []string { return v.StaticValues }).(pulumi.StringArrayOutput)
 }
@@ -78943,7 +78990,7 @@ func (o DataSetDateTimeDatasetParameterDefaultValuesPtrOutput) Elem() DataSetDat
 	}).(DataSetDateTimeDatasetParameterDefaultValuesOutput)
 }
 
-// <p>List of static default values defined for a given string date time parameter type.</p>
+// <p>A list of static default values for a given date time parameter.</p>
 func (o DataSetDateTimeDatasetParameterDefaultValuesPtrOutput) StaticValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataSetDateTimeDatasetParameterDefaultValues) []string {
 		if v == nil {
@@ -78953,12 +79000,14 @@ func (o DataSetDateTimeDatasetParameterDefaultValuesPtrOutput) StaticValues() pu
 	}).(pulumi.StringArrayOutput)
 }
 
-// <p>A parameter created in the dataset of decimal data type.</p>
+// <p>A decimal parameter for a dataset.</p>
 type DataSetDecimalDatasetParameter struct {
 	DefaultValues *DataSetDecimalDatasetParameterDefaultValues `pulumi:"defaultValues"`
-	Id            string                                       `pulumi:"id"`
-	Name          string                                       `pulumi:"name"`
-	ValueType     DataSetDatasetParameterValueType             `pulumi:"valueType"`
+	// <p>An identifier for the decimal parameter created in the dataset.</p>
+	Id string `pulumi:"id"`
+	// <p>The name of the decimal parameter that is created in the dataset.</p>
+	Name      string                           `pulumi:"name"`
+	ValueType DataSetDatasetParameterValueType `pulumi:"valueType"`
 }
 
 // DataSetDecimalDatasetParameterInput is an input type that accepts DataSetDecimalDatasetParameterArgs and DataSetDecimalDatasetParameterOutput values.
@@ -78972,12 +79021,14 @@ type DataSetDecimalDatasetParameterInput interface {
 	ToDataSetDecimalDatasetParameterOutputWithContext(context.Context) DataSetDecimalDatasetParameterOutput
 }
 
-// <p>A parameter created in the dataset of decimal data type.</p>
+// <p>A decimal parameter for a dataset.</p>
 type DataSetDecimalDatasetParameterArgs struct {
 	DefaultValues DataSetDecimalDatasetParameterDefaultValuesPtrInput `pulumi:"defaultValues"`
-	Id            pulumi.StringInput                                  `pulumi:"id"`
-	Name          pulumi.StringInput                                  `pulumi:"name"`
-	ValueType     DataSetDatasetParameterValueTypeInput               `pulumi:"valueType"`
+	// <p>An identifier for the decimal parameter created in the dataset.</p>
+	Id pulumi.StringInput `pulumi:"id"`
+	// <p>The name of the decimal parameter that is created in the dataset.</p>
+	Name      pulumi.StringInput                    `pulumi:"name"`
+	ValueType DataSetDatasetParameterValueTypeInput `pulumi:"valueType"`
 }
 
 func (DataSetDecimalDatasetParameterArgs) ElementType() reflect.Type {
@@ -79033,7 +79084,7 @@ func (i *dataSetDecimalDatasetParameterPtrType) ToDataSetDecimalDatasetParameter
 	return pulumi.ToOutputWithContext(ctx, i).(DataSetDecimalDatasetParameterPtrOutput)
 }
 
-// <p>A parameter created in the dataset of decimal data type.</p>
+// <p>A decimal parameter for a dataset.</p>
 type DataSetDecimalDatasetParameterOutput struct{ *pulumi.OutputState }
 
 func (DataSetDecimalDatasetParameterOutput) ElementType() reflect.Type {
@@ -79064,10 +79115,12 @@ func (o DataSetDecimalDatasetParameterOutput) DefaultValues() DataSetDecimalData
 	}).(DataSetDecimalDatasetParameterDefaultValuesPtrOutput)
 }
 
+// <p>An identifier for the decimal parameter created in the dataset.</p>
 func (o DataSetDecimalDatasetParameterOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSetDecimalDatasetParameter) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// <p>The name of the decimal parameter that is created in the dataset.</p>
 func (o DataSetDecimalDatasetParameterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSetDecimalDatasetParameter) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -79109,6 +79162,7 @@ func (o DataSetDecimalDatasetParameterPtrOutput) DefaultValues() DataSetDecimalD
 	}).(DataSetDecimalDatasetParameterDefaultValuesPtrOutput)
 }
 
+// <p>An identifier for the decimal parameter created in the dataset.</p>
 func (o DataSetDecimalDatasetParameterPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSetDecimalDatasetParameter) *string {
 		if v == nil {
@@ -79118,6 +79172,7 @@ func (o DataSetDecimalDatasetParameterPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// <p>The name of the decimal parameter that is created in the dataset.</p>
 func (o DataSetDecimalDatasetParameterPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSetDecimalDatasetParameter) *string {
 		if v == nil {
@@ -79136,9 +79191,9 @@ func (o DataSetDecimalDatasetParameterPtrOutput) ValueType() DataSetDatasetParam
 	}).(DataSetDatasetParameterValueTypePtrOutput)
 }
 
-// <p>List of default values defined for a given decimal dataset parameter type. Currently only static values are supported.</p>
+// <p>The default values of a decimal parameter.</p>
 type DataSetDecimalDatasetParameterDefaultValues struct {
-	// <p>List of static default values defined for a given decimal dataset parameter type.</p>
+	// <p>A list of static default values for a given decimal parameter.</p>
 	StaticValues []float64 `pulumi:"staticValues"`
 }
 
@@ -79153,9 +79208,9 @@ type DataSetDecimalDatasetParameterDefaultValuesInput interface {
 	ToDataSetDecimalDatasetParameterDefaultValuesOutputWithContext(context.Context) DataSetDecimalDatasetParameterDefaultValuesOutput
 }
 
-// <p>List of default values defined for a given decimal dataset parameter type. Currently only static values are supported.</p>
+// <p>The default values of a decimal parameter.</p>
 type DataSetDecimalDatasetParameterDefaultValuesArgs struct {
-	// <p>List of static default values defined for a given decimal dataset parameter type.</p>
+	// <p>A list of static default values for a given decimal parameter.</p>
 	StaticValues pulumi.Float64ArrayInput `pulumi:"staticValues"`
 }
 
@@ -79212,7 +79267,7 @@ func (i *dataSetDecimalDatasetParameterDefaultValuesPtrType) ToDataSetDecimalDat
 	return pulumi.ToOutputWithContext(ctx, i).(DataSetDecimalDatasetParameterDefaultValuesPtrOutput)
 }
 
-// <p>List of default values defined for a given decimal dataset parameter type. Currently only static values are supported.</p>
+// <p>The default values of a decimal parameter.</p>
 type DataSetDecimalDatasetParameterDefaultValuesOutput struct{ *pulumi.OutputState }
 
 func (DataSetDecimalDatasetParameterDefaultValuesOutput) ElementType() reflect.Type {
@@ -79237,7 +79292,7 @@ func (o DataSetDecimalDatasetParameterDefaultValuesOutput) ToDataSetDecimalDatas
 	}).(DataSetDecimalDatasetParameterDefaultValuesPtrOutput)
 }
 
-// <p>List of static default values defined for a given decimal dataset parameter type.</p>
+// <p>A list of static default values for a given decimal parameter.</p>
 func (o DataSetDecimalDatasetParameterDefaultValuesOutput) StaticValues() pulumi.Float64ArrayOutput {
 	return o.ApplyT(func(v DataSetDecimalDatasetParameterDefaultValues) []float64 { return v.StaticValues }).(pulumi.Float64ArrayOutput)
 }
@@ -79266,7 +79321,7 @@ func (o DataSetDecimalDatasetParameterDefaultValuesPtrOutput) Elem() DataSetDeci
 	}).(DataSetDecimalDatasetParameterDefaultValuesOutput)
 }
 
-// <p>List of static default values defined for a given decimal dataset parameter type.</p>
+// <p>A list of static default values for a given decimal parameter.</p>
 func (o DataSetDecimalDatasetParameterDefaultValuesPtrOutput) StaticValues() pulumi.Float64ArrayOutput {
 	return o.ApplyT(func(v *DataSetDecimalDatasetParameterDefaultValues) []float64 {
 		if v == nil {

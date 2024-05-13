@@ -33,7 +33,7 @@ export interface GetFlowVpcInterfaceResult {
      */
     readonly networkInterfaceIds?: string[];
     /**
-     * Role Arn MediaConnect can assumes to create ENIs in customer's account.
+     * Role Arn MediaConnect can assume to create ENIs in customer's account.
      */
     readonly roleArn?: string;
     /**

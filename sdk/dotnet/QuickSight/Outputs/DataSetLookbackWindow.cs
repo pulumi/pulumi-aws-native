@@ -10,26 +10,29 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;The lookback window setup of an incremental refresh configuration.&lt;/p&gt;
+    /// </summary>
     [OutputType]
     public sealed class DataSetLookbackWindow
     {
         /// <summary>
-        /// &lt;p&gt;Column Name&lt;/p&gt;
+        /// &lt;p&gt;The name of the lookback window column.&lt;/p&gt;
         /// </summary>
-        public readonly string? ColumnName;
+        public readonly string ColumnName;
         /// <summary>
-        /// &lt;p&gt;Size&lt;/p&gt;
+        /// &lt;p&gt;The lookback window column size.&lt;/p&gt;
         /// </summary>
-        public readonly double? Size;
-        public readonly Pulumi.AwsNative.QuickSight.DataSetSizeUnit? SizeUnit;
+        public readonly double Size;
+        public readonly Pulumi.AwsNative.QuickSight.DataSetLookbackWindowSizeUnit SizeUnit;
 
         [OutputConstructor]
         private DataSetLookbackWindow(
-            string? columnName,
+            string columnName,
 
-            double? size,
+            double size,
 
-            Pulumi.AwsNative.QuickSight.DataSetSizeUnit? sizeUnit)
+            Pulumi.AwsNative.QuickSight.DataSetLookbackWindowSizeUnit sizeUnit)
         {
             ColumnName = columnName;
             Size = size;

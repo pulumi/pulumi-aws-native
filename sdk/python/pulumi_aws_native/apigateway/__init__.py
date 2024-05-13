@@ -15,6 +15,7 @@ from .deployment import *
 from .documentation_part import *
 from .documentation_version import *
 from .domain_name import *
+from .gateway_response import *
 from .get_account import *
 from .get_api_key import *
 from .get_authorizer import *
@@ -24,6 +25,7 @@ from .get_deployment import *
 from .get_documentation_part import *
 from .get_documentation_version import *
 from .get_domain_name import *
+from .get_gateway_response import *
 from .get_method import *
 from .get_model import *
 from .get_request_validator import *

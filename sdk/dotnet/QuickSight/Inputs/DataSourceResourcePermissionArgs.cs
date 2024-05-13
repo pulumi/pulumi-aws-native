@@ -30,22 +30,25 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         /// <summary>
         /// &lt;p&gt;The Amazon Resource Name (ARN) of the principal. This can be one of the
         ///             following:&lt;/p&gt;
-        ///         &lt;ul&gt;
+        ///          &lt;ul&gt;
         ///             &lt;li&gt;
-        ///                 &lt;p&gt;The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)&lt;/p&gt;
+        ///                &lt;p&gt;The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)&lt;/p&gt;
         ///             &lt;/li&gt;
         ///             &lt;li&gt;
-        ///                 &lt;p&gt;The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)&lt;/p&gt;
+        ///                &lt;p&gt;The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)&lt;/p&gt;
         ///             &lt;/li&gt;
         ///             &lt;li&gt;
-        ///                 &lt;p&gt;The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
-        ///                     ARN. Use this option only to share resources (templates) across AWS accounts.
+        ///                &lt;p&gt;The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
+        ///                     ARN. Use this option only to share resources (templates) across Amazon Web Services accounts.
         ///                     (This is less common.) &lt;/p&gt;
         ///             &lt;/li&gt;
         ///          &lt;/ul&gt;
         /// </summary>
         [Input("principal", required: true)]
         public Input<string> Principal { get; set; } = null!;
+
+        [Input("resource")]
+        public Input<string>? Resource { get; set; }
 
         public DataSourceResourcePermissionArgs()
         {

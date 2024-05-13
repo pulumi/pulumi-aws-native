@@ -11,12 +11,12 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
     /// <summary>
-    /// &lt;p&gt;The dataset refresh properties for the dataset.&lt;/p&gt;
+    /// &lt;p&gt;The refresh properties of a dataset.&lt;/p&gt;
     /// </summary>
     public sealed class DataSetRefreshPropertiesArgs : global::Pulumi.ResourceArgs
     {
-        [Input("refreshConfiguration")]
-        public Input<Inputs.DataSetRefreshConfigurationArgs>? RefreshConfiguration { get; set; }
+        [Input("refreshConfiguration", required: true)]
+        public Input<Inputs.DataSetRefreshConfigurationArgs> RefreshConfiguration { get; set; } = null!;
 
         public DataSetRefreshPropertiesArgs()
         {

@@ -41,6 +41,10 @@ namespace Pulumi.AwsNative.Route53Resolver.Outputs
         /// </summary>
         public readonly string FirewallDomainListId;
         /// <summary>
+        /// FirewallDomainRedirectionAction
+        /// </summary>
+        public readonly Pulumi.AwsNative.Route53Resolver.FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction? FirewallDomainRedirectionAction;
+        /// <summary>
         /// Rule Priority
         /// </summary>
         public readonly int Priority;
@@ -63,6 +67,8 @@ namespace Pulumi.AwsNative.Route53Resolver.Outputs
 
             string firewallDomainListId,
 
+            Pulumi.AwsNative.Route53Resolver.FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction? firewallDomainRedirectionAction,
+
             int priority,
 
             string? qtype)
@@ -73,6 +79,7 @@ namespace Pulumi.AwsNative.Route53Resolver.Outputs
             BlockOverrideTtl = blockOverrideTtl;
             BlockResponse = blockResponse;
             FirewallDomainListId = firewallDomainListId;
+            FirewallDomainRedirectionAction = firewallDomainRedirectionAction;
             Priority = priority;
             Qtype = qtype;
         }

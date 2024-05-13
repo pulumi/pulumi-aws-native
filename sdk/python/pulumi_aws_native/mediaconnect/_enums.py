@@ -18,12 +18,23 @@ __all__ = [
     'FlowEntitlementEntitlementStatus',
     'FlowFailoverConfigFailoverMode',
     'FlowFailoverConfigState',
+    'FlowFmtpColorimetry',
+    'FlowFmtpRange',
+    'FlowFmtpScanMode',
+    'FlowFmtpTcs',
+    'FlowMaintenanceMaintenanceDay',
+    'FlowMediaStreamMediaStreamType',
+    'FlowMediaStreamSourceConfigurationEncodingName',
+    'FlowMediaStreamVideoFormat',
+    'FlowOutputEncodingParametersEncoderProfile',
     'FlowOutputEncryptionAlgorithm',
     'FlowOutputEncryptionKeyType',
+    'FlowOutputMediaStreamOutputConfigurationEncodingName',
     'FlowOutputProtocol',
     'FlowSourceEncryptionAlgorithm',
     'FlowSourceEncryptionKeyType',
     'FlowSourceProtocol',
+    'FlowVpcInterfaceNetworkInterfaceType',
     'GatewayState',
 ]
 
@@ -128,6 +139,103 @@ class FlowFailoverConfigState(str, Enum):
     DISABLED = "DISABLED"
 
 
+class FlowFmtpColorimetry(str, Enum):
+    """
+    The format used for the representation of color.
+    """
+    BT601 = "BT601"
+    BT709 = "BT709"
+    BT2020 = "BT2020"
+    BT2100 = "BT2100"
+    ST20651 = "ST2065-1"
+    ST20653 = "ST2065-3"
+    XYZ = "XYZ"
+
+
+class FlowFmtpRange(str, Enum):
+    """
+    The encoding range of the video.
+    """
+    NARROW = "NARROW"
+    FULL = "FULL"
+    FULLPROTECT = "FULLPROTECT"
+
+
+class FlowFmtpScanMode(str, Enum):
+    """
+    The type of compression that was used to smooth the video's appearance.
+    """
+    PROGRESSIVE = "progressive"
+    INTERLACE = "interlace"
+    PROGRESSIVE_SEGMENTED_FRAME = "progressive-segmented-frame"
+
+
+class FlowFmtpTcs(str, Enum):
+    """
+    The transfer characteristic system (TCS) that is used in the video.
+    """
+    SDR = "SDR"
+    PQ = "PQ"
+    HLG = "HLG"
+    LINEAR = "LINEAR"
+    BT2100LINPQ = "BT2100LINPQ"
+    BT2100LINHLG = "BT2100LINHLG"
+    ST20651 = "ST2065-1"
+    ST4281 = "ST428-1"
+    DENSITY = "DENSITY"
+
+
+class FlowMaintenanceMaintenanceDay(str, Enum):
+    """
+    A day of a week when the maintenance will happen. Use Monday/Tuesday/Wednesday/Thursday/Friday/Saturday/Sunday.
+    """
+    MONDAY = "Monday"
+    TUESDAY = "Tuesday"
+    WEDNESDAY = "Wednesday"
+    THURSDAY = "Thursday"
+    FRIDAY = "Friday"
+    SATURDAY = "Saturday"
+    SUNDAY = "Sunday"
+
+
+class FlowMediaStreamMediaStreamType(str, Enum):
+    """
+    The type of media stream.
+    """
+    VIDEO = "video"
+    AUDIO = "audio"
+    ANCILLARY_DATA = "ancillary-data"
+
+
+class FlowMediaStreamSourceConfigurationEncodingName(str, Enum):
+    """
+    The format that was used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video, 2110 streams, set the encoding name to raw. For video, JPEG XS streams, set the encoding name to jxsv.
+    """
+    JXSV = "jxsv"
+    RAW = "raw"
+    SMPTE291 = "smpte291"
+    PCM = "pcm"
+
+
+class FlowMediaStreamVideoFormat(str, Enum):
+    """
+    The resolution of the video.
+    """
+    FLOW_MEDIA_STREAM_VIDEO_FORMAT_2160P = "2160p"
+    FLOW_MEDIA_STREAM_VIDEO_FORMAT_1080P = "1080p"
+    FLOW_MEDIA_STREAM_VIDEO_FORMAT_1080I = "1080i"
+    FLOW_MEDIA_STREAM_VIDEO_FORMAT_720P = "720p"
+    FLOW_MEDIA_STREAM_VIDEO_FORMAT_480P = "480p"
+
+
+class FlowOutputEncodingParametersEncoderProfile(str, Enum):
+    """
+    A setting on the encoder that drives compression settings. This property only applies to video media streams associated with outputs that use the ST 2110 JPEG XS protocol, with a flow source that uses the CDI protocol.
+    """
+    MAIN = "main"
+    HIGH = "high"
+
+
 class FlowOutputEncryptionAlgorithm(str, Enum):
     """
     The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
@@ -145,6 +253,16 @@ class FlowOutputEncryptionKeyType(str, Enum):
     SRT_PASSWORD = "srt-password"
 
 
+class FlowOutputMediaStreamOutputConfigurationEncodingName(str, Enum):
+    """
+    The format that will be used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video streams on sources or outputs that use the CDI protocol, set the encoding name to raw. For video streams on sources or outputs that use the ST 2110 JPEG XS protocol, set the encoding name to jxsv.
+    """
+    JXSV = "jxsv"
+    RAW = "raw"
+    SMPTE291 = "smpte291"
+    PCM = "pcm"
+
+
 class FlowOutputProtocol(str, Enum):
     """
     The protocol that is used by the source or output.
@@ -157,6 +275,8 @@ class FlowOutputProtocol(str, Enum):
     FUJITSU_QOS = "fujitsu-qos"
     SRT_LISTENER = "srt-listener"
     SRT_CALLER = "srt-caller"
+    ST2110_JPEGXS = "st2110-jpegxs"
+    CDI = "cdi"
 
 
 class FlowSourceEncryptionAlgorithm(str, Enum):
@@ -188,6 +308,16 @@ class FlowSourceProtocol(str, Enum):
     FUJITSU_QOS = "fujitsu-qos"
     SRT_LISTENER = "srt-listener"
     SRT_CALLER = "srt-caller"
+    ST2110_JPEGXS = "st2110-jpegxs"
+    CDI = "cdi"
+
+
+class FlowVpcInterfaceNetworkInterfaceType(str, Enum):
+    """
+    The type of network adapter that you want MediaConnect to use on this interface. If you don't set this value, it defaults to ENA.
+    """
+    ENA = "ena"
+    EFA = "efa"
 
 
 class GatewayState(str, Enum):

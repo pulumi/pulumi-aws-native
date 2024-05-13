@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
     /// <summary>
-    /// &lt;p&gt;Snowflake parameters.&lt;/p&gt;
+    /// &lt;p&gt;The parameters for Snowflake.&lt;/p&gt;
     /// </summary>
     public sealed class DataSourceSnowflakeParametersArgs : global::Pulumi.ResourceArgs
     {

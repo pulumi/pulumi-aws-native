@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<Inputs.DataSetTransformOperationArgs>? _dataTransforms;
 
         /// <summary>
-        /// &lt;p&gt;Transform operations that act on this logical table.&lt;/p&gt;
+        /// &lt;p&gt;Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. &lt;/p&gt;
         /// </summary>
         public InputList<Inputs.DataSetTransformOperationArgs> DataTransforms
         {

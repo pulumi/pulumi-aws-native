@@ -19,22 +19,34 @@ class FlowArgs:
     def __init__(__self__, *,
                  source: pulumi.Input['FlowSourceArgs'],
                  availability_zone: Optional[pulumi.Input[str]] = None,
+                 maintenance: Optional[pulumi.Input['FlowMaintenanceArgs']] = None,
+                 media_streams: Optional[pulumi.Input[Sequence[pulumi.Input['FlowMediaStreamArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 source_failover_config: Optional[pulumi.Input['FlowFailoverConfigArgs']] = None):
+                 source_failover_config: Optional[pulumi.Input['FlowFailoverConfigArgs']] = None,
+                 vpc_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['FlowVpcInterfaceArgs']]]] = None):
         """
         The set of arguments for constructing a Flow resource.
         :param pulumi.Input['FlowSourceArgs'] source: The source of the flow.
         :param pulumi.Input[str] availability_zone: The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.
+        :param pulumi.Input['FlowMaintenanceArgs'] maintenance: The maintenance settings you want to use for the flow. 
+        :param pulumi.Input[Sequence[pulumi.Input['FlowMediaStreamArgs']]] media_streams: The media streams associated with the flow. You can associate any of these media streams with sources and outputs on the flow.
         :param pulumi.Input[str] name: The name of the flow.
         :param pulumi.Input['FlowFailoverConfigArgs'] source_failover_config: The source failover config of the flow.
+        :param pulumi.Input[Sequence[pulumi.Input['FlowVpcInterfaceArgs']]] vpc_interfaces: The VPC interfaces that you added to this flow.
         """
         pulumi.set(__self__, "source", source)
         if availability_zone is not None:
             pulumi.set(__self__, "availability_zone", availability_zone)
+        if maintenance is not None:
+            pulumi.set(__self__, "maintenance", maintenance)
+        if media_streams is not None:
+            pulumi.set(__self__, "media_streams", media_streams)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if source_failover_config is not None:
             pulumi.set(__self__, "source_failover_config", source_failover_config)
+        if vpc_interfaces is not None:
+            pulumi.set(__self__, "vpc_interfaces", vpc_interfaces)
 
     @property
     @pulumi.getter
@@ -62,6 +74,30 @@ class FlowArgs:
 
     @property
     @pulumi.getter
+    def maintenance(self) -> Optional[pulumi.Input['FlowMaintenanceArgs']]:
+        """
+        The maintenance settings you want to use for the flow. 
+        """
+        return pulumi.get(self, "maintenance")
+
+    @maintenance.setter
+    def maintenance(self, value: Optional[pulumi.Input['FlowMaintenanceArgs']]):
+        pulumi.set(self, "maintenance", value)
+
+    @property
+    @pulumi.getter(name="mediaStreams")
+    def media_streams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FlowMediaStreamArgs']]]]:
+        """
+        The media streams associated with the flow. You can associate any of these media streams with sources and outputs on the flow.
+        """
+        return pulumi.get(self, "media_streams")
+
+    @media_streams.setter
+    def media_streams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlowMediaStreamArgs']]]]):
+        pulumi.set(self, "media_streams", value)
+
+    @property
+    @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the flow.
@@ -84,6 +120,18 @@ class FlowArgs:
     def source_failover_config(self, value: Optional[pulumi.Input['FlowFailoverConfigArgs']]):
         pulumi.set(self, "source_failover_config", value)
 
+    @property
+    @pulumi.getter(name="vpcInterfaces")
+    def vpc_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FlowVpcInterfaceArgs']]]]:
+        """
+        The VPC interfaces that you added to this flow.
+        """
+        return pulumi.get(self, "vpc_interfaces")
+
+    @vpc_interfaces.setter
+    def vpc_interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlowVpcInterfaceArgs']]]]):
+        pulumi.set(self, "vpc_interfaces", value)
+
 
 class Flow(pulumi.CustomResource):
     @overload
@@ -91,9 +139,12 @@ class Flow(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
+                 maintenance: Optional[pulumi.Input[pulumi.InputType['FlowMaintenanceArgs']]] = None,
+                 media_streams: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowMediaStreamArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[pulumi.InputType['FlowSourceArgs']]] = None,
                  source_failover_config: Optional[pulumi.Input[pulumi.InputType['FlowFailoverConfigArgs']]] = None,
+                 vpc_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowVpcInterfaceArgs']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::MediaConnect::Flow
@@ -101,9 +152,12 @@ class Flow(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] availability_zone: The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.
+        :param pulumi.Input[pulumi.InputType['FlowMaintenanceArgs']] maintenance: The maintenance settings you want to use for the flow. 
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowMediaStreamArgs']]]] media_streams: The media streams associated with the flow. You can associate any of these media streams with sources and outputs on the flow.
         :param pulumi.Input[str] name: The name of the flow.
         :param pulumi.Input[pulumi.InputType['FlowSourceArgs']] source: The source of the flow.
         :param pulumi.Input[pulumi.InputType['FlowFailoverConfigArgs']] source_failover_config: The source failover config of the flow.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowVpcInterfaceArgs']]]] vpc_interfaces: The VPC interfaces that you added to this flow.
         """
         ...
     @overload
@@ -130,9 +184,12 @@ class Flow(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
+                 maintenance: Optional[pulumi.Input[pulumi.InputType['FlowMaintenanceArgs']]] = None,
+                 media_streams: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowMediaStreamArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[pulumi.InputType['FlowSourceArgs']]] = None,
                  source_failover_config: Optional[pulumi.Input[pulumi.InputType['FlowFailoverConfigArgs']]] = None,
+                 vpc_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowVpcInterfaceArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -143,11 +200,15 @@ class Flow(pulumi.CustomResource):
             __props__ = FlowArgs.__new__(FlowArgs)
 
             __props__.__dict__["availability_zone"] = availability_zone
+            __props__.__dict__["maintenance"] = maintenance
+            __props__.__dict__["media_streams"] = media_streams
             __props__.__dict__["name"] = name
             if source is None and not opts.urn:
                 raise TypeError("Missing required property 'source'")
             __props__.__dict__["source"] = source
             __props__.__dict__["source_failover_config"] = source_failover_config
+            __props__.__dict__["vpc_interfaces"] = vpc_interfaces
+            __props__.__dict__["egress_ip"] = None
             __props__.__dict__["flow_arn"] = None
             __props__.__dict__["flow_availability_zone"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["availabilityZone", "name", "source.name"])
@@ -175,11 +236,15 @@ class Flow(pulumi.CustomResource):
         __props__ = FlowArgs.__new__(FlowArgs)
 
         __props__.__dict__["availability_zone"] = None
+        __props__.__dict__["egress_ip"] = None
         __props__.__dict__["flow_arn"] = None
         __props__.__dict__["flow_availability_zone"] = None
+        __props__.__dict__["maintenance"] = None
+        __props__.__dict__["media_streams"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["source"] = None
         __props__.__dict__["source_failover_config"] = None
+        __props__.__dict__["vpc_interfaces"] = None
         return Flow(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -189,6 +254,14 @@ class Flow(pulumi.CustomResource):
         The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.
         """
         return pulumi.get(self, "availability_zone")
+
+    @property
+    @pulumi.getter(name="egressIp")
+    def egress_ip(self) -> pulumi.Output[str]:
+        """
+        The IP address from which video will be sent to output destinations.
+        """
+        return pulumi.get(self, "egress_ip")
 
     @property
     @pulumi.getter(name="flowArn")
@@ -205,6 +278,22 @@ class Flow(pulumi.CustomResource):
         The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.(ReadOnly)
         """
         return pulumi.get(self, "flow_availability_zone")
+
+    @property
+    @pulumi.getter
+    def maintenance(self) -> pulumi.Output[Optional['outputs.FlowMaintenance']]:
+        """
+        The maintenance settings you want to use for the flow. 
+        """
+        return pulumi.get(self, "maintenance")
+
+    @property
+    @pulumi.getter(name="mediaStreams")
+    def media_streams(self) -> pulumi.Output[Optional[Sequence['outputs.FlowMediaStream']]]:
+        """
+        The media streams associated with the flow. You can associate any of these media streams with sources and outputs on the flow.
+        """
+        return pulumi.get(self, "media_streams")
 
     @property
     @pulumi.getter
@@ -229,4 +318,12 @@ class Flow(pulumi.CustomResource):
         The source failover config of the flow.
         """
         return pulumi.get(self, "source_failover_config")
+
+    @property
+    @pulumi.getter(name="vpcInterfaces")
+    def vpc_interfaces(self) -> pulumi.Output[Optional[Sequence['outputs.FlowVpcInterface']]]:
+        """
+        The VPC interfaces that you added to this flow.
+        """
+        return pulumi.get(self, "vpc_interfaces")
 

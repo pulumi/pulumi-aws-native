@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;A FieldFolder element is a folder that contains fields and nested subfolders.&lt;/p&gt;
+    /// </summary>
     [OutputType]
     public sealed class DataSetFieldFolder
     {
+        /// <summary>
+        /// &lt;p&gt;A folder has a list of columns. A column can only be in one folder.&lt;/p&gt;
+        /// </summary>
         public readonly ImmutableArray<string> Columns;
+        /// <summary>
+        /// &lt;p&gt;The description for a field folder.&lt;/p&gt;
+        /// </summary>
         public readonly string? Description;
 
         [OutputConstructor]

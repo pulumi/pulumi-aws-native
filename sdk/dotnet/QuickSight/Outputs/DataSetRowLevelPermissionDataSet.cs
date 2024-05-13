@@ -11,18 +11,23 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
     /// <summary>
-    /// &lt;p&gt;The row-level security configuration for the dataset.&lt;/p&gt;
+    /// &lt;p&gt;Information about a dataset that contains permissions for row-level security (RLS).
+    ///             The permissions dataset maps fields to users or groups. For more information, see
+    ///             &lt;a href="https://docs.aws.amazon.com/quicksight/latest/user/restrict-access-to-a-data-set-using-row-level-security.html"&gt;Using Row-Level Security (RLS) to Restrict Access to a Dataset&lt;/a&gt; in the &lt;i&gt;Amazon QuickSight User
+    ///                 Guide&lt;/i&gt;.&lt;/p&gt;
+    ///          &lt;p&gt;The option to deny permissions by setting &lt;code&gt;PermissionPolicy&lt;/code&gt; to &lt;code&gt;DENY_ACCESS&lt;/code&gt; is
+    ///             not supported for new RLS datasets.&lt;/p&gt;
     /// </summary>
     [OutputType]
     public sealed class DataSetRowLevelPermissionDataSet
     {
         /// <summary>
-        /// &lt;p&gt;The Amazon Resource Name (ARN) of the permission dataset.&lt;/p&gt;
+        /// &lt;p&gt;The Amazon Resource Name (ARN) of the dataset that contains permissions for RLS.&lt;/p&gt;
         /// </summary>
         public readonly string Arn;
         public readonly Pulumi.AwsNative.QuickSight.DataSetRowLevelPermissionFormatVersion? FormatVersion;
         /// <summary>
-        /// &lt;p&gt;The namespace associated with the row-level permissions dataset.&lt;/p&gt;
+        /// &lt;p&gt;The namespace associated with the dataset that contains permissions for RLS.&lt;/p&gt;
         /// </summary>
         public readonly string? Namespace;
         public readonly Pulumi.AwsNative.QuickSight.DataSetRowLevelPermissionPolicy PermissionPolicy;

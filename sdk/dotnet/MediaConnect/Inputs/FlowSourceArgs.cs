@@ -64,6 +64,24 @@ namespace Pulumi.AwsNative.MediaConnect.Inputs
         public Input<int>? MaxLatency { get; set; }
 
         /// <summary>
+        /// The size of the buffer (in milliseconds) to use to sync incoming source data.
+        /// </summary>
+        [Input("maxSyncBuffer")]
+        public Input<int>? MaxSyncBuffer { get; set; }
+
+        [Input("mediaStreamSourceConfigurations")]
+        private InputList<Inputs.FlowMediaStreamSourceConfigurationArgs>? _mediaStreamSourceConfigurations;
+
+        /// <summary>
+        /// The media stream that is associated with the source, and the parameters for that association.
+        /// </summary>
+        public InputList<Inputs.FlowMediaStreamSourceConfigurationArgs> MediaStreamSourceConfigurations
+        {
+            get => _mediaStreamSourceConfigurations ?? (_mediaStreamSourceConfigurations = new InputList<Inputs.FlowMediaStreamSourceConfigurationArgs>());
+            set => _mediaStreamSourceConfigurations = value;
+        }
+
+        /// <summary>
         /// The minimum latency in milliseconds.
         /// </summary>
         [Input("minLatency")]

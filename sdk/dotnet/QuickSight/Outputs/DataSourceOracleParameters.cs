@@ -10,11 +10,23 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;The parameters for Oracle.&lt;/p&gt;
+    /// </summary>
     [OutputType]
     public sealed class DataSourceOracleParameters
     {
+        /// <summary>
+        /// &lt;p&gt;The database.&lt;/p&gt;
+        /// </summary>
         public readonly string Database;
+        /// <summary>
+        /// &lt;p&gt;An Oracle host.&lt;/p&gt;
+        /// </summary>
         public readonly string Host;
+        /// <summary>
+        /// &lt;p&gt;The port.&lt;/p&gt;
+        /// </summary>
         public readonly double Port;
 
         [OutputConstructor]

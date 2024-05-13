@@ -42,9 +42,21 @@ export class EventBus extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * Dead Letter Queue for the event bus.
+     */
+    public readonly deadLetterConfig!: pulumi.Output<outputs.events.DeadLetterConfigProperties | undefined>;
+    /**
+     * The description of the event bus.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
      * If you are creating a partner event bus, this specifies the partner event source that the new event bus will be matched with.
      */
     public readonly eventSourceName!: pulumi.Output<string | undefined>;
+    /**
+     * Kms Key Identifier used to encrypt events at rest in the event bus.
+     */
+    public readonly kmsKeyIdentifier!: pulumi.Output<string | undefined>;
     /**
      * The name of the event bus.
      */
@@ -71,14 +83,20 @@ export class EventBus extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            resourceInputs["deadLetterConfig"] = args ? args.deadLetterConfig : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["eventSourceName"] = args ? args.eventSourceName : undefined;
+            resourceInputs["kmsKeyIdentifier"] = args ? args.kmsKeyIdentifier : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["policy"] = args ? args.policy : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["deadLetterConfig"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
             resourceInputs["eventSourceName"] = undefined /*out*/;
+            resourceInputs["kmsKeyIdentifier"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["policy"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -95,9 +113,21 @@ export class EventBus extends pulumi.CustomResource {
  */
 export interface EventBusArgs {
     /**
+     * Dead Letter Queue for the event bus.
+     */
+    deadLetterConfig?: pulumi.Input<inputs.events.DeadLetterConfigPropertiesArgs>;
+    /**
+     * The description of the event bus.
+     */
+    description?: pulumi.Input<string>;
+    /**
      * If you are creating a partner event bus, this specifies the partner event source that the new event bus will be matched with.
      */
     eventSourceName?: pulumi.Input<string>;
+    /**
+     * Kms Key Identifier used to encrypt events at rest in the event bus.
+     */
+    kmsKeyIdentifier?: pulumi.Input<string>;
     /**
      * The name of the event bus.
      */

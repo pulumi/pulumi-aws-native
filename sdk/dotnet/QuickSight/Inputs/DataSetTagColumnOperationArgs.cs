@@ -25,10 +25,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<Inputs.DataSetColumnTagArgs>? _tags;
 
         /// <summary>
-        /// &lt;p&gt;The dataset column tag, currently only used for geospatial type tagging. .&lt;/p&gt;
-        ///         &lt;note&gt;
-        ///             &lt;p&gt;This is not tags for the AWS tagging feature. .&lt;/p&gt;
-        ///         &lt;/note&gt;
+        /// &lt;p&gt;The dataset column tag, currently only used for geospatial type tagging.&lt;/p&gt;
+        ///          &lt;note&gt;
+        ///             &lt;p&gt;This is not tags for the Amazon Web Services tagging feature.&lt;/p&gt;
+        ///          &lt;/note&gt;
         /// </summary>
         public InputList<Inputs.DataSetColumnTagArgs> Tags
         {

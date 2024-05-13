@@ -11,21 +11,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
     /// <summary>
-    /// &lt;p&gt;Starburst parameters.&lt;/p&gt;
+    /// &lt;p&gt;The parameters that are required to connect to a Starburst data source.&lt;/p&gt;
     /// </summary>
     [OutputType]
     public sealed class DataSourceStarburstParameters
     {
         /// <summary>
-        /// &lt;p&gt;Catalog.&lt;/p&gt;
+        /// &lt;p&gt;The catalog name for the Starburst data source.&lt;/p&gt;
         /// </summary>
         public readonly string Catalog;
         /// <summary>
-        /// &lt;p&gt;Host.&lt;/p&gt;
+        /// &lt;p&gt;The host name of the Starburst data source.&lt;/p&gt;
         /// </summary>
         public readonly string Host;
         /// <summary>
-        /// &lt;p&gt;Port.&lt;/p&gt;
+        /// &lt;p&gt;The port for the Starburst data source.&lt;/p&gt;
         /// </summary>
         public readonly double Port;
         public readonly Pulumi.AwsNative.QuickSight.DataSourceStarburstProductType? ProductType;

@@ -11,12 +11,12 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
     /// <summary>
-    /// &lt;p&gt;Amazon OpenSearch Service parameters.&lt;/p&gt;
+    /// &lt;p&gt;The parameters for OpenSearch.&lt;/p&gt;
     /// </summary>
     public sealed class DataSourceAmazonOpenSearchParametersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// &lt;p&gt;The Amazon OpenSearch Service domain.&lt;/p&gt;
+        /// &lt;p&gt;The OpenSearch domain.&lt;/p&gt;
         /// </summary>
         [Input("domain", required: true)]
         public Input<string> Domain { get; set; } = null!;

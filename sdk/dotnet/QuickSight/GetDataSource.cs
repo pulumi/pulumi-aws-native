@@ -83,19 +83,10 @@ namespace Pulumi.AwsNative.QuickSight
         /// &lt;p&gt;The last time that this data source was updated.&lt;/p&gt;
         /// </summary>
         public readonly string? LastUpdatedTime;
-        /// <summary>
-        /// &lt;p&gt;A display name for the data source.&lt;/p&gt;
-        /// </summary>
         public readonly string? Name;
-        /// <summary>
-        /// &lt;p&gt;A list of resource permissions on the data source.&lt;/p&gt;
-        /// </summary>
         public readonly ImmutableArray<Outputs.DataSourceResourcePermission> Permissions;
         public readonly Outputs.DataSourceSslProperties? SslProperties;
         public readonly Pulumi.AwsNative.QuickSight.DataSourceResourceStatus? Status;
-        /// <summary>
-        /// &lt;p&gt;Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.&lt;/p&gt;
-        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly Outputs.DataSourceVpcConnectionProperties? VpcConnectionProperties;
 

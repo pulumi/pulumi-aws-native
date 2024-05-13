@@ -11,17 +11,20 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
     /// <summary>
-    /// &lt;p&gt;A physical table type for as S3 data source.&lt;/p&gt;
+    /// &lt;p&gt;A physical table type for an S3 data source.&lt;/p&gt;
     /// </summary>
     [OutputType]
     public sealed class DataSetS3Source
     {
         /// <summary>
-        /// &lt;p&gt;The amazon Resource Name (ARN) for the data source.&lt;/p&gt;
+        /// &lt;p&gt;The Amazon Resource Name (ARN) for the data source.&lt;/p&gt;
         /// </summary>
         public readonly string DataSourceArn;
         /// <summary>
-        /// &lt;p&gt;A physical table type for as S3 data source.&lt;/p&gt;
+        /// &lt;p&gt;A physical table type for an S3 data source.&lt;/p&gt;
+        ///          &lt;note&gt;
+        ///             &lt;p&gt;For files that aren't JSON, only &lt;code&gt;STRING&lt;/code&gt; data types are supported in input columns.&lt;/p&gt;
+        ///          &lt;/note&gt;
         /// </summary>
         public readonly ImmutableArray<Outputs.DataSetInputColumn> InputColumns;
         public readonly Outputs.DataSetUploadSettings? UploadSettings;

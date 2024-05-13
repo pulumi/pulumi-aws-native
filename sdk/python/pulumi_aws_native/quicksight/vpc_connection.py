@@ -253,6 +253,9 @@ class VpcConnection(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        <p>The Amazon Resource Name (ARN) of the VPC connection.</p>
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -268,6 +271,9 @@ class VpcConnection(pulumi.CustomResource):
     @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> pulumi.Output[str]:
+        """
+        <p>The time that the VPC connection was created.</p>
+        """
         return pulumi.get(self, "created_time")
 
     @property
@@ -278,6 +284,9 @@ class VpcConnection(pulumi.CustomResource):
     @property
     @pulumi.getter(name="lastUpdatedTime")
     def last_updated_time(self) -> pulumi.Output[str]:
+        """
+        <p>The time that the VPC connection was last updated.</p>
+        """
         return pulumi.get(self, "last_updated_time")
 
     @property
@@ -288,6 +297,9 @@ class VpcConnection(pulumi.CustomResource):
     @property
     @pulumi.getter(name="networkInterfaces")
     def network_interfaces(self) -> pulumi.Output[Sequence['outputs.VpcConnectionNetworkInterface']]:
+        """
+        <p>A list of network interfaces.</p>
+        """
         return pulumi.get(self, "network_interfaces")
 
     @property
@@ -323,5 +335,8 @@ class VpcConnection(pulumi.CustomResource):
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[str]:
+        """
+        <p>The Amazon EC2 VPC ID associated with the VPC connection.</p>
+        """
         return pulumi.get(self, "vpc_id")
 

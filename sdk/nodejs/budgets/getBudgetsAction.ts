@@ -31,6 +31,7 @@ export interface GetBudgetsActionResult {
     readonly definition?: outputs.budgets.BudgetsActionDefinition;
     readonly executionRoleArn?: string;
     readonly notificationType?: enums.budgets.BudgetsActionNotificationType;
+    readonly resourceTags?: outputs.Tag[];
     readonly subscribers?: outputs.budgets.BudgetsActionSubscriber[];
 }
 /**

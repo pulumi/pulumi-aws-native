@@ -11,16 +11,22 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
     /// <summary>
-    /// &lt;p&gt;A parameter created in the dataset of string data type.&lt;/p&gt;
+    /// &lt;p&gt;A string parameter for a dataset.&lt;/p&gt;
     /// </summary>
     public sealed class DataSetStringDatasetParameterArgs : global::Pulumi.ResourceArgs
     {
         [Input("defaultValues")]
         public Input<Inputs.DataSetStringDatasetParameterDefaultValuesArgs>? DefaultValues { get; set; }
 
+        /// <summary>
+        /// &lt;p&gt;An identifier for the string parameter that is created in the dataset.&lt;/p&gt;
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;The name of the string parameter that is created in the dataset.&lt;/p&gt;
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

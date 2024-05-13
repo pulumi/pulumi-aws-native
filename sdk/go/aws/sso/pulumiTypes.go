@@ -13,6 +13,332 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// A structure that describes the options for the access portal associated with an application
+type ApplicationPortalOptionsConfiguration struct {
+	// A structure that describes the sign-in options for the access portal
+	SignInOptions *ApplicationSignInOptions `pulumi:"signInOptions"`
+	// Indicates whether this application is visible in the access portal
+	Visibility *ApplicationPortalOptionsConfigurationVisibility `pulumi:"visibility"`
+}
+
+// ApplicationPortalOptionsConfigurationInput is an input type that accepts ApplicationPortalOptionsConfigurationArgs and ApplicationPortalOptionsConfigurationOutput values.
+// You can construct a concrete instance of `ApplicationPortalOptionsConfigurationInput` via:
+//
+//	ApplicationPortalOptionsConfigurationArgs{...}
+type ApplicationPortalOptionsConfigurationInput interface {
+	pulumi.Input
+
+	ToApplicationPortalOptionsConfigurationOutput() ApplicationPortalOptionsConfigurationOutput
+	ToApplicationPortalOptionsConfigurationOutputWithContext(context.Context) ApplicationPortalOptionsConfigurationOutput
+}
+
+// A structure that describes the options for the access portal associated with an application
+type ApplicationPortalOptionsConfigurationArgs struct {
+	// A structure that describes the sign-in options for the access portal
+	SignInOptions ApplicationSignInOptionsPtrInput `pulumi:"signInOptions"`
+	// Indicates whether this application is visible in the access portal
+	Visibility ApplicationPortalOptionsConfigurationVisibilityPtrInput `pulumi:"visibility"`
+}
+
+func (ApplicationPortalOptionsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationPortalOptionsConfiguration)(nil)).Elem()
+}
+
+func (i ApplicationPortalOptionsConfigurationArgs) ToApplicationPortalOptionsConfigurationOutput() ApplicationPortalOptionsConfigurationOutput {
+	return i.ToApplicationPortalOptionsConfigurationOutputWithContext(context.Background())
+}
+
+func (i ApplicationPortalOptionsConfigurationArgs) ToApplicationPortalOptionsConfigurationOutputWithContext(ctx context.Context) ApplicationPortalOptionsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationPortalOptionsConfigurationOutput)
+}
+
+func (i ApplicationPortalOptionsConfigurationArgs) ToApplicationPortalOptionsConfigurationPtrOutput() ApplicationPortalOptionsConfigurationPtrOutput {
+	return i.ToApplicationPortalOptionsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationPortalOptionsConfigurationArgs) ToApplicationPortalOptionsConfigurationPtrOutputWithContext(ctx context.Context) ApplicationPortalOptionsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationPortalOptionsConfigurationOutput).ToApplicationPortalOptionsConfigurationPtrOutputWithContext(ctx)
+}
+
+// ApplicationPortalOptionsConfigurationPtrInput is an input type that accepts ApplicationPortalOptionsConfigurationArgs, ApplicationPortalOptionsConfigurationPtr and ApplicationPortalOptionsConfigurationPtrOutput values.
+// You can construct a concrete instance of `ApplicationPortalOptionsConfigurationPtrInput` via:
+//
+//	        ApplicationPortalOptionsConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationPortalOptionsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToApplicationPortalOptionsConfigurationPtrOutput() ApplicationPortalOptionsConfigurationPtrOutput
+	ToApplicationPortalOptionsConfigurationPtrOutputWithContext(context.Context) ApplicationPortalOptionsConfigurationPtrOutput
+}
+
+type applicationPortalOptionsConfigurationPtrType ApplicationPortalOptionsConfigurationArgs
+
+func ApplicationPortalOptionsConfigurationPtr(v *ApplicationPortalOptionsConfigurationArgs) ApplicationPortalOptionsConfigurationPtrInput {
+	return (*applicationPortalOptionsConfigurationPtrType)(v)
+}
+
+func (*applicationPortalOptionsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationPortalOptionsConfiguration)(nil)).Elem()
+}
+
+func (i *applicationPortalOptionsConfigurationPtrType) ToApplicationPortalOptionsConfigurationPtrOutput() ApplicationPortalOptionsConfigurationPtrOutput {
+	return i.ToApplicationPortalOptionsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationPortalOptionsConfigurationPtrType) ToApplicationPortalOptionsConfigurationPtrOutputWithContext(ctx context.Context) ApplicationPortalOptionsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationPortalOptionsConfigurationPtrOutput)
+}
+
+// A structure that describes the options for the access portal associated with an application
+type ApplicationPortalOptionsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ApplicationPortalOptionsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationPortalOptionsConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationPortalOptionsConfigurationOutput) ToApplicationPortalOptionsConfigurationOutput() ApplicationPortalOptionsConfigurationOutput {
+	return o
+}
+
+func (o ApplicationPortalOptionsConfigurationOutput) ToApplicationPortalOptionsConfigurationOutputWithContext(ctx context.Context) ApplicationPortalOptionsConfigurationOutput {
+	return o
+}
+
+func (o ApplicationPortalOptionsConfigurationOutput) ToApplicationPortalOptionsConfigurationPtrOutput() ApplicationPortalOptionsConfigurationPtrOutput {
+	return o.ToApplicationPortalOptionsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationPortalOptionsConfigurationOutput) ToApplicationPortalOptionsConfigurationPtrOutputWithContext(ctx context.Context) ApplicationPortalOptionsConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationPortalOptionsConfiguration) *ApplicationPortalOptionsConfiguration {
+		return &v
+	}).(ApplicationPortalOptionsConfigurationPtrOutput)
+}
+
+// A structure that describes the sign-in options for the access portal
+func (o ApplicationPortalOptionsConfigurationOutput) SignInOptions() ApplicationSignInOptionsPtrOutput {
+	return o.ApplyT(func(v ApplicationPortalOptionsConfiguration) *ApplicationSignInOptions { return v.SignInOptions }).(ApplicationSignInOptionsPtrOutput)
+}
+
+// Indicates whether this application is visible in the access portal
+func (o ApplicationPortalOptionsConfigurationOutput) Visibility() ApplicationPortalOptionsConfigurationVisibilityPtrOutput {
+	return o.ApplyT(func(v ApplicationPortalOptionsConfiguration) *ApplicationPortalOptionsConfigurationVisibility {
+		return v.Visibility
+	}).(ApplicationPortalOptionsConfigurationVisibilityPtrOutput)
+}
+
+type ApplicationPortalOptionsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationPortalOptionsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationPortalOptionsConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationPortalOptionsConfigurationPtrOutput) ToApplicationPortalOptionsConfigurationPtrOutput() ApplicationPortalOptionsConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationPortalOptionsConfigurationPtrOutput) ToApplicationPortalOptionsConfigurationPtrOutputWithContext(ctx context.Context) ApplicationPortalOptionsConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationPortalOptionsConfigurationPtrOutput) Elem() ApplicationPortalOptionsConfigurationOutput {
+	return o.ApplyT(func(v *ApplicationPortalOptionsConfiguration) ApplicationPortalOptionsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationPortalOptionsConfiguration
+		return ret
+	}).(ApplicationPortalOptionsConfigurationOutput)
+}
+
+// A structure that describes the sign-in options for the access portal
+func (o ApplicationPortalOptionsConfigurationPtrOutput) SignInOptions() ApplicationSignInOptionsPtrOutput {
+	return o.ApplyT(func(v *ApplicationPortalOptionsConfiguration) *ApplicationSignInOptions {
+		if v == nil {
+			return nil
+		}
+		return v.SignInOptions
+	}).(ApplicationSignInOptionsPtrOutput)
+}
+
+// Indicates whether this application is visible in the access portal
+func (o ApplicationPortalOptionsConfigurationPtrOutput) Visibility() ApplicationPortalOptionsConfigurationVisibilityPtrOutput {
+	return o.ApplyT(func(v *ApplicationPortalOptionsConfiguration) *ApplicationPortalOptionsConfigurationVisibility {
+		if v == nil {
+			return nil
+		}
+		return v.Visibility
+	}).(ApplicationPortalOptionsConfigurationVisibilityPtrOutput)
+}
+
+// A structure that describes the sign-in options for an application portal
+type ApplicationSignInOptions struct {
+	// The URL that accepts authentication requests for an application, this is a required parameter if the Origin parameter is APPLICATION
+	ApplicationUrl *string `pulumi:"applicationUrl"`
+	// This determines how IAM Identity Center navigates the user to the target application
+	Origin ApplicationSignInOptionsOrigin `pulumi:"origin"`
+}
+
+// ApplicationSignInOptionsInput is an input type that accepts ApplicationSignInOptionsArgs and ApplicationSignInOptionsOutput values.
+// You can construct a concrete instance of `ApplicationSignInOptionsInput` via:
+//
+//	ApplicationSignInOptionsArgs{...}
+type ApplicationSignInOptionsInput interface {
+	pulumi.Input
+
+	ToApplicationSignInOptionsOutput() ApplicationSignInOptionsOutput
+	ToApplicationSignInOptionsOutputWithContext(context.Context) ApplicationSignInOptionsOutput
+}
+
+// A structure that describes the sign-in options for an application portal
+type ApplicationSignInOptionsArgs struct {
+	// The URL that accepts authentication requests for an application, this is a required parameter if the Origin parameter is APPLICATION
+	ApplicationUrl pulumi.StringPtrInput `pulumi:"applicationUrl"`
+	// This determines how IAM Identity Center navigates the user to the target application
+	Origin ApplicationSignInOptionsOriginInput `pulumi:"origin"`
+}
+
+func (ApplicationSignInOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSignInOptions)(nil)).Elem()
+}
+
+func (i ApplicationSignInOptionsArgs) ToApplicationSignInOptionsOutput() ApplicationSignInOptionsOutput {
+	return i.ToApplicationSignInOptionsOutputWithContext(context.Background())
+}
+
+func (i ApplicationSignInOptionsArgs) ToApplicationSignInOptionsOutputWithContext(ctx context.Context) ApplicationSignInOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSignInOptionsOutput)
+}
+
+func (i ApplicationSignInOptionsArgs) ToApplicationSignInOptionsPtrOutput() ApplicationSignInOptionsPtrOutput {
+	return i.ToApplicationSignInOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationSignInOptionsArgs) ToApplicationSignInOptionsPtrOutputWithContext(ctx context.Context) ApplicationSignInOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSignInOptionsOutput).ToApplicationSignInOptionsPtrOutputWithContext(ctx)
+}
+
+// ApplicationSignInOptionsPtrInput is an input type that accepts ApplicationSignInOptionsArgs, ApplicationSignInOptionsPtr and ApplicationSignInOptionsPtrOutput values.
+// You can construct a concrete instance of `ApplicationSignInOptionsPtrInput` via:
+//
+//	        ApplicationSignInOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationSignInOptionsPtrInput interface {
+	pulumi.Input
+
+	ToApplicationSignInOptionsPtrOutput() ApplicationSignInOptionsPtrOutput
+	ToApplicationSignInOptionsPtrOutputWithContext(context.Context) ApplicationSignInOptionsPtrOutput
+}
+
+type applicationSignInOptionsPtrType ApplicationSignInOptionsArgs
+
+func ApplicationSignInOptionsPtr(v *ApplicationSignInOptionsArgs) ApplicationSignInOptionsPtrInput {
+	return (*applicationSignInOptionsPtrType)(v)
+}
+
+func (*applicationSignInOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationSignInOptions)(nil)).Elem()
+}
+
+func (i *applicationSignInOptionsPtrType) ToApplicationSignInOptionsPtrOutput() ApplicationSignInOptionsPtrOutput {
+	return i.ToApplicationSignInOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationSignInOptionsPtrType) ToApplicationSignInOptionsPtrOutputWithContext(ctx context.Context) ApplicationSignInOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSignInOptionsPtrOutput)
+}
+
+// A structure that describes the sign-in options for an application portal
+type ApplicationSignInOptionsOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSignInOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSignInOptions)(nil)).Elem()
+}
+
+func (o ApplicationSignInOptionsOutput) ToApplicationSignInOptionsOutput() ApplicationSignInOptionsOutput {
+	return o
+}
+
+func (o ApplicationSignInOptionsOutput) ToApplicationSignInOptionsOutputWithContext(ctx context.Context) ApplicationSignInOptionsOutput {
+	return o
+}
+
+func (o ApplicationSignInOptionsOutput) ToApplicationSignInOptionsPtrOutput() ApplicationSignInOptionsPtrOutput {
+	return o.ToApplicationSignInOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationSignInOptionsOutput) ToApplicationSignInOptionsPtrOutputWithContext(ctx context.Context) ApplicationSignInOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationSignInOptions) *ApplicationSignInOptions {
+		return &v
+	}).(ApplicationSignInOptionsPtrOutput)
+}
+
+// The URL that accepts authentication requests for an application, this is a required parameter if the Origin parameter is APPLICATION
+func (o ApplicationSignInOptionsOutput) ApplicationUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationSignInOptions) *string { return v.ApplicationUrl }).(pulumi.StringPtrOutput)
+}
+
+// This determines how IAM Identity Center navigates the user to the target application
+func (o ApplicationSignInOptionsOutput) Origin() ApplicationSignInOptionsOriginOutput {
+	return o.ApplyT(func(v ApplicationSignInOptions) ApplicationSignInOptionsOrigin { return v.Origin }).(ApplicationSignInOptionsOriginOutput)
+}
+
+type ApplicationSignInOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSignInOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationSignInOptions)(nil)).Elem()
+}
+
+func (o ApplicationSignInOptionsPtrOutput) ToApplicationSignInOptionsPtrOutput() ApplicationSignInOptionsPtrOutput {
+	return o
+}
+
+func (o ApplicationSignInOptionsPtrOutput) ToApplicationSignInOptionsPtrOutputWithContext(ctx context.Context) ApplicationSignInOptionsPtrOutput {
+	return o
+}
+
+func (o ApplicationSignInOptionsPtrOutput) Elem() ApplicationSignInOptionsOutput {
+	return o.ApplyT(func(v *ApplicationSignInOptions) ApplicationSignInOptions {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationSignInOptions
+		return ret
+	}).(ApplicationSignInOptionsOutput)
+}
+
+// The URL that accepts authentication requests for an application, this is a required parameter if the Origin parameter is APPLICATION
+func (o ApplicationSignInOptionsPtrOutput) ApplicationUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationSignInOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ApplicationUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// This determines how IAM Identity Center navigates the user to the target application
+func (o ApplicationSignInOptionsPtrOutput) Origin() ApplicationSignInOptionsOriginPtrOutput {
+	return o.ApplyT(func(v *ApplicationSignInOptions) *ApplicationSignInOptionsOrigin {
+		if v == nil {
+			return nil
+		}
+		return &v.Origin
+	}).(ApplicationSignInOptionsOriginPtrOutput)
+}
+
+// The metadata that you apply to the Identity Center (SSO) Application to help you categorize and organize them.
+type ApplicationTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 type InstanceAccessControlAttributeConfigurationAccessControlAttribute struct {
 	Key   string                                                                 `pulumi:"key"`
 	Value InstanceAccessControlAttributeConfigurationAccessControlAttributeValue `pulumi:"value"`
@@ -302,6 +628,12 @@ func (o InstanceAccessControlAttributeConfigurationPropertiesPtrOutput) AccessCo
 		}
 		return v.AccessControlAttributes
 	}).(InstanceAccessControlAttributeConfigurationAccessControlAttributeArrayOutput)
+}
+
+// The metadata that you apply to the Identity Center (SSO) Instance to help you categorize and organize them.
+type InstanceTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
 }
 
 type PermissionSetCustomerManagedPolicyReference struct {
@@ -654,6 +986,10 @@ type PermissionSetTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationPortalOptionsConfigurationInput)(nil)).Elem(), ApplicationPortalOptionsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationPortalOptionsConfigurationPtrInput)(nil)).Elem(), ApplicationPortalOptionsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSignInOptionsInput)(nil)).Elem(), ApplicationSignInOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSignInOptionsPtrInput)(nil)).Elem(), ApplicationSignInOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceAccessControlAttributeConfigurationAccessControlAttributeInput)(nil)).Elem(), InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceAccessControlAttributeConfigurationAccessControlAttributeArrayInput)(nil)).Elem(), InstanceAccessControlAttributeConfigurationAccessControlAttributeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceAccessControlAttributeConfigurationAccessControlAttributeValueInput)(nil)).Elem(), InstanceAccessControlAttributeConfigurationAccessControlAttributeValueArgs{})
@@ -664,6 +1000,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionSetCustomerManagedPolicyReferenceArrayInput)(nil)).Elem(), PermissionSetCustomerManagedPolicyReferenceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionSetPermissionsBoundaryInput)(nil)).Elem(), PermissionSetPermissionsBoundaryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionSetPermissionsBoundaryPtrInput)(nil)).Elem(), PermissionSetPermissionsBoundaryArgs{})
+	pulumi.RegisterOutputType(ApplicationPortalOptionsConfigurationOutput{})
+	pulumi.RegisterOutputType(ApplicationPortalOptionsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationSignInOptionsOutput{})
+	pulumi.RegisterOutputType(ApplicationSignInOptionsPtrOutput{})
 	pulumi.RegisterOutputType(InstanceAccessControlAttributeConfigurationAccessControlAttributeOutput{})
 	pulumi.RegisterOutputType(InstanceAccessControlAttributeConfigurationAccessControlAttributeArrayOutput{})
 	pulumi.RegisterOutputType(InstanceAccessControlAttributeConfigurationAccessControlAttributeValueOutput{})

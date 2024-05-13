@@ -10,16 +10,26 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;A FieldFolder element is a folder that contains fields and nested subfolders.&lt;/p&gt;
+    /// </summary>
     public sealed class DataSetFieldFolderArgs : global::Pulumi.ResourceArgs
     {
         [Input("columns")]
         private InputList<string>? _columns;
+
+        /// <summary>
+        /// &lt;p&gt;A folder has a list of columns. A column can only be in one folder.&lt;/p&gt;
+        /// </summary>
         public InputList<string> Columns
         {
             get => _columns ?? (_columns = new InputList<string>());
             set => _columns = value;
         }
 
+        /// <summary>
+        /// &lt;p&gt;The description for a field folder.&lt;/p&gt;
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 

@@ -62,15 +62,9 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("lastUpdatedTime")]
         public Output<string> LastUpdatedTime { get; private set; } = null!;
 
-        /// <summary>
-        /// &lt;p&gt;A display name for the data source.&lt;/p&gt;
-        /// </summary>
         [Output("name")]
-        public Output<string?> Name { get; private set; } = null!;
+        public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// &lt;p&gt;A list of resource permissions on the data source.&lt;/p&gt;
-        /// </summary>
         [Output("permissions")]
         public Output<ImmutableArray<Outputs.DataSourceResourcePermission>> Permissions { get; private set; } = null!;
 
@@ -80,14 +74,11 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("status")]
         public Output<Pulumi.AwsNative.QuickSight.DataSourceResourceStatus> Status { get; private set; } = null!;
 
-        /// <summary>
-        /// &lt;p&gt;Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.&lt;/p&gt;
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         [Output("type")]
-        public Output<Pulumi.AwsNative.QuickSight.DataSourceType?> Type { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.QuickSight.DataSourceType> Type { get; private set; } = null!;
 
         [Output("vpcConnectionProperties")]
         public Output<Outputs.DataSourceVpcConnectionProperties?> VpcConnectionProperties { get; private set; } = null!;
@@ -100,7 +91,7 @@ namespace Pulumi.AwsNative.QuickSight
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public DataSource(string name, DataSourceArgs? args = null, CustomResourceOptions? options = null)
+        public DataSource(string name, DataSourceArgs args, CustomResourceOptions? options = null)
             : base("aws-native:quicksight:DataSource", name, args ?? new DataSourceArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -178,18 +169,11 @@ namespace Pulumi.AwsNative.QuickSight
         [Input("errorInfo")]
         public Input<Inputs.DataSourceErrorInfoArgs>? ErrorInfo { get; set; }
 
-        /// <summary>
-        /// &lt;p&gt;A display name for the data source.&lt;/p&gt;
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("permissions")]
         private InputList<Inputs.DataSourceResourcePermissionArgs>? _permissions;
-
-        /// <summary>
-        /// &lt;p&gt;A list of resource permissions on the data source.&lt;/p&gt;
-        /// </summary>
         public InputList<Inputs.DataSourceResourcePermissionArgs> Permissions
         {
             get => _permissions ?? (_permissions = new InputList<Inputs.DataSourceResourcePermissionArgs>());
@@ -201,18 +185,14 @@ namespace Pulumi.AwsNative.QuickSight
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
-
-        /// <summary>
-        /// &lt;p&gt;Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.&lt;/p&gt;
-        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 
-        [Input("type")]
-        public Input<Pulumi.AwsNative.QuickSight.DataSourceType>? Type { get; set; }
+        [Input("type", required: true)]
+        public Input<Pulumi.AwsNative.QuickSight.DataSourceType> Type { get; set; } = null!;
 
         [Input("vpcConnectionProperties")]
         public Input<Inputs.DataSourceVpcConnectionPropertiesArgs>? VpcConnectionProperties { get; set; }

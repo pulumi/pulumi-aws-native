@@ -38679,6 +38679,171 @@ func (in *dashboardWordCloudWordScalingPtr) ToDashboardWordCloudWordScalingPtrOu
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardWordCloudWordScalingPtrOutput)
 }
 
+type DataSetColumnDataSubType string
+
+const (
+	DataSetColumnDataSubTypeFloat = DataSetColumnDataSubType("FLOAT")
+	DataSetColumnDataSubTypeFixed = DataSetColumnDataSubType("FIXED")
+)
+
+func (DataSetColumnDataSubType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetColumnDataSubType)(nil)).Elem()
+}
+
+func (e DataSetColumnDataSubType) ToDataSetColumnDataSubTypeOutput() DataSetColumnDataSubTypeOutput {
+	return pulumi.ToOutput(e).(DataSetColumnDataSubTypeOutput)
+}
+
+func (e DataSetColumnDataSubType) ToDataSetColumnDataSubTypeOutputWithContext(ctx context.Context) DataSetColumnDataSubTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataSetColumnDataSubTypeOutput)
+}
+
+func (e DataSetColumnDataSubType) ToDataSetColumnDataSubTypePtrOutput() DataSetColumnDataSubTypePtrOutput {
+	return e.ToDataSetColumnDataSubTypePtrOutputWithContext(context.Background())
+}
+
+func (e DataSetColumnDataSubType) ToDataSetColumnDataSubTypePtrOutputWithContext(ctx context.Context) DataSetColumnDataSubTypePtrOutput {
+	return DataSetColumnDataSubType(e).ToDataSetColumnDataSubTypeOutputWithContext(ctx).ToDataSetColumnDataSubTypePtrOutputWithContext(ctx)
+}
+
+func (e DataSetColumnDataSubType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSetColumnDataSubType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSetColumnDataSubType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataSetColumnDataSubType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataSetColumnDataSubTypeOutput struct{ *pulumi.OutputState }
+
+func (DataSetColumnDataSubTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetColumnDataSubType)(nil)).Elem()
+}
+
+func (o DataSetColumnDataSubTypeOutput) ToDataSetColumnDataSubTypeOutput() DataSetColumnDataSubTypeOutput {
+	return o
+}
+
+func (o DataSetColumnDataSubTypeOutput) ToDataSetColumnDataSubTypeOutputWithContext(ctx context.Context) DataSetColumnDataSubTypeOutput {
+	return o
+}
+
+func (o DataSetColumnDataSubTypeOutput) ToDataSetColumnDataSubTypePtrOutput() DataSetColumnDataSubTypePtrOutput {
+	return o.ToDataSetColumnDataSubTypePtrOutputWithContext(context.Background())
+}
+
+func (o DataSetColumnDataSubTypeOutput) ToDataSetColumnDataSubTypePtrOutputWithContext(ctx context.Context) DataSetColumnDataSubTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSetColumnDataSubType) *DataSetColumnDataSubType {
+		return &v
+	}).(DataSetColumnDataSubTypePtrOutput)
+}
+
+func (o DataSetColumnDataSubTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataSetColumnDataSubTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSetColumnDataSubType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataSetColumnDataSubTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSetColumnDataSubTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSetColumnDataSubType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSetColumnDataSubTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DataSetColumnDataSubTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetColumnDataSubType)(nil)).Elem()
+}
+
+func (o DataSetColumnDataSubTypePtrOutput) ToDataSetColumnDataSubTypePtrOutput() DataSetColumnDataSubTypePtrOutput {
+	return o
+}
+
+func (o DataSetColumnDataSubTypePtrOutput) ToDataSetColumnDataSubTypePtrOutputWithContext(ctx context.Context) DataSetColumnDataSubTypePtrOutput {
+	return o
+}
+
+func (o DataSetColumnDataSubTypePtrOutput) Elem() DataSetColumnDataSubTypeOutput {
+	return o.ApplyT(func(v *DataSetColumnDataSubType) DataSetColumnDataSubType {
+		if v != nil {
+			return *v
+		}
+		var ret DataSetColumnDataSubType
+		return ret
+	}).(DataSetColumnDataSubTypeOutput)
+}
+
+func (o DataSetColumnDataSubTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSetColumnDataSubTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataSetColumnDataSubType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataSetColumnDataSubTypeInput is an input type that accepts values of the DataSetColumnDataSubType enum
+// A concrete instance of `DataSetColumnDataSubTypeInput` can be one of the following:
+//
+//	DataSetColumnDataSubTypeFloat
+//	DataSetColumnDataSubTypeFixed
+type DataSetColumnDataSubTypeInput interface {
+	pulumi.Input
+
+	ToDataSetColumnDataSubTypeOutput() DataSetColumnDataSubTypeOutput
+	ToDataSetColumnDataSubTypeOutputWithContext(context.Context) DataSetColumnDataSubTypeOutput
+}
+
+var dataSetColumnDataSubTypePtrType = reflect.TypeOf((**DataSetColumnDataSubType)(nil)).Elem()
+
+type DataSetColumnDataSubTypePtrInput interface {
+	pulumi.Input
+
+	ToDataSetColumnDataSubTypePtrOutput() DataSetColumnDataSubTypePtrOutput
+	ToDataSetColumnDataSubTypePtrOutputWithContext(context.Context) DataSetColumnDataSubTypePtrOutput
+}
+
+type dataSetColumnDataSubTypePtr string
+
+func DataSetColumnDataSubTypePtr(v string) DataSetColumnDataSubTypePtrInput {
+	return (*dataSetColumnDataSubTypePtr)(&v)
+}
+
+func (*dataSetColumnDataSubTypePtr) ElementType() reflect.Type {
+	return dataSetColumnDataSubTypePtrType
+}
+
+func (in *dataSetColumnDataSubTypePtr) ToDataSetColumnDataSubTypePtrOutput() DataSetColumnDataSubTypePtrOutput {
+	return pulumi.ToOutput(in).(DataSetColumnDataSubTypePtrOutput)
+}
+
+func (in *dataSetColumnDataSubTypePtr) ToDataSetColumnDataSubTypePtrOutputWithContext(ctx context.Context) DataSetColumnDataSubTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataSetColumnDataSubTypePtrOutput)
+}
+
 type DataSetColumnDataType string
 
 const (
@@ -38848,124 +39013,124 @@ func (in *dataSetColumnDataTypePtr) ToDataSetColumnDataTypePtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(DataSetColumnDataTypePtrOutput)
 }
 
-type DataSetColumnSubDataType string
+type DataSetColumnTagName string
 
 const (
-	DataSetColumnSubDataTypeFixed = DataSetColumnSubDataType("FIXED")
-	DataSetColumnSubDataTypeFloat = DataSetColumnSubDataType("FLOAT")
+	DataSetColumnTagNameColumnGeographicRole = DataSetColumnTagName("COLUMN_GEOGRAPHIC_ROLE")
+	DataSetColumnTagNameColumnDescription    = DataSetColumnTagName("COLUMN_DESCRIPTION")
 )
 
-func (DataSetColumnSubDataType) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSetColumnSubDataType)(nil)).Elem()
+func (DataSetColumnTagName) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetColumnTagName)(nil)).Elem()
 }
 
-func (e DataSetColumnSubDataType) ToDataSetColumnSubDataTypeOutput() DataSetColumnSubDataTypeOutput {
-	return pulumi.ToOutput(e).(DataSetColumnSubDataTypeOutput)
+func (e DataSetColumnTagName) ToDataSetColumnTagNameOutput() DataSetColumnTagNameOutput {
+	return pulumi.ToOutput(e).(DataSetColumnTagNameOutput)
 }
 
-func (e DataSetColumnSubDataType) ToDataSetColumnSubDataTypeOutputWithContext(ctx context.Context) DataSetColumnSubDataTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(DataSetColumnSubDataTypeOutput)
+func (e DataSetColumnTagName) ToDataSetColumnTagNameOutputWithContext(ctx context.Context) DataSetColumnTagNameOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataSetColumnTagNameOutput)
 }
 
-func (e DataSetColumnSubDataType) ToDataSetColumnSubDataTypePtrOutput() DataSetColumnSubDataTypePtrOutput {
-	return e.ToDataSetColumnSubDataTypePtrOutputWithContext(context.Background())
+func (e DataSetColumnTagName) ToDataSetColumnTagNamePtrOutput() DataSetColumnTagNamePtrOutput {
+	return e.ToDataSetColumnTagNamePtrOutputWithContext(context.Background())
 }
 
-func (e DataSetColumnSubDataType) ToDataSetColumnSubDataTypePtrOutputWithContext(ctx context.Context) DataSetColumnSubDataTypePtrOutput {
-	return DataSetColumnSubDataType(e).ToDataSetColumnSubDataTypeOutputWithContext(ctx).ToDataSetColumnSubDataTypePtrOutputWithContext(ctx)
+func (e DataSetColumnTagName) ToDataSetColumnTagNamePtrOutputWithContext(ctx context.Context) DataSetColumnTagNamePtrOutput {
+	return DataSetColumnTagName(e).ToDataSetColumnTagNameOutputWithContext(ctx).ToDataSetColumnTagNamePtrOutputWithContext(ctx)
 }
 
-func (e DataSetColumnSubDataType) ToStringOutput() pulumi.StringOutput {
+func (e DataSetColumnTagName) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e DataSetColumnSubDataType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e DataSetColumnTagName) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e DataSetColumnSubDataType) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e DataSetColumnTagName) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e DataSetColumnSubDataType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e DataSetColumnTagName) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type DataSetColumnSubDataTypeOutput struct{ *pulumi.OutputState }
+type DataSetColumnTagNameOutput struct{ *pulumi.OutputState }
 
-func (DataSetColumnSubDataTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSetColumnSubDataType)(nil)).Elem()
+func (DataSetColumnTagNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetColumnTagName)(nil)).Elem()
 }
 
-func (o DataSetColumnSubDataTypeOutput) ToDataSetColumnSubDataTypeOutput() DataSetColumnSubDataTypeOutput {
+func (o DataSetColumnTagNameOutput) ToDataSetColumnTagNameOutput() DataSetColumnTagNameOutput {
 	return o
 }
 
-func (o DataSetColumnSubDataTypeOutput) ToDataSetColumnSubDataTypeOutputWithContext(ctx context.Context) DataSetColumnSubDataTypeOutput {
+func (o DataSetColumnTagNameOutput) ToDataSetColumnTagNameOutputWithContext(ctx context.Context) DataSetColumnTagNameOutput {
 	return o
 }
 
-func (o DataSetColumnSubDataTypeOutput) ToDataSetColumnSubDataTypePtrOutput() DataSetColumnSubDataTypePtrOutput {
-	return o.ToDataSetColumnSubDataTypePtrOutputWithContext(context.Background())
+func (o DataSetColumnTagNameOutput) ToDataSetColumnTagNamePtrOutput() DataSetColumnTagNamePtrOutput {
+	return o.ToDataSetColumnTagNamePtrOutputWithContext(context.Background())
 }
 
-func (o DataSetColumnSubDataTypeOutput) ToDataSetColumnSubDataTypePtrOutputWithContext(ctx context.Context) DataSetColumnSubDataTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSetColumnSubDataType) *DataSetColumnSubDataType {
+func (o DataSetColumnTagNameOutput) ToDataSetColumnTagNamePtrOutputWithContext(ctx context.Context) DataSetColumnTagNamePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSetColumnTagName) *DataSetColumnTagName {
 		return &v
-	}).(DataSetColumnSubDataTypePtrOutput)
+	}).(DataSetColumnTagNamePtrOutput)
 }
 
-func (o DataSetColumnSubDataTypeOutput) ToStringOutput() pulumi.StringOutput {
+func (o DataSetColumnTagNameOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o DataSetColumnSubDataTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSetColumnSubDataType) string {
+func (o DataSetColumnTagNameOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSetColumnTagName) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o DataSetColumnSubDataTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o DataSetColumnTagNameOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o DataSetColumnSubDataTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSetColumnSubDataType) *string {
+func (o DataSetColumnTagNameOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSetColumnTagName) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type DataSetColumnSubDataTypePtrOutput struct{ *pulumi.OutputState }
+type DataSetColumnTagNamePtrOutput struct{ *pulumi.OutputState }
 
-func (DataSetColumnSubDataTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSetColumnSubDataType)(nil)).Elem()
+func (DataSetColumnTagNamePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetColumnTagName)(nil)).Elem()
 }
 
-func (o DataSetColumnSubDataTypePtrOutput) ToDataSetColumnSubDataTypePtrOutput() DataSetColumnSubDataTypePtrOutput {
+func (o DataSetColumnTagNamePtrOutput) ToDataSetColumnTagNamePtrOutput() DataSetColumnTagNamePtrOutput {
 	return o
 }
 
-func (o DataSetColumnSubDataTypePtrOutput) ToDataSetColumnSubDataTypePtrOutputWithContext(ctx context.Context) DataSetColumnSubDataTypePtrOutput {
+func (o DataSetColumnTagNamePtrOutput) ToDataSetColumnTagNamePtrOutputWithContext(ctx context.Context) DataSetColumnTagNamePtrOutput {
 	return o
 }
 
-func (o DataSetColumnSubDataTypePtrOutput) Elem() DataSetColumnSubDataTypeOutput {
-	return o.ApplyT(func(v *DataSetColumnSubDataType) DataSetColumnSubDataType {
+func (o DataSetColumnTagNamePtrOutput) Elem() DataSetColumnTagNameOutput {
+	return o.ApplyT(func(v *DataSetColumnTagName) DataSetColumnTagName {
 		if v != nil {
 			return *v
 		}
-		var ret DataSetColumnSubDataType
+		var ret DataSetColumnTagName
 		return ret
-	}).(DataSetColumnSubDataTypeOutput)
+	}).(DataSetColumnTagNameOutput)
 }
 
-func (o DataSetColumnSubDataTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o DataSetColumnTagNamePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o DataSetColumnSubDataTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataSetColumnSubDataType) *string {
+func (o DataSetColumnTagNamePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataSetColumnTagName) *string {
 		if e == nil {
 			return nil
 		}
@@ -38974,46 +39139,90 @@ func (o DataSetColumnSubDataTypePtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// DataSetColumnSubDataTypeInput is an input type that accepts values of the DataSetColumnSubDataType enum
-// A concrete instance of `DataSetColumnSubDataTypeInput` can be one of the following:
+// DataSetColumnTagNameInput is an input type that accepts values of the DataSetColumnTagName enum
+// A concrete instance of `DataSetColumnTagNameInput` can be one of the following:
 //
-//	DataSetColumnSubDataTypeFixed
-//	DataSetColumnSubDataTypeFloat
-type DataSetColumnSubDataTypeInput interface {
+//	DataSetColumnTagNameColumnGeographicRole
+//	DataSetColumnTagNameColumnDescription
+type DataSetColumnTagNameInput interface {
 	pulumi.Input
 
-	ToDataSetColumnSubDataTypeOutput() DataSetColumnSubDataTypeOutput
-	ToDataSetColumnSubDataTypeOutputWithContext(context.Context) DataSetColumnSubDataTypeOutput
+	ToDataSetColumnTagNameOutput() DataSetColumnTagNameOutput
+	ToDataSetColumnTagNameOutputWithContext(context.Context) DataSetColumnTagNameOutput
 }
 
-var dataSetColumnSubDataTypePtrType = reflect.TypeOf((**DataSetColumnSubDataType)(nil)).Elem()
+var dataSetColumnTagNamePtrType = reflect.TypeOf((**DataSetColumnTagName)(nil)).Elem()
 
-type DataSetColumnSubDataTypePtrInput interface {
+type DataSetColumnTagNamePtrInput interface {
 	pulumi.Input
 
-	ToDataSetColumnSubDataTypePtrOutput() DataSetColumnSubDataTypePtrOutput
-	ToDataSetColumnSubDataTypePtrOutputWithContext(context.Context) DataSetColumnSubDataTypePtrOutput
+	ToDataSetColumnTagNamePtrOutput() DataSetColumnTagNamePtrOutput
+	ToDataSetColumnTagNamePtrOutputWithContext(context.Context) DataSetColumnTagNamePtrOutput
 }
 
-type dataSetColumnSubDataTypePtr string
+type dataSetColumnTagNamePtr string
 
-func DataSetColumnSubDataTypePtr(v string) DataSetColumnSubDataTypePtrInput {
-	return (*dataSetColumnSubDataTypePtr)(&v)
+func DataSetColumnTagNamePtr(v string) DataSetColumnTagNamePtrInput {
+	return (*dataSetColumnTagNamePtr)(&v)
 }
 
-func (*dataSetColumnSubDataTypePtr) ElementType() reflect.Type {
-	return dataSetColumnSubDataTypePtrType
+func (*dataSetColumnTagNamePtr) ElementType() reflect.Type {
+	return dataSetColumnTagNamePtrType
 }
 
-func (in *dataSetColumnSubDataTypePtr) ToDataSetColumnSubDataTypePtrOutput() DataSetColumnSubDataTypePtrOutput {
-	return pulumi.ToOutput(in).(DataSetColumnSubDataTypePtrOutput)
+func (in *dataSetColumnTagNamePtr) ToDataSetColumnTagNamePtrOutput() DataSetColumnTagNamePtrOutput {
+	return pulumi.ToOutput(in).(DataSetColumnTagNamePtrOutput)
 }
 
-func (in *dataSetColumnSubDataTypePtr) ToDataSetColumnSubDataTypePtrOutputWithContext(ctx context.Context) DataSetColumnSubDataTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(DataSetColumnSubDataTypePtrOutput)
+func (in *dataSetColumnTagNamePtr) ToDataSetColumnTagNamePtrOutputWithContext(ctx context.Context) DataSetColumnTagNamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataSetColumnTagNamePtrOutput)
 }
 
-// <p>Every parameter value could be either a single value or multi value which helps to validate before evaluation.</p>
+// DataSetColumnTagNameArrayInput is an input type that accepts DataSetColumnTagNameArray and DataSetColumnTagNameArrayOutput values.
+// You can construct a concrete instance of `DataSetColumnTagNameArrayInput` via:
+//
+//	DataSetColumnTagNameArray{ DataSetColumnTagNameArgs{...} }
+type DataSetColumnTagNameArrayInput interface {
+	pulumi.Input
+
+	ToDataSetColumnTagNameArrayOutput() DataSetColumnTagNameArrayOutput
+	ToDataSetColumnTagNameArrayOutputWithContext(context.Context) DataSetColumnTagNameArrayOutput
+}
+
+type DataSetColumnTagNameArray []DataSetColumnTagName
+
+func (DataSetColumnTagNameArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataSetColumnTagName)(nil)).Elem()
+}
+
+func (i DataSetColumnTagNameArray) ToDataSetColumnTagNameArrayOutput() DataSetColumnTagNameArrayOutput {
+	return i.ToDataSetColumnTagNameArrayOutputWithContext(context.Background())
+}
+
+func (i DataSetColumnTagNameArray) ToDataSetColumnTagNameArrayOutputWithContext(ctx context.Context) DataSetColumnTagNameArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetColumnTagNameArrayOutput)
+}
+
+type DataSetColumnTagNameArrayOutput struct{ *pulumi.OutputState }
+
+func (DataSetColumnTagNameArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataSetColumnTagName)(nil)).Elem()
+}
+
+func (o DataSetColumnTagNameArrayOutput) ToDataSetColumnTagNameArrayOutput() DataSetColumnTagNameArrayOutput {
+	return o
+}
+
+func (o DataSetColumnTagNameArrayOutput) ToDataSetColumnTagNameArrayOutputWithContext(ctx context.Context) DataSetColumnTagNameArrayOutput {
+	return o
+}
+
+func (o DataSetColumnTagNameArrayOutput) Index(i pulumi.IntInput) DataSetColumnTagNameOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataSetColumnTagName {
+		return vs[0].([]DataSetColumnTagName)[vs[1].(int)]
+	}).(DataSetColumnTagNameOutput)
+}
+
 type DataSetDatasetParameterValueType string
 
 const (
@@ -39518,14 +39727,17 @@ func (in *dataSetGeoSpatialCountryCodePtr) ToDataSetGeoSpatialCountryCodePtrOutp
 type DataSetGeoSpatialDataRole string
 
 const (
-	DataSetGeoSpatialDataRoleCountry    = DataSetGeoSpatialDataRole("COUNTRY")
-	DataSetGeoSpatialDataRoleState      = DataSetGeoSpatialDataRole("STATE")
-	DataSetGeoSpatialDataRoleCounty     = DataSetGeoSpatialDataRole("COUNTY")
-	DataSetGeoSpatialDataRoleCity       = DataSetGeoSpatialDataRole("CITY")
-	DataSetGeoSpatialDataRolePostcode   = DataSetGeoSpatialDataRole("POSTCODE")
-	DataSetGeoSpatialDataRoleLongitude  = DataSetGeoSpatialDataRole("LONGITUDE")
-	DataSetGeoSpatialDataRoleLatitude   = DataSetGeoSpatialDataRole("LATITUDE")
-	DataSetGeoSpatialDataRolePolitical1 = DataSetGeoSpatialDataRole("POLITICAL1")
+	DataSetGeoSpatialDataRoleCountry          = DataSetGeoSpatialDataRole("COUNTRY")
+	DataSetGeoSpatialDataRoleState            = DataSetGeoSpatialDataRole("STATE")
+	DataSetGeoSpatialDataRoleCounty           = DataSetGeoSpatialDataRole("COUNTY")
+	DataSetGeoSpatialDataRoleCity             = DataSetGeoSpatialDataRole("CITY")
+	DataSetGeoSpatialDataRolePostcode         = DataSetGeoSpatialDataRole("POSTCODE")
+	DataSetGeoSpatialDataRoleLongitude        = DataSetGeoSpatialDataRole("LONGITUDE")
+	DataSetGeoSpatialDataRoleLatitude         = DataSetGeoSpatialDataRole("LATITUDE")
+	DataSetGeoSpatialDataRolePolitical1       = DataSetGeoSpatialDataRole("POLITICAL1")
+	DataSetGeoSpatialDataRoleCensusTract      = DataSetGeoSpatialDataRole("CENSUS_TRACT")
+	DataSetGeoSpatialDataRoleCensusBlockGroup = DataSetGeoSpatialDataRole("CENSUS_BLOCK_GROUP")
+	DataSetGeoSpatialDataRoleCensusBlock      = DataSetGeoSpatialDataRole("CENSUS_BLOCK")
 )
 
 func (DataSetGeoSpatialDataRole) ElementType() reflect.Type {
@@ -39658,6 +39870,9 @@ func (o DataSetGeoSpatialDataRolePtrOutput) ToStringPtrOutputWithContext(ctx con
 //	DataSetGeoSpatialDataRoleLongitude
 //	DataSetGeoSpatialDataRoleLatitude
 //	DataSetGeoSpatialDataRolePolitical1
+//	DataSetGeoSpatialDataRoleCensusTract
+//	DataSetGeoSpatialDataRoleCensusBlockGroup
+//	DataSetGeoSpatialDataRoleCensusBlock
 type DataSetGeoSpatialDataRoleInput interface {
 	pulumi.Input
 
@@ -40201,6 +40416,173 @@ func (in *dataSetJoinTypePtr) ToDataSetJoinTypePtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(DataSetJoinTypePtrOutput)
 }
 
+type DataSetLookbackWindowSizeUnit string
+
+const (
+	DataSetLookbackWindowSizeUnitHour = DataSetLookbackWindowSizeUnit("HOUR")
+	DataSetLookbackWindowSizeUnitDay  = DataSetLookbackWindowSizeUnit("DAY")
+	DataSetLookbackWindowSizeUnitWeek = DataSetLookbackWindowSizeUnit("WEEK")
+)
+
+func (DataSetLookbackWindowSizeUnit) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetLookbackWindowSizeUnit)(nil)).Elem()
+}
+
+func (e DataSetLookbackWindowSizeUnit) ToDataSetLookbackWindowSizeUnitOutput() DataSetLookbackWindowSizeUnitOutput {
+	return pulumi.ToOutput(e).(DataSetLookbackWindowSizeUnitOutput)
+}
+
+func (e DataSetLookbackWindowSizeUnit) ToDataSetLookbackWindowSizeUnitOutputWithContext(ctx context.Context) DataSetLookbackWindowSizeUnitOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataSetLookbackWindowSizeUnitOutput)
+}
+
+func (e DataSetLookbackWindowSizeUnit) ToDataSetLookbackWindowSizeUnitPtrOutput() DataSetLookbackWindowSizeUnitPtrOutput {
+	return e.ToDataSetLookbackWindowSizeUnitPtrOutputWithContext(context.Background())
+}
+
+func (e DataSetLookbackWindowSizeUnit) ToDataSetLookbackWindowSizeUnitPtrOutputWithContext(ctx context.Context) DataSetLookbackWindowSizeUnitPtrOutput {
+	return DataSetLookbackWindowSizeUnit(e).ToDataSetLookbackWindowSizeUnitOutputWithContext(ctx).ToDataSetLookbackWindowSizeUnitPtrOutputWithContext(ctx)
+}
+
+func (e DataSetLookbackWindowSizeUnit) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSetLookbackWindowSizeUnit) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSetLookbackWindowSizeUnit) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataSetLookbackWindowSizeUnit) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataSetLookbackWindowSizeUnitOutput struct{ *pulumi.OutputState }
+
+func (DataSetLookbackWindowSizeUnitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetLookbackWindowSizeUnit)(nil)).Elem()
+}
+
+func (o DataSetLookbackWindowSizeUnitOutput) ToDataSetLookbackWindowSizeUnitOutput() DataSetLookbackWindowSizeUnitOutput {
+	return o
+}
+
+func (o DataSetLookbackWindowSizeUnitOutput) ToDataSetLookbackWindowSizeUnitOutputWithContext(ctx context.Context) DataSetLookbackWindowSizeUnitOutput {
+	return o
+}
+
+func (o DataSetLookbackWindowSizeUnitOutput) ToDataSetLookbackWindowSizeUnitPtrOutput() DataSetLookbackWindowSizeUnitPtrOutput {
+	return o.ToDataSetLookbackWindowSizeUnitPtrOutputWithContext(context.Background())
+}
+
+func (o DataSetLookbackWindowSizeUnitOutput) ToDataSetLookbackWindowSizeUnitPtrOutputWithContext(ctx context.Context) DataSetLookbackWindowSizeUnitPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSetLookbackWindowSizeUnit) *DataSetLookbackWindowSizeUnit {
+		return &v
+	}).(DataSetLookbackWindowSizeUnitPtrOutput)
+}
+
+func (o DataSetLookbackWindowSizeUnitOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataSetLookbackWindowSizeUnitOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSetLookbackWindowSizeUnit) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataSetLookbackWindowSizeUnitOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSetLookbackWindowSizeUnitOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSetLookbackWindowSizeUnit) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSetLookbackWindowSizeUnitPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSetLookbackWindowSizeUnitPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetLookbackWindowSizeUnit)(nil)).Elem()
+}
+
+func (o DataSetLookbackWindowSizeUnitPtrOutput) ToDataSetLookbackWindowSizeUnitPtrOutput() DataSetLookbackWindowSizeUnitPtrOutput {
+	return o
+}
+
+func (o DataSetLookbackWindowSizeUnitPtrOutput) ToDataSetLookbackWindowSizeUnitPtrOutputWithContext(ctx context.Context) DataSetLookbackWindowSizeUnitPtrOutput {
+	return o
+}
+
+func (o DataSetLookbackWindowSizeUnitPtrOutput) Elem() DataSetLookbackWindowSizeUnitOutput {
+	return o.ApplyT(func(v *DataSetLookbackWindowSizeUnit) DataSetLookbackWindowSizeUnit {
+		if v != nil {
+			return *v
+		}
+		var ret DataSetLookbackWindowSizeUnit
+		return ret
+	}).(DataSetLookbackWindowSizeUnitOutput)
+}
+
+func (o DataSetLookbackWindowSizeUnitPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSetLookbackWindowSizeUnitPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataSetLookbackWindowSizeUnit) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataSetLookbackWindowSizeUnitInput is an input type that accepts values of the DataSetLookbackWindowSizeUnit enum
+// A concrete instance of `DataSetLookbackWindowSizeUnitInput` can be one of the following:
+//
+//	DataSetLookbackWindowSizeUnitHour
+//	DataSetLookbackWindowSizeUnitDay
+//	DataSetLookbackWindowSizeUnitWeek
+type DataSetLookbackWindowSizeUnitInput interface {
+	pulumi.Input
+
+	ToDataSetLookbackWindowSizeUnitOutput() DataSetLookbackWindowSizeUnitOutput
+	ToDataSetLookbackWindowSizeUnitOutputWithContext(context.Context) DataSetLookbackWindowSizeUnitOutput
+}
+
+var dataSetLookbackWindowSizeUnitPtrType = reflect.TypeOf((**DataSetLookbackWindowSizeUnit)(nil)).Elem()
+
+type DataSetLookbackWindowSizeUnitPtrInput interface {
+	pulumi.Input
+
+	ToDataSetLookbackWindowSizeUnitPtrOutput() DataSetLookbackWindowSizeUnitPtrOutput
+	ToDataSetLookbackWindowSizeUnitPtrOutputWithContext(context.Context) DataSetLookbackWindowSizeUnitPtrOutput
+}
+
+type dataSetLookbackWindowSizeUnitPtr string
+
+func DataSetLookbackWindowSizeUnitPtr(v string) DataSetLookbackWindowSizeUnitPtrInput {
+	return (*dataSetLookbackWindowSizeUnitPtr)(&v)
+}
+
+func (*dataSetLookbackWindowSizeUnitPtr) ElementType() reflect.Type {
+	return dataSetLookbackWindowSizeUnitPtrType
+}
+
+func (in *dataSetLookbackWindowSizeUnitPtr) ToDataSetLookbackWindowSizeUnitPtrOutput() DataSetLookbackWindowSizeUnitPtrOutput {
+	return pulumi.ToOutput(in).(DataSetLookbackWindowSizeUnitPtrOutput)
+}
+
+func (in *dataSetLookbackWindowSizeUnitPtr) ToDataSetLookbackWindowSizeUnitPtrOutputWithContext(ctx context.Context) DataSetLookbackWindowSizeUnitPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataSetLookbackWindowSizeUnitPtrOutput)
+}
+
 type DataSetRowLevelPermissionFormatVersion string
 
 const (
@@ -40529,173 +40911,6 @@ func (in *dataSetRowLevelPermissionPolicyPtr) ToDataSetRowLevelPermissionPolicyP
 
 func (in *dataSetRowLevelPermissionPolicyPtr) ToDataSetRowLevelPermissionPolicyPtrOutputWithContext(ctx context.Context) DataSetRowLevelPermissionPolicyPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DataSetRowLevelPermissionPolicyPtrOutput)
-}
-
-type DataSetSizeUnit string
-
-const (
-	DataSetSizeUnitHour = DataSetSizeUnit("HOUR")
-	DataSetSizeUnitDay  = DataSetSizeUnit("DAY")
-	DataSetSizeUnitWeek = DataSetSizeUnit("WEEK")
-)
-
-func (DataSetSizeUnit) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSetSizeUnit)(nil)).Elem()
-}
-
-func (e DataSetSizeUnit) ToDataSetSizeUnitOutput() DataSetSizeUnitOutput {
-	return pulumi.ToOutput(e).(DataSetSizeUnitOutput)
-}
-
-func (e DataSetSizeUnit) ToDataSetSizeUnitOutputWithContext(ctx context.Context) DataSetSizeUnitOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(DataSetSizeUnitOutput)
-}
-
-func (e DataSetSizeUnit) ToDataSetSizeUnitPtrOutput() DataSetSizeUnitPtrOutput {
-	return e.ToDataSetSizeUnitPtrOutputWithContext(context.Background())
-}
-
-func (e DataSetSizeUnit) ToDataSetSizeUnitPtrOutputWithContext(ctx context.Context) DataSetSizeUnitPtrOutput {
-	return DataSetSizeUnit(e).ToDataSetSizeUnitOutputWithContext(ctx).ToDataSetSizeUnitPtrOutputWithContext(ctx)
-}
-
-func (e DataSetSizeUnit) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e DataSetSizeUnit) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e DataSetSizeUnit) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e DataSetSizeUnit) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type DataSetSizeUnitOutput struct{ *pulumi.OutputState }
-
-func (DataSetSizeUnitOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSetSizeUnit)(nil)).Elem()
-}
-
-func (o DataSetSizeUnitOutput) ToDataSetSizeUnitOutput() DataSetSizeUnitOutput {
-	return o
-}
-
-func (o DataSetSizeUnitOutput) ToDataSetSizeUnitOutputWithContext(ctx context.Context) DataSetSizeUnitOutput {
-	return o
-}
-
-func (o DataSetSizeUnitOutput) ToDataSetSizeUnitPtrOutput() DataSetSizeUnitPtrOutput {
-	return o.ToDataSetSizeUnitPtrOutputWithContext(context.Background())
-}
-
-func (o DataSetSizeUnitOutput) ToDataSetSizeUnitPtrOutputWithContext(ctx context.Context) DataSetSizeUnitPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSetSizeUnit) *DataSetSizeUnit {
-		return &v
-	}).(DataSetSizeUnitPtrOutput)
-}
-
-func (o DataSetSizeUnitOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o DataSetSizeUnitOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSetSizeUnit) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o DataSetSizeUnitOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o DataSetSizeUnitOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSetSizeUnit) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type DataSetSizeUnitPtrOutput struct{ *pulumi.OutputState }
-
-func (DataSetSizeUnitPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSetSizeUnit)(nil)).Elem()
-}
-
-func (o DataSetSizeUnitPtrOutput) ToDataSetSizeUnitPtrOutput() DataSetSizeUnitPtrOutput {
-	return o
-}
-
-func (o DataSetSizeUnitPtrOutput) ToDataSetSizeUnitPtrOutputWithContext(ctx context.Context) DataSetSizeUnitPtrOutput {
-	return o
-}
-
-func (o DataSetSizeUnitPtrOutput) Elem() DataSetSizeUnitOutput {
-	return o.ApplyT(func(v *DataSetSizeUnit) DataSetSizeUnit {
-		if v != nil {
-			return *v
-		}
-		var ret DataSetSizeUnit
-		return ret
-	}).(DataSetSizeUnitOutput)
-}
-
-func (o DataSetSizeUnitPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o DataSetSizeUnitPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataSetSizeUnit) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// DataSetSizeUnitInput is an input type that accepts values of the DataSetSizeUnit enum
-// A concrete instance of `DataSetSizeUnitInput` can be one of the following:
-//
-//	DataSetSizeUnitHour
-//	DataSetSizeUnitDay
-//	DataSetSizeUnitWeek
-type DataSetSizeUnitInput interface {
-	pulumi.Input
-
-	ToDataSetSizeUnitOutput() DataSetSizeUnitOutput
-	ToDataSetSizeUnitOutputWithContext(context.Context) DataSetSizeUnitOutput
-}
-
-var dataSetSizeUnitPtrType = reflect.TypeOf((**DataSetSizeUnit)(nil)).Elem()
-
-type DataSetSizeUnitPtrInput interface {
-	pulumi.Input
-
-	ToDataSetSizeUnitPtrOutput() DataSetSizeUnitPtrOutput
-	ToDataSetSizeUnitPtrOutputWithContext(context.Context) DataSetSizeUnitPtrOutput
-}
-
-type dataSetSizeUnitPtr string
-
-func DataSetSizeUnitPtr(v string) DataSetSizeUnitPtrInput {
-	return (*dataSetSizeUnitPtr)(&v)
-}
-
-func (*dataSetSizeUnitPtr) ElementType() reflect.Type {
-	return dataSetSizeUnitPtrType
-}
-
-func (in *dataSetSizeUnitPtr) ToDataSetSizeUnitPtrOutput() DataSetSizeUnitPtrOutput {
-	return pulumi.ToOutput(in).(DataSetSizeUnitPtrOutput)
-}
-
-func (in *dataSetSizeUnitPtr) ToDataSetSizeUnitPtrOutputWithContext(ctx context.Context) DataSetSizeUnitPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(DataSetSizeUnitPtrOutput)
 }
 
 type DataSetStatus string
@@ -41655,6 +41870,13 @@ const (
 	DataSourceTypeAuroraPostgresql    = DataSourceType("AURORA_POSTGRESQL")
 	DataSourceTypeAwsIotAnalytics     = DataSourceType("AWS_IOT_ANALYTICS")
 	DataSourceTypeDatabricks          = DataSourceType("DATABRICKS")
+	DataSourceTypeDenodo              = DataSourceType("DENODO")
+	DataSourceTypeDremio              = DataSourceType("DREMIO")
+	DataSourceTypeDynamodb            = DataSourceType("DYNAMODB")
+	DataSourceTypeSaphana             = DataSourceType("SAPHANA")
+	DataSourceTypeDb2as400            = DataSourceType("DB2_AS400")
+	DataSourceTypeExasol              = DataSourceType("EXASOL")
+	DataSourceTypeFile                = DataSourceType("FILE")
 	DataSourceTypeGithub              = DataSourceType("GITHUB")
 	DataSourceTypeJira                = DataSourceType("JIRA")
 	DataSourceTypeMariadb             = DataSourceType("MARIADB")
@@ -41670,10 +41892,16 @@ const (
 	DataSourceTypeSpark               = DataSourceType("SPARK")
 	DataSourceTypeSqlserver           = DataSourceType("SQLSERVER")
 	DataSourceTypeTeradata            = DataSourceType("TERADATA")
-	DataSourceTypeTwitter             = DataSourceType("TWITTER")
 	DataSourceTypeTimestream          = DataSourceType("TIMESTREAM")
-	DataSourceTypeStarburst           = DataSourceType("STARBURST")
+	DataSourceTypeTwitter             = DataSourceType("TWITTER")
+	DataSourceTypeBigquery            = DataSourceType("BIGQUERY")
+	DataSourceTypeGoogleAnalytics     = DataSourceType("GOOGLE_ANALYTICS")
 	DataSourceTypeTrino               = DataSourceType("TRINO")
+	DataSourceTypeStarburst           = DataSourceType("STARBURST")
+	DataSourceTypeMongo               = DataSourceType("MONGO")
+	DataSourceTypeMongoAtlas          = DataSourceType("MONGO_ATLAS")
+	DataSourceTypeDocumentdb          = DataSourceType("DOCUMENTDB")
+	DataSourceTypeAppflow             = DataSourceType("APPFLOW")
 )
 
 func (DataSourceType) ElementType() reflect.Type {
@@ -41806,6 +42034,13 @@ func (o DataSourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 //	DataSourceTypeAuroraPostgresql
 //	DataSourceTypeAwsIotAnalytics
 //	DataSourceTypeDatabricks
+//	DataSourceTypeDenodo
+//	DataSourceTypeDremio
+//	DataSourceTypeDynamodb
+//	DataSourceTypeSaphana
+//	DataSourceTypeDb2as400
+//	DataSourceTypeExasol
+//	DataSourceTypeFile
 //	DataSourceTypeGithub
 //	DataSourceTypeJira
 //	DataSourceTypeMariadb
@@ -41821,10 +42056,16 @@ func (o DataSourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 //	DataSourceTypeSpark
 //	DataSourceTypeSqlserver
 //	DataSourceTypeTeradata
-//	DataSourceTypeTwitter
 //	DataSourceTypeTimestream
-//	DataSourceTypeStarburst
+//	DataSourceTypeTwitter
+//	DataSourceTypeBigquery
+//	DataSourceTypeGoogleAnalytics
 //	DataSourceTypeTrino
+//	DataSourceTypeStarburst
+//	DataSourceTypeMongo
+//	DataSourceTypeMongoAtlas
+//	DataSourceTypeDocumentdb
+//	DataSourceTypeAppflow
 type DataSourceTypeInput interface {
 	pulumi.Input
 
@@ -66027,10 +66268,13 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWordCloudWordPaddingPtrInput)(nil)).Elem(), DashboardWordCloudWordPadding("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWordCloudWordScalingInput)(nil)).Elem(), DashboardWordCloudWordScaling("EMPHASIZE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWordCloudWordScalingPtrInput)(nil)).Elem(), DashboardWordCloudWordScaling("EMPHASIZE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetColumnDataSubTypeInput)(nil)).Elem(), DataSetColumnDataSubType("FLOAT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetColumnDataSubTypePtrInput)(nil)).Elem(), DataSetColumnDataSubType("FLOAT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetColumnDataTypeInput)(nil)).Elem(), DataSetColumnDataType("STRING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetColumnDataTypePtrInput)(nil)).Elem(), DataSetColumnDataType("STRING"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DataSetColumnSubDataTypeInput)(nil)).Elem(), DataSetColumnSubDataType("FIXED"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DataSetColumnSubDataTypePtrInput)(nil)).Elem(), DataSetColumnSubDataType("FIXED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetColumnTagNameInput)(nil)).Elem(), DataSetColumnTagName("COLUMN_GEOGRAPHIC_ROLE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetColumnTagNamePtrInput)(nil)).Elem(), DataSetColumnTagName("COLUMN_GEOGRAPHIC_ROLE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetColumnTagNameArrayInput)(nil)).Elem(), DataSetColumnTagNameArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetDatasetParameterValueTypeInput)(nil)).Elem(), DataSetDatasetParameterValueType("MULTI_VALUED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetDatasetParameterValueTypePtrInput)(nil)).Elem(), DataSetDatasetParameterValueType("MULTI_VALUED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetFileFormatInput)(nil)).Elem(), DataSetFileFormat("CSV"))
@@ -66045,12 +66289,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetInputColumnDataTypePtrInput)(nil)).Elem(), DataSetInputColumnDataType("STRING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetJoinTypeInput)(nil)).Elem(), DataSetJoinType("INNER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetJoinTypePtrInput)(nil)).Elem(), DataSetJoinType("INNER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetLookbackWindowSizeUnitInput)(nil)).Elem(), DataSetLookbackWindowSizeUnit("HOUR"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetLookbackWindowSizeUnitPtrInput)(nil)).Elem(), DataSetLookbackWindowSizeUnit("HOUR"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetRowLevelPermissionFormatVersionInput)(nil)).Elem(), DataSetRowLevelPermissionFormatVersion("VERSION_1"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetRowLevelPermissionFormatVersionPtrInput)(nil)).Elem(), DataSetRowLevelPermissionFormatVersion("VERSION_1"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetRowLevelPermissionPolicyInput)(nil)).Elem(), DataSetRowLevelPermissionPolicy("GRANT_ACCESS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetRowLevelPermissionPolicyPtrInput)(nil)).Elem(), DataSetRowLevelPermissionPolicy("GRANT_ACCESS"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DataSetSizeUnitInput)(nil)).Elem(), DataSetSizeUnit("HOUR"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DataSetSizeUnitPtrInput)(nil)).Elem(), DataSetSizeUnit("HOUR"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetStatusInput)(nil)).Elem(), DataSetStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetStatusPtrInput)(nil)).Elem(), DataSetStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetTextQualifierInput)(nil)).Elem(), DataSetTextQualifier("DOUBLE_QUOTE"))
@@ -66802,10 +67046,13 @@ func init() {
 	pulumi.RegisterOutputType(DashboardWordCloudWordPaddingPtrOutput{})
 	pulumi.RegisterOutputType(DashboardWordCloudWordScalingOutput{})
 	pulumi.RegisterOutputType(DashboardWordCloudWordScalingPtrOutput{})
+	pulumi.RegisterOutputType(DataSetColumnDataSubTypeOutput{})
+	pulumi.RegisterOutputType(DataSetColumnDataSubTypePtrOutput{})
 	pulumi.RegisterOutputType(DataSetColumnDataTypeOutput{})
 	pulumi.RegisterOutputType(DataSetColumnDataTypePtrOutput{})
-	pulumi.RegisterOutputType(DataSetColumnSubDataTypeOutput{})
-	pulumi.RegisterOutputType(DataSetColumnSubDataTypePtrOutput{})
+	pulumi.RegisterOutputType(DataSetColumnTagNameOutput{})
+	pulumi.RegisterOutputType(DataSetColumnTagNamePtrOutput{})
+	pulumi.RegisterOutputType(DataSetColumnTagNameArrayOutput{})
 	pulumi.RegisterOutputType(DataSetDatasetParameterValueTypeOutput{})
 	pulumi.RegisterOutputType(DataSetDatasetParameterValueTypePtrOutput{})
 	pulumi.RegisterOutputType(DataSetFileFormatOutput{})
@@ -66820,12 +67067,12 @@ func init() {
 	pulumi.RegisterOutputType(DataSetInputColumnDataTypePtrOutput{})
 	pulumi.RegisterOutputType(DataSetJoinTypeOutput{})
 	pulumi.RegisterOutputType(DataSetJoinTypePtrOutput{})
+	pulumi.RegisterOutputType(DataSetLookbackWindowSizeUnitOutput{})
+	pulumi.RegisterOutputType(DataSetLookbackWindowSizeUnitPtrOutput{})
 	pulumi.RegisterOutputType(DataSetRowLevelPermissionFormatVersionOutput{})
 	pulumi.RegisterOutputType(DataSetRowLevelPermissionFormatVersionPtrOutput{})
 	pulumi.RegisterOutputType(DataSetRowLevelPermissionPolicyOutput{})
 	pulumi.RegisterOutputType(DataSetRowLevelPermissionPolicyPtrOutput{})
-	pulumi.RegisterOutputType(DataSetSizeUnitOutput{})
-	pulumi.RegisterOutputType(DataSetSizeUnitPtrOutput{})
 	pulumi.RegisterOutputType(DataSetStatusOutput{})
 	pulumi.RegisterOutputType(DataSetStatusPtrOutput{})
 	pulumi.RegisterOutputType(DataSetTextQualifierOutput{})

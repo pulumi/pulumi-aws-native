@@ -365,6 +365,86 @@ class RestApi(pulumi.CustomResource):
         import pulumi
         import pulumi_aws_native as aws_native
 
+        rest_api = aws_native.apigateway.RestApi("restApi", name="myRestApi")
+        gateway_response = aws_native.apigateway.GatewayResponse("gatewayResponse",
+            response_parameters={
+                "gatewayresponse.header.Access-Control-Allow-Origin": "'*'",
+                "gatewayresponse.header.Access-Control-Allow-Headers": "'*'",
+            },
+            response_type="MISSING_AUTHENTICATION_TOKEN",
+            rest_api_id=rest_api.id,
+            status_code="404")
+
+        ```
+        ### Example
+
+        ```python
+        import pulumi
+        import pulumi_aws_native as aws_native
+
+        rest_api = aws_native.apigateway.RestApi("restApi", name="myRestApi")
+        gateway_response = aws_native.apigateway.GatewayResponse("gatewayResponse",
+            response_parameters={
+                "gatewayresponse.header.Access-Control-Allow-Origin": "'*'",
+                "gatewayresponse.header.Access-Control-Allow-Headers": "'*'",
+            },
+            response_type="MISSING_AUTHENTICATION_TOKEN",
+            rest_api_id=rest_api.id,
+            status_code="404")
+
+        ```
+        ### Example
+
+        ```python
+        import pulumi
+        import pulumi_aws_native as aws_native
+
+        config = pulumi.Config()
+        api_name = config.require("apiName")
+        response_parameter1 = config.require("responseParameter1")
+        response_parameter2 = config.require("responseParameter2")
+        response_type = config.require("responseType")
+        status_code = config.require("statusCode")
+        rest_api = aws_native.apigateway.RestApi("restApi", name=api_name)
+        gateway_response = aws_native.apigateway.GatewayResponse("gatewayResponse",
+            response_parameters={
+                "gatewayresponse.header.k1": response_parameter1,
+                "gatewayresponse.header.k2": response_parameter2,
+            },
+            response_type=response_type,
+            rest_api_id=rest_api.id,
+            status_code=status_code)
+
+        ```
+        ### Example
+
+        ```python
+        import pulumi
+        import pulumi_aws_native as aws_native
+
+        config = pulumi.Config()
+        api_name = config.require("apiName")
+        response_parameter1 = config.require("responseParameter1")
+        response_parameter2 = config.require("responseParameter2")
+        response_type = config.require("responseType")
+        status_code = config.require("statusCode")
+        rest_api = aws_native.apigateway.RestApi("restApi", name=api_name)
+        gateway_response = aws_native.apigateway.GatewayResponse("gatewayResponse",
+            response_parameters={
+                "gatewayresponse.header.k1": response_parameter1,
+                "gatewayresponse.header.k2": response_parameter2,
+            },
+            response_type=response_type,
+            rest_api_id=rest_api.id,
+            status_code=status_code)
+
+        ```
+        ### Example
+
+        ```python
+        import pulumi
+        import pulumi_aws_native as aws_native
+
         config = pulumi.Config()
         content_handling = config.require("contentHandling")
         operation_name = config.get("operationName")
@@ -710,6 +790,86 @@ class RestApi(pulumi.CustomResource):
             documentation_version=version,
             rest_api_id=rest_api.id,
             opts=pulumi.ResourceOptions(depends_on=[documentation_part]))
+
+        ```
+        ### Example
+
+        ```python
+        import pulumi
+        import pulumi_aws_native as aws_native
+
+        rest_api = aws_native.apigateway.RestApi("restApi", name="myRestApi")
+        gateway_response = aws_native.apigateway.GatewayResponse("gatewayResponse",
+            response_parameters={
+                "gatewayresponse.header.Access-Control-Allow-Origin": "'*'",
+                "gatewayresponse.header.Access-Control-Allow-Headers": "'*'",
+            },
+            response_type="MISSING_AUTHENTICATION_TOKEN",
+            rest_api_id=rest_api.id,
+            status_code="404")
+
+        ```
+        ### Example
+
+        ```python
+        import pulumi
+        import pulumi_aws_native as aws_native
+
+        rest_api = aws_native.apigateway.RestApi("restApi", name="myRestApi")
+        gateway_response = aws_native.apigateway.GatewayResponse("gatewayResponse",
+            response_parameters={
+                "gatewayresponse.header.Access-Control-Allow-Origin": "'*'",
+                "gatewayresponse.header.Access-Control-Allow-Headers": "'*'",
+            },
+            response_type="MISSING_AUTHENTICATION_TOKEN",
+            rest_api_id=rest_api.id,
+            status_code="404")
+
+        ```
+        ### Example
+
+        ```python
+        import pulumi
+        import pulumi_aws_native as aws_native
+
+        config = pulumi.Config()
+        api_name = config.require("apiName")
+        response_parameter1 = config.require("responseParameter1")
+        response_parameter2 = config.require("responseParameter2")
+        response_type = config.require("responseType")
+        status_code = config.require("statusCode")
+        rest_api = aws_native.apigateway.RestApi("restApi", name=api_name)
+        gateway_response = aws_native.apigateway.GatewayResponse("gatewayResponse",
+            response_parameters={
+                "gatewayresponse.header.k1": response_parameter1,
+                "gatewayresponse.header.k2": response_parameter2,
+            },
+            response_type=response_type,
+            rest_api_id=rest_api.id,
+            status_code=status_code)
+
+        ```
+        ### Example
+
+        ```python
+        import pulumi
+        import pulumi_aws_native as aws_native
+
+        config = pulumi.Config()
+        api_name = config.require("apiName")
+        response_parameter1 = config.require("responseParameter1")
+        response_parameter2 = config.require("responseParameter2")
+        response_type = config.require("responseType")
+        status_code = config.require("statusCode")
+        rest_api = aws_native.apigateway.RestApi("restApi", name=api_name)
+        gateway_response = aws_native.apigateway.GatewayResponse("gatewayResponse",
+            response_parameters={
+                "gatewayresponse.header.k1": response_parameter1,
+                "gatewayresponse.header.k2": response_parameter2,
+            },
+            response_type=response_type,
+            rest_api_id=rest_api.id,
+            status_code=status_code)
 
         ```
         ### Example

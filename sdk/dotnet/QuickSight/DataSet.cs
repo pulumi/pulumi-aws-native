@@ -25,11 +25,16 @@ namespace Pulumi.AwsNative.QuickSight
         public Output<string?> AwsAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// &lt;p&gt;Groupings of columns that work together in certain QuickSight features. Currently, only geospatial hierarchy is supported.&lt;/p&gt;
+        /// &lt;p&gt;Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported.&lt;/p&gt;
         /// </summary>
         [Output("columnGroups")]
         public Output<ImmutableArray<Outputs.DataSetColumnGroup>> ColumnGroups { get; private set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;A set of one or more definitions of a &lt;code&gt;
+        ///                &lt;a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html"&gt;ColumnLevelPermissionRule&lt;/a&gt;
+        ///             &lt;/code&gt;.&lt;/p&gt;
+        /// </summary>
         [Output("columnLevelPermissionRules")]
         public Output<ImmutableArray<Outputs.DataSetColumnLevelPermissionRule>> ColumnLevelPermissionRules { get; private set; } = null!;
 
@@ -56,7 +61,7 @@ namespace Pulumi.AwsNative.QuickSight
         public Output<Outputs.DataSetUsageConfiguration?> DataSetUsageConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// &lt;p&gt;The parameters declared in the dataset.&lt;/p&gt;
+        /// &lt;p&gt;The parameter declarations of the dataset.&lt;/p&gt;
         /// </summary>
         [Output("datasetParameters")]
         public Output<ImmutableArray<Outputs.DataSetDatasetParameter>> DatasetParameters { get; private set; } = null!;
@@ -170,7 +175,7 @@ namespace Pulumi.AwsNative.QuickSight
         private InputList<Inputs.DataSetColumnGroupArgs>? _columnGroups;
 
         /// <summary>
-        /// &lt;p&gt;Groupings of columns that work together in certain QuickSight features. Currently, only geospatial hierarchy is supported.&lt;/p&gt;
+        /// &lt;p&gt;Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported.&lt;/p&gt;
         /// </summary>
         public InputList<Inputs.DataSetColumnGroupArgs> ColumnGroups
         {
@@ -180,6 +185,12 @@ namespace Pulumi.AwsNative.QuickSight
 
         [Input("columnLevelPermissionRules")]
         private InputList<Inputs.DataSetColumnLevelPermissionRuleArgs>? _columnLevelPermissionRules;
+
+        /// <summary>
+        /// &lt;p&gt;A set of one or more definitions of a &lt;code&gt;
+        ///                &lt;a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html"&gt;ColumnLevelPermissionRule&lt;/a&gt;
+        ///             &lt;/code&gt;.&lt;/p&gt;
+        /// </summary>
         public InputList<Inputs.DataSetColumnLevelPermissionRuleArgs> ColumnLevelPermissionRules
         {
             get => _columnLevelPermissionRules ?? (_columnLevelPermissionRules = new InputList<Inputs.DataSetColumnLevelPermissionRuleArgs>());
@@ -199,7 +210,7 @@ namespace Pulumi.AwsNative.QuickSight
         private InputList<Inputs.DataSetDatasetParameterArgs>? _datasetParameters;
 
         /// <summary>
-        /// &lt;p&gt;The parameters declared in the dataset.&lt;/p&gt;
+        /// &lt;p&gt;The parameter declarations of the dataset.&lt;/p&gt;
         /// </summary>
         public InputList<Inputs.DataSetDatasetParameterArgs> DatasetParameters
         {

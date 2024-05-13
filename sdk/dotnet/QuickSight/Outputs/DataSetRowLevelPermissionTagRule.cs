@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
     /// <summary>
-    /// &lt;p&gt;Permission for the resource.&lt;/p&gt;
+    /// &lt;p&gt;A set of rules associated with a tag.&lt;/p&gt;
     /// </summary>
     [OutputType]
     public sealed class DataSetRowLevelPermissionTagRule

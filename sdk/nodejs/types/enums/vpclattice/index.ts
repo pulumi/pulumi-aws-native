@@ -12,6 +12,7 @@ export type AuthPolicyState = (typeof AuthPolicyState)[keyof typeof AuthPolicySt
 export const ListenerProtocol = {
     Http: "HTTP",
     Https: "HTTPS",
+    TlsPassthrough: "TLS_PASSTHROUGH",
 } as const;
 
 export type ListenerProtocol = (typeof ListenerProtocol)[keyof typeof ListenerProtocol];
@@ -91,6 +92,7 @@ export type TargetGroupConfigLambdaEventStructureVersion = (typeof TargetGroupCo
 export const TargetGroupConfigProtocol = {
     Http: "HTTP",
     Https: "HTTPS",
+    Tcp: "TCP",
 } as const;
 
 export type TargetGroupConfigProtocol = (typeof TargetGroupConfigProtocol)[keyof typeof TargetGroupConfigProtocol];

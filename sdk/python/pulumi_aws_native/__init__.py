@@ -716,6 +716,7 @@ _utilities.register(
    "aws-native:apigateway:DocumentationPart": "DocumentationPart",
    "aws-native:apigateway:DocumentationVersion": "DocumentationVersion",
    "aws-native:apigateway:DomainName": "DomainName",
+   "aws-native:apigateway:GatewayResponse": "GatewayResponse",
    "aws-native:apigateway:Method": "Method",
    "aws-native:apigateway:Model": "Model",
    "aws-native:apigateway:RequestValidator": "RequestValidator",
@@ -937,6 +938,7 @@ _utilities.register(
    "aws-native:bedrock:AgentAlias": "AgentAlias",
    "aws-native:bedrock:DataSource": "DataSource",
    "aws-native:bedrock:Guardrail": "Guardrail",
+   "aws-native:bedrock:GuardrailVersion": "GuardrailVersion",
    "aws-native:bedrock:KnowledgeBase": "KnowledgeBase"
   }
  },
@@ -1530,6 +1532,7 @@ _utilities.register(
   "fqn": "pulumi_aws_native.elasticache",
   "classes": {
    "aws-native:elasticache:GlobalReplicationGroup": "GlobalReplicationGroup",
+   "aws-native:elasticache:ParameterGroup": "ParameterGroup",
    "aws-native:elasticache:ServerlessCache": "ServerlessCache",
    "aws-native:elasticache:SubnetGroup": "SubnetGroup",
    "aws-native:elasticache:User": "User",
@@ -2969,7 +2972,10 @@ _utilities.register(
   "mod": "sso",
   "fqn": "pulumi_aws_native.sso",
   "classes": {
+   "aws-native:sso:Application": "Application",
+   "aws-native:sso:ApplicationAssignment": "ApplicationAssignment",
    "aws-native:sso:Assignment": "Assignment",
+   "aws-native:sso:Instance": "Instance",
    "aws-native:sso:InstanceAccessControlAttributeConfiguration": "InstanceAccessControlAttributeConfiguration",
    "aws-native:sso:PermissionSet": "PermissionSet"
   }

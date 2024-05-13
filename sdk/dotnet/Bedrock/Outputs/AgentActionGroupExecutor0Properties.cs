@@ -10,8 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Bedrock.Outputs
 {
 
+    /// <summary>
+    /// Type of Executors for an Action Group
+    /// </summary>
     [OutputType]
-    public sealed class AgentActionGroupExecutor
+    public sealed class AgentActionGroupExecutor0Properties
     {
         /// <summary>
         /// ARN of a Lambda.
@@ -19,7 +22,7 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         public readonly string Lambda;
 
         [OutputConstructor]
-        private AgentActionGroupExecutor(string lambda)
+        private AgentActionGroupExecutor0Properties(string lambda)
         {
             Lambda = lambda;
         }

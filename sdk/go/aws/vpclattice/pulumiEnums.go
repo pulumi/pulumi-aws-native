@@ -103,8 +103,9 @@ func (o AuthPolicyStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 type ListenerProtocol string
 
 const (
-	ListenerProtocolHttp  = ListenerProtocol("HTTP")
-	ListenerProtocolHttps = ListenerProtocol("HTTPS")
+	ListenerProtocolHttp           = ListenerProtocol("HTTP")
+	ListenerProtocolHttps          = ListenerProtocol("HTTPS")
+	ListenerProtocolTlsPassthrough = ListenerProtocol("TLS_PASSTHROUGH")
 )
 
 func (ListenerProtocol) ElementType() reflect.Type {
@@ -231,6 +232,7 @@ func (o ListenerProtocolPtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 //
 //	ListenerProtocolHttp
 //	ListenerProtocolHttps
+//	ListenerProtocolTlsPassthrough
 type ListenerProtocolInput interface {
 	pulumi.Input
 
@@ -1387,6 +1389,7 @@ type TargetGroupConfigProtocol string
 const (
 	TargetGroupConfigProtocolHttp  = TargetGroupConfigProtocol("HTTP")
 	TargetGroupConfigProtocolHttps = TargetGroupConfigProtocol("HTTPS")
+	TargetGroupConfigProtocolTcp   = TargetGroupConfigProtocol("TCP")
 )
 
 func (TargetGroupConfigProtocol) ElementType() reflect.Type {
@@ -1513,6 +1516,7 @@ func (o TargetGroupConfigProtocolPtrOutput) ToStringPtrOutputWithContext(ctx con
 //
 //	TargetGroupConfigProtocolHttp
 //	TargetGroupConfigProtocolHttps
+//	TargetGroupConfigProtocolTcp
 type TargetGroupConfigProtocolInput interface {
 	pulumi.Input
 

@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
     /// <summary>
-    /// &lt;p&gt;A parameter created in the dataset that could be of any one data type such as string, integer, decimal or datetime.&lt;/p&gt;
+    /// &lt;p&gt;A dataset parameter.&lt;/p&gt;
     /// </summary>
     public sealed class DataSetDatasetParameterArgs : global::Pulumi.ResourceArgs
     {

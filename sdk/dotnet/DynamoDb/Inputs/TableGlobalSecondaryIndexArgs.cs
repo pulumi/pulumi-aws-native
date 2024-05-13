@@ -45,6 +45,12 @@ namespace Pulumi.AwsNative.DynamoDb.Inputs
         }
 
         /// <summary>
+        /// The maximum number of read and write units for the specified global secondary index. If you use this parameter, you must specify ``MaxReadRequestUnits``, ``MaxWriteRequestUnits``, or both.
+        /// </summary>
+        [Input("onDemandThroughput")]
+        public Input<Inputs.TableOnDemandThroughputArgs>? OnDemandThroughput { get; set; }
+
+        /// <summary>
         /// Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
         /// </summary>
         [Input("projection", required: true)]

@@ -11,12 +11,18 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
     /// <summary>
-    /// &lt;p&gt;The dataset usage configuration for the dataset.&lt;/p&gt;
+    /// &lt;p&gt;The usage configuration to apply to child datasets that reference this dataset as a source.&lt;/p&gt;
     /// </summary>
     [OutputType]
     public sealed class DataSetUsageConfiguration
     {
+        /// <summary>
+        /// &lt;p&gt;An option that controls whether a child dataset of a direct query can use this dataset as a source.&lt;/p&gt;
+        /// </summary>
         public readonly bool? DisableUseAsDirectQuerySource;
+        /// <summary>
+        /// &lt;p&gt;An option that controls whether a child dataset that's stored in QuickSight can use this dataset as a source.&lt;/p&gt;
+        /// </summary>
         public readonly bool? DisableUseAsImportedSource;
 
         [OutputConstructor]

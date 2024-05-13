@@ -31,6 +31,12 @@ type LookupEventBusArgs struct {
 type LookupEventBusResult struct {
 	// The Amazon Resource Name (ARN) for the event bus.
 	Arn *string `pulumi:"arn"`
+	// Dead Letter Queue for the event bus.
+	DeadLetterConfig *DeadLetterConfigProperties `pulumi:"deadLetterConfig"`
+	// The description of the event bus.
+	Description *string `pulumi:"description"`
+	// Kms Key Identifier used to encrypt events at rest in the event bus.
+	KmsKeyIdentifier *string `pulumi:"kmsKeyIdentifier"`
 	// A JSON string that describes the permission policy statement for the event bus.
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::EventBus` for more information about the expected schema for this property.
@@ -78,6 +84,21 @@ func (o LookupEventBusResultOutput) ToLookupEventBusResultOutputWithContext(ctx 
 // The Amazon Resource Name (ARN) for the event bus.
 func (o LookupEventBusResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEventBusResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+// Dead Letter Queue for the event bus.
+func (o LookupEventBusResultOutput) DeadLetterConfig() DeadLetterConfigPropertiesPtrOutput {
+	return o.ApplyT(func(v LookupEventBusResult) *DeadLetterConfigProperties { return v.DeadLetterConfig }).(DeadLetterConfigPropertiesPtrOutput)
+}
+
+// The description of the event bus.
+func (o LookupEventBusResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEventBusResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Kms Key Identifier used to encrypt events at rest in the event bus.
+func (o LookupEventBusResultOutput) KmsKeyIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEventBusResult) *string { return v.KmsKeyIdentifier }).(pulumi.StringPtrOutput)
 }
 
 // A JSON string that describes the permission policy statement for the event bus.

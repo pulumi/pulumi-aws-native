@@ -62,6 +62,10 @@ export class FlowOutput extends pulumi.CustomResource {
      */
     public readonly maxLatency!: pulumi.Output<number | undefined>;
     /**
+     * The definition for each media stream that is associated with the output.
+     */
+    public readonly mediaStreamOutputConfigurations!: pulumi.Output<outputs.mediaconnect.FlowOutputMediaStreamOutputConfiguration[] | undefined>;
+    /**
      * The minimum latency in milliseconds.
      */
     public readonly minLatency!: pulumi.Output<number | undefined>;
@@ -121,6 +125,7 @@ export class FlowOutput extends pulumi.CustomResource {
             resourceInputs["encryption"] = args ? args.encryption : undefined;
             resourceInputs["flowArn"] = args ? args.flowArn : undefined;
             resourceInputs["maxLatency"] = args ? args.maxLatency : undefined;
+            resourceInputs["mediaStreamOutputConfigurations"] = args ? args.mediaStreamOutputConfigurations : undefined;
             resourceInputs["minLatency"] = args ? args.minLatency : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["port"] = args ? args.port : undefined;
@@ -137,6 +142,7 @@ export class FlowOutput extends pulumi.CustomResource {
             resourceInputs["encryption"] = undefined /*out*/;
             resourceInputs["flowArn"] = undefined /*out*/;
             resourceInputs["maxLatency"] = undefined /*out*/;
+            resourceInputs["mediaStreamOutputConfigurations"] = undefined /*out*/;
             resourceInputs["minLatency"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["outputArn"] = undefined /*out*/;
@@ -182,6 +188,10 @@ export interface FlowOutputArgs {
      * The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
      */
     maxLatency?: pulumi.Input<number>;
+    /**
+     * The definition for each media stream that is associated with the output.
+     */
+    mediaStreamOutputConfigurations?: pulumi.Input<pulumi.Input<inputs.mediaconnect.FlowOutputMediaStreamOutputConfigurationArgs>[]>;
     /**
      * The minimum latency in milliseconds.
      */

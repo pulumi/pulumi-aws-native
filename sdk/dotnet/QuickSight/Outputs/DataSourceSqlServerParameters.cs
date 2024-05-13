@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
     /// <summary>
-    /// &lt;p&gt;SQL Server parameters.&lt;/p&gt;
+    /// &lt;p&gt;The parameters for SQL Server.&lt;/p&gt;
     /// </summary>
     [OutputType]
     public sealed class DataSourceSqlServerParameters

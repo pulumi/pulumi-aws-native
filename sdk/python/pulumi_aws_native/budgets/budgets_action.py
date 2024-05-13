@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -24,7 +26,8 @@ class BudgetsActionArgs:
                  execution_role_arn: pulumi.Input[str],
                  notification_type: pulumi.Input['BudgetsActionNotificationType'],
                  subscribers: pulumi.Input[Sequence[pulumi.Input['BudgetsActionSubscriberArgs']]],
-                 approval_model: Optional[pulumi.Input['BudgetsActionApprovalModel']] = None):
+                 approval_model: Optional[pulumi.Input['BudgetsActionApprovalModel']] = None,
+                 resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a BudgetsAction resource.
         """
@@ -37,6 +40,8 @@ class BudgetsActionArgs:
         pulumi.set(__self__, "subscribers", subscribers)
         if approval_model is not None:
             pulumi.set(__self__, "approval_model", approval_model)
+        if resource_tags is not None:
+            pulumi.set(__self__, "resource_tags", resource_tags)
 
     @property
     @pulumi.getter(name="actionThreshold")
@@ -110,6 +115,15 @@ class BudgetsActionArgs:
     def approval_model(self, value: Optional[pulumi.Input['BudgetsActionApprovalModel']]):
         pulumi.set(self, "approval_model", value)
 
+    @property
+    @pulumi.getter(name="resourceTags")
+    def resource_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        return pulumi.get(self, "resource_tags")
+
+    @resource_tags.setter
+    def resource_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "resource_tags", value)
+
 
 class BudgetsAction(pulumi.CustomResource):
     @overload
@@ -123,6 +137,7 @@ class BudgetsAction(pulumi.CustomResource):
                  definition: Optional[pulumi.Input[pulumi.InputType['BudgetsActionDefinitionArgs']]] = None,
                  execution_role_arn: Optional[pulumi.Input[str]] = None,
                  notification_type: Optional[pulumi.Input['BudgetsActionNotificationType']] = None,
+                 resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  subscribers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BudgetsActionSubscriberArgs']]]]] = None,
                  __props__=None):
         """
@@ -162,6 +177,7 @@ class BudgetsAction(pulumi.CustomResource):
                  definition: Optional[pulumi.Input[pulumi.InputType['BudgetsActionDefinitionArgs']]] = None,
                  execution_role_arn: Optional[pulumi.Input[str]] = None,
                  notification_type: Optional[pulumi.Input['BudgetsActionNotificationType']] = None,
+                 resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  subscribers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BudgetsActionSubscriberArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -191,6 +207,7 @@ class BudgetsAction(pulumi.CustomResource):
             if notification_type is None and not opts.urn:
                 raise TypeError("Missing required property 'notification_type'")
             __props__.__dict__["notification_type"] = notification_type
+            __props__.__dict__["resource_tags"] = resource_tags
             if subscribers is None and not opts.urn:
                 raise TypeError("Missing required property 'subscribers'")
             __props__.__dict__["subscribers"] = subscribers
@@ -227,6 +244,7 @@ class BudgetsAction(pulumi.CustomResource):
         __props__.__dict__["definition"] = None
         __props__.__dict__["execution_role_arn"] = None
         __props__.__dict__["notification_type"] = None
+        __props__.__dict__["resource_tags"] = None
         __props__.__dict__["subscribers"] = None
         return BudgetsAction(resource_name, opts=opts, __props__=__props__)
 
@@ -269,6 +287,11 @@ class BudgetsAction(pulumi.CustomResource):
     @pulumi.getter(name="notificationType")
     def notification_type(self) -> pulumi.Output['BudgetsActionNotificationType']:
         return pulumi.get(self, "notification_type")
+
+    @property
+    @pulumi.getter(name="resourceTags")
+    def resource_tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        return pulumi.get(self, "resource_tags")
 
     @property
     @pulumi.getter

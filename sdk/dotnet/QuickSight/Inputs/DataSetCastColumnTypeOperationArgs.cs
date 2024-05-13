@@ -32,7 +32,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Pulumi.AwsNative.QuickSight.DataSetColumnDataType> NewColumnType { get; set; } = null!;
 
         [Input("subType")]
-        public Input<Pulumi.AwsNative.QuickSight.DataSetColumnSubDataType>? SubType { get; set; }
+        public Input<Pulumi.AwsNative.QuickSight.DataSetColumnDataSubType>? SubType { get; set; }
 
         public DataSetCastColumnTypeOperationArgs()
         {

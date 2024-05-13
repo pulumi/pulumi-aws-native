@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<string> Name { get; set; } = null!;
 
         [Input("subType")]
-        public Input<Pulumi.AwsNative.QuickSight.DataSetColumnSubDataType>? SubType { get; set; }
+        public Input<Pulumi.AwsNative.QuickSight.DataSetColumnDataSubType>? SubType { get; set; }
 
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.QuickSight.DataSetInputColumnDataType> Type { get; set; } = null!;

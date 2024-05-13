@@ -10,10 +10,17 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;The configuration that overrides the existing default values for a dataset parameter that is inherited from another dataset.&lt;/p&gt;
+    /// </summary>
     public sealed class DataSetNewDefaultValuesArgs : global::Pulumi.ResourceArgs
     {
         [Input("dateTimeStaticValues")]
         private InputList<string>? _dateTimeStaticValues;
+
+        /// <summary>
+        /// &lt;p&gt;A list of static default values for a given date time parameter.&lt;/p&gt;
+        /// </summary>
         public InputList<string> DateTimeStaticValues
         {
             get => _dateTimeStaticValues ?? (_dateTimeStaticValues = new InputList<string>());
@@ -22,6 +29,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("decimalStaticValues")]
         private InputList<double>? _decimalStaticValues;
+
+        /// <summary>
+        /// &lt;p&gt;A list of static default values for a given decimal parameter.&lt;/p&gt;
+        /// </summary>
         public InputList<double> DecimalStaticValues
         {
             get => _decimalStaticValues ?? (_decimalStaticValues = new InputList<double>());
@@ -30,6 +41,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("integerStaticValues")]
         private InputList<double>? _integerStaticValues;
+
+        /// <summary>
+        /// &lt;p&gt;A list of static default values for a given integer parameter.&lt;/p&gt;
+        /// </summary>
         public InputList<double> IntegerStaticValues
         {
             get => _integerStaticValues ?? (_integerStaticValues = new InputList<double>());
@@ -38,6 +53,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("stringStaticValues")]
         private InputList<string>? _stringStaticValues;
+
+        /// <summary>
+        /// &lt;p&gt;A list of static default values for a given string parameter.&lt;/p&gt;
+        /// </summary>
         public InputList<string> StringStaticValues
         {
             get => _stringStaticValues ?? (_stringStaticValues = new InputList<string>());

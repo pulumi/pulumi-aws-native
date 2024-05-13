@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['FlowVpcInterfaceArgs', 'FlowVpcInterface']
+__all__ = ['FlowVpcInterfaceInitArgs', 'FlowVpcInterface']
 
 @pulumi.input_type
-class FlowVpcInterfaceArgs:
+class FlowVpcInterfaceInitArgs:
     def __init__(__self__, *,
                  flow_arn: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
@@ -22,7 +22,7 @@ class FlowVpcInterfaceArgs:
         """
         The set of arguments for constructing a FlowVpcInterface resource.
         :param pulumi.Input[str] flow_arn: The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
-        :param pulumi.Input[str] role_arn: Role Arn MediaConnect can assumes to create ENIs in customer's account.
+        :param pulumi.Input[str] role_arn: Role Arn MediaConnect can assume to create ENIs in customer's account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: Security Group IDs to be used on ENI.
         :param pulumi.Input[str] subnet_id: Subnet must be in the AZ of the Flow
         :param pulumi.Input[str] name: Immutable and has to be a unique against other VpcInterfaces in this Flow.
@@ -50,7 +50,7 @@ class FlowVpcInterfaceArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         """
-        Role Arn MediaConnect can assumes to create ENIs in customer's account.
+        Role Arn MediaConnect can assume to create ENIs in customer's account.
         """
         return pulumi.get(self, "role_arn")
 
@@ -113,7 +113,7 @@ class FlowVpcInterface(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] flow_arn: The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
         :param pulumi.Input[str] name: Immutable and has to be a unique against other VpcInterfaces in this Flow.
-        :param pulumi.Input[str] role_arn: Role Arn MediaConnect can assumes to create ENIs in customer's account.
+        :param pulumi.Input[str] role_arn: Role Arn MediaConnect can assume to create ENIs in customer's account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: Security Group IDs to be used on ENI.
         :param pulumi.Input[str] subnet_id: Subnet must be in the AZ of the Flow
         """
@@ -121,18 +121,18 @@ class FlowVpcInterface(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: FlowVpcInterfaceArgs,
+                 args: FlowVpcInterfaceInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::MediaConnect::FlowVpcInterface
 
         :param str resource_name: The name of the resource.
-        :param FlowVpcInterfaceArgs args: The arguments to use to populate this resource's properties.
+        :param FlowVpcInterfaceInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(FlowVpcInterfaceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(FlowVpcInterfaceInitArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -153,7 +153,7 @@ class FlowVpcInterface(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = FlowVpcInterfaceArgs.__new__(FlowVpcInterfaceArgs)
+            __props__ = FlowVpcInterfaceInitArgs.__new__(FlowVpcInterfaceInitArgs)
 
             if flow_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'flow_arn'")
@@ -191,7 +191,7 @@ class FlowVpcInterface(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = FlowVpcInterfaceArgs.__new__(FlowVpcInterfaceArgs)
+        __props__ = FlowVpcInterfaceInitArgs.__new__(FlowVpcInterfaceInitArgs)
 
         __props__.__dict__["flow_arn"] = None
         __props__.__dict__["name"] = None
@@ -229,7 +229,7 @@ class FlowVpcInterface(pulumi.CustomResource):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[str]:
         """
-        Role Arn MediaConnect can assumes to create ENIs in customer's account.
+        Role Arn MediaConnect can assume to create ENIs in customer's account.
         """
         return pulumi.get(self, "role_arn")
 

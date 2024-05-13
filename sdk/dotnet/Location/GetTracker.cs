@@ -58,6 +58,9 @@ namespace Pulumi.AwsNative.Location
         public readonly bool? KmsKeyEnableGeospatialQueries;
         public readonly Pulumi.AwsNative.Location.TrackerPositionFiltering? PositionFiltering;
         public readonly Pulumi.AwsNative.Location.TrackerPricingPlan? PricingPlan;
+        /// <summary>
+        /// This shape is deprecated since 2022-02-01: Deprecated. No longer allowed.
+        /// </summary>
         public readonly string? PricingPlanDataSource;
         /// <summary>
         /// An array of key-value pairs to apply to this resource.

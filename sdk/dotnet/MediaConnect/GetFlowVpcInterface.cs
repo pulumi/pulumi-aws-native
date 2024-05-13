@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.MediaConnect
         /// </summary>
         public readonly ImmutableArray<string> NetworkInterfaceIds;
         /// <summary>
-        /// Role Arn MediaConnect can assumes to create ENIs in customer's account.
+        /// Role Arn MediaConnect can assume to create ENIs in customer's account.
         /// </summary>
         public readonly string? RoleArn;
         /// <summary>

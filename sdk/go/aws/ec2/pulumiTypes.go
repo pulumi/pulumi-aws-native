@@ -13411,7 +13411,7 @@ type LaunchTemplateNetworkInterface struct {
 	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
 	// A description for the network interface.
 	Description *string `pulumi:"description"`
-	// The device index for the network interface attachment.
+	// The device index for the network interface attachment. Each network interface requires a device index. If you create a launch template that includes secondary network interfaces but not a primary network interface, then you must add a primary network interface as a launch parameter when you launch an instance from the template.
 	DeviceIndex *int `pulumi:"deviceIndex"`
 	// The ENA Express configuration for the network interface.
 	EnaSrdSpecification *LaunchTemplateEnaSrdSpecification `pulumi:"enaSrdSpecification"`
@@ -13476,7 +13476,7 @@ type LaunchTemplateNetworkInterfaceArgs struct {
 	DeleteOnTermination pulumi.BoolPtrInput `pulumi:"deleteOnTermination"`
 	// A description for the network interface.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The device index for the network interface attachment.
+	// The device index for the network interface attachment. Each network interface requires a device index. If you create a launch template that includes secondary network interfaces but not a primary network interface, then you must add a primary network interface as a launch parameter when you launch an instance from the template.
 	DeviceIndex pulumi.IntPtrInput `pulumi:"deviceIndex"`
 	// The ENA Express configuration for the network interface.
 	EnaSrdSpecification LaunchTemplateEnaSrdSpecificationPtrInput `pulumi:"enaSrdSpecification"`
@@ -13599,7 +13599,7 @@ func (o LaunchTemplateNetworkInterfaceOutput) Description() pulumi.StringPtrOutp
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The device index for the network interface attachment.
+// The device index for the network interface attachment. Each network interface requires a device index. If you create a launch template that includes secondary network interfaces but not a primary network interface, then you must add a primary network interface as a launch parameter when you launch an instance from the template.
 func (o LaunchTemplateNetworkInterfaceOutput) DeviceIndex() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *int { return v.DeviceIndex }).(pulumi.IntPtrOutput)
 }

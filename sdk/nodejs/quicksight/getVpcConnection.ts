@@ -25,17 +25,32 @@ export interface GetVpcConnectionArgs {
 }
 
 export interface GetVpcConnectionResult {
+    /**
+     * <p>The Amazon Resource Name (ARN) of the VPC connection.</p>
+     */
     readonly arn?: string;
     readonly availabilityStatus?: enums.quicksight.VpcConnectionVpcConnectionAvailabilityStatus;
+    /**
+     * <p>The time that the VPC connection was created.</p>
+     */
     readonly createdTime?: string;
     readonly dnsResolvers?: string[];
+    /**
+     * <p>The time that the VPC connection was last updated.</p>
+     */
     readonly lastUpdatedTime?: string;
     readonly name?: string;
+    /**
+     * <p>A list of network interfaces.</p>
+     */
     readonly networkInterfaces?: outputs.quicksight.VpcConnectionNetworkInterface[];
     readonly roleArn?: string;
     readonly securityGroupIds?: string[];
     readonly status?: enums.quicksight.VpcConnectionVpcConnectionResourceStatus;
     readonly tags?: outputs.Tag[];
+    /**
+     * <p>The Amazon EC2 VPC ID associated with the VPC connection.</p>
+     */
     readonly vpcId?: string;
 }
 /**

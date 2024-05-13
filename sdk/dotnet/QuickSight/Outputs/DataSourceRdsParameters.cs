@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
     /// <summary>
-    /// &lt;p&gt;Amazon RDS parameters.&lt;/p&gt;
+    /// &lt;p&gt;The parameters for Amazon RDS.&lt;/p&gt;
     /// </summary>
     [OutputType]
     public sealed class DataSourceRdsParameters

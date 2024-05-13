@@ -39,6 +39,9 @@ namespace Pulumi.AwsNative.Budgets
         [Output("notificationType")]
         public Output<Pulumi.AwsNative.Budgets.BudgetsActionNotificationType> NotificationType { get; private set; } = null!;
 
+        [Output("resourceTags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> ResourceTags { get; private set; } = null!;
+
         [Output("subscribers")]
         public Output<ImmutableArray<Outputs.BudgetsActionSubscriber>> Subscribers { get; private set; } = null!;
 
@@ -112,6 +115,14 @@ namespace Pulumi.AwsNative.Budgets
 
         [Input("notificationType", required: true)]
         public Input<Pulumi.AwsNative.Budgets.BudgetsActionNotificationType> NotificationType { get; set; } = null!;
+
+        [Input("resourceTags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _resourceTags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> ResourceTags
+        {
+            get => _resourceTags ?? (_resourceTags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _resourceTags = value;
+        }
 
         [Input("subscribers", required: true)]
         private InputList<Inputs.BudgetsActionSubscriberArgs>? _subscribers;

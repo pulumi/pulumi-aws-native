@@ -52,6 +52,12 @@ namespace Pulumi.AwsNative.Route53Resolver.Inputs
         public Input<string> FirewallDomainListId { get; set; } = null!;
 
         /// <summary>
+        /// FirewallDomainRedirectionAction
+        /// </summary>
+        [Input("firewallDomainRedirectionAction")]
+        public Input<Pulumi.AwsNative.Route53Resolver.FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction>? FirewallDomainRedirectionAction { get; set; }
+
+        /// <summary>
         /// Rule Priority
         /// </summary>
         [Input("priority", required: true)]

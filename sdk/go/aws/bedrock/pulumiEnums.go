@@ -600,6 +600,170 @@ func (in *agentCreationModePtr) ToAgentCreationModePtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(AgentCreationModePtrOutput)
 }
 
+// Custom control of action execution
+type AgentCustomControlMethod string
+
+const (
+	AgentCustomControlMethodReturnControl = AgentCustomControlMethod("RETURN_CONTROL")
+)
+
+func (AgentCustomControlMethod) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentCustomControlMethod)(nil)).Elem()
+}
+
+func (e AgentCustomControlMethod) ToAgentCustomControlMethodOutput() AgentCustomControlMethodOutput {
+	return pulumi.ToOutput(e).(AgentCustomControlMethodOutput)
+}
+
+func (e AgentCustomControlMethod) ToAgentCustomControlMethodOutputWithContext(ctx context.Context) AgentCustomControlMethodOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AgentCustomControlMethodOutput)
+}
+
+func (e AgentCustomControlMethod) ToAgentCustomControlMethodPtrOutput() AgentCustomControlMethodPtrOutput {
+	return e.ToAgentCustomControlMethodPtrOutputWithContext(context.Background())
+}
+
+func (e AgentCustomControlMethod) ToAgentCustomControlMethodPtrOutputWithContext(ctx context.Context) AgentCustomControlMethodPtrOutput {
+	return AgentCustomControlMethod(e).ToAgentCustomControlMethodOutputWithContext(ctx).ToAgentCustomControlMethodPtrOutputWithContext(ctx)
+}
+
+func (e AgentCustomControlMethod) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AgentCustomControlMethod) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AgentCustomControlMethod) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AgentCustomControlMethod) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AgentCustomControlMethodOutput struct{ *pulumi.OutputState }
+
+func (AgentCustomControlMethodOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentCustomControlMethod)(nil)).Elem()
+}
+
+func (o AgentCustomControlMethodOutput) ToAgentCustomControlMethodOutput() AgentCustomControlMethodOutput {
+	return o
+}
+
+func (o AgentCustomControlMethodOutput) ToAgentCustomControlMethodOutputWithContext(ctx context.Context) AgentCustomControlMethodOutput {
+	return o
+}
+
+func (o AgentCustomControlMethodOutput) ToAgentCustomControlMethodPtrOutput() AgentCustomControlMethodPtrOutput {
+	return o.ToAgentCustomControlMethodPtrOutputWithContext(context.Background())
+}
+
+func (o AgentCustomControlMethodOutput) ToAgentCustomControlMethodPtrOutputWithContext(ctx context.Context) AgentCustomControlMethodPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentCustomControlMethod) *AgentCustomControlMethod {
+		return &v
+	}).(AgentCustomControlMethodPtrOutput)
+}
+
+func (o AgentCustomControlMethodOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AgentCustomControlMethodOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AgentCustomControlMethod) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AgentCustomControlMethodOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AgentCustomControlMethodOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AgentCustomControlMethod) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentCustomControlMethodPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentCustomControlMethodPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentCustomControlMethod)(nil)).Elem()
+}
+
+func (o AgentCustomControlMethodPtrOutput) ToAgentCustomControlMethodPtrOutput() AgentCustomControlMethodPtrOutput {
+	return o
+}
+
+func (o AgentCustomControlMethodPtrOutput) ToAgentCustomControlMethodPtrOutputWithContext(ctx context.Context) AgentCustomControlMethodPtrOutput {
+	return o
+}
+
+func (o AgentCustomControlMethodPtrOutput) Elem() AgentCustomControlMethodOutput {
+	return o.ApplyT(func(v *AgentCustomControlMethod) AgentCustomControlMethod {
+		if v != nil {
+			return *v
+		}
+		var ret AgentCustomControlMethod
+		return ret
+	}).(AgentCustomControlMethodOutput)
+}
+
+func (o AgentCustomControlMethodPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AgentCustomControlMethodPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AgentCustomControlMethod) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AgentCustomControlMethodInput is an input type that accepts values of the AgentCustomControlMethod enum
+// A concrete instance of `AgentCustomControlMethodInput` can be one of the following:
+//
+//	AgentCustomControlMethodReturnControl
+type AgentCustomControlMethodInput interface {
+	pulumi.Input
+
+	ToAgentCustomControlMethodOutput() AgentCustomControlMethodOutput
+	ToAgentCustomControlMethodOutputWithContext(context.Context) AgentCustomControlMethodOutput
+}
+
+var agentCustomControlMethodPtrType = reflect.TypeOf((**AgentCustomControlMethod)(nil)).Elem()
+
+type AgentCustomControlMethodPtrInput interface {
+	pulumi.Input
+
+	ToAgentCustomControlMethodPtrOutput() AgentCustomControlMethodPtrOutput
+	ToAgentCustomControlMethodPtrOutputWithContext(context.Context) AgentCustomControlMethodPtrOutput
+}
+
+type agentCustomControlMethodPtr string
+
+func AgentCustomControlMethodPtr(v string) AgentCustomControlMethodPtrInput {
+	return (*agentCustomControlMethodPtr)(&v)
+}
+
+func (*agentCustomControlMethodPtr) ElementType() reflect.Type {
+	return agentCustomControlMethodPtrType
+}
+
+func (in *agentCustomControlMethodPtr) ToAgentCustomControlMethodPtrOutput() AgentCustomControlMethodPtrOutput {
+	return pulumi.ToOutput(in).(AgentCustomControlMethodPtrOutput)
+}
+
+func (in *agentCustomControlMethodPtr) ToAgentCustomControlMethodPtrOutputWithContext(ctx context.Context) AgentCustomControlMethodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AgentCustomControlMethodPtrOutput)
+}
+
 // State of the knowledge base; whether it is enabled or disabled
 type AgentKnowledgeBaseState string
 
@@ -1197,6 +1361,178 @@ func (o AgentStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) 
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
+}
+
+// Parameter Type
+type AgentType string
+
+const (
+	AgentTypeString  = AgentType("string")
+	AgentTypeNumber  = AgentType("number")
+	AgentTypeInteger = AgentType("integer")
+	AgentTypeBoolean = AgentType("boolean")
+	AgentTypeArray   = AgentType("array")
+)
+
+func (AgentType) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentType)(nil)).Elem()
+}
+
+func (e AgentType) ToAgentTypeOutput() AgentTypeOutput {
+	return pulumi.ToOutput(e).(AgentTypeOutput)
+}
+
+func (e AgentType) ToAgentTypeOutputWithContext(ctx context.Context) AgentTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AgentTypeOutput)
+}
+
+func (e AgentType) ToAgentTypePtrOutput() AgentTypePtrOutput {
+	return e.ToAgentTypePtrOutputWithContext(context.Background())
+}
+
+func (e AgentType) ToAgentTypePtrOutputWithContext(ctx context.Context) AgentTypePtrOutput {
+	return AgentType(e).ToAgentTypeOutputWithContext(ctx).ToAgentTypePtrOutputWithContext(ctx)
+}
+
+func (e AgentType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AgentType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AgentType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AgentType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AgentTypeOutput struct{ *pulumi.OutputState }
+
+func (AgentTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentType)(nil)).Elem()
+}
+
+func (o AgentTypeOutput) ToAgentTypeOutput() AgentTypeOutput {
+	return o
+}
+
+func (o AgentTypeOutput) ToAgentTypeOutputWithContext(ctx context.Context) AgentTypeOutput {
+	return o
+}
+
+func (o AgentTypeOutput) ToAgentTypePtrOutput() AgentTypePtrOutput {
+	return o.ToAgentTypePtrOutputWithContext(context.Background())
+}
+
+func (o AgentTypeOutput) ToAgentTypePtrOutputWithContext(ctx context.Context) AgentTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentType) *AgentType {
+		return &v
+	}).(AgentTypePtrOutput)
+}
+
+func (o AgentTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AgentTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AgentType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AgentTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AgentTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AgentType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AgentTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentType)(nil)).Elem()
+}
+
+func (o AgentTypePtrOutput) ToAgentTypePtrOutput() AgentTypePtrOutput {
+	return o
+}
+
+func (o AgentTypePtrOutput) ToAgentTypePtrOutputWithContext(ctx context.Context) AgentTypePtrOutput {
+	return o
+}
+
+func (o AgentTypePtrOutput) Elem() AgentTypeOutput {
+	return o.ApplyT(func(v *AgentType) AgentType {
+		if v != nil {
+			return *v
+		}
+		var ret AgentType
+		return ret
+	}).(AgentTypeOutput)
+}
+
+func (o AgentTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AgentTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AgentType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AgentTypeInput is an input type that accepts values of the AgentType enum
+// A concrete instance of `AgentTypeInput` can be one of the following:
+//
+//	AgentTypeString
+//	AgentTypeNumber
+//	AgentTypeInteger
+//	AgentTypeBoolean
+//	AgentTypeArray
+type AgentTypeInput interface {
+	pulumi.Input
+
+	ToAgentTypeOutput() AgentTypeOutput
+	ToAgentTypeOutputWithContext(context.Context) AgentTypeOutput
+}
+
+var agentTypePtrType = reflect.TypeOf((**AgentType)(nil)).Elem()
+
+type AgentTypePtrInput interface {
+	pulumi.Input
+
+	ToAgentTypePtrOutput() AgentTypePtrOutput
+	ToAgentTypePtrOutputWithContext(context.Context) AgentTypePtrOutput
+}
+
+type agentTypePtr string
+
+func AgentTypePtr(v string) AgentTypePtrInput {
+	return (*agentTypePtr)(&v)
+}
+
+func (*agentTypePtr) ElementType() reflect.Type {
+	return agentTypePtrType
+}
+
+func (in *agentTypePtr) ToAgentTypePtrOutput() AgentTypePtrOutput {
+	return pulumi.ToOutput(in).(AgentTypePtrOutput)
+}
+
+func (in *agentTypePtr) ToAgentTypePtrOutputWithContext(ctx context.Context) AgentTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AgentTypePtrOutput)
 }
 
 // Knowledge base can split your source data into chunks. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. You have the following options for chunking your data. If you opt for NONE, then you may want to pre-process your files by splitting them up such that each file corresponds to a chunk.
@@ -3378,12 +3714,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentActionGroupStatePtrInput)(nil)).Elem(), AgentActionGroupState("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentCreationModeInput)(nil)).Elem(), AgentCreationMode("DEFAULT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentCreationModePtrInput)(nil)).Elem(), AgentCreationMode("DEFAULT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentCustomControlMethodInput)(nil)).Elem(), AgentCustomControlMethod("RETURN_CONTROL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentCustomControlMethodPtrInput)(nil)).Elem(), AgentCustomControlMethod("RETURN_CONTROL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseStateInput)(nil)).Elem(), AgentKnowledgeBaseState("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseStatePtrInput)(nil)).Elem(), AgentKnowledgeBaseState("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptStateInput)(nil)).Elem(), AgentPromptState("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptStatePtrInput)(nil)).Elem(), AgentPromptState("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptTypeInput)(nil)).Elem(), AgentPromptType("PRE_PROCESSING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptTypePtrInput)(nil)).Elem(), AgentPromptType("PRE_PROCESSING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentTypeInput)(nil)).Elem(), AgentType("string"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentTypePtrInput)(nil)).Elem(), AgentType("string"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceChunkingStrategyInput)(nil)).Elem(), DataSourceChunkingStrategy("FIXED_SIZE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceChunkingStrategyPtrInput)(nil)).Elem(), DataSourceChunkingStrategy("FIXED_SIZE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDataDeletionPolicyInput)(nil)).Elem(), DataSourceDataDeletionPolicy("RETAIN"))
@@ -3414,6 +3754,8 @@ func init() {
 	pulumi.RegisterOutputType(AgentAliasStatusPtrOutput{})
 	pulumi.RegisterOutputType(AgentCreationModeOutput{})
 	pulumi.RegisterOutputType(AgentCreationModePtrOutput{})
+	pulumi.RegisterOutputType(AgentCustomControlMethodOutput{})
+	pulumi.RegisterOutputType(AgentCustomControlMethodPtrOutput{})
 	pulumi.RegisterOutputType(AgentKnowledgeBaseStateOutput{})
 	pulumi.RegisterOutputType(AgentKnowledgeBaseStatePtrOutput{})
 	pulumi.RegisterOutputType(AgentPromptStateOutput{})
@@ -3422,6 +3764,8 @@ func init() {
 	pulumi.RegisterOutputType(AgentPromptTypePtrOutput{})
 	pulumi.RegisterOutputType(AgentStatusOutput{})
 	pulumi.RegisterOutputType(AgentStatusPtrOutput{})
+	pulumi.RegisterOutputType(AgentTypeOutput{})
+	pulumi.RegisterOutputType(AgentTypePtrOutput{})
 	pulumi.RegisterOutputType(DataSourceChunkingStrategyOutput{})
 	pulumi.RegisterOutputType(DataSourceChunkingStrategyPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceDataDeletionPolicyOutput{})

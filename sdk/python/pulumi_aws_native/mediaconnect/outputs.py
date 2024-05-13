@@ -30,13 +30,25 @@ __all__ = [
     'FlowEntitlementEncryption',
     'FlowFailoverConfig',
     'FlowFailoverConfigSourcePriorityProperties',
+    'FlowFmtp',
     'FlowGatewayBridgeSource',
+    'FlowInputConfiguration',
+    'FlowInterface',
+    'FlowMaintenance',
+    'FlowMediaStream',
+    'FlowMediaStreamAttributes',
+    'FlowMediaStreamSourceConfiguration',
+    'FlowOutputDestinationConfiguration',
+    'FlowOutputEncodingParameters',
     'FlowOutputEncryption',
+    'FlowOutputInterface',
+    'FlowOutputMediaStreamOutputConfiguration',
     'FlowOutputVpcInterfaceAttachment',
     'FlowSource',
     'FlowSourceEncryption',
     'FlowSourceGatewayBridgeSource',
     'FlowSourceVpcInterfaceAttachment',
+    'FlowVpcInterface',
     'FlowVpcInterfaceAttachment',
     'GatewayNetwork',
 ]
@@ -1249,6 +1261,122 @@ class FlowFailoverConfigSourcePriorityProperties(dict):
 
 
 @pulumi.output_type
+class FlowFmtp(dict):
+    """
+    A set of parameters that define the media stream.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "channelOrder":
+            suggest = "channel_order"
+        elif key == "exactFramerate":
+            suggest = "exact_framerate"
+        elif key == "scanMode":
+            suggest = "scan_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowFmtp. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowFmtp.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowFmtp.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 channel_order: Optional[str] = None,
+                 colorimetry: Optional['FlowFmtpColorimetry'] = None,
+                 exact_framerate: Optional[str] = None,
+                 par: Optional[str] = None,
+                 range: Optional['FlowFmtpRange'] = None,
+                 scan_mode: Optional['FlowFmtpScanMode'] = None,
+                 tcs: Optional['FlowFmtpTcs'] = None):
+        """
+        A set of parameters that define the media stream.
+        :param str channel_order: The format of the audio channel.
+        :param 'FlowFmtpColorimetry' colorimetry: The format used for the representation of color.
+        :param str exact_framerate: The frame rate for the video stream, in frames/second. For example: 60000/1001.
+        :param str par: The pixel aspect ratio (PAR) of the video.
+        :param 'FlowFmtpRange' range: The encoding range of the video.
+        :param 'FlowFmtpScanMode' scan_mode: The type of compression that was used to smooth the video's appearance.
+        :param 'FlowFmtpTcs' tcs: The transfer characteristic system (TCS) that is used in the video.
+        """
+        if channel_order is not None:
+            pulumi.set(__self__, "channel_order", channel_order)
+        if colorimetry is not None:
+            pulumi.set(__self__, "colorimetry", colorimetry)
+        if exact_framerate is not None:
+            pulumi.set(__self__, "exact_framerate", exact_framerate)
+        if par is not None:
+            pulumi.set(__self__, "par", par)
+        if range is not None:
+            pulumi.set(__self__, "range", range)
+        if scan_mode is not None:
+            pulumi.set(__self__, "scan_mode", scan_mode)
+        if tcs is not None:
+            pulumi.set(__self__, "tcs", tcs)
+
+    @property
+    @pulumi.getter(name="channelOrder")
+    def channel_order(self) -> Optional[str]:
+        """
+        The format of the audio channel.
+        """
+        return pulumi.get(self, "channel_order")
+
+    @property
+    @pulumi.getter
+    def colorimetry(self) -> Optional['FlowFmtpColorimetry']:
+        """
+        The format used for the representation of color.
+        """
+        return pulumi.get(self, "colorimetry")
+
+    @property
+    @pulumi.getter(name="exactFramerate")
+    def exact_framerate(self) -> Optional[str]:
+        """
+        The frame rate for the video stream, in frames/second. For example: 60000/1001.
+        """
+        return pulumi.get(self, "exact_framerate")
+
+    @property
+    @pulumi.getter
+    def par(self) -> Optional[str]:
+        """
+        The pixel aspect ratio (PAR) of the video.
+        """
+        return pulumi.get(self, "par")
+
+    @property
+    @pulumi.getter
+    def range(self) -> Optional['FlowFmtpRange']:
+        """
+        The encoding range of the video.
+        """
+        return pulumi.get(self, "range")
+
+    @property
+    @pulumi.getter(name="scanMode")
+    def scan_mode(self) -> Optional['FlowFmtpScanMode']:
+        """
+        The type of compression that was used to smooth the video's appearance.
+        """
+        return pulumi.get(self, "scan_mode")
+
+    @property
+    @pulumi.getter
+    def tcs(self) -> Optional['FlowFmtpTcs']:
+        """
+        The transfer characteristic system (TCS) that is used in the video.
+        """
+        return pulumi.get(self, "tcs")
+
+
+@pulumi.output_type
 class FlowGatewayBridgeSource(dict):
     """
     The source configuration for cloud flows receiving a stream from a bridge.
@@ -1299,6 +1427,476 @@ class FlowGatewayBridgeSource(dict):
         The name of the VPC interface attachment to use for this bridge source.
         """
         return pulumi.get(self, "vpc_interface_attachment")
+
+
+@pulumi.output_type
+class FlowInputConfiguration(dict):
+    """
+    The transport parameters associated with an incoming media stream.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inputPort":
+            suggest = "input_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowInputConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowInputConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowInputConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 input_port: int,
+                 interface: 'outputs.FlowInterface'):
+        """
+        The transport parameters associated with an incoming media stream.
+        :param int input_port: The port that the flow listens on for an incoming media stream.
+        :param 'FlowInterface' interface: The VPC interface where the media stream comes in from.
+        """
+        pulumi.set(__self__, "input_port", input_port)
+        pulumi.set(__self__, "interface", interface)
+
+    @property
+    @pulumi.getter(name="inputPort")
+    def input_port(self) -> int:
+        """
+        The port that the flow listens on for an incoming media stream.
+        """
+        return pulumi.get(self, "input_port")
+
+    @property
+    @pulumi.getter
+    def interface(self) -> 'outputs.FlowInterface':
+        """
+        The VPC interface where the media stream comes in from.
+        """
+        return pulumi.get(self, "interface")
+
+
+@pulumi.output_type
+class FlowInterface(dict):
+    """
+    The VPC interface that you want to use for the media stream associated with the output.
+    """
+    def __init__(__self__, *,
+                 name: str):
+        """
+        The VPC interface that you want to use for the media stream associated with the output.
+        :param str name: The name of the VPC interface that you want to use for the media stream associated with the output.
+        """
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the VPC interface that you want to use for the media stream associated with the output.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class FlowMaintenance(dict):
+    """
+    The maintenance setting of a flow.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maintenanceDay":
+            suggest = "maintenance_day"
+        elif key == "maintenanceStartHour":
+            suggest = "maintenance_start_hour"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowMaintenance. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowMaintenance.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowMaintenance.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 maintenance_day: 'FlowMaintenanceMaintenanceDay',
+                 maintenance_start_hour: str):
+        """
+        The maintenance setting of a flow.
+        :param 'FlowMaintenanceMaintenanceDay' maintenance_day: A day of a week when the maintenance will happen. Use Monday/Tuesday/Wednesday/Thursday/Friday/Saturday/Sunday.
+        :param str maintenance_start_hour: UTC time when the maintenance will happen. Use 24-hour HH:MM format. Minutes must be 00. Example: 13:00. The default value is 02:00.
+        """
+        pulumi.set(__self__, "maintenance_day", maintenance_day)
+        pulumi.set(__self__, "maintenance_start_hour", maintenance_start_hour)
+
+    @property
+    @pulumi.getter(name="maintenanceDay")
+    def maintenance_day(self) -> 'FlowMaintenanceMaintenanceDay':
+        """
+        A day of a week when the maintenance will happen. Use Monday/Tuesday/Wednesday/Thursday/Friday/Saturday/Sunday.
+        """
+        return pulumi.get(self, "maintenance_day")
+
+    @property
+    @pulumi.getter(name="maintenanceStartHour")
+    def maintenance_start_hour(self) -> str:
+        """
+        UTC time when the maintenance will happen. Use 24-hour HH:MM format. Minutes must be 00. Example: 13:00. The default value is 02:00.
+        """
+        return pulumi.get(self, "maintenance_start_hour")
+
+
+@pulumi.output_type
+class FlowMediaStream(dict):
+    """
+    A single track or stream of media that contains video, audio, or ancillary data. After you add a media stream to a flow, you can associate it with sources and outputs on that flow, as long as they use the CDI protocol or the ST 2110 JPEG XS protocol. Each source or output can consist of one or many media streams.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mediaStreamId":
+            suggest = "media_stream_id"
+        elif key == "mediaStreamName":
+            suggest = "media_stream_name"
+        elif key == "mediaStreamType":
+            suggest = "media_stream_type"
+        elif key == "clockRate":
+            suggest = "clock_rate"
+        elif key == "videoFormat":
+            suggest = "video_format"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowMediaStream. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowMediaStream.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowMediaStream.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 media_stream_id: int,
+                 media_stream_name: str,
+                 media_stream_type: 'FlowMediaStreamMediaStreamType',
+                 attributes: Optional['outputs.FlowMediaStreamAttributes'] = None,
+                 clock_rate: Optional[int] = None,
+                 description: Optional[str] = None,
+                 fmt: Optional[int] = None,
+                 video_format: Optional['FlowMediaStreamVideoFormat'] = None):
+        """
+        A single track or stream of media that contains video, audio, or ancillary data. After you add a media stream to a flow, you can associate it with sources and outputs on that flow, as long as they use the CDI protocol or the ST 2110 JPEG XS protocol. Each source or output can consist of one or many media streams.
+        :param int media_stream_id: A unique identifier for the media stream.
+        :param str media_stream_name: A name that helps you distinguish one media stream from another.
+        :param 'FlowMediaStreamMediaStreamType' media_stream_type: The type of media stream.
+        :param 'FlowMediaStreamAttributes' attributes: Attributes that are related to the media stream.
+        :param int clock_rate: The sample rate for the stream. This value in measured in kHz.
+        :param str description: A description that can help you quickly identify what your media stream is used for.
+        :param int fmt: The format type number (sometimes referred to as RTP payload type) of the media stream. MediaConnect assigns this value to the media stream. For ST 2110 JPEG XS outputs, you need to provide this value to the receiver.
+        :param 'FlowMediaStreamVideoFormat' video_format: The resolution of the video.
+        """
+        pulumi.set(__self__, "media_stream_id", media_stream_id)
+        pulumi.set(__self__, "media_stream_name", media_stream_name)
+        pulumi.set(__self__, "media_stream_type", media_stream_type)
+        if attributes is not None:
+            pulumi.set(__self__, "attributes", attributes)
+        if clock_rate is not None:
+            pulumi.set(__self__, "clock_rate", clock_rate)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if fmt is not None:
+            pulumi.set(__self__, "fmt", fmt)
+        if video_format is not None:
+            pulumi.set(__self__, "video_format", video_format)
+
+    @property
+    @pulumi.getter(name="mediaStreamId")
+    def media_stream_id(self) -> int:
+        """
+        A unique identifier for the media stream.
+        """
+        return pulumi.get(self, "media_stream_id")
+
+    @property
+    @pulumi.getter(name="mediaStreamName")
+    def media_stream_name(self) -> str:
+        """
+        A name that helps you distinguish one media stream from another.
+        """
+        return pulumi.get(self, "media_stream_name")
+
+    @property
+    @pulumi.getter(name="mediaStreamType")
+    def media_stream_type(self) -> 'FlowMediaStreamMediaStreamType':
+        """
+        The type of media stream.
+        """
+        return pulumi.get(self, "media_stream_type")
+
+    @property
+    @pulumi.getter
+    def attributes(self) -> Optional['outputs.FlowMediaStreamAttributes']:
+        """
+        Attributes that are related to the media stream.
+        """
+        return pulumi.get(self, "attributes")
+
+    @property
+    @pulumi.getter(name="clockRate")
+    def clock_rate(self) -> Optional[int]:
+        """
+        The sample rate for the stream. This value in measured in kHz.
+        """
+        return pulumi.get(self, "clock_rate")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        A description that can help you quickly identify what your media stream is used for.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def fmt(self) -> Optional[int]:
+        """
+        The format type number (sometimes referred to as RTP payload type) of the media stream. MediaConnect assigns this value to the media stream. For ST 2110 JPEG XS outputs, you need to provide this value to the receiver.
+        """
+        return pulumi.get(self, "fmt")
+
+    @property
+    @pulumi.getter(name="videoFormat")
+    def video_format(self) -> Optional['FlowMediaStreamVideoFormat']:
+        """
+        The resolution of the video.
+        """
+        return pulumi.get(self, "video_format")
+
+
+@pulumi.output_type
+class FlowMediaStreamAttributes(dict):
+    """
+    Attributes that are related to the media stream.
+    """
+    def __init__(__self__, *,
+                 fmtp: Optional['outputs.FlowFmtp'] = None,
+                 lang: Optional[str] = None):
+        """
+        Attributes that are related to the media stream.
+        :param 'FlowFmtp' fmtp: A set of parameters that define the media stream.
+        :param str lang: The audio language, in a format that is recognized by the receiver.
+        """
+        if fmtp is not None:
+            pulumi.set(__self__, "fmtp", fmtp)
+        if lang is not None:
+            pulumi.set(__self__, "lang", lang)
+
+    @property
+    @pulumi.getter
+    def fmtp(self) -> Optional['outputs.FlowFmtp']:
+        """
+        A set of parameters that define the media stream.
+        """
+        return pulumi.get(self, "fmtp")
+
+    @property
+    @pulumi.getter
+    def lang(self) -> Optional[str]:
+        """
+        The audio language, in a format that is recognized by the receiver.
+        """
+        return pulumi.get(self, "lang")
+
+
+@pulumi.output_type
+class FlowMediaStreamSourceConfiguration(dict):
+    """
+    The media stream that is associated with the source, and the parameters for that association.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encodingName":
+            suggest = "encoding_name"
+        elif key == "mediaStreamName":
+            suggest = "media_stream_name"
+        elif key == "inputConfigurations":
+            suggest = "input_configurations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowMediaStreamSourceConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowMediaStreamSourceConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowMediaStreamSourceConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 encoding_name: 'FlowMediaStreamSourceConfigurationEncodingName',
+                 media_stream_name: str,
+                 input_configurations: Optional[Sequence['outputs.FlowInputConfiguration']] = None):
+        """
+        The media stream that is associated with the source, and the parameters for that association.
+        :param 'FlowMediaStreamSourceConfigurationEncodingName' encoding_name: The format that was used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video, 2110 streams, set the encoding name to raw. For video, JPEG XS streams, set the encoding name to jxsv.
+        :param str media_stream_name: A name that helps you distinguish one media stream from another.
+        :param Sequence['FlowInputConfiguration'] input_configurations: The media streams that you want to associate with the source.
+        """
+        pulumi.set(__self__, "encoding_name", encoding_name)
+        pulumi.set(__self__, "media_stream_name", media_stream_name)
+        if input_configurations is not None:
+            pulumi.set(__self__, "input_configurations", input_configurations)
+
+    @property
+    @pulumi.getter(name="encodingName")
+    def encoding_name(self) -> 'FlowMediaStreamSourceConfigurationEncodingName':
+        """
+        The format that was used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video, 2110 streams, set the encoding name to raw. For video, JPEG XS streams, set the encoding name to jxsv.
+        """
+        return pulumi.get(self, "encoding_name")
+
+    @property
+    @pulumi.getter(name="mediaStreamName")
+    def media_stream_name(self) -> str:
+        """
+        A name that helps you distinguish one media stream from another.
+        """
+        return pulumi.get(self, "media_stream_name")
+
+    @property
+    @pulumi.getter(name="inputConfigurations")
+    def input_configurations(self) -> Optional[Sequence['outputs.FlowInputConfiguration']]:
+        """
+        The media streams that you want to associate with the source.
+        """
+        return pulumi.get(self, "input_configurations")
+
+
+@pulumi.output_type
+class FlowOutputDestinationConfiguration(dict):
+    """
+    The definition of a media stream that is associated with the output.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationIp":
+            suggest = "destination_ip"
+        elif key == "destinationPort":
+            suggest = "destination_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowOutputDestinationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowOutputDestinationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowOutputDestinationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination_ip: str,
+                 destination_port: int,
+                 interface: 'outputs.FlowOutputInterface'):
+        """
+        The definition of a media stream that is associated with the output.
+        :param str destination_ip: The IP address where contents of the media stream will be sent.
+        :param int destination_port: The port to use when the content of the media stream is distributed to the output.
+        :param 'FlowOutputInterface' interface: The VPC interface that is used for the media stream associated with the output.
+        """
+        pulumi.set(__self__, "destination_ip", destination_ip)
+        pulumi.set(__self__, "destination_port", destination_port)
+        pulumi.set(__self__, "interface", interface)
+
+    @property
+    @pulumi.getter(name="destinationIp")
+    def destination_ip(self) -> str:
+        """
+        The IP address where contents of the media stream will be sent.
+        """
+        return pulumi.get(self, "destination_ip")
+
+    @property
+    @pulumi.getter(name="destinationPort")
+    def destination_port(self) -> int:
+        """
+        The port to use when the content of the media stream is distributed to the output.
+        """
+        return pulumi.get(self, "destination_port")
+
+    @property
+    @pulumi.getter
+    def interface(self) -> 'outputs.FlowOutputInterface':
+        """
+        The VPC interface that is used for the media stream associated with the output.
+        """
+        return pulumi.get(self, "interface")
+
+
+@pulumi.output_type
+class FlowOutputEncodingParameters(dict):
+    """
+    A collection of parameters that determine how MediaConnect will convert the content. These fields only apply to outputs on flows that have a CDI source.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "compressionFactor":
+            suggest = "compression_factor"
+        elif key == "encoderProfile":
+            suggest = "encoder_profile"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowOutputEncodingParameters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowOutputEncodingParameters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowOutputEncodingParameters.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compression_factor: float,
+                 encoder_profile: Optional['FlowOutputEncodingParametersEncoderProfile'] = None):
+        """
+        A collection of parameters that determine how MediaConnect will convert the content. These fields only apply to outputs on flows that have a CDI source.
+        :param float compression_factor: A value that is used to calculate compression for an output. The bitrate of the output is calculated as follows: Output bitrate = (1 / compressionFactor) * (source bitrate) This property only applies to outputs that use the ST 2110 JPEG XS protocol, with a flow source that uses the CDI protocol. Valid values are in the range of 3.0 to 10.0, inclusive.
+        :param 'FlowOutputEncodingParametersEncoderProfile' encoder_profile: A setting on the encoder that drives compression settings. This property only applies to video media streams associated with outputs that use the ST 2110 JPEG XS protocol, with a flow source that uses the CDI protocol.
+        """
+        pulumi.set(__self__, "compression_factor", compression_factor)
+        if encoder_profile is not None:
+            pulumi.set(__self__, "encoder_profile", encoder_profile)
+
+    @property
+    @pulumi.getter(name="compressionFactor")
+    def compression_factor(self) -> float:
+        """
+        A value that is used to calculate compression for an output. The bitrate of the output is calculated as follows: Output bitrate = (1 / compressionFactor) * (source bitrate) This property only applies to outputs that use the ST 2110 JPEG XS protocol, with a flow source that uses the CDI protocol. Valid values are in the range of 3.0 to 10.0, inclusive.
+        """
+        return pulumi.get(self, "compression_factor")
+
+    @property
+    @pulumi.getter(name="encoderProfile")
+    def encoder_profile(self) -> Optional['FlowOutputEncodingParametersEncoderProfile']:
+        """
+        A setting on the encoder that drives compression settings. This property only applies to video media streams associated with outputs that use the ST 2110 JPEG XS protocol, with a flow source that uses the CDI protocol.
+        """
+        return pulumi.get(self, "encoder_profile")
 
 
 @pulumi.output_type
@@ -1380,6 +1978,108 @@ class FlowOutputEncryption(dict):
 
 
 @pulumi.output_type
+class FlowOutputInterface(dict):
+    """
+    The VPC interface that you want to use for the media stream associated with the output.
+    """
+    def __init__(__self__, *,
+                 name: str):
+        """
+        The VPC interface that you want to use for the media stream associated with the output.
+        :param str name: The name of the VPC interface that you want to use for the media stream associated with the output.
+        """
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the VPC interface that you want to use for the media stream associated with the output.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class FlowOutputMediaStreamOutputConfiguration(dict):
+    """
+    The media stream that is associated with the output, and the parameters for that association.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encodingName":
+            suggest = "encoding_name"
+        elif key == "mediaStreamName":
+            suggest = "media_stream_name"
+        elif key == "destinationConfigurations":
+            suggest = "destination_configurations"
+        elif key == "encodingParameters":
+            suggest = "encoding_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowOutputMediaStreamOutputConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowOutputMediaStreamOutputConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowOutputMediaStreamOutputConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 encoding_name: 'FlowOutputMediaStreamOutputConfigurationEncodingName',
+                 media_stream_name: str,
+                 destination_configurations: Optional[Sequence['outputs.FlowOutputDestinationConfiguration']] = None,
+                 encoding_parameters: Optional['outputs.FlowOutputEncodingParameters'] = None):
+        """
+        The media stream that is associated with the output, and the parameters for that association.
+        :param 'FlowOutputMediaStreamOutputConfigurationEncodingName' encoding_name: The format that will be used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video streams on sources or outputs that use the CDI protocol, set the encoding name to raw. For video streams on sources or outputs that use the ST 2110 JPEG XS protocol, set the encoding name to jxsv.
+        :param str media_stream_name: A name that helps you distinguish one media stream from another.
+        :param Sequence['FlowOutputDestinationConfiguration'] destination_configurations: The media streams that you want to associate with the output.
+        :param 'FlowOutputEncodingParameters' encoding_parameters: A collection of parameters that determine how MediaConnect will convert the content. These fields only apply to outputs on flows that have a CDI source.
+        """
+        pulumi.set(__self__, "encoding_name", encoding_name)
+        pulumi.set(__self__, "media_stream_name", media_stream_name)
+        if destination_configurations is not None:
+            pulumi.set(__self__, "destination_configurations", destination_configurations)
+        if encoding_parameters is not None:
+            pulumi.set(__self__, "encoding_parameters", encoding_parameters)
+
+    @property
+    @pulumi.getter(name="encodingName")
+    def encoding_name(self) -> 'FlowOutputMediaStreamOutputConfigurationEncodingName':
+        """
+        The format that will be used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video streams on sources or outputs that use the CDI protocol, set the encoding name to raw. For video streams on sources or outputs that use the ST 2110 JPEG XS protocol, set the encoding name to jxsv.
+        """
+        return pulumi.get(self, "encoding_name")
+
+    @property
+    @pulumi.getter(name="mediaStreamName")
+    def media_stream_name(self) -> str:
+        """
+        A name that helps you distinguish one media stream from another.
+        """
+        return pulumi.get(self, "media_stream_name")
+
+    @property
+    @pulumi.getter(name="destinationConfigurations")
+    def destination_configurations(self) -> Optional[Sequence['outputs.FlowOutputDestinationConfiguration']]:
+        """
+        The media streams that you want to associate with the output.
+        """
+        return pulumi.get(self, "destination_configurations")
+
+    @property
+    @pulumi.getter(name="encodingParameters")
+    def encoding_parameters(self) -> Optional['outputs.FlowOutputEncodingParameters']:
+        """
+        A collection of parameters that determine how MediaConnect will convert the content. These fields only apply to outputs on flows that have a CDI source.
+        """
+        return pulumi.get(self, "encoding_parameters")
+
+
+@pulumi.output_type
 class FlowOutputVpcInterfaceAttachment(dict):
     """
     The settings for attaching a VPC interface to an output.
@@ -1439,6 +2139,10 @@ class FlowSource(dict):
             suggest = "max_bitrate"
         elif key == "maxLatency":
             suggest = "max_latency"
+        elif key == "maxSyncBuffer":
+            suggest = "max_sync_buffer"
+        elif key == "mediaStreamSourceConfigurations":
+            suggest = "media_stream_source_configurations"
         elif key == "minLatency":
             suggest = "min_latency"
         elif key == "senderControlPort":
@@ -1480,6 +2184,8 @@ class FlowSource(dict):
                  ingest_port: Optional[int] = None,
                  max_bitrate: Optional[int] = None,
                  max_latency: Optional[int] = None,
+                 max_sync_buffer: Optional[int] = None,
+                 media_stream_source_configurations: Optional[Sequence['outputs.FlowMediaStreamSourceConfiguration']] = None,
                  min_latency: Optional[int] = None,
                  name: Optional[str] = None,
                  protocol: Optional['FlowSourceProtocol'] = None,
@@ -1502,6 +2208,8 @@ class FlowSource(dict):
         :param int ingest_port: The port that the flow will be listening on for incoming content.
         :param int max_bitrate: The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.
         :param int max_latency: The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
+        :param int max_sync_buffer: The size of the buffer (in milliseconds) to use to sync incoming source data.
+        :param Sequence['FlowMediaStreamSourceConfiguration'] media_stream_source_configurations: The media stream that is associated with the source, and the parameters for that association.
         :param int min_latency: The minimum latency in milliseconds.
         :param str name: The name of the source.
         :param 'FlowSourceProtocol' protocol: The protocol that is used by the source.
@@ -1531,6 +2239,10 @@ class FlowSource(dict):
             pulumi.set(__self__, "max_bitrate", max_bitrate)
         if max_latency is not None:
             pulumi.set(__self__, "max_latency", max_latency)
+        if max_sync_buffer is not None:
+            pulumi.set(__self__, "max_sync_buffer", max_sync_buffer)
+        if media_stream_source_configurations is not None:
+            pulumi.set(__self__, "media_stream_source_configurations", media_stream_source_configurations)
         if min_latency is not None:
             pulumi.set(__self__, "min_latency", min_latency)
         if name is not None:
@@ -1619,6 +2331,22 @@ class FlowSource(dict):
         The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
         """
         return pulumi.get(self, "max_latency")
+
+    @property
+    @pulumi.getter(name="maxSyncBuffer")
+    def max_sync_buffer(self) -> Optional[int]:
+        """
+        The size of the buffer (in milliseconds) to use to sync incoming source data.
+        """
+        return pulumi.get(self, "max_sync_buffer")
+
+    @property
+    @pulumi.getter(name="mediaStreamSourceConfigurations")
+    def media_stream_source_configurations(self) -> Optional[Sequence['outputs.FlowMediaStreamSourceConfiguration']]:
+        """
+        The media stream that is associated with the source, and the parameters for that association.
+        """
+        return pulumi.get(self, "media_stream_source_configurations")
 
     @property
     @pulumi.getter(name="minLatency")
@@ -1953,6 +2681,110 @@ class FlowSourceVpcInterfaceAttachment(dict):
         The name of the VPC interface to use for this resource.
         """
         return pulumi.get(self, "vpc_interface_name")
+
+
+@pulumi.output_type
+class FlowVpcInterface(dict):
+    """
+    The details of a VPC interface.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleArn":
+            suggest = "role_arn"
+        elif key == "securityGroupIds":
+            suggest = "security_group_ids"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+        elif key == "networkInterfaceIds":
+            suggest = "network_interface_ids"
+        elif key == "networkInterfaceType":
+            suggest = "network_interface_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowVpcInterface. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowVpcInterface.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowVpcInterface.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 role_arn: str,
+                 security_group_ids: Sequence[str],
+                 subnet_id: str,
+                 network_interface_ids: Optional[Sequence[str]] = None,
+                 network_interface_type: Optional['FlowVpcInterfaceNetworkInterfaceType'] = None):
+        """
+        The details of a VPC interface.
+        :param str name: Immutable and has to be a unique against other VpcInterfaces in this Flow.
+        :param str role_arn: Role Arn MediaConnect can assume to create ENIs in customer's account.
+        :param Sequence[str] security_group_ids: Security Group IDs to be used on ENI.
+        :param str subnet_id: Subnet must be in the AZ of the Flow
+        :param Sequence[str] network_interface_ids: IDs of the network interfaces created in customer's account by MediaConnect.
+        :param 'FlowVpcInterfaceNetworkInterfaceType' network_interface_type: The type of network adapter that you want MediaConnect to use on this interface. If you don't set this value, it defaults to ENA.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
+        pulumi.set(__self__, "subnet_id", subnet_id)
+        if network_interface_ids is not None:
+            pulumi.set(__self__, "network_interface_ids", network_interface_ids)
+        if network_interface_type is not None:
+            pulumi.set(__self__, "network_interface_type", network_interface_type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Immutable and has to be a unique against other VpcInterfaces in this Flow.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> str:
+        """
+        Role Arn MediaConnect can assume to create ENIs in customer's account.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Sequence[str]:
+        """
+        Security Group IDs to be used on ENI.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> str:
+        """
+        Subnet must be in the AZ of the Flow
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @property
+    @pulumi.getter(name="networkInterfaceIds")
+    def network_interface_ids(self) -> Optional[Sequence[str]]:
+        """
+        IDs of the network interfaces created in customer's account by MediaConnect.
+        """
+        return pulumi.get(self, "network_interface_ids")
+
+    @property
+    @pulumi.getter(name="networkInterfaceType")
+    def network_interface_type(self) -> Optional['FlowVpcInterfaceNetworkInterfaceType']:
+        """
+        The type of network adapter that you want MediaConnect to use on this interface. If you don't set this value, it defaults to ENA.
+        """
+        return pulumi.get(self, "network_interface_type")
 
 
 @pulumi.output_type

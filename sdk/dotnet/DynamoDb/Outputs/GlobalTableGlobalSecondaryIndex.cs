@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.DynamoDb.Outputs
         public readonly string IndexName;
         public readonly ImmutableArray<Outputs.GlobalTableKeySchema> KeySchema;
         public readonly Outputs.GlobalTableProjection Projection;
+        public readonly Outputs.GlobalTableWriteOnDemandThroughputSettings? WriteOnDemandThroughputSettings;
         public readonly Outputs.GlobalTableWriteProvisionedThroughputSettings? WriteProvisionedThroughputSettings;
 
         [OutputConstructor]
@@ -26,11 +27,14 @@ namespace Pulumi.AwsNative.DynamoDb.Outputs
 
             Outputs.GlobalTableProjection projection,
 
+            Outputs.GlobalTableWriteOnDemandThroughputSettings? writeOnDemandThroughputSettings,
+
             Outputs.GlobalTableWriteProvisionedThroughputSettings? writeProvisionedThroughputSettings)
         {
             IndexName = indexName;
             KeySchema = keySchema;
             Projection = projection;
+            WriteOnDemandThroughputSettings = writeOnDemandThroughputSettings;
             WriteProvisionedThroughputSettings = writeProvisionedThroughputSettings;
         }
     }

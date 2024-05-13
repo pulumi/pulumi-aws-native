@@ -24,6 +24,10 @@ type Version struct {
 	FunctionArn pulumi.StringOutput `pulumi:"functionArn"`
 	// The name of the Lambda function.
 	FunctionName pulumi.StringOutput `pulumi:"functionName"`
+	// The resource policy of your function
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Lambda::Version` for more information about the expected schema for this property.
+	Policy pulumi.AnyOutput `pulumi:"policy"`
 	// Specifies a provisioned concurrency configuration for a function's version. Updates are not supported for this property.
 	ProvisionedConcurrencyConfig VersionProvisionedConcurrencyConfigurationPtrOutput `pulumi:"provisionedConcurrencyConfig"`
 	// Specifies the runtime management configuration of a function. Displays runtimeVersionArn only for Manual.
@@ -89,6 +93,10 @@ type versionArgs struct {
 	Description *string `pulumi:"description"`
 	// The name of the Lambda function.
 	FunctionName string `pulumi:"functionName"`
+	// The resource policy of your function
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Lambda::Version` for more information about the expected schema for this property.
+	Policy interface{} `pulumi:"policy"`
 	// Specifies a provisioned concurrency configuration for a function's version. Updates are not supported for this property.
 	ProvisionedConcurrencyConfig *VersionProvisionedConcurrencyConfiguration `pulumi:"provisionedConcurrencyConfig"`
 	// Specifies the runtime management configuration of a function. Displays runtimeVersionArn only for Manual.
@@ -103,6 +111,10 @@ type VersionArgs struct {
 	Description pulumi.StringPtrInput
 	// The name of the Lambda function.
 	FunctionName pulumi.StringInput
+	// The resource policy of your function
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Lambda::Version` for more information about the expected schema for this property.
+	Policy pulumi.Input
 	// Specifies a provisioned concurrency configuration for a function's version. Updates are not supported for this property.
 	ProvisionedConcurrencyConfig VersionProvisionedConcurrencyConfigurationPtrInput
 	// Specifies the runtime management configuration of a function. Displays runtimeVersionArn only for Manual.
@@ -164,6 +176,13 @@ func (o VersionOutput) FunctionArn() pulumi.StringOutput {
 // The name of the Lambda function.
 func (o VersionOutput) FunctionName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Version) pulumi.StringOutput { return v.FunctionName }).(pulumi.StringOutput)
+}
+
+// The resource policy of your function
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Lambda::Version` for more information about the expected schema for this property.
+func (o VersionOutput) Policy() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Version) pulumi.AnyOutput { return v.Policy }).(pulumi.AnyOutput)
 }
 
 // Specifies a provisioned concurrency configuration for a function's version. Updates are not supported for this property.

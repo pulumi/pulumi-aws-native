@@ -32,6 +32,9 @@ namespace Pulumi.AwsNative.DynamoDb.Inputs
         [Input("pointInTimeRecoverySpecification")]
         public Input<Inputs.GlobalTablePointInTimeRecoverySpecificationArgs>? PointInTimeRecoverySpecification { get; set; }
 
+        [Input("readOnDemandThroughputSettings")]
+        public Input<Inputs.GlobalTableReadOnDemandThroughputSettingsArgs>? ReadOnDemandThroughputSettings { get; set; }
+
         [Input("readProvisionedThroughputSettings")]
         public Input<Inputs.GlobalTableReadProvisionedThroughputSettingsArgs>? ReadProvisionedThroughputSettings { get; set; }
 

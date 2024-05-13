@@ -11,21 +11,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
     /// <summary>
-    /// &lt;p&gt;Trino parameters.&lt;/p&gt;
+    /// &lt;p&gt;The parameters that are required to connect to a Trino data source.&lt;/p&gt;
     /// </summary>
     [OutputType]
     public sealed class DataSourceTrinoParameters
     {
         /// <summary>
-        /// &lt;p&gt;Catalog.&lt;/p&gt;
+        /// &lt;p&gt;The catalog name for the Trino data source.&lt;/p&gt;
         /// </summary>
         public readonly string Catalog;
         /// <summary>
-        /// &lt;p&gt;Host.&lt;/p&gt;
+        /// &lt;p&gt;The host name of the Trino data source.&lt;/p&gt;
         /// </summary>
         public readonly string Host;
         /// <summary>
-        /// &lt;p&gt;Port.&lt;/p&gt;
+        /// &lt;p&gt;The port for the Trino data source.&lt;/p&gt;
         /// </summary>
         public readonly double Port;
 

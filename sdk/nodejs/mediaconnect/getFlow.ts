@@ -27,6 +27,10 @@ export interface GetFlowArgs {
 
 export interface GetFlowResult {
     /**
+     * The IP address from which video will be sent to output destinations.
+     */
+    readonly egressIp?: string;
+    /**
      * The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
      */
     readonly flowArn?: string;
@@ -35,6 +39,14 @@ export interface GetFlowResult {
      */
     readonly flowAvailabilityZone?: string;
     /**
+     * The maintenance settings you want to use for the flow. 
+     */
+    readonly maintenance?: outputs.mediaconnect.FlowMaintenance;
+    /**
+     * The media streams associated with the flow. You can associate any of these media streams with sources and outputs on the flow.
+     */
+    readonly mediaStreams?: outputs.mediaconnect.FlowMediaStream[];
+    /**
      * The source of the flow.
      */
     readonly source?: outputs.mediaconnect.FlowSource;
@@ -42,6 +54,10 @@ export interface GetFlowResult {
      * The source failover config of the flow.
      */
     readonly sourceFailoverConfig?: outputs.mediaconnect.FlowFailoverConfig;
+    /**
+     * The VPC interfaces that you added to this flow.
+     */
+    readonly vpcInterfaces?: outputs.mediaconnect.FlowVpcInterface[];
 }
 /**
  * Resource schema for AWS::MediaConnect::Flow

@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.DynamoDb.Inputs
         [Input("indexName", required: true)]
         public Input<string> IndexName { get; set; } = null!;
 
+        [Input("readOnDemandThroughputSettings")]
+        public Input<Inputs.GlobalTableReadOnDemandThroughputSettingsArgs>? ReadOnDemandThroughputSettings { get; set; }
+
         [Input("readProvisionedThroughputSettings")]
         public Input<Inputs.GlobalTableReadProvisionedThroughputSettingsArgs>? ReadProvisionedThroughputSettings { get; set; }
 

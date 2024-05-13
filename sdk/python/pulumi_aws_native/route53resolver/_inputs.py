@@ -25,6 +25,7 @@ class FirewallRuleGroupFirewallRuleArgs:
                  block_override_domain: Optional[pulumi.Input[str]] = None,
                  block_override_ttl: Optional[pulumi.Input[int]] = None,
                  block_response: Optional[pulumi.Input['FirewallRuleGroupFirewallRuleBlockResponse']] = None,
+                 firewall_domain_redirection_action: Optional[pulumi.Input['FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction']] = None,
                  qtype: Optional[pulumi.Input[str]] = None):
         """
         Firewall Rule associating the Rule Group to a Domain List
@@ -35,6 +36,7 @@ class FirewallRuleGroupFirewallRuleArgs:
         :param pulumi.Input[str] block_override_domain: BlockOverrideDomain
         :param pulumi.Input[int] block_override_ttl: BlockOverrideTtl
         :param pulumi.Input['FirewallRuleGroupFirewallRuleBlockResponse'] block_response: BlockResponse
+        :param pulumi.Input['FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction'] firewall_domain_redirection_action: FirewallDomainRedirectionAction
         :param pulumi.Input[str] qtype: Qtype
         """
         pulumi.set(__self__, "action", action)
@@ -48,6 +50,8 @@ class FirewallRuleGroupFirewallRuleArgs:
             pulumi.set(__self__, "block_override_ttl", block_override_ttl)
         if block_response is not None:
             pulumi.set(__self__, "block_response", block_response)
+        if firewall_domain_redirection_action is not None:
+            pulumi.set(__self__, "firewall_domain_redirection_action", firewall_domain_redirection_action)
         if qtype is not None:
             pulumi.set(__self__, "qtype", qtype)
 
@@ -134,6 +138,18 @@ class FirewallRuleGroupFirewallRuleArgs:
     @block_response.setter
     def block_response(self, value: Optional[pulumi.Input['FirewallRuleGroupFirewallRuleBlockResponse']]):
         pulumi.set(self, "block_response", value)
+
+    @property
+    @pulumi.getter(name="firewallDomainRedirectionAction")
+    def firewall_domain_redirection_action(self) -> Optional[pulumi.Input['FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction']]:
+        """
+        FirewallDomainRedirectionAction
+        """
+        return pulumi.get(self, "firewall_domain_redirection_action")
+
+    @firewall_domain_redirection_action.setter
+    def firewall_domain_redirection_action(self, value: Optional[pulumi.Input['FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction']]):
+        pulumi.set(self, "firewall_domain_redirection_action", value)
 
     @property
     @pulumi.getter

@@ -33,6 +33,8 @@ class FirewallRuleGroupFirewallRule(dict):
             suggest = "block_override_ttl"
         elif key == "blockResponse":
             suggest = "block_response"
+        elif key == "firewallDomainRedirectionAction":
+            suggest = "firewall_domain_redirection_action"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in FirewallRuleGroupFirewallRule. Access the value via the '{suggest}' property getter instead.")
@@ -53,6 +55,7 @@ class FirewallRuleGroupFirewallRule(dict):
                  block_override_domain: Optional[str] = None,
                  block_override_ttl: Optional[int] = None,
                  block_response: Optional['FirewallRuleGroupFirewallRuleBlockResponse'] = None,
+                 firewall_domain_redirection_action: Optional['FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction'] = None,
                  qtype: Optional[str] = None):
         """
         Firewall Rule associating the Rule Group to a Domain List
@@ -63,6 +66,7 @@ class FirewallRuleGroupFirewallRule(dict):
         :param str block_override_domain: BlockOverrideDomain
         :param int block_override_ttl: BlockOverrideTtl
         :param 'FirewallRuleGroupFirewallRuleBlockResponse' block_response: BlockResponse
+        :param 'FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction' firewall_domain_redirection_action: FirewallDomainRedirectionAction
         :param str qtype: Qtype
         """
         pulumi.set(__self__, "action", action)
@@ -76,6 +80,8 @@ class FirewallRuleGroupFirewallRule(dict):
             pulumi.set(__self__, "block_override_ttl", block_override_ttl)
         if block_response is not None:
             pulumi.set(__self__, "block_response", block_response)
+        if firewall_domain_redirection_action is not None:
+            pulumi.set(__self__, "firewall_domain_redirection_action", firewall_domain_redirection_action)
         if qtype is not None:
             pulumi.set(__self__, "qtype", qtype)
 
@@ -134,6 +140,14 @@ class FirewallRuleGroupFirewallRule(dict):
         BlockResponse
         """
         return pulumi.get(self, "block_response")
+
+    @property
+    @pulumi.getter(name="firewallDomainRedirectionAction")
+    def firewall_domain_redirection_action(self) -> Optional['FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction']:
+        """
+        FirewallDomainRedirectionAction
+        """
+        return pulumi.get(self, "firewall_domain_redirection_action")
 
     @property
     @pulumi.getter

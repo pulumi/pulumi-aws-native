@@ -31,8 +31,11 @@ type LookupDataSetArgs struct {
 type LookupDataSetResult struct {
 	// <p>The Amazon Resource Name (ARN) of the resource.</p>
 	Arn *string `pulumi:"arn"`
-	// <p>Groupings of columns that work together in certain QuickSight features. Currently, only geospatial hierarchy is supported.</p>
-	ColumnGroups               []DataSetColumnGroup               `pulumi:"columnGroups"`
+	// <p>Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported.</p>
+	ColumnGroups []DataSetColumnGroup `pulumi:"columnGroups"`
+	// <p>A set of one or more definitions of a <code>
+	//                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html">ColumnLevelPermissionRule</a>
+	//             </code>.</p>
 	ColumnLevelPermissionRules []DataSetColumnLevelPermissionRule `pulumi:"columnLevelPermissionRules"`
 	// <p>The amount of SPICE capacity used by this dataset. This is 0 if the dataset isn't
 	//             imported into SPICE.</p>
@@ -41,7 +44,7 @@ type LookupDataSetResult struct {
 	CreatedTime               *string                    `pulumi:"createdTime"`
 	DataSetRefreshProperties  *DataSetRefreshProperties  `pulumi:"dataSetRefreshProperties"`
 	DataSetUsageConfiguration *DataSetUsageConfiguration `pulumi:"dataSetUsageConfiguration"`
-	// <p>The parameters declared in the dataset.</p>
+	// <p>The parameter declarations of the dataset.</p>
 	DatasetParameters []DataSetDatasetParameter `pulumi:"datasetParameters"`
 	ImportMode        *DataSetImportMode        `pulumi:"importMode"`
 	// <p>The last time that this dataset was updated.</p>
@@ -102,11 +105,15 @@ func (o LookupDataSetResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDataSetResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-// <p>Groupings of columns that work together in certain QuickSight features. Currently, only geospatial hierarchy is supported.</p>
+// <p>Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported.</p>
 func (o LookupDataSetResultOutput) ColumnGroups() DataSetColumnGroupArrayOutput {
 	return o.ApplyT(func(v LookupDataSetResult) []DataSetColumnGroup { return v.ColumnGroups }).(DataSetColumnGroupArrayOutput)
 }
 
+// <p>A set of one or more definitions of a <code>
+//
+//	   <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html">ColumnLevelPermissionRule</a>
+//	</code>.</p>
 func (o LookupDataSetResultOutput) ColumnLevelPermissionRules() DataSetColumnLevelPermissionRuleArrayOutput {
 	return o.ApplyT(func(v LookupDataSetResult) []DataSetColumnLevelPermissionRule { return v.ColumnLevelPermissionRules }).(DataSetColumnLevelPermissionRuleArrayOutput)
 }
@@ -131,7 +138,7 @@ func (o LookupDataSetResultOutput) DataSetUsageConfiguration() DataSetUsageConfi
 	return o.ApplyT(func(v LookupDataSetResult) *DataSetUsageConfiguration { return v.DataSetUsageConfiguration }).(DataSetUsageConfigurationPtrOutput)
 }
 
-// <p>The parameters declared in the dataset.</p>
+// <p>The parameter declarations of the dataset.</p>
 func (o LookupDataSetResultOutput) DatasetParameters() DataSetDatasetParameterArrayOutput {
 	return o.ApplyT(func(v LookupDataSetResult) []DataSetDatasetParameter { return v.DatasetParameters }).(DataSetDatasetParameterArrayOutput)
 }

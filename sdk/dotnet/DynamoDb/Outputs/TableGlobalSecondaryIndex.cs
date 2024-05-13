@@ -34,6 +34,10 @@ namespace Pulumi.AwsNative.DynamoDb.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.TableKeySchema> KeySchema;
         /// <summary>
+        /// The maximum number of read and write units for the specified global secondary index. If you use this parameter, you must specify ``MaxReadRequestUnits``, ``MaxWriteRequestUnits``, or both.
+        /// </summary>
+        public readonly Outputs.TableOnDemandThroughput? OnDemandThroughput;
+        /// <summary>
         /// Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
         /// </summary>
         public readonly Outputs.TableProjection Projection;
@@ -51,6 +55,8 @@ namespace Pulumi.AwsNative.DynamoDb.Outputs
 
             ImmutableArray<Outputs.TableKeySchema> keySchema,
 
+            Outputs.TableOnDemandThroughput? onDemandThroughput,
+
             Outputs.TableProjection projection,
 
             Outputs.TableProvisionedThroughput? provisionedThroughput)
@@ -58,6 +64,7 @@ namespace Pulumi.AwsNative.DynamoDb.Outputs
             ContributorInsightsSpecification = contributorInsightsSpecification;
             IndexName = indexName;
             KeySchema = keySchema;
+            OnDemandThroughput = onDemandThroughput;
             Projection = projection;
             ProvisionedThroughput = provisionedThroughput;
         }

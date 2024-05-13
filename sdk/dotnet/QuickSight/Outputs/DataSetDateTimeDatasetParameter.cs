@@ -11,13 +11,19 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
     /// <summary>
-    /// &lt;p&gt;A parameter created in the dataset of date time data type.&lt;/p&gt;
+    /// &lt;p&gt;A date time parameter for a dataset.&lt;/p&gt;
     /// </summary>
     [OutputType]
     public sealed class DataSetDateTimeDatasetParameter
     {
         public readonly Outputs.DataSetDateTimeDatasetParameterDefaultValues? DefaultValues;
+        /// <summary>
+        /// &lt;p&gt;An identifier for the parameter that is created in the dataset.&lt;/p&gt;
+        /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// &lt;p&gt;The name of the date time parameter that is created in the dataset.&lt;/p&gt;
+        /// </summary>
         public readonly string Name;
         public readonly Pulumi.AwsNative.QuickSight.DataSetTimeGranularity? TimeGranularity;
         public readonly Pulumi.AwsNative.QuickSight.DataSetDatasetParameterValueType ValueType;

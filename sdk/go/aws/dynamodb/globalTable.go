@@ -29,6 +29,7 @@ type GlobalTable struct {
 	TableId                            pulumi.StringOutput                                    `pulumi:"tableId"`
 	TableName                          pulumi.StringPtrOutput                                 `pulumi:"tableName"`
 	TimeToLiveSpecification            GlobalTableTimeToLiveSpecificationPtrOutput            `pulumi:"timeToLiveSpecification"`
+	WriteOnDemandThroughputSettings    GlobalTableWriteOnDemandThroughputSettingsPtrOutput    `pulumi:"writeOnDemandThroughputSettings"`
 	WriteProvisionedThroughputSettings GlobalTableWriteProvisionedThroughputSettingsPtrOutput `pulumi:"writeProvisionedThroughputSettings"`
 }
 
@@ -97,6 +98,7 @@ type globalTableArgs struct {
 	StreamSpecification                *GlobalTableStreamSpecification                `pulumi:"streamSpecification"`
 	TableName                          *string                                        `pulumi:"tableName"`
 	TimeToLiveSpecification            *GlobalTableTimeToLiveSpecification            `pulumi:"timeToLiveSpecification"`
+	WriteOnDemandThroughputSettings    *GlobalTableWriteOnDemandThroughputSettings    `pulumi:"writeOnDemandThroughputSettings"`
 	WriteProvisionedThroughputSettings *GlobalTableWriteProvisionedThroughputSettings `pulumi:"writeProvisionedThroughputSettings"`
 }
 
@@ -112,6 +114,7 @@ type GlobalTableArgs struct {
 	StreamSpecification                GlobalTableStreamSpecificationPtrInput
 	TableName                          pulumi.StringPtrInput
 	TimeToLiveSpecification            GlobalTableTimeToLiveSpecificationPtrInput
+	WriteOnDemandThroughputSettings    GlobalTableWriteOnDemandThroughputSettingsPtrInput
 	WriteProvisionedThroughputSettings GlobalTableWriteProvisionedThroughputSettingsPtrInput
 }
 
@@ -202,6 +205,12 @@ func (o GlobalTableOutput) TableName() pulumi.StringPtrOutput {
 
 func (o GlobalTableOutput) TimeToLiveSpecification() GlobalTableTimeToLiveSpecificationPtrOutput {
 	return o.ApplyT(func(v *GlobalTable) GlobalTableTimeToLiveSpecificationPtrOutput { return v.TimeToLiveSpecification }).(GlobalTableTimeToLiveSpecificationPtrOutput)
+}
+
+func (o GlobalTableOutput) WriteOnDemandThroughputSettings() GlobalTableWriteOnDemandThroughputSettingsPtrOutput {
+	return o.ApplyT(func(v *GlobalTable) GlobalTableWriteOnDemandThroughputSettingsPtrOutput {
+		return v.WriteOnDemandThroughputSettings
+	}).(GlobalTableWriteOnDemandThroughputSettingsPtrOutput)
 }
 
 func (o GlobalTableOutput) WriteProvisionedThroughputSettings() GlobalTableWriteProvisionedThroughputSettingsPtrOutput {

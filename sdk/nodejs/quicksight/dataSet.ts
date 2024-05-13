@@ -43,9 +43,14 @@ export class DataSet extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly awsAccountId!: pulumi.Output<string | undefined>;
     /**
-     * <p>Groupings of columns that work together in certain QuickSight features. Currently, only geospatial hierarchy is supported.</p>
+     * <p>Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported.</p>
      */
     public readonly columnGroups!: pulumi.Output<outputs.quicksight.DataSetColumnGroup[] | undefined>;
+    /**
+     * <p>A set of one or more definitions of a <code>
+     *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html">ColumnLevelPermissionRule</a>
+     *             </code>.</p>
+     */
     public readonly columnLevelPermissionRules!: pulumi.Output<outputs.quicksight.DataSetColumnLevelPermissionRule[] | undefined>;
     /**
      * <p>The amount of SPICE capacity used by this dataset. This is 0 if the dataset isn't
@@ -60,7 +65,7 @@ export class DataSet extends pulumi.CustomResource {
     public readonly dataSetRefreshProperties!: pulumi.Output<outputs.quicksight.DataSetRefreshProperties | undefined>;
     public readonly dataSetUsageConfiguration!: pulumi.Output<outputs.quicksight.DataSetUsageConfiguration | undefined>;
     /**
-     * <p>The parameters declared in the dataset.</p>
+     * <p>The parameter declarations of the dataset.</p>
      */
     public readonly datasetParameters!: pulumi.Output<outputs.quicksight.DataSetDatasetParameter[] | undefined>;
     public readonly fieldFolders!: pulumi.Output<{[key: string]: outputs.quicksight.DataSetFieldFolder} | undefined>;
@@ -162,15 +167,20 @@ export class DataSet extends pulumi.CustomResource {
 export interface DataSetArgs {
     awsAccountId?: pulumi.Input<string>;
     /**
-     * <p>Groupings of columns that work together in certain QuickSight features. Currently, only geospatial hierarchy is supported.</p>
+     * <p>Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported.</p>
      */
     columnGroups?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetColumnGroupArgs>[]>;
+    /**
+     * <p>A set of one or more definitions of a <code>
+     *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html">ColumnLevelPermissionRule</a>
+     *             </code>.</p>
+     */
     columnLevelPermissionRules?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetColumnLevelPermissionRuleArgs>[]>;
     dataSetId?: pulumi.Input<string>;
     dataSetRefreshProperties?: pulumi.Input<inputs.quicksight.DataSetRefreshPropertiesArgs>;
     dataSetUsageConfiguration?: pulumi.Input<inputs.quicksight.DataSetUsageConfigurationArgs>;
     /**
-     * <p>The parameters declared in the dataset.</p>
+     * <p>The parameter declarations of the dataset.</p>
      */
     datasetParameters?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetDatasetParameterArgs>[]>;
     fieldFolders?: pulumi.Input<{[key: string]: pulumi.Input<inputs.quicksight.DataSetFieldFolderArgs>}>;

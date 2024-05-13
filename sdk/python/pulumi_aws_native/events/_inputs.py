@@ -18,6 +18,7 @@ __all__ = [
     'ConnectionHttpParametersArgs',
     'ConnectionOAuthParametersArgs',
     'ConnectionParameterArgs',
+    'DeadLetterConfigPropertiesArgs',
     'EndpointEventBusArgs',
     'EndpointFailoverConfigArgs',
     'EndpointPrimaryArgs',
@@ -311,6 +312,26 @@ class ConnectionParameterArgs:
     @is_value_secret.setter
     def is_value_secret(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "is_value_secret", value)
+
+
+@pulumi.input_type
+class DeadLetterConfigPropertiesArgs:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None):
+        """
+        Dead Letter Queue for the event bus.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
 
 
 @pulumi.input_type

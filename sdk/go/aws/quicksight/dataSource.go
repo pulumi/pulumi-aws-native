@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -36,16 +37,13 @@ type DataSource struct {
 	DataSourceParameters DataSourceParametersPtrOutput  `pulumi:"dataSourceParameters"`
 	ErrorInfo            DataSourceErrorInfoPtrOutput   `pulumi:"errorInfo"`
 	// <p>The last time that this data source was updated.</p>
-	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
-	// <p>A display name for the data source.</p>
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// <p>A list of resource permissions on the data source.</p>
-	Permissions   DataSourceResourcePermissionArrayOutput `pulumi:"permissions"`
-	SslProperties DataSourceSslPropertiesPtrOutput        `pulumi:"sslProperties"`
-	Status        DataSourceResourceStatusOutput          `pulumi:"status"`
-	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.</p>
+	LastUpdatedTime         pulumi.StringOutput                        `pulumi:"lastUpdatedTime"`
+	Name                    pulumi.StringOutput                        `pulumi:"name"`
+	Permissions             DataSourceResourcePermissionArrayOutput    `pulumi:"permissions"`
+	SslProperties           DataSourceSslPropertiesPtrOutput           `pulumi:"sslProperties"`
+	Status                  DataSourceResourceStatusOutput             `pulumi:"status"`
 	Tags                    aws.TagArrayOutput                         `pulumi:"tags"`
-	Type                    DataSourceTypePtrOutput                    `pulumi:"type"`
+	Type                    DataSourceTypeOutput                       `pulumi:"type"`
 	VpcConnectionProperties DataSourceVpcConnectionPropertiesPtrOutput `pulumi:"vpcConnectionProperties"`
 }
 
@@ -53,9 +51,12 @@ type DataSource struct {
 func NewDataSource(ctx *pulumi.Context,
 	name string, args *DataSourceArgs, opts ...pulumi.ResourceOption) (*DataSource, error) {
 	if args == nil {
-		args = &DataSourceArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Type == nil {
+		return nil, errors.New("invalid value for required argument 'Type'")
+	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"awsAccountId",
 		"dataSourceId",
@@ -104,21 +105,18 @@ type dataSourceArgs struct {
 	//             existing data source. If the <code>AlternateDataSourceParameters</code> list is null,
 	//             the <code>Credentials</code> originally used with this <code>DataSourceParameters</code>
 	//             are automatically allowed.</p>
-	AlternateDataSourceParameters []DataSourceParameters `pulumi:"alternateDataSourceParameters"`
-	AwsAccountId                  *string                `pulumi:"awsAccountId"`
-	Credentials                   *DataSourceCredentials `pulumi:"credentials"`
-	DataSourceId                  *string                `pulumi:"dataSourceId"`
-	DataSourceParameters          *DataSourceParameters  `pulumi:"dataSourceParameters"`
-	ErrorInfo                     *DataSourceErrorInfo   `pulumi:"errorInfo"`
-	// <p>A display name for the data source.</p>
-	Name *string `pulumi:"name"`
-	// <p>A list of resource permissions on the data source.</p>
-	Permissions   []DataSourceResourcePermission `pulumi:"permissions"`
-	SslProperties *DataSourceSslProperties       `pulumi:"sslProperties"`
-	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.</p>
-	Tags                    []aws.Tag                          `pulumi:"tags"`
-	Type                    *DataSourceType                    `pulumi:"type"`
-	VpcConnectionProperties *DataSourceVpcConnectionProperties `pulumi:"vpcConnectionProperties"`
+	AlternateDataSourceParameters []DataSourceParameters             `pulumi:"alternateDataSourceParameters"`
+	AwsAccountId                  *string                            `pulumi:"awsAccountId"`
+	Credentials                   *DataSourceCredentials             `pulumi:"credentials"`
+	DataSourceId                  *string                            `pulumi:"dataSourceId"`
+	DataSourceParameters          *DataSourceParameters              `pulumi:"dataSourceParameters"`
+	ErrorInfo                     *DataSourceErrorInfo               `pulumi:"errorInfo"`
+	Name                          *string                            `pulumi:"name"`
+	Permissions                   []DataSourceResourcePermission     `pulumi:"permissions"`
+	SslProperties                 *DataSourceSslProperties           `pulumi:"sslProperties"`
+	Tags                          []aws.Tag                          `pulumi:"tags"`
+	Type                          DataSourceType                     `pulumi:"type"`
+	VpcConnectionProperties       *DataSourceVpcConnectionProperties `pulumi:"vpcConnectionProperties"`
 }
 
 // The set of arguments for constructing a DataSource resource.
@@ -138,15 +136,12 @@ type DataSourceArgs struct {
 	DataSourceId                  pulumi.StringPtrInput
 	DataSourceParameters          DataSourceParametersPtrInput
 	ErrorInfo                     DataSourceErrorInfoPtrInput
-	// <p>A display name for the data source.</p>
-	Name pulumi.StringPtrInput
-	// <p>A list of resource permissions on the data source.</p>
-	Permissions   DataSourceResourcePermissionArrayInput
-	SslProperties DataSourceSslPropertiesPtrInput
-	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.</p>
-	Tags                    aws.TagArrayInput
-	Type                    DataSourceTypePtrInput
-	VpcConnectionProperties DataSourceVpcConnectionPropertiesPtrInput
+	Name                          pulumi.StringPtrInput
+	Permissions                   DataSourceResourcePermissionArrayInput
+	SslProperties                 DataSourceSslPropertiesPtrInput
+	Tags                          aws.TagArrayInput
+	Type                          DataSourceTypeInput
+	VpcConnectionProperties       DataSourceVpcConnectionPropertiesPtrInput
 }
 
 func (DataSourceArgs) ElementType() reflect.Type {
@@ -235,12 +230,10 @@ func (o DataSourceOutput) LastUpdatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.LastUpdatedTime }).(pulumi.StringOutput)
 }
 
-// <p>A display name for the data source.</p>
-func (o DataSourceOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataSource) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+func (o DataSourceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// <p>A list of resource permissions on the data source.</p>
 func (o DataSourceOutput) Permissions() DataSourceResourcePermissionArrayOutput {
 	return o.ApplyT(func(v *DataSource) DataSourceResourcePermissionArrayOutput { return v.Permissions }).(DataSourceResourcePermissionArrayOutput)
 }
@@ -253,13 +246,12 @@ func (o DataSourceOutput) Status() DataSourceResourceStatusOutput {
 	return o.ApplyT(func(v *DataSource) DataSourceResourceStatusOutput { return v.Status }).(DataSourceResourceStatusOutput)
 }
 
-// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.</p>
 func (o DataSourceOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *DataSource) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
-func (o DataSourceOutput) Type() DataSourceTypePtrOutput {
-	return o.ApplyT(func(v *DataSource) DataSourceTypePtrOutput { return v.Type }).(DataSourceTypePtrOutput)
+func (o DataSourceOutput) Type() DataSourceTypeOutput {
+	return o.ApplyT(func(v *DataSource) DataSourceTypeOutput { return v.Type }).(DataSourceTypeOutput)
 }
 
 func (o DataSourceOutput) VpcConnectionProperties() DataSourceVpcConnectionPropertiesPtrOutput {

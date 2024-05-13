@@ -47,6 +47,7 @@ namespace Pulumi.AwsNative.VpcLattice
 
         public static ListenerProtocol Http { get; } = new ListenerProtocol("HTTP");
         public static ListenerProtocol Https { get; } = new ListenerProtocol("HTTPS");
+        public static ListenerProtocol TlsPassthrough { get; } = new ListenerProtocol("TLS_PASSTHROUGH");
 
         public static bool operator ==(ListenerProtocol left, ListenerProtocol right) => left.Equals(right);
         public static bool operator !=(ListenerProtocol left, ListenerProtocol right) => !left.Equals(right);
@@ -315,6 +316,7 @@ namespace Pulumi.AwsNative.VpcLattice
 
         public static TargetGroupConfigProtocol Http { get; } = new TargetGroupConfigProtocol("HTTP");
         public static TargetGroupConfigProtocol Https { get; } = new TargetGroupConfigProtocol("HTTPS");
+        public static TargetGroupConfigProtocol Tcp { get; } = new TargetGroupConfigProtocol("TCP");
 
         public static bool operator ==(TargetGroupConfigProtocol left, TargetGroupConfigProtocol right) => left.Equals(right);
         public static bool operator !=(TargetGroupConfigProtocol left, TargetGroupConfigProtocol right) => !left.Equals(right);

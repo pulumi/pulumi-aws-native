@@ -61,6 +61,7 @@ namespace Pulumi.AwsNative.DynamoDb
         public readonly Outputs.GlobalTableStreamSpecification? StreamSpecification;
         public readonly string? TableId;
         public readonly Outputs.GlobalTableTimeToLiveSpecification? TimeToLiveSpecification;
+        public readonly Outputs.GlobalTableWriteOnDemandThroughputSettings? WriteOnDemandThroughputSettings;
         public readonly Outputs.GlobalTableWriteProvisionedThroughputSettings? WriteProvisionedThroughputSettings;
 
         [OutputConstructor]
@@ -85,6 +86,8 @@ namespace Pulumi.AwsNative.DynamoDb
 
             Outputs.GlobalTableTimeToLiveSpecification? timeToLiveSpecification,
 
+            Outputs.GlobalTableWriteOnDemandThroughputSettings? writeOnDemandThroughputSettings,
+
             Outputs.GlobalTableWriteProvisionedThroughputSettings? writeProvisionedThroughputSettings)
         {
             Arn = arn;
@@ -97,6 +100,7 @@ namespace Pulumi.AwsNative.DynamoDb
             StreamSpecification = streamSpecification;
             TableId = tableId;
             TimeToLiveSpecification = timeToLiveSpecification;
+            WriteOnDemandThroughputSettings = writeOnDemandThroughputSettings;
             WriteProvisionedThroughputSettings = writeProvisionedThroughputSettings;
         }
     }

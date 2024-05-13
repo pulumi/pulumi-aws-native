@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
     /// <summary>
-    /// &lt;p&gt;MySQL parameters.&lt;/p&gt;
+    /// &lt;p&gt;The parameters for MySQL.&lt;/p&gt;
     /// </summary>
     [OutputType]
     public sealed class DataSourceMySqlParameters

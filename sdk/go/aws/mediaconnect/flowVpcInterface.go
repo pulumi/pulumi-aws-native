@@ -22,7 +22,7 @@ type FlowVpcInterface struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// IDs of the network interfaces created in customer's account by MediaConnect.
 	NetworkInterfaceIds pulumi.StringArrayOutput `pulumi:"networkInterfaceIds"`
-	// Role Arn MediaConnect can assumes to create ENIs in customer's account.
+	// Role Arn MediaConnect can assume to create ENIs in customer's account.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// Security Group IDs to be used on ENI.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
@@ -91,7 +91,7 @@ type flowVpcInterfaceArgs struct {
 	FlowArn string `pulumi:"flowArn"`
 	// Immutable and has to be a unique against other VpcInterfaces in this Flow.
 	Name *string `pulumi:"name"`
-	// Role Arn MediaConnect can assumes to create ENIs in customer's account.
+	// Role Arn MediaConnect can assume to create ENIs in customer's account.
 	RoleArn string `pulumi:"roleArn"`
 	// Security Group IDs to be used on ENI.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
@@ -105,7 +105,7 @@ type FlowVpcInterfaceArgs struct {
 	FlowArn pulumi.StringInput
 	// Immutable and has to be a unique against other VpcInterfaces in this Flow.
 	Name pulumi.StringPtrInput
-	// Role Arn MediaConnect can assumes to create ENIs in customer's account.
+	// Role Arn MediaConnect can assume to create ENIs in customer's account.
 	RoleArn pulumi.StringInput
 	// Security Group IDs to be used on ENI.
 	SecurityGroupIds pulumi.StringArrayInput
@@ -165,7 +165,7 @@ func (o FlowVpcInterfaceOutput) NetworkInterfaceIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FlowVpcInterface) pulumi.StringArrayOutput { return v.NetworkInterfaceIds }).(pulumi.StringArrayOutput)
 }
 
-// Role Arn MediaConnect can assumes to create ENIs in customer's account.
+// Role Arn MediaConnect can assume to create ENIs in customer's account.
 func (o FlowVpcInterfaceOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlowVpcInterface) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }

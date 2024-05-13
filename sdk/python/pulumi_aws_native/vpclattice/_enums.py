@@ -32,6 +32,7 @@ class AuthPolicyState(str, Enum):
 class ListenerProtocol(str, Enum):
     HTTP = "HTTP"
     HTTPS = "HTTPS"
+    TLS_PASSTHROUGH = "TLS_PASSTHROUGH"
 
 
 class RuleHttpMatchMethod(str, Enum):
@@ -93,6 +94,7 @@ class TargetGroupConfigLambdaEventStructureVersion(str, Enum):
 class TargetGroupConfigProtocol(str, Enum):
     HTTP = "HTTP"
     HTTPS = "HTTPS"
+    TCP = "TCP"
 
 
 class TargetGroupConfigProtocolVersion(str, Enum):

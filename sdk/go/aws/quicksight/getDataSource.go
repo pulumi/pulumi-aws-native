@@ -46,14 +46,11 @@ type LookupDataSourceResult struct {
 	DataSourceParameters *DataSourceParameters `pulumi:"dataSourceParameters"`
 	ErrorInfo            *DataSourceErrorInfo  `pulumi:"errorInfo"`
 	// <p>The last time that this data source was updated.</p>
-	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
-	// <p>A display name for the data source.</p>
-	Name *string `pulumi:"name"`
-	// <p>A list of resource permissions on the data source.</p>
-	Permissions   []DataSourceResourcePermission `pulumi:"permissions"`
-	SslProperties *DataSourceSslProperties       `pulumi:"sslProperties"`
-	Status        *DataSourceResourceStatus      `pulumi:"status"`
-	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.</p>
+	LastUpdatedTime         *string                            `pulumi:"lastUpdatedTime"`
+	Name                    *string                            `pulumi:"name"`
+	Permissions             []DataSourceResourcePermission     `pulumi:"permissions"`
+	SslProperties           *DataSourceSslProperties           `pulumi:"sslProperties"`
+	Status                  *DataSourceResourceStatus          `pulumi:"status"`
 	Tags                    []aws.Tag                          `pulumi:"tags"`
 	VpcConnectionProperties *DataSourceVpcConnectionProperties `pulumi:"vpcConnectionProperties"`
 }
@@ -131,12 +128,10 @@ func (o LookupDataSourceResultOutput) LastUpdatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDataSourceResult) *string { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
 }
 
-// <p>A display name for the data source.</p>
 func (o LookupDataSourceResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDataSourceResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// <p>A list of resource permissions on the data source.</p>
 func (o LookupDataSourceResultOutput) Permissions() DataSourceResourcePermissionArrayOutput {
 	return o.ApplyT(func(v LookupDataSourceResult) []DataSourceResourcePermission { return v.Permissions }).(DataSourceResourcePermissionArrayOutput)
 }
@@ -149,7 +144,6 @@ func (o LookupDataSourceResultOutput) Status() DataSourceResourceStatusPtrOutput
 	return o.ApplyT(func(v LookupDataSourceResult) *DataSourceResourceStatus { return v.Status }).(DataSourceResourceStatusPtrOutput)
 }
 
-// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.</p>
 func (o LookupDataSourceResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupDataSourceResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

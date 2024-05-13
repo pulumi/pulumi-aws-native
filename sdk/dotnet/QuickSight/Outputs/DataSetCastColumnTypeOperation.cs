@@ -26,7 +26,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly string? Format;
         public readonly Pulumi.AwsNative.QuickSight.DataSetColumnDataType NewColumnType;
-        public readonly Pulumi.AwsNative.QuickSight.DataSetColumnSubDataType? SubType;
+        public readonly Pulumi.AwsNative.QuickSight.DataSetColumnDataSubType? SubType;
 
         [OutputConstructor]
         private DataSetCastColumnTypeOperation(
@@ -36,7 +36,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Pulumi.AwsNative.QuickSight.DataSetColumnDataType newColumnType,
 
-            Pulumi.AwsNative.QuickSight.DataSetColumnSubDataType? subType)
+            Pulumi.AwsNative.QuickSight.DataSetColumnDataSubType? subType)
         {
             ColumnName = columnName;
             Format = format;

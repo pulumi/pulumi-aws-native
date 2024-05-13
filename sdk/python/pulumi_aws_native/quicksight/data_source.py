@@ -19,6 +19,7 @@ __all__ = ['DataSourceArgs', 'DataSource']
 @pulumi.input_type
 class DataSourceArgs:
     def __init__(__self__, *,
+                 type: pulumi.Input['DataSourceType'],
                  alternate_data_source_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceParametersArgs']]]] = None,
                  aws_account_id: Optional[pulumi.Input[str]] = None,
                  credentials: Optional[pulumi.Input['DataSourceCredentialsArgs']] = None,
@@ -29,7 +30,6 @@ class DataSourceArgs:
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceResourcePermissionArgs']]]] = None,
                  ssl_properties: Optional[pulumi.Input['DataSourceSslPropertiesArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 type: Optional[pulumi.Input['DataSourceType']] = None,
                  vpc_connection_properties: Optional[pulumi.Input['DataSourceVpcConnectionPropertiesArgs']] = None):
         """
         The set of arguments for constructing a DataSource resource.
@@ -42,10 +42,8 @@ class DataSourceArgs:
                            existing data source. If the <code>AlternateDataSourceParameters</code> list is null,
                            the <code>Credentials</code> originally used with this <code>DataSourceParameters</code>
                            are automatically allowed.</p>
-        :param pulumi.Input[str] name: <p>A display name for the data source.</p>
-        :param pulumi.Input[Sequence[pulumi.Input['DataSourceResourcePermissionArgs']]] permissions: <p>A list of resource permissions on the data source.</p>
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.</p>
         """
+        pulumi.set(__self__, "type", type)
         if alternate_data_source_parameters is not None:
             pulumi.set(__self__, "alternate_data_source_parameters", alternate_data_source_parameters)
         if aws_account_id is not None:
@@ -66,10 +64,17 @@ class DataSourceArgs:
             pulumi.set(__self__, "ssl_properties", ssl_properties)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
         if vpc_connection_properties is not None:
             pulumi.set(__self__, "vpc_connection_properties", vpc_connection_properties)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['DataSourceType']:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['DataSourceType']):
+        pulumi.set(self, "type", value)
 
     @property
     @pulumi.getter(name="alternateDataSourceParameters")
@@ -139,9 +144,6 @@ class DataSourceArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        <p>A display name for the data source.</p>
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -151,9 +153,6 @@ class DataSourceArgs:
     @property
     @pulumi.getter
     def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceResourcePermissionArgs']]]]:
-        """
-        <p>A list of resource permissions on the data source.</p>
-        """
         return pulumi.get(self, "permissions")
 
     @permissions.setter
@@ -172,23 +171,11 @@ class DataSourceArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
-        """
-        <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.</p>
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['DataSourceType']]:
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input['DataSourceType']]):
-        pulumi.set(self, "type", value)
 
     @property
     @pulumi.getter(name="vpcConnectionProperties")
@@ -232,15 +219,12 @@ class DataSource(pulumi.CustomResource):
                            existing data source. If the <code>AlternateDataSourceParameters</code> list is null,
                            the <code>Credentials</code> originally used with this <code>DataSourceParameters</code>
                            are automatically allowed.</p>
-        :param pulumi.Input[str] name: <p>A display name for the data source.</p>
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSourceResourcePermissionArgs']]]] permissions: <p>A list of resource permissions on the data source.</p>
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.</p>
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[DataSourceArgs] = None,
+                 args: DataSourceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of the AWS::QuickSight::DataSource Resource Type.
@@ -291,6 +275,8 @@ class DataSource(pulumi.CustomResource):
             __props__.__dict__["permissions"] = permissions
             __props__.__dict__["ssl_properties"] = ssl_properties
             __props__.__dict__["tags"] = tags
+            if type is None and not opts.urn:
+                raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
             __props__.__dict__["vpc_connection_properties"] = vpc_connection_properties
             __props__.__dict__["arn"] = None
@@ -406,18 +392,12 @@ class DataSource(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Output[Optional[str]]:
-        """
-        <p>A display name for the data source.</p>
-        """
+    def name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def permissions(self) -> pulumi.Output[Optional[Sequence['outputs.DataSourceResourcePermission']]]:
-        """
-        <p>A list of resource permissions on the data source.</p>
-        """
         return pulumi.get(self, "permissions")
 
     @property
@@ -433,14 +413,11 @@ class DataSource(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
-        """
-        <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.</p>
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Output[Optional['DataSourceType']]:
+    def type(self) -> pulumi.Output['DataSourceType']:
         return pulumi.get(self, "type")
 
     @property

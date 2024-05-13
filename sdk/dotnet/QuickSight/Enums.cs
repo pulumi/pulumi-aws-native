@@ -6780,6 +6780,34 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
+    public readonly struct DataSetColumnDataSubType : IEquatable<DataSetColumnDataSubType>
+    {
+        private readonly string _value;
+
+        private DataSetColumnDataSubType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataSetColumnDataSubType Float { get; } = new DataSetColumnDataSubType("FLOAT");
+        public static DataSetColumnDataSubType Fixed { get; } = new DataSetColumnDataSubType("FIXED");
+
+        public static bool operator ==(DataSetColumnDataSubType left, DataSetColumnDataSubType right) => left.Equals(right);
+        public static bool operator !=(DataSetColumnDataSubType left, DataSetColumnDataSubType right) => !left.Equals(right);
+
+        public static explicit operator string(DataSetColumnDataSubType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataSetColumnDataSubType other && Equals(other);
+        public bool Equals(DataSetColumnDataSubType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct DataSetColumnDataType : IEquatable<DataSetColumnDataType>
     {
         private readonly string _value;
@@ -6810,26 +6838,26 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
-    public readonly struct DataSetColumnSubDataType : IEquatable<DataSetColumnSubDataType>
+    public readonly struct DataSetColumnTagName : IEquatable<DataSetColumnTagName>
     {
         private readonly string _value;
 
-        private DataSetColumnSubDataType(string value)
+        private DataSetColumnTagName(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static DataSetColumnSubDataType Fixed { get; } = new DataSetColumnSubDataType("FIXED");
-        public static DataSetColumnSubDataType Float { get; } = new DataSetColumnSubDataType("FLOAT");
+        public static DataSetColumnTagName ColumnGeographicRole { get; } = new DataSetColumnTagName("COLUMN_GEOGRAPHIC_ROLE");
+        public static DataSetColumnTagName ColumnDescription { get; } = new DataSetColumnTagName("COLUMN_DESCRIPTION");
 
-        public static bool operator ==(DataSetColumnSubDataType left, DataSetColumnSubDataType right) => left.Equals(right);
-        public static bool operator !=(DataSetColumnSubDataType left, DataSetColumnSubDataType right) => !left.Equals(right);
+        public static bool operator ==(DataSetColumnTagName left, DataSetColumnTagName right) => left.Equals(right);
+        public static bool operator !=(DataSetColumnTagName left, DataSetColumnTagName right) => !left.Equals(right);
 
-        public static explicit operator string(DataSetColumnSubDataType value) => value._value;
+        public static explicit operator string(DataSetColumnTagName value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DataSetColumnSubDataType other && Equals(other);
-        public bool Equals(DataSetColumnSubDataType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is DataSetColumnTagName other && Equals(other);
+        public bool Equals(DataSetColumnTagName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -6837,9 +6865,6 @@ namespace Pulumi.AwsNative.QuickSight
         public override string ToString() => _value;
     }
 
-    /// <summary>
-    /// &lt;p&gt;Every parameter value could be either a single value or multi value which helps to validate before evaluation.&lt;/p&gt;
-    /// </summary>
     [EnumType]
     public readonly struct DataSetDatasetParameterValueType : IEquatable<DataSetDatasetParameterValueType>
     {
@@ -6945,6 +6970,9 @@ namespace Pulumi.AwsNative.QuickSight
         public static DataSetGeoSpatialDataRole Longitude { get; } = new DataSetGeoSpatialDataRole("LONGITUDE");
         public static DataSetGeoSpatialDataRole Latitude { get; } = new DataSetGeoSpatialDataRole("LATITUDE");
         public static DataSetGeoSpatialDataRole Political1 { get; } = new DataSetGeoSpatialDataRole("POLITICAL1");
+        public static DataSetGeoSpatialDataRole CensusTract { get; } = new DataSetGeoSpatialDataRole("CENSUS_TRACT");
+        public static DataSetGeoSpatialDataRole CensusBlockGroup { get; } = new DataSetGeoSpatialDataRole("CENSUS_BLOCK_GROUP");
+        public static DataSetGeoSpatialDataRole CensusBlock { get; } = new DataSetGeoSpatialDataRole("CENSUS_BLOCK");
 
         public static bool operator ==(DataSetGeoSpatialDataRole left, DataSetGeoSpatialDataRole right) => left.Equals(right);
         public static bool operator !=(DataSetGeoSpatialDataRole left, DataSetGeoSpatialDataRole right) => !left.Equals(right);
@@ -7053,6 +7081,35 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
+    public readonly struct DataSetLookbackWindowSizeUnit : IEquatable<DataSetLookbackWindowSizeUnit>
+    {
+        private readonly string _value;
+
+        private DataSetLookbackWindowSizeUnit(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataSetLookbackWindowSizeUnit Hour { get; } = new DataSetLookbackWindowSizeUnit("HOUR");
+        public static DataSetLookbackWindowSizeUnit Day { get; } = new DataSetLookbackWindowSizeUnit("DAY");
+        public static DataSetLookbackWindowSizeUnit Week { get; } = new DataSetLookbackWindowSizeUnit("WEEK");
+
+        public static bool operator ==(DataSetLookbackWindowSizeUnit left, DataSetLookbackWindowSizeUnit right) => left.Equals(right);
+        public static bool operator !=(DataSetLookbackWindowSizeUnit left, DataSetLookbackWindowSizeUnit right) => !left.Equals(right);
+
+        public static explicit operator string(DataSetLookbackWindowSizeUnit value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataSetLookbackWindowSizeUnit other && Equals(other);
+        public bool Equals(DataSetLookbackWindowSizeUnit other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct DataSetRowLevelPermissionFormatVersion : IEquatable<DataSetRowLevelPermissionFormatVersion>
     {
         private readonly string _value;
@@ -7101,35 +7158,6 @@ namespace Pulumi.AwsNative.QuickSight
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DataSetRowLevelPermissionPolicy other && Equals(other);
         public bool Equals(DataSetRowLevelPermissionPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    [EnumType]
-    public readonly struct DataSetSizeUnit : IEquatable<DataSetSizeUnit>
-    {
-        private readonly string _value;
-
-        private DataSetSizeUnit(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static DataSetSizeUnit Hour { get; } = new DataSetSizeUnit("HOUR");
-        public static DataSetSizeUnit Day { get; } = new DataSetSizeUnit("DAY");
-        public static DataSetSizeUnit Week { get; } = new DataSetSizeUnit("WEEK");
-
-        public static bool operator ==(DataSetSizeUnit left, DataSetSizeUnit right) => left.Equals(right);
-        public static bool operator !=(DataSetSizeUnit left, DataSetSizeUnit right) => !left.Equals(right);
-
-        public static explicit operator string(DataSetSizeUnit value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DataSetSizeUnit other && Equals(other);
-        public bool Equals(DataSetSizeUnit other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -7341,6 +7369,13 @@ namespace Pulumi.AwsNative.QuickSight
         public static DataSourceType AuroraPostgresql { get; } = new DataSourceType("AURORA_POSTGRESQL");
         public static DataSourceType AwsIotAnalytics { get; } = new DataSourceType("AWS_IOT_ANALYTICS");
         public static DataSourceType Databricks { get; } = new DataSourceType("DATABRICKS");
+        public static DataSourceType Denodo { get; } = new DataSourceType("DENODO");
+        public static DataSourceType Dremio { get; } = new DataSourceType("DREMIO");
+        public static DataSourceType Dynamodb { get; } = new DataSourceType("DYNAMODB");
+        public static DataSourceType Saphana { get; } = new DataSourceType("SAPHANA");
+        public static DataSourceType Db2as400 { get; } = new DataSourceType("DB2_AS400");
+        public static DataSourceType Exasol { get; } = new DataSourceType("EXASOL");
+        public static DataSourceType File { get; } = new DataSourceType("FILE");
         public static DataSourceType Github { get; } = new DataSourceType("GITHUB");
         public static DataSourceType Jira { get; } = new DataSourceType("JIRA");
         public static DataSourceType Mariadb { get; } = new DataSourceType("MARIADB");
@@ -7356,10 +7391,16 @@ namespace Pulumi.AwsNative.QuickSight
         public static DataSourceType Spark { get; } = new DataSourceType("SPARK");
         public static DataSourceType Sqlserver { get; } = new DataSourceType("SQLSERVER");
         public static DataSourceType Teradata { get; } = new DataSourceType("TERADATA");
-        public static DataSourceType Twitter { get; } = new DataSourceType("TWITTER");
         public static DataSourceType Timestream { get; } = new DataSourceType("TIMESTREAM");
-        public static DataSourceType Starburst { get; } = new DataSourceType("STARBURST");
+        public static DataSourceType Twitter { get; } = new DataSourceType("TWITTER");
+        public static DataSourceType Bigquery { get; } = new DataSourceType("BIGQUERY");
+        public static DataSourceType GoogleAnalytics { get; } = new DataSourceType("GOOGLE_ANALYTICS");
         public static DataSourceType Trino { get; } = new DataSourceType("TRINO");
+        public static DataSourceType Starburst { get; } = new DataSourceType("STARBURST");
+        public static DataSourceType Mongo { get; } = new DataSourceType("MONGO");
+        public static DataSourceType MongoAtlas { get; } = new DataSourceType("MONGO_ATLAS");
+        public static DataSourceType Documentdb { get; } = new DataSourceType("DOCUMENTDB");
+        public static DataSourceType Appflow { get; } = new DataSourceType("APPFLOW");
 
         public static bool operator ==(DataSourceType left, DataSourceType right) => left.Equals(right);
         public static bool operator !=(DataSourceType left, DataSourceType right) => !left.Equals(right);

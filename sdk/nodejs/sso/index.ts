@@ -5,10 +5,30 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { ApplicationArgs } from "./application";
+export type Application = import("./application").Application;
+export const Application: typeof import("./application").Application = null as any;
+utilities.lazyLoad(exports, ["Application"], () => require("./application"));
+
+export { ApplicationAssignmentArgs } from "./applicationAssignment";
+export type ApplicationAssignment = import("./applicationAssignment").ApplicationAssignment;
+export const ApplicationAssignment: typeof import("./applicationAssignment").ApplicationAssignment = null as any;
+utilities.lazyLoad(exports, ["ApplicationAssignment"], () => require("./applicationAssignment"));
+
 export { AssignmentArgs } from "./assignment";
 export type Assignment = import("./assignment").Assignment;
 export const Assignment: typeof import("./assignment").Assignment = null as any;
 utilities.lazyLoad(exports, ["Assignment"], () => require("./assignment"));
+
+export { GetApplicationArgs, GetApplicationResult, GetApplicationOutputArgs } from "./getApplication";
+export const getApplication: typeof import("./getApplication").getApplication = null as any;
+export const getApplicationOutput: typeof import("./getApplication").getApplicationOutput = null as any;
+utilities.lazyLoad(exports, ["getApplication","getApplicationOutput"], () => require("./getApplication"));
+
+export { GetInstanceArgs, GetInstanceResult, GetInstanceOutputArgs } from "./getInstance";
+export const getInstance: typeof import("./getInstance").getInstance = null as any;
+export const getInstanceOutput: typeof import("./getInstance").getInstanceOutput = null as any;
+utilities.lazyLoad(exports, ["getInstance","getInstanceOutput"], () => require("./getInstance"));
 
 export { GetInstanceAccessControlAttributeConfigurationArgs, GetInstanceAccessControlAttributeConfigurationResult, GetInstanceAccessControlAttributeConfigurationOutputArgs } from "./getInstanceAccessControlAttributeConfiguration";
 export const getInstanceAccessControlAttributeConfiguration: typeof import("./getInstanceAccessControlAttributeConfiguration").getInstanceAccessControlAttributeConfiguration = null as any;
@@ -19,6 +39,11 @@ export { GetPermissionSetArgs, GetPermissionSetResult, GetPermissionSetOutputArg
 export const getPermissionSet: typeof import("./getPermissionSet").getPermissionSet = null as any;
 export const getPermissionSetOutput: typeof import("./getPermissionSet").getPermissionSetOutput = null as any;
 utilities.lazyLoad(exports, ["getPermissionSet","getPermissionSetOutput"], () => require("./getPermissionSet"));
+
+export { InstanceArgs } from "./instance";
+export type Instance = import("./instance").Instance;
+export const Instance: typeof import("./instance").Instance = null as any;
+utilities.lazyLoad(exports, ["Instance"], () => require("./instance"));
 
 export { InstanceAccessControlAttributeConfigurationArgs } from "./instanceAccessControlAttributeConfiguration";
 export type InstanceAccessControlAttributeConfiguration = import("./instanceAccessControlAttributeConfiguration").InstanceAccessControlAttributeConfiguration;
@@ -38,8 +63,14 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:sso:Application":
+                return new Application(name, <any>undefined, { urn })
+            case "aws-native:sso:ApplicationAssignment":
+                return new ApplicationAssignment(name, <any>undefined, { urn })
             case "aws-native:sso:Assignment":
                 return new Assignment(name, <any>undefined, { urn })
+            case "aws-native:sso:Instance":
+                return new Instance(name, <any>undefined, { urn })
             case "aws-native:sso:InstanceAccessControlAttributeConfiguration":
                 return new InstanceAccessControlAttributeConfiguration(name, <any>undefined, { urn })
             case "aws-native:sso:PermissionSet":

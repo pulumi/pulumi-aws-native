@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     [OutputType]
     public sealed class AgentActionGroup
     {
-        public readonly Outputs.AgentActionGroupExecutor? ActionGroupExecutor;
+        public readonly Union<Outputs.AgentActionGroupExecutor0Properties, Outputs.AgentActionGroupExecutor1Properties>? ActionGroupExecutor;
         /// <summary>
         /// Name of the action group
         /// </summary>
@@ -27,6 +27,7 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// Description of action group
         /// </summary>
         public readonly string? Description;
+        public readonly Outputs.AgentFunctionSchema? FunctionSchema;
         public readonly Pulumi.AwsNative.Bedrock.AgentActionGroupSignature? ParentActionGroupSignature;
         /// <summary>
         /// Specifies whether to allow deleting action group while it is in use.
@@ -35,7 +36,7 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
 
         [OutputConstructor]
         private AgentActionGroup(
-            Outputs.AgentActionGroupExecutor? actionGroupExecutor,
+            Union<Outputs.AgentActionGroupExecutor0Properties, Outputs.AgentActionGroupExecutor1Properties>? actionGroupExecutor,
 
             string actionGroupName,
 
@@ -44,6 +45,8 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
             Union<Outputs.AgentApiSchema0Properties, Outputs.AgentApiSchema1Properties>? apiSchema,
 
             string? description,
+
+            Outputs.AgentFunctionSchema? functionSchema,
 
             Pulumi.AwsNative.Bedrock.AgentActionGroupSignature? parentActionGroupSignature,
 
@@ -54,6 +57,7 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
             ActionGroupState = actionGroupState;
             ApiSchema = apiSchema;
             Description = description;
+            FunctionSchema = functionSchema;
             ParentActionGroupSignature = parentActionGroupSignature;
             SkipResourceInUseCheckOnDelete = skipResourceInUseCheckOnDelete;
         }

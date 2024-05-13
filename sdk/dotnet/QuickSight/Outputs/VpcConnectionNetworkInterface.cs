@@ -10,13 +10,28 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;The structure that contains information about a network interface.&lt;/p&gt;
+    /// </summary>
     [OutputType]
     public sealed class VpcConnectionNetworkInterface
     {
+        /// <summary>
+        /// &lt;p&gt;The availability zone that the network interface resides in.&lt;/p&gt;
+        /// </summary>
         public readonly string? AvailabilityZone;
+        /// <summary>
+        /// &lt;p&gt;An error message.&lt;/p&gt;
+        /// </summary>
         public readonly string? ErrorMessage;
+        /// <summary>
+        /// &lt;p&gt;The network interface ID.&lt;/p&gt;
+        /// </summary>
         public readonly string? NetworkInterfaceId;
         public readonly Pulumi.AwsNative.QuickSight.VpcConnectionNetworkInterfaceStatus? Status;
+        /// <summary>
+        /// &lt;p&gt;The subnet ID associated with the network interface.&lt;/p&gt;
+        /// </summary>
         public readonly string? SubnetId;
 
         [OutputConstructor]

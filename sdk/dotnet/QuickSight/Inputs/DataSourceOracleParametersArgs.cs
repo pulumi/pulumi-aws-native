@@ -10,14 +10,26 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;The parameters for Oracle.&lt;/p&gt;
+    /// </summary>
     public sealed class DataSourceOracleParametersArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// &lt;p&gt;The database.&lt;/p&gt;
+        /// </summary>
         [Input("database", required: true)]
         public Input<string> Database { get; set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;An Oracle host.&lt;/p&gt;
+        /// </summary>
         [Input("host", required: true)]
         public Input<string> Host { get; set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;The port.&lt;/p&gt;
+        /// </summary>
         [Input("port", required: true)]
         public Input<double> Port { get; set; } = null!;
 

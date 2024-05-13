@@ -47,7 +47,7 @@ export class FlowVpcInterface extends pulumi.CustomResource {
      */
     public /*out*/ readonly networkInterfaceIds!: pulumi.Output<string[]>;
     /**
-     * Role Arn MediaConnect can assumes to create ENIs in customer's account.
+     * Role Arn MediaConnect can assume to create ENIs in customer's account.
      */
     public readonly roleArn!: pulumi.Output<string>;
     /**
@@ -116,7 +116,7 @@ export interface FlowVpcInterfaceArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Role Arn MediaConnect can assumes to create ENIs in customer's account.
+     * Role Arn MediaConnect can assume to create ENIs in customer's account.
      */
     roleArn: pulumi.Input<string>;
     /**

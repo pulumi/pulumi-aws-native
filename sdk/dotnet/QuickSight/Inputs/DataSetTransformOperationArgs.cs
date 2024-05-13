@@ -37,6 +37,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("tagColumnOperation")]
         public Input<Inputs.DataSetTagColumnOperationArgs>? TagColumnOperation { get; set; }
 
+        [Input("untagColumnOperation")]
+        public Input<Inputs.DataSetUntagColumnOperationArgs>? UntagColumnOperation { get; set; }
+
         public DataSetTransformOperationArgs()
         {
         }

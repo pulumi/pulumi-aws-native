@@ -58,6 +58,10 @@ namespace Pulumi.AwsNative.MediaConnect
     public sealed class GetFlowResult
     {
         /// <summary>
+        /// The IP address from which video will be sent to output destinations.
+        /// </summary>
+        public readonly string? EgressIp;
+        /// <summary>
         /// The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
         /// </summary>
         public readonly string? FlowArn;
@@ -66,6 +70,14 @@ namespace Pulumi.AwsNative.MediaConnect
         /// </summary>
         public readonly string? FlowAvailabilityZone;
         /// <summary>
+        /// The maintenance settings you want to use for the flow. 
+        /// </summary>
+        public readonly Outputs.FlowMaintenance? Maintenance;
+        /// <summary>
+        /// The media streams associated with the flow. You can associate any of these media streams with sources and outputs on the flow.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.FlowMediaStream> MediaStreams;
+        /// <summary>
         /// The source of the flow.
         /// </summary>
         public readonly Outputs.FlowSource? Source;
@@ -73,21 +85,37 @@ namespace Pulumi.AwsNative.MediaConnect
         /// The source failover config of the flow.
         /// </summary>
         public readonly Outputs.FlowFailoverConfig? SourceFailoverConfig;
+        /// <summary>
+        /// The VPC interfaces that you added to this flow.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.FlowVpcInterface> VpcInterfaces;
 
         [OutputConstructor]
         private GetFlowResult(
+            string? egressIp,
+
             string? flowArn,
 
             string? flowAvailabilityZone,
 
+            Outputs.FlowMaintenance? maintenance,
+
+            ImmutableArray<Outputs.FlowMediaStream> mediaStreams,
+
             Outputs.FlowSource? source,
 
-            Outputs.FlowFailoverConfig? sourceFailoverConfig)
+            Outputs.FlowFailoverConfig? sourceFailoverConfig,
+
+            ImmutableArray<Outputs.FlowVpcInterface> vpcInterfaces)
         {
+            EgressIp = egressIp;
             FlowArn = flowArn;
             FlowAvailabilityZone = flowAvailabilityZone;
+            Maintenance = maintenance;
+            MediaStreams = mediaStreams;
             Source = source;
             SourceFailoverConfig = sourceFailoverConfig;
+            VpcInterfaces = vpcInterfaces;
         }
     }
 }
