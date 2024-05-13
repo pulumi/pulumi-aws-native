@@ -98,7 +98,7 @@ jobs:
 
         git add .
 
-        git commit -m "Regenerating based on aws-cloudformation-user-guide @ ${{ steps.vars.outputs.commit-hash }}"
+        git commit -m "Regenerating based on aws-cloudformation-user-guide @ ${{ steps.vars.outputs.commit-hash }}" || echo "ignore commit failure, may be empty"
 
         git push origin generate-sdk/${{ github.run_id }}-${{ github.run_number }}
     - name: Create PR
