@@ -29,7 +29,7 @@ const globalCreateOnlyTagToken = "aws-native:index:CreateOnlyTag"
 
 // GatherPackage builds a package spec based on the provided CF JSON schemas.
 func GatherPackage(supportedResourceTypes []string, jsonSchemas []*jsschema.Schema,
-	genAll bool, semanticsDocument *metadata.SemanticsSpecDocument) (*pschema.PackageSpec, *metadata.CloudAPIMetadata, *Reports, error) {
+	genAll bool, semanticsDocument *metadata.SemanticsSpecDocument, docsSchema *Docs) (*pschema.PackageSpec, *metadata.CloudAPIMetadata, *Reports, error) {
 	globalTagType := pschema.ObjectTypeSpec{
 		Type:        "object",
 		Description: "A set of tags to apply to the resource.",
@@ -442,6 +442,8 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []*jsschema.Sche
 				isSupported:   isSupported,
 				semantics:     semanticsDocument,
 				reports:       reports,
+				docs:          docsSchema,
+				originalNames: map[string]string{},
 			}
 			err := ctx.gatherResourceType()
 			if err != nil {
@@ -455,6 +457,17 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []*jsschema.Sche
 			resourceCount++
 		}
 	}
+	missingCount := 0
+	for _, missing := range reports.MissingDocs {
+		for _, val := range missing {
+			if val == "0" {
+				continue
+			}
+			missingCount += 1
+		}
+	}
+	fmt.Printf("Number of docs augmented: %d\n", reports.DocsUpdated)
+	fmt.Printf("Number of docs missing: %d\n", missingCount)
 	fmt.Printf("Number of resource types: %d\n", resourceCount)
 
 	// If there are types in the overlays that do not exist in the schema (e.g., enum types), add them.
@@ -599,9 +612,11 @@ type cfSchemaContext struct {
 	resourceToken string
 	resourceSpec  *jsschema.Schema
 	visitedTypes  codegen.StringSet
+	originalNames map[string]string
 	isSupported   bool
 	semantics     *metadata.SemanticsSpecDocument
 	reports       *Reports
+	docs          *Docs
 }
 
 func (ctx *cfSchemaContext) markCreateOnlyProperties(createOnlyProperties codegen.StringSet, resource *pschema.ResourceSpec) error {
@@ -806,6 +821,14 @@ func (ctx *cfSchemaContext) gatherResourceType() error {
 		if sdkName == "id" {
 			sdkName = "awsId"
 		}
+
+		// augment the documentation with the CloudFormation documentation
+		// we do this before creating the propertySpec because in the process of
+		// creating the propertySpec we change some of the names of properties which
+		// makes it impossible to lookup in the docs
+		ctx.augmentDocumentation(ctx.cfTypeName, prop, spec)
+		ctx.visitedTypes = codegen.NewStringSet()
+
 		propertySpec, err := ctx.propertySpec(prop, resourceTypeName, spec)
 		if err != nil {
 			return err
@@ -827,6 +850,7 @@ func (ctx *cfSchemaContext) gatherResourceType() error {
 		if naming.HasUppercaseAcronym(prop) || naming.ToCfnName(sdkName, nil) != prop {
 			irreversibleNames[sdkName] = prop
 		}
+
 	}
 
 	autoNamingSpec := autonaming.CreateAutoNamingSpec(inputProperties, resourceTypeName, ctx.resourceSpec.Properties, ctx.semantics.Resources[ctx.resourceToken])
@@ -887,11 +911,30 @@ func addUntypedPropDocs(propertySpec *pschema.PropertySpec, cfTypeName string) {
 	}
 }
 
+// reportMissingDocs add missing docs to the report
+func (ctx *cfSchemaContext) reportMissingDocs(desc, propName string) {
+	if desc == "" {
+		val, ok := ctx.reports.MissingDocs[ctx.cfTypeName]
+		if ok {
+			if _, ok := val[propName]; !ok {
+				val[propName] = "1"
+			}
+		} else {
+			ctx.reports.MissingDocs[ctx.cfTypeName] = map[string]string{
+				propName: "1",
+			}
+		}
+	}
+}
+
 func (ctx *cfSchemaContext) propertySpec(propName, resourceTypeName string, spec *jsschema.Schema) (*pschema.PropertySpec, error) {
 	typeSpec, err := ctx.propertyTypeSpec(naming.LowerAcronyms(propName), spec)
 	if err != nil {
 		return nil, err
 	}
+
+	ctx.reportMissingDocs(spec.Description, propName)
+
 	propertySpec := pschema.PropertySpec{
 		TypeSpec:    *typeSpec,
 		Description: naming.SanitizeCfnString(spec.Description),
@@ -909,6 +952,118 @@ func (ctx *cfSchemaContext) propertySpec(propName, resourceTypeName string, spec
 	}
 
 	return &propertySpec, nil
+}
+
+// updateDesc updates the schema with a description from the CloudFormation docs if one
+// is not already provided
+func (ctx *cfSchemaContext) updateDesc(refName, propName string, spec *jsschema.Schema) {
+	if spec.Description == "" {
+		desc, found := ctx.docs.GetPropertyDesc(
+			refName,
+			propName,
+		)
+		spec.Description = desc
+		// if it has been updated then increment the count
+		if spec.Description != "" {
+			ctx.reports.DocsUpdated += 1
+		}
+
+		if !found {
+			if val, ok := ctx.reports.MissingDocs[ctx.cfTypeName]; ok {
+				val[propName] = "0"
+			} else {
+				ctx.reports.MissingDocs[ctx.cfTypeName] = map[string]string{
+					propName: "0",
+				}
+			}
+		}
+	}
+}
+
+// augmentDocumentation will augment the CloudFormation JSON schema with documentation from the
+// CloudFormation documentation. This will recurse through each schema property and attempt to find
+// the corresponding entry in the documentation schema.
+func (ctx *cfSchemaContext) augmentDocumentation(referenceName, propName string, spec *jsschema.Schema) {
+	// some types are self-referencing so we need to only process them the first time
+	visitedType := fmt.Sprintf("%s.%s", referenceName, propName)
+	if ctx.visitedTypes.Has(visitedType) {
+		return
+	}
+	ctx.visitedTypes.Add(visitedType)
+
+	// references are handled as a special case because the TypeName of a property is derived
+	// from it's reference _not_ from its name, for example
+	//    {
+	//      "typeName": "AWS::Pipes::Pipe",
+	//      "properties": {
+	//        "AccessEndpoints": {
+	//          "$ref": "#/definitions/AccessEndpoint"
+	//        }
+	//      }
+	//    }
+	//
+	// The name of this property in the docs schema will be `AWS::Pipes::Pipe.AccessEndpoint`
+	if spec.Reference != "" {
+		schemaName := strings.TrimPrefix(spec.Reference, "#/definitions/")
+		typeSchema, ok := ctx.resourceSpec.Definitions[schemaName]
+		if ok {
+			refName := fmt.Sprintf("%s.%s", ctx.cfTypeName, schemaName)
+			ctx.updateDesc(refName, "", spec)
+
+			if len(typeSchema.Type) == 1 {
+				if typeSchema.PatternProperties != nil && len(typeSchema.PatternProperties) == 1 {
+					for _, schema := range typeSchema.PatternProperties {
+						ctx.augmentDocumentation(refName, schemaName, schema)
+					}
+				}
+
+				if typeSchema.Type.Contains(jsschema.ObjectType) {
+					for _, name := range codegen.SortedKeys(typeSchema.Properties) {
+						value := typeSchema.Properties[name]
+						ctx.augmentDocumentation(refName, name, value)
+					}
+				}
+			}
+		}
+	}
+
+	if len(spec.Properties) > 0 {
+		for _, name := range codegen.SortedKeys(spec.Properties) {
+			value := spec.Properties[name]
+			refName := referenceName
+			if refName == ctx.cfTypeName {
+				refName = fmt.Sprintf("%s.%s", ctx.cfTypeName, propName)
+			}
+			ctx.augmentDocumentation(refName, name, value)
+		}
+	}
+
+	if len(spec.AnyOf) > 0 || len(spec.OneOf) > 0 {
+		schemas := FlattenJSSchema(spec)
+		for _, sch := range schemas {
+			ctx.augmentDocumentation(referenceName, propName, sch)
+		}
+	}
+
+	if spec.PatternProperties != nil && len(spec.PatternProperties) == 1 {
+		for _, schema := range spec.PatternProperties {
+			ctx.augmentDocumentation(referenceName, propName, schema)
+		}
+	}
+
+	if spec.Items != nil && len(spec.Items.Schemas) == 1 {
+		arraySpec := spec.Items.Schemas[0]
+		if arraySpec.Reference != "" {
+			schemaName := strings.TrimPrefix(arraySpec.Reference, "#/definitions/")
+			refName := fmt.Sprintf("%s.%s", ctx.cfTypeName, schemaName)
+			ctx.augmentDocumentation(refName, schemaName, arraySpec)
+			if spec.Description == "" {
+				spec.Description = arraySpec.Description
+			}
+		}
+	}
+
+	ctx.updateDesc(referenceName, propName, spec)
 }
 
 // propertyTypeSpec converts a JSON type definition to a Pulumi type definition.
@@ -1170,6 +1325,34 @@ func parseJsonType(t jsschema.PrimitiveType) pschema.TypeSpec {
 	}
 }
 
+func (ctx *cfSchemaContext) docsPath(cfTypeName, prop string) string {
+	if val, ok := ctx.originalNames[strings.ToUpper(prop)]; ok {
+		prop = val
+	}
+	return fmt.Sprintf("%s.%s", cfTypeName, prop)
+}
+
+func (ctx *cfSchemaContext) getPropName(cfTypeName, ref, prop, resourceName string) []string {
+	props := []string{}
+	if prop == resourceName {
+		props = append(props, ctx.docsPath(cfTypeName, prop))
+		return props
+	}
+	parentPropertyName := strings.Split(prop, resourceName)
+	if len(parentPropertyName) == 1 {
+		props = append(props, ctx.docsPath(cfTypeName, prop))
+	}
+	if len(parentPropertyName) > 1 {
+		props = append(props, ctx.docsPath(cfTypeName, parentPropertyName[1]))
+	}
+	if ref != "" {
+		refParts := strings.Split(ref, ":")
+		props = append(props, ctx.docsPath(cfTypeName, refParts[len(refParts)-1]))
+	}
+	props = append(props, ctx.docsPath(cfTypeName, prop))
+	return props
+}
+
 func (ctx *cfSchemaContext) genProperties(parentName string, typeSchema *jsschema.Schema) (map[string]pschema.PropertySpec, codegen.StringSet, map[string]string, error) {
 	specs := map[string]pschema.PropertySpec{}
 	requiredSpecs := codegen.NewStringSet()
@@ -1182,6 +1365,7 @@ func (ctx *cfSchemaContext) genProperties(parentName string, typeSchema *jsschem
 		if err != nil {
 			return nil, nil, nil, errors.Wrapf(err, "property %s", name)
 		}
+		ctx.reportMissingDocs(value.Description, name)
 		propertySpec := pschema.PropertySpec{
 			Description: naming.SanitizeCfnString(value.Description),
 			TypeSpec:    *typeSpec,

@@ -34,7 +34,7 @@ import (
 
 func main() {
 	flag.Usage = func() {
-		const usageFormat = "Usage: %s <operation> <schema-folder> <version> (<schema urls>)"
+		const usageFormat = "Usage: %s <operation> <schema-folder> <version> (<schema urls>) <docs-url>"
 		_, err := fmt.Fprintf(flag.CommandLine.Output(), usageFormat, os.Args[0])
 		contract.IgnoreError(err)
 		flag.PrintDefaults()
@@ -56,7 +56,7 @@ func main() {
 
 	switch operation {
 	case "discovery":
-		if len(args) != 4 {
+		if len(args) < 5 {
 			fmt.Println("Error: discovery operation requires additional schema urls argument")
 			flag.Usage()
 			return
@@ -70,15 +70,24 @@ func main() {
 			panic(fmt.Errorf("error downloading CloudFormation schemas: %v", err))
 		}
 
+		docsUrl := args[4]
+		if err := downloadCloudFormationDocs(docsUrl, filepath.Join(".", "aws-cloudformation-docs")); err != nil {
+			panic(fmt.Errorf("error download CloudFormation docs: %v", err))
+		}
+
 	case "schema":
 		supportedTypes := readSupportedResourceTypes(genDir)
 		jsonSchemas := readJsonSchemas(schemaFolder)
+		docsTypes, err := schema.ReadCloudFormationDocsFile(filepath.Join(".", "aws-cloudformation-docs", "CloudFormationDocumentation.json"))
+		if err != nil {
+			panic(fmt.Errorf("error reading CloudFormation docs file: %v", err))
+		}
 		semanticsDocument, err := schema.GatherSemantics(semanticsDir)
 		if err != nil {
 			panic(fmt.Errorf("error gathering semantics: %v", err))
 		}
 
-		packageSpec, meta, reports, err := schema.GatherPackage(supportedTypes, jsonSchemas, false, &semanticsDocument)
+		packageSpec, meta, reports, err := schema.GatherPackage(supportedTypes, jsonSchemas, false, &semanticsDocument, docsTypes)
 		if err != nil {
 			panic(fmt.Errorf("error generating schema: %v", err))
 		}
@@ -218,6 +227,29 @@ func cleanDir(dir string, perm os.FileMode) error {
 	}
 
 	return os.MkdirAll(dir, perm)
+}
+
+func downloadCloudFormationDocs(url, outDir string) error {
+	// start with an empty directory
+	err := cleanDir(outDir, 0755)
+	if err != nil {
+		return err
+	}
+	resp, err := http.Get(url)
+	if err != nil {
+		return err
+	}
+	defer resp.Body.Close()
+
+	body, err := io.ReadAll(resp.Body)
+	if err != nil {
+		return err
+	}
+	outPath := filepath.Join(outDir, "CloudFormationDocumentation.json")
+	if err := os.WriteFile(outPath, body, 0644); err != nil {
+		return err
+	}
+	return nil
 }
 
 func downloadCloudFormationSchemas(urls []string, outDir string) error {
