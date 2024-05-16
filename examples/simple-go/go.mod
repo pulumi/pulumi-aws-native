@@ -4,7 +4,7 @@ go 1.21
 
 require (
 	github.com/pulumi/pulumi-aws-native/sdk v0.1.0
-	github.com/pulumi/pulumi/sdk/v3 v3.115.2
+	github.com/pulumi/pulumi/sdk/v3 v3.116.1
 )
 
 require (
