@@ -41,7 +41,8 @@ jobs:
       uses: actions/checkout@v4
       with:
         lfs: true
-    - name: Set Provider Version
+    - id: version
+      name: Set Provider Version
       uses: pulumi/provider-version-action@v1
       with:
         set-env: PROVIDER_VERSION
@@ -58,6 +59,8 @@ jobs:
         cache-dependency-path: "**/*.sum"
     - name: Run GoReleaser
       uses: goreleaser/goreleaser-action@v5
+      env:
+        GORELEASER_CURRENT_TAG: v${{ steps.version.outputs.version }}
       with:
         args: -p 1 -f .goreleaser.cf2pulumi.yml release --clean --timeout 60m0s
         version: latest
