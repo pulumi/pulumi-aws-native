@@ -443,7 +443,6 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []*jsschema.Sche
 				semantics:     semanticsDocument,
 				reports:       reports,
 				docs:          docsSchema,
-				originalNames: map[string]string{},
 			}
 			err := ctx.gatherResourceType()
 			if err != nil {
@@ -1323,34 +1322,6 @@ func parseJsonType(t jsschema.PrimitiveType) pschema.TypeSpec {
 	default:
 		return pschema.TypeSpec{Ref: "pulumi.json#/Any"}
 	}
-}
-
-func (ctx *cfSchemaContext) docsPath(cfTypeName, prop string) string {
-	if val, ok := ctx.originalNames[strings.ToUpper(prop)]; ok {
-		prop = val
-	}
-	return fmt.Sprintf("%s.%s", cfTypeName, prop)
-}
-
-func (ctx *cfSchemaContext) getPropName(cfTypeName, ref, prop, resourceName string) []string {
-	props := []string{}
-	if prop == resourceName {
-		props = append(props, ctx.docsPath(cfTypeName, prop))
-		return props
-	}
-	parentPropertyName := strings.Split(prop, resourceName)
-	if len(parentPropertyName) == 1 {
-		props = append(props, ctx.docsPath(cfTypeName, prop))
-	}
-	if len(parentPropertyName) > 1 {
-		props = append(props, ctx.docsPath(cfTypeName, parentPropertyName[1]))
-	}
-	if ref != "" {
-		refParts := strings.Split(ref, ":")
-		props = append(props, ctx.docsPath(cfTypeName, refParts[len(refParts)-1]))
-	}
-	props = append(props, ctx.docsPath(cfTypeName, prop))
-	return props
 }
 
 func (ctx *cfSchemaContext) genProperties(parentName string, typeSchema *jsschema.Schema) (map[string]pschema.PropertySpec, codegen.StringSet, map[string]string, error) {
